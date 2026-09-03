@@ -34,9 +34,3 @@ Structured educational assessment items
 - [`2-Multi-Agent-QG`](2-Multi-Agent-QG): the knowledge-graph-constrained question-generation and validation system.
 
 Each subproject contains its own README with implementation-specific information. The root README intentionally provides only the research-level overview; operational commands, configuration details, data schemas, and testing instructions remain in the relevant subproject documentation.
-
-## Reproducibility and security
-
-The repository separates source code, configuration, intermediate checkpoints, and generated data. API credentials are supplied through local environment variables and are not part of the project documentation. Before sharing or publishing the repository, verify that local `.env` files, private checkpoints, raw provider responses, and machine-specific caches are excluded.
-
-The datasets and generated artifacts should be interpreted together with the dissertation’s methodology and experimental protocol. The implementation may contain cleaned or extended components that are newer than the exact version described in the dissertation.
