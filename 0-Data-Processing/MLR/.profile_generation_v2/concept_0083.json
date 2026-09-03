@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d01ad5ada13b044cd16acbff9e097b837dc720f8679f02c3578e2190b7de728a",
+  "concept_id": 83,
+  "concept_name": "bias",
+  "aliases": [
+    "bias",
+    "bias weight",
+    "vertical intercept",
+    "w0",
+    "bias term"
+  ],
+  "profile": "bias: The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope. In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}. Thus the bias term is the w0 component, distinct from the feature weights.",
+  "word_count": 65,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bias: The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope. In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}. Thus the bias term is the w0 component, distinct from the feature weights.",
+    "claims": [
+      {
+        "claim": "The bias is the parameter w0 in the line w0 + xw1 = y, and w1 is the slope.",
+        "evidence_ids": [
+          "MLR-E0096"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In multi-class classification, the bias weight is separated from feature-touching weights.",
+        "evidence_ids": [
+          "MLR-E0166"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "For the jth classifier, the bias is written b_j = w_{0,j}.",
+        "evidence_ids": [
+          "MLR-E0166"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "bias: The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope. In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}. Thus the bias term is the w0 component, distinct from the feature weights.",
+    "sentence_reviews": [
+      {
+        "sentence": "The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0096"
+        ],
+        "reason": "Matches the source line definition and naming of w0 as bias and w1 as slope."
+      },
+      {
+        "sentence": "In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0166"
+        ],
+        "reason": "Matches the source statement about decomposing weights and denoting bias as b_j = w_{0,j}."
+      },
+      {
+        "sentence": "Thus the bias term is the w0 component, distinct from the feature weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0096",
+          "MLR-E0166"
+        ],
+        "reason": "Accurately summarizes the source-supported role of w0 as a separate bias component."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bias: The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope. In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}. Thus the bias term is the w0 component, distinct from the feature weights.\",\n  \"claims\": [\n    {\n      \"claim\": \"The bias is the parameter w0 in the line w0 + xw1 = y, and w1 is the slope.\",\n      \"evidence_ids\": [\"MLR-E0096\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In multi-class classification, the bias weight is separated from feature-touching weights.\",\n      \"evidence_ids\": [\"MLR-E0166\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"For the jth classifier, the bias is written b_j = w_{0,j}.\",\n      \"evidence_ids\": [\"MLR-E0166\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bias: The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope. In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}. Thus the bias term is the w0 component, distinct from the feature weights.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The bias is the parameter w0 in a linear model, as in the line w0 + xw1 = y, where w0 is called the bias and w1 is the slope.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0096\"],\n      \"reason\": \"Matches the source line definition and naming of w0 as bias and w1 as slope.\"\n    },\n    {\n      \"sentence\": \"In multi-class classification, the bias weight is separated from feature-touching weights: for the jth classifier the bias is b_j = w_{0,j}.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0166\"],\n      \"reason\": \"Matches the source statement about decomposing weights and denoting bias as b_j = w_{0,j}.\"\n    },\n    {\n      \"sentence\": \"Thus the bias term is the w0 component, distinct from the feature weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0096\", \"MLR-E0166\"],\n      \"reason\": \"Accurately summarizes the source-supported role of w0 as a separate bias component.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:52:32.046560+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "77103be00c270bce9100ae1da1383701e4e0f6cac84ea57837f40d1b3e854c81",
+  "concept_id": 374,
+  "concept_name": "sigmoid activation",
+  "aliases": [
+    "sigmoid activation"
+  ],
+  "profile": "sigmoid activation: The term 'sigmoid' appears in material on generative graph neural networks and graph pooling.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sigmoid activation: The term 'sigmoid' appears in the context of generative graph neural networks and graph pooling.",
+    "claims": [
+      {
+        "claim": "The term 'sigmoid' appears in the context of generative graph neural networks and graph pooling.",
+        "evidence_ids": [
+          "DGL-E0536"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata only supports the presence of the term 'sigmoid'; it does not describe the function's mathematical form or usage."
+    ]
+  },
+  "review": {
+    "final_profile": "sigmoid activation: The term 'sigmoid' appears in material on generative graph neural networks and graph pooling.",
+    "sentence_reviews": [
+      {
+        "sentence": "sigmoid activation: The term 'sigmoid' appears in material on generative graph neural networks and graph pooling.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0536"
+        ],
+        "reason": "The source contains only the term 'sigmoid' with the surrounding topic 'Generative Graph Neural Networks and Graph Pooling'."
+      }
+    ],
+    "warnings": [
+      "The evidence only supports the presence of the term 'sigmoid'; no mathematical form or usage is documented."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sigmoid activation: The term 'sigmoid' appears in the context of generative graph neural networks and graph pooling.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'sigmoid' appears in the context of generative graph neural networks and graph pooling.\",\n      \"evidence_ids\": [\"DGL-E0536\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata only supports the presence of the term 'sigmoid'; it does not describe the function's mathematical form or usage.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sigmoid activation: The term 'sigmoid' appears in material on generative graph neural networks and graph pooling.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sigmoid activation: The term 'sigmoid' appears in material on generative graph neural networks and graph pooling.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0536\"],\n      \"reason\": \"The source contains only the term 'sigmoid' with the surrounding topic 'Generative Graph Neural Networks and Graph Pooling'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence only supports the presence of the term 'sigmoid'; no mathematical form or usage is documented.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:10:07.595227+00:00"
+}

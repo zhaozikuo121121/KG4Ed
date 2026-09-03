@@ -1,0 +1,104 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b2e58090a3396e5ec090d141e82a3521d1efd5a216f2470bf756f5b605d2d03e",
+  "concept_id": 43,
+  "concept_name": "gradient descent",
+  "aliases": [
+    "gradient descent",
+    "first order methods",
+    "gradient-based optimization"
+  ],
+  "profile": "gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions. It is based on the first-order Taylor series approximation to a function. The algorithm uses a simple update step, employing the negative gradient as the descent direction. It is applied to minimize the Least Squares cost.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions. It is based on the first-order Taylor series approximation to a function. The algorithm uses a simple update step, employing the negative gradient as the descent direction. It is applied to minimize the Least Squares cost.",
+    "claims": [
+      {
+        "claim": "Gradient descent is an extremely popular local optimization algorithm that determines high quality descent directions.",
+        "evidence_ids": [
+          "MLR-E0044",
+          "MLR-E0356"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is based on the first-order Taylor series approximation to a function.",
+        "evidence_ids": [
+          "MLR-E0076"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The algorithm uses a simple update step, employing the negative gradient as the descent direction.",
+        "evidence_ids": [
+          "MLR-E0356"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is applied to minimize the Least Squares cost.",
+        "evidence_ids": [
+          "MLR-E0240"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions. It is based on the first-order Taylor series approximation to a function. The algorithm uses a simple update step, employing the negative gradient as the descent direction. It is applied to minimize the Least Squares cost.",
+    "sentence_reviews": [
+      {
+        "sentence": "gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0044",
+          "MLR-E0186",
+          "MLR-E0356"
+        ],
+        "reason": "Source describes gradient descent as an extremely popular local optimization method and as determining high quality descent directions."
+      },
+      {
+        "sentence": "It is based on the first-order Taylor series approximation to a function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0076"
+        ],
+        "reason": "Source states the first-order Taylor series approximation leads to the local optimization framework of gradient descent."
+      },
+      {
+        "sentence": "The algorithm uses a simple update step, employing the negative gradient as the descent direction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0356"
+        ],
+        "reason": "Source describes the simple update step and the use of the negative gradient as the descent direction."
+      },
+      {
+        "sentence": "It is applied to minimize the Least Squares cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0240"
+        ],
+        "reason": "Source mentions minimizing the Least Squares cost using gradient descent."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions. It is based on the first-order Taylor series approximation to a function. The algorithm uses a simple update step, employing the negative gradient as the descent direction. It is applied to minimize the Least Squares cost.\",\n  \"claims\": [\n    {\n      \"claim\": \"Gradient descent is an extremely popular local optimization algorithm that determines high quality descent directions.\",\n      \"evidence_ids\": [\"MLR-E0044\", \"MLR-E0356\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is based on the first-order Taylor series approximation to a function.\",\n      \"evidence_ids\": [\"MLR-E0076\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The algorithm uses a simple update step, employing the negative gradient as the descent direction.\",\n      \"evidence_ids\": [\"MLR-E0356\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is applied to minimize the Least Squares cost.\",\n      \"evidence_ids\": [\"MLR-E0240\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions. It is based on the first-order Taylor series approximation to a function. The algorithm uses a simple update step, employing the negative gradient as the descent direction. It is applied to minimize the Least Squares cost.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"gradient descent: an extremely popular local optimization algorithm that determines high quality descent directions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0044\", \"MLR-E0186\", \"MLR-E0356\"],\n      \"reason\": \"Source describes gradient descent as an extremely popular local optimization method and as determining high quality descent directions.\"\n    },\n    {\n      \"sentence\": \"It is based on the first-order Taylor series approximation to a function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0076\"],\n      \"reason\": \"Source states the first-order Taylor series approximation leads to the local optimization framework of gradient descent.\"\n    },\n    {\n      \"sentence\": \"The algorithm uses a simple update step, employing the negative gradient as the descent direction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0356\"],\n      \"reason\": \"Source describes the simple update step and the use of the negative gradient as the descent direction.\"\n    },\n    {\n      \"sentence\": \"It is applied to minimize the Least Squares cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0240\"],\n      \"reason\": \"Source mentions minimizing the Least Squares cost using gradient descent.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:37:03.662461+00:00"
+}

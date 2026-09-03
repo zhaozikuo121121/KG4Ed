@@ -1,0 +1,1829 @@
+{
+  "version": "1.0.0",
+  "chapter": 12,
+  "chapter_title": "Kernel methods",
+  "pdf_start": 423,
+  "pdf_end": 442,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T22:34:13+00:00",
+  "concepts": [
+    {
+      "canonical": "fixed-shape universal approximators",
+      "aliases": [
+        "fixed-shape approximators"
+      ],
+      "evidence_page": 423,
+      "evidence": "fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters",
+      "relevance": 0.8,
+      "anchor_page": 423
+    },
+    {
+      "canonical": "fourier basis",
+      "aliases": [
+        "fourier approximators"
+      ],
+      "evidence_page": 424,
+      "evidence": "the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)",
+      "relevance": 0.7,
+      "anchor_page": 424
+    },
+    {
+      "canonical": "exponential scaling of fixed-shape units",
+      "aliases": [
+        "scaling challenge",
+        "exponential growth of fixed-shape features"
+      ],
+      "evidence_page": 425,
+      "evidence": "the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+      "relevance": 0.9,
+      "anchor_page": 425
+    },
+    {
+      "canonical": "complete package of fixed-shape units",
+      "aliases": [
+        "complete packages of units"
+      ],
+      "evidence_page": 425,
+      "evidence": "we virtually always use polynomial units as a complete package of units of a certain degree, not individually.",
+      "relevance": 0.8,
+      "anchor_page": 425
+    },
+    {
+      "canonical": "kernel trick",
+      "aliases": [
+        "kernelization"
+      ],
+      "evidence_page": 426,
+      "evidence": "This serious scaling issue motivates the so-called kernel trick described in the next Section",
+      "relevance": 1.0,
+      "anchor_page": 426
+    },
+    {
+      "canonical": "weight vector decomposition over feature matrix",
+      "aliases": [
+        "decomposition of ω over columns of f"
+      ],
+      "evidence_page": 428,
+      "evidence": "any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r",
+      "relevance": 0.9,
+      "anchor_page": 428
+    },
+    {
+      "canonical": "orthogonal component r",
+      "aliases": [
+        "orthogonal residual"
+      ],
+      "evidence_page": 428,
+      "evidence": "r is orthogonal to this subspace",
+      "relevance": 0.7,
+      "anchor_page": 428
+    },
+    {
+      "canonical": "kernel matrix",
+      "aliases": [
+        "kernel",
+        "h matrix"
+      ],
+      "evidence_page": 429,
+      "evidence": "denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short",
+      "relevance": 0.9,
+      "anchor_page": 429
+    },
+    {
+      "canonical": "kernelization via weight vector substitution",
+      "aliases": [
+        "substituting ω = fz + r"
+      ],
+      "evidence_page": 429,
+      "evidence": "Substituting this representation of ω back into the cost function",
+      "relevance": 0.9,
+      "anchor_page": 429
+    },
+    {
+      "canonical": "kernelized least squares",
+      "aliases": [
+        "kernelized regression",
+        "kernelized l2 regularized least squares"
+      ],
+      "evidence_page": 429,
+      "evidence": "g(b, z) = Σ(b + hT_p z - yp)^2",
+      "relevance": 0.8,
+      "anchor_page": 429
+    },
+    {
+      "canonical": "kernelized logistic regression",
+      "aliases": [],
+      "evidence_page": 430,
+      "evidence": "This kernelized form of the Softmax is often referred to as kernelized logistic regression.",
+      "relevance": 0.8,
+      "anchor_page": 430
+    },
+    {
+      "canonical": "softmax cost function",
+      "aliases": [
+        "cross entropy cost",
+        "multi-class softmax",
+        "softmax cross entropy",
+        "softmax loss",
+        "multi-class softmax cost",
+        "multiclass softmax loss",
+        "softmax cost",
+        "softmax",
+        "two-class softmax cost"
+      ],
+      "evidence_page": 430,
+      "evidence": "our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})",
+      "relevance": 0.8,
+      "anchor_page": 430
+    },
+    {
+      "canonical": "entry-wise kernel matrix construction",
+      "aliases": [
+        "kernel matrix without building f"
+      ],
+      "evidence_page": 431,
+      "evidence": "this matrix may be constructed entry-wise via simple formulae",
+      "relevance": 0.9,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "polynomial kernel",
+      "aliases": [],
+      "evidence_page": 431,
+      "evidence": "Example 12.7 The polynomial kernel",
+      "relevance": 0.9,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "kernelized l2 regularizer",
+      "aliases": [
+        "kernelized ridge regularization"
+      ],
+      "evidence_page": 431,
+      "evidence": "the kernelized form of the regularized Least Squares problem ... λz^T H z",
+      "relevance": 0.8,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "kernelized squared margin",
+      "aliases": [
+        "kernelized soft-margin svm cost"
+      ],
+      "evidence_page": 431,
+      "evidence": "squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))",
+      "relevance": 0.8,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "kernelized multi-class softmax",
+      "aliases": [
+        "kernelized multi-class softmax cost"
+      ],
+      "evidence_page": 431,
+      "evidence": "multi-class softmax ... kernelized version",
+      "relevance": 0.7,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "l2 regularizer",
+      "aliases": [
+        "weight magnitude regularizer",
+        "squared l2 norm regularizer"
+      ],
+      "evidence_page": 431,
+      "evidence": "the ℓ2 regularizer can be added to any cost function ... and the resulting kernelized form ... λzTHz",
+      "relevance": 0.7,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "soft-margin support vector machine",
+      "aliases": [
+        "soft-margin svm",
+        "soft-margin svm cost",
+        "regularized margin-perceptron cost",
+        "squared margin cost"
+      ],
+      "evidence_page": 431,
+      "evidence": "squared margin/soft-margin SVMs",
+      "relevance": 0.7,
+      "anchor_page": 431
+    },
+    {
+      "canonical": "naive cross-validation",
+      "aliases": [],
+      "evidence_page": 439,
+      "evidence": "we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)",
+      "relevance": 0.8,
+      "anchor_page": 439
+    },
+    {
+      "canonical": "regularization-based cross-validation",
+      "aliases": [
+        "cross-validation via regularization"
+      ],
+      "evidence_page": 439,
+      "evidence": "cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.",
+      "relevance": 0.8,
+      "anchor_page": 439
+    },
+    {
+      "canonical": "fourier kernel",
+      "aliases": [
+        "fourier kernel for vector-valued input"
+      ],
+      "evidence_page": 442,
+      "evidence": "Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix",
+      "relevance": 0.7,
+      "anchor_page": 442
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "fixed-shape universal approximators",
+      "latex": "f_1(x) = \\sin(x), f_2(x) = \\sin(2x), f_3(x) = \\sin(3x), \\ldots",
+      "pdf_page": 423,
+      "equation_label": "12.1",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fixed-shape universal approximators",
+      "latex": "f_m(\\mathbf{x}) = \\sin(m_1 x_1) \\sin(m_2 x_2) \\cdots \\sin(m_N x_N)",
+      "pdf_page": 423,
+      "equation_label": "12.2",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fixed-shape universal approximators",
+      "latex": "f_{2m-1}(x) = \\sin(2\\pi m x) \\quad \\text{and} \\quad f_{2m}(x) = \\cos(2\\pi m x)",
+      "pdf_page": 424,
+      "equation_label": "12.3",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fixed-shape universal approximators",
+      "latex": "f_m(x) = e^{2\\pi i m x}",
+      "pdf_page": 424,
+      "equation_label": "12.4",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fixed-shape universal approximators",
+      "latex": "f_m(\\mathbf{x}) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N}",
+      "pdf_page": 424,
+      "equation_label": "12.5",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fourier basis",
+      "latex": "f_{2m-1}(x) = \\sin(2\\pi m x) \\quad \\text{and} \\quad f_{2m}(x) = \\cos(2\\pi m x)",
+      "pdf_page": 424,
+      "equation_label": "(12.3)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fourier basis",
+      "latex": "f_m(x) = e^{2\\pi i m x}",
+      "pdf_page": 424,
+      "equation_label": "(12.4)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "fourier basis",
+      "latex": "f_m(x) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N}",
+      "pdf_page": 424,
+      "equation_label": "(12.5)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "exponential scaling of fixed-shape units",
+      "latex": "M = (2D + 1)^N",
+      "pdf_page": 426,
+      "equation_label": "(12.8)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "weight vector decomposition over feature matrix",
+      "latex": "\\omega = Fz + r",
+      "pdf_page": 427,
+      "equation_label": "12.11",
+      "confidence": 0.95
+    },
+    {
+      "concept": "orthogonal component r",
+      "latex": "F^T r = 0_{P \\times 1}",
+      "pdf_page": 427,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernel matrix",
+      "latex": "H = F^T F",
+      "pdf_page": 429,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelization via weight vector substitution",
+      "latex": "\\omega = F z + r \\quad \\text{with} \\quad F^T r = 0_{P \\times 1}",
+      "pdf_page": 429,
+      "equation_label": "(12.17)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelized least squares",
+      "latex": "g(b, z) = \\sum_{p=1}^{P} \\left( b + h_p^T z - y_p \\right)^2",
+      "pdf_page": 429,
+      "equation_label": "(12.19)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "softmax cost function",
+      "latex": "g(b,\\omega) = \\sum_{p=1}^P \\log\\left(1 + e^{-y_p(b + \\mathbf{f}_p^T \\omega)}\\right)",
+      "pdf_page": 430,
+      "equation_label": "(12.21)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelized logistic regression",
+      "latex": "g(b,\\mathbf{z}) = \\sum_{p=1}^P \\log\\left(1 + e^{-y_p(b + \\mathbf{h}_p^T \\mathbf{z})}\\right)",
+      "pdf_page": 430,
+      "equation_label": "(12.23)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "entry-wise kernel matrix construction",
+      "latex": "H_{ij} = \\left(1 + \\mathbf{x}_i^T \\mathbf{x}_j\\right)^D - 1",
+      "pdf_page": 432,
+      "equation_label": "12.28",
+      "confidence": 0.95
+    },
+    {
+      "concept": "polynomial kernel",
+      "latex": "H_{ij} = \\left(1 + \\mathbf{x}_i^T \\mathbf{x}_j\\right)^D - 1",
+      "pdf_page": 432,
+      "equation_label": "12.28",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelized l2 regularizer",
+      "latex": "\\lambda \\mathbf{z}^T \\mathbf{H} \\mathbf{z}",
+      "pdf_page": 431,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelized squared margin",
+      "latex": "\\sum_{p=1}^{P} \\max^2\\left(0, 1 - y_p(b + \\mathbf{h}_p^T \\mathbf{z})\\right)",
+      "pdf_page": 431,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "kernelized multi-class softmax",
+      "latex": "\\sum_{c=1}^{C} \\sum_{p \\in \\Omega_c} \\log\\left(1 + \\sum_{\\substack{j=1 \\\\ j \\neq c}}^{C} e^{(b_j - b_c) + \\mathbf{h}_p^T (\\mathbf{z}_j - \\mathbf{z}_c)}\\right)",
+      "pdf_page": 431,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "l2 regularizer",
+      "latex": "\\lambda \\|\\mathbf{w}\\|_2^2",
+      "pdf_page": 431,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "soft-margin support vector machine",
+      "latex": "\\sum_{p=1}^{P} \\max^2\\left(0, 1 - y_p(b + \\mathbf{f}_p^T \\mathbf{w})\\right)",
+      "pdf_page": 431,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "fourier kernel",
+      "latex": "f_m(\\mathbf{x}) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N} = e^{2\\pi i \\mathbf{m}^T \\mathbf{x}}",
+      "pdf_page": 442,
+      "equation_label": "(12.46)",
+      "confidence": 1.0
+    }
+  ],
+  "figures": [
+    {
+      "concept": "fixed-shape universal approximators",
+      "pdf_page": 424,
+      "figure_label": "Figure 12.1",
+      "caption": "Figure 12.1 Figure associated with Example 12.1. From left to right, the first four units of a sinusoidal universal approximator.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "weight vector decomposition over feature matrix",
+      "pdf_page": 428,
+      "figure_label": "Figure 12.2",
+      "caption": "An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "orthogonal component r",
+      "pdf_page": 428,
+      "figure_label": "Figure 12.2",
+      "caption": "An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "naive cross-validation",
+      "pdf_page": 440,
+      "figure_label": "Figure 12.5",
+      "caption": "Figure associated with Example 12.10. See text for details.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fixed-shape universal approximators",
+            "aliases": [
+              "fixed-shape approximators"
+            ],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernel trick",
+            "aliases": [
+              "kernelization"
+            ],
+            "evidence_page": 426,
+            "anchor_page": 426,
+            "evidence": "This serious scaling issue motivates the so-called kernel trick described in the next Section",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "kernel matrix",
+            "aliases": [
+              "kernel"
+            ],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "denoting the symmetric P × P matrix H = FTF (and its pth column hp = FTfp), referred to as a kernel matrix or just a kernel for short",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "kernelized cost function",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "our original cost function can be expressed equivalently as g (b, z) = ... kernelized cost function g (b, z)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "polynomial kernel",
+            "aliases": [],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "Example 12.7 The polynomial kernel",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "fourier basis",
+            "aliases": [
+              "fourier approximators"
+            ],
+            "evidence_page": 424,
+            "anchor_page": 424,
+            "evidence": "the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "sinusoidal approximators",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "The collection of sine waves of increasing frequency is a common example of a classic fixed-shape approximator, with units of the form f1(x) = sin(x), f2(x) = sin(2x), ...",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [],
+            "evidence_page": 428,
+            "anchor_page": 428,
+            "evidence": "our Least Squares cost for regression takes the form g (b, ω) = Σ (b + fT p ω − yp)^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized logistic regression",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "This kernelized form of the Softmax is often referred to as kernelized logistic regression.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "ℓ2-regularizer",
+            "aliases": [
+              "ℓ2 regularizer"
+            ],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "the ℓ2 regularizer can be added to any cost function ... and the resulting kernelized form ... λzTHz",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "soft-margin svms",
+            "aliases": [
+              "squared margin cost"
+            ],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "squared margin/soft-margin SVMs",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-class softmax",
+            "aliases": [],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "multi-class softmax",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "feature-touching weights",
+            "aliases": [],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "(feature-touching weights): ω = ...",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fixed-shape universal approximators\",\n      \"aliases\": [\"fixed-shape approximators\"],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernel trick\",\n      \"aliases\": [\"kernelization\"],\n      \"evidence_page\": 426,\n      \"anchor_page\": 426,\n      \"evidence\": \"This serious scaling issue motivates the so-called kernel trick described in the next Section\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [\"kernel\"],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"denoting the symmetric P × P matrix H = FTF (and its pth column hp = FTfp), referred to as a kernel matrix or just a kernel for short\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"kernelized cost function\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"our original cost function can be expressed equivalently as g (b, z) = ... kernelized cost function g (b, z)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"polynomial kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"Example 12.7 The polynomial kernel\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"fourier basis\",\n      \"aliases\": [\"fourier approximators\"],\n      \"evidence_page\": 424,\n      \"anchor_page\": 424,\n      \"evidence\": \"the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"sinusoidal approximators\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"The collection of sine waves of increasing frequency is a common example of a classic fixed-shape approximator, with units of the form f1(x) = sin(x), f2(x) = sin(2x), ...\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [],\n      \"evidence_page\": 428,\n      \"anchor_page\": 428,\n      \"evidence\": \"our Least Squares cost for regression takes the form g (b, ω) = Σ (b + fT p ω − yp)^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized logistic regression\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"This kernelized form of the Softmax is often referred to as kernelized logistic regression.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"ℓ2-regularizer\",\n      \"aliases\": [\"ℓ2 regularizer\"],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"the ℓ2 regularizer can be added to any cost function ... and the resulting kernelized form ... λzTHz\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"soft-margin svms\",\n      \"aliases\": [\"squared margin cost\"],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"squared margin/soft-margin SVMs\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-class softmax\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"multi-class softmax\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"feature-touching weights\",\n      \"aliases\": [],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"(feature-touching weights): ω = ...\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "kernel trick",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "H = FTF may be constructed without first building the matrix F ... this matrix may be constructed entry-wise via simple formulae.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "kernel matrix",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "the kernel matrix H = FTF may be constructed without first building the matrix F",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "polynomial kernel",
+            "aliases": [],
+            "evidence_page": 424,
+            "anchor_page": 424,
+            "evidence": "Hij = (1 + xT_i xj)^D -1",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "fourier kernel",
+            "aliases": [],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "Hij = sin((2D+1)π(xi−xj))/sin(π(xi−xj)) -1",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "radial basis function kernel",
+            "aliases": [
+              "rbf kernel"
+            ],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "Hij = e^{-β||xi−xj||^2_2}",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "similarity measure",
+            "aliases": [],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "the RBF kernel can be interpreted as a similarity measure",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized cost function",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "Cost functions and their kernelized versions.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "kernelized model",
+            "aliases": [],
+            "evidence_page": 427,
+            "anchor_page": 427,
+            "evidence": "model (x, b, z) = b + h^T z",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "quadratic scaling",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "kernelized models inherently scale quadratically ... in the size of training data",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cross-validation of kernel hyperparameters",
+            "aliases": [],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "cross-validation via regularization with the ℓ2 norm is common practice when employing polynomial and Fourier kernels",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "stochastic gradient descent for kernel methods",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "one can use first order methods such as stochastic gradient descent so that only a small number of the training points are dealt with at a time",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "infinite-dimensional feature map",
+            "aliases": [],
+            "evidence_page": 426,
+            "anchor_page": 426,
+            "evidence": "its associated feature vector f is infinite dimensional",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "fixed-shape feature transformation",
+            "aliases": [],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "the fixed-shape feature transformation f such that Hij = f_i^T f_j",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "kernelized ℓ2-regularizer",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "ℓ2-regularizer λ ∥w∥2 2 λz^T H z",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized least squares",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "the kernelized form of the regularized Least Squares problem ... is ...",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized logistic regression",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "logistic regression ... kernelized version",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized soft-margin svm",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "squared margin/soft-margin SVMs ... kernelized version",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"kernel trick\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"H = FTF may be constructed without first building the matrix F ... this matrix may be constructed entry-wise via simple formulae.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"the kernel matrix H = FTF may be constructed without first building the matrix F\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"polynomial kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 424,\n      \"anchor_page\": 424,\n      \"evidence\": \"Hij = (1 + xT_i xj)^D -1\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"fourier kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"Hij = sin((2D+1)π(xi−xj))/sin(π(xi−xj)) -1\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"radial basis function kernel\",\n      \"aliases\": [\"rbf kernel\"],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"Hij = e^{-β||xi−xj||^2_2}\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"similarity measure\",\n      \"aliases\": [],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"the RBF kernel can be interpreted as a similarity measure\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized cost function\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"Cost functions and their kernelized versions.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"kernelized model\",\n      \"aliases\": [],\n      \"evidence_page\": 427,\n      \"anchor_page\": 427,\n      \"evidence\": \"model (x, b, z) = b + h^T z\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"quadratic scaling\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"kernelized models inherently scale quadratically ... in the size of training data\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cross-validation of kernel hyperparameters\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"cross-validation via regularization with the ℓ2 norm is common practice when employing polynomial and Fourier kernels\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"stochastic gradient descent for kernel methods\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"one can use first order methods such as stochastic gradient descent so that only a small number of the training points are dealt with at a time\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"infinite-dimensional feature map\",\n      \"aliases\": [],\n      \"evidence_page\": 426,\n      \"anchor_page\": 426,\n      \"evidence\": \"its associated feature vector f is infinite dimensional\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"fixed-shape feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"the fixed-shape feature transformation f such that Hij = f_i^T f_j\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"kernelized ℓ2-regularizer\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"ℓ2-regularizer λ ∥w∥2 2 λz^T H z\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized least squares\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem ... is ...\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized logistic regression\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"logistic regression ... kernelized version\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized soft-margin svm\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"squared margin/soft-margin SVMs ... kernelized version\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "cross-validation",
+            "aliases": [
+              "naive cross-validation",
+              "regularization-based cross-validation"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "ℓ2 regularization",
+            "aliases": [
+              "ℓ2 norm regularization"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "regularization with the ℓ2 norm",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "polynomial kernel",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "the difference between the number of units encapsulated in a degree D polynomial kernel",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "Fourier kernel",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "employing polynomial and Fourier kernels",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "radial basis function kernel",
+            "aliases": [
+              "RBF kernel"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "the hyperparameter β of the RBF kernel is continuous",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "hyperparameter",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "the hyperparameter β of the RBF kernel",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "we use the Softmax cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "Newton's method",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "minimize the corresponding cost using Newton's method",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "misclassification error",
+            "aliases": [
+              "number of misclassifications"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "the number of misclassifications on both the training (in blue) and validation (in yellow) sets",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "validation set",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "set aside 20% of this two-class dataset (randomly) for validation purposes",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "kernel trick",
+            "aliases": [],
+            "evidence_page": 440,
+            "anchor_page": 432,
+            "evidence": "Using the 'kernel trick' we can not only extend popular fixed-shape approximators",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "fixed-shape model",
+            "aliases": [
+              "fixed-shape approximator"
+            ],
+            "evidence_page": 440,
+            "anchor_page": 432,
+            "evidence": "we continued our description of fixed-shape models",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "universal approximator",
+            "aliases": [
+              "universal approximation"
+            ],
+            "evidence_page": 440,
+            "anchor_page": 432,
+            "evidence": "fixed-shape universal approximators",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernel matrix",
+            "aliases": [
+              "kernel matrix construction"
+            ],
+            "evidence_page": 440,
+            "anchor_page": 432,
+            "evidence": "clever kernel matrix construction and optimization",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "combinatorial explosion",
+            "aliases": [
+              "combinatorial leap"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 431,
+            "evidence": "this enormous combinatorial leap in capacity",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [\n        \"naive cross-validation\",\n        \"regularization-based cross-validation\"\n      ],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"ℓ2 regularization\",\n      \"aliases\": [\n        \"ℓ2 norm regularization\"\n      ],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"regularization with the ℓ2 norm\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"polynomial kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"the difference between the number of units encapsulated in a degree D polynomial kernel\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"Fourier kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"employing polynomial and Fourier kernels\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"radial basis function kernel\",\n      \"aliases\": [\n        \"RBF kernel\"\n      ],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"the hyperparameter β of the RBF kernel is continuous\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"hyperparameter\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"the hyperparameter β of the RBF kernel\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"we use the Softmax cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"Newton's method\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"minimize the corresponding cost using Newton's method\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"misclassification error\",\n      \"aliases\": [\n        \"number of misclassifications\"\n      ],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"the number of misclassifications on both the training (in blue) and validation (in yellow) sets\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"validation set\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"set aside 20% of this two-class dataset (randomly) for validation purposes\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"kernel trick\",\n      \"aliases\": [],\n      \"evidence_page\": 440,\n      \"anchor_page\": 432,\n      \"evidence\": \"Using the 'kernel trick' we can not only extend popular fixed-shape approximators\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"fixed-shape model\",\n      \"aliases\": [\n        \"fixed-shape approximator\"\n      ],\n      \"evidence_page\": 440,\n      \"anchor_page\": 432,\n      \"evidence\": \"we continued our description of fixed-shape models\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"universal approximator\",\n      \"aliases\": [\n        \"universal approximation\"\n      ],\n      \"evidence_page\": 440,\n      \"anchor_page\": 432,\n      \"evidence\": \"fixed-shape universal approximators\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [\n        \"kernel matrix construction\"\n      ],\n      \"evidence_page\": 440,\n      \"anchor_page\": 432,\n      \"evidence\": \"clever kernel matrix construction and optimization\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"combinatorial explosion\",\n      \"aliases\": [\n        \"combinatorial leap\"\n      ],\n      \"evidence_page\": 439,\n      \"anchor_page\": 431,\n      \"evidence\": \"this enormous combinatorial leap in capacity\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "exponential scaling of fixed-shape units",
+            "aliases": [
+              "scaling challenge",
+              "exponential growth of fixed-shape features"
+            ],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "complete package of fixed-shape units",
+            "aliases": [
+              "complete packages of units"
+            ],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "we virtually always use polynomial units as a complete package of units of a certain degree, not individually.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight vector decomposition over feature matrix",
+            "aliases": [
+              "decomposition of ω over columns of F"
+            ],
+            "evidence_page": 428,
+            "anchor_page": 428,
+            "evidence": "any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "orthogonal component r",
+            "aliases": [
+              "orthogonal residual"
+            ],
+            "evidence_page": 428,
+            "anchor_page": 428,
+            "evidence": "r is orthogonal to this subspace",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "kernelization via weight vector substitution",
+            "aliases": [
+              "substituting ω = Fz + r"
+            ],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "Substituting this representation of ω back into the cost function",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "entry-wise kernel matrix construction",
+            "aliases": [
+              "kernel matrix without building F"
+            ],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "this matrix may be constructed entry-wise via simple formulae",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "kernelized ℓ2 regularizer",
+            "aliases": [
+              "kernelized ridge regularizer"
+            ],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "the kernelized form of the regularized Least Squares problem … is … + λzTHz",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized multi-class softmax",
+            "aliases": [
+              "kernelized multinomial logistic regression"
+            ],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "multi-class softmax (row in Table 12.1 showing original and kernelized versions)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "degree D sinusoidal model",
+            "aliases": [
+              "sinusoidal package of degree D"
+            ],
+            "evidence_page": 425,
+            "anchor_page": 425,
+            "evidence": "we can package a degree D sinusoidal consisting of all units of then form given in Equation (12.2), where max (m1, m2, . . . , mN) ≤ D.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "complex exponential Fourier unit",
+            "aliases": [
+              "exponential form of Fourier basis"
+            ],
+            "evidence_page": 424,
+            "anchor_page": 424,
+            "evidence": "Fourier approximators can be written in the compact complex exponential form fm (x) = e^{2πimx}.",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"exponential scaling of fixed-shape units\",\n      \"aliases\": [\"scaling challenge\", \"exponential growth of fixed-shape features\"],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"complete package of fixed-shape units\",\n      \"aliases\": [\"complete packages of units\"],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"we virtually always use polynomial units as a complete package of units of a certain degree, not individually.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight vector decomposition over feature matrix\",\n      \"aliases\": [\"decomposition of ω over columns of F\"],\n      \"evidence_page\": 428,\n      \"anchor_page\": 428,\n      \"evidence\": \"any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"orthogonal component r\",\n      \"aliases\": [\"orthogonal residual\"],\n      \"evidence_page\": 428,\n      \"anchor_page\": 428,\n      \"evidence\": \"r is orthogonal to this subspace\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"kernelization via weight vector substitution\",\n      \"aliases\": [\"substituting ω = Fz + r\"],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"Substituting this representation of ω back into the cost function\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"entry-wise kernel matrix construction\",\n      \"aliases\": [\"kernel matrix without building F\"],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"this matrix may be constructed entry-wise via simple formulae\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"kernelized ℓ2 regularizer\",\n      \"aliases\": [\"kernelized ridge regularizer\"],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem … is … + λzTHz\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized multi-class softmax\",\n      \"aliases\": [\"kernelized multinomial logistic regression\"],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"multi-class softmax (row in Table 12.1 showing original and kernelized versions)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"degree D sinusoidal model\",\n      \"aliases\": [\"sinusoidal package of degree D\"],\n      \"evidence_page\": 425,\n      \"anchor_page\": 425,\n      \"evidence\": \"we can package a degree D sinusoidal consisting of all units of then form given in Equation (12.2), where max (m1, m2, . . . , mN) ≤ D.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"complex exponential Fourier unit\",\n      \"aliases\": [\"exponential form of Fourier basis\"],\n      \"evidence_page\": 424,\n      \"anchor_page\": 424,\n      \"evidence\": \"Fourier approximators can be written in the compact complex exponential form fm (x) = e^{2πimx}.\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fixed-shape universal approximators",
+            "aliases": [
+              "fixed-shape approximators"
+            ],
+            "evidence_page": 423,
+            "evidence": "fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters",
+            "relevance": 0.8,
+            "anchor_page": 423
+          },
+          {
+            "canonical": "kernelized l2 regularizer",
+            "aliases": [
+              "kernelized ridge regularizer"
+            ],
+            "evidence_page": 423,
+            "evidence": "the kernelized form of the regularized Least Squares problem … is … + λzTHz",
+            "relevance": 0.8,
+            "anchor_page": 423
+          },
+          {
+            "canonical": "kernelized multi-class softmax",
+            "aliases": [
+              "kernelized multinomial logistic regression"
+            ],
+            "evidence_page": 423,
+            "evidence": "multi-class softmax (row in Table 12.1 showing original and kernelized versions)",
+            "relevance": 0.7,
+            "anchor_page": 423
+          },
+          {
+            "canonical": "fourier basis",
+            "aliases": [
+              "fourier approximators"
+            ],
+            "evidence_page": 424,
+            "evidence": "the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)",
+            "relevance": 0.7,
+            "anchor_page": 424
+          },
+          {
+            "canonical": "exponential scaling of fixed-shape units",
+            "aliases": [
+              "scaling challenge",
+              "exponential growth of fixed-shape features"
+            ],
+            "evidence_page": 425,
+            "evidence": "the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+            "relevance": 0.9,
+            "anchor_page": 425
+          },
+          {
+            "canonical": "complete package of fixed-shape units",
+            "aliases": [
+              "complete packages of units"
+            ],
+            "evidence_page": 425,
+            "evidence": "we virtually always use polynomial units as a complete package of units of a certain degree, not individually.",
+            "relevance": 0.8,
+            "anchor_page": 425
+          },
+          {
+            "canonical": "kernel trick",
+            "aliases": [
+              "kernelization"
+            ],
+            "evidence_page": 426,
+            "evidence": "This serious scaling issue motivates the so-called kernel trick described in the next Section",
+            "relevance": 1.0,
+            "anchor_page": 426
+          },
+          {
+            "canonical": "weight vector decomposition over feature matrix",
+            "aliases": [
+              "decomposition of ω over columns of f"
+            ],
+            "evidence_page": 428,
+            "evidence": "any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r",
+            "relevance": 0.9,
+            "anchor_page": 428
+          },
+          {
+            "canonical": "orthogonal component r",
+            "aliases": [
+              "orthogonal residual"
+            ],
+            "evidence_page": 428,
+            "evidence": "r is orthogonal to this subspace",
+            "relevance": 0.7,
+            "anchor_page": 428
+          },
+          {
+            "canonical": "kernelization via weight vector substitution",
+            "aliases": [
+              "substituting ω = fz + r"
+            ],
+            "evidence_page": 429,
+            "evidence": "Substituting this representation of ω back into the cost function",
+            "relevance": 0.9,
+            "anchor_page": 429
+          },
+          {
+            "canonical": "kernel matrix",
+            "aliases": [
+              "kernel"
+            ],
+            "evidence_page": 430,
+            "evidence": "denoting the symmetric P × P matrix H = FTF (and its pth column hp = FTfp), referred to as a kernel matrix or just a kernel for short",
+            "relevance": 1.0,
+            "anchor_page": 430
+          },
+          {
+            "canonical": "kernelized cost function",
+            "aliases": [],
+            "evidence_page": 430,
+            "evidence": "our original cost function can be expressed equivalently as g (b, z) = ... kernelized cost function g (b, z)",
+            "relevance": 0.9,
+            "anchor_page": 430
+          },
+          {
+            "canonical": "kernelized logistic regression",
+            "aliases": [],
+            "evidence_page": 430,
+            "evidence": "This kernelized form of the Softmax is often referred to as kernelized logistic regression.",
+            "relevance": 0.8,
+            "anchor_page": 430
+          },
+          {
+            "canonical": "cross-validation of kernel hyperparameters",
+            "aliases": [],
+            "evidence_page": 431,
+            "evidence": "cross-validation via regularization with the ℓ2 norm is common practice when employing polynomial and Fourier kernels",
+            "relevance": 0.9,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "entry-wise kernel matrix construction",
+            "aliases": [
+              "kernel matrix without building f"
+            ],
+            "evidence_page": 431,
+            "evidence": "this matrix may be constructed entry-wise via simple formulae",
+            "relevance": 0.9,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "polynomial kernel",
+            "aliases": [],
+            "evidence_page": 431,
+            "evidence": "Example 12.7 The polynomial kernel",
+            "relevance": 0.9,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares cost",
+              "sum of squared errors",
+              "least squares error",
+              "mean squared error"
+            ],
+            "evidence_page": 428,
+            "evidence": "our Least Squares cost for regression takes the form g (b, ω) = Σ (b + fT p ω − yp)^2",
+            "relevance": 0.8,
+            "anchor_page": 428
+          },
+          {
+            "canonical": "softmax cost function",
+            "aliases": [
+              "cross entropy cost",
+              "multi-class softmax",
+              "softmax cross entropy",
+              "softmax loss",
+              "multi-class softmax cost",
+              "multiclass softmax loss",
+              "softmax cost",
+              "softmax",
+              "two-class softmax cost"
+            ],
+            "evidence_page": 430,
+            "evidence": "our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})",
+            "relevance": 0.8,
+            "anchor_page": 430
+          },
+          {
+            "canonical": "l2 regularizer",
+            "aliases": [
+              "weight magnitude regularizer",
+              "squared l2 norm regularizer"
+            ],
+            "evidence_page": 431,
+            "evidence": "the ℓ2 regularizer can be added to any cost function ... and the resulting kernelized form ... λzTHz",
+            "relevance": 0.7,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "soft-margin support vector machine",
+            "aliases": [
+              "soft-margin svm",
+              "soft-margin svm cost",
+              "regularized margin-perceptron cost",
+              "squared margin cost"
+            ],
+            "evidence_page": 431,
+            "evidence": "squared margin/soft-margin SVMs",
+            "relevance": 0.7,
+            "anchor_page": 431
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fixed-shape universal approximators\",\n      \"aliases\": [\"fixed-shape approximators\"],\n      \"evidence_page\": 423,\n      \"evidence\": \"fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 423\n    },\n    {\n      \"canonical\": \"kernelized l2 regularizer\",\n      \"aliases\": [\"kernelized ridge regularizer\"],\n      \"evidence_page\": 423,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem … is … + λzTHz\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 423\n    },\n    {\n      \"canonical\": \"kernelized multi-class softmax\",\n      \"aliases\": [\"kernelized multinomial logistic regression\"],\n      \"evidence_page\": 423,\n      \"evidence\": \"multi-class softmax (row in Table 12.1 showing original and kernelized versions)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 423\n    },\n    {\n      \"canonical\": \"fourier basis\",\n      \"aliases\": [\"fourier approximators\"],\n      \"evidence_page\": 424,\n      \"evidence\": \"the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 424\n    },\n    {\n      \"canonical\": \"exponential scaling of fixed-shape units\",\n      \"aliases\": [\"scaling challenge\", \"exponential growth of fixed-shape features\"],\n      \"evidence_page\": 425,\n      \"evidence\": \"the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 425\n    },\n    {\n      \"canonical\": \"complete package of fixed-shape units\",\n      \"aliases\": [\"complete packages of units\"],\n      \"evidence_page\": 425,\n      \"evidence\": \"we virtually always use polynomial units as a complete package of units of a certain degree, not individually.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 425\n    },\n    {\n      \"canonical\": \"kernel trick\",\n      \"aliases\": [\"kernelization\"],\n      \"evidence_page\": 426,\n      \"evidence\": \"This serious scaling issue motivates the so-called kernel trick described in the next Section\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 426\n    },\n    {\n      \"canonical\": \"weight vector decomposition over feature matrix\",\n      \"aliases\": [\"decomposition of ω over columns of f\"],\n      \"evidence_page\": 428,\n      \"evidence\": \"any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 428\n    },\n    {\n      \"canonical\": \"orthogonal component r\",\n      \"aliases\": [\"orthogonal residual\"],\n      \"evidence_page\": 428,\n      \"evidence\": \"r is orthogonal to this subspace\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 428\n    },\n    {\n      \"canonical\": \"kernelization via weight vector substitution\",\n      \"aliases\": [\"substituting ω = fz + r\"],\n      \"evidence_page\": 429,\n      \"evidence\": \"Substituting this representation of ω back into the cost function\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 429\n    },\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [\"kernel\"],\n      \"evidence_page\": 430,\n      \"evidence\": \"denoting the symmetric P × P matrix H = FTF (and its pth column hp = FTfp), referred to as a kernel matrix or just a kernel for short\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 430\n    },\n    {\n      \"canonical\": \"kernelized cost function\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"evidence\": \"our original cost function can be expressed equivalently as g (b, z) = ... kernelized cost function g (b, z)\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 430\n    },\n    {\n      \"canonical\": \"kernelized logistic regression\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"evidence\": \"This kernelized form of the Softmax is often referred to as kernelized logistic regression.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 430\n    },\n    {\n      \"canonical\": \"cross-validation of kernel hyperparameters\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"evidence\": \"cross-validation via regularization with the ℓ2 norm is common practice when employing polynomial and Fourier kernels\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"entry-wise kernel matrix construction\",\n      \"aliases\": [\"kernel matrix without building f\"],\n      \"evidence_page\": 431,\n      \"evidence\": \"this matrix may be constructed entry-wise via simple formulae\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"polynomial kernel\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"evidence\": \"Example 12.7 The polynomial kernel\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\n        \"least squares\",\n        \"least squares cost\",\n        \"sum of squared errors\",\n        \"least squares error\",\n        \"mean squared error\"\n      ],\n      \"evidence_page\": 428,\n      \"evidence\": \"our Least Squares cost for regression takes the form g (b, ω) = Σ (b + fT p ω − yp)^2\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 428\n    },\n    {\n      \"canonical\": \"softmax cost function\",\n      \"aliases\": [\n        \"cross entropy cost\",\n        \"multi-class softmax\",\n        \"softmax cross entropy\",\n        \"softmax loss\",\n        \"multi-class softmax cost\",\n        \"multiclass softmax loss\",\n        \"softmax cost\",\n        \"softmax\",\n        \"two-class softmax cost\"\n      ],\n      \"evidence_page\": 430,\n      \"evidence\": \"our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 430\n    },\n    {\n      \"canonical\": \"l2 regularizer\",\n      \"aliases\": [\n        \"weight magnitude regularizer\",\n        \"squared l2 norm regularizer\"\n      ],\n      \"evidence_page\": 431,\n      \"evidence\": \"the ℓ2 regularizer can be added to any cost function ... and the resulting kernelized form ... λzTHz\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"soft-margin support vector machine\",\n      \"aliases\": [\n        \"soft-margin svm\",\n        \"soft-margin svm cost\",\n        \"regularized margin-perceptron cost\",\n        \"squared margin cost\"\n      ],\n      \"evidence_page\": 431,\n      \"evidence\": \"squared margin/soft-margin SVMs\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 431\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "sinusoidal approximators",
+            "aliases": [
+              "sine wave approximators"
+            ],
+            "evidence_page": 424,
+            "anchor_page": 424,
+            "evidence": "The collection of sine waves of increasing frequency is a common example of a classic fixed-shape approximator",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "complex exponential form",
+            "aliases": [
+              "complex exponential representation"
+            ],
+            "evidence_page": 424,
+            "anchor_page": 424,
+            "evidence": "Fourier approximators can be written in the compact complex exponential form",
+            "relevance": 0.4
+          },
+          {
+            "canonical": "kernel matrix",
+            "aliases": [
+              "kernel",
+              "H matrix"
+            ],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "kernelized least squares",
+            "aliases": [
+              "kernelized regression"
+            ],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "g(b, z) = Σ(b + hT_p z - yp)^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized squared margin",
+            "aliases": [
+              "kernelized soft-margin SVM cost"
+            ],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernelized multi-class softmax",
+            "aliases": [],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "multi-class softmax ... kernelized version",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "kernelized l2 regularizer",
+            "aliases": [
+              "kernelized ridge regularization"
+            ],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "the kernelized form of the regularized Least Squares problem ... λz^T H z",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"sinusoidal approximators\",\n      \"aliases\": [\"sine wave approximators\"],\n      \"evidence_page\": 424,\n      \"anchor_page\": 424,\n      \"evidence\": \"The collection of sine waves of increasing frequency is a common example of a classic fixed-shape approximator\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"complex exponential form\",\n      \"aliases\": [\"complex exponential representation\"],\n      \"evidence_page\": 424,\n      \"anchor_page\": 424,\n      \"evidence\": \"Fourier approximators can be written in the compact complex exponential form\",\n      \"relevance\": 0.4\n    },\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [\"kernel\", \"H matrix\"],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"kernelized least squares\",\n      \"aliases\": [\"kernelized regression\"],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"g(b, z) = Σ(b + hT_p z - yp)^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized squared margin\",\n      \"aliases\": [\"kernelized soft-margin SVM cost\"],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernelized multi-class softmax\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"multi-class softmax ... kernelized version\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"kernelized l2 regularizer\",\n      \"aliases\": [\"kernelized ridge regularization\"],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem ... λz^T H z\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "infinite-dimensional feature transformation",
+            "aliases": [],
+            "evidence_page": 426,
+            "anchor_page": 426,
+            "evidence": "The RBF feature transformation is diﬀerent from polynomial and Fourier transformations in that its associated feature vector f is infinite dimensional.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "quadratic scaling",
+            "aliases": [],
+            "evidence_page": 430,
+            "anchor_page": 430,
+            "evidence": "kernelized models inherently scale quadratically (and thus very poorly) in the size of training data.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "prediction requiring all training points",
+            "aliases": [],
+            "evidence_page": 428,
+            "anchor_page": 428,
+            "evidence": "This necessity of employing every (training) data point in evaluating a trained model is virtually unique to kernelized learners",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "similarity measure",
+            "aliases": [],
+            "evidence_page": 429,
+            "anchor_page": 429,
+            "evidence": "the RBF kernel can be interpreted as a similarity measure",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "naive cross-validation",
+            "aliases": [],
+            "evidence_page": 431,
+            "anchor_page": 431,
+            "evidence": "we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "geometric series",
+            "aliases": [],
+            "evidence_page": 428,
+            "anchor_page": 428,
+            "evidence": "Noticing that the sum on the right hand side is a geometric series, we can further simplify it",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "kernelized least squares",
+            "aliases": [],
+            "evidence_page": 423,
+            "anchor_page": 423,
+            "evidence": "the kernelized form of the regularized Least Squares problem",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"infinite-dimensional feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 426,\n      \"anchor_page\": 426,\n      \"evidence\": \"The RBF feature transformation is diﬀerent from polynomial and Fourier transformations in that its associated feature vector f is infinite dimensional.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"quadratic scaling\",\n      \"aliases\": [],\n      \"evidence_page\": 430,\n      \"anchor_page\": 430,\n      \"evidence\": \"kernelized models inherently scale quadratically (and thus very poorly) in the size of training data.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"prediction requiring all training points\",\n      \"aliases\": [],\n      \"evidence_page\": 428,\n      \"anchor_page\": 428,\n      \"evidence\": \"This necessity of employing every (training) data point in evaluating a trained model is virtually unique to kernelized learners\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"similarity measure\",\n      \"aliases\": [],\n      \"evidence_page\": 429,\n      \"anchor_page\": 429,\n      \"evidence\": \"the RBF kernel can be interpreted as a similarity measure\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"naive cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 431,\n      \"anchor_page\": 431,\n      \"evidence\": \"we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"geometric series\",\n      \"aliases\": [],\n      \"evidence_page\": 428,\n      \"anchor_page\": 428,\n      \"evidence\": \"Noticing that the sum on the right hand side is a geometric series, we can further simplify it\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"kernelized least squares\",\n      \"aliases\": [],\n      \"evidence_page\": 423,\n      \"anchor_page\": 423,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "naive cross-validation",
+            "aliases": [],
+            "evidence_page": 439,
+            "anchor_page": 439,
+            "evidence": "we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "regularization-based cross-validation",
+            "aliases": [
+              "cross-validation via regularization"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 439,
+            "evidence": "cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "Newton's method"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 439,
+            "evidence": "minimize the corresponding cost using Newton’s method",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "combinatorial leap in capacity",
+            "aliases": [
+              "enormous combinatorial leap in capacity"
+            ],
+            "evidence_page": 439,
+            "anchor_page": 439,
+            "evidence": "Because of this enormous combinatorial leap in capacity between subsequent degree kernels, cross-validation via regularization with the ℓ2 norm ... is common practice",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "kernelized least squares",
+            "aliases": [
+              "kernelized ℓ2 regularized least squares"
+            ],
+            "evidence_page": 441,
+            "anchor_page": 441,
+            "evidence": "Kernelize the ℓ2 regularized least squares cost function. You should end up with the same cost as shown in Table 12.1.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "kernelized multi-class softmax",
+            "aliases": [
+              "kernelized multi-class softmax cost"
+            ],
+            "evidence_page": 441,
+            "anchor_page": 441,
+            "evidence": "Kernelize the multi-class Softmax cost. You should end up with the kernelized multi-class cost shown in Table 12.1.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "fourier kernel",
+            "aliases": [
+              "Fourier kernel for vector-valued input"
+            ],
+            "evidence_page": 442,
+            "anchor_page": 442,
+            "evidence": "Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "infinite dimensional feature transformation",
+            "aliases": [
+              "infinite dimensional feature transformation associated with the RBF kernel"
+            ],
+            "evidence_page": 442,
+            "anchor_page": 442,
+            "evidence": "The infinite dimensional feature transformation associated with the RBF kernel",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"naive cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"anchor_page\": 439,\n      \"evidence\": \"we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"regularization-based cross-validation\",\n      \"aliases\": [\"cross-validation via regularization\"],\n      \"evidence_page\": 439,\n      \"anchor_page\": 439,\n      \"evidence\": \"cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"Newton's method\"],\n      \"evidence_page\": 439,\n      \"anchor_page\": 439,\n      \"evidence\": \"minimize the corresponding cost using Newton’s method\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"combinatorial leap in capacity\",\n      \"aliases\": [\"enormous combinatorial leap in capacity\"],\n      \"evidence_page\": 439,\n      \"anchor_page\": 439,\n      \"evidence\": \"Because of this enormous combinatorial leap in capacity between subsequent degree kernels, cross-validation via regularization with the ℓ2 norm ... is common practice\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"kernelized least squares\",\n      \"aliases\": [\"kernelized ℓ2 regularized least squares\"],\n      \"evidence_page\": 441,\n      \"anchor_page\": 441,\n      \"evidence\": \"Kernelize the ℓ2 regularized least squares cost function. You should end up with the same cost as shown in Table 12.1.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"kernelized multi-class softmax\",\n      \"aliases\": [\"kernelized multi-class softmax cost\"],\n      \"evidence_page\": 441,\n      \"anchor_page\": 441,\n      \"evidence\": \"Kernelize the multi-class Softmax cost. You should end up with the kernelized multi-class cost shown in Table 12.1.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"fourier kernel\",\n      \"aliases\": [\"Fourier kernel for vector-valued input\"],\n      \"evidence_page\": 442,\n      \"anchor_page\": 442,\n      \"evidence\": \"Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"infinite dimensional feature transformation\",\n      \"aliases\": [\"infinite dimensional feature transformation associated with the RBF kernel\"],\n      \"evidence_page\": 442,\n      \"anchor_page\": 442,\n      \"evidence\": \"The infinite dimensional feature transformation associated with the RBF kernel\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill_consolidation",
+      "round": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "kernel matrix",
+            "aliases": [
+              "kernel",
+              "h matrix"
+            ],
+            "evidence_page": 429,
+            "evidence": "denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short",
+            "relevance": 0.9,
+            "anchor_page": 429
+          },
+          {
+            "canonical": "kernelized least squares",
+            "aliases": [
+              "kernelized regression",
+              "kernelized l2 regularized least squares"
+            ],
+            "evidence_page": 429,
+            "evidence": "g(b, z) = Σ(b + hT_p z - yp)^2",
+            "relevance": 0.8,
+            "anchor_page": 429
+          },
+          {
+            "canonical": "kernelized l2 regularizer",
+            "aliases": [
+              "kernelized ridge regularization"
+            ],
+            "evidence_page": 431,
+            "evidence": "the kernelized form of the regularized Least Squares problem ... λz^T H z",
+            "relevance": 0.8,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "kernelized squared margin",
+            "aliases": [
+              "kernelized soft-margin svm cost"
+            ],
+            "evidence_page": 431,
+            "evidence": "squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))",
+            "relevance": 0.8,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "kernelized multi-class softmax",
+            "aliases": [
+              "kernelized multi-class softmax cost"
+            ],
+            "evidence_page": 431,
+            "evidence": "multi-class softmax ... kernelized version",
+            "relevance": 0.7,
+            "anchor_page": 431
+          },
+          {
+            "canonical": "naive cross-validation",
+            "aliases": [],
+            "evidence_page": 439,
+            "evidence": "we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)",
+            "relevance": 0.8,
+            "anchor_page": 439
+          },
+          {
+            "canonical": "regularization-based cross-validation",
+            "aliases": [
+              "cross-validation via regularization"
+            ],
+            "evidence_page": 439,
+            "evidence": "cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.",
+            "relevance": 0.8,
+            "anchor_page": 439
+          },
+          {
+            "canonical": "fourier kernel",
+            "aliases": [
+              "fourier kernel for vector-valued input"
+            ],
+            "evidence_page": 442,
+            "evidence": "Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix",
+            "relevance": 0.7,
+            "anchor_page": 442
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"kernel matrix\",\n      \"aliases\": [\"kernel\", \"h matrix\"],\n      \"evidence_page\": 429,\n      \"evidence\": \"denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 429\n    },\n    {\n      \"canonical\": \"kernelized least squares\",\n      \"aliases\": [\"kernelized regression\", \"kernelized l2 regularized least squares\"],\n      \"evidence_page\": 429,\n      \"evidence\": \"g(b, z) = Σ(b + hT_p z - yp)^2\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 429\n    },\n    {\n      \"canonical\": \"kernelized l2 regularizer\",\n      \"aliases\": [\"kernelized ridge regularization\"],\n      \"evidence_page\": 431,\n      \"evidence\": \"the kernelized form of the regularized Least Squares problem ... λz^T H z\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"kernelized squared margin\",\n      \"aliases\": [\"kernelized soft-margin svm cost\"],\n      \"evidence_page\": 431,\n      \"evidence\": \"squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"kernelized multi-class softmax\",\n      \"aliases\": [\"kernelized multi-class softmax cost\"],\n      \"evidence_page\": 431,\n      \"evidence\": \"multi-class softmax ... kernelized version\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 431\n    },\n    {\n      \"canonical\": \"naive cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 439,\n      \"evidence\": \"we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 439\n    },\n    {\n      \"canonical\": \"regularization-based cross-validation\",\n      \"aliases\": [\"cross-validation via regularization\"],\n      \"evidence_page\": 439,\n      \"evidence\": \"cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 439\n    },\n    {\n      \"canonical\": \"fourier kernel\",\n      \"aliases\": [\"fourier kernel for vector-valued input\"],\n      \"evidence_page\": 442,\n      \"evidence\": \"Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 442\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 423,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "fixed-shape universal approximators",
+            "latex": "f_1(x) = \\sin(x), f_2(x) = \\sin(2x), f_3(x) = \\sin(3x), \\ldots",
+            "pdf_page": 423,
+            "equation_label": "12.1",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fixed-shape universal approximators",
+            "latex": "f_m(\\mathbf{x}) = \\sin(m_1 x_1) \\sin(m_2 x_2) \\cdots \\sin(m_N x_N)",
+            "pdf_page": 423,
+            "equation_label": "12.2",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fixed-shape universal approximators",
+            "latex": "f_{2m-1}(x) = \\sin(2\\pi m x) \\quad \\text{and} \\quad f_{2m}(x) = \\cos(2\\pi m x)",
+            "pdf_page": 424,
+            "equation_label": "12.3",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fixed-shape universal approximators",
+            "latex": "f_m(x) = e^{2\\pi i m x}",
+            "pdf_page": 424,
+            "equation_label": "12.4",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fixed-shape universal approximators",
+            "latex": "f_m(\\mathbf{x}) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N}",
+            "pdf_page": 424,
+            "equation_label": "12.5",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "fixed-shape universal approximators",
+            "pdf_page": 424,
+            "figure_label": "Figure 12.1",
+            "caption": "Figure 12.1 Figure associated with Example 12.1. From left to right, the first four units of a sinusoidal universal approximator.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"latex\": \"f_1(x) = \\\\sin(x), f_2(x) = \\\\sin(2x), f_3(x) = \\\\sin(3x), \\\\ldots\",\n      \"pdf_page\": 423,\n      \"equation_label\": \"12.1\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"latex\": \"f_m(\\\\mathbf{x}) = \\\\sin(m_1 x_1) \\\\sin(m_2 x_2) \\\\cdots \\\\sin(m_N x_N)\",\n      \"pdf_page\": 423,\n      \"equation_label\": \"12.2\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"latex\": \"f_{2m-1}(x) = \\\\sin(2\\\\pi m x) \\\\quad \\\\text{and} \\\\quad f_{2m}(x) = \\\\cos(2\\\\pi m x)\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"12.3\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"latex\": \"f_m(x) = e^{2\\\\pi i m x}\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"12.4\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"latex\": \"f_m(\\\\mathbf{x}) = e^{2\\\\pi i m_1 x_1} e^{2\\\\pi i m_2 x_2} \\\\cdots e^{2\\\\pi i m_N x_N}\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"12.5\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"fixed-shape universal approximators\",\n      \"pdf_page\": 424,\n      \"figure_label\": \"Figure 12.1\",\n      \"caption\": \"Figure 12.1 Figure associated with Example 12.1. From left to right, the first four units of a sinusoidal universal approximator.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 424,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "fourier basis",
+            "latex": "f_{2m-1}(x) = \\sin(2\\pi m x) \\quad \\text{and} \\quad f_{2m}(x) = \\cos(2\\pi m x)",
+            "pdf_page": 424,
+            "equation_label": "(12.3)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fourier basis",
+            "latex": "f_m(x) = e^{2\\pi i m x}",
+            "pdf_page": 424,
+            "equation_label": "(12.4)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "fourier basis",
+            "latex": "f_m(x) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N}",
+            "pdf_page": 424,
+            "equation_label": "(12.5)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"fourier basis\",\n      \"latex\": \"f_{2m-1}(x) = \\\\sin(2\\\\pi m x) \\\\quad \\\\text{and} \\\\quad f_{2m}(x) = \\\\cos(2\\\\pi m x)\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"(12.3)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fourier basis\",\n      \"latex\": \"f_m(x) = e^{2\\\\pi i m x}\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"(12.4)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"fourier basis\",\n      \"latex\": \"f_m(x) = e^{2\\\\pi i m_1 x_1} e^{2\\\\pi i m_2 x_2} \\\\cdots e^{2\\\\pi i m_N x_N}\",\n      \"pdf_page\": 424,\n      \"equation_label\": \"(12.5)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 425,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "exponential scaling of fixed-shape units",
+            "latex": "M = (2D + 1)^N",
+            "pdf_page": 426,
+            "equation_label": "(12.8)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"exponential scaling of fixed-shape units\",\n      \"latex\": \"M = (2D + 1)^N\",\n      \"pdf_page\": 426,\n      \"equation_label\": \"(12.8)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 426,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 428,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "weight vector decomposition over feature matrix",
+            "latex": "\\omega = Fz + r",
+            "pdf_page": 427,
+            "equation_label": "12.11",
+            "confidence": 0.95
+          },
+          {
+            "concept": "orthogonal component r",
+            "latex": "F^T r = 0_{P \\times 1}",
+            "pdf_page": 427,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "weight vector decomposition over feature matrix",
+            "pdf_page": 428,
+            "figure_label": "Figure 12.2",
+            "caption": "An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "orthogonal component r",
+            "pdf_page": 428,
+            "figure_label": "Figure 12.2",
+            "caption": "An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"weight vector decomposition over feature matrix\",\n      \"latex\": \"\\\\omega = Fz + r\",\n      \"pdf_page\": 427,\n      \"equation_label\": \"12.11\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"orthogonal component r\",\n      \"latex\": \"F^T r = 0_{P \\\\times 1}\",\n      \"pdf_page\": 427,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"weight vector decomposition over feature matrix\",\n      \"pdf_page\": 428,\n      \"figure_label\": \"Figure 12.2\",\n      \"caption\": \"An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"orthogonal component r\",\n      \"pdf_page\": 428,\n      \"figure_label\": \"Figure 12.2\",\n      \"caption\": \"An illustration of a useful fact from the Fundamental Theorem of Linear Algebra which states that any vector w in an M dimensional space can be decomposed as w = Fz + r, where the vector Fz belongs in the column space of the matrix F and r is orthogonal to this subspace.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 429,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "kernel matrix",
+            "latex": "H = F^T F",
+            "pdf_page": 429,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelization via weight vector substitution",
+            "latex": "\\omega = F z + r \\quad \\text{with} \\quad F^T r = 0_{P \\times 1}",
+            "pdf_page": 429,
+            "equation_label": "(12.17)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelized least squares",
+            "latex": "g(b, z) = \\sum_{p=1}^{P} \\left( b + h_p^T z - y_p \\right)^2",
+            "pdf_page": 429,
+            "equation_label": "(12.19)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"kernel matrix\",\n      \"latex\": \"H = F^T F\",\n      \"pdf_page\": 429,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelization via weight vector substitution\",\n      \"latex\": \"\\\\omega = F z + r \\\\quad \\\\text{with} \\\\quad F^T r = 0_{P \\\\times 1}\",\n      \"pdf_page\": 429,\n      \"equation_label\": \"(12.17)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelized least squares\",\n      \"latex\": \"g(b, z) = \\\\sum_{p=1}^{P} \\\\left( b + h_p^T z - y_p \\\\right)^2\",\n      \"pdf_page\": 429,\n      \"equation_label\": \"(12.19)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 430,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "softmax cost function",
+            "latex": "g(b,\\omega) = \\sum_{p=1}^P \\log\\left(1 + e^{-y_p(b + \\mathbf{f}_p^T \\omega)}\\right)",
+            "pdf_page": 430,
+            "equation_label": "(12.21)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelized logistic regression",
+            "latex": "g(b,\\mathbf{z}) = \\sum_{p=1}^P \\log\\left(1 + e^{-y_p(b + \\mathbf{h}_p^T \\mathbf{z})}\\right)",
+            "pdf_page": 430,
+            "equation_label": "(12.23)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"softmax cost function\",\n      \"latex\": \"g(b,\\\\omega) = \\\\sum_{p=1}^P \\\\log\\\\left(1 + e^{-y_p(b + \\\\mathbf{f}_p^T \\\\omega)}\\\\right)\",\n      \"pdf_page\": 430,\n      \"equation_label\": \"(12.21)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelized logistic regression\",\n      \"latex\": \"g(b,\\\\mathbf{z}) = \\\\sum_{p=1}^P \\\\log\\\\left(1 + e^{-y_p(b + \\\\mathbf{h}_p^T \\\\mathbf{z})}\\\\right)\",\n      \"pdf_page\": 430,\n      \"equation_label\": \"(12.23)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 431,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "entry-wise kernel matrix construction",
+            "latex": "H_{ij} = \\left(1 + \\mathbf{x}_i^T \\mathbf{x}_j\\right)^D - 1",
+            "pdf_page": 432,
+            "equation_label": "12.28",
+            "confidence": 0.95
+          },
+          {
+            "concept": "polynomial kernel",
+            "latex": "H_{ij} = \\left(1 + \\mathbf{x}_i^T \\mathbf{x}_j\\right)^D - 1",
+            "pdf_page": 432,
+            "equation_label": "12.28",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelized l2 regularizer",
+            "latex": "\\lambda \\mathbf{z}^T \\mathbf{H} \\mathbf{z}",
+            "pdf_page": 431,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelized squared margin",
+            "latex": "\\sum_{p=1}^{P} \\max^2\\left(0, 1 - y_p(b + \\mathbf{h}_p^T \\mathbf{z})\\right)",
+            "pdf_page": 431,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "kernelized multi-class softmax",
+            "latex": "\\sum_{c=1}^{C} \\sum_{p \\in \\Omega_c} \\log\\left(1 + \\sum_{\\substack{j=1 \\\\ j \\neq c}}^{C} e^{(b_j - b_c) + \\mathbf{h}_p^T (\\mathbf{z}_j - \\mathbf{z}_c)}\\right)",
+            "pdf_page": 431,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "l2 regularizer",
+            "latex": "\\lambda \\|\\mathbf{w}\\|_2^2",
+            "pdf_page": 431,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "soft-margin support vector machine",
+            "latex": "\\sum_{p=1}^{P} \\max^2\\left(0, 1 - y_p(b + \\mathbf{f}_p^T \\mathbf{w})\\right)",
+            "pdf_page": 431,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"entry-wise kernel matrix construction\",\n      \"latex\": \"H_{ij} = \\\\left(1 + \\\\mathbf{x}_i^T \\\\mathbf{x}_j\\\\right)^D - 1\",\n      \"pdf_page\": 432,\n      \"equation_label\": \"12.28\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"polynomial kernel\",\n      \"latex\": \"H_{ij} = \\\\left(1 + \\\\mathbf{x}_i^T \\\\mathbf{x}_j\\\\right)^D - 1\",\n      \"pdf_page\": 432,\n      \"equation_label\": \"12.28\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelized l2 regularizer\",\n      \"latex\": \"\\\\lambda \\\\mathbf{z}^T \\\\mathbf{H} \\\\mathbf{z}\",\n      \"pdf_page\": 431,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelized squared margin\",\n      \"latex\": \"\\\\sum_{p=1}^{P} \\\\max^2\\\\left(0, 1 - y_p(b + \\\\mathbf{h}_p^T \\\\mathbf{z})\\\\right)\",\n      \"pdf_page\": 431,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"kernelized multi-class softmax\",\n      \"latex\": \"\\\\sum_{c=1}^{C} \\\\sum_{p \\\\in \\\\Omega_c} \\\\log\\\\left(1 + \\\\sum_{\\\\substack{j=1 \\\\\\\\ j \\\\neq c}}^{C} e^{(b_j - b_c) + \\\\mathbf{h}_p^T (\\\\mathbf{z}_j - \\\\mathbf{z}_c)}\\\\right)\",\n      \"pdf_page\": 431,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"l2 regularizer\",\n      \"latex\": \"\\\\lambda \\\\|\\\\mathbf{w}\\\\|_2^2\",\n      \"pdf_page\": 431,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"soft-margin support vector machine\",\n      \"latex\": \"\\\\sum_{p=1}^{P} \\\\max^2\\\\left(0, 1 - y_p(b + \\\\mathbf{f}_p^T \\\\mathbf{w})\\\\right)\",\n      \"pdf_page\": 431,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 439,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "naive cross-validation",
+            "pdf_page": 440,
+            "figure_label": "Figure 12.5",
+            "caption": "Figure associated with Example 12.10. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"naive cross-validation\",\n      \"pdf_page\": 440,\n      \"figure_label\": \"Figure 12.5\",\n      \"caption\": \"Figure associated with Example 12.10. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 442,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "fourier kernel",
+            "latex": "f_m(\\mathbf{x}) = e^{2\\pi i m_1 x_1} e^{2\\pi i m_2 x_2} \\cdots e^{2\\pi i m_N x_N} = e^{2\\pi i \\mathbf{m}^T \\mathbf{x}}",
+            "pdf_page": 442,
+            "equation_label": "(12.46)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"fourier kernel\",\n      \"latex\": \"f_m(\\\\mathbf{x}) = e^{2\\\\pi i m_1 x_1} e^{2\\\\pi i m_2 x_2} \\\\cdots e^{2\\\\pi i m_N x_N} = e^{2\\\\pi i \\\\mathbf{m}^T \\\\mathbf{x}}\",\n      \"pdf_page\": 442,\n      \"equation_label\": \"(12.46)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "kernelized least squares",
+      "into": "kernelized least squares"
+    },
+    {
+      "action": "local_merge",
+      "from": "kernelized multi-class softmax",
+      "into": "kernelized multi-class softmax"
+    }
+  ],
+  "warnings": [
+    "Rejected 6 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

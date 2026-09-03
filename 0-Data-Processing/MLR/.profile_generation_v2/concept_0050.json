@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b0bf750b6d0b2fd02db75a04777569c7e7069626e0ac6177eed53280ea978add",
+  "concept_id": 50,
+  "concept_name": "stationary points",
+  "aliases": [
+    "stationary points",
+    "critical points"
+  ],
+  "profile": "stationary points: Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function. The second derivative helps unveil the identity of stationary points.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "stationary points: Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function. The second derivative helps unveil the identity of stationary points, indicating whether a point is a minimum, maximum, or saddle point.",
+    "claims": [
+      {
+        "claim": "Minima, maxima, and saddle points are collectively referred to as stationary or critical points.",
+        "evidence_ids": [
+          "MLR-E0053"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The second derivative helps unveil the identity of stationary points.",
+        "evidence_ids": [
+          "MLR-E0073"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "stationary points: Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function. The second derivative helps unveil the identity of stationary points.",
+    "sentence_reviews": [
+      {
+        "sentence": "Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0053"
+        ],
+        "reason": "The evidence explicitly states that minima, maxima, and saddle points are often referred to as stationary or critical points."
+      },
+      {
+        "sentence": "The second derivative helps unveil the identity of stationary points.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0073"
+        ],
+        "reason": "The evidence directly states that the second derivative helps unveil the identity of stationary points."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"stationary points: Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function. The second derivative helps unveil the identity of stationary points, indicating whether a point is a minimum, maximum, or saddle point.\",\n  \"claims\": [\n    {\n      \"claim\": \"Minima, maxima, and saddle points are collectively referred to as stationary or critical points.\",\n      \"evidence_ids\": [\"MLR-E0053\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The second derivative helps unveil the identity of stationary points.\",\n      \"evidence_ids\": [\"MLR-E0073\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"stationary points: Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function. The second derivative helps unveil the identity of stationary points.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Minima, maxima, and saddle points are collectively referred to as stationary or critical points of a function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0053\"],\n      \"reason\": \"The evidence explicitly states that minima, maxima, and saddle points are often referred to as stationary or critical points.\"\n    },\n    {\n      \"sentence\": \"The second derivative helps unveil the identity of stationary points.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0073\"],\n      \"reason\": \"The evidence directly states that the second derivative helps unveil the identity of stationary points.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:39:24.544071+00:00"
+}

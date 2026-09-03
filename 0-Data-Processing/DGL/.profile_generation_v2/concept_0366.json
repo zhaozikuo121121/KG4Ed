@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ec932ea1641ffcb84e32aa46eea9ab70c3ecd02851bbea10b52658017e2dd629",
+  "concept_id": 366,
+  "concept_name": "projection vector",
+  "aliases": [
+    "projection vector",
+    "p"
+  ],
+  "profile": "projection vector: A projection vector, denoted p, is a trainable vector.",
+  "word_count": 11,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "projection vector: A projection vector, denoted p, is a trainable vector. It is learned during model training and is used in the context of graph neural networks and graph pooling. The source provides no further details on its mechanism, properties, or examples.",
+    "claims": [
+      {
+        "claim": "A projection vector is a trainable vector.",
+        "evidence_ids": [
+          "DGL-E0544"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The projection vector is denoted by p.",
+        "evidence_ids": [
+          "DGL-E0544"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source provides no additional information about the role, mechanism, or examples of the projection vector beyond its trainability."
+    ]
+  },
+  "review": {
+    "final_profile": "projection vector: A projection vector, denoted p, is a trainable vector.",
+    "sentence_reviews": [
+      {
+        "sentence": "projection vector: A projection vector, denoted p, is a trainable vector.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0544"
+        ],
+        "reason": "The metadata evidence states 'p is a trainable projection vector', supporting the definition and notation."
+      }
+    ],
+    "warnings": [
+      "No source support for any further details about the vector's mechanism, role, or examples."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"projection vector: A projection vector, denoted p, is a trainable vector. It is learned during model training and is used in the context of graph neural networks and graph pooling. The source provides no further details on its mechanism, properties, or examples.\",\n  \"claims\": [\n    {\n      \"claim\": \"A projection vector is a trainable vector.\",\n      \"evidence_ids\": [\"DGL-E0544\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The projection vector is denoted by p.\",\n      \"evidence_ids\": [\"DGL-E0544\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The source provides no additional information about the role, mechanism, or examples of the projection vector beyond its trainability.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"projection vector: A projection vector, denoted p, is a trainable vector.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"projection vector: A projection vector, denoted p, is a trainable vector.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0544\"],\n      \"reason\": \"The metadata evidence states 'p is a trainable projection vector', supporting the definition and notation.\"\n    }\n  ],\n  \"warnings\": [\n    \"No source support for any further details about the vector's mechanism, role, or examples.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:07:41.014922+00:00"
+}

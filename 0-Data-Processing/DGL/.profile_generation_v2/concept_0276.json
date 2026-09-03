@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "aac33f7e93b11a3e896c6aaa3786202c24d8d14a8f39e10d857f79c07a1f292a",
+  "concept_id": 276,
+  "concept_name": "batching",
+  "aliases": [
+    "batching",
+    "batch nodes"
+  ],
+  "profile": "batching: Batching addresses how to group nodes, including test nodes, when working with graph data. The topic is presented alongside inductive vs. transductive learning and graph classification.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "batching: In graph learning, batching refers to deciding how to group nodes, particularly test nodes, when working with graph data. This issue arises in the context of inductive vs. transductive learning and graph classification, where node batches need to be formed for processing.",
+    "claims": [
+      {
+        "claim": "In graph learning, batching refers to deciding how to group nodes, particularly test nodes, in the context of inductive vs. transductive learning and graph classification.",
+        "evidence_ids": [
+          "DGL-E0400"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The only evidence is a printed text fragment with a handwritten label, so the exact procedure or purpose of batching is not fully specified."
+    ]
+  },
+  "review": {
+    "final_profile": "batching: Batching addresses how to group nodes, including test nodes, when working with graph data. The topic is presented alongside inductive vs. transductive learning and graph classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "Batching addresses how to group nodes, including test nodes, when working with graph data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0400"
+        ],
+        "reason": "The source shows the printed text 'How to batch nodes...' and a handwritten label 'test nodes' on the matrix, directly supporting grouping nodes including test nodes."
+      },
+      {
+        "sentence": "The topic is presented alongside inductive vs. transductive learning and graph classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0400"
+        ],
+        "reason": "The lecture context covers inductive vs. transductive learning and graph classification, and the batching question appears in that setting."
+      }
+    ],
+    "warnings": [
+      "Evidence is fragmentary; no details are available about how batching is performed or its exact purpose beyond grouping nodes, including test nodes."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"batching: In graph learning, batching refers to deciding how to group nodes, particularly test nodes, when working with graph data. This issue arises in the context of inductive vs. transductive learning and graph classification, where node batches need to be formed for processing.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph learning, batching refers to deciding how to group nodes, particularly test nodes, in the context of inductive vs. transductive learning and graph classification.\",\n      \"evidence_ids\": [\"DGL-E0400\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The only evidence is a printed text fragment with a handwritten label, so the exact procedure or purpose of batching is not fully specified.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"batching: Batching addresses how to group nodes, including test nodes, when working with graph data. The topic is presented alongside inductive vs. transductive learning and graph classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Batching addresses how to group nodes, including test nodes, when working with graph data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0400\"],\n      \"reason\": \"The source shows the printed text 'How to batch nodes...' and a handwritten label 'test nodes' on the matrix, directly supporting grouping nodes including test nodes.\"\n    },\n    {\n      \"sentence\": \"The topic is presented alongside inductive vs. transductive learning and graph classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0400\"],\n      \"reason\": \"The lecture context covers inductive vs. transductive learning and graph classification, and the batching question appears in that setting.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is fragmentary; no details are available about how batching is performed or its exact purpose beyond grouping nodes, including test nodes.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:39:28.063434+00:00"
+}

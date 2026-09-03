@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f02d20d1d132f37350045e2b5468f9de6b84a9342676268947abe355b10a5d8c",
+  "concept_id": 211,
+  "concept_name": "backward pass",
+  "aliases": [
+    "backward pass"
+  ],
+  "profile": "backward pass: The backward pass computes the gradient of the loss using the chain rule.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "backward pass: The backward pass computes the gradient of the loss using the chain rule.",
+    "claims": [
+      {
+        "claim": "The backward pass computes the gradient of the loss using the chain rule.",
+        "evidence_ids": [
+          "DGL-E0248"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "backward pass: The backward pass computes the gradient of the loss using the chain rule.",
+    "sentence_reviews": [
+      {
+        "sentence": "backward pass: The backward pass computes the gradient of the loss using the chain rule.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0248"
+        ],
+        "reason": "Directly restates the source evidence about computing the loss gradient via the chain rule during the backward pass."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"backward pass: The backward pass computes the gradient of the loss using the chain rule.\",\n  \"claims\": [\n    {\n      \"claim\": \"The backward pass computes the gradient of the loss using the chain rule.\",\n      \"evidence_ids\": [\"DGL-E0248\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"backward pass: The backward pass computes the gradient of the loss using the chain rule.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"backward pass: The backward pass computes the gradient of the loss using the chain rule.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0248\"],\n      \"reason\": \"Directly restates the source evidence about computing the loss gradient via the chain rule during the backward pass.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:15:25.899010+00:00"
+}

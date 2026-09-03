@@ -1,0 +1,28 @@
+project_root: "${PROJECT_ROOT:-.}"
+dataset_name: "dgl"
+seed: 42
+device: auto
+stage0_outputs_dir: "stage0/outputs_dgl"
+stage1_outputs_dir: "stage1/outputs_dgl"
+stage3_outputs_dir: "stage3/outputs_mc_lb_uc_to_dgl"
+checkpoint_dir: "stage2/checkpoints_mc_lb_uc"
+content_checkpoint: "stage2/checkpoints_mc_lb_uc/content_final.pt"
+graph_checkpoint: "stage2/checkpoints_mc_lb_uc/graph_final.pt"
+fusion_params_path: "stage2/outputs_mc_lb_uc/fusion_params.json"
+profile:
+  prompt_version: "profile_v3"
+content_model_name: allenai/scibert_scivocab_uncased
+content_max_length: 384
+content_batch_size: 8
+model_type: rel_graphsage
+num_relations: 4
+graph_hidden_dim: 128
+graph_latent_dim: 64
+graph_dropout: 0.2
+decoder_type: diagonal_bilinear
+graphsage_layers: 2
+semantic_top_k: 10
+semantic_top_k_fallback: 15
+semantic_connectivity_threshold: 0.9
+use_graph_calibration: true
+

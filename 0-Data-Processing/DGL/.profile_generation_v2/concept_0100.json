@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "31b398ed0cc7df6780faee0e634def6393b16af7afcef616d7fb6a4a776429f1",
+  "concept_id": 100,
+  "concept_name": "bias",
+  "aliases": [
+    "bias",
+    "intercept",
+    "offset",
+    "bias term"
+  ],
+  "profile": "bias: In a graph convolutional network layer, a bias β0 is added together with other terms. A bias term also appears in a graph classification formula breakdown as β_K 1^T, labeled by a handwritten note 'bias'. Thus the bias appears in both settings.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bias: In deep learning, a bias is an additive parameter, denoted β0, that is added together with other terms in a graph convolutional network layer. A bias term also appears in graph classification formula breakdowns as β_K 1^T, labeled by the handwritten note 'bias'. Thus the bias appears in both settings.",
+    "claims": [
+      {
+        "claim": "In deep learning, a bias is an additive parameter denoted β0 that is added together with other terms in a graph convolutional network layer.",
+        "evidence_ids": [
+          "DGL-E0190"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A bias term also appears in graph classification formula breakdowns as β_K 1^T, labeled by the handwritten note 'bias'.",
+        "evidence_ids": [
+          "DGL-E0399"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The bias appears in both settings.",
+        "evidence_ids": [
+          "DGL-E0190",
+          "DGL-E0399"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The DGL-E0397 evidence is a handwritten annotation, though its confidence is listed as 1.000; the exact functional role of β_K 1^T is not explicitly described beyond being labeled 'bias'."
+    ]
+  },
+  "review": {
+    "final_profile": "bias: In a graph convolutional network layer, a bias β0 is added together with other terms. A bias term also appears in a graph classification formula breakdown as β_K 1^T, labeled by a handwritten note 'bias'. Thus the bias appears in both settings.",
+    "sentence_reviews": [
+      {
+        "sentence": "In a graph convolutional network layer, a bias β0 is added together with other terms.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0190"
+        ],
+        "reason": "The source states 'adding these together with a bias β0' in the context of graph convolutional network layer mechanics."
+      },
+      {
+        "sentence": "A bias term also appears in a graph classification formula breakdown as β_K 1^T, labeled by a handwritten note 'bias'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0399"
+        ],
+        "reason": "The source shows the handwritten label 'bias' under the term β_K 1^T in a formula breakdown."
+      },
+      {
+        "sentence": "Thus the bias appears in both settings.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0190",
+          "DGL-E0399"
+        ],
+        "reason": "The two pieces of evidence place a bias in a GCN layer and in a graph classification formula breakdown."
+      }
+    ],
+    "warnings": [
+      "The exact role of β_K 1^T in graph classification is not described beyond the handwritten label 'bias'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bias: In deep learning, a bias is an additive parameter, denoted β0, that is added together with other terms in a graph convolutional network layer. A bias term also appears in graph classification formula breakdowns as β_K 1^T, labeled by the handwritten note 'bias'. Thus the bias appears in both settings.\",\n  \"claims\": [\n    {\n      \"claim\": \"In deep learning, a bias is an additive parameter denoted β0 that is added together with other terms in a graph convolutional network layer.\",\n      \"evidence_ids\": [\"DGL-E0190\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A bias term also appears in graph classification formula breakdowns as β_K 1^T, labeled by the handwritten note 'bias'.\",\n      \"evidence_ids\": [\"DGL-E0399\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The bias appears in both settings.\",\n      \"evidence_ids\": [\"DGL-E0190\", \"DGL-E0399\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The DGL-E0397 evidence is a handwritten annotation, though its confidence is listed as 1.000; the exact functional role of β_K 1^T is not explicitly described beyond being labeled 'bias'.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bias: In a graph convolutional network layer, a bias β0 is added together with other terms. A bias term also appears in a graph classification formula breakdown as β_K 1^T, labeled by a handwritten note 'bias'. Thus the bias appears in both settings.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In a graph convolutional network layer, a bias β0 is added together with other terms.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0190\"],\n      \"reason\": \"The source states 'adding these together with a bias β0' in the context of graph convolutional network layer mechanics.\"\n    },\n    {\n      \"sentence\": \"A bias term also appears in a graph classification formula breakdown as β_K 1^T, labeled by a handwritten note 'bias'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0399\"],\n      \"reason\": \"The source shows the handwritten label 'bias' under the term β_K 1^T in a formula breakdown.\"\n    },\n    {\n      \"sentence\": \"Thus the bias appears in both settings.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0190\", \"DGL-E0399\"],\n      \"reason\": \"The two pieces of evidence place a bias in a GCN layer and in a graph classification formula breakdown.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact role of β_K 1^T in graph classification is not described beyond the handwritten label 'bias'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:30:20.647451+00:00"
+}

@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b7ec98cb3fe9d0fcb66c04fa09e5ee9d1e8f36a34ea24e81913efee1e8c4ddb0",
+  "concept_id": 258,
+  "concept_name": "node sampling",
+  "aliases": [
+    "node sampling",
+    "node-wise sampling"
+  ],
+  "profile": "node sampling: A graph neural network training strategy that randomly selects a subset of target nodes.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node sampling: In graph neural network training, node sampling is a strategy that randomly selects a subset of target nodes. This approach is a sampling technique for GNN training, and the selection is random. Node sampling is also referred to as node-wise sampling. It provides a way to choose target nodes for the training process.",
+    "claims": [
+      {
+        "claim": "In graph neural network training, node sampling is a strategy that randomly selects a subset of target nodes.",
+        "evidence_ids": [
+          "DGL-E0357"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node sampling is a sampling technique used during GNN training.",
+        "evidence_ids": [
+          "DGL-E0357"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node sampling is also referred to as node-wise sampling.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node sampling: A graph neural network training strategy that randomly selects a subset of target nodes.",
+    "sentence_reviews": [
+      {
+        "sentence": "node sampling: A graph neural network training strategy that randomly selects a subset of target nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0357"
+        ],
+        "reason": "The evidence directly defines node sampling as randomly selecting a subset of target nodes in the context of GNN training."
+      }
+    ],
+    "warnings": [
+      "The source provides only a brief definition; no additional details about variants, usage, or effects are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node sampling: In graph neural network training, node sampling is a strategy that randomly selects a subset of target nodes. This approach is a sampling technique for GNN training, and the selection is random. Node sampling is also referred to as node-wise sampling. It provides a way to choose target nodes for the training process.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph neural network training, node sampling is a strategy that randomly selects a subset of target nodes.\",\n      \"evidence_ids\": [\"DGL-E0357\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node sampling is a sampling technique used during GNN training.\",\n      \"evidence_ids\": [\"DGL-E0357\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node sampling is also referred to as node-wise sampling.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node sampling: A graph neural network training strategy that randomly selects a subset of target nodes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node sampling: A graph neural network training strategy that randomly selects a subset of target nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0357\"],\n      \"reason\": \"The evidence directly defines node sampling as randomly selecting a subset of target nodes in the context of GNN training.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a brief definition; no additional details about variants, usage, or effects are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:32:18.767084+00:00"
+}

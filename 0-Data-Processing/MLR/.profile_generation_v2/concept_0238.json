@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7e2fb1c4cb824b4e88f9ec50d3484dd0026311cabfce32a5920e12c36b11303d",
+  "concept_id": 238,
+  "concept_name": "kernelized squared margin",
+  "aliases": [
+    "kernelized squared margin",
+    "kernelized soft-margin svm cost"
+  ],
+  "profile": "kernelized squared margin: a squared-margin/soft-margin SVM cost in kernel methods. It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2. This is the squared margin form of soft-margin support vector machines.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "kernelized squared margin: a squared-margin/soft-margin SVM cost used in kernel methods. It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2, penalizing violations of the margin by their square. This formulation appears as the squared margin variant within kernelized soft-margin support vector machines.",
+    "claims": [
+      {
+        "claim": "kernelized squared margin is a squared-margin/soft-margin SVM cost used in kernel methods.",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2.",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This formulation appears as the squared margin variant within kernelized soft-margin support vector machines.",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "kernelized squared margin: a squared-margin/soft-margin SVM cost in kernel methods. It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2. This is the squared margin form of soft-margin support vector machines.",
+    "sentence_reviews": [
+      {
+        "sentence": "kernelized squared margin: a squared-margin/soft-margin SVM cost in kernel methods.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "reason": "The source lists squared margin/soft-margin SVMs in the kernel methods chapter."
+      },
+      {
+        "sentence": "It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "reason": "The extracted formula matches the squared-margin soft-margin cost notation."
+      },
+      {
+        "sentence": "This is the squared margin form of soft-margin support vector machines.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0298"
+        ],
+        "reason": "Source explicitly associates squared margin with soft-margin SVMs."
+      }
+    ],
+    "warnings": [
+      "Source text is OCR-fragmentary; the formula is interpreted as a squared hinge loss summed over data points."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"kernelized squared margin: a squared-margin/soft-margin SVM cost used in kernel methods. It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2, penalizing violations of the margin by their square. This formulation appears as the squared margin variant within kernelized soft-margin support vector machines.\",\n  \"claims\": [\n    {\n      \"claim\": \"kernelized squared margin is a squared-margin/soft-margin SVM cost used in kernel methods.\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2.\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This formulation appears as the squared margin variant within kernelized soft-margin support vector machines.\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"kernelized squared margin: a squared-margin/soft-margin SVM cost in kernel methods. It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2. This is the squared margin form of soft-margin support vector machines.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"kernelized squared margin: a squared-margin/soft-margin SVM cost in kernel methods.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"reason\": \"The source lists squared margin/soft-margin SVMs in the kernel methods chapter.\"\n    },\n    {\n      \"sentence\": \"It evaluates a sum over data points of squared hinge terms, max(0, 1 - y_p(b + h^T z_p))^2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"reason\": \"The extracted formula matches the squared-margin soft-margin cost notation.\"\n    },\n    {\n      \"sentence\": \"This is the squared margin form of soft-margin support vector machines.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0298\"],\n      \"reason\": \"Source explicitly associates squared margin with soft-margin SVMs.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source text is OCR-fragmentary; the formula is interpreted as a squared hinge loss summed over data points.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:56:19.872830+00:00"
+}

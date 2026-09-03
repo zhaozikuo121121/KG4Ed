@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "13fcf3e202c2752c0db5e237152e3fd97020f2b145c2c6752aa30544c1fed405",
+  "concept_id": 257,
+  "concept_name": "graph partitioning",
+  "aliases": [
+    "graph partitioning",
+    "partitioning"
+  ],
+  "profile": "graph partitioning: A term in GNN training contexts, appearing in material on training strategies and batching, and on sampling strategies and batch normalization.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph partitioning: A term appearing in course material on GNN training, specifically in sections on training strategies and batching, and on sampling strategies and batch normalization.",
+    "claims": [
+      {
+        "claim": "Graph partitioning appears in material on GNN training strategies and batching.",
+        "evidence_ids": [
+          "DGL-E0331"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph partitioning appears in material on GNN training sampling strategies and batch normalization.",
+        "evidence_ids": [
+          "DGL-E0343"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata only contains the term 'Graph partitioning' without a definition or explanation, so the profile is limited to its occurrence contexts."
+    ]
+  },
+  "review": {
+    "final_profile": "graph partitioning: A term in GNN training contexts, appearing in material on training strategies and batching, and on sampling strategies and batch normalization.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph partitioning: A term in GNN training contexts, appearing in material on training strategies and batching, and on sampling strategies and batch normalization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0331",
+          "DGL-E0343"
+        ],
+        "reason": "Both evidence items place the term in GNN training pages: one titled 'GNN Training Strategies and Batching' and the other 'GNN Training: Sampling Strategies and Batch Normalization'."
+      }
+    ],
+    "warnings": [
+      "The metadata contains only the term 'Graph partitioning' without a definition or explanation, so the profile is limited to its occurrence contexts."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph partitioning: A term appearing in course material on GNN training, specifically in sections on training strategies and batching, and on sampling strategies and batch normalization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph partitioning appears in material on GNN training strategies and batching.\",\n      \"evidence_ids\": [\"DGL-E0331\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph partitioning appears in material on GNN training sampling strategies and batch normalization.\",\n      \"evidence_ids\": [\"DGL-E0343\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata only contains the term 'Graph partitioning' without a definition or explanation, so the profile is limited to its occurrence contexts.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph partitioning: A term in GNN training contexts, appearing in material on training strategies and batching, and on sampling strategies and batch normalization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph partitioning: A term in GNN training contexts, appearing in material on training strategies and batching, and on sampling strategies and batch normalization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0331\", \"DGL-E0343\"],\n      \"reason\": \"Both evidence items place the term in GNN training pages: one titled 'GNN Training Strategies and Batching' and the other 'GNN Training: Sampling Strategies and Batch Normalization'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata contains only the term 'Graph partitioning' without a definition or explanation, so the profile is limited to its occurrence contexts.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:31:55.612812+00:00"
+}

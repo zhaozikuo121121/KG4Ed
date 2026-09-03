@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "66d9b376b422df0b711a93f3d74e8046fb270f9ccc855f97548a41ff268a1435",
+  "concept_id": 20,
+  "concept_name": "cross-validation",
+  "aliases": [
+    "cross-validation"
+  ],
+  "profile": "cross-validation: a method for automating the setting of model capacity and optimization. Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "cross-validation: a method for automating the setting of model capacity and optimization. Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset. By incorporating optimization into the validation process, cross-validation enables automatic model complexity selection without manual intervention.",
+    "claims": [
+      {
+        "claim": "Cross-validation is a method for automating the setting of model capacity and optimization.",
+        "evidence_ids": [
+          "MLR-E0281"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.",
+        "evidence_ids": [
+          "MLR-E0021"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Cross-validation enables automatic model complexity selection without manual intervention by incorporating optimization into the validation process.",
+        "evidence_ids": [
+          "MLR-E0021",
+          "MLR-E0281"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "cross-validation: a method for automating the setting of model capacity and optimization. Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.",
+    "sentence_reviews": [
+      {
+        "sentence": "cross-validation: a method for automating the setting of model capacity and optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0281"
+        ],
+        "reason": "Directly supported by evidence that cross-validation is a method for automating the setting of capacity and optimization."
+      },
+      {
+        "sentence": "Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0021"
+        ],
+        "reason": "Directly supported by evidence that optimization plays a fundamental role in cross-validation or learning a proper nonlinear model automatically for any dataset."
+      }
+    ],
+    "warnings": [
+      "Draft's third sentence about model complexity selection without manual intervention was removed because it introduced a causal explanation not explicitly present in the source evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"cross-validation: a method for automating the setting of model capacity and optimization. Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset. By incorporating optimization into the validation process, cross-validation enables automatic model complexity selection without manual intervention.\",\n  \"claims\": [\n    {\n      \"claim\": \"Cross-validation is a method for automating the setting of model capacity and optimization.\",\n      \"evidence_ids\": [\"MLR-E0281\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.\",\n      \"evidence_ids\": [\"MLR-E0021\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Cross-validation enables automatic model complexity selection without manual intervention by incorporating optimization into the validation process.\",\n      \"evidence_ids\": [\"MLR-E0021\", \"MLR-E0281\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"cross-validation: a method for automating the setting of model capacity and optimization. Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"cross-validation: a method for automating the setting of model capacity and optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0281\"],\n      \"reason\": \"Directly supported by evidence that cross-validation is a method for automating the setting of capacity and optimization.\"\n    },\n    {\n      \"sentence\": \"Optimization plays a fundamental role in cross-validation, enabling the automatic learning of an appropriate nonlinear model for any dataset.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0021\"],\n      \"reason\": \"Directly supported by evidence that optimization plays a fundamental role in cross-validation or learning a proper nonlinear model automatically for any dataset.\"\n    }\n  ],\n  \"warnings\": [\n    \"Draft's third sentence about model complexity selection without manual intervention was removed because it introduced a causal explanation not explicitly present in the source evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:28:18.184435+00:00"
+}

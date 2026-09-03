@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "492668efa0b8092d66a46c2b8c312977f8b710b6b446527eac89d5f1e74e7796",
+  "concept_id": 17,
+  "concept_name": "clustering",
+  "aliases": [
+    "clustering",
+    "clustering algorithms"
+  ],
+  "profile": "clustering: Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic. Clustering techniques such as K-Means learn new representations to reduce the sheer number of points in a dataset.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "clustering: Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic. Clustering techniques, such as K-Means, learn new representations to reduce the sheer number of points in a dataset.",
+    "claims": [
+      {
+        "claim": "Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic.",
+        "evidence_ids": [
+          "MLR-E0018"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Clustering techniques, such as K-Means, learn new representations to reduce the sheer number of points in a dataset.",
+        "evidence_ids": [
+          "MLR-E0217"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "clustering: Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic. Clustering techniques such as K-Means learn new representations to reduce the sheer number of points in a dataset.",
+    "sentence_reviews": [
+      {
+        "sentence": "Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0018"
+        ],
+        "reason": "Directly reflects the evidence definition of clustering."
+      },
+      {
+        "sentence": "Clustering techniques such as K-Means learn new representations to reduce the sheer number of points in a dataset.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0217"
+        ],
+        "reason": "Matches evidence that any clustering technique, like K-Means, learns new representations to reduce the number of points in a dataset."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"clustering: Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic. Clustering techniques, such as K-Means, learn new representations to reduce the sheer number of points in a dataset.\",\n  \"claims\": [\n    {\n      \"claim\": \"Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic.\",\n      \"evidence_ids\": [\"MLR-E0018\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Clustering techniques, such as K-Means, learn new representations to reduce the sheer number of points in a dataset.\",\n      \"evidence_ids\": [\"MLR-E0217\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"clustering: Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic. Clustering techniques such as K-Means learn new representations to reduce the sheer number of points in a dataset.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0018\"],\n      \"reason\": \"Directly reflects the evidence definition of clustering.\"\n    },\n    {\n      \"sentence\": \"Clustering techniques such as K-Means learn new representations to reduce the sheer number of points in a dataset.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0217\"],\n      \"reason\": \"Matches evidence that any clustering technique, like K-Means, learns new representations to reduce the number of points in a dataset.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:26:47.785691+00:00"
+}

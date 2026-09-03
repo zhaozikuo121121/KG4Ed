@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "53838de2daf52e93a71418d3cf567333d0ba8a0a065f8a877013c08576f77a96",
+  "concept_id": 190,
+  "concept_name": "discriminative features",
+  "aliases": [
+    "discriminative features"
+  ],
+  "profile": "discriminative features: Features that help distinguish between classes are discriminative. However, raw pixel values are typically not discriminative enough to be useful for machine learning tasks.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "discriminative features: Discriminative features are features that help distinguish between classes in a machine learning task. However, raw pixel values are typically not discriminative enough to be useful, so they are not discriminative features.",
+    "claims": [
+      {
+        "claim": "Discriminative features are features that help distinguish between classes in a machine learning task.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "Raw pixel values are typically not discriminative enough to be useful for machine learning tasks.",
+        "evidence_ids": [
+          "MLR-E0225"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "discriminative features: Features that help distinguish between classes are discriminative. However, raw pixel values are typically not discriminative enough to be useful for machine learning tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "Features that help distinguish between classes are discriminative.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition used only to connect the source-backed statement; no named method or unsupported detail introduced."
+      },
+      {
+        "sentence": "However, raw pixel values are typically not discriminative enough to be useful for machine learning tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0225"
+        ],
+        "reason": "Matches the source statement that pixel values themselves are typically not discriminative enough to be useful."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"discriminative features: Discriminative features are features that help distinguish between classes in a machine learning task. However, raw pixel values are typically not discriminative enough to be useful, so they are not discriminative features.\",\n  \"claims\": [\n    {\n      \"claim\": \"Discriminative features are features that help distinguish between classes in a machine learning task.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"Raw pixel values are typically not discriminative enough to be useful for machine learning tasks.\",\n      \"evidence_ids\": [\"MLR-E0225\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"discriminative features: Features that help distinguish between classes are discriminative. However, raw pixel values are typically not discriminative enough to be useful for machine learning tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Features that help distinguish between classes are discriminative.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition used only to connect the source-backed statement; no named method or unsupported detail introduced.\"\n    },\n    {\n      \"sentence\": \"However, raw pixel values are typically not discriminative enough to be useful for machine learning tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0225\"],\n      \"reason\": \"Matches the source statement that pixel values themselves are typically not discriminative enough to be useful.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:38:41.220786+00:00"
+}

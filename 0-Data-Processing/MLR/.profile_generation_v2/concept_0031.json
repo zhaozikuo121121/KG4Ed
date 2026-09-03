@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "046cdc8053ac722ba0ab9387e185ac7619b26cf89e5571a51076ca36f594bcd8",
+  "concept_id": 31,
+  "concept_name": "descent direction",
+  "aliases": [
+    "descent direction"
+  ],
+  "profile": "descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation. The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent. Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.",
+  "word_count": 65,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation. The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent. Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.",
+    "claims": [
+      {
+        "claim": "A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation.",
+        "evidence_ids": [
+          "MLR-E0032"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent.",
+        "evidence_ids": [
+          "MLR-E0077"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.",
+        "evidence_ids": [
+          "MLR-E0046"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation. The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent. Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.",
+    "sentence_reviews": [
+      {
+        "sentence": "descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0032"
+        ],
+        "reason": "Matches the definition from the zero-order optimization chapter."
+      },
+      {
+        "sentence": "The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0077"
+        ],
+        "reason": "Source states the first-order Taylor approximation provides a descent direction and references the gradient descent discussion."
+      },
+      {
+        "sentence": "Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0046"
+        ],
+        "reason": "Source says methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation. The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent. Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.\",\n  \"claims\": [\n    {\n      \"claim\": \"A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation.\",\n      \"evidence_ids\": [\"MLR-E0032\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent.\",\n      \"evidence_ids\": [\"MLR-E0077\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.\",\n      \"evidence_ids\": [\"MLR-E0046\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation. The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent. Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"descent direction: A descent direction is a direction vector in the input space that stems from a point w0 and points toward a new point w1 with a lower function evaluation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0032\"],\n      \"reason\": \"Matches the definition from the zero-order optimization chapter.\"\n    },\n    {\n      \"sentence\": \"The first-order Taylor approximation, being a hyperplane, conveniently provides a descent direction, as used in gradient descent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0077\"],\n      \"reason\": \"Source states the first-order Taylor approximation provides a descent direction and references the gradient descent discussion.\"\n    },\n    {\n      \"sentence\": \"Some optimization methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0046\"],\n      \"reason\": \"Source says methods naturally determine high quality descent directions at a cost often cheaper than coordinate-wise approaches.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:31:36.098509+00:00"
+}

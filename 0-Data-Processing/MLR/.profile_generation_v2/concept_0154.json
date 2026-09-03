@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d014abb58d4498fb7e3416a967ff8f08f18d457438c7240dcf5c22f8952c9f72",
+  "concept_id": 154,
+  "concept_name": "batch size",
+  "aliases": [
+    "batch size",
+    "mini-batch size"
+  ],
+  "profile": "batch size: In the mini-batch version, a batch of size 200 is used.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "batch size: In the mini-batch version, a batch of size 200 is used.",
+    "claims": [
+      {
+        "claim": "A batch of size 200 is used in the mini-batch version.",
+        "evidence_ids": [
+          "MLR-E0173"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source only provides an example batch size, not a general definition."
+    ]
+  },
+  "review": {
+    "final_profile": "batch size: In the mini-batch version, a batch of size 200 is used.",
+    "sentence_reviews": [
+      {
+        "sentence": "In the mini-batch version, a batch of size 200 is used.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0173"
+        ],
+        "reason": "The source explicitly mentions using a batch of size 200 for the mini-batch version."
+      }
+    ],
+    "warnings": [
+      "The source only provides an example batch size, not a general definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"batch size: In the mini-batch version, a batch of size 200 is used.\",\n  \"claims\": [\n    {\n      \"claim\": \"A batch of size 200 is used in the mini-batch version.\",\n      \"evidence_ids\": [\"MLR-E0173\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The source only provides an example batch size, not a general definition.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"batch size: In the mini-batch version, a batch of size 200 is used.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In the mini-batch version, a batch of size 200 is used.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0173\"],\n      \"reason\": \"The source explicitly mentions using a batch of size 200 for the mini-batch version.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source only provides an example batch size, not a general definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:26:16.670014+00:00"
+}

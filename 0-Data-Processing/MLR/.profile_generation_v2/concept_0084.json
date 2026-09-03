@@ -1,0 +1,90 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "2783e95ee360f6b1f30ef4418beba9a92476fc8b390693da79b5131d08013829",
+  "concept_id": 84,
+  "concept_name": "least squares cost function",
+  "aliases": [
+    "least squares cost function",
+    "least squares",
+    "least squares cost",
+    "sum of squared errors",
+    "least squares error",
+    "mean squared error"
+  ],
+  "profile": "least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data. This quantity is also referred to as a least squares error measurement.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data. This quantity is also referred to as a least squares error measurement. In some applications, a least squares cost is used together with a softmax cost.",
+    "claims": [
+      {
+        "claim": "It is a popular cost function.",
+        "evidence_ids": [
+          "MLR-E0098"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "For a given set of parameters in w, it computes the total squared error between the associated hyperplane and the data.",
+        "evidence_ids": [
+          "MLR-E0098"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is referred to as a least squares error measurement.",
+        "evidence_ids": [
+          "MLR-E0247"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In some applications, a least squares cost is used together with a softmax cost.",
+        "evidence_ids": [
+          "MLR-E0259"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data. This quantity is also referred to as a least squares error measurement.",
+    "sentence_reviews": [
+      {
+        "sentence": "least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0098"
+        ],
+        "reason": "The source describes the least squares cost function as a popular choice and states that it computes the total squared error between the associated hyperplane and the data for parameters in w."
+      },
+      {
+        "sentence": "This quantity is also referred to as a least squares error measurement.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0247"
+        ],
+        "reason": "The source uses the phrase 'Least Squares error measurement' as a label for this quantity."
+      }
+    ],
+    "warnings": [
+      "Removed the draft's final sentence about using a least squares cost together with a softmax cost, because the supporting evidence only lists them as separate row items, not as jointly used."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data. This quantity is also referred to as a least squares error measurement. In some applications, a least squares cost is used together with a softmax cost.\",\n  \"claims\": [\n    {\n      \"claim\": \"It is a popular cost function.\",\n      \"evidence_ids\": [\"MLR-E0098\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"For a given set of parameters in w, it computes the total squared error between the associated hyperplane and the data.\",\n      \"evidence_ids\": [\"MLR-E0098\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is referred to as a least squares error measurement.\",\n      \"evidence_ids\": [\"MLR-E0247\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In some applications, a least squares cost is used together with a softmax cost.\",\n      \"evidence_ids\": [\"MLR-E0259\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data. This quantity is also referred to as a least squares error measurement.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"least squares cost function: a popular cost function that, for a given set of parameters in w, computes the total squared error between the associated hyperplane and the data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0098\"],\n      \"reason\": \"The source describes the least squares cost function as a popular choice and states that it computes the total squared error between the associated hyperplane and the data for parameters in w.\"\n    },\n    {\n      \"sentence\": \"This quantity is also referred to as a least squares error measurement.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0247\"],\n      \"reason\": \"The source uses the phrase 'Least Squares error measurement' as a label for this quantity.\"\n    }\n  ],\n  \"warnings\": [\n    \"Removed the draft's final sentence about using a least squares cost together with a softmax cost, because the supporting evidence only lists them as separate row items, not as jointly used.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:53:10.753636+00:00"
+}

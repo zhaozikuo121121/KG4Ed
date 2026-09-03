@@ -1,0 +1,2829 @@
+{
+  "version": "1.0.0",
+  "lecture": 2,
+  "pdf_file": "DGL_Lecture_2_Annotated.pdf",
+  "pdf_page": 4,
+  "page_title": "Graph Convolutional Network Layer Mechanics and Graph Classification",
+  "summary": "This page details the mathematical formulation of Graph Convolutional Network (GCN) layers, specifically focusing on the update rules for node embeddings through neighborhood aggregation and linear transformation. It contrasts the 'vanilla' GCN approach with enhanced versions that include learnable self-loops or separate self-transformation weights. The lecture concludes by demonstrating how these sequential layers are utilized for graph-level tasks, such as graph classification, using a readout function and an MLP classifier.",
+  "key_topics": [
+    "graph convolutional network",
+    "message passing",
+    "node embedding",
+    "graph classification",
+    "self-loop augmentation"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T10:22:28+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn",
+        "graph cnn"
+      ],
+      "evidence": "Introducing layer-wise non-linearity and biases into GCN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        5.5,
+        220.0,
+        27.5
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "node representation",
+        "learned embedding",
+        "h_k"
+      ],
+      "evidence": "node embeddings (stored in columns of X)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        110.0,
+        220.0,
+        137.5
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "neighborhood aggregation",
+        "feature aggregation"
+      ],
+      "evidence": "aggregating the neighboring nodes to form a single vector",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        137.5,
+        220.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "linear transformation",
+      "aliases": [
+        "weight matrix",
+        "linear transform",
+        "matrix multiplication"
+      ],
+      "evidence": "applying the same linear transformation Ω0 to the aggregated nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        165.0,
+        220.0,
+        192.5
+      ]
+    },
+    {
+      "canonical": "bias",
+      "aliases": [
+        "offset",
+        "intercept"
+      ],
+      "evidence": "adding these together with a bias β0",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        192.5,
+        220.0,
+        220.0
+      ]
+    },
+    {
+      "canonical": "activation function",
+      "aliases": [
+        "non-linearity",
+        "relu"
+      ],
+      "evidence": "applying a nonlinear activation function a(•) like a ReLU",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        220.0,
+        220.0,
+        247.5
+      ]
+    },
+    {
+      "canonical": "self-loop augmentation",
+      "aliases": [
+        "self-loop",
+        "diagonal enhancement",
+        "identity addition"
+      ],
+      "evidence": "Add a diagonal enhancement",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        247.5,
+        752.5,
+        275.0
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "a",
+        "graph structure"
+      ],
+      "evidence": "Matrix labeled 'A' with handwritten note 'n x n'",
+      "source_type": "mixed",
+      "confidence": 0.98,
+      "bbox": [
+        642.5,
+        412.5,
+        752.5,
+        495.0
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "graph-level task",
+        "graph-level prediction"
+      ],
+      "evidence": "Example: graph classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        560.0,
+        522.5,
+        576.5
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn",
+        "deep graph learning"
+      ],
+      "evidence": "Deep (sequential) node representation learning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        308.0,
+        670.0,
+        412.5,
+        697.5
+      ]
+    },
+    {
+      "canonical": "multilayer perceptron",
+      "aliases": [
+        "mlp",
+        "classifier"
+      ],
+      "evidence": "classifier MLP",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        615.0,
+        697.5,
+        670.0,
+        725.0
+      ]
+    },
+    {
+      "canonical": "network output function",
+      "aliases": [
+        "output prediction",
+        "readout"
+      ],
+      "evidence": "Network output function (output prediction)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        308.0,
+        807.5,
+        467.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "logistic activation",
+      "aliases": [
+        "sigmoid",
+        "sig"
+      ],
+      "evidence": "y = sig [βK + ωK(HK1/N)]",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        450.0,
+        835.0,
+        670.0,
+        862.5
+      ]
+    },
+    {
+      "canonical": "learned weights",
+      "aliases": [
+        "trainable parameters",
+        "omega"
+      ],
+      "evidence": "learned weights",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        308.0,
+        862.5,
+        357.5,
+        879.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k + \\Omega_k H_k A \\right]",
+      "related_concepts": [
+        "graph convolutional network",
+        "node embedding",
+        "linear transformation",
+        "bias",
+        "activation function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        55.0,
+        495.0,
+        110.0
+      ],
+      "label": "Update rule for all nodes"
+    },
+    {
+      "latex": "h_i^{(n)} = a \\left[ \\beta_0 + \\Omega_0 x_i^{(n)} + \\Omega_0 \\text{agg}[n] \\right]",
+      "related_concepts": [
+        "node embedding",
+        "message passing",
+        "linear transformation",
+        "bias",
+        "activation function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        165.0,
+        220.0,
+        192.5
+      ],
+      "label": "Node embedding update rule"
+    },
+    {
+      "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+      "related_concepts": [
+        "message passing"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        330.0,
+        220.0,
+        357.5
+      ],
+      "label": "message (embedding) aggregation across neighbors"
+    },
+    {
+      "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + I) \\right]",
+      "related_concepts": [
+        "graph convolutional network",
+        "message passing",
+        "self-loop augmentation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        154.0,
+        917.5,
+        192.5
+      ],
+      "label": "vanilla GCN update"
+    },
+    {
+      "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + (1 + \\epsilon_k) I) \\right]",
+      "related_concepts": [
+        "graph neural network",
+        "self-loop augmentation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.93,
+      "bbox": [
+        752.5,
+        374.0,
+        917.5,
+        412.5
+      ],
+      "label": "enhanced GCN with learnable self-loop"
+    },
+    {
+      "latex": "H_{k+1} = a [\\beta_k 1^T + \\Psi_k H_k + \\Omega_k H_k A]",
+      "related_concepts": [
+        "message passing",
+        "linear transformation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        642.5,
+        945.0,
+        670.0
+      ],
+      "label": "GNN layer update with separate self-transform"
+    },
+    {
+      "latex": "f[X, A, \\Phi] = \\text{sig} [\\beta_K + \\omega_K (H_K 1/N)]",
+      "related_concepts": [
+        "graph classification",
+        "network output function",
+        "logistic activation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        450.0,
+        807.5,
+        670.0,
+        835.0
+      ],
+      "label": "Graph classification prediction"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Simple Graph CNN layer process showing input graph, node embeddings, aggregation, linear transformation, bias addition, and activation function application.",
+      "related_concepts": [
+        "graph convolutional network",
+        "node embedding",
+        "message passing",
+        "linear transformation",
+        "bias",
+        "activation function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        55.0,
+        220.0,
+        165.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix representation of the GCN update rule showing dimensions and operations.",
+      "related_concepts": [
+        "graph convolutional network",
+        "node embedding",
+        "linear transformation",
+        "bias",
+        "activation function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        110.0,
+        495.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Breakdown of the node embedding update rule into self-encoding and neighborhood encoding components.",
+      "related_concepts": [
+        "node embedding",
+        "message passing"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        275.0,
+        220.0,
+        495.0,
+        385.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Adjacency matrix A with handwritten annotations 'n x n' and 'ncc[n]'",
+      "related_concepts": [
+        "adjacency matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.98,
+      "bbox": [
+        642.5,
+        412.5,
+        752.5,
+        495.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Sequential node representation learning architecture showing layers H1 to HK",
+      "related_concepts": [
+        "graph neural network",
+        "node embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        308.0,
+        670.0,
+        522.5,
+        780.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Graph neural network architecture for graph classification showing combine and classify steps",
+      "related_concepts": [
+        "graph classification",
+        "multilayer perceptron"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        642.5,
+        670.0,
+        725.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing self-transformation and neighborhood transformation in GNN",
+      "related_concepts": [
+        "message passing",
+        "linear transformation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        560.0,
+        890.0,
+        642.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "Ω0",
+      "reason": "Handwritten symbol may be unclear or vary in style.",
+      "bbox": [
+        110.0,
+        192.5,
+        137.5,
+        220.0
+      ]
+    },
+    {
+      "transcription": "β0",
+      "reason": "Handwritten symbol may be unclear or vary in style.",
+      "bbox": [
+        137.5,
+        192.5,
+        165.0,
+        220.0
+      ]
+    },
+    {
+      "transcription": "agg[n]",
+      "reason": "Handwritten text may be unclear or vary in style.",
+      "bbox": [
+        165.0,
+        192.5,
+        192.5,
+        220.0
+      ]
+    },
+    {
+      "transcription": "Naaman's.ttnoue­noasto­",
+      "reason": "Illegible handwritten text near the top left formula, possibly a name or note",
+      "bbox": [
+        587.5,
+        82.5,
+        670.0,
+        99.0
+      ]
+    },
+    {
+      "transcription": "diahann",
+      "reason": "Unclear handwritten word near the formula, possibly 'diagonal' or a name",
+      "bbox": [
+        862.5,
+        209.0,
+        901.0,
+        225.5
+      ]
+    },
+    {
+      "transcription": "ncc[n]",
+      "reason": "Ambiguous annotation under matrix A, possibly 'n x n' or a function",
+      "bbox": [
+        670.0,
+        484.0,
+        697.5,
+        500.5
+      ]
+    },
+    {
+      "transcription": "afsadmits Ifq",
+      "reason": "Illegible handwriting fragment near bottom left, possibly a note or calculation",
+      "bbox": [
+        137.5,
+        807.5,
+        192.5,
+        824.0
+      ]
+    },
+    {
+      "transcription": "sittin",
+      "reason": "Unclear handwritten word near 'Deep (sequential) node representation learning'",
+      "bbox": [
+        275.0,
+        642.5,
+        302.5,
+        653.5
+      ]
+    },
+    {
+      "transcription": "MEEEEE",
+      "reason": "Illegible handwritten text near top right",
+      "bbox": [
+        467.5,
+        532.5,
+        495.0,
+        543.5
+      ]
+    },
+    {
+      "transcription": "É",
+      "reason": "Single character with unclear meaning",
+      "bbox": [
+        440.0,
+        642.5,
+        451.0,
+        653.5
+      ]
+    },
+    {
+      "transcription": "gg",
+      "reason": "Small handwritten letters with unclear context",
+      "bbox": [
+        412.5,
+        532.5,
+        423.5,
+        543.5
+      ]
+    },
+    {
+      "transcription": "Ric H",
+      "reason": "Possibly a name or abbreviation, unclear context",
+      "bbox": [
+        192.5,
+        477.5,
+        220.0,
+        488.5
+      ]
+    },
+    {
+      "transcription": "diahann",
+      "reason": "Unclear handwriting, possibly a name or term related to graph classification",
+      "bbox": [
+        587.5,
+        587.5,
+        642.5,
+        615.0
+      ]
+    },
+    {
+      "transcription": "He i ediction",
+      "reason": "Partially obscured and unclear handwriting",
+      "bbox": [
+        642.5,
+        587.5,
+        697.5,
+        615.0
+      ]
+    },
+    {
+      "transcription": "im ms o an",
+      "reason": "Unclear handwriting, possibly related to embedding dimensions",
+      "bbox": [
+        697.5,
+        587.5,
+        752.5,
+        615.0
+      ]
+    },
+    {
+      "transcription": "Ifq",
+      "reason": "Unclear handwriting at the end of the clipped text",
+      "bbox": [
+        945.0,
+        587.5,
+        972.5,
+        615.0
+      ]
+    },
+    {
+      "transcription": "Section 3 of DGL 1.3",
+      "reason": "Handwritten note referencing a section, but exact content unclear",
+      "bbox": [
+        670.0,
+        835.0,
+        780.0,
+        862.5
+      ]
+    },
+    {
+      "transcription": "0.9",
+      "reason": "Handwritten number, context unclear",
+      "bbox": [
+        615.0,
+        917.5,
+        642.5,
+        945.0
+      ]
+    },
+    {
+      "transcription": "0.9",
+      "reason": "Handwritten number, context unclear",
+      "bbox": [
+        725.0,
+        945.0,
+        752.5,
+        972.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "Introducing layer-wise non-linearity and biases into GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              10,
+              400,
+              50
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation"
+            ],
+            "evidence": "node embeddings (stored in columns of X)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              400,
+              250
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation"
+            ],
+            "evidence": "aggregating the neighboring nodes to form a single vector",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              250,
+              400,
+              300
+            ]
+          },
+          {
+            "canonical": "linear transformation",
+            "aliases": [
+              "weight matrix"
+            ],
+            "evidence": "applying the same linear transformation Ω₀ to the aggregated nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              300,
+              400,
+              350
+            ]
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "offset"
+            ],
+            "evidence": "adding these together with a bias β₀",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              350,
+              400,
+              400
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "non-linearity"
+            ],
+            "evidence": "applying a nonlinear activation function a(•) like a ReLU",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              400,
+              400,
+              450
+            ]
+          },
+          {
+            "canonical": "self-encoding",
+            "aliases": [
+              "self-loop"
+            ],
+            "evidence": "self-encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              500,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "neighborhood encoding",
+            "aliases": [
+              "neighbor aggregation"
+            ],
+            "evidence": "neighborhood encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              600,
+              600,
+              650
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k + \\Omega_k H_k A \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              100,
+              900,
+              200
+            ],
+            "label": "Update rule for all nodes"
+          },
+          {
+            "latex": "h_i^{(n)} = a \\left[ \\beta_0 + \\Omega_0 x_i^{(n)} + \\Omega_0 \\text{agg}[n] \\right]",
+            "related_concepts": [
+              "node embedding",
+              "message passing",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              300,
+              400,
+              350
+            ],
+            "label": "Node embedding update rule"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "message passing",
+              "neighborhood aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              600,
+              400,
+              650
+            ],
+            "label": "message (embedding) aggregation across neighbors"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a \\left[ \\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "message passing",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              700,
+              400,
+              750
+            ],
+            "label": "Node embedding update rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Simple Graph CNN layer process showing input graph, node embeddings, aggregation, linear transformation, bias addition, and activation function application.",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "message passing",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              400,
+              300
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix representation of the GCN update rule showing dimensions and operations.",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              200,
+              900,
+              400
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Breakdown of the node embedding update rule into self-encoding and neighborhood encoding components.",
+            "related_concepts": [
+              "node embedding",
+              "self-encoding",
+              "neighborhood encoding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              400,
+              900,
+              700
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Ω₀",
+            "reason": "Handwritten symbol may be unclear or vary in style.",
+            "bbox": [
+              200,
+              350,
+              250,
+              400
+            ]
+          },
+          {
+            "transcription": "β₀",
+            "reason": "Handwritten symbol may be unclear or vary in style.",
+            "bbox": [
+              250,
+              350,
+              300,
+              400
+            ]
+          },
+          {
+            "transcription": "agg[n]",
+            "reason": "Handwritten text may be unclear or vary in style.",
+            "bbox": [
+              300,
+              350,
+              350,
+              400
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"Introducing layer-wise non-linearity and biases into GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 10, 400, 50]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node representation\"],\n      \"evidence\": \"node embeddings (stored in columns of X)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 400, 250]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"neighborhood aggregation\"],\n      \"evidence\": \"aggregating the neighboring nodes to form a single vector\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 250, 400, 300]\n    },\n    {\n      \"canonical\": \"linear transformation\",\n      \"aliases\": [\"weight matrix\"],\n      \"evidence\": \"applying the same linear transformation Ω₀ to the aggregated nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 300, 400, 350]\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"offset\"],\n      \"evidence\": \"adding these together with a bias β₀\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 350, 400, 400]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"non-linearity\"],\n      \"evidence\": \"applying a nonlinear activation function a(•) like a ReLU\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 400, 400, 450]\n    },\n    {\n      \"canonical\": \"self-encoding\",\n      \"aliases\": [\"self-loop\"],\n      \"evidence\": \"self-encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 500, 600, 550]\n    },\n    {\n      \"canonical\": \"neighborhood encoding\",\n      \"aliases\": [\"neighbor aggregation\"],\n      \"evidence\": \"neighborhood encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 600, 600, 650]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k + \\\\Omega_k H_k A \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"node embedding\", \"linear transformation\", \"bias\", \"activation function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 100, 900, 200],\n      \"label\": \"Update rule for all nodes\"\n    },\n    {\n      \"latex\": \"h_i^{(n)} = a \\\\left[ \\\\beta_0 + \\\\Omega_0 x_i^{(n)} + \\\\Omega_0 \\\\text{agg}[n] \\\\right]\",\n      \"related_concepts\": [\"node embedding\", \"message passing\", \"linear transformation\", \"bias\", \"activation function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 300, 400, 350],\n      \"label\": \"Node embedding update rule\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\"message passing\", \"neighborhood aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 600, 400, 650],\n      \"label\": \"message (embedding) aggregation across neighbors\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"node embedding\", \"message passing\", \"linear transformation\", \"bias\", \"activation function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 700, 400, 750],\n      \"label\": \"Node embedding update rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Simple Graph CNN layer process showing input graph, node embeddings, aggregation, linear transformation, bias addition, and activation function application.\",\n      \"related_concepts\": [\"graph convolutional network\", \"node embedding\", \"message passing\", \"linear transformation\", \"bias\", \"activation function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 400, 300]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix representation of the GCN update rule showing dimensions and operations.\",\n      \"related_concepts\": [\"graph convolutional network\", \"node embedding\", \"linear transformation\", \"bias\", \"activation function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 200, 900, 400]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Breakdown of the node embedding update rule into self-encoding and neighborhood encoding components.\",\n      \"related_concepts\": [\"node embedding\", \"self-encoding\", \"neighborhood encoding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 400, 900, 700]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Ω₀\",\n      \"reason\": \"Handwritten symbol may be unclear or vary in style.\",\n      \"bbox\": [200, 350, 250, 400]\n    },\n    {\n      \"transcription\": \"β₀\",\n      \"reason\": \"Handwritten symbol may be unclear or vary in style.\",\n      \"bbox\": [250, 350, 300, 400]\n    },\n    {\n      \"transcription\": \"agg[n]\",\n      \"reason\": \"Handwritten text may be unclear or vary in style.\",\n      \"bbox\": [300, 350, 350, 400]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn",
+              "vanilla gcn"
+            ],
+            "evidence": "Handwritten note 'vanilla GCN' pointing to the formula with (A+I)",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              680,
+              320,
+              850,
+              360
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation"
+            ],
+            "evidence": "Printed text 'How to combine the current node and aggregated neighbors?' and handwritten 'agg neighbors nodes for each node'",
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              520,
+              120,
+              950,
+              250
+            ]
+          },
+          {
+            "canonical": "self-loop",
+            "aliases": [
+              "diagonal enhancement",
+              "identity matrix addition"
+            ],
+            "evidence": "Printed heading 'Add a diagonal enhancement' and formula term (A + I)",
+            "source_type": "mixed",
+            "confidence": 0.99,
+            "bbox": [
+              520,
+              580,
+              950,
+              750
+            ]
+          },
+          {
+            "canonical": "learnable scalar",
+            "aliases": [
+              "epsilon parameter",
+              "self-aggregation weight"
+            ],
+            "evidence": "Handwritten note 'epsilon to learn for each layer k' pointing to epsilon_k in the formula",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              820,
+              780,
+              950,
+              850
+            ]
+          },
+          {
+            "canonical": "matrix multiplication",
+            "aliases": [
+              "linear transform"
+            ],
+            "evidence": "Visual diagram showing matrix dimensions d_k+1 x n, d_k+1 x d_k, and d_k x n",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              350,
+              450,
+              550
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "relu"
+            ],
+            "evidence": "Handwritten text 'Relu' with arrow pointing to the output matrix",
+            "source_type": "handwritten",
+            "confidence": 0.92,
+            "bbox": [
+              380,
+              320,
+              450,
+              380
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "A",
+              "graph structure"
+            ],
+            "evidence": "Matrix labeled 'A' with handwritten note 'n x n' and 'ncc[n]'",
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              350,
+              750,
+              550,
+              900
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "H_k",
+              "feature matrix"
+            ],
+            "evidence": "Matrix labeled 'H_k' with dimensions d_k x n",
+            "source_type": "mixed",
+            "confidence": 0.97,
+            "bbox": [
+              250,
+              600,
+              350,
+              850
+            ]
+          },
+          {
+            "canonical": "graph neural network layer",
+            "aliases": [
+              "gcn layer",
+              "message passing layer"
+            ],
+            "evidence": "Formula H_{k+1} = ... representing layer update",
+            "source_type": "mixed",
+            "confidence": 0.96,
+            "bbox": [
+              550,
+              280,
+              850,
+              350
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + I) \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "message passing",
+              "self-loop"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              280,
+              850,
+              350
+            ],
+            "label": "vanilla GCN update"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + (1 + \\epsilon_k) I) \\right]",
+            "related_concepts": [
+              "graph neural network layer",
+              "learnable scalar",
+              "self-loop"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.93,
+            "bbox": [
+              550,
+              680,
+              850,
+              750
+            ],
+            "label": "enhanced GCN with learnable self-loop"
+          },
+          {
+            "latex": "1^T + \\Omega_k H_k (A + I)",
+            "related_concepts": [
+              "message passing",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              120,
+              350,
+              200
+            ],
+            "label": "aggregation step"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing input embedding size, nodes, and output embedding size with dimensions d_k+1 x n, d_k+1 x d_k, and d_k x n",
+            "related_concepts": [
+              "matrix multiplication",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              350,
+              450,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph with nodes and edges, annotated with epsilon values (0.7) and self-aggregation labels",
+            "related_concepts": [
+              "self-loop",
+              "learnable scalar"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.92,
+            "bbox": [
+              650,
+              550,
+              850,
+              650
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A with handwritten annotations 'n x n' and 'ncc[n]'",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              350,
+              750,
+              550,
+              900
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "GCN layer architecture showing input H_k, transformation Omega_k, adjacency A, and output H_{k+1}",
+            "related_concepts": [
+              "graph neural network layer",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.96,
+            "bbox": [
+              50,
+              100,
+              550,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Naaman's.ttnoue­noasto­",
+            "reason": "Illegible handwritten text near the top left formula, possibly a name or note",
+            "bbox": [
+              250,
+              150,
+              400,
+              180
+            ]
+          },
+          {
+            "transcription": "diahann",
+            "reason": "Unclear handwritten word near the formula, possibly 'diagonal' or a name",
+            "bbox": [
+              750,
+              380,
+              820,
+              410
+            ]
+          },
+          {
+            "transcription": "ncc[n]",
+            "reason": "Ambiguous annotation under matrix A, possibly 'n x n' or a function",
+            "bbox": [
+              400,
+              880,
+              450,
+              910
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\", \"vanilla gcn\"],\n      \"evidence\": \"Handwritten note 'vanilla GCN' pointing to the formula with (A+I)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [680, 320, 850, 360]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"neighborhood aggregation\"],\n      \"evidence\": \"Printed text 'How to combine the current node and aggregated neighbors?' and handwritten 'agg neighbors nodes for each node'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [520, 120, 950, 250]\n    },\n    {\n      \"canonical\": \"self-loop\",\n      \"aliases\": [\"diagonal enhancement\", \"identity matrix addition\"],\n      \"evidence\": \"Printed heading 'Add a diagonal enhancement' and formula term (A + I)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.99,\n      \"bbox\": [520, 580, 950, 750]\n    },\n    {\n      \"canonical\": \"learnable scalar\",\n      \"aliases\": [\"epsilon parameter\", \"self-aggregation weight\"],\n      \"evidence\": \"Handwritten note 'epsilon to learn for each layer k' pointing to epsilon_k in the formula\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.90,\n      \"bbox\": [820, 780, 950, 850]\n    },\n    {\n      \"canonical\": \"matrix multiplication\",\n      \"aliases\": [\"linear transform\"],\n      \"evidence\": \"Visual diagram showing matrix dimensions d_k+1 x n, d_k+1 x d_k, and d_k x n\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 350, 450, 550]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"relu\"],\n      \"evidence\": \"Handwritten text 'Relu' with arrow pointing to the output matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.92,\n      \"bbox\": [380, 320, 450, 380]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"A\", \"graph structure\"],\n      \"evidence\": \"Matrix labeled 'A' with handwritten note 'n x n' and 'ncc[n]'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [350, 750, 550, 900]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"H_k\", \"feature matrix\"],\n      \"evidence\": \"Matrix labeled 'H_k' with dimensions d_k x n\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.97,\n      \"bbox\": [250, 600, 350, 850]\n    },\n    {\n      \"canonical\": \"graph neural network layer\",\n      \"aliases\": [\"gcn layer\", \"message passing layer\"],\n      \"evidence\": \"Formula H_{k+1} = ... representing layer update\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.96,\n      \"bbox\": [550, 280, 850, 350]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (A + I) \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"message passing\", \"self-loop\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 280, 850, 350],\n      \"label\": \"vanilla GCN update\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (A + (1 + \\\\epsilon_k) I) \\\\right]\",\n      \"related_concepts\": [\"graph neural network layer\", \"learnable scalar\", \"self-loop\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.93,\n      \"bbox\": [550, 680, 850, 750],\n      \"label\": \"enhanced GCN with learnable self-loop\"\n    },\n    {\n      \"latex\": \"1^T + \\\\Omega_k H_k (A + I)\",\n      \"related_concepts\": [\"message passing\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.90,\n      \"bbox\": [50, 120, 350, 200],\n      \"label\": \"aggregation step\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing input embedding size, nodes, and output embedding size with dimensions d_k+1 x n, d_k+1 x d_k, and d_k x n\",\n      \"related_concepts\": [\"matrix multiplication\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 350, 450, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph with nodes and edges, annotated with epsilon values (0.7) and self-aggregation labels\",\n      \"related_concepts\": [\"self-loop\", \"learnable scalar\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.92,\n      \"bbox\": [650, 550, 850, 650]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A with handwritten annotations 'n x n' and 'ncc[n]'\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [350, 750, 550, 900]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"GCN layer architecture showing input H_k, transformation Omega_k, adjacency A, and output H_{k+1}\",\n      \"related_concepts\": [\"graph neural network layer\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.96,\n      \"bbox\": [50, 100, 550, 900]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Naaman's.ttnoue­noasto­\",\n      \"reason\": \"Illegible handwritten text near the top left formula, possibly a name or note\",\n      \"bbox\": [250, 150, 400, 180]\n    },\n    {\n      \"transcription\": \"diahann\",\n      \"reason\": \"Unclear handwritten word near the formula, possibly 'diagonal' or a name\",\n      \"bbox\": [750, 380, 820, 410]\n    },\n    {\n      \"transcription\": \"ncc[n]\",\n      \"reason\": \"Ambiguous annotation under matrix A, possibly 'n x n' or a function\",\n      \"bbox\": [400, 880, 450, 910]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "deep graph learning"
+            ],
+            "evidence": "Deep (sequential) node representation learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              400,
+              750,
+              450
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation"
+            ],
+            "evidence": "neighborhood aggregation",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              150,
+              450,
+              180
+            ]
+          },
+          {
+            "canonical": "self-update",
+            "aliases": [
+              "self-loop"
+            ],
+            "evidence": "self-update self-aggr.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              150,
+              300,
+              180
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "learned embedding",
+              "node representation"
+            ],
+            "evidence": "learned embedding of node n in layer (k+1)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              100,
+              150,
+              150
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level task"
+            ],
+            "evidence": "Example: graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              200,
+              950,
+              230
+            ]
+          },
+          {
+            "canonical": "network output function",
+            "aliases": [
+              "output prediction",
+              "readout"
+            ],
+            "evidence": "Network output function (output prediction)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              650,
+              850,
+              680
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "trainable parameters"
+            ],
+            "evidence": "learned weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              750,
+              650,
+              780
+            ]
+          },
+          {
+            "canonical": "input embedding size",
+            "aliases": [
+              "input dimension",
+              "d_k"
+            ],
+            "evidence": "input embedding size",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              200,
+              400,
+              230
+            ]
+          },
+          {
+            "canonical": "output embedding size",
+            "aliases": [
+              "output dimension",
+              "d_{k+1}"
+            ],
+            "evidence": "output embedding size",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              250,
+              200,
+              350
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_{k+1}^{(n)} = a \\left[ \\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "graph neural network",
+              "message passing",
+              "self-update",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              20,
+              450,
+              120
+            ],
+            "label": "GNN layer update rule"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a \\left[ \\begin{array}{c} \\text{output embedding size} \\\\ d_{k+1} \\times 1 \\end{array} \\right] + \\left[ \\begin{array}{ccc} \\text{output embedding size} & \\cdots & \\text{output embedding size} \\\\ d_{k+1} \\times d_k \\end{array} \\right] \\times \\left[ \\begin{array}{c} h_k^{(n)} \\\\ d_k \\times 1 \\end{array} \\right]",
+            "related_concepts": [
+              "node embedding",
+              "input embedding size",
+              "output embedding size",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              250,
+              450,
+              550
+            ],
+            "label": "Matrix form of GNN update"
+          },
+          {
+            "latex": "H_1 = a \\left[ \\beta_0 1^T + \\Omega_0 X(A) \\right]",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              450,
+              950,
+              480
+            ],
+            "label": "Layer 1 computation"
+          },
+          {
+            "latex": "H_2 = a \\left[ \\beta_1 1^T + \\Omega_1 H_1(A) \\right]",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              480,
+              950,
+              510
+            ],
+            "label": "Layer 2 computation"
+          },
+          {
+            "latex": "H_K = a \\left[ \\beta_{K-1} 1^T + \\Omega_{K-1} H_{K-1}(A) \\right]",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              550,
+              950,
+              580
+            ],
+            "label": "Layer K computation"
+          },
+          {
+            "latex": "f[X, A, \\Phi] =",
+            "related_concepts": [
+              "network output function",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              650,
+              900,
+              680
+            ],
+            "label": "Output function"
+          },
+          {
+            "latex": "y = \\text{sig}",
+            "related_concepts": [
+              "network output function",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 0.8,
+            "bbox": [
+              900,
+              700,
+              950,
+              720
+            ],
+            "label": "Prediction"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing input embedding size, output embedding size, and learned weights Omega_k transforming node embeddings",
+            "related_concepts": [
+              "node embedding",
+              "input embedding size",
+              "output embedding size",
+              "learned weights",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              250,
+              450,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two graph examples showing nodes with embeddings for graph classification task",
+            "related_concepts": [
+              "graph classification",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              250,
+              850,
+              400
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Sequential node representation learning architecture showing layers H1 to HK",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding",
+              "deep graph learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              400,
+              950,
+              600
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn graph with highlighted node n and its neighbors, illustrating neighborhood aggregation",
+            "related_concepts": [
+              "message passing",
+              "neighborhood aggregation",
+              "node embedding"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              450,
+              200,
+              650
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of node embeddings H_K with dimensions embedding size x nodes",
+            "related_concepts": [
+              "node embedding",
+              "output embedding size"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              750,
+              950,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "afsadmits Ifq",
+            "reason": "Illegible handwriting fragment near bottom left, possibly a note or calculation",
+            "bbox": [
+              250,
+              650,
+              350,
+              680
+            ]
+          },
+          {
+            "transcription": "sittin",
+            "reason": "Unclear handwritten word near 'Deep (sequential) node representation learning'",
+            "bbox": [
+              500,
+              350,
+              550,
+              370
+            ]
+          },
+          {
+            "transcription": "MEEEEE",
+            "reason": "Illegible handwritten text near top right",
+            "bbox": [
+              850,
+              150,
+              900,
+              170
+            ]
+          },
+          {
+            "transcription": "É",
+            "reason": "Single character with unclear meaning",
+            "bbox": [
+              800,
+              350,
+              820,
+              370
+            ]
+          },
+          {
+            "transcription": "gg",
+            "reason": "Small handwritten letters with unclear context",
+            "bbox": [
+              750,
+              150,
+              770,
+              170
+            ]
+          },
+          {
+            "transcription": "Ric H",
+            "reason": "Possibly a name or abbreviation, unclear context",
+            "bbox": [
+              350,
+              50,
+              400,
+              70
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\", \"deep graph learning\"],\n      \"evidence\": \"Deep (sequential) node representation learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 400, 750, 450]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"neighborhood aggregation\"],\n      \"evidence\": \"neighborhood aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 150, 450, 180]\n    },\n    {\n      \"canonical\": \"self-update\",\n      \"aliases\": [\"self-loop\"],\n      \"evidence\": \"self-update self-aggr.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 150, 300, 180]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"learned embedding\", \"node representation\"],\n      \"evidence\": \"learned embedding of node n in layer (k+1)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 100, 150, 150]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level task\"],\n      \"evidence\": \"Example: graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 200, 950, 230]\n    },\n    {\n      \"canonical\": \"network output function\",\n      \"aliases\": [\"output prediction\", \"readout\"],\n      \"evidence\": \"Network output function (output prediction)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 650, 850, 680]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"trainable parameters\"],\n      \"evidence\": \"learned weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 750, 650, 780]\n    },\n    {\n      \"canonical\": \"input embedding size\",\n      \"aliases\": [\"input dimension\", \"d_k\"],\n      \"evidence\": \"input embedding size\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 200, 400, 230]\n    },\n    {\n      \"canonical\": \"output embedding size\",\n      \"aliases\": [\"output dimension\", \"d_{k+1}\"],\n      \"evidence\": \"output embedding size\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 250, 200, 350]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"graph neural network\", \"message passing\", \"self-update\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 20, 450, 120],\n      \"label\": \"GNN layer update rule\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a \\\\left[ \\\\begin{array}{c} \\\\text{output embedding size} \\\\\\\\ d_{k+1} \\\\times 1 \\\\end{array} \\\\right] + \\\\left[ \\\\begin{array}{ccc} \\\\text{output embedding size} & \\\\cdots & \\\\text{output embedding size} \\\\\\\\ d_{k+1} \\\\times d_k \\\\end{array} \\\\right] \\\\times \\\\left[ \\\\begin{array}{c} h_k^{(n)} \\\\\\\\ d_k \\\\times 1 \\\\end{array} \\\\right]\",\n      \"related_concepts\": [\"node embedding\", \"input embedding size\", \"output embedding size\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 250, 450, 550],\n      \"label\": \"Matrix form of GNN update\"\n    },\n    {\n      \"latex\": \"H_1 = a \\\\left[ \\\\beta_0 1^T + \\\\Omega_0 X(A) \\\\right]\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 450, 950, 480],\n      \"label\": \"Layer 1 computation\"\n    },\n    {\n      \"latex\": \"H_2 = a \\\\left[ \\\\beta_1 1^T + \\\\Omega_1 H_1(A) \\\\right]\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 480, 950, 510],\n      \"label\": \"Layer 2 computation\"\n    },\n    {\n      \"latex\": \"H_K = a \\\\left[ \\\\beta_{K-1} 1^T + \\\\Omega_{K-1} H_{K-1}(A) \\\\right]\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 550, 950, 580],\n      \"label\": \"Layer K computation\"\n    },\n    {\n      \"latex\": \"f[X, A, \\\\Phi] =\",\n      \"related_concepts\": [\"network output function\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 650, 900, 680],\n      \"label\": \"Output function\"\n    },\n    {\n      \"latex\": \"y = \\\\text{sig}\",\n      \"related_concepts\": [\"network output function\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.8,\n      \"bbox\": [900, 700, 950, 720],\n      \"label\": \"Prediction\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing input embedding size, output embedding size, and learned weights Omega_k transforming node embeddings\",\n      \"related_concepts\": [\"node embedding\", \"input embedding size\", \"output embedding size\", \"learned weights\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 250, 450, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two graph examples showing nodes with embeddings for graph classification task\",\n      \"related_concepts\": [\"graph classification\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 250, 850, 400]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Sequential node representation learning architecture showing layers H1 to HK\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\", \"deep graph learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 400, 950, 600]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn graph with highlighted node n and its neighbors, illustrating neighborhood aggregation\",\n      \"related_concepts\": [\"message passing\", \"neighborhood aggregation\", \"node embedding\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 450, 200, 650]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of node embeddings H_K with dimensions embedding size x nodes\",\n      \"related_concepts\": [\"node embedding\", \"output embedding size\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 750, 950, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"afsadmits Ifq\",\n      \"reason\": \"Illegible handwriting fragment near bottom left, possibly a note or calculation\",\n      \"bbox\": [250, 650, 350, 680]\n    },\n    {\n      \"transcription\": \"sittin\",\n      \"reason\": \"Unclear handwritten word near 'Deep (sequential) node representation learning'\",\n      \"bbox\": [500, 350, 550, 370]\n    },\n    {\n      \"transcription\": \"MEEEEE\",\n      \"reason\": \"Illegible handwritten text near top right\",\n      \"bbox\": [850, 150, 900, 170]\n    },\n    {\n      \"transcription\": \"É\",\n      \"reason\": \"Single character with unclear meaning\",\n      \"bbox\": [800, 350, 820, 370]\n    },\n    {\n      \"transcription\": \"gg\",\n      \"reason\": \"Small handwritten letters with unclear context\",\n      \"bbox\": [750, 150, 770, 170]\n    },\n    {\n      \"transcription\": \"Ric H\",\n      \"reason\": \"Possibly a name or abbreviation, unclear context\",\n      \"bbox\": [350, 50, 400, 70]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level prediction"
+            ],
+            "evidence": "Example: graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              250,
+              250,
+              300
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Graph neural network",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              350,
+              50,
+              400
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation"
+            ],
+            "evidence": "neighborhood transformation via Ωk",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              250,
+              900,
+              300
+            ]
+          },
+          {
+            "canonical": "self-transformation",
+            "aliases": [
+              "node self-update"
+            ],
+            "evidence": "self-transformation via Ψk",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              250,
+              750,
+              300
+            ]
+          },
+          {
+            "canonical": "linear transform",
+            "aliases": [
+              "linear transformation"
+            ],
+            "evidence": "applying a different linear transform Ψk to the current node",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              150,
+              900,
+              200
+            ]
+          },
+          {
+            "canonical": "embedding",
+            "aliases": [
+              "node embedding",
+              "graph embedding"
+            ],
+            "evidence": "input embedding",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              150,
+              100
+            ]
+          },
+          {
+            "canonical": "classifier",
+            "aliases": [
+              "prediction head"
+            ],
+            "evidence": "classifier MLP",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              450,
+              400,
+              500
+            ]
+          },
+          {
+            "canonical": "multilayer perceptron",
+            "aliases": [
+              "MLP"
+            ],
+            "evidence": "classifier MLP",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              450,
+              400,
+              500
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "non-linearity"
+            ],
+            "evidence": "nonlinear layers",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              450,
+              450,
+              550,
+              500
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [
+              "sig"
+            ],
+            "evidence": "y = sig [βK + ωK(HK1/N)]",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              700,
+              400,
+              750
+            ]
+          },
+          {
+            "canonical": "graph representation learning",
+            "aliases": [
+              "graph embedding learning"
+            ],
+            "evidence": "good representation of all graphs / nodes",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              400,
+              750,
+              600,
+              800
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = a [\\beta_k 1^T + \\Psi_k H_k + \\Omega_k H_k A]",
+            "related_concepts": [
+              "message passing",
+              "self-transformation",
+              "linear transform"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              350,
+              900,
+              400
+            ],
+            "label": "GNN layer update"
+          },
+          {
+            "latex": "H_{k+1} = a [\\beta_k 1^T + [\\Omega_k \\ \\Psi_k] \\begin{bmatrix} H_k A \\\\ H_k \\end{bmatrix}]",
+            "related_concepts": [
+              "message passing",
+              "self-transformation",
+              "linear transform"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              400,
+              900,
+              450
+            ],
+            "label": "GNN layer update (matrix form)"
+          },
+          {
+            "latex": "H_{k+1} = a [\\beta_k 1^T + \\Omega'_k \\begin{bmatrix} H_k A \\\\ H_k \\end{bmatrix}]",
+            "related_concepts": [
+              "message passing",
+              "self-transformation",
+              "linear transform"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              450,
+              900,
+              500
+            ],
+            "label": "GNN layer update (combined transform)"
+          },
+          {
+            "latex": "f[X, A, \\Phi] = \\text{sig} [\\beta_K + \\omega_K (H_K 1/N)]",
+            "related_concepts": [
+              "graph classification",
+              "sigmoid function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              650,
+              400,
+              700
+            ],
+            "label": "Graph classification prediction"
+          },
+          {
+            "latex": "y = \\text{sig} [\\beta_K + \\omega_K (H_K 1/N)]",
+            "related_concepts": [
+              "graph classification",
+              "sigmoid function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              700,
+              400,
+              750
+            ],
+            "label": "Final prediction"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Example graph with 6 nodes for graph classification",
+            "related_concepts": [
+              "graph classification",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              200,
+              500
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Graph neural network architecture for graph classification showing combine and classify steps",
+            "related_concepts": [
+              "graph classification",
+              "classifier",
+              "multilayer perceptron"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              350,
+              400,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing self-transformation and neighborhood transformation in GNN",
+            "related_concepts": [
+              "message passing",
+              "self-transformation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              200,
+              800,
+              350
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "MLP classifier diagram with nonlinear layers",
+            "related_concepts": [
+              "classifier",
+              "multilayer perceptron",
+              "activation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              400,
+              450,
+              550,
+              550
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of graph embeddings HK with nodes and embedding size",
+            "related_concepts": [
+              "embedding",
+              "graph representation learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              800,
+              200,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "diahann",
+            "reason": "Unclear handwriting, possibly a name or term related to graph classification",
+            "bbox": [
+              250,
+              250,
+              350,
+              300
+            ]
+          },
+          {
+            "transcription": "He i ediction",
+            "reason": "Partially obscured and unclear handwriting",
+            "bbox": [
+              350,
+              250,
+              450,
+              300
+            ]
+          },
+          {
+            "transcription": "im ms o an",
+            "reason": "Unclear handwriting, possibly related to embedding dimensions",
+            "bbox": [
+              450,
+              250,
+              550,
+              300
+            ]
+          },
+          {
+            "transcription": "Ifq",
+            "reason": "Unclear handwriting at the end of the clipped text",
+            "bbox": [
+              900,
+              250,
+              950,
+              300
+            ]
+          },
+          {
+            "transcription": "Section 3 of DGL 1.3",
+            "reason": "Handwritten note referencing a section, but exact content unclear",
+            "bbox": [
+              400,
+              700,
+              600,
+              750
+            ]
+          },
+          {
+            "transcription": "0.9",
+            "reason": "Handwritten number, context unclear",
+            "bbox": [
+              300,
+              850,
+              350,
+              900
+            ]
+          },
+          {
+            "transcription": "0.9",
+            "reason": "Handwritten number, context unclear",
+            "bbox": [
+              500,
+              900,
+              550,
+              950
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level prediction\"],\n      \"evidence\": \"Example: graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 250, 250, 300]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Graph neural network\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 350, 50, 400]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"neighborhood aggregation\"],\n      \"evidence\": \"neighborhood transformation via Ωk\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 250, 900, 300]\n    },\n    {\n      \"canonical\": \"self-transformation\",\n      \"aliases\": [\"node self-update\"],\n      \"evidence\": \"self-transformation via Ψk\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 250, 750, 300]\n    },\n    {\n      \"canonical\": \"linear transform\",\n      \"aliases\": [\"linear transformation\"],\n      \"evidence\": \"applying a different linear transform Ψk to the current node\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 150, 900, 200]\n    },\n    {\n      \"canonical\": \"embedding\",\n      \"aliases\": [\"node embedding\", \"graph embedding\"],\n      \"evidence\": \"input embedding\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 150, 100]\n    },\n    {\n      \"canonical\": \"classifier\",\n      \"aliases\": [\"prediction head\"],\n      \"evidence\": \"classifier MLP\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 450, 400, 500]\n    },\n    {\n      \"canonical\": \"multilayer perceptron\",\n      \"aliases\": [\"MLP\"],\n      \"evidence\": \"classifier MLP\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 450, 400, 500]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"non-linearity\"],\n      \"evidence\": \"nonlinear layers\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [450, 450, 550, 500]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [\"sig\"],\n      \"evidence\": \"y = sig [βK + ωK(HK1/N)]\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 700, 400, 750]\n    },\n    {\n      \"canonical\": \"graph representation learning\",\n      \"aliases\": [\"graph embedding learning\"],\n      \"evidence\": \"good representation of all graphs / nodes\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [400, 750, 600, 800]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = a [\\\\beta_k 1^T + \\\\Psi_k H_k + \\\\Omega_k H_k A]\",\n      \"related_concepts\": [\"message passing\", \"self-transformation\", \"linear transform\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 350, 900, 400],\n      \"label\": \"GNN layer update\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a [\\\\beta_k 1^T + [\\\\Omega_k \\\\ \\\\Psi_k] \\\\begin{bmatrix} H_k A \\\\\\\\ H_k \\\\end{bmatrix}]\",\n      \"related_concepts\": [\"message passing\", \"self-transformation\", \"linear transform\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 400, 900, 450],\n      \"label\": \"GNN layer update (matrix form)\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a [\\\\beta_k 1^T + \\\\Omega'_k \\\\begin{bmatrix} H_k A \\\\\\\\ H_k \\\\end{bmatrix}]\",\n      \"related_concepts\": [\"message passing\", \"self-transformation\", \"linear transform\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 450, 900, 500],\n      \"label\": \"GNN layer update (combined transform)\"\n    },\n    {\n      \"latex\": \"f[X, A, \\\\Phi] = \\\\text{sig} [\\\\beta_K + \\\\omega_K (H_K 1/N)]\",\n      \"related_concepts\": [\"graph classification\", \"sigmoid function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 650, 400, 700],\n      \"label\": \"Graph classification prediction\"\n    },\n    {\n      \"latex\": \"y = \\\\text{sig} [\\\\beta_K + \\\\omega_K (H_K 1/N)]\",\n      \"related_concepts\": [\"graph classification\", \"sigmoid function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 700, 400, 750],\n      \"label\": \"Final prediction\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graph with 6 nodes for graph classification\",\n      \"related_concepts\": [\"graph classification\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 200, 500]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph neural network architecture for graph classification showing combine and classify steps\",\n      \"related_concepts\": [\"graph classification\", \"classifier\", \"multilayer perceptron\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 350, 400, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing self-transformation and neighborhood transformation in GNN\",\n      \"related_concepts\": [\"message passing\", \"self-transformation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 200, 800, 350]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"MLP classifier diagram with nonlinear layers\",\n      \"related_concepts\": [\"classifier\", \"multilayer perceptron\", \"activation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [400, 450, 550, 550]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of graph embeddings HK with nodes and embedding size\",\n      \"related_concepts\": [\"embedding\", \"graph representation learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 800, 200, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"diahann\",\n      \"reason\": \"Unclear handwriting, possibly a name or term related to graph classification\",\n      \"bbox\": [250, 250, 350, 300]\n    },\n    {\n      \"transcription\": \"He i ediction\",\n      \"reason\": \"Partially obscured and unclear handwriting\",\n      \"bbox\": [350, 250, 450, 300]\n    },\n    {\n      \"transcription\": \"im ms o an\",\n      \"reason\": \"Unclear handwriting, possibly related to embedding dimensions\",\n      \"bbox\": [450, 250, 550, 300]\n    },\n    {\n      \"transcription\": \"Ifq\",\n      \"reason\": \"Unclear handwriting at the end of the clipped text\",\n      \"bbox\": [900, 250, 950, 300]\n    },\n    {\n      \"transcription\": \"Section 3 of DGL 1.3\",\n      \"reason\": \"Handwritten note referencing a section, but exact content unclear\",\n      \"bbox\": [400, 700, 600, 750]\n    },\n    {\n      \"transcription\": \"0.9\",\n      \"reason\": \"Handwritten number, context unclear\",\n      \"bbox\": [300, 850, 350, 900]\n    },\n    {\n      \"transcription\": \"0.9\",\n      \"reason\": \"Handwritten number, context unclear\",\n      \"bbox\": [500, 900, 550, 950]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Convolutional Network Layer Mechanics and Graph Classification",
+        "summary": "This page details the mathematical formulation of Graph Convolutional Network (GCN) layers, specifically focusing on the update rules for node embeddings through neighborhood aggregation and linear transformation. It contrasts the 'vanilla' GCN approach with enhanced versions that include learnable self-loops or separate self-transformation weights. The lecture concludes by demonstrating how these sequential layers are utilized for graph-level tasks, such as graph classification, using a readout function and an MLP classifier.",
+        "key_topics": [
+          "graph convolutional network",
+          "message passing",
+          "node embedding",
+          "graph classification",
+          "self-loop augmentation"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn",
+              "graph cnn"
+            ],
+            "evidence": "Introducing layer-wise non-linearity and biases into GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              5.5,
+              220.0,
+              27.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation",
+              "learned embedding",
+              "h_k"
+            ],
+            "evidence": "node embeddings (stored in columns of X)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              110.0,
+              220.0,
+              137.5
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation",
+              "feature aggregation"
+            ],
+            "evidence": "aggregating the neighboring nodes to form a single vector",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              137.5,
+              220.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "linear transformation",
+            "aliases": [
+              "weight matrix",
+              "linear transform",
+              "matrix multiplication"
+            ],
+            "evidence": "applying the same linear transformation Ω0 to the aggregated nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              165.0,
+              220.0,
+              192.5
+            ]
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "offset",
+              "intercept"
+            ],
+            "evidence": "adding these together with a bias β0",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              192.5,
+              220.0,
+              220.0
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "non-linearity",
+              "relu"
+            ],
+            "evidence": "applying a nonlinear activation function a(•) like a ReLU",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              220.0,
+              220.0,
+              247.5
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "deep graph learning"
+            ],
+            "evidence": "Deep (sequential) node representation learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              308.0,
+              670.0,
+              412.5,
+              697.5
+            ]
+          },
+          {
+            "canonical": "self-loop augmentation",
+            "aliases": [
+              "self-loop",
+              "diagonal enhancement",
+              "identity addition"
+            ],
+            "evidence": "Add a diagonal enhancement",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              247.5,
+              752.5,
+              275.0
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level task",
+              "graph-level prediction"
+            ],
+            "evidence": "Example: graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              560.0,
+              522.5,
+              576.5
+            ]
+          },
+          {
+            "canonical": "network output function",
+            "aliases": [
+              "output prediction",
+              "readout"
+            ],
+            "evidence": "Network output function (output prediction)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              308.0,
+              807.5,
+              467.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "trainable parameters",
+              "omega"
+            ],
+            "evidence": "learned weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              308.0,
+              862.5,
+              357.5,
+              879.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "a",
+              "graph structure"
+            ],
+            "evidence": "Matrix labeled 'A' with handwritten note 'n x n'",
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              642.5,
+              412.5,
+              752.5,
+              495.0
+            ]
+          },
+          {
+            "canonical": "multilayer perceptron",
+            "aliases": [
+              "mlp",
+              "classifier"
+            ],
+            "evidence": "classifier MLP",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              615.0,
+              697.5,
+              670.0,
+              725.0
+            ]
+          },
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid",
+              "sig"
+            ],
+            "evidence": "y = sig [βK + ωK(HK1/N)]",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450.0,
+              835.0,
+              670.0,
+              862.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k + \\Omega_k H_k A \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              55.0,
+              495.0,
+              110.0
+            ],
+            "label": "Update rule for all nodes"
+          },
+          {
+            "latex": "h_i^{(n)} = a \\left[ \\beta_0 + \\Omega_0 x_i^{(n)} + \\Omega_0 \\text{agg}[n] \\right]",
+            "related_concepts": [
+              "node embedding",
+              "message passing",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              165.0,
+              220.0,
+              192.5
+            ],
+            "label": "Node embedding update rule"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "message passing",
+              "neighborhood aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              330.0,
+              220.0,
+              357.5
+            ],
+            "label": "message (embedding) aggregation across neighbors"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + I) \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "message passing",
+              "self-loop augmentation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              154.0,
+              917.5,
+              192.5
+            ],
+            "label": "vanilla GCN update"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (A + (1 + \\epsilon_k) I) \\right]",
+            "related_concepts": [
+              "graph neural network",
+              "self-loop augmentation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.93,
+            "bbox": [
+              752.5,
+              374.0,
+              917.5,
+              412.5
+            ],
+            "label": "enhanced GCN with learnable self-loop"
+          },
+          {
+            "latex": "H_{k+1} = a [\\beta_k 1^T + \\Psi_k H_k + \\Omega_k H_k A]",
+            "related_concepts": [
+              "message passing",
+              "linear transformation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              642.5,
+              945.0,
+              670.0
+            ],
+            "label": "GNN layer update with separate self-transform"
+          },
+          {
+            "latex": "f[X, A, \\Phi] = \\text{sig} [\\beta_K + \\omega_K (H_K 1/N)]",
+            "related_concepts": [
+              "graph classification",
+              "network output function",
+              "logistic activation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450.0,
+              807.5,
+              670.0,
+              835.0
+            ],
+            "label": "Graph classification prediction"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Simple Graph CNN layer process showing input graph, node embeddings, aggregation, linear transformation, bias addition, and activation function application.",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "message passing",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              55.0,
+              220.0,
+              165.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix representation of the GCN update rule showing dimensions and operations.",
+            "related_concepts": [
+              "graph convolutional network",
+              "node embedding",
+              "linear transformation",
+              "bias",
+              "activation function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              110.0,
+              495.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Breakdown of the node embedding update rule into self-encoding and neighborhood encoding components.",
+            "related_concepts": [
+              "node embedding",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              275.0,
+              220.0,
+              495.0,
+              385.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A with handwritten annotations 'n x n' and 'ncc[n]'",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              642.5,
+              412.5,
+              752.5,
+              495.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Sequential node representation learning architecture showing layers H1 to HK",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              308.0,
+              670.0,
+              522.5,
+              780.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Graph neural network architecture for graph classification showing combine and classify steps",
+            "related_concepts": [
+              "graph classification",
+              "multilayer perceptron"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              642.5,
+              670.0,
+              725.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing self-transformation and neighborhood transformation in GNN",
+            "related_concepts": [
+              "message passing",
+              "linear transformation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              560.0,
+              890.0,
+              642.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Naaman's.ttnoue­noasto­",
+            "reason": "Illegible handwritten text near the top left formula, possibly a name or note",
+            "bbox": [
+              587.5,
+              82.5,
+              670.0,
+              99.0
+            ]
+          },
+          {
+            "transcription": "diahann",
+            "reason": "Unclear handwritten word near the formula, possibly 'diagonal' or a name",
+            "bbox": [
+              862.5,
+              209.0,
+              901.0,
+              225.5
+            ]
+          },
+          {
+            "transcription": "ncc[n]",
+            "reason": "Ambiguous annotation under matrix A, possibly 'n x n' or a function",
+            "bbox": [
+              670.0,
+              484.0,
+              697.5,
+              500.5
+            ]
+          },
+          {
+            "transcription": "afsadmits Ifq",
+            "reason": "Illegible handwriting fragment near bottom left, possibly a note or calculation",
+            "bbox": [
+              137.5,
+              807.5,
+              192.5,
+              824.0
+            ]
+          },
+          {
+            "transcription": "sittin",
+            "reason": "Unclear handwritten word near 'Deep (sequential) node representation learning'",
+            "bbox": [
+              275.0,
+              642.5,
+              302.5,
+              653.5
+            ]
+          },
+          {
+            "transcription": "MEEEEE",
+            "reason": "Illegible handwritten text near top right",
+            "bbox": [
+              467.5,
+              532.5,
+              495.0,
+              543.5
+            ]
+          },
+          {
+            "transcription": "É",
+            "reason": "Single character with unclear meaning",
+            "bbox": [
+              440.0,
+              642.5,
+              451.0,
+              653.5
+            ]
+          },
+          {
+            "transcription": "gg",
+            "reason": "Small handwritten letters with unclear context",
+            "bbox": [
+              412.5,
+              532.5,
+              423.5,
+              543.5
+            ]
+          },
+          {
+            "transcription": "Ric H",
+            "reason": "Possibly a name or abbreviation, unclear context",
+            "bbox": [
+              192.5,
+              477.5,
+              220.0,
+              488.5
+            ]
+          },
+          {
+            "transcription": "He i ediction",
+            "reason": "Partially obscured and unclear handwriting",
+            "bbox": [
+              642.5,
+              587.5,
+              697.5,
+              615.0
+            ]
+          },
+          {
+            "transcription": "im ms o an",
+            "reason": "Unclear handwriting, possibly related to embedding dimensions",
+            "bbox": [
+              697.5,
+              587.5,
+              752.5,
+              615.0
+            ]
+          },
+          {
+            "transcription": "Ifq",
+            "reason": "Unclear handwriting at the end of the clipped text",
+            "bbox": [
+              945.0,
+              587.5,
+              972.5,
+              615.0
+            ]
+          },
+          {
+            "transcription": "Section 3 of DGL 1.3",
+            "reason": "Handwritten note referencing a section, but exact content unclear",
+            "bbox": [
+              670.0,
+              835.0,
+              780.0,
+              862.5
+            ]
+          },
+          {
+            "transcription": "0.9",
+            "reason": "Handwritten number, context unclear",
+            "bbox": [
+              615.0,
+              917.5,
+              642.5,
+              945.0
+            ]
+          },
+          {
+            "transcription": "0.9",
+            "reason": "Handwritten number, context unclear",
+            "bbox": [
+              725.0,
+              945.0,
+              752.5,
+              972.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Convolutional Network Layer Mechanics and Graph Classification\",\n  \"summary\": \"This page details the mathematical formulation of Graph Convolutional Network (GCN) layers, specifically focusing on the update rules for node embeddings through neighborhood aggregation and linear transformation. It contrasts the 'vanilla' GCN approach with enhanced versions that include learnable self-loops or separate self-transformation weights. The lecture concludes by demonstrating how these sequential layers are utilized for graph-level tasks, such as graph classification, using a readout function and an MLP classifier.\",\n  \"key_topics\": [\n    \"graph convolutional network\",\n    \"message passing\",\n    \"node embedding\",\n    \"graph classification\",\n    \"self-loop augmentation\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\n        \"gcn\",\n        \"graph cnn\"\n      ],\n      \"evidence\": \"Introducing layer-wise non-linearity and biases into GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        5.5,\n        220.0,\n        27.5\n      ]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\n        \"node representation\",\n        \"learned embedding\",\n        \"h_k\"\n      ],\n      \"evidence\": \"node embeddings (stored in columns of X)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        110.0,\n        220.0,\n        137.5\n      ]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\n        \"neighborhood aggregation\",\n        \"feature aggregation\"\n      ],\n      \"evidence\": \"aggregating the neighboring nodes to form a single vector\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        137.5,\n        220.0,\n        165.0\n      ]\n    },\n    {\n      \"canonical\": \"linear transformation\",\n      \"aliases\": [\n        \"weight matrix\",\n        \"linear transform\",\n        \"matrix multiplication\"\n      ],\n      \"evidence\": \"applying the same linear transformation Ω0 to the aggregated nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        165.0,\n        220.0,\n        192.5\n      ]\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\n        \"offset\",\n        \"intercept\"\n      ],\n      \"evidence\": \"adding these together with a bias β0\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        192.5,\n        220.0,\n        220.0\n      ]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\n        \"non-linearity\",\n        \"relu\"\n      ],\n      \"evidence\": \"applying a nonlinear activation function a(•) like a ReLU\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        220.0,\n        220.0,\n        247.5\n      ]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\n        \"gnn\",\n        \"deep graph learning\"\n      ],\n      \"evidence\": \"Deep (sequential) node representation learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        308.0,\n        670.0,\n        412.5,\n        697.5\n      ]\n    },\n    {\n      \"canonical\": \"self-loop augmentation\",\n      \"aliases\": [\n        \"self-loop\",\n        \"diagonal enhancement\",\n        \"identity addition\"\n      ],\n      \"evidence\": \"Add a diagonal enhancement\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        642.5,\n        247.5,\n        752.5,\n        275.0\n      ]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\n        \"graph-level task\",\n        \"graph-level prediction\"\n      ],\n      \"evidence\": \"Example: graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        560.0,\n        522.5,\n        576.5\n      ]\n    },\n    {\n      \"canonical\": \"network output function\",\n      \"aliases\": [\n        \"output prediction\",\n        \"readout\"\n      ],\n      \"evidence\": \"Network output function (output prediction)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        308.0,\n        807.5,\n        467.5,\n        824.0\n      ]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\n        \"trainable parameters\",\n        \"omega\"\n      ],\n      \"evidence\": \"learned weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        308.0,\n        862.5,\n        357.5,\n        879.0\n      ]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\n        \"a\",\n        \"graph structure\"\n      ],\n      \"evidence\": \"Matrix labeled 'A' with handwritten note 'n x n'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [\n        642.5,\n        412.5,\n        752.5,\n        495.0\n      ]\n    },\n    {\n      \"canonical\": \"multilayer perceptron\",\n      \"aliases\": [\n        \"mlp\",\n        \"classifier\"\n      ],\n      \"evidence\": \"classifier MLP\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        615.0,\n        697.5,\n        670.0,\n        725.0\n      ]\n    },\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\n        \"sigmoid\",\n        \"sig\"\n      ],\n      \"evidence\": \"y = sig [βK + ωK(HK1/N)]\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        450.0,\n        835.0,\n        670.0,\n        862.5\n      ]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k + \\\\Omega_k H_k A \\\\right]\",\n      \"related_concepts\": [\n        \"graph convolutional network\",\n        \"node embedding\",\n        \"linear transformation\",\n        \"bias\",\n        \"activation function\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        55.0,\n        495.0,\n        110.0\n      ],\n      \"label\": \"Update rule for all nodes\"\n    },\n    {\n      \"latex\": \"h_i^{(n)} = a \\\\left[ \\\\beta_0 + \\\\Omega_0 x_i^{(n)} + \\\\Omega_0 \\\\text{agg}[n] \\\\right]\",\n      \"related_concepts\": [\n        \"node embedding\",\n        \"message passing\",\n        \"linear transformation\",\n        \"bias\",\n        \"activation function\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        165.0,\n        220.0,\n        192.5\n      ],\n      \"label\": \"Node embedding update rule\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\n        \"message passing\",\n        \"neighborhood aggregation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        110.0,\n        330.0,\n        220.0,\n        357.5\n      ],\n      \"label\": \"message (embedding) aggregation across neighbors\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (A + I) \\\\right]\",\n      \"related_concepts\": [\n        \"graph convolutional network\",\n        \"message passing\",\n        \"self-loop augmentation\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        752.5,\n        154.0,\n        917.5,\n        192.5\n      ],\n      \"label\": \"vanilla GCN update\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (A + (1 + \\\\epsilon_k) I) \\\\right]\",\n      \"related_concepts\": [\n        \"graph neural network\",\n        \"self-loop augmentation\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.93,\n      \"bbox\": [\n        752.5,\n        374.0,\n        917.5,\n        412.5\n      ],\n      \"label\": \"enhanced GCN with learnable self-loop\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a [\\\\beta_k 1^T + \\\\Psi_k H_k + \\\\Omega_k H_k A]\",\n      \"related_concepts\": [\n        \"message passing\",\n        \"linear transformation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        752.5,\n        642.5,\n        945.0,\n        670.0\n      ],\n      \"label\": \"GNN layer update with separate self-transform\"\n    },\n    {\n      \"latex\": \"f[X, A, \\\\Phi] = \\\\text{sig} [\\\\beta_K + \\\\omega_K (H_K 1/N)]\",\n      \"related_concepts\": [\n        \"graph classification\",\n        \"network output function\",\n        \"logistic activation\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        450.0,\n        807.5,\n        670.0,\n        835.0\n      ],\n      \"label\": \"Graph classification prediction\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Simple Graph CNN layer process showing input graph, node embeddings, aggregation, linear transformation, bias addition, and activation function application.\",\n      \"related_concepts\": [\n        \"graph convolutional network\",\n        \"node embedding\",\n        \"message passing\",\n        \"linear transformation\",\n        \"bias\",\n        \"activation function\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        55.0,\n        220.0,\n        165.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix representation of the GCN update rule showing dimensions and operations.\",\n      \"related_concepts\": [\n        \"graph convolutional network\",\n        \"node embedding\",\n        \"linear transformation\",\n        \"bias\",\n        \"activation function\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        110.0,\n        495.0,\n        220.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Breakdown of the node embedding update rule into self-encoding and neighborhood encoding components.\",\n      \"related_concepts\": [\n        \"node embedding\",\n        \"message passing\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        275.0,\n        220.0,\n        495.0,\n        385.0\n      ]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A with handwritten annotations 'n x n' and 'ncc[n]'\",\n      \"related_concepts\": [\n        \"adjacency matrix\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [\n        642.5,\n        412.5,\n        752.5,\n        495.0\n      ]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Sequential node representation learning architecture showing layers H1 to HK\",\n      \"related_concepts\": [\n        \"graph neural network\",\n        \"node embedding\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        308.0,\n        670.0,\n        522.5,\n        780.0\n      ]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph neural network architecture for graph classification showing combine and classify steps\",\n      \"related_concepts\": [\n        \"graph classification\",\n        \"multilayer perceptron\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        560.0,\n        642.5,\n        670.0,\n        725.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing self-transformation and neighborhood transformation in GNN\",\n      \"related_concepts\": [\n        \"message passing\",\n        \"linear transformation\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        780.0,\n        560.0,\n        890.0,\n        642.5\n      ]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Naaman's.ttnoue­noasto­\",\n      \"reason\": \"Illegible handwritten text near the top left formula, possibly a name or note\",\n      \"bbox\": [\n        587.5,\n        82.5,\n        670.0,\n        99.0\n      ]\n    },\n    {\n      \"transcription\": \"diahann\",\n      \"reason\": \"Unclear handwritten word near the formula, possibly 'diagonal' or a name\",\n      \"bbox\": [\n        862.5,\n        209.0,\n        901.0,\n        225.5\n      ]\n    },\n    {\n      \"transcription\": \"ncc[n]\",\n      \"reason\": \"Ambiguous annotation under matrix A, possibly 'n x n' or a function\",\n      \"bbox\": [\n        670.0,\n        484.0,\n        697.5,\n        500.5\n      ]\n    },\n    {\n      \"transcription\": \"afsadmits Ifq\",\n      \"reason\": \"Illegible handwriting fragment near bottom left, possibly a note or calculation\",\n      \"bbox\": [\n        137.5,\n        807.5,\n        192.5,\n        824.0\n      ]\n    },\n    {\n      \"transcription\": \"sittin\",\n      \"reason\": \"Unclear handwritten word near 'Deep (sequential) node representation learning'\",\n      \"bbox\": [\n        275.0,\n        642.5,\n        302.5,\n        653.5\n      ]\n    },\n    {\n      \"transcription\": \"MEEEEE\",\n      \"reason\": \"Illegible handwritten text near top right\",\n      \"bbox\": [\n        467.5,\n        532.5,\n        495.0,\n        543.5\n      ]\n    },\n    {\n      \"transcription\": \"É\",\n      \"reason\": \"Single character with unclear meaning\",\n      \"bbox\": [\n        440.0,\n        642.5,\n        451.0,\n        653.5\n      ]\n    },\n    {\n      \"transcription\": \"gg\",\n      \"reason\": \"Small handwritten letters with unclear context\",\n      \"bbox\": [\n        412.5,\n        532.5,\n        423.5,\n        543.5\n      ]\n    },\n    {\n      \"transcription\": \"Ric H\",\n      \"reason\": \"Possibly a name or abbreviation, unclear context\",\n      \"bbox\": [\n        192.5,\n        477.5,\n        220.0,\n        488.5\n      ]\n    },\n    {\n      \"transcription\": \"He i ediction\",\n      \"reason\": \"Partially obscured and unclear handwriting\",\n      \"bbox\": [\n        642.5,\n        587.5,\n        697.5,\n        615.0\n      ]\n    },\n    {\n      \"transcription\": \"im ms o an\",\n      \"reason\": \"Unclear handwriting, possibly related to embedding dimensions\",\n      \"bbox\": [\n        697.5,\n        587.5,\n        752.5,\n        615.0\n      ]\n    },\n    {\n      \"transcription\": \"Ifq\",\n      \"reason\": \"Unclear handwriting at the end of the clipped text\",\n      \"bbox\": [\n        945.0,\n        587.5,\n        972.5,\n        615.0\n      ]\n    },\n    {\n      \"transcription\": \"Section 3 of DGL 1.3\",\n      \"reason\": \"Handwritten note referencing a section, but exact content unclear\",\n      \"bbox\": [\n        670.0,\n        835.0,\n        780.0,\n        862.5\n      ]\n    },\n    {\n      \"transcription\": \"0.9\",\n      \"reason\": \"Handwritten number, context unclear\",\n      \"bbox\": [\n        615.0,\n        917.5,\n        642.5,\n        945.0\n      ]\n    },\n    {\n      \"transcription\": \"0.9\",\n      \"reason\": \"Handwritten number, context unclear\",\n      \"bbox\": [\n        725.0,\n        945.0,\n        752.5,\n        972.5\n      ]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph classification",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "linear transform",
+      "into": "linear transformation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "self-loop",
+      "into": "self-update"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "graph convolutional network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "matrix multiplication",
+      "into": "linear transformation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "activation function",
+      "into": "activation function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "self-encoding",
+      "into": "self-update"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "activation function",
+      "into": "activation function"
+    }
+  ],
+  "warnings": []
+}

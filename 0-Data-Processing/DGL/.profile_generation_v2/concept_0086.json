@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "49dc92ea828dd6119c4d3516a26a49d2be8773e6948feb719ea468eeea15fe72",
+  "concept_id": 86,
+  "concept_name": "optimal subspace",
+  "aliases": [
+    "optimal subspace",
+    "learnable representation"
+  ],
+  "profile": "optimal subspace: a learnable subspace that is optimal for the data.",
+  "word_count": 11,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "optimal subspace: a learnable representation for the data. It is an optimal subspace for the data.",
+    "claims": [
+      {
+        "claim": "The optimal subspace is a learnable representation for the data.",
+        "evidence_ids": [
+          "DGL-E0100"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is an optimal subspace for the data.",
+        "evidence_ids": [
+          "DGL-E0100"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence ID was available, so the profile is minimal and does not include additional properties or examples."
+    ]
+  },
+  "review": {
+    "final_profile": "optimal subspace: a learnable subspace that is optimal for the data.",
+    "sentence_reviews": [
+      {
+        "sentence": "optimal subspace: a learnable subspace that is optimal for the data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0100"
+        ],
+        "reason": "The handwritten evidence states 'LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)', directly supporting that the concept is learnable and is optimal for the data."
+      }
+    ],
+    "warnings": [
+      "Only one source annotation was available; no additional properties, examples, or applications were included."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"optimal subspace: a learnable representation for the data. It is an optimal subspace for the data.\",\n  \"claims\": [\n    {\n      \"claim\": \"The optimal subspace is a learnable representation for the data.\",\n      \"evidence_ids\": [\"DGL-E0100\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is an optimal subspace for the data.\",\n      \"evidence_ids\": [\"DGL-E0100\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence ID was available, so the profile is minimal and does not include additional properties or examples.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"optimal subspace: a learnable subspace that is optimal for the data.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"optimal subspace: a learnable subspace that is optimal for the data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0100\"],\n      \"reason\": \"The handwritten evidence states 'LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)', directly supporting that the concept is learnable and is optimal for the data.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source annotation was available; no additional properties, examples, or applications were included.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:21:18.717752+00:00"
+}

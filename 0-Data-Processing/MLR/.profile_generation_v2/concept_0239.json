@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "fea037ca46dccf4475ffaf3df7726de594be84c4a5c74b8806a38265930e3282",
+  "concept_id": 239,
+  "concept_name": "kernelized multi-class softmax",
+  "aliases": [
+    "kernelized multi-class softmax",
+    "kernelized multi-class softmax cost"
+  ],
+  "profile": "kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach. It is described in the context of kernel methods, indicating that kernel techniques are applied to the multi-class softmax formulation.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach. It is described in the context of kernel methods, indicating that it applies kernel techniques to the multi-class softmax formulation.",
+    "claims": [
+      {
+        "claim": "kernelized multi-class softmax is a kernel-based variant of the standard multi-class softmax approach.",
+        "evidence_ids": [
+          "MLR-E0299"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is described in the context of kernel methods.",
+        "evidence_ids": [
+          "MLR-E0299"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is very limited; no further details are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach. It is described in the context of kernel methods, indicating that kernel techniques are applied to the multi-class softmax formulation.",
+    "sentence_reviews": [
+      {
+        "sentence": "kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0299"
+        ],
+        "reason": "The evidence explicitly describes a kernelized version of multi-class softmax."
+      },
+      {
+        "sentence": "It is described in the context of kernel methods, indicating that kernel techniques are applied to the multi-class softmax formulation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0299"
+        ],
+        "reason": "The evidence appears in a chapter on kernel methods and refers to a kernelized version, supporting the contextual and applicational claim."
+      }
+    ],
+    "warnings": [
+      "Only a brief mention is available; no further formulation details are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach. It is described in the context of kernel methods, indicating that it applies kernel techniques to the multi-class softmax formulation.\",\n  \"claims\": [\n    {\n      \"claim\": \"kernelized multi-class softmax is a kernel-based variant of the standard multi-class softmax approach.\",\n      \"evidence_ids\": [\"MLR-E0299\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is described in the context of kernel methods.\",\n      \"evidence_ids\": [\"MLR-E0299\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is very limited; no further details are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach. It is described in the context of kernel methods, indicating that kernel techniques are applied to the multi-class softmax formulation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"kernelized multi-class softmax: a kernel-based variant of the standard multi-class softmax approach.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0299\"],\n      \"reason\": \"The evidence explicitly describes a kernelized version of multi-class softmax.\"\n    },\n    {\n      \"sentence\": \"It is described in the context of kernel methods, indicating that kernel techniques are applied to the multi-class softmax formulation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0299\"],\n      \"reason\": \"The evidence appears in a chapter on kernel methods and refers to a kernelized version, supporting the contextual and applicational claim.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a brief mention is available; no further formulation details are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:56:45.670196+00:00"
+}

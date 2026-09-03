@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ef13fadfb10143a5424487957d2888d931f539f61eecdc0c874c81ae935d689c",
+  "concept_id": 9,
+  "concept_name": "hierarchical graph",
+  "aliases": [
+    "hierarchical graph"
+  ],
+  "profile": "hierarchical graph: A representation that can be used to represent a scene.",
+  "word_count": 12,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hierarchical graph: A representation that can be used to model a scene.",
+    "claims": [
+      {
+        "claim": "A hierarchical graph can be used to model a scene.",
+        "evidence_ids": [
+          "DGL-E0028"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only a single mention; no definition or properties are available."
+    ]
+  },
+  "review": {
+    "final_profile": "hierarchical graph: A representation that can be used to represent a scene.",
+    "sentence_reviews": [
+      {
+        "sentence": "hierarchical graph: A representation that can be used to represent a scene.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0028"
+        ],
+        "reason": "The source states that a scene on the left can be represented by a hierarchical graph, supporting only this limited claim."
+      }
+    ],
+    "warnings": [
+      "No definition or structural properties are provided in the source; the profile is limited to the scene-representation use."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hierarchical graph: A representation that can be used to model a scene.\",\n  \"claims\": [\n    {\n      \"claim\": \"A hierarchical graph can be used to model a scene.\",\n      \"evidence_ids\": [\"DGL-E0028\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata provides only a single mention; no definition or properties are available.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hierarchical graph: A representation that can be used to represent a scene.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"hierarchical graph: A representation that can be used to represent a scene.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0028\"],\n      \"reason\": \"The source states that a scene on the left can be represented by a hierarchical graph, supporting only this limited claim.\"\n    }\n  ],\n  \"warnings\": [\n    \"No definition or structural properties are provided in the source; the profile is limited to the scene-representation use.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:52:46.888494+00:00"
+}

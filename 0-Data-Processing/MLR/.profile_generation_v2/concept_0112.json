@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7dc77de2568026dc474ae87b20a04f63287fc7511d13f4c37030ba0c1ba58579",
+  "concept_id": 112,
+  "concept_name": "weight normalization",
+  "aliases": [
+    "weight normalization",
+    "normalizing weights",
+    "feature-weight normalization",
+    "normalizing weights by magnitude",
+    "normalize the weights"
+  ],
+  "profile": "weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector. In two-class linear classification, this gives a consistent way to normalize the weights. In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.",
+  "word_count": 53,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector. In two-class linear classification, this gives a consistent way to normalize the weights. In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.",
+    "claims": [
+      {
+        "claim": "Weight normalization rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector.",
+        "evidence_ids": [
+          "MLR-E0128"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In two-class linear classification, this gives a consistent way to normalize the weights.",
+        "evidence_ids": [
+          "MLR-E0128"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.",
+        "evidence_ids": [
+          "MLR-E0165"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector. In two-class linear classification, this gives a consistent way to normalize the weights. In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.",
+    "sentence_reviews": [
+      {
+        "sentence": "weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0128"
+        ],
+        "reason": "Evidence states weights can be normalized consistently by dividing them by the magnitude of omega."
+      },
+      {
+        "sentence": "In two-class linear classification, this gives a consistent way to normalize the weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0128"
+        ],
+        "reason": "Evidence says we can always normalize them in a consistent way by dividing by the magnitude of omega."
+      },
+      {
+        "sentence": "In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0165"
+        ],
+        "reason": "Evidence explicitly says to normalize weights of each linear classifier by the length of its normal vector containing all feature-touching weights."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector. In two-class linear classification, this gives a consistent way to normalize the weights. In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.\",\n  \"claims\": [\n    {\n      \"claim\": \"Weight normalization rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector.\",\n      \"evidence_ids\": [\"MLR-E0128\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In two-class linear classification, this gives a consistent way to normalize the weights.\",\n      \"evidence_ids\": [\"MLR-E0128\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.\",\n      \"evidence_ids\": [\"MLR-E0165\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector. In two-class linear classification, this gives a consistent way to normalize the weights. In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"weight normalization: rescales a linear classifier's weight vector by dividing the weights by the magnitude of the weight vector.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0128\"],\n      \"reason\": \"Evidence states weights can be normalized consistently by dividing them by the magnitude of omega.\"\n    },\n    {\n      \"sentence\": \"In two-class linear classification, this gives a consistent way to normalize the weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0128\"],\n      \"reason\": \"Evidence says we can always normalize them in a consistent way by dividing by the magnitude of omega.\"\n    },\n    {\n      \"sentence\": \"In multi-class classification, each linear classifier's weights are normalized by the length of its normal vector, which contains all feature-touching weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0165\"],\n      \"reason\": \"Evidence explicitly says to normalize weights of each linear classifier by the length of its normal vector containing all feature-touching weights.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:08:52.300346+00:00"
+}

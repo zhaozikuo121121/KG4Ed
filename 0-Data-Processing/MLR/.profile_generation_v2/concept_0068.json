@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4c9a5564c955eaa9eb6a8d916ba187884e652a24ec23e06a8c3b183dbdeda3c3",
+  "concept_id": 68,
+  "concept_name": "newton's method",
+  "aliases": [
+    "newton's method",
+    "newtons method"
+  ],
+  "profile": "newton's method: Newton's method is a second-order optimization technique with a simple implementation in Python.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "newton's method: Newton's method is a second-order optimization technique. It has a simple implementation in Python. It is also referenced in a chapter on feature engineering and selection.",
+    "claims": [
+      {
+        "claim": "Newton's method is a second-order optimization technique.",
+        "evidence_ids": [
+          "MLR-E0079"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It has a simple implementation in Python.",
+        "evidence_ids": [
+          "MLR-E0079"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is also referenced in a chapter on feature engineering and selection.",
+        "evidence_ids": [
+          "MLR-E0223"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "newton's method: Newton's method is a second-order optimization technique with a simple implementation in Python.",
+    "sentence_reviews": [
+      {
+        "sentence": "newton's method: Newton's method is a second-order optimization technique with a simple implementation in Python.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0079"
+        ],
+        "reason": "The method is presented in the context of second-order optimization techniques, and the evidence states that a simple implementation in Python is provided."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"newton's method: Newton's method is a second-order optimization technique. It has a simple implementation in Python. It is also referenced in a chapter on feature engineering and selection.\",\n  \"claims\": [\n    {\n      \"claim\": \"Newton's method is a second-order optimization technique.\",\n      \"evidence_ids\": [\"MLR-E0079\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It has a simple implementation in Python.\",\n      \"evidence_ids\": [\"MLR-E0079\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is also referenced in a chapter on feature engineering and selection.\",\n      \"evidence_ids\": [\"MLR-E0223\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"newton's method: Newton's method is a second-order optimization technique with a simple implementation in Python.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"newton's method: Newton's method is a second-order optimization technique with a simple implementation in Python.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0079\"],\n      \"reason\": \"The method is presented in the context of second-order optimization techniques, and the evidence states that a simple implementation in Python is provided.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:46:46.712927+00:00"
+}

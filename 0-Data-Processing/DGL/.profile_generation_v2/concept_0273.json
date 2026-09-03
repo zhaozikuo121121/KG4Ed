@@ -1,0 +1,106 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "645d74eee8a01c2a339cef6273d3d7f8cd3a02847d0c68a956b8b999e19d61b8",
+  "concept_id": 273,
+  "concept_name": "gnn expressiveness",
+  "aliases": [
+    "gnn expressiveness",
+    "expressive power"
+  ],
+  "profile": "gnn expressiveness: GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks. It appears in the context of GNN layer architecture and dropout regularization. A question raised is how to maximize the expressiveness of a GNN model. The term is also mentioned in the context of Graph Isomorphism Network (GIN) and expressiveness.",
+  "word_count": 60,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "gnn expressiveness: GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks. The topic appears in discussions of GNN layer architecture and dropout regularization. A central question raised is how to maximize the expressiveness of a GNN model, particularly in relation to Graph Isomorphism Network (GIN) and expressiveness.",
+    "claims": [
+      {
+        "claim": "GNN expressiveness is also referred to as expressive power.",
+        "evidence_ids": [
+          "DGL-E0370"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term appears in contexts such as GNN layer architecture and dropout regularization.",
+        "evidence_ids": [
+          "DGL-E0370"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A key question is how to maximize the expressiveness of a GNN model.",
+        "evidence_ids": [
+          "DGL-E0448"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph Isomorphism Network (GIN) is associated with expressiveness.",
+        "evidence_ids": [
+          "DGL-E0448"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata contains only two short references; no formal definition or mechanism details are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "gnn expressiveness: GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks. It appears in the context of GNN layer architecture and dropout regularization. A question raised is how to maximize the expressiveness of a GNN model. The term is also mentioned in the context of Graph Isomorphism Network (GIN) and expressiveness.",
+    "sentence_reviews": [
+      {
+        "sentence": "GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0370",
+          "DGL-E0448"
+        ],
+        "reason": "DGL-E0370 explicitly equates GNN expressive power or expressiveness; DGL-E0448 refers to a GNN model context."
+      },
+      {
+        "sentence": "It appears in the context of GNN layer architecture and dropout regularization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0370"
+        ],
+        "reason": "The source context pairs GNN expressiveness with GNN layer architecture and dropout regularization."
+      },
+      {
+        "sentence": "A question raised is how to maximize the expressiveness of a GNN model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0448"
+        ],
+        "reason": "DGL-E0448 asks exactly how to maximize the expressiveness of a GNN model."
+      },
+      {
+        "sentence": "The term is also mentioned in the context of Graph Isomorphism Network (GIN) and expressiveness.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0448"
+        ],
+        "reason": "The source context is titled Graph Isomorphism Network (GIN) and Expressiveness."
+      }
+    ],
+    "warnings": [
+      "Only two brief source references are available; no formal definition or mechanism details are provided.",
+      "The links to GIN and to dropout regularization are contextual/titular rather than explicit explanatory statements."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"gnn expressiveness: GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks. The topic appears in discussions of GNN layer architecture and dropout regularization. A central question raised is how to maximize the expressiveness of a GNN model, particularly in relation to Graph Isomorphism Network (GIN) and expressiveness.\",\n  \"claims\": [\n    {\n      \"claim\": \"GNN expressiveness is also referred to as expressive power.\",\n      \"evidence_ids\": [\"DGL-E0370\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term appears in contexts such as GNN layer architecture and dropout regularization.\",\n      \"evidence_ids\": [\"DGL-E0370\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A key question is how to maximize the expressiveness of a GNN model.\",\n      \"evidence_ids\": [\"DGL-E0448\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph Isomorphism Network (GIN) is associated with expressiveness.\",\n      \"evidence_ids\": [\"DGL-E0448\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata contains only two short references; no formal definition or mechanism details are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"gnn expressiveness: GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks. It appears in the context of GNN layer architecture and dropout regularization. A question raised is how to maximize the expressiveness of a GNN model. The term is also mentioned in the context of Graph Isomorphism Network (GIN) and expressiveness.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"GNN expressiveness, also known as expressive power, is a term used in the context of graph neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0370\", \"DGL-E0448\"],\n      \"reason\": \"DGL-E0370 explicitly equates GNN expressive power or expressiveness; DGL-E0448 refers to a GNN model context.\"\n    },\n    {\n      \"sentence\": \"It appears in the context of GNN layer architecture and dropout regularization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0370\"],\n      \"reason\": \"The source context pairs GNN expressiveness with GNN layer architecture and dropout regularization.\"\n    },\n    {\n      \"sentence\": \"A question raised is how to maximize the expressiveness of a GNN model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0448\"],\n      \"reason\": \"DGL-E0448 asks exactly how to maximize the expressiveness of a GNN model.\"\n    },\n    {\n      \"sentence\": \"The term is also mentioned in the context of Graph Isomorphism Network (GIN) and expressiveness.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0448\"],\n      \"reason\": \"The source context is titled Graph Isomorphism Network (GIN) and Expressiveness.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only two brief source references are available; no formal definition or mechanism details are provided.\",\n    \"The links to GIN and to dropout regularization are contextual/titular rather than explicit explanatory statements.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:38:04.004870+00:00"
+}

@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "f700ca5b91e095aa4fb685abff94731b5319f21e56346efece6e7e1f17f88158",
+  "concept_id": 64,
+  "concept_name": "positive semi-definite matrix",
+  "aliases": [
+    "positive semi-definite matrix",
+    "positive semi-definite",
+    "negative semi-definite"
+  ],
+  "profile": "positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).",
+    "claims": [
+      {
+        "claim": "In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite.",
+        "evidence_ids": [
+          "MLR-E0070"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The Hessian matrix may also be called negative semi-definite.",
+        "evidence_ids": [
+          "MLR-E0070"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).",
+    "sentence_reviews": [
+      {
+        "sentence": "positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0070"
+        ],
+        "reason": "The evidence directly states that the Hessian matrix itself is called positive (or negative) semi-definite in the context of second-order optimization techniques."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).\",\n  \"claims\": [\n    {\n      \"claim\": \"In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite.\",\n      \"evidence_ids\": [\"MLR-E0070\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The Hessian matrix may also be called negative semi-definite.\",\n      \"evidence_ids\": [\"MLR-E0070\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"positive semi-definite matrix: In second-order optimization techniques, the Hessian matrix itself is called positive semi-definite (or negative semi-definite).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0070\"],\n      \"reason\": \"The evidence directly states that the Hessian matrix itself is called positive (or negative) semi-definite in the context of second-order optimization techniques.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:44:56.516699+00:00"
+}

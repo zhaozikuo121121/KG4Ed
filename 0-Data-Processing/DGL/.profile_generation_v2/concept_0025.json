@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6a9208ce76859c587cd8ad38a6af0685b6540f95a7af2adf32044f5bd89b5a2e",
+  "concept_id": 25,
+  "concept_name": "simple graph",
+  "aliases": [
+    "simple graph",
+    "simple"
+  ],
+  "profile": "simple graph: A graph is simple if it has no loops or multiple edges. This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "simple graph: A graph is simple if it has no loops or multiple edges. This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.",
+    "claims": [
+      {
+        "claim": "A simple graph has no loops or multiple edges.",
+        "evidence_ids": [
+          "DGL-E0003"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "simple graph: A graph is simple if it has no loops or multiple edges. This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph is simple if it has no loops or multiple edges.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0003"
+        ],
+        "reason": "Directly matches the source definition."
+      },
+      {
+        "sentence": "This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0003"
+        ],
+        "reason": "This is a direct implication of having no loops and no multiple edges."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"simple graph: A graph is simple if it has no loops or multiple edges. This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.\",\n  \"claims\": [\n    {\n      \"claim\": \"A simple graph has no loops or multiple edges.\",\n      \"evidence_ids\": [\"DGL-E0003\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"simple graph: A graph is simple if it has no loops or multiple edges. This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph is simple if it has no loops or multiple edges.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0003\"],\n      \"reason\": \"Directly matches the source definition.\"\n    },\n    {\n      \"sentence\": \"This means each edge connects two distinct vertices, and no two edges connect the same pair of vertices.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0003\"],\n      \"reason\": \"This is a direct implication of having no loops and no multiple edges.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:57:35.075338+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "585405caaa32771c2cc17000e72eef76add88989bda50d867aa31c8b614325da",
+  "concept_id": 68,
+  "concept_name": "fixed adjacency matrix",
+  "aliases": [
+    "fixed adjacency matrix",
+    "a = fixed"
+  ],
+  "profile": "fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the graph structure does not change during the specific operation being considered. The notation 'A = fixed' appears with graph diagrams to indicate that the connectivity among nodes is held constant for that operation. In the context of graph neural network prediction tasks, such a fixed matrix represents the graph structure and is not altered while the task is performed.",
+  "word_count": 71,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the structure does not change during the specific operation under consideration. This is indicated by a handwritten note 'A = fixed' accompanying graph diagrams.",
+    "claims": [
+      {
+        "claim": "The adjacency matrix A is fixed, meaning the graph structure does not change during the operation shown.",
+        "evidence_ids": [
+          "DGL-E0073"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The intended operation is unspecified beyond the annotation."
+    ]
+  },
+  "review": {
+    "final_profile": "fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the graph structure does not change during the specific operation being considered. The notation 'A = fixed' appears with graph diagrams to indicate that the connectivity among nodes is held constant for that operation. In the context of graph neural network prediction tasks, such a fixed matrix represents the graph structure and is not altered while the task is performed.",
+    "sentence_reviews": [
+      {
+        "sentence": "fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the graph structure does not change during the specific operation being considered.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0073"
+        ],
+        "reason": "The handwritten annotation 'A = fixed' indicates that the structure does not change during the specific operation shown."
+      },
+      {
+        "sentence": "The notation 'A = fixed' appears with graph diagrams to indicate that the connectivity among nodes is held constant for that operation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0073"
+        ],
+        "reason": "The source shows the note under graph diagrams, and connectivity among nodes is another way of describing graph structure."
+      },
+      {
+        "sentence": "In the context of graph neural network prediction tasks, such a fixed matrix represents the graph structure and is not altered while the task is performed.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0073"
+        ],
+        "reason": "The page context is graph neural network prediction tasks, and the fixed annotation supports that the graph structure is not altered."
+      }
+    ],
+    "warnings": [
+      "Only one handwritten annotation supports this definition; the exact operation or task is not specified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the structure does not change during the specific operation under consideration. This is indicated by a handwritten note 'A = fixed' accompanying graph diagrams.\",\n  \"claims\": [\n    {\n      \"claim\": \"The adjacency matrix A is fixed, meaning the graph structure does not change during the operation shown.\",\n      \"evidence_ids\": [\"DGL-E0073\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The intended operation is unspecified beyond the annotation.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the graph structure does not change during the specific operation being considered. The notation 'A = fixed' appears with graph diagrams to indicate that the connectivity among nodes is held constant for that operation. In the context of graph neural network prediction tasks, such a fixed matrix represents the graph structure and is not altered while the task is performed.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"fixed adjacency matrix: a graph's adjacency matrix A that is fixed, meaning the graph structure does not change during the specific operation being considered.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0073\"],\n      \"reason\": \"The handwritten annotation 'A = fixed' indicates that the structure does not change during the specific operation shown.\"\n    },\n    {\n      \"sentence\": \"The notation 'A = fixed' appears with graph diagrams to indicate that the connectivity among nodes is held constant for that operation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0073\"],\n      \"reason\": \"The source shows the note under graph diagrams, and connectivity among nodes is another way of describing graph structure.\"\n    },\n    {\n      \"sentence\": \"In the context of graph neural network prediction tasks, such a fixed matrix represents the graph structure and is not altered while the task is performed.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0073\"],\n      \"reason\": \"The page context is graph neural network prediction tasks, and the fixed annotation supports that the graph structure is not altered.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one handwritten annotation supports this definition; the exact operation or task is not specified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:13:35.263223+00:00"
+}

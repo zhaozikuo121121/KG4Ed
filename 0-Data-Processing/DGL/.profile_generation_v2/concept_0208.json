@@ -1,0 +1,101 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "33f6f1e71d60471fb42f41bc71293dc7db74fd02387f187c9808894802848b1b",
+  "concept_id": 208,
+  "concept_name": "prediction head",
+  "aliases": [
+    "prediction head",
+    "output layer",
+    "classifier",
+    "prediction"
+  ],
+  "profile": "prediction head: A component of graph neural network architectures that serves as the output stage. It can be defined for node, edge, or graph-level tasks and is commonly highlighted in architecture diagrams. In GNN training and optimization contexts, the prediction head appears at the output of the GNN block.",
+  "word_count": 49,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "prediction head: A component of graph neural network architectures that serves as the output stage. It can be defined for node, edge, or graph-level tasks, and is often highlighted in architecture diagrams. The prediction head appears at the output of the GNN block and is referenced in GNN training and optimization contexts, including batching and sampling strategies.",
+    "claims": [
+      {
+        "claim": "The prediction head is a component of graph neural network architectures.",
+        "evidence_ids": [
+          "DGL-E0285",
+          "DGL-E0439"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The prediction head can be defined for node, edge, or graph-level tasks.",
+        "evidence_ids": [
+          "DGL-E0243"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The prediction head appears at the output of the GNN block.",
+        "evidence_ids": [
+          "DGL-E0439"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The prediction head is referenced in GNN training contexts, including batching and sampling strategies.",
+        "evidence_ids": [
+          "DGL-E0319",
+          "DGL-E0350"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "prediction head: A component of graph neural network architectures that serves as the output stage. It can be defined for node, edge, or graph-level tasks and is commonly highlighted in architecture diagrams. In GNN training and optimization contexts, the prediction head appears at the output of the GNN block.",
+    "sentence_reviews": [
+      {
+        "sentence": "prediction head: A component of graph neural network architectures that serves as the output stage.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0285",
+          "DGL-E0439"
+        ],
+        "reason": "The diagram labels the prediction head as a component, and a handwritten annotation places it at the output of the GNN block."
+      },
+      {
+        "sentence": "It can be defined for node, edge, or graph-level tasks and is commonly highlighted in architecture diagrams.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0243",
+          "DGL-E0285"
+        ],
+        "reason": "The source defines the prediction head for node, edge, or graph tasks, and diagrams prominently label it."
+      },
+      {
+        "sentence": "In GNN training and optimization contexts, the prediction head appears at the output of the GNN block.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0243",
+          "DGL-E0319",
+          "DGL-E0350",
+          "DGL-E0439"
+        ],
+        "reason": "The term appears in training/optimization materials and is annotated as pointing to the GNN block output."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"prediction head: A component of graph neural network architectures that serves as the output stage. It can be defined for node, edge, or graph-level tasks, and is often highlighted in architecture diagrams. The prediction head appears at the output of the GNN block and is referenced in GNN training and optimization contexts, including batching and sampling strategies.\",\n  \"claims\": [\n    {\n      \"claim\": \"The prediction head is a component of graph neural network architectures.\",\n      \"evidence_ids\": [\"DGL-E0285\", \"DGL-E0439\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The prediction head can be defined for node, edge, or graph-level tasks.\",\n      \"evidence_ids\": [\"DGL-E0243\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The prediction head appears at the output of the GNN block.\",\n      \"evidence_ids\": [\"DGL-E0439\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The prediction head is referenced in GNN training contexts, including batching and sampling strategies.\",\n      \"evidence_ids\": [\"DGL-E0319\", \"DGL-E0350\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"prediction head: A component of graph neural network architectures that serves as the output stage. It can be defined for node, edge, or graph-level tasks and is commonly highlighted in architecture diagrams. In GNN training and optimization contexts, the prediction head appears at the output of the GNN block.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"prediction head: A component of graph neural network architectures that serves as the output stage.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0285\",\n        \"DGL-E0439\"\n      ],\n      \"reason\": \"The diagram labels the prediction head as a component, and a handwritten annotation places it at the output of the GNN block.\"\n    },\n    {\n      \"sentence\": \"It can be defined for node, edge, or graph-level tasks and is commonly highlighted in architecture diagrams.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0243\",\n        \"DGL-E0285\"\n      ],\n      \"reason\": \"The source defines the prediction head for node, edge, or graph tasks, and diagrams prominently label it.\"\n    },\n    {\n      \"sentence\": \"In GNN training and optimization contexts, the prediction head appears at the output of the GNN block.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0243\",\n        \"DGL-E0319\",\n        \"DGL-E0350\",\n        \"DGL-E0439\"\n      ],\n      \"reason\": \"The term appears in training/optimization materials and is annotated as pointing to the GNN block output.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:14:32.893691+00:00"
+}

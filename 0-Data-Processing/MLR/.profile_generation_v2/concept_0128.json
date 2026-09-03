@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "51b954180dd1eadaabc8f02de86098bdd43ee83b89538de5d5a4db191352533d",
+  "concept_id": 128,
+  "concept_name": "log error cost",
+  "aliases": [
+    "log error cost",
+    "log error",
+    "pointwise log error"
+  ],
+  "profile": "log error cost: A cost function employed in linear two-class classification. It is preferred because it better incentivizes learning by producing a convex cost function.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "log error cost: A cost function used in linear two-class classification. It is chosen to better incentivize learning because it produces a convex cost function.",
+    "claims": [
+      {
+        "claim": "Log error cost is a cost function used in linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0144"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used to better incentivize learning by producing a convex cost function.",
+        "evidence_ids": [
+          "MLR-E0144"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The exact mathematical form of the log error is not specified in the supplied metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "log error cost: A cost function employed in linear two-class classification. It is preferred because it better incentivizes learning by producing a convex cost function.",
+    "sentence_reviews": [
+      {
+        "sentence": "log error cost: A cost function employed in linear two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0144"
+        ],
+        "reason": "The evidence places the Log Error in the context of linear two-class classification."
+      },
+      {
+        "sentence": "It is preferred because it better incentivizes learning by producing a convex cost function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0144"
+        ],
+        "reason": "The source says one is better off employing a Log Error to better incentivize learning and that it produces a convex cost function."
+      }
+    ],
+    "warnings": [
+      "The exact mathematical form of the log error is not specified in the supplied metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"log error cost: A cost function used in linear two-class classification. It is chosen to better incentivize learning because it produces a convex cost function.\",\n  \"claims\": [\n    {\n      \"claim\": \"Log error cost is a cost function used in linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0144\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used to better incentivize learning by producing a convex cost function.\",\n      \"evidence_ids\": [\"MLR-E0144\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact mathematical form of the log error is not specified in the supplied metadata.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"log error cost: A cost function employed in linear two-class classification. It is preferred because it better incentivizes learning by producing a convex cost function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"log error cost: A cost function employed in linear two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0144\"],\n      \"reason\": \"The evidence places the Log Error in the context of linear two-class classification.\"\n    },\n    {\n      \"sentence\": \"It is preferred because it better incentivizes learning by producing a convex cost function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0144\"],\n      \"reason\": \"The source says one is better off employing a Log Error to better incentivize learning and that it produces a convex cost function.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact mathematical form of the log error is not specified in the supplied metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:16:30.581267+00:00"
+}

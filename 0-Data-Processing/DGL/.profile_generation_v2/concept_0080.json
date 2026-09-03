@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f33faccf84a7b4b623edc7deb03b17d6009efdcba8f93bff35dfd347f2edad3a",
+  "concept_id": 80,
+  "concept_name": "spanning set",
+  "aliases": [
+    "spanning set"
+  ],
+  "profile": "spanning set: The term appears only as a handwritten annotation in the supplied material. No definition or explanatory content accompanies the term, so its intended meaning cannot be determined from the available evidence.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "spanning set: The term 'spanning set' is introduced as a handwritten annotation in the lecture materials. No definition or explanatory content is provided in the metadata.",
+    "claims": [
+      {
+        "claim": "The term 'spanning set' appears in the lecture materials as a handwritten annotation.",
+        "evidence_ids": [
+          "DGL-E0093"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata contains only the term 'spanning set' with no definition, explanation, or context."
+    ]
+  },
+  "review": {
+    "final_profile": "spanning set: The term appears only as a handwritten annotation in the supplied material. No definition or explanatory content accompanies the term, so its intended meaning cannot be determined from the available evidence.",
+    "sentence_reviews": [
+      {
+        "sentence": "The term appears only as a handwritten annotation in the supplied material.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0093"
+        ],
+        "reason": "The evidence contains the term 'SPANNING SET' with source type handwritten."
+      },
+      {
+        "sentence": "No definition or explanatory content accompanies the term, so its intended meaning cannot be determined from the available evidence.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0093"
+        ],
+        "reason": "The evidence provides only the term itself, with no accompanying definition or explanation."
+      }
+    ],
+    "warnings": [
+      "Only the term itself is evidenced; any specific mathematical meaning would be unsupported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"spanning set: The term 'spanning set' is introduced as a handwritten annotation in the lecture materials. No definition or explanatory content is provided in the metadata.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'spanning set' appears in the lecture materials as a handwritten annotation.\",\n      \"evidence_ids\": [\"DGL-E0093\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata contains only the term 'spanning set' with no definition, explanation, or context.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"spanning set: The term appears only as a handwritten annotation in the supplied material. No definition or explanatory content accompanies the term, so its intended meaning cannot be determined from the available evidence.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The term appears only as a handwritten annotation in the supplied material.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0093\"],\n      \"reason\": \"The evidence contains the term 'SPANNING SET' with source type handwritten.\"\n    },\n    {\n      \"sentence\": \"No definition or explanatory content accompanies the term, so its intended meaning cannot be determined from the available evidence.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0093\"],\n      \"reason\": \"The evidence provides only the term itself, with no accompanying definition or explanation.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the term itself is evidenced; any specific mathematical meaning would be unsupported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:19:22.212424+00:00"
+}

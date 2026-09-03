@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6c95a0b899fac34f49508972abf874918c5df2dbc9fee482f12344eda39443ff",
+  "concept_id": 286,
+  "concept_name": "associativity",
+  "aliases": [
+    "associativity",
+    "associative property"
+  ],
+  "profile": "associativity: Associativity is a property of binary operations where the grouping of operands does not affect the result. In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "associativity: Associativity is a property of binary operations where the grouping of operands does not affect the result. In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.",
+    "claims": [
+      {
+        "claim": "Associativity is a property of binary operations where the grouping of operands does not affect the result.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.",
+        "evidence_ids": [
+          "DGL-E0406"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "associativity: Associativity is a property of binary operations where the grouping of operands does not affect the result. In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.",
+    "sentence_reviews": [
+      {
+        "sentence": "Associativity is a property of binary operations where the grouping of operands does not affect the result.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic mathematical definition that helps frame the source-supported permutation example."
+      },
+      {
+        "sentence": "In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0406"
+        ],
+        "reason": "This identity directly matches the provided evidence."
+      }
+    ],
+    "warnings": [
+      "The general definition of associativity is background context; the source explicitly supports only the permutation composition identity."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"associativity: Associativity is a property of binary operations where the grouping of operands does not affect the result. In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.\",\n  \"claims\": [\n    {\n      \"claim\": \"Associativity is a property of binary operations where the grouping of operands does not affect the result.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.\",\n      \"evidence_ids\": [\"DGL-E0406\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"associativity: Associativity is a property of binary operations where the grouping of operands does not affect the result. In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Associativity is a property of binary operations where the grouping of operands does not affect the result.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic mathematical definition that helps frame the source-supported permutation example.\"\n    },\n    {\n      \"sentence\": \"In permutations, composition is associative: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0406\"],\n      \"reason\": \"This identity directly matches the provided evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The general definition of associativity is background context; the source explicitly supports only the permutation composition identity.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:43:10.969111+00:00"
+}

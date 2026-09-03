@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1bd64c01d32c8a57994002f07d5d13234a258bc1598aa3fc3a6a169bdf431f6e",
+  "concept_id": 347,
+  "concept_name": "node addition",
+  "aliases": [
+    "node addition"
+  ],
+  "profile": "node addition: In generative graph learning, node addition is an operation that adds a new node with two edges.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node addition: In generative graph learning, node addition is an operation that adds a new node connected by two edges, as indicated by a handwritten annotation in a taxonomy diagram.",
+    "claims": [
+      {
+        "claim": "Node addition is an operation in generative graph learning that adds a new node with two edges.",
+        "evidence_ids": [
+          "DGL-E0505"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The available evidence is a single handwritten note; no further details are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "node addition: In generative graph learning, node addition is an operation that adds a new node with two edges.",
+    "sentence_reviews": [
+      {
+        "sentence": "node addition: In generative graph learning, node addition is an operation that adds a new node with two edges.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0505"
+        ],
+        "reason": "The handwritten annotation explicitly states 'add a new node with two edges' within a generative graph learning taxonomy diagram."
+      }
+    ],
+    "warnings": [
+      "The only evidence is a single handwritten note; no further details about node addition are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node addition: In generative graph learning, node addition is an operation that adds a new node connected by two edges, as indicated by a handwritten annotation in a taxonomy diagram.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node addition is an operation in generative graph learning that adds a new node with two edges.\",\n      \"evidence_ids\": [\"DGL-E0505\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The available evidence is a single handwritten note; no further details are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node addition: In generative graph learning, node addition is an operation that adds a new node with two edges.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node addition: In generative graph learning, node addition is an operation that adds a new node with two edges.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0505\"],\n      \"reason\": \"The handwritten annotation explicitly states 'add a new node with two edges' within a generative graph learning taxonomy diagram.\"\n    }\n  ],\n  \"warnings\": [\n    \"The only evidence is a single handwritten note; no further details about node addition are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:02:34.002834+00:00"
+}

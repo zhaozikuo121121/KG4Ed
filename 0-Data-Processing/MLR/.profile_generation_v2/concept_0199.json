@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c7c2240e485eecf25811a31a8751341fa7b13d1ac41ff27b2523ca3edc4abc5b",
+  "concept_id": 199,
+  "concept_name": "degree two polynomial expansion",
+  "aliases": [
+    "degree two polynomial expansion",
+    "quadratic feature expansion"
+  ],
+  "profile": "degree two polynomial expansion: the full degree two polynomial expansion of the input, consisting of features of the form x_1^i x_2^j where i + j ≤ 2.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "degree two polynomial expansion: a feature expansion that produces the full degree two polynomial expansion of the input, consisting of features of the form xi1 xj2 where i + j ≤ 2. This includes all monomials up to total degree two, such as linear terms (i=1, j=0 or i=0, j=1), quadratic terms (i=2, j=0 or i=0, j=2), and cross terms (i=1, j=1).",
+    "claims": [
+      {
+        "claim": "A degree two polynomial expansion is the full degree two polynomial expansion of the input, consisting of features of the form xi1 xj2 where i + j ≤ 2.",
+        "evidence_ids": [
+          "MLR-E0245"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "degree two polynomial expansion: the full degree two polynomial expansion of the input, consisting of features of the form x_1^i x_2^j where i + j ≤ 2.",
+    "sentence_reviews": [
+      {
+        "sentence": "degree two polynomial expansion: the full degree two polynomial expansion of the input, consisting of features of the form x_1^i x_2^j where i + j ≤ 2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0245"
+        ],
+        "reason": "Directly restates the source definition, with the feature notation interpreted as x_1^i x_2^j from the ambiguous raw evidence."
+      }
+    ],
+    "warnings": [
+      "The raw evidence string 'xi 1xj 2' is ambiguous; final profile interprets it as x_1^i x_2^j."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"degree two polynomial expansion: a feature expansion that produces the full degree two polynomial expansion of the input, consisting of features of the form xi1 xj2 where i + j ≤ 2. This includes all monomials up to total degree two, such as linear terms (i=1, j=0 or i=0, j=1), quadratic terms (i=2, j=0 or i=0, j=2), and cross terms (i=1, j=1).\",\n  \"claims\": [\n    {\n      \"claim\": \"A degree two polynomial expansion is the full degree two polynomial expansion of the input, consisting of features of the form xi1 xj2 where i + j ≤ 2.\",\n      \"evidence_ids\": [\"MLR-E0245\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"degree two polynomial expansion: the full degree two polynomial expansion of the input, consisting of features of the form x_1^i x_2^j where i + j ≤ 2.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"degree two polynomial expansion: the full degree two polynomial expansion of the input, consisting of features of the form x_1^i x_2^j where i + j ≤ 2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0245\"],\n      \"reason\": \"Directly restates the source definition, with the feature notation interpreted as x_1^i x_2^j from the ambiguous raw evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The raw evidence string 'xi 1xj 2' is ambiguous; final profile interprets it as x_1^i x_2^j.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:41:56.604012+00:00"
+}

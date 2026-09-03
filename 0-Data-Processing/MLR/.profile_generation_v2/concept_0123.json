@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "dedab06101aa42067d6f591d37dab2b4baba2dddf1ccdaa8e65592e74d17db95",
+  "concept_id": 123,
+  "concept_name": "soft-margin support vector machine",
+  "aliases": [
+    "soft-margin support vector machine",
+    "soft-margin svm",
+    "soft-margin svm cost",
+    "regularized margin-perceptron cost",
+    "squared margin cost"
+  ],
+  "profile": "soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.",
+    "claims": [
+      {
+        "claim": "The soft-margin support vector machine is a regularized form of the Margin-Perceptron cost function.",
+        "evidence_ids": [
+          "MLR-E0139"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is also referred to as a squared margin SVM.",
+        "evidence_ids": [
+          "MLR-E0301"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.",
+    "sentence_reviews": [
+      {
+        "sentence": "soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0139",
+          "MLR-E0301"
+        ],
+        "reason": "MLR-E0139 defines the soft-margin SVM cost as the regularized Margin-Perceptron cost; MLR-E0301 equates squared margin and soft-margin SVMs."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.\",\n  \"claims\": [\n    {\n      \"claim\": \"The soft-margin support vector machine is a regularized form of the Margin-Perceptron cost function.\",\n      \"evidence_ids\": [\"MLR-E0139\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is also referred to as a squared margin SVM.\",\n      \"evidence_ids\": [\"MLR-E0301\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"soft-margin support vector machine: a regularized form of the Margin-Perceptron cost function, also referred to as a squared margin SVM.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0139\",\n        \"MLR-E0301\"\n      ],\n      \"reason\": \"MLR-E0139 defines the soft-margin SVM cost as the regularized Margin-Perceptron cost; MLR-E0301 equates squared margin and soft-margin SVMs.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:14:49.999332+00:00"
+}

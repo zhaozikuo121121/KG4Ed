@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "3bfeaa3da205b2eccf38b5a10aef969ea6e85a0eb8b389b86737775d3acc4c42",
+  "concept_id": 61,
+  "concept_name": "matrix powers",
+  "aliases": [
+    "matrix powers",
+    "powers of matrices"
+  ],
+  "profile": "matrix powers: Matrix powers are associated with walks in a graph. The association appears in the topic of graph properties and matrix representations, where the connection is listed as 'Walks (powers of matrices)'.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "matrix powers: Powers of a matrix are associated with walks in a graph. This connection is listed under the topic of graph properties and matrix representations, indicating that matrix powers play a role in analyzing graph structure through walks.",
+    "claims": [
+      {
+        "claim": "Powers of a matrix are associated with walks in a graph.",
+        "evidence_ids": [
+          "DGL-E0059"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "matrix powers: Matrix powers are associated with walks in a graph. The association appears in the topic of graph properties and matrix representations, where the connection is listed as 'Walks (powers of matrices)'.",
+    "sentence_reviews": [
+      {
+        "sentence": "Matrix powers are associated with walks in a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0059"
+        ],
+        "reason": "The source explicitly lists 'Walks (powers of matrices)', connecting matrix powers with walks."
+      },
+      {
+        "sentence": "The association appears in the topic of graph properties and matrix representations, where the connection is listed as 'Walks (powers of matrices)'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0059"
+        ],
+        "reason": "The source places this list item under the topic 'Graph Properties and Matrix Representations'."
+      }
+    ],
+    "warnings": [
+      "Source evidence is limited to a heading/list item, so no further properties or applications of matrix powers are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"matrix powers: Powers of a matrix are associated with walks in a graph. This connection is listed under the topic of graph properties and matrix representations, indicating that matrix powers play a role in analyzing graph structure through walks.\",\n  \"claims\": [\n    {\n      \"claim\": \"Powers of a matrix are associated with walks in a graph.\",\n      \"evidence_ids\": [\"DGL-E0059\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"matrix powers: Matrix powers are associated with walks in a graph. The association appears in the topic of graph properties and matrix representations, where the connection is listed as 'Walks (powers of matrices)'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Matrix powers are associated with walks in a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0059\"],\n      \"reason\": \"The source explicitly lists 'Walks (powers of matrices)', connecting matrix powers with walks.\"\n    },\n    {\n      \"sentence\": \"The association appears in the topic of graph properties and matrix representations, where the connection is listed as 'Walks (powers of matrices)'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0059\"],\n      \"reason\": \"The source places this list item under the topic 'Graph Properties and Matrix Representations'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source evidence is limited to a heading/list item, so no further properties or applications of matrix powers are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:08:42.264081+00:00"
+}

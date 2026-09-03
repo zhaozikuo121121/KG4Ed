@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "6005cc5ee433c6753662c6399faaa2076072b56c142560d03804755c5a323885",
+  "concept_id": 209,
+  "concept_name": "linear combination",
+  "aliases": [
+    "linear combination"
+  ],
+  "profile": "linear combination: A linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.",
+  "word_count": 14,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "linear combination: In feature learning, a linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.",
+    "claims": [
+      {
+        "claim": "A linear combination defines a new N-dimensional vector as the weighted sum of feature vectors.",
+        "evidence_ids": [
+          "MLR-E0258"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "linear combination: A linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.",
+    "sentence_reviews": [
+      {
+        "sentence": "A linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0258"
+        ],
+        "reason": "The formula and the claim that the linear combination defines a new N-dimensional vector are directly stated in the evidence."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"linear combination: In feature learning, a linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.\",\n  \"claims\": [\n    {\n      \"claim\": \"A linear combination defines a new N-dimensional vector as the weighted sum of feature vectors.\",\n      \"evidence_ids\": [\"MLR-E0258\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"linear combination: A linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N-dimensional vector.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0258\"],\n      \"reason\": \"The formula and the claim that the linear combination defines a new N-dimensional vector are directly stated in the evidence.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:45:22.983660+00:00"
+}

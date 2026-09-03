@@ -1,0 +1,3399 @@
+{
+  "version": "1.0.0",
+  "lecture": 4,
+  "pdf_file": "DGL_Lecture_4_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "GNN Training Strategies and Batching",
+  "summary": "This lecture page details the computational challenges of training Graph Neural Networks (GNNs), specifically the graph expansion problem where receptive fields grow exponentially with depth. It compares three optimization strategies: Stochastic Gradient Descent (SGD), Batch Gradient Descent, and Mini-batch Gradient Descent, highlighting the trade-offs in memory usage, convergence stability, and computational efficiency. The page introduces GraphSAGE as a solution for scalable training through random neighborhood sampling and discusses graph partitioning as an alternative batching method.",
+  "key_topics": [
+    "graph expansion problem",
+    "mini-batch gradient descent",
+    "graphsage",
+    "receptive field",
+    "node embedding computation graph",
+    "graph partitioning"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T13:46:34+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "graph-based aggregation",
+      "aliases": [
+        "agg"
+      ],
+      "evidence": "Graph-based aggregation (the GNN hallmark)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        99.0,
+        99.0,
+        121.0
+      ]
+    },
+    {
+      "canonical": "stochastic gradient descent",
+      "aliases": [
+        "sgd"
+      ],
+      "evidence": "Stochastic gradient descent",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        99.0,
+        522.5,
+        121.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "msg passing"
+      ],
+      "evidence": "MSG passing",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        286.0,
+        121.0,
+        341.0,
+        143.0
+      ]
+    },
+    {
+      "canonical": "redundancy",
+      "aliases": [],
+      "evidence": "redundancy between neighboring training nodes (points)",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        587.5,
+        137.5,
+        725.0,
+        154.0
+      ]
+    },
+    {
+      "canonical": "receptive field",
+      "aliases": [
+        "k-hop neighborhood"
+      ],
+      "evidence": "receptive field of a node in a given layer",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        209.0,
+        522.5,
+        231.0
+      ]
+    },
+    {
+      "canonical": "graph expansion problem",
+      "aliases": [],
+      "evidence": "Graph expansion problem",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        769.0,
+        247.5,
+        862.5,
+        264.0
+      ]
+    },
+    {
+      "canonical": "batch normalization",
+      "aliases": [
+        "bn"
+      ],
+      "evidence": "BN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        341.0,
+        264.0,
+        374.0,
+        286.0
+      ]
+    },
+    {
+      "canonical": "memory usage",
+      "aliases": [
+        "memory requirements"
+      ],
+      "evidence": "increase the memory usage and the compute budget",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        769.0,
+        280.5,
+        917.5,
+        297.0
+      ]
+    },
+    {
+      "canonical": "exponential time complexity",
+      "aliases": [],
+      "evidence": "exponential time complexity to the GCN depth",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        297.0,
+        972.5,
+        313.5
+      ]
+    },
+    {
+      "canonical": "hidden layer",
+      "aliases": [],
+      "evidence": "hidden layer 1, hidden layer 2",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        302.5,
+        670.0,
+        319.0
+      ]
+    },
+    {
+      "canonical": "prediction head",
+      "aliases": [
+        "output layer"
+      ],
+      "evidence": "Prediction head",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        319.0,
+        82.5,
+        341.0
+      ]
+    },
+    {
+      "canonical": "random neighborhood sampling",
+      "aliases": [
+        "neighborhood sampling"
+      ],
+      "evidence": "Random neighborhood sampling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        824.0,
+        357.5,
+        917.5,
+        374.0
+      ]
+    },
+    {
+      "canonical": "dropout",
+      "aliases": [],
+      "evidence": "Dropout",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        286.0,
+        374.0,
+        341.0,
+        396.0
+      ]
+    },
+    {
+      "canonical": "node embedding computation graph",
+      "aliases": [
+        "computation graph"
+      ],
+      "evidence": "Node embedding computation graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        374.0,
+        522.5,
+        396.0
+      ]
+    },
+    {
+      "canonical": "graphsage",
+      "aliases": [],
+      "evidence": "GraphSAGE (Hamilton et al., 2017)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        385.0,
+        862.5,
+        401.5
+      ]
+    },
+    {
+      "canonical": "overlap",
+      "aliases": [],
+      "evidence": "overlap",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        697.5,
+        412.5,
+        725.0,
+        429.0
+      ]
+    },
+    {
+      "canonical": "non-linearity",
+      "aliases": [
+        "activation function"
+      ],
+      "evidence": "Non-linearity",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        154.0,
+        429.0,
+        209.0,
+        451.0
+      ]
+    },
+    {
+      "canonical": "regularization",
+      "aliases": [
+        "regularizer"
+      ],
+      "evidence": "Drop nodes to regularize & increase expressiveness",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        455.5,
+        330.0,
+        477.5
+      ]
+    },
+    {
+      "canonical": "mini-batch gradient descent",
+      "aliases": [
+        "mini-batch sgd"
+      ],
+      "evidence": "Mini-batch gradient descent",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        484.0,
+        522.5,
+        506.0
+      ]
+    },
+    {
+      "canonical": "loss objective",
+      "aliases": [
+        "loss function"
+      ],
+      "evidence": "To train a model by optimizing the loss objective",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        560.0,
+        220.0,
+        576.5
+      ]
+    },
+    {
+      "canonical": "batch gradient descent",
+      "aliases": [
+        "full dataset usage"
+      ],
+      "evidence": "Batch gradient descent",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        615.0,
+        302.5,
+        642.5
+      ]
+    },
+    {
+      "canonical": "parameter update",
+      "aliases": [
+        "update parameters"
+      ],
+      "evidence": "Update w_{t+1} = w_t - η∇L",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        675.5,
+        137.5,
+        692.0
+      ]
+    },
+    {
+      "canonical": "graph partitioning",
+      "aliases": [
+        "partitioning"
+      ],
+      "evidence": "Graph partitioning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        851.5,
+        752.5,
+        917.5,
+        769.0
+      ]
+    },
+    {
+      "canonical": "epoch",
+      "aliases": [
+        "training epoch"
+      ],
+      "evidence": "an epoch is a complete pass through the entire training dataset",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        769.0,
+        302.5,
+        785.5
+      ]
+    },
+    {
+      "canonical": "convergence",
+      "aliases": [
+        "balanced convergence"
+      ],
+      "evidence": "Balanced Convergence: It strikes a balance between the stable convergence of batch training and the faster fluctuating convergence of stochastic training.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        780.0,
+        467.5,
+        802.0
+      ]
+    },
+    {
+      "canonical": "disjoint subsets",
+      "aliases": [
+        "clusters"
+      ],
+      "evidence": "Cluster the graph nodes into disjoint subsets of nodes before processing.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        780.0,
+        972.5,
+        796.5
+      ]
+    },
+    {
+      "canonical": "noise in training",
+      "aliases": [
+        "noisy updates"
+      ],
+      "evidence": "Noisy Updates: The updates can be noisy, leading to more erratic convergence behavior.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        807.5,
+        137.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "stability",
+      "aliases": [
+        "stable convergence"
+      ],
+      "evidence": "Stability: It provides stable error gradients and convergence",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        807.5,
+        302.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "computational efficiency",
+      "aliases": [
+        "efficiency"
+      ],
+      "evidence": "Computational Efficiency: More computationally efficient",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        807.5,
+        467.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "gpu acceleration",
+      "aliases": [
+        "parallel processing"
+      ],
+      "evidence": "parallel processing and computing using GPUs",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        824.0,
+        467.5,
+        840.5
+      ]
+    },
+    {
+      "canonical": "overfitting",
+      "aliases": [
+        "risk of overfitting"
+      ],
+      "evidence": "Risk of Overfitting: since the model is repeatedly exposed to the entire dataset in the same order",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        835.0,
+        302.5,
+        851.5
+      ]
+    },
+    {
+      "canonical": "hyperparameter",
+      "aliases": [
+        "mini-batch size"
+      ],
+      "evidence": "Hyperparameter: The size of the mini-batch can affect the performance and efficiency of the training process.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        851.5,
+        467.5,
+        868.0
+      ]
+    },
+    {
+      "canonical": "subgraph sampling",
+      "aliases": [
+        "mini-batch subgraph"
+      ],
+      "evidence": "Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        917.5,
+        522.5,
+        934.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = f(H_k, A)",
+      "related_concepts": [
+        "message passing"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        176.0,
+        341.0,
+        198.0
+      ],
+      "label": "generalized propagation rule"
+    },
+    {
+      "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{point}}",
+      "related_concepts": [
+        "stochastic gradient descent",
+        "parameter update"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        675.5,
+        137.5,
+        692.0
+      ],
+      "label": "SGD Update Rule"
+    },
+    {
+      "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{dataset}}",
+      "related_concepts": [
+        "batch gradient descent",
+        "parameter update"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        675.5,
+        302.5,
+        692.0
+      ],
+      "label": "Batch GD Update Rule"
+    },
+    {
+      "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{batch}}",
+      "related_concepts": [
+        "mini-batch gradient descent",
+        "parameter update"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        675.5,
+        467.5,
+        692.0
+      ],
+      "label": "Mini-batch GD Update Rule"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head.",
+      "related_concepts": [
+        "message passing",
+        "graph-based aggregation",
+        "batch normalization",
+        "dropout",
+        "non-linearity",
+        "prediction head"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        99.0,
+        374.0,
+        451.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Input graph with nodes and edges, illustrating the receptive field of a node in a given layer.",
+      "related_concepts": [
+        "receptive field"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        231.0,
+        522.5,
+        341.0
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Table showing node embedding computation graph with node indices and their corresponding embeddings.",
+      "related_concepts": [
+        "node embedding computation graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        396.0,
+        522.5,
+        451.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Input graph with highlighted nodes and edges showing 1-hop and 2-hop neighborhoods for a target node.",
+      "related_concepts": [
+        "graph expansion problem"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        192.5,
+        725.0,
+        302.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Computation graph showing node dependencies across layers with overlap indication.",
+      "related_concepts": [
+        "node embedding computation graph",
+        "hidden layer",
+        "overlap"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        330.0,
+        725.0,
+        467.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Three-stage visualization of input graph, hidden layer 1, and hidden layer 2 with receptive field highlighting.",
+      "related_concepts": [
+        "receptive field",
+        "graph expansion problem",
+        "hidden layer"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        137.5,
+        917.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Node sampling process illustration with three graphs showing progressive neighborhood sampling.",
+      "related_concepts": [
+        "random neighborhood sampling",
+        "graphsage"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        412.5,
+        972.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Three-step GraphSAGE algorithm description with checkmarks and underlines.",
+      "related_concepts": [
+        "graphsage",
+        "random neighborhood sampling"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        385.0,
+        972.5,
+        440.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Comparison of three gradient descent methods: stochastic (single point), batch (full dataset), and mini-batch (subset). Each shows data points and update arrows.",
+      "related_concepts": [
+        "stochastic gradient descent",
+        "batch gradient descent",
+        "mini-batch gradient descent"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        697.5,
+        467.5,
+        752.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Contour plot comparing convergence paths of batch, mini-batch, and stochastic gradient descent.",
+      "related_concepts": [
+        "convergence",
+        "stability",
+        "noise in training"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        862.5,
+        137.5,
+        917.5
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Text boxes comparing characteristics of the three training strategies: individual data points, full dataset usage, subset of dataset.",
+      "related_concepts": [
+        "stochastic gradient descent",
+        "batch gradient descent",
+        "mini-batch gradient descent"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        752.5,
+        467.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Illustration of graph partitioning, showing the original graph divided into clusters (batches) and then recombined.",
+      "related_concepts": [
+        "graph partitioning",
+        "disjoint subsets"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        862.5,
+        972.5,
+        972.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "c^o llectivist",
+      "reason": "Handwriting is cursive and partially obscured; 'collectivist' is inferred but not certain",
+      "bbox": [
+        917.5,
+        110.0,
+        972.5,
+        126.5
+      ]
+    },
+    {
+      "transcription": "co-dependent",
+      "reason": "Handwriting is small and slightly smudged; meaning is clear but exact spelling uncertain",
+      "bbox": [
+        917.5,
+        126.5,
+        972.5,
+        143.0
+      ]
+    },
+    {
+      "transcription": "leverage",
+      "reason": "Quoted term in handwriting; possible alternative readings like 'average' or 'manage'",
+      "bbox": [
+        917.5,
+        143.0,
+        972.5,
+        159.5
+      ]
+    },
+    {
+      "transcription": "r=3",
+      "reason": "Small handwritten annotation near GraphSAGE step 3; could be 'r=2' or other value",
+      "bbox": [
+        862.5,
+        429.0,
+        890.0,
+        445.5
+      ]
+    },
+    {
+      "transcription": "diversify the data inputs (distribution)",
+      "reason": "Handwritten text is slightly slanted and partially overlaps with printed text; 'distribution' is somewhat unclear.",
+      "bbox": [
+        412.5,
+        659.0,
+        467.5,
+        681.0
+      ]
+    },
+    {
+      "transcription": "B ≈ 4",
+      "reason": "Handwritten annotation near mini-batch diagram; the number '4' is clear but the symbol before it could be '≈' or '='.",
+      "bbox": [
+        302.5,
+        697.5,
+        330.0,
+        714.0
+      ]
+    },
+    {
+      "transcription": "G?",
+      "reason": "Single letter 'G' with a question mark or arrow nearby; context suggests it might refer to a graph or gradient, but it's ambiguous.",
+      "bbox": [
+        357.5,
+        714.0,
+        374.0,
+        730.5
+      ]
+    },
+    {
+      "transcription": "b_1, b_2, b_3, b_4",
+      "reason": "Handwritten labels for batches in the graph partitioning diagram are slightly ambiguous due to handwriting style.",
+      "bbox": [
+        835.0,
+        824.0,
+        917.5,
+        840.5
+      ]
+    },
+    {
+      "transcription": "c, i",
+      "reason": "Handwritten labels for the batch set example are slightly ambiguous due to handwriting style.",
+      "bbox": [
+        571.0,
+        505.0,
+        670.0,
+        521.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "MSG passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              220,
+              620,
+              260
+            ]
+          },
+          {
+            "canonical": "graph-based aggregation",
+            "aliases": [
+              "AGG"
+            ],
+            "evidence": "Graph-based aggregation (the GNN hallmark)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              180,
+              180,
+              220
+            ]
+          },
+          {
+            "canonical": "transform",
+            "aliases": [],
+            "evidence": "Transform",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              180,
+              380,
+              220
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              620,
+              480,
+              680,
+              520
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              680,
+              620,
+              720
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              780,
+              380,
+              820
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              580,
+              150,
+              620
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "SGD"
+            ],
+            "evidence": "Stochastic gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              180,
+              950,
+              220
+            ]
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [],
+            "evidence": "Mini-batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              880,
+              950,
+              920
+            ]
+          },
+          {
+            "canonical": "receptive field",
+            "aliases": [],
+            "evidence": "receptive field of a node in a given layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              380,
+              950,
+              420
+            ]
+          },
+          {
+            "canonical": "node embedding computation graph",
+            "aliases": [],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              680,
+              950,
+              720
+            ]
+          },
+          {
+            "canonical": "random node sampling",
+            "aliases": [],
+            "evidence": "Random node sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              950,
+              880,
+              1000,
+              920
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              320,
+              620,
+              360
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{point}",
+            "related_concepts": [
+              "stochastic gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              280,
+              950,
+              320
+            ],
+            "label": ""
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{batch}",
+            "related_concepts": [
+              "mini-batch gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              980,
+              950,
+              1000
+            ],
+            "label": ""
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head.",
+            "related_concepts": [
+              "message passing",
+              "graph-based aggregation",
+              "transform",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              180,
+              680,
+              820
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Input graph with nodes and edges, illustrating the receptive field of a node in a given layer.",
+            "related_concepts": [
+              "receptive field"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              420,
+              950,
+              620
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Table showing node embedding computation graph with node indices and their corresponding embeddings.",
+            "related_concepts": [
+              "node embedding computation graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              720,
+              950,
+              820
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"MSG passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 220, 620, 260]\n    },\n    {\n      \"canonical\": \"graph-based aggregation\",\n      \"aliases\": [\"AGG\"],\n      \"evidence\": \"Graph-based aggregation (the GNN hallmark)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 180, 180, 220]\n    },\n    {\n      \"canonical\": \"transform\",\n      \"aliases\": [],\n      \"evidence\": \"Transform\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 180, 380, 220]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN\"],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [620, 480, 680, 520]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 680, 620, 720]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 780, 380, 820]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 580, 150, 620]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"SGD\"],\n      \"evidence\": \"Stochastic gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 180, 950, 220]\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [],\n      \"evidence\": \"Mini-batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 880, 950, 920]\n    },\n    {\n      \"canonical\": \"receptive field\",\n      \"aliases\": [],\n      \"evidence\": \"receptive field of a node in a given layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 380, 950, 420]\n    },\n    {\n      \"canonical\": \"node embedding computation graph\",\n      \"aliases\": [],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 680, 950, 720]\n    },\n    {\n      \"canonical\": \"random node sampling\",\n      \"aliases\": [],\n      \"evidence\": \"Random node sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [950, 880, 1000, 920]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 320, 620, 360],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{point}\",\n      \"related_concepts\": [\"stochastic gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 280, 950, 320],\n      \"label\": \"\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{batch}\",\n      \"related_concepts\": [\"mini-batch gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 980, 950, 1000],\n      \"label\": \"\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head.\",\n      \"related_concepts\": [\"message passing\", \"graph-based aggregation\", \"transform\", \"batch normalization\", \"dropout\", \"non-linearity\", \"prediction head\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 180, 680, 820]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph with nodes and edges, illustrating the receptive field of a node in a given layer.\",\n      \"related_concepts\": [\"receptive field\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 420, 950, 620]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Table showing node embedding computation graph with node indices and their corresponding embeddings.\",\n      \"related_concepts\": [\"node embedding computation graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 720, 950, 820]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "batch norm"
+            ],
+            "evidence": "Batching and batch normalization (UDL-13)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              380,
+              20,
+              620,
+              50
+            ]
+          },
+          {
+            "canonical": "graph neural network training",
+            "aliases": [
+              "GNN training"
+            ],
+            "evidence": "How to batch smartly to speed up GNN training and lower the memory usage?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              950,
+              630
+            ]
+          },
+          {
+            "canonical": "node sampling",
+            "aliases": [
+              "random node sampling"
+            ],
+            "evidence": "Node sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              650,
+              650,
+              680
+            ]
+          },
+          {
+            "canonical": "random neighborhood sampling",
+            "aliases": [
+              "neighborhood sampling"
+            ],
+            "evidence": "Random neighborhood sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              650,
+              850,
+              680
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [
+              "GraphSAGE"
+            ],
+            "evidence": "GraphSAGE (Hamilton et al., 2017)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              700,
+              750,
+              730
+            ]
+          },
+          {
+            "canonical": "mini-batch training",
+            "aliases": [
+              "mini-batches"
+            ],
+            "evidence": "Randomly define mini-batches of nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              740,
+              800,
+              770
+            ]
+          },
+          {
+            "canonical": "receptive field",
+            "aliases": [],
+            "evidence": "Every node may be in the receptive field of every output",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              480,
+              950,
+              510
+            ]
+          },
+          {
+            "canonical": "graph expansion problem",
+            "aliases": [],
+            "evidence": "Graph expansion problem",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              450,
+              750,
+              480
+            ]
+          },
+          {
+            "canonical": "memory usage",
+            "aliases": [],
+            "evidence": "increase the memory usage and the compute budget",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              510,
+              850,
+              540
+            ]
+          },
+          {
+            "canonical": "compute budget",
+            "aliases": [],
+            "evidence": "increase the memory usage and the compute budget",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              510,
+              900,
+              540
+            ]
+          },
+          {
+            "canonical": "exponential time complexity",
+            "aliases": [],
+            "evidence": "exponential time complexity to the GCN depth",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              540,
+              950,
+              570
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence": "gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              200,
+              100,
+              230
+            ]
+          },
+          {
+            "canonical": "computation graph",
+            "aliases": [],
+            "evidence": "Building computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              650,
+              150,
+              680
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [],
+            "evidence": "hidden layer 1, hidden layer 2",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              550,
+              400,
+              580
+            ]
+          },
+          {
+            "canonical": "1-hop neighborhood",
+            "aliases": [],
+            "evidence": "1-hop neighborhood (hidden layer 1)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              550,
+              350,
+              580
+            ]
+          },
+          {
+            "canonical": "2-hop neighborhood",
+            "aliases": [],
+            "evidence": "2-hop neighborhood (hidden layer 2)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              550,
+              500,
+              580
+            ]
+          },
+          {
+            "canonical": "overlap",
+            "aliases": [],
+            "evidence": "overlap",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              750,
+              500,
+              780
+            ]
+          },
+          {
+            "canonical": "redundancy",
+            "aliases": [],
+            "evidence": "redundancy between neighboring training nodes (points)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              250,
+              500,
+              280
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{point}",
+            "related_concepts": [
+              "gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              250,
+              200,
+              280
+            ],
+            "label": "point gradient update"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{batch}",
+            "related_concepts": [
+              "gradient descent",
+              "mini-batch training"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              850,
+              200,
+              880
+            ],
+            "label": "batch gradient update"
+          },
+          {
+            "latex": "h_{k=2}^{(i=0)}",
+            "related_concepts": [
+              "hidden layer",
+              "computation graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              650,
+              450,
+              680
+            ],
+            "label": "hidden state notation"
+          },
+          {
+            "latex": "|b| = 2 = \\{i, j\\}",
+            "related_concepts": [
+              "mini-batch training"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              200,
+              900,
+              350,
+              930
+            ],
+            "label": "batch size example"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Input graph with highlighted nodes and neighborhoods for 1-hop and 2-hop expansions",
+            "related_concepts": [
+              "1-hop neighborhood",
+              "2-hop neighborhood",
+              "graph expansion problem"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              350,
+              500,
+              550
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Computation graph showing node dependencies across layers with overlap indication",
+            "related_concepts": [
+              "computation graph",
+              "hidden layer",
+              "overlap"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              600,
+              500,
+              850
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Three-stage visualization of input graph, hidden layer 1, and hidden layer 2 with receptive field highlighting",
+            "related_concepts": [
+              "receptive field",
+              "graph expansion problem",
+              "hidden layer"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              250,
+              850,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node sampling process illustration with three graphs showing progressive neighborhood sampling",
+            "related_concepts": [
+              "node sampling",
+              "random neighborhood sampling",
+              "graphsage"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              950,
+              950
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Three-step GraphSAGE algorithm description with checkmarks and underlines",
+            "related_concepts": [
+              "graphsage",
+              "mini-batch training",
+              "random neighborhood sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              700,
+              950,
+              800
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "c^o llectivist",
+            "reason": "Handwriting is cursive and partially obscured; 'collectivist' is inferred but not certain",
+            "bbox": [
+              850,
+              200,
+              950,
+              230
+            ]
+          },
+          {
+            "transcription": "co-dependent",
+            "reason": "Handwriting is small and slightly smudged; meaning is clear but exact spelling uncertain",
+            "bbox": [
+              850,
+              230,
+              950,
+              260
+            ]
+          },
+          {
+            "transcription": "leverage",
+            "reason": "Quoted term in handwriting; possible alternative readings like 'average' or 'manage'",
+            "bbox": [
+              850,
+              260,
+              950,
+              290
+            ]
+          },
+          {
+            "transcription": "r=3",
+            "reason": "Small handwritten annotation near GraphSAGE step 3; could be 'r=2' or other value",
+            "bbox": [
+              750,
+              780,
+              800,
+              810
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"batch norm\"],\n      \"evidence\": \"Batching and batch normalization (UDL-13)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [380, 20, 620, 50]\n    },\n    {\n      \"canonical\": \"graph neural network training\",\n      \"aliases\": [\"GNN training\"],\n      \"evidence\": \"How to batch smartly to speed up GNN training and lower the memory usage?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 950, 630]\n    },\n    {\n      \"canonical\": \"node sampling\",\n      \"aliases\": [\"random node sampling\"],\n      \"evidence\": \"Node sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 650, 650, 680]\n    },\n    {\n      \"canonical\": \"random neighborhood sampling\",\n      \"aliases\": [\"neighborhood sampling\"],\n      \"evidence\": \"Random neighborhood sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 650, 850, 680]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [\"GraphSAGE\"],\n      \"evidence\": \"GraphSAGE (Hamilton et al., 2017)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 700, 750, 730]\n    },\n    {\n      \"canonical\": \"mini-batch training\",\n      \"aliases\": [\"mini-batches\"],\n      \"evidence\": \"Randomly define mini-batches of nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 740, 800, 770]\n    },\n    {\n      \"canonical\": \"receptive field\",\n      \"aliases\": [],\n      \"evidence\": \"Every node may be in the receptive field of every output\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 480, 950, 510]\n    },\n    {\n      \"canonical\": \"graph expansion problem\",\n      \"aliases\": [],\n      \"evidence\": \"Graph expansion problem\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 450, 750, 480]\n    },\n    {\n      \"canonical\": \"memory usage\",\n      \"aliases\": [],\n      \"evidence\": \"increase the memory usage and the compute budget\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 510, 850, 540]\n    },\n    {\n      \"canonical\": \"compute budget\",\n      \"aliases\": [],\n      \"evidence\": \"increase the memory usage and the compute budget\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 510, 900, 540]\n    },\n    {\n      \"canonical\": \"exponential time complexity\",\n      \"aliases\": [],\n      \"evidence\": \"exponential time complexity to the GCN depth\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 540, 950, 570]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence\": \"gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 200, 100, 230]\n    },\n    {\n      \"canonical\": \"computation graph\",\n      \"aliases\": [],\n      \"evidence\": \"Building computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 650, 150, 680]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [],\n      \"evidence\": \"hidden layer 1, hidden layer 2\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 550, 400, 580]\n    },\n    {\n      \"canonical\": \"1-hop neighborhood\",\n      \"aliases\": [],\n      \"evidence\": \"1-hop neighborhood (hidden layer 1)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 550, 350, 580]\n    },\n    {\n      \"canonical\": \"2-hop neighborhood\",\n      \"aliases\": [],\n      \"evidence\": \"2-hop neighborhood (hidden layer 2)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 550, 500, 580]\n    },\n    {\n      \"canonical\": \"overlap\",\n      \"aliases\": [],\n      \"evidence\": \"overlap\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 750, 500, 780]\n    },\n    {\n      \"canonical\": \"redundancy\",\n      \"aliases\": [],\n      \"evidence\": \"redundancy between neighboring training nodes (points)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 250, 500, 280]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{point}\",\n      \"related_concepts\": [\"gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 250, 200, 280],\n      \"label\": \"point gradient update\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{batch}\",\n      \"related_concepts\": [\"gradient descent\", \"mini-batch training\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 850, 200, 880],\n      \"label\": \"batch gradient update\"\n    },\n    {\n      \"latex\": \"h_{k=2}^{(i=0)}\",\n      \"related_concepts\": [\"hidden layer\", \"computation graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 650, 450, 680],\n      \"label\": \"hidden state notation\"\n    },\n    {\n      \"latex\": \"|b| = 2 = \\\\{i, j\\\\}\",\n      \"related_concepts\": [\"mini-batch training\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [200, 900, 350, 930],\n      \"label\": \"batch size example\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph with highlighted nodes and neighborhoods for 1-hop and 2-hop expansions\",\n      \"related_concepts\": [\"1-hop neighborhood\", \"2-hop neighborhood\", \"graph expansion problem\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 350, 500, 550]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Computation graph showing node dependencies across layers with overlap indication\",\n      \"related_concepts\": [\"computation graph\", \"hidden layer\", \"overlap\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 600, 500, 850]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Three-stage visualization of input graph, hidden layer 1, and hidden layer 2 with receptive field highlighting\",\n      \"related_concepts\": [\"receptive field\", \"graph expansion problem\", \"hidden layer\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 250, 850, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node sampling process illustration with three graphs showing progressive neighborhood sampling\",\n      \"related_concepts\": [\"node sampling\", \"random neighborhood sampling\", \"graphsage\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 950, 950]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Three-step GraphSAGE algorithm description with checkmarks and underlines\",\n      \"related_concepts\": [\"graphsage\", \"mini-batch training\", \"random neighborhood sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 700, 950, 800]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"c^o llectivist\",\n      \"reason\": \"Handwriting is cursive and partially obscured; 'collectivist' is inferred but not certain\",\n      \"bbox\": [850, 200, 950, 230]\n    },\n    {\n      \"transcription\": \"co-dependent\",\n      \"reason\": \"Handwriting is small and slightly smudged; meaning is clear but exact spelling uncertain\",\n      \"bbox\": [850, 230, 950, 260]\n    },\n    {\n      \"transcription\": \"leverage\",\n      \"reason\": \"Quoted term in handwriting; possible alternative readings like 'average' or 'manage'\",\n      \"bbox\": [850, 260, 950, 290]\n    },\n    {\n      \"transcription\": \"r=3\",\n      \"reason\": \"Small handwritten annotation near GraphSAGE step 3; could be 'r=2' or other value\",\n      \"bbox\": [750, 780, 800, 810]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "sgd",
+              "single-point training"
+            ],
+            "evidence": "1) Stochastic gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              300,
+              250,
+              350
+            ]
+          },
+          {
+            "canonical": "batch gradient descent",
+            "aliases": [
+              "full dataset usage"
+            ],
+            "evidence": "2) Batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              300,
+              550,
+              350
+            ]
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "mini-batch sgd"
+            ],
+            "evidence": "3) Mini-batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              300,
+              850,
+              350
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularization effect"
+            ],
+            "evidence": "Drop nodes to regularize & increase expressiveness",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              10,
+              600,
+              50
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation"
+            ],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              750,
+              950,
+              780
+            ]
+          },
+          {
+            "canonical": "receptive field",
+            "aliases": [
+              "node receptive field"
+            ],
+            "evidence": "receptive field of a node in a given layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              150,
+              900,
+              180
+            ]
+          },
+          {
+            "canonical": "computational efficiency",
+            "aliases": [
+              "efficiency"
+            ],
+            "evidence": "Computational Efficiency: More computationally efficient",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              650,
+              850,
+              680
+            ]
+          },
+          {
+            "canonical": "memory requirements",
+            "aliases": [
+              "memory usage"
+            ],
+            "evidence": "Memory Requirements: The entire dataset is loaded into memory",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              550,
+              550,
+              580
+            ]
+          },
+          {
+            "canonical": "convergence",
+            "aliases": [
+              "balanced convergence"
+            ],
+            "evidence": "Balanced Convergence: It strikes a balance between the stable convergence of batch training and the faster fluctuating convergence of stochastic training.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              850,
+              640
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [
+              "risk of overfitting"
+            ],
+            "evidence": "Risk of Overfitting: since the model is repeatedly exposed to the entire dataset in the same order",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              700,
+              550,
+              730
+            ]
+          },
+          {
+            "canonical": "hyperparameter",
+            "aliases": [
+              "mini-batch size"
+            ],
+            "evidence": "Hyperparameter: The size of the mini-batch can affect the performance and efficiency of the training process.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              730,
+              850,
+              760
+            ]
+          },
+          {
+            "canonical": "input graph",
+            "aliases": [
+              "graph input"
+            ],
+            "evidence": "Input graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              350,
+              750,
+              380
+            ]
+          },
+          {
+            "canonical": "1-hop neighborhood",
+            "aliases": [
+              "1-hop neighbors"
+            ],
+            "evidence": "1-hop neighbors (hidden layer)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              350,
+              950,
+              380
+            ]
+          },
+          {
+            "canonical": "loss objective",
+            "aliases": [
+              "loss function"
+            ],
+            "evidence": "To train a model by optimizing the loss objective",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              400,
+              230
+            ]
+          },
+          {
+            "canonical": "gradient calculation",
+            "aliases": [
+              "calculate the gradient"
+            ],
+            "evidence": "Calculate the gradient",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              380,
+              250,
+              410
+            ]
+          },
+          {
+            "canonical": "parameter update",
+            "aliases": [
+              "update parameters"
+            ],
+            "evidence": "Update w_{t+1} = w_t - η∇L",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              410,
+              250,
+              440
+            ]
+          },
+          {
+            "canonical": "epoch",
+            "aliases": [
+              "training epoch"
+            ],
+            "evidence": "an epoch is a complete pass through the entire training dataset",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              580,
+              550,
+              610
+            ]
+          },
+          {
+            "canonical": "gpu acceleration",
+            "aliases": [
+              "parallel processing",
+              "gpu computing"
+            ],
+            "evidence": "parallel processing and computing using GPUs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              680,
+              850,
+              710
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [
+              "mini-batch subgraph"
+            ],
+            "evidence": "Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              850,
+              950,
+              880
+            ]
+          },
+          {
+            "canonical": "noise in training",
+            "aliases": [
+              "noisy updates"
+            ],
+            "evidence": "Noisy Updates: The updates can be noisy, leading to more erratic convergence behavior.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              650,
+              250,
+              680
+            ]
+          },
+          {
+            "canonical": "stability",
+            "aliases": [
+              "stable convergence"
+            ],
+            "evidence": "Stability: It provides stable error gradients and convergence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              650,
+              550,
+              680
+            ]
+          },
+          {
+            "canonical": "diversify inputs",
+            "aliases": [
+              "input diversity"
+            ],
+            "evidence": "diversify the data inputs (distribution)",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              380,
+              850,
+              420
+            ]
+          },
+          {
+            "canonical": "batch size",
+            "aliases": [
+              "mini-batch size"
+            ],
+            "evidence": "B ≈ 4",
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              550,
+              450,
+              600,
+              480
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{point}}",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              410,
+              250,
+              440
+            ],
+            "label": "SGD Update Rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{dataset}}",
+            "related_concepts": [
+              "batch gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              410,
+              550,
+              440
+            ],
+            "label": "Batch GD Update Rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{batch}}",
+            "related_concepts": [
+              "mini-batch gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              410,
+              850,
+              440
+            ],
+            "label": "Mini-batch GD Update Rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of three gradient descent methods: stochastic (single point), batch (full dataset), and mini-batch (subset). Each shows data points and update arrows.",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "batch gradient descent",
+              "mini-batch gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              850,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Input graph with highlighted nodes and edges showing 1-hop neighborhood for a target node.",
+            "related_concepts": [
+              "input graph",
+              "1-hop neighborhood",
+              "receptive field"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              350,
+              950,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node embedding computation graph showing dependencies between nodes across layers.",
+            "related_concepts": [
+              "node embedding",
+              "receptive field",
+              "subgraph sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              600,
+              950,
+              750
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Contour plot comparing convergence paths of batch, mini-batch, and stochastic gradient descent.",
+            "related_concepts": [
+              "convergence",
+              "stability",
+              "noisy updates"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              750,
+              250,
+              850
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Text boxes comparing characteristics of the three training strategies: individual data points, full dataset usage, subset of dataset.",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "batch gradient descent",
+              "mini-batch gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              550,
+              850,
+              750
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "diversify the data inputs (distribution)",
+            "reason": "Handwritten text is slightly slanted and partially overlaps with printed text; 'distribution' is somewhat unclear.",
+            "bbox": [
+              750,
+              380,
+              850,
+              420
+            ]
+          },
+          {
+            "transcription": "B ≈ 4",
+            "reason": "Handwritten annotation near mini-batch diagram; the number '4' is clear but the symbol before it could be '≈' or '='.",
+            "bbox": [
+              550,
+              450,
+              600,
+              480
+            ]
+          },
+          {
+            "transcription": "G?",
+            "reason": "Single letter 'G' with a question mark or arrow nearby; context suggests it might refer to a graph or gradient, but it's ambiguous.",
+            "bbox": [
+              650,
+              480,
+              680,
+              510
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"sgd\", \"single-point training\"],\n      \"evidence\": \"1) Stochastic gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 300, 250, 350]\n    },\n    {\n      \"canonical\": \"batch gradient descent\",\n      \"aliases\": [\"full dataset usage\"],\n      \"evidence\": \"2) Batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 300, 550, 350]\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"mini-batch sgd\"],\n      \"evidence\": \"3) Mini-batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 300, 850, 350]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularization effect\"],\n      \"evidence\": \"Drop nodes to regularize & increase expressiveness\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 10, 600, 50]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node representation\"],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 750, 950, 780]\n    },\n    {\n      \"canonical\": \"receptive field\",\n      \"aliases\": [\"node receptive field\"],\n      \"evidence\": \"receptive field of a node in a given layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 150, 900, 180]\n    },\n    {\n      \"canonical\": \"computational efficiency\",\n      \"aliases\": [\"efficiency\"],\n      \"evidence\": \"Computational Efficiency: More computationally efficient\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 650, 850, 680]\n    },\n    {\n      \"canonical\": \"memory requirements\",\n      \"aliases\": [\"memory usage\"],\n      \"evidence\": \"Memory Requirements: The entire dataset is loaded into memory\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 550, 550, 580]\n    },\n    {\n      \"canonical\": \"convergence\",\n      \"aliases\": [\"balanced convergence\"],\n      \"evidence\": \"Balanced Convergence: It strikes a balance between the stable convergence of batch training and the faster fluctuating convergence of stochastic training.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 850, 640]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [\"risk of overfitting\"],\n      \"evidence\": \"Risk of Overfitting: since the model is repeatedly exposed to the entire dataset in the same order\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 700, 550, 730]\n    },\n    {\n      \"canonical\": \"hyperparameter\",\n      \"aliases\": [\"mini-batch size\"],\n      \"evidence\": \"Hyperparameter: The size of the mini-batch can affect the performance and efficiency of the training process.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 730, 850, 760]\n    },\n    {\n      \"canonical\": \"input graph\",\n      \"aliases\": [\"graph input\"],\n      \"evidence\": \"Input graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 350, 750, 380]\n    },\n    {\n      \"canonical\": \"1-hop neighborhood\",\n      \"aliases\": [\"1-hop neighbors\"],\n      \"evidence\": \"1-hop neighbors (hidden layer)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 350, 950, 380]\n    },\n    {\n      \"canonical\": \"loss objective\",\n      \"aliases\": [\"loss function\"],\n      \"evidence\": \"To train a model by optimizing the loss objective\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 400, 230]\n    },\n    {\n      \"canonical\": \"gradient calculation\",\n      \"aliases\": [\"calculate the gradient\"],\n      \"evidence\": \"Calculate the gradient\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 380, 250, 410]\n    },\n    {\n      \"canonical\": \"parameter update\",\n      \"aliases\": [\"update parameters\"],\n      \"evidence\": \"Update w_{t+1} = w_t - η∇L\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 410, 250, 440]\n    },\n    {\n      \"canonical\": \"epoch\",\n      \"aliases\": [\"training epoch\"],\n      \"evidence\": \"an epoch is a complete pass through the entire training dataset\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 580, 550, 610]\n    },\n    {\n      \"canonical\": \"gpu acceleration\",\n      \"aliases\": [\"parallel processing\", \"gpu computing\"],\n      \"evidence\": \"parallel processing and computing using GPUs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 680, 850, 710]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [\"mini-batch subgraph\"],\n      \"evidence\": \"Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 850, 950, 880]\n    },\n    {\n      \"canonical\": \"noise in training\",\n      \"aliases\": [\"noisy updates\"],\n      \"evidence\": \"Noisy Updates: The updates can be noisy, leading to more erratic convergence behavior.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 650, 250, 680]\n    },\n    {\n      \"canonical\": \"stability\",\n      \"aliases\": [\"stable convergence\"],\n      \"evidence\": \"Stability: It provides stable error gradients and convergence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 650, 550, 680]\n    },\n    {\n      \"canonical\": \"diversify inputs\",\n      \"aliases\": [\"input diversity\"],\n      \"evidence\": \"diversify the data inputs (distribution)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 380, 850, 420]\n    },\n    {\n      \"canonical\": \"batch size\",\n      \"aliases\": [\"mini-batch size\"],\n      \"evidence\": \"B ≈ 4\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [550, 450, 600, 480]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{point}}\",\n      \"related_concepts\": [\"stochastic gradient descent\", \"parameter update\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 410, 250, 440],\n      \"label\": \"SGD Update Rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{dataset}}\",\n      \"related_concepts\": [\"batch gradient descent\", \"parameter update\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 410, 550, 440],\n      \"label\": \"Batch GD Update Rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{batch}}\",\n      \"related_concepts\": [\"mini-batch gradient descent\", \"parameter update\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 410, 850, 440],\n      \"label\": \"Mini-batch GD Update Rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of three gradient descent methods: stochastic (single point), batch (full dataset), and mini-batch (subset). Each shows data points and update arrows.\",\n      \"related_concepts\": [\"stochastic gradient descent\", \"batch gradient descent\", \"mini-batch gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 850, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph with highlighted nodes and edges showing 1-hop neighborhood for a target node.\",\n      \"related_concepts\": [\"input graph\", \"1-hop neighborhood\", \"receptive field\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 350, 950, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node embedding computation graph showing dependencies between nodes across layers.\",\n      \"related_concepts\": [\"node embedding\", \"receptive field\", \"subgraph sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 600, 950, 750]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Contour plot comparing convergence paths of batch, mini-batch, and stochastic gradient descent.\",\n      \"related_concepts\": [\"convergence\", \"stability\", \"noisy updates\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 750, 250, 850]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Text boxes comparing characteristics of the three training strategies: individual data points, full dataset usage, subset of dataset.\",\n      \"related_concepts\": [\"stochastic gradient descent\", \"batch gradient descent\", \"mini-batch gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 550, 850, 750]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"diversify the data inputs (distribution)\",\n      \"reason\": \"Handwritten text is slightly slanted and partially overlaps with printed text; 'distribution' is somewhat unclear.\",\n      \"bbox\": [750, 380, 850, 420]\n    },\n    {\n      \"transcription\": \"B ≈ 4\",\n      \"reason\": \"Handwritten annotation near mini-batch diagram; the number '4' is clear but the symbol before it could be '≈' or '='.\",\n      \"bbox\": [550, 450, 600, 480]\n    },\n    {\n      \"transcription\": \"G?\",\n      \"reason\": \"Single letter 'G' with a question mark or arrow nearby; context suggests it might refer to a graph or gradient, but it's ambiguous.\",\n      \"bbox\": [650, 480, 680, 510]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "random node sampling",
+            "aliases": [
+              "random sampling",
+              "node sampling"
+            ],
+            "evidence": "Random node sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              120,
+              0,
+              250,
+              30
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "SGD",
+              "batch gradient descent"
+            ],
+            "evidence": "batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              120,
+              30
+            ]
+          },
+          {
+            "canonical": "node receptive field",
+            "aliases": [
+              "receptive field"
+            ],
+            "evidence": "equivalent of the node receptive field",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              850,
+              600,
+              880
+            ]
+          },
+          {
+            "canonical": "node embedding computation graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              780,
+              200,
+              800
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [
+              "sampling"
+            ],
+            "evidence": "Subgraph sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              550,
+              720,
+              580
+            ]
+          },
+          {
+            "canonical": "graph partitioning",
+            "aliases": [
+              "partitioning",
+              "clustering"
+            ],
+            "evidence": "Graph partitioning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              730,
+              550,
+              850,
+              580
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularizer"
+            ],
+            "evidence": "Such randomness acts as a regularizer of network learning behavior.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              480,
+              950,
+              520
+            ]
+          },
+          {
+            "canonical": "k-hop neighborhood",
+            "aliases": [
+              "neighborhood",
+              "hop"
+            ],
+            "evidence": "1-hop neighborhood (hidden layer 1), 2-hop neighborhood (hidden layer 2)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              350,
+              450,
+              400
+            ]
+          },
+          {
+            "canonical": "disjoint subsets",
+            "aliases": [
+              "clusters"
+            ],
+            "evidence": "Cluster the graph nodes into disjoint subsets of nodes before processing.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              950,
+              630
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{batch}}",
+            "related_concepts": [
+              "stochastic gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              50,
+              200,
+              80
+            ],
+            "label": "batch gradient descent update"
+          },
+          {
+            "latex": "|B| = 2 = \\{c, i\\}",
+            "related_concepts": [
+              "random node sampling",
+              "batch"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              220,
+              100,
+              400,
+              130
+            ],
+            "label": "batch size example"
+          },
+          {
+            "latex": "h_{k+1}",
+            "related_concepts": [
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              400,
+              850,
+              420
+            ],
+            "label": "node embedding at layer k+1"
+          },
+          {
+            "latex": "B = \\{b_1, b_2, b_3, b_4\\}",
+            "related_concepts": [
+              "graph partitioning",
+              "batch"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              700,
+              680,
+              850,
+              710
+            ],
+            "label": "batch set example"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Illustration of input graph and its 1-hop and 2-hop neighborhoods for a specific node, showing the expansion of the subgraph with each layer.",
+            "related_concepts": [
+              "k-hop neighborhood",
+              "node embedding computation graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              200,
+              500,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node embedding computation graph showing dependencies of a node on its neighbors in previous layers.",
+            "related_concepts": [
+              "node embedding computation graph",
+              "node receptive field"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              550,
+              500,
+              750
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Illustration of random node sampling, showing how a subgraph is sampled from the original graph for a specific node.",
+            "related_concepts": [
+              "random node sampling",
+              "subgraph sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              0,
+              950,
+              250
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Illustration of graph partitioning, showing the original graph divided into clusters (batches) and then recombined.",
+            "related_concepts": [
+              "graph partitioning",
+              "subgraph sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              750,
+              950,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "b_1, b_2, b_3, b_4",
+            "reason": "Handwritten labels for batches in the graph partitioning diagram are slightly ambiguous due to handwriting style.",
+            "bbox": [
+              700,
+              680,
+              850,
+              710
+            ]
+          },
+          {
+            "transcription": "c, i",
+            "reason": "Handwritten labels for the batch set example are slightly ambiguous due to handwriting style.",
+            "bbox": [
+              220,
+              100,
+              400,
+              130
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"random node sampling\",\n      \"aliases\": [\"random sampling\", \"node sampling\"],\n      \"evidence\": \"Random node sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [120, 0, 250, 30]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"SGD\", \"batch gradient descent\"],\n      \"evidence\": \"batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 120, 30]\n    },\n    {\n      \"canonical\": \"node receptive field\",\n      \"aliases\": [\"receptive field\"],\n      \"evidence\": \"equivalent of the node receptive field\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 850, 600, 880]\n    },\n    {\n      \"canonical\": \"node embedding computation graph\",\n      \"aliases\": [\"computation graph\"],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 780, 200, 800]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [\"sampling\"],\n      \"evidence\": \"Subgraph sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 550, 720, 580]\n    },\n    {\n      \"canonical\": \"graph partitioning\",\n      \"aliases\": [\"partitioning\", \"clustering\"],\n      \"evidence\": \"Graph partitioning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [730, 550, 850, 580]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularizer\"],\n      \"evidence\": \"Such randomness acts as a regularizer of network learning behavior.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 480, 950, 520]\n    },\n    {\n      \"canonical\": \"k-hop neighborhood\",\n      \"aliases\": [\"neighborhood\", \"hop\"],\n      \"evidence\": \"1-hop neighborhood (hidden layer 1), 2-hop neighborhood (hidden layer 2)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 350, 450, 400]\n    },\n    {\n      \"canonical\": \"disjoint subsets\",\n      \"aliases\": [\"clusters\"],\n      \"evidence\": \"Cluster the graph nodes into disjoint subsets of nodes before processing.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 950, 630]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{batch}}\",\n      \"related_concepts\": [\"stochastic gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 50, 200, 80],\n      \"label\": \"batch gradient descent update\"\n    },\n    {\n      \"latex\": \"|B| = 2 = \\\\{c, i\\\\}\",\n      \"related_concepts\": [\"random node sampling\", \"batch\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [220, 100, 400, 130],\n      \"label\": \"batch size example\"\n    },\n    {\n      \"latex\": \"h_{k+1}\",\n      \"related_concepts\": [\"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 400, 850, 420],\n      \"label\": \"node embedding at layer k+1\"\n    },\n    {\n      \"latex\": \"B = \\\\{b_1, b_2, b_3, b_4\\\\}\",\n      \"related_concepts\": [\"graph partitioning\", \"batch\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [700, 680, 850, 710],\n      \"label\": \"batch set example\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Illustration of input graph and its 1-hop and 2-hop neighborhoods for a specific node, showing the expansion of the subgraph with each layer.\",\n      \"related_concepts\": [\"k-hop neighborhood\", \"node embedding computation graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 200, 500, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node embedding computation graph showing dependencies of a node on its neighbors in previous layers.\",\n      \"related_concepts\": [\"node embedding computation graph\", \"node receptive field\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 550, 500, 750]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Illustration of random node sampling, showing how a subgraph is sampled from the original graph for a specific node.\",\n      \"related_concepts\": [\"random node sampling\", \"subgraph sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 0, 950, 250]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Illustration of graph partitioning, showing the original graph divided into clusters (batches) and then recombined.\",\n      \"related_concepts\": [\"graph partitioning\", \"subgraph sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 750, 950, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"b_1, b_2, b_3, b_4\",\n      \"reason\": \"Handwritten labels for batches in the graph partitioning diagram are slightly ambiguous due to handwriting style.\",\n      \"bbox\": [700, 680, 850, 710]\n    },\n    {\n      \"transcription\": \"c, i\",\n      \"reason\": \"Handwritten labels for the batch set example are slightly ambiguous due to handwriting style.\",\n      \"bbox\": [220, 100, 400, 130]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "GNN Training Strategies and Batching",
+        "summary": "This lecture page details the computational challenges of training Graph Neural Networks (GNNs), specifically the graph expansion problem where receptive fields grow exponentially with depth. It compares three optimization strategies: Stochastic Gradient Descent (SGD), Batch Gradient Descent, and Mini-batch Gradient Descent, highlighting the trade-offs in memory usage, convergence stability, and computational efficiency. The page introduces GraphSAGE as a solution for scalable training through random neighborhood sampling and discusses graph partitioning as an alternative batching method.",
+        "key_topics": [
+          "graph expansion problem",
+          "mini-batch gradient descent",
+          "graphsage",
+          "receptive field",
+          "node embedding computation graph",
+          "graph partitioning"
+        ],
+        "concepts": [
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              286.0,
+              121.0,
+              341.0,
+              143.0
+            ]
+          },
+          {
+            "canonical": "graph-based aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "Graph-based aggregation (the GNN hallmark)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              99.0,
+              99.0,
+              121.0
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              341.0,
+              264.0,
+              374.0,
+              286.0
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              286.0,
+              374.0,
+              341.0,
+              396.0
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [
+              "activation function"
+            ],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              154.0,
+              429.0,
+              209.0,
+              451.0
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "output layer"
+            ],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              319.0,
+              82.5,
+              341.0
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "sgd"
+            ],
+            "evidence": "Stochastic gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              99.0,
+              522.5,
+              121.0
+            ]
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "mini-batch sgd"
+            ],
+            "evidence": "Mini-batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              484.0,
+              522.5,
+              506.0
+            ]
+          },
+          {
+            "canonical": "batch gradient descent",
+            "aliases": [
+              "full dataset usage"
+            ],
+            "evidence": "Batch gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              615.0,
+              302.5,
+              642.5
+            ]
+          },
+          {
+            "canonical": "receptive field",
+            "aliases": [
+              "k-hop neighborhood"
+            ],
+            "evidence": "receptive field of a node in a given layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              209.0,
+              522.5,
+              231.0
+            ]
+          },
+          {
+            "canonical": "node embedding computation graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              374.0,
+              522.5,
+              396.0
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [],
+            "evidence": "GraphSAGE (Hamilton et al., 2017)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              385.0,
+              862.5,
+              401.5
+            ]
+          },
+          {
+            "canonical": "random neighborhood sampling",
+            "aliases": [
+              "neighborhood sampling"
+            ],
+            "evidence": "Random neighborhood sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              824.0,
+              357.5,
+              917.5,
+              374.0
+            ]
+          },
+          {
+            "canonical": "graph expansion problem",
+            "aliases": [],
+            "evidence": "Graph expansion problem",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              769.0,
+              247.5,
+              862.5,
+              264.0
+            ]
+          },
+          {
+            "canonical": "memory usage",
+            "aliases": [
+              "memory requirements"
+            ],
+            "evidence": "increase the memory usage and the compute budget",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              769.0,
+              280.5,
+              917.5,
+              297.0
+            ]
+          },
+          {
+            "canonical": "exponential time complexity",
+            "aliases": [],
+            "evidence": "exponential time complexity to the GCN depth",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              297.0,
+              972.5,
+              313.5
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [],
+            "evidence": "hidden layer 1, hidden layer 2",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              302.5,
+              670.0,
+              319.0
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularizer"
+            ],
+            "evidence": "Drop nodes to regularize & increase expressiveness",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              455.5,
+              330.0,
+              477.5
+            ]
+          },
+          {
+            "canonical": "computational efficiency",
+            "aliases": [
+              "efficiency"
+            ],
+            "evidence": "Computational Efficiency: More computationally efficient",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              807.5,
+              467.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "convergence",
+            "aliases": [
+              "balanced convergence"
+            ],
+            "evidence": "Balanced Convergence: It strikes a balance between the stable convergence of batch training and the faster fluctuating convergence of stochastic training.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              780.0,
+              467.5,
+              802.0
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [
+              "risk of overfitting"
+            ],
+            "evidence": "Risk of Overfitting: since the model is repeatedly exposed to the entire dataset in the same order",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              835.0,
+              302.5,
+              851.5
+            ]
+          },
+          {
+            "canonical": "hyperparameter",
+            "aliases": [
+              "mini-batch size"
+            ],
+            "evidence": "Hyperparameter: The size of the mini-batch can affect the performance and efficiency of the training process.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              851.5,
+              467.5,
+              868.0
+            ]
+          },
+          {
+            "canonical": "loss objective",
+            "aliases": [
+              "loss function"
+            ],
+            "evidence": "To train a model by optimizing the loss objective",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              560.0,
+              220.0,
+              576.5
+            ]
+          },
+          {
+            "canonical": "parameter update",
+            "aliases": [
+              "update parameters"
+            ],
+            "evidence": "Update w_{t+1} = w_t - η∇L",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              675.5,
+              137.5,
+              692.0
+            ]
+          },
+          {
+            "canonical": "epoch",
+            "aliases": [
+              "training epoch"
+            ],
+            "evidence": "an epoch is a complete pass through the entire training dataset",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              769.0,
+              302.5,
+              785.5
+            ]
+          },
+          {
+            "canonical": "gpu acceleration",
+            "aliases": [
+              "parallel processing"
+            ],
+            "evidence": "parallel processing and computing using GPUs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              824.0,
+              467.5,
+              840.5
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [
+              "mini-batch subgraph"
+            ],
+            "evidence": "Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              917.5,
+              522.5,
+              934.0
+            ]
+          },
+          {
+            "canonical": "noise in training",
+            "aliases": [
+              "noisy updates"
+            ],
+            "evidence": "Noisy Updates: The updates can be noisy, leading to more erratic convergence behavior.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              807.5,
+              137.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "stability",
+            "aliases": [
+              "stable convergence"
+            ],
+            "evidence": "Stability: It provides stable error gradients and convergence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              807.5,
+              302.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "graph partitioning",
+            "aliases": [
+              "partitioning"
+            ],
+            "evidence": "Graph partitioning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              851.5,
+              752.5,
+              917.5,
+              769.0
+            ]
+          },
+          {
+            "canonical": "disjoint subsets",
+            "aliases": [
+              "clusters"
+            ],
+            "evidence": "Cluster the graph nodes into disjoint subsets of nodes before processing.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              780.0,
+              972.5,
+              796.5
+            ]
+          },
+          {
+            "canonical": "overlap",
+            "aliases": [],
+            "evidence": "overlap",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              697.5,
+              412.5,
+              725.0,
+              429.0
+            ]
+          },
+          {
+            "canonical": "redundancy",
+            "aliases": [],
+            "evidence": "redundancy between neighboring training nodes (points)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              137.5,
+              725.0,
+              154.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              176.0,
+              341.0,
+              198.0
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{point}}",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              675.5,
+              137.5,
+              692.0
+            ],
+            "label": "SGD Update Rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{dataset}}",
+            "related_concepts": [
+              "batch gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              675.5,
+              302.5,
+              692.0
+            ],
+            "label": "Batch GD Update Rule"
+          },
+          {
+            "latex": "w_{t+1} = w_t - \\eta \\nabla L_{\\text{batch}}",
+            "related_concepts": [
+              "mini-batch gradient descent",
+              "parameter update"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              675.5,
+              467.5,
+              692.0
+            ],
+            "label": "Mini-batch GD Update Rule"
+          },
+          {
+            "latex": "h_{k=2}^{(i=0)}",
+            "related_concepts": [
+              "hidden layer",
+              "node embedding computation graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              357.5,
+              697.5,
+              374.0
+            ],
+            "label": "hidden state notation"
+          },
+          {
+            "latex": "|b| = 2 = \\{i, j\\}",
+            "related_concepts": [
+              "mini-batch gradient descent"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              560.0,
+              495.0,
+              642.5,
+              511.5
+            ],
+            "label": "batch size example"
+          },
+          {
+            "latex": "B = \\{b_1, b_2, b_3, b_4\\}",
+            "related_concepts": [
+              "graph partitioning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              835.0,
+              824.0,
+              917.5,
+              840.5
+            ],
+            "label": "batch set example"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head.",
+            "related_concepts": [
+              "message passing",
+              "graph-based aggregation",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              99.0,
+              374.0,
+              451.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Input graph with nodes and edges, illustrating the receptive field of a node in a given layer.",
+            "related_concepts": [
+              "receptive field"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              231.0,
+              522.5,
+              341.0
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Table showing node embedding computation graph with node indices and their corresponding embeddings.",
+            "related_concepts": [
+              "node embedding computation graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              396.0,
+              522.5,
+              451.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Input graph with highlighted nodes and edges showing 1-hop and 2-hop neighborhoods for a target node.",
+            "related_concepts": [
+              "1-hop neighborhood",
+              "2-hop neighborhood",
+              "graph expansion problem"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              192.5,
+              725.0,
+              302.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Computation graph showing node dependencies across layers with overlap indication.",
+            "related_concepts": [
+              "node embedding computation graph",
+              "hidden layer",
+              "overlap"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              330.0,
+              725.0,
+              467.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Three-stage visualization of input graph, hidden layer 1, and hidden layer 2 with receptive field highlighting.",
+            "related_concepts": [
+              "receptive field",
+              "graph expansion problem",
+              "hidden layer"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              137.5,
+              917.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node sampling process illustration with three graphs showing progressive neighborhood sampling.",
+            "related_concepts": [
+              "random neighborhood sampling",
+              "graphsage"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              972.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Three-step GraphSAGE algorithm description with checkmarks and underlines.",
+            "related_concepts": [
+              "graphsage",
+              "random neighborhood sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              385.0,
+              972.5,
+              440.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Comparison of three gradient descent methods: stochastic (single point), batch (full dataset), and mini-batch (subset). Each shows data points and update arrows.",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "batch gradient descent",
+              "mini-batch gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              697.5,
+              467.5,
+              752.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Contour plot comparing convergence paths of batch, mini-batch, and stochastic gradient descent.",
+            "related_concepts": [
+              "convergence",
+              "stability",
+              "noise in training"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              862.5,
+              137.5,
+              917.5
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Text boxes comparing characteristics of the three training strategies: individual data points, full dataset usage, subset of dataset.",
+            "related_concepts": [
+              "stochastic gradient descent",
+              "batch gradient descent",
+              "mini-batch gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              752.5,
+              467.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Illustration of graph partitioning, showing the original graph divided into clusters (batches) and then recombined.",
+            "related_concepts": [
+              "graph partitioning",
+              "disjoint subsets"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              862.5,
+              972.5,
+              972.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "c^o llectivist",
+            "reason": "Handwriting is cursive and partially obscured; 'collectivist' is inferred but not certain",
+            "bbox": [
+              917.5,
+              110.0,
+              972.5,
+              126.5
+            ]
+          },
+          {
+            "transcription": "co-dependent",
+            "reason": "Handwriting is small and slightly smudged; meaning is clear but exact spelling uncertain",
+            "bbox": [
+              917.5,
+              126.5,
+              972.5,
+              143.0
+            ]
+          },
+          {
+            "transcription": "leverage",
+            "reason": "Quoted term in handwriting; possible alternative readings like 'average' or 'manage'",
+            "bbox": [
+              917.5,
+              143.0,
+              972.5,
+              159.5
+            ]
+          },
+          {
+            "transcription": "r=3",
+            "reason": "Small handwritten annotation near GraphSAGE step 3; could be 'r=2' or other value",
+            "bbox": [
+              862.5,
+              429.0,
+              890.0,
+              445.5
+            ]
+          },
+          {
+            "transcription": "diversify the data inputs (distribution)",
+            "reason": "Handwritten text is slightly slanted and partially overlaps with printed text; 'distribution' is somewhat unclear.",
+            "bbox": [
+              412.5,
+              659.0,
+              467.5,
+              681.0
+            ]
+          },
+          {
+            "transcription": "B ≈ 4",
+            "reason": "Handwritten annotation near mini-batch diagram; the number '4' is clear but the symbol before it could be '≈' or '='.",
+            "bbox": [
+              302.5,
+              697.5,
+              330.0,
+              714.0
+            ]
+          },
+          {
+            "transcription": "G?",
+            "reason": "Single letter 'G' with a question mark or arrow nearby; context suggests it might refer to a graph or gradient, but it's ambiguous.",
+            "bbox": [
+              357.5,
+              714.0,
+              374.0,
+              730.5
+            ]
+          },
+          {
+            "transcription": "b_1, b_2, b_3, b_4",
+            "reason": "Handwritten labels for batches in the graph partitioning diagram are slightly ambiguous due to handwriting style.",
+            "bbox": [
+              835.0,
+              824.0,
+              917.5,
+              840.5
+            ]
+          },
+          {
+            "transcription": "c, i",
+            "reason": "Handwritten labels for the batch set example are slightly ambiguous due to handwriting style.",
+            "bbox": [
+              571.0,
+              505.0,
+              670.0,
+              521.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"GNN Training Strategies and Batching\",\n  \"summary\": \"This lecture page details the computational challenges of training Graph Neural Networks (GNNs), specifically the graph expansion problem where receptive fields grow exponentially with depth. It compares three optimization strategies: Stochastic Gradient Descent (SGD), Batch Gradient Descent, and Mini-batch Gradient Descent, highlighting the trade-offs in memory usage, convergence stability, and computational efficiency. The page introduces GraphSAGE as a solution for scalable training through random neighborhood sampling and discusses graph partitioning as an alternative batching method.\",\n  \"key_topics\": [\n    \"graph expansion problem\",\n    \"mini-batch gradient descent\",\n    \"graphsage\",\n    \"receptive field\",\n    \"node embedding computation graph\",\n    \"graph partitioning\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\n        \"msg passing\"\n      ],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        286.0,\n        121.0,\n        341.0,\n        143.0\n      ]\n    },\n    {\n      \"canonical\": \"graph-based aggregation\",\n      \"aliases\": [\n        \"agg\"\n      ],\n      \"evidence\": \"Graph-based aggregation (the GNN hallmark)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        99.0,\n        99.0,\n        121.0\n      ]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\n        \"bn\"\n      ],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        341.0,\n        264.0,\n        374.0,\n        286.0\n      ]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        286.0,\n        374.0,\n        341.0,\n        396.0\n      ]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [\n        \"activation function\"\n      ],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        154.0,\n        429.0,\n        209.0,\n        451.0\n      ]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\n        \"output layer\"\n      ],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        319.0,\n        82.5,\n        341.0\n      ]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\n        \"sgd\"\n      ],\n      \"evidence\": \"Stochastic gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        99.0,\n        522.5,\n        121.0\n      ]\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\n        \"mini-batch sgd\"\n      ],\n      \"evidence\": \"Mini-batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        484.0,\n        522.5,\n        506.0\n      ]\n    },\n    {\n      \"canonical\": \"batch gradient descent\",\n      \"aliases\": [\n        \"full dataset usage\"\n      ],\n      \"evidence\": \"Batch gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        192.5,\n        615.0,\n        302.5,\n        642.5\n      ]\n    },\n    {\n      \"canonical\": \"receptive field\",\n      \"aliases\": [\n        \"k-hop neighborhood\"\n      ],\n      \"evidence\": \"receptive field of a node in a given layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        209.0,\n        522.5,\n        231.0\n      ]\n    },\n    {\n      \"canonical\": \"node embedding computation graph\",\n      \"aliases\": [\n        \"computation graph\"\n      ],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        374.0,\n        522.5,\n        396.0\n      ]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [],\n      \"evidence\": \"GraphSAGE (Hamilton et al., 2017)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        752.5,\n        385.0,\n        862.5,\n        401.5\n      ]\n    },\n    {\n      \"canonical\": \"random neighborhood sampling\",\n      \"aliases\": [\n        \"neighborhood sampling\"\n      ],\n      \"evidence\": \"Random neighborhood sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        824.0,\n        357.5,\n        917.5,\n        374.0\n      ]\n    },\n    {\n      \"canonical\": \"graph expansion problem\",\n      \"aliases\": [],\n      \"evidence\": \"Graph expansion problem\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        769.0,\n        247.5,\n        862.5,\n        264.0\n      ]\n    },\n    {\n      \"canonical\": \"memory usage\",\n      \"aliases\": [\n        \"memory requirements\"\n      ],\n      \"evidence\": \"increase the memory usage and the compute budget\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        769.0,\n        280.5,\n        917.5,\n        297.0\n      ]\n    },\n    {\n      \"canonical\": \"exponential time complexity\",\n      \"aliases\": [],\n      \"evidence\": \"exponential time complexity to the GCN depth\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        297.0,\n        972.5,\n        313.5\n      ]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [],\n      \"evidence\": \"hidden layer 1, hidden layer 2\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        560.0,\n        302.5,\n        670.0,\n        319.0\n      ]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\n        \"regularizer\"\n      ],\n      \"evidence\": \"Drop nodes to regularize & increase expressiveness\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        165.0,\n        455.5,\n        330.0,\n        477.5\n      ]\n    },\n    {\n      \"canonical\": \"computational efficiency\",\n      \"aliases\": [\n        \"efficiency\"\n      ],\n      \"evidence\": \"Computational Efficiency: More computationally efficient\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        330.0,\n        807.5,\n        467.5,\n        824.0\n      ]\n    },\n    {\n      \"canonical\": \"convergence\",\n      \"aliases\": [\n        \"balanced convergence\"\n      ],\n      \"evidence\": \"Balanced Convergence: It strikes a balance between the stable convergence of batch training and the faster fluctuating convergence of stochastic training.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        330.0,\n        780.0,\n        467.5,\n        802.0\n      ]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [\n        \"risk of overfitting\"\n      ],\n      \"evidence\": \"Risk of Overfitting: since the model is repeatedly exposed to the entire dataset in the same order\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        192.5,\n        835.0,\n        302.5,\n        851.5\n      ]\n    },\n    {\n      \"canonical\": \"hyperparameter\",\n      \"aliases\": [\n        \"mini-batch size\"\n      ],\n      \"evidence\": \"Hyperparameter: The size of the mini-batch can affect the performance and efficiency of the training process.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        330.0,\n        851.5,\n        467.5,\n        868.0\n      ]\n    },\n    {\n      \"canonical\": \"loss objective\",\n      \"aliases\": [\n        \"loss function\"\n      ],\n      \"evidence\": \"To train a model by optimizing the loss objective\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        560.0,\n        220.0,\n        576.5\n      ]\n    },\n    {\n      \"canonical\": \"parameter update\",\n      \"aliases\": [\n        \"update parameters\"\n      ],\n      \"evidence\": \"Update w_{t+1} = w_t - η∇L\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        675.5,\n        137.5,\n        692.0\n      ]\n    },\n    {\n      \"canonical\": \"epoch\",\n      \"aliases\": [\n        \"training epoch\"\n      ],\n      \"evidence\": \"an epoch is a complete pass through the entire training dataset\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        192.5,\n        769.0,\n        302.5,\n        785.5\n      ]\n    },\n    {\n      \"canonical\": \"gpu acceleration\",\n      \"aliases\": [\n        \"parallel processing\"\n      ],\n      \"evidence\": \"parallel processing and computing using GPUs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        330.0,\n        824.0,\n        467.5,\n        840.5\n      ]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [\n        \"mini-batch subgraph\"\n      ],\n      \"evidence\": \"Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        917.5,\n        522.5,\n        934.0\n      ]\n    },\n    {\n      \"canonical\": \"noise in training\",\n      \"aliases\": [\n        \"noisy updates\"\n      ],\n      \"evidence\": \"Noisy Updates: The updates can be noisy, leading to more erratic convergence behavior.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        807.5,\n        137.5,\n        824.0\n      ]\n    },\n    {\n      \"canonical\": \"stability\",\n      \"aliases\": [\n        \"stable convergence\"\n      ],\n      \"evidence\": \"Stability: It provides stable error gradients and convergence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        192.5,\n        807.5,\n        302.5,\n        824.0\n      ]\n    },\n    {\n      \"canonical\": \"graph partitioning\",\n      \"aliases\": [\n        \"partitioning\"\n      ],\n      \"evidence\": \"Graph partitioning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        851.5,\n        752.5,\n        917.5,\n        769.0\n      ]\n    },\n    {\n      \"canonical\": \"disjoint subsets\",\n      \"aliases\": [\n        \"clusters\"\n      ],\n      \"evidence\": \"Cluster the graph nodes into disjoint subsets of nodes before processing.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        780.0,\n        780.0,\n        972.5,\n        796.5\n      ]\n    },\n    {\n      \"canonical\": \"overlap\",\n      \"aliases\": [],\n      \"evidence\": \"overlap\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        697.5,\n        412.5,\n        725.0,\n        429.0\n      ]\n    },\n    {\n      \"canonical\": \"redundancy\",\n      \"aliases\": [],\n      \"evidence\": \"redundancy between neighboring training nodes (points)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        587.5,\n        137.5,\n        725.0,\n        154.0\n      ]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\n        \"message passing\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        264.0,\n        176.0,\n        341.0,\n        198.0\n      ],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{point}}\",\n      \"related_concepts\": [\n        \"stochastic gradient descent\",\n        \"parameter update\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        675.5,\n        137.5,\n        692.0\n      ],\n      \"label\": \"SGD Update Rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{dataset}}\",\n      \"related_concepts\": [\n        \"batch gradient descent\",\n        \"parameter update\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        192.5,\n        675.5,\n        302.5,\n        692.0\n      ],\n      \"label\": \"Batch GD Update Rule\"\n    },\n    {\n      \"latex\": \"w_{t+1} = w_t - \\\\eta \\\\nabla L_{\\\\text{batch}}\",\n      \"related_concepts\": [\n        \"mini-batch gradient descent\",\n        \"parameter update\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        330.0,\n        675.5,\n        467.5,\n        692.0\n      ],\n      \"label\": \"Mini-batch GD Update Rule\"\n    },\n    {\n      \"latex\": \"h_{k=2}^{(i=0)}\",\n      \"related_concepts\": [\n        \"hidden layer\",\n        \"node embedding computation graph\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        642.5,\n        357.5,\n        697.5,\n        374.0\n      ],\n      \"label\": \"hidden state notation\"\n    },\n    {\n      \"latex\": \"|b| = 2 = \\\\{i, j\\\\}\",\n      \"related_concepts\": [\n        \"mini-batch gradient descent\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [\n        560.0,\n        495.0,\n        642.5,\n        511.5\n      ],\n      \"label\": \"batch size example\"\n    },\n    {\n      \"latex\": \"B = \\\\{b_1, b_2, b_3, b_4\\\\}\",\n      \"related_concepts\": [\n        \"graph partitioning\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [\n        835.0,\n        824.0,\n        917.5,\n        840.5\n      ],\n      \"label\": \"batch set example\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head.\",\n      \"related_concepts\": [\n        \"message passing\",\n        \"graph-based aggregation\",\n        \"batch normalization\",\n        \"dropout\",\n        \"non-linearity\",\n        \"prediction head\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        99.0,\n        374.0,\n        451.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph with nodes and edges, illustrating the receptive field of a node in a given layer.\",\n      \"related_concepts\": [\n        \"receptive field\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        231.0,\n        522.5,\n        341.0\n      ]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Table showing node embedding computation graph with node indices and their corresponding embeddings.\",\n      \"related_concepts\": [\n        \"node embedding computation graph\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        396.0,\n        522.5,\n        451.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph with highlighted nodes and edges showing 1-hop and 2-hop neighborhoods for a target node.\",\n      \"related_concepts\": [\n        \"1-hop neighborhood\",\n        \"2-hop neighborhood\",\n        \"graph expansion problem\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        450.0,\n        192.5,\n        725.0,\n        302.5\n      ]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Computation graph showing node dependencies across layers with overlap indication.\",\n      \"related_concepts\": [\n        \"node embedding computation graph\",\n        \"hidden layer\",\n        \"overlap\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        560.0,\n        330.0,\n        725.0,\n        467.5\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Three-stage visualization of input graph, hidden layer 1, and hidden layer 2 with receptive field highlighting.\",\n      \"related_concepts\": [\n        \"receptive field\",\n        \"graph expansion problem\",\n        \"hidden layer\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        752.5,\n        137.5,\n        917.5,\n        247.5\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node sampling process illustration with three graphs showing progressive neighborhood sampling.\",\n      \"related_concepts\": [\n        \"random neighborhood sampling\",\n        \"graphsage\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        752.5,\n        412.5,\n        972.5,\n        522.5\n      ]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Three-step GraphSAGE algorithm description with checkmarks and underlines.\",\n      \"related_concepts\": [\n        \"graphsage\",\n        \"random neighborhood sampling\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        752.5,\n        385.0,\n        972.5,\n        440.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of three gradient descent methods: stochastic (single point), batch (full dataset), and mini-batch (subset). Each shows data points and update arrows.\",\n      \"related_concepts\": [\n        \"stochastic gradient descent\",\n        \"batch gradient descent\",\n        \"mini-batch gradient descent\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        697.5,\n        467.5,\n        752.5\n      ]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Contour plot comparing convergence paths of batch, mini-batch, and stochastic gradient descent.\",\n      \"related_concepts\": [\n        \"convergence\",\n        \"stability\",\n        \"noise in training\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        862.5,\n        137.5,\n        917.5\n      ]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Text boxes comparing characteristics of the three training strategies: individual data points, full dataset usage, subset of dataset.\",\n      \"related_concepts\": [\n        \"stochastic gradient descent\",\n        \"batch gradient descent\",\n        \"mini-batch gradient descent\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        752.5,\n        467.5,\n        862.5\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Illustration of graph partitioning, showing the original graph divided into clusters (batches) and then recombined.\",\n      \"related_concepts\": [\n        \"graph partitioning\",\n        \"disjoint subsets\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        780.0,\n        862.5,\n        972.5,\n        972.5\n      ]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"c^o llectivist\",\n      \"reason\": \"Handwriting is cursive and partially obscured; 'collectivist' is inferred but not certain\",\n      \"bbox\": [\n        917.5,\n        110.0,\n        972.5,\n        126.5\n      ]\n    },\n    {\n      \"transcription\": \"co-dependent\",\n      \"reason\": \"Handwriting is small and slightly smudged; meaning is clear but exact spelling uncertain\",\n      \"bbox\": [\n        917.5,\n        126.5,\n        972.5,\n        143.0\n      ]\n    },\n    {\n      \"transcription\": \"leverage\",\n      \"reason\": \"Quoted term in handwriting; possible alternative readings like 'average' or 'manage'\",\n      \"bbox\": [\n        917.5,\n        143.0,\n        972.5,\n        159.5\n      ]\n    },\n    {\n      \"transcription\": \"r=3\",\n      \"reason\": \"Small handwritten annotation near GraphSAGE step 3; could be 'r=2' or other value\",\n      \"bbox\": [\n        862.5,\n        429.0,\n        890.0,\n        445.5\n      ]\n    },\n    {\n      \"transcription\": \"diversify the data inputs (distribution)\",\n      \"reason\": \"Handwritten text is slightly slanted and partially overlaps with printed text; 'distribution' is somewhat unclear.\",\n      \"bbox\": [\n        412.5,\n        659.0,\n        467.5,\n        681.0\n      ]\n    },\n    {\n      \"transcription\": \"B ≈ 4\",\n      \"reason\": \"Handwritten annotation near mini-batch diagram; the number '4' is clear but the symbol before it could be '≈' or '='.\",\n      \"bbox\": [\n        302.5,\n        697.5,\n        330.0,\n        714.0\n      ]\n    },\n    {\n      \"transcription\": \"G?\",\n      \"reason\": \"Single letter 'G' with a question mark or arrow nearby; context suggests it might refer to a graph or gradient, but it's ambiguous.\",\n      \"bbox\": [\n        357.5,\n        714.0,\n        374.0,\n        730.5\n      ]\n    },\n    {\n      \"transcription\": \"b_1, b_2, b_3, b_4\",\n      \"reason\": \"Handwritten labels for batches in the graph partitioning diagram are slightly ambiguous due to handwriting style.\",\n      \"bbox\": [\n        835.0,\n        824.0,\n        917.5,\n        840.5\n      ]\n    },\n    {\n      \"transcription\": \"c, i\",\n      \"reason\": \"Handwritten labels for the batch set example are slightly ambiguous due to handwriting style.\",\n      \"bbox\": [\n        571.0,\n        505.0,\n        670.0,\n        521.5\n      ]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node sampling",
+      "into": "random node sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "receptive field",
+      "into": "receptive field"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "stochastic gradient descent",
+      "into": "stochastic gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "mini-batch gradient descent",
+      "into": "mini-batch gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "receptive field",
+      "into": "receptive field"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "memory requirements",
+      "into": "memory usage"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "1-hop neighborhood",
+      "into": "1-hop neighborhood"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "random node sampling",
+      "into": "random node sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "stochastic gradient descent",
+      "into": "stochastic gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node receptive field",
+      "into": "receptive field"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding computation graph",
+      "into": "node embedding computation graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "subgraph sampling",
+      "into": "subgraph sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "regularization",
+      "into": "regularization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "batch size",
+      "into": "hyperparameter"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: h_{k=2}^{(i=0)}",
+    "Dropped low-confidence formula: |b| = 2 = \\{i, j\\}",
+    "Dropped low-confidence formula: B = \\{b_1, b_2, b_3, b_4\\}"
+  ]
+}

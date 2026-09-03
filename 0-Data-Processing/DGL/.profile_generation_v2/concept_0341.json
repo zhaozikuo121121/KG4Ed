@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "02ced775b824091346f580b793767686f070e70e2ce1682bcc5f8a9168e16eed",
+  "concept_id": 341,
+  "concept_name": "noise distribution",
+  "aliases": [
+    "noise distribution",
+    "prior distribution"
+  ],
+  "profile": "noise distribution: A noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where samples are drawn from a standard normal distribution.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "noise distribution: In generative modeling, a noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where each sample is drawn from a standard normal distribution.",
+    "claims": [
+      {
+        "claim": "A noise distribution supplies random samples, for example a simple noise distribution z_i ~ N(0, 1), where each sample is drawn from a standard normal distribution.",
+        "evidence_ids": [
+          "DGL-E0504"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "noise distribution: A noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where samples are drawn from a standard normal distribution.",
+    "sentence_reviews": [
+      {
+        "sentence": "A noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where samples are drawn from a standard normal distribution.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0504"
+        ],
+        "reason": "The source states 'samples from a simple noise distribution: z_i ~ N(0, 1)', directly supporting the example and the standard normal interpretation."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"noise distribution: In generative modeling, a noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where each sample is drawn from a standard normal distribution.\",\n  \"claims\": [\n    {\n      \"claim\": \"A noise distribution supplies random samples, for example a simple noise distribution z_i ~ N(0, 1), where each sample is drawn from a standard normal distribution.\",\n      \"evidence_ids\": [\"DGL-E0504\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"noise distribution: A noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where samples are drawn from a standard normal distribution.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A noise distribution supplies random samples, for example, a simple noise distribution z_i ~ N(0, 1), where samples are drawn from a standard normal distribution.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0504\"],\n      \"reason\": \"The source states 'samples from a simple noise distribution: z_i ~ N(0, 1)', directly supporting the example and the standard normal interpretation.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:01:15.482415+00:00"
+}

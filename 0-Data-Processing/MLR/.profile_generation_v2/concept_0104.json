@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "536c2b3dee4e4a960efdfbdd152b692cbb1ad1704e621f7e5f1b486a3df7b2dd",
+  "concept_id": 104,
+  "concept_name": "trivial solution",
+  "aliases": [
+    "trivial solution",
+    "zero-weight solution"
+  ],
+  "profile": "trivial solution: In the Perceptron cost, the trivial solution is the zero-weight solution at w = 0. The cost always has this solution, since g(0) = 0; therefore, in practice one may need to take care to avoid finding it.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "trivial solution: In the context of the Perceptron cost function, a trivial solution is the zero-weight solution at w = 0. Since g(0) = 0, this always makes the cost zero, meaning it is always a valid but undesirable minimizer. In practice, one must avoid finding this trivial solution.",
+    "claims": [
+      {
+        "claim": "In the Perceptron cost function, the trivial solution is the zero-weight solution at w = 0.",
+        "evidence_ids": [
+          "MLR-E0120"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Because g(0) = 0, the cost is zero, so this trivial solution should be avoided in practice.",
+        "evidence_ids": [
+          "MLR-E0120"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "trivial solution: In the Perceptron cost, the trivial solution is the zero-weight solution at w = 0. The cost always has this solution, since g(0) = 0; therefore, in practice one may need to take care to avoid finding it.",
+    "sentence_reviews": [
+      {
+        "sentence": "In the Perceptron cost, the trivial solution is the zero-weight solution at w = 0.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0120"
+        ],
+        "reason": "The evidence explicitly identifies the trivial solution as w = 0."
+      },
+      {
+        "sentence": "The cost always has this solution, since g(0) = 0; therefore, in practice one may need to take care to avoid finding it.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0120"
+        ],
+        "reason": "The evidence states the Perceptron cost always has a trivial solution at w = 0 because g(0) = 0, and warns that one may need to avoid finding it."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"trivial solution: In the context of the Perceptron cost function, a trivial solution is the zero-weight solution at w = 0. Since g(0) = 0, this always makes the cost zero, meaning it is always a valid but undesirable minimizer. In practice, one must avoid finding this trivial solution.\",\n  \"claims\": [\n    {\n      \"claim\": \"In the Perceptron cost function, the trivial solution is the zero-weight solution at w = 0.\",\n      \"evidence_ids\": [\"MLR-E0120\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Because g(0) = 0, the cost is zero, so this trivial solution should be avoided in practice.\",\n      \"evidence_ids\": [\"MLR-E0120\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"trivial solution: In the Perceptron cost, the trivial solution is the zero-weight solution at w = 0. The cost always has this solution, since g(0) = 0; therefore, in practice one may need to take care to avoid finding it.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In the Perceptron cost, the trivial solution is the zero-weight solution at w = 0.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0120\"],\n      \"reason\": \"The evidence explicitly identifies the trivial solution as w = 0.\"\n    },\n    {\n      \"sentence\": \"The cost always has this solution, since g(0) = 0; therefore, in practice one may need to take care to avoid finding it.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0120\"],\n      \"reason\": \"The evidence states the Perceptron cost always has a trivial solution at w = 0 because g(0) = 0, and warns that one may need to avoid finding it.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:02:26.254474+00:00"
+}

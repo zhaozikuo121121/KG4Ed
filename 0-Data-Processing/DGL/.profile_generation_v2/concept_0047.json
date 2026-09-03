@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8d38291b74e1a7a32626db08b1186a9b8122eee285b5d28bd3f1757901b92b84",
+  "concept_id": 47,
+  "concept_name": "star-like graphs",
+  "aliases": [
+    "star-like graphs",
+    "star graphs"
+  ],
+  "profile": "star-like graphs: A term appearing in graph properties and matrix representations material. The available record includes only the term itself, with no definition, properties, or examples.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "star-like graphs: A term that appears without an accompanying definition.",
+    "claims": [
+      {
+        "claim": "The term 'star-like graphs' appears without an accompanying definition.",
+        "evidence_ids": [
+          "DGL-E0063"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The concept's definition is not provided in the evidence."
+    ]
+  },
+  "review": {
+    "final_profile": "star-like graphs: A term appearing in graph properties and matrix representations material. The available record includes only the term itself, with no definition, properties, or examples.",
+    "sentence_reviews": [
+      {
+        "sentence": "A term appearing in graph properties and matrix representations material.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0063"
+        ],
+        "reason": "The source page title is 'Graph Properties and Matrix Representations' and the term is listed there."
+      },
+      {
+        "sentence": "The available record includes only the term itself, with no definition, properties, or examples.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0063"
+        ],
+        "reason": "The source evidence contains only the term and no additional explanatory content."
+      }
+    ],
+    "warnings": [
+      "No definition, formal characterization, or usage context is available in the source material."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"star-like graphs: A term that appears without an accompanying definition.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'star-like graphs' appears without an accompanying definition.\",\n      \"evidence_ids\": [\"DGL-E0063\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The concept's definition is not provided in the evidence.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"star-like graphs: A term appearing in graph properties and matrix representations material. The available record includes only the term itself, with no definition, properties, or examples.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A term appearing in graph properties and matrix representations material.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0063\"],\n      \"reason\": \"The source page title is 'Graph Properties and Matrix Representations' and the term is listed there.\"\n    },\n    {\n      \"sentence\": \"The available record includes only the term itself, with no definition, properties, or examples.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0063\"],\n      \"reason\": \"The source evidence contains only the term and no additional explanatory content.\"\n    }\n  ],\n  \"warnings\": [\n    \"No definition, formal characterization, or usage context is available in the source material.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:04:46.431160+00:00"
+}

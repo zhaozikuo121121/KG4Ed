@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5ca31bdf1b416352ce34af1772660fb44640b6321acbfe69396b83482facb1d5",
+  "concept_id": 107,
+  "concept_name": "numerical instability",
+  "aliases": [
+    "numerical instability",
+    "numerical instability issues"
+  ],
+  "profile": "numerical instability: a condition in which local optimization schemes can experience severe numerical instability when they make large progress at each step. This can arise in the context of linear two-class classification.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "numerical instability: a condition in which local optimization schemes can experience severe numerical instability issues when they make large progress at each step. This phenomenon may also occur in the context of linear two-class classification. Such iterative optimization schemes are also indeed prone to these numerical issues during iterative optimization.",
+    "claims": [
+      {
+        "claim": "Local optimization schemes can experience severe numerical instability issues when they make large progress at each step.",
+        "evidence_ids": [
+          "MLR-E0123"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This phenomenon may also occur in the context of linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0123"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Such iterative optimization schemes are also indeed prone to these numerical issues during iterative optimization.",
+        "evidence_ids": [
+          "MLR-E0123"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence does not identify the specific cause of the instability beyond its association with large-progress optimization schemes."
+    ]
+  },
+  "review": {
+    "final_profile": "numerical instability: a condition in which local optimization schemes can experience severe numerical instability when they make large progress at each step. This can arise in the context of linear two-class classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "numerical instability: a condition in which local optimization schemes can experience severe numerical instability when they make large progress at each step.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0123"
+        ],
+        "reason": "The evidence directly links severe numerical instability to local optimization schemes making large progress at each step."
+      },
+      {
+        "sentence": "This can arise in the context of linear two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0123"
+        ],
+        "reason": "The evidence appears in the linear two-class classification chapter, providing contextual support for this occurrence."
+      }
+    ],
+    "warnings": [
+      "The evidence does not identify the specific cause of the instability beyond its association with large-progress optimization schemes."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"numerical instability: a condition in which local optimization schemes can experience severe numerical instability issues when they make large progress at each step. This phenomenon may also occur in the context of linear two-class classification. Such iterative optimization schemes are also indeed prone to these numerical issues during iterative optimization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Local optimization schemes can experience severe numerical instability issues when they make large progress at each step.\",\n      \"evidence_ids\": [\"MLR-E0123\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This phenomenon may also occur in the context of linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0123\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Such iterative optimization schemes are also indeed prone to these numerical issues during iterative optimization.\",\n      \"evidence_ids\": [\"MLR-E0123\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence does not identify the specific cause of the instability beyond its association with large-progress optimization schemes.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"numerical instability: a condition in which local optimization schemes can experience severe numerical instability when they make large progress at each step. This can arise in the context of linear two-class classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"numerical instability: a condition in which local optimization schemes can experience severe numerical instability when they make large progress at each step.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0123\"],\n      \"reason\": \"The evidence directly links severe numerical instability to local optimization schemes making large progress at each step.\"\n    },\n    {\n      \"sentence\": \"This can arise in the context of linear two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0123\"],\n      \"reason\": \"The evidence appears in the linear two-class classification chapter, providing contextual support for this occurrence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence does not identify the specific cause of the instability beyond its association with large-progress optimization schemes.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:05:35.867396+00:00"
+}

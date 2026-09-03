@@ -1,0 +1,3510 @@
+{
+  "version": "1.0.0",
+  "lecture": 5,
+  "pdf_file": "DGL_Lecture_5_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "Permutation Invariance and Equivariance in Graph Neural Networks",
+  "summary": "This lecture page defines and contrasts permutation invariance and equivariance within the context of Graph Neural Networks (GNNs). It establishes that GNNs must be permutation invariant for graph-level tasks (like classification) so that the output does not depend on node indexing, while node-level tasks require permutation equivariance where embeddings permute consistently with the input. The content includes mathematical formalizations using permutation matrices to demonstrate how adjacency and feature matrices transform under reordering.",
+  "key_topics": [
+    "permutation invariance",
+    "permutation equivariance",
+    "graph neural networks",
+    "permutation matrices",
+    "graph classification"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T14:52:16+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "transformation invariance",
+      "aliases": [
+        "invariance to transformation"
+      ],
+      "evidence": "Reminder: Transformation invariance in Euclidean deep learning; x is invariant to a transformation t[x] if: f[t[x]] = f[x]",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        247.5,
+        137.5
+      ]
+    },
+    {
+      "canonical": "node permutation invariance",
+      "aliases": [
+        "permutation invariance",
+        "permutation invariant function",
+        "invariant to permutations",
+        "order invariance"
+      ],
+      "evidence": "GNNs need to be permutation-invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        55.0,
+        522.5,
+        137.5
+      ]
+    },
+    {
+      "canonical": "permutation",
+      "aliases": [
+        "bijection",
+        "reordering",
+        "bijective function"
+      ],
+      "evidence": "Permutations π are bijections from a set to itself.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        681.0,
+        71.5,
+        917.5,
+        110.0
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn",
+        "gcn",
+        "graph convolutional network"
+      ],
+      "evidence": "GNNs need to be permutation invariant...; each GCN layer (including its operations) computing its embedding is permutation invariant.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        82.5,
+        522.5,
+        330.0
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "embedding",
+        "node representation"
+      ],
+      "evidence": "learning representations (embeddings) that do not depend on the indexing of the graph nodes; computing its embedding is permutation invariant.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        82.5,
+        522.5,
+        330.0
+      ]
+    },
+    {
+      "canonical": "associativity",
+      "aliases": [
+        "associative property"
+      ],
+      "evidence": "Permutation is an associative function: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        681.0,
+        104.5,
+        917.5,
+        132.0
+      ]
+    },
+    {
+      "canonical": "non-commutativity",
+      "aliases": [
+        "non-commutative",
+        "not commutative"
+      ],
+      "evidence": "Permutation is a commutative function: π ∘ σ ≠ σ ∘ π",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        681.0,
+        132.0,
+        917.5,
+        159.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "adjacency",
+        "a"
+      ],
+      "evidence": "Visual representation of adjacency matrices Ai and A'i corresponding to different node orderings.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        137.5,
+        467.5,
+        220.0
+      ]
+    },
+    {
+      "canonical": "computational graph",
+      "aliases": [
+        "computation graph"
+      ],
+      "evidence": "The node computational graphs using 2 layers",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        231.0,
+        780.0,
+        247.5
+      ]
+    },
+    {
+      "canonical": "feature matrix",
+      "aliases": [
+        "node features",
+        "input features",
+        "x"
+      ],
+      "evidence": "Xi and X'i labeled as 'd features' feeding into the GNN block.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        247.5,
+        467.5,
+        330.0
+      ]
+    },
+    {
+      "canonical": "node permutation equivariance",
+      "aliases": [
+        "equivariance"
+      ],
+      "evidence": "Node permutation equivariance",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        341.0,
+        917.5,
+        363.0
+      ]
+    },
+    {
+      "canonical": "transformation equivariance",
+      "aliases": [
+        "equivariant transformation"
+      ],
+      "evidence": "Transformation equivariance in Euclidean deep learning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        374.0,
+        780.0,
+        390.5
+      ]
+    },
+    {
+      "canonical": "node classification",
+      "aliases": [],
+      "evidence": "For node classification and edge prediction tasks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        390.5,
+        917.5,
+        407.0
+      ]
+    },
+    {
+      "canonical": "edge prediction",
+      "aliases": [],
+      "evidence": "For node classification and edge prediction tasks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        390.5,
+        917.5,
+        407.0
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "graph-level task"
+      ],
+      "evidence": "Case study (graph classification); D = {(G1, y1), ..., (Gn, yn)}",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        412.5,
+        247.5,
+        522.5
+      ]
+    },
+    {
+      "canonical": "aggregation",
+      "aliases": [
+        "aggregate"
+      ],
+      "evidence": "the final layer aggregates information from across the graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        412.5,
+        972.5,
+        429.0
+      ]
+    },
+    {
+      "canonical": "permutation matrix",
+      "aliases": [
+        "p",
+        "p matrix"
+      ],
+      "evidence": "permutation matrix P",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        429.0,
+        917.5,
+        445.5
+      ]
+    },
+    {
+      "canonical": "node ordering",
+      "aliases": [
+        "node permutation"
+      ],
+      "evidence": "Let i and j denote different node orderings of the same graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        220.0,
+        477.5,
+        495.0,
+        505.0
+      ]
+    },
+    {
+      "canonical": "graph neural network layer",
+      "aliases": [
+        "gnn layer",
+        "gcn layer"
+      ],
+      "evidence": "Consider the simple GNN layer: H_{k+1} = GraphLayer[H_k, A]",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        615.0,
+        972.5,
+        670.0
+      ]
+    },
+    {
+      "canonical": "graph embedding",
+      "aliases": [
+        "graph representation"
+      ],
+      "evidence": "The learned graph embedding is invariant to its node permutation.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        220.0,
+        697.5,
+        440.0,
+        725.0
+      ]
+    },
+    {
+      "canonical": "node permutation equivariance in gnns",
+      "aliases": [
+        "permutation equivariant gcn computation"
+      ],
+      "evidence": "Node permutation equivariance in GNNs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        780.0,
+        725.0,
+        835.0
+      ]
+    },
+    {
+      "canonical": "graph topology",
+      "aliases": [],
+      "evidence": "the topology of the input graph remains unchanged",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        862.5,
+        220.0,
+        890.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "f[t[x]] = f[x]",
+      "related_concepts": [
+        "transformation invariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        99.0,
+        192.5,
+        121.0
+      ],
+      "label": "invariance definition"
+    },
+    {
+      "latex": "f: \\mathcal{G} \\to \\mathbb{R}^d",
+      "related_concepts": [
+        "graph neural network",
+        "node embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        385.0,
+        467.5,
+        412.5
+      ],
+      "label": "GNN mapping function"
+    },
+    {
+      "latex": "G \\mapsto f(A, X)",
+      "related_concepts": [
+        "graph neural network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        412.5,
+        467.5,
+        429.0
+      ],
+      "label": "GNN input"
+    },
+    {
+      "latex": "f(A_i, X_i) = f(A_j, X_j)",
+      "related_concepts": [
+        "node permutation invariance"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        467.5,
+        495.0,
+        495.0
+      ],
+      "label": "permutation invariance condition"
+    },
+    {
+      "latex": "\\mathcal{D} = \\{ (G_1, y_1), \\dots, (G_n, y_n) \\}",
+      "related_concepts": [
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        440.0,
+        220.0,
+        495.0
+      ],
+      "label": "dataset definition"
+    },
+    {
+      "latex": "P(i, \\pi(i)) = 1",
+      "related_concepts": [
+        "permutation matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        44.0,
+        681.0,
+        60.5
+      ],
+      "label": "Permutation matrix definition"
+    },
+    {
+      "latex": "\\pi \\circ (\\sigma \\circ \\delta) = (\\pi \\circ \\sigma) \\circ \\delta",
+      "related_concepts": [
+        "associativity"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        110.0,
+        917.5,
+        126.5
+      ],
+      "label": "Associativity of permutation"
+    },
+    {
+      "latex": "\\pi \\circ \\sigma \\neq \\sigma \\circ \\pi",
+      "related_concepts": [
+        "non-commutativity"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        137.5,
+        917.5,
+        154.0
+      ],
+      "label": "Non-commutativity of permutation"
+    },
+    {
+      "latex": "f[t(\\mathbf{x})] = t[f(\\mathbf{x})]",
+      "related_concepts": [
+        "transformation equivariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        429.0,
+        697.5,
+        445.5
+      ],
+      "label": "Equivariance definition"
+    },
+    {
+      "latex": "\\mathbf{y} = \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N]",
+      "related_concepts": [
+        "graph classification",
+        "aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        807.5,
+        451.0,
+        972.5,
+        467.5
+      ],
+      "label": "Graph-level output formula"
+    },
+    {
+      "latex": "= \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{P} \\mathbf{1} / N]",
+      "related_concepts": [
+        "node permutation invariance",
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        807.5,
+        467.5,
+        972.5,
+        484.0
+      ],
+      "label": "Permutation invariance in graph-level output"
+    },
+    {
+      "latex": "f: \\mathbb{R}^{n \\times n} \\times \\mathbb{R}^{d_k \\times n} \\rightarrow \\mathbb{R}^{d_{k+1} \\times n}",
+      "related_concepts": [
+        "graph neural network layer"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        626.0,
+        495.0,
+        659.0
+      ],
+      "label": "graph function signature"
+    },
+    {
+      "latex": "H_{k+1} = f(A, H_k) = f(P^T A P, H_k P)",
+      "related_concepts": [
+        "graph neural network layer"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        659.0,
+        467.5,
+        697.5
+      ],
+      "label": "GCN layer equivariance"
+    },
+    {
+      "latex": "\\pi = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ \\downarrow & \\downarrow & \\downarrow & \\downarrow \\\\ 4 & 1 & 3 & 2 \\end{pmatrix}",
+      "related_concepts": [
+        "permutation",
+        "node ordering"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        302.5,
+        752.5,
+        440.0,
+        807.5
+      ],
+      "label": "permutation example"
+    },
+    {
+      "latex": "P^T(\\pi(i), i) = 1",
+      "related_concepts": [
+        "permutation matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        835.0,
+        302.5,
+        851.5
+      ],
+      "label": "permutation matrix definition"
+    },
+    {
+      "latex": "P(i, \\pi(i)) = 1",
+      "related_concepts": [
+        "permutation matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        835.0,
+        467.5,
+        851.5
+      ],
+      "label": "permutation matrix definition"
+    },
+    {
+      "latex": "A' = P^T A P",
+      "related_concepts": [
+        "adjacency matrix",
+        "permutation matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        851.5,
+        467.5,
+        945.0
+      ],
+      "label": "permuted adjacency matrix"
+    },
+    {
+      "latex": "y = \\text{sig}[\\beta_K + \\omega_K H_K 1/N]",
+      "related_concepts": [
+        "graph neural network layer"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        450.0,
+        972.5,
+        477.5
+      ],
+      "label": "output equation"
+    },
+    {
+      "latex": "H_{k+1} = a[\\beta_k 1^T + \\Omega_k [H_k; H_k A]]",
+      "related_concepts": [
+        "graph neural network layer"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        642.5,
+        972.5,
+        670.0
+      ],
+      "label": "GNN layer definition"
+    },
+    {
+      "latex": "H_{k+1} P = F[H_k P, P^T A P, \\phi_k]",
+      "related_concepts": [
+        "node permutation equivariance in gnns",
+        "permutation matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        862.5,
+        725.0,
+        917.5
+      ],
+      "label": "permutation equivariance condition"
+    },
+    {
+      "latex": "GraphLayer[H_k P, P^T A P] = a[\\beta_k 1^T + \\Omega_k \\begin{bmatrix} H_k P \\\\ H_k P P^T A P \\end{bmatrix}]",
+      "related_concepts": [
+        "graph neural network layer",
+        "permutation matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        725.0,
+        972.5,
+        780.0
+      ],
+      "label": "permuted GNN layer"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Illustration of transformation invariance in image classification: input image of a tree transformed (t[x]) yields same classification output f(x)='yes'.",
+      "related_concepts": [
+        "transformation invariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        137.5,
+        247.5,
+        275.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing node permutation invariance in GNNs: a testing graph with two different node orderings (represented by adjacency matrices Ai and A'i and feature matrices Xi and X'i) produces the same output embedding via the GNN.",
+      "related_concepts": [
+        "node permutation invariance",
+        "graph neural network",
+        "adjacency matrix",
+        "feature matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        137.5,
+        495.0,
+        357.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Visual representation of a graph classification dataset D containing multiple graphs (G1 to Gn) with corresponding labels (y1 to yn).",
+      "related_concepts": [
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        440.0,
+        220.0,
+        522.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "A grid representing a permutation matrix with one entry highlighted.",
+      "related_concepts": [
+        "permutation matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        60.5,
+        681.0,
+        121.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "A small graph labeled 'testing graph' with colored nodes.",
+      "related_concepts": [
+        "computational graph",
+        "node permutation equivariance"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        264.0,
+        604.0,
+        319.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A tree-like structure showing the computational graph for a node using 2 layers, with colored nodes and edges.",
+      "related_concepts": [
+        "computational graph",
+        "node permutation equivariance"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        264.0,
+        752.5,
+        341.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A simplified computational graph for a single node.",
+      "related_concepts": [
+        "computational graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        769.0,
+        264.0,
+        807.5,
+        341.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A diagram illustrating transformation equivariance in Euclidean deep learning, showing input x, transformation t, function f, and output f(x).",
+      "related_concepts": [
+        "transformation equivariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        451.0,
+        752.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Diagram showing a GNN taking an adjacency matrix A_i and feature matrix X_i as input to produce a predicted output ŷ_i.",
+      "related_concepts": [
+        "graph neural network",
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        587.5,
+        220.0,
+        752.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Two graphs with different node orderings but the same structure, illustrating permutation invariance.",
+      "related_concepts": [
+        "node permutation invariance",
+        "node ordering"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        477.5,
+        192.5,
+        560.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "A graph and its permuted version, showing how node indices change but the graph structure remains the same.",
+      "related_concepts": [
+        "node ordering",
+        "graph topology"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        807.5,
+        467.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Matrix multiplication showing how a permutation matrix P transforms an adjacency matrix A into A'.",
+      "related_concepts": [
+        "permutation matrix",
+        "adjacency matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        851.5,
+        467.5,
+        945.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Two adjacency matrices representing the same graph with different node orderings.",
+      "related_concepts": [
+        "adjacency matrix",
+        "node ordering"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        890.0,
+        220.0,
+        972.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Matrix representation of GNN layer computation with vertical concatenation notation",
+      "related_concepts": [
+        "graph neural network layer"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        642.5,
+        972.5,
+        697.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "P = Z Q Y",
+      "reason": "The letters 'Z', 'Q', and 'Y' are handwritten and could be misinterpreted.",
+      "bbox": [
+        917.5,
+        60.5,
+        972.5,
+        77.0
+      ]
+    },
+    {
+      "transcription": "sig",
+      "reason": "Abbreviation for sigmoid function, but written in a stylized way.",
+      "bbox": [
+        807.5,
+        451.0,
+        835.0,
+        467.5
+      ]
+    },
+    {
+      "transcription": "nraining set",
+      "reason": "Handwritten text is partially obscured and difficult to read confidently.",
+      "bbox": [
+        0.0,
+        642.5,
+        27.5,
+        670.0
+      ]
+    },
+    {
+      "transcription": "Him",
+      "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+      "bbox": [
+        220.0,
+        642.5,
+        247.5,
+        670.0
+      ]
+    },
+    {
+      "transcription": "bisecting.ms",
+      "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+      "bbox": [
+        220.0,
+        752.5,
+        275.0,
+        780.0
+      ]
+    },
+    {
+      "transcription": "a234",
+      "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+      "bbox": [
+        522.5,
+        752.5,
+        550.0,
+        780.0
+      ]
+    },
+    {
+      "transcription": "sooo way",
+      "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+      "bbox": [
+        522.5,
+        862.5,
+        550.0,
+        890.0
+      ]
+    },
+    {
+      "transcription": "sopha tonne",
+      "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+      "bbox": [
+        522.5,
+        890.0,
+        550.0,
+        917.5
+      ]
+    },
+    {
+      "transcription": "param",
+      "reason": "Handwritten annotation near formula, possibly indicating parameters",
+      "bbox": [
+        697.5,
+        862.5,
+        725.0,
+        879.0
+      ]
+    },
+    {
+      "transcription": "Outputs the new embedding",
+      "reason": "Handwritten note explaining formula component",
+      "bbox": [
+        560.0,
+        890.0,
+        670.0,
+        917.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node permutation invariance",
+            "aliases": [
+              "permutation invariance",
+              "permutation invariant function"
+            ],
+            "evidence": "Node permutation invariance in GNNs; GNNs need to be permutation invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              100,
+              950,
+              250
+            ]
+          },
+          {
+            "canonical": "transformation invariance",
+            "aliases": [
+              "invariance to transformation"
+            ],
+            "evidence": "Reminder: Transformation invariance in Euclidean deep learning; x is invariant to a transformation t[x] if: f[t[x]] = f[x]",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              450,
+              250
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN",
+              "GCN"
+            ],
+            "evidence": "GNNs need to be permutation invariant...; each GCN layer (including its operations) computing its embedding is permutation invariant.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              950,
+              600
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [],
+            "evidence": "Case study (graph classification); D = {(G1, y1), ..., (Gn, yn)}",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              750,
+              450,
+              950
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "embedding",
+              "node representation"
+            ],
+            "evidence": "learning representations (embeddings) that do not depend on the indexing of the graph nodes; computing its embedding is permutation invariant.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              950,
+              600
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "adjacency"
+            ],
+            "evidence": "Visual representation of adjacency matrices Ai and A'i corresponding to different node orderings.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              250,
+              850,
+              400
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "node features",
+              "input features"
+            ],
+            "evidence": "Xi and X'i labeled as 'd features' feeding into the GNN block.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              450,
+              850,
+              600
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f[t[x]] = f[x]",
+            "related_concepts": [
+              "transformation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              180,
+              350,
+              220
+            ],
+            "label": "invariance definition"
+          },
+          {
+            "latex": "f: \\mathcal{G} \\to \\mathbb{R}^d",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              700,
+              850,
+              750
+            ],
+            "label": "GNN mapping function"
+          },
+          {
+            "latex": "G \\mapsto f(A, X)",
+            "related_concepts": [
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              750,
+              850,
+              780
+            ],
+            "label": "GNN input"
+          },
+          {
+            "latex": "f(A_i, X_i) = f(A_j, X_j)",
+            "related_concepts": [
+              "node permutation invariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              850,
+              900,
+              900
+            ],
+            "label": "permutation invariance condition"
+          },
+          {
+            "latex": "f(h_i, X_i) = f(h'_i, X'_i) = \\hat{y}_i",
+            "related_concepts": [
+              "node permutation invariance",
+              "graph neural network"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              600,
+              850,
+              650
+            ],
+            "label": "output invariance"
+          },
+          {
+            "latex": "\\mathcal{D} = \\{ (G_1, y_1), \\dots, (G_n, y_n) \\}",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              800,
+              400,
+              900
+            ],
+            "label": "dataset definition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of transformation invariance in image classification: input image of a tree transformed (t[x]) yields same classification output f(x)='yes'.",
+            "related_concepts": [
+              "transformation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              250,
+              450,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing node permutation invariance in GNNs: a testing graph with two different node orderings (represented by adjacency matrices Ai and A'i and feature matrices Xi and X'i) produces the same output embedding via the GNN.",
+            "related_concepts": [
+              "node permutation invariance",
+              "graph neural network",
+              "adjacency matrix",
+              "feature matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              250,
+              900,
+              650
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Visual representation of a graph classification dataset D containing multiple graphs (G1 to Gn) with corresponding labels (y1 to yn).",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              800,
+              400,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node permutation invariance\",\n      \"aliases\": [\"permutation invariance\", \"permutation invariant function\"],\n      \"evidence\": \"Node permutation invariance in GNNs; GNNs need to be permutation invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 100, 950, 250]\n    },\n    {\n      \"canonical\": \"transformation invariance\",\n      \"aliases\": [\"invariance to transformation\"],\n      \"evidence\": \"Reminder: Transformation invariance in Euclidean deep learning; x is invariant to a transformation t[x] if: f[t[x]] = f[x]\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 450, 250]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\", \"GCN\"],\n      \"evidence\": \"GNNs need to be permutation invariant...; each GCN layer (including its operations) computing its embedding is permutation invariant.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 950, 600]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [],\n      \"evidence\": \"Case study (graph classification); D = {(G1, y1), ..., (Gn, yn)}\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 750, 450, 950]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"embedding\", \"node representation\"],\n      \"evidence\": \"learning representations (embeddings) that do not depend on the indexing of the graph nodes; computing its embedding is permutation invariant.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 950, 600]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"adjacency\"],\n      \"evidence\": \"Visual representation of adjacency matrices Ai and A'i corresponding to different node orderings.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 250, 850, 400]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"node features\", \"input features\"],\n      \"evidence\": \"Xi and X'i labeled as 'd features' feeding into the GNN block.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 450, 850, 600]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f[t[x]] = f[x]\",\n      \"related_concepts\": [\"transformation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 180, 350, 220],\n      \"label\": \"invariance definition\"\n    },\n    {\n      \"latex\": \"f: \\\\mathcal{G} \\\\to \\\\mathbb{R}^d\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 700, 850, 750],\n      \"label\": \"GNN mapping function\"\n    },\n    {\n      \"latex\": \"G \\\\mapsto f(A, X)\",\n      \"related_concepts\": [\"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 750, 850, 780],\n      \"label\": \"GNN input\"\n    },\n    {\n      \"latex\": \"f(A_i, X_i) = f(A_j, X_j)\",\n      \"related_concepts\": [\"node permutation invariance\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 850, 900, 900],\n      \"label\": \"permutation invariance condition\"\n    },\n    {\n      \"latex\": \"f(h_i, X_i) = f(h'_i, X'_i) = \\\\hat{y}_i\",\n      \"related_concepts\": [\"node permutation invariance\", \"graph neural network\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 600, 850, 650],\n      \"label\": \"output invariance\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{D} = \\\\{ (G_1, y_1), \\\\dots, (G_n, y_n) \\\\}\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 800, 400, 900],\n      \"label\": \"dataset definition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of transformation invariance in image classification: input image of a tree transformed (t[x]) yields same classification output f(x)='yes'.\",\n      \"related_concepts\": [\"transformation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 250, 450, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing node permutation invariance in GNNs: a testing graph with two different node orderings (represented by adjacency matrices Ai and A'i and feature matrices Xi and X'i) produces the same output embedding via the GNN.\",\n      \"related_concepts\": [\"node permutation invariance\", \"graph neural network\", \"adjacency matrix\", \"feature matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 250, 900, 650]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Visual representation of a graph classification dataset D containing multiple graphs (G1 to Gn) with corresponding labels (y1 to yn).\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 800, 400, 950]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "permutation",
+            "aliases": [
+              "bijection",
+              "reordering"
+            ],
+            "evidence": "Permutations π are bijections from a set to itself.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              420,
+              130,
+              850,
+              200
+            ]
+          },
+          {
+            "canonical": "associativity",
+            "aliases": [
+              "associative property"
+            ],
+            "evidence": "Permutation is an associative function: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              420,
+              190,
+              850,
+              240
+            ]
+          },
+          {
+            "canonical": "non-commutativity",
+            "aliases": [
+              "non-commutative",
+              "not commutative"
+            ],
+            "evidence": "Permutation is a commutative function: π ∘ σ ≠ σ ∘ π",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              420,
+              240,
+              850,
+              290
+            ]
+          },
+          {
+            "canonical": "permutation matrix",
+            "aliases": [
+              "P"
+            ],
+            "evidence": "permutation matrix P",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              780,
+              850,
+              810
+            ]
+          },
+          {
+            "canonical": "permutation invariance",
+            "aliases": [
+              "invariant to permutations"
+            ],
+            "evidence": "the computational graph is permutation invariant",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              480,
+              850,
+              520
+            ]
+          },
+          {
+            "canonical": "node permutation equivariance",
+            "aliases": [
+              "equivariance"
+            ],
+            "evidence": "Node permutation equivariance",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              620,
+              850,
+              660
+            ]
+          },
+          {
+            "canonical": "transformation equivariance",
+            "aliases": [
+              "equivariant transformation"
+            ],
+            "evidence": "Transformation equivariance in Euclidean deep learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              680,
+              600,
+              710
+            ]
+          },
+          {
+            "canonical": "computational graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "The node computational graphs using 2 layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              420,
+              600,
+              450
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "For graphs, it is possible to define networks that ensure equivariance or invariance to permutations.",
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              880,
+              950,
+              920
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [],
+            "evidence": "For node classification and edge prediction tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              710,
+              850,
+              740
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [],
+            "evidence": "For node classification and edge prediction tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              710,
+              850,
+              740
+            ]
+          },
+          {
+            "canonical": "graph-level task",
+            "aliases": [
+              "graph classification"
+            ],
+            "evidence": "For graph-level tasks, the final layer aggregates information from across the graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              750,
+              950,
+              780
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "aggregate"
+            ],
+            "evidence": "the final layer aggregates information from across the graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              750,
+              950,
+              780
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "P(i, \\pi(i)) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              80,
+              420,
+              110
+            ],
+            "label": "Permutation matrix definition"
+          },
+          {
+            "latex": "\\pi \\circ (\\sigma \\circ \\delta) = (\\pi \\circ \\sigma) \\circ \\delta",
+            "related_concepts": [
+              "associativity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              200,
+              850,
+              230
+            ],
+            "label": "Associativity of permutation"
+          },
+          {
+            "latex": "\\pi \\circ \\sigma \\neq \\sigma \\circ \\pi",
+            "related_concepts": [
+              "non-commutativity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              250,
+              850,
+              280
+            ],
+            "label": "Non-commutativity of permutation"
+          },
+          {
+            "latex": "f[t(\\mathbf{x})] = t[f(\\mathbf{x})]",
+            "related_concepts": [
+              "transformation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              780,
+              450,
+              810
+            ],
+            "label": "Equivariance definition"
+          },
+          {
+            "latex": "\\mathbf{y} = \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N]",
+            "related_concepts": [
+              "graph-level task",
+              "aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              820,
+              950,
+              850
+            ],
+            "label": "Graph-level output formula"
+          },
+          {
+            "latex": "= \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{P} \\mathbf{1} / N]",
+            "related_concepts": [
+              "permutation invariance",
+              "graph-level task"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              850,
+              950,
+              880
+            ],
+            "label": "Permutation invariance in graph-level output"
+          },
+          {
+            "latex": "P^T A P",
+            "related_concepts": [
+              "permutation matrix",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              850,
+              80,
+              950,
+              110
+            ],
+            "label": "Permutation of adjacency matrix"
+          },
+          {
+            "latex": "P = Z Q Y",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              850,
+              110,
+              950,
+              140
+            ],
+            "label": "Permutation matrix decomposition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "matrix",
+            "description": "A grid representing a permutation matrix with one entry highlighted.",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              110,
+              420,
+              220
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small graph labeled 'testing graph' with colored nodes.",
+            "related_concepts": [
+              "computational graph",
+              "node permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              480,
+              280,
+              580
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A tree-like structure showing the computational graph for a node using 2 layers, with colored nodes and edges.",
+            "related_concepts": [
+              "computational graph",
+              "node permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              480,
+              550,
+              620
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A simplified computational graph for a single node.",
+            "related_concepts": [
+              "computational graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              480,
+              650,
+              620
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A diagram illustrating transformation equivariance in Euclidean deep learning, showing input x, transformation t, function f, and output f(x).",
+            "related_concepts": [
+              "transformation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              820,
+              550,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A small sketch showing a graph being permuted, with arrows indicating the permutation.",
+            "related_concepts": [
+              "permutation",
+              "node permutation equivariance"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              680,
+              750,
+              750
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "P = Z Q Y",
+            "reason": "The letters 'Z', 'Q', and 'Y' are handwritten and could be misinterpreted.",
+            "bbox": [
+              850,
+              110,
+              950,
+              140
+            ]
+          },
+          {
+            "transcription": "sig",
+            "reason": "Abbreviation for sigmoid function, but written in a stylized way.",
+            "bbox": [
+              650,
+              820,
+              700,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"permutation\",\n      \"aliases\": [\"bijection\", \"reordering\"],\n      \"evidence\": \"Permutations π are bijections from a set to itself.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [420, 130, 850, 200]\n    },\n    {\n      \"canonical\": \"associativity\",\n      \"aliases\": [\"associative property\"],\n      \"evidence\": \"Permutation is an associative function: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [420, 190, 850, 240]\n    },\n    {\n      \"canonical\": \"non-commutativity\",\n      \"aliases\": [\"non-commutative\", \"not commutative\"],\n      \"evidence\": \"Permutation is a commutative function: π ∘ σ ≠ σ ∘ π\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [420, 240, 850, 290]\n    },\n    {\n      \"canonical\": \"permutation matrix\",\n      \"aliases\": [\"P\"],\n      \"evidence\": \"permutation matrix P\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 780, 850, 810]\n    },\n    {\n      \"canonical\": \"permutation invariance\",\n      \"aliases\": [\"invariant to permutations\"],\n      \"evidence\": \"the computational graph is permutation invariant\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 480, 850, 520]\n    },\n    {\n      \"canonical\": \"node permutation equivariance\",\n      \"aliases\": [\"equivariance\"],\n      \"evidence\": \"Node permutation equivariance\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 620, 850, 660]\n    },\n    {\n      \"canonical\": \"transformation equivariance\",\n      \"aliases\": [\"equivariant transformation\"],\n      \"evidence\": \"Transformation equivariance in Euclidean deep learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 680, 600, 710]\n    },\n    {\n      \"canonical\": \"computational graph\",\n      \"aliases\": [\"computation graph\"],\n      \"evidence\": \"The node computational graphs using 2 layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 420, 600, 450]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"For graphs, it is possible to define networks that ensure equivariance or invariance to permutations.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 880, 950, 920]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [],\n      \"evidence\": \"For node classification and edge prediction tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 710, 850, 740]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [],\n      \"evidence\": \"For node classification and edge prediction tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 710, 850, 740]\n    },\n    {\n      \"canonical\": \"graph-level task\",\n      \"aliases\": [\"graph classification\"],\n      \"evidence\": \"For graph-level tasks, the final layer aggregates information from across the graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 750, 950, 780]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"aggregate\"],\n      \"evidence\": \"the final layer aggregates information from across the graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 750, 950, 780]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"P(i, \\\\pi(i)) = 1\",\n      \"related_concepts\": [\"permutation matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 80, 420, 110],\n      \"label\": \"Permutation matrix definition\"\n    },\n    {\n      \"latex\": \"\\\\pi \\\\circ (\\\\sigma \\\\circ \\\\delta) = (\\\\pi \\\\circ \\\\sigma) \\\\circ \\\\delta\",\n      \"related_concepts\": [\"associativity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 200, 850, 230],\n      \"label\": \"Associativity of permutation\"\n    },\n    {\n      \"latex\": \"\\\\pi \\\\circ \\\\sigma \\\\neq \\\\sigma \\\\circ \\\\pi\",\n      \"related_concepts\": [\"non-commutativity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 250, 850, 280],\n      \"label\": \"Non-commutativity of permutation\"\n    },\n    {\n      \"latex\": \"f[t(\\\\mathbf{x})] = t[f(\\\\mathbf{x})]\",\n      \"related_concepts\": [\"transformation equivariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 780, 450, 810],\n      \"label\": \"Equivariance definition\"\n    },\n    {\n      \"latex\": \"\\\\mathbf{y} = \\\\text{sig}[\\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{1} / N]\",\n      \"related_concepts\": [\"graph-level task\", \"aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 820, 950, 850],\n      \"label\": \"Graph-level output formula\"\n    },\n    {\n      \"latex\": \"= \\\\text{sig}[\\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{P} \\\\mathbf{1} / N]\",\n      \"related_concepts\": [\"permutation invariance\", \"graph-level task\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 850, 950, 880],\n      \"label\": \"Permutation invariance in graph-level output\"\n    },\n    {\n      \"latex\": \"P^T A P\",\n      \"related_concepts\": [\"permutation matrix\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [850, 80, 950, 110],\n      \"label\": \"Permutation of adjacency matrix\"\n    },\n    {\n      \"latex\": \"P = Z Q Y\",\n      \"related_concepts\": [\"permutation matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [850, 110, 950, 140],\n      \"label\": \"Permutation matrix decomposition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"A grid representing a permutation matrix with one entry highlighted.\",\n      \"related_concepts\": [\"permutation matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 110, 420, 220]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small graph labeled 'testing graph' with colored nodes.\",\n      \"related_concepts\": [\"computational graph\", \"node permutation equivariance\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 480, 280, 580]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A tree-like structure showing the computational graph for a node using 2 layers, with colored nodes and edges.\",\n      \"related_concepts\": [\"computational graph\", \"node permutation equivariance\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 480, 550, 620]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A simplified computational graph for a single node.\",\n      \"related_concepts\": [\"computational graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 480, 650, 620]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A diagram illustrating transformation equivariance in Euclidean deep learning, showing input x, transformation t, function f, and output f(x).\",\n      \"related_concepts\": [\"transformation equivariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 820, 550, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A small sketch showing a graph being permuted, with arrows indicating the permutation.\",\n      \"related_concepts\": [\"permutation\", \"node permutation equivariance\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 680, 750, 750]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"P = Z Q Y\",\n      \"reason\": \"The letters 'Z', 'Q', and 'Y' are handwritten and could be misinterpreted.\",\n      \"bbox\": [850, 110, 950, 140]\n    },\n    {\n      \"transcription\": \"sig\",\n      \"reason\": \"Abbreviation for sigmoid function, but written in a stylized way.\",\n      \"bbox\": [650, 820, 700, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level task"
+            ],
+            "evidence": "Case study (graph classification)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              250,
+              50
+            ]
+          },
+          {
+            "canonical": "permutation invariance",
+            "aliases": [
+              "order invariance"
+            ],
+            "evidence": "f is a permutation invariant function if it satisfies the following of any orderings i and j: f(Ai, Xi) = f(Aj, Xj)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              50,
+              900,
+              200
+            ]
+          },
+          {
+            "canonical": "permutation equivariance",
+            "aliases": [
+              "order equivariance"
+            ],
+            "evidence": "f[x] is equi...",
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              950,
+              350,
+              1000,
+              400
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "GNN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              350,
+              350,
+              450
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "for each GCN layer k",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              250,
+              600,
+              300
+            ]
+          },
+          {
+            "canonical": "permutation matrix",
+            "aliases": [],
+            "evidence": "for any permutation matrix P",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              280,
+              650,
+              320
+            ]
+          },
+          {
+            "canonical": "graph embedding",
+            "aliases": [
+              "graph representation"
+            ],
+            "evidence": "The learned graph embedding is invariant to its node permutation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              450,
+              800,
+              500
+            ]
+          },
+          {
+            "canonical": "bijection",
+            "aliases": [
+              "bijective function"
+            ],
+            "evidence": "π = ... = bijective function",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              550,
+              900,
+              650
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "A"
+            ],
+            "evidence": "A",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              650,
+              850
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "X"
+            ],
+            "evidence": "Xi",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              200,
+              550
+            ]
+          },
+          {
+            "canonical": "node ordering",
+            "aliases": [
+              "node permutation"
+            ],
+            "evidence": "Let i and j denote different node orderings of the same graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              50,
+              900,
+              100
+            ]
+          },
+          {
+            "canonical": "graph topology",
+            "aliases": [],
+            "evidence": "the topology of the input graph remains unchanged",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              750,
+              400,
+              800
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "G \\mapsto f(A, X)",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              0,
+              750,
+              50
+            ],
+            "label": "graph function"
+          },
+          {
+            "latex": "f(A_i, X_i) = f(A_j, X_j)",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              150,
+              850,
+              200
+            ],
+            "label": "permutation invariance condition"
+          },
+          {
+            "latex": "f: \\mathbb{R}^{n \\times n} \\times \\mathbb{R}^{d_k \\times n} \\rightarrow \\mathbb{R}^{d_{k+1} \\times n}",
+            "related_concepts": [
+              "graph function",
+              "GCN layer"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              320,
+              900,
+              380
+            ],
+            "label": "graph function signature"
+          },
+          {
+            "latex": "H_{k+1} = f(A, H_k) = f(P^T A P, H_k P)",
+            "related_concepts": [
+              "GCN layer",
+              "permutation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              380,
+              850,
+              450
+            ],
+            "label": "GCN layer equivariance"
+          },
+          {
+            "latex": "\\pi = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ \\downarrow & \\downarrow & \\downarrow & \\downarrow \\\\ 4 & 1 & 3 & 2 \\end{pmatrix}",
+            "related_concepts": [
+              "bijection",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              550,
+              800,
+              650
+            ],
+            "label": "permutation example"
+          },
+          {
+            "latex": "P^T(\\pi(i), i) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              700,
+              550,
+              730
+            ],
+            "label": "permutation matrix definition"
+          },
+          {
+            "latex": "P(i, \\pi(i)) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              700,
+              850,
+              730
+            ],
+            "label": "permutation matrix definition"
+          },
+          {
+            "latex": "A' = P^T A P",
+            "related_concepts": [
+              "adjacency matrix",
+              "permutation matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              730,
+              850,
+              900
+            ],
+            "label": "permuted adjacency matrix"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Diagram showing a GNN taking an adjacency matrix A_i and feature matrix X_i as input to produce a predicted output ŷ_i.",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              250,
+              400,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two graphs with different node orderings but the same structure, illustrating permutation invariance.",
+            "related_concepts": [
+              "permutation invariance",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              350,
+              200
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A graph and its permuted version, showing how node indices change but the graph structure remains the same.",
+            "related_concepts": [
+              "node ordering",
+              "graph topology"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              650,
+              850,
+              750
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix multiplication showing how a permutation matrix P transforms an adjacency matrix A into A'.",
+            "related_concepts": [
+              "permutation matrix",
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              730,
+              850,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two adjacency matrices representing the same graph with different node orderings.",
+            "related_concepts": [
+              "adjacency matrix",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              800,
+              400,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nraining set",
+            "reason": "Handwritten text is partially obscured and difficult to read confidently.",
+            "bbox": [
+              0,
+              350,
+              50,
+              400
+            ]
+          },
+          {
+            "transcription": "Him",
+            "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+            "bbox": [
+              400,
+              350,
+              450,
+              400
+            ]
+          },
+          {
+            "transcription": "bisecting.ms",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              400,
+              550,
+              500,
+              600
+            ]
+          },
+          {
+            "transcription": "a234",
+            "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+            "bbox": [
+              950,
+              550,
+              1000,
+              600
+            ]
+          },
+          {
+            "transcription": "sooo way",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              950,
+              750,
+              1000,
+              800
+            ]
+          },
+          {
+            "transcription": "sopha tonne",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              950,
+              800,
+              1000,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level task\"],\n      \"evidence\": \"Case study (graph classification)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 250, 50]\n    },\n    {\n      \"canonical\": \"permutation invariance\",\n      \"aliases\": [\"order invariance\"],\n      \"evidence\": \"f is a permutation invariant function if it satisfies the following of any orderings i and j: f(Ai, Xi) = f(Aj, Xj)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 50, 900, 200]\n    },\n    {\n      \"canonical\": \"permutation equivariance\",\n      \"aliases\": [\"order equivariance\"],\n      \"evidence\": \"f[x] is equi...\",\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [950, 350, 1000, 400]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"GNN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 350, 350, 450]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"for each GCN layer k\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 250, 600, 300]\n    },\n    {\n      \"canonical\": \"permutation matrix\",\n      \"aliases\": [],\n      \"evidence\": \"for any permutation matrix P\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 280, 650, 320]\n    },\n    {\n      \"canonical\": \"graph embedding\",\n      \"aliases\": [\"graph representation\"],\n      \"evidence\": \"The learned graph embedding is invariant to its node permutation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 450, 800, 500]\n    },\n    {\n      \"canonical\": \"bijection\",\n      \"aliases\": [\"bijective function\"],\n      \"evidence\": \"π = ... = bijective function\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 550, 900, 650]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"A\"],\n      \"evidence\": \"A\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 650, 850]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"X\"],\n      \"evidence\": \"Xi\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 200, 550]\n    },\n    {\n      \"canonical\": \"node ordering\",\n      \"aliases\": [\"node permutation\"],\n      \"evidence\": \"Let i and j denote different node orderings of the same graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 50, 900, 100]\n    },\n    {\n      \"canonical\": \"graph topology\",\n      \"aliases\": [],\n      \"evidence\": \"the topology of the input graph remains unchanged\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 750, 400, 800]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"G \\\\mapsto f(A, X)\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 0, 750, 50],\n      \"label\": \"graph function\"\n    },\n    {\n      \"latex\": \"f(A_i, X_i) = f(A_j, X_j)\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 150, 850, 200],\n      \"label\": \"permutation invariance condition\"\n    },\n    {\n      \"latex\": \"f: \\\\mathbb{R}^{n \\\\times n} \\\\times \\\\mathbb{R}^{d_k \\\\times n} \\\\rightarrow \\\\mathbb{R}^{d_{k+1} \\\\times n}\",\n      \"related_concepts\": [\"graph function\", \"GCN layer\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 320, 900, 380],\n      \"label\": \"graph function signature\"\n    },\n    {\n      \"latex\": \"H_{k+1} = f(A, H_k) = f(P^T A P, H_k P)\",\n      \"related_concepts\": [\"GCN layer\", \"permutation equivariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 380, 850, 450],\n      \"label\": \"GCN layer equivariance\"\n    },\n    {\n      \"latex\": \"\\\\pi = \\\\begin{pmatrix} 1 & 2 & 3 & 4 \\\\\\\\ \\\\downarrow & \\\\downarrow & \\\\downarrow & \\\\downarrow \\\\\\\\ 4 & 1 & 3 & 2 \\\\end{pmatrix}\",\n      \"related_concepts\": [\"bijection\", \"node ordering\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 550, 800, 650],\n      \"label\": \"permutation example\"\n    },\n    {\n      \"latex\": \"P^T(\\\\pi(i), i) = 1\",\n      \"related_concepts\": [\"permutation matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 700, 550, 730],\n      \"label\": \"permutation matrix definition\"\n    },\n    {\n      \"latex\": \"P(i, \\\\pi(i)) = 1\",\n      \"related_concepts\": [\"permutation matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 700, 850, 730],\n      \"label\": \"permutation matrix definition\"\n    },\n    {\n      \"latex\": \"A' = P^T A P\",\n      \"related_concepts\": [\"adjacency matrix\", \"permutation matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 730, 850, 900],\n      \"label\": \"permuted adjacency matrix\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram showing a GNN taking an adjacency matrix A_i and feature matrix X_i as input to produce a predicted output ŷ_i.\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 250, 400, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two graphs with different node orderings but the same structure, illustrating permutation invariance.\",\n      \"related_concepts\": [\"permutation invariance\", \"node ordering\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 350, 200]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A graph and its permuted version, showing how node indices change but the graph structure remains the same.\",\n      \"related_concepts\": [\"node ordering\", \"graph topology\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 650, 850, 750]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix multiplication showing how a permutation matrix P transforms an adjacency matrix A into A'.\",\n      \"related_concepts\": [\"permutation matrix\", \"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 730, 850, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two adjacency matrices representing the same graph with different node orderings.\",\n      \"related_concepts\": [\"adjacency matrix\", \"node ordering\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 800, 400, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nraining set\",\n      \"reason\": \"Handwritten text is partially obscured and difficult to read confidently.\",\n      \"bbox\": [0, 350, 50, 400]\n    },\n    {\n      \"transcription\": \"Him\",\n      \"reason\": \"Handwritten text is unclear and may be a misinterpretation of another symbol or word.\",\n      \"bbox\": [400, 350, 450, 400]\n    },\n    {\n      \"transcription\": \"bisecting.ms\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [400, 550, 500, 600]\n    },\n    {\n      \"transcription\": \"a234\",\n      \"reason\": \"Handwritten text is unclear and may be a misinterpretation of another symbol or word.\",\n      \"bbox\": [950, 550, 1000, 600]\n    },\n    {\n      \"transcription\": \"sooo way\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [950, 750, 1000, 800]\n    },\n    {\n      \"transcription\": \"sopha tonne\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [950, 800, 1000, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "permutation equivariance",
+            "aliases": [
+              "equivariance to permutations",
+              "permutation invariance"
+            ],
+            "evidence": "For graphs, it is possible to define networks that ensure equivariance or invariance to permutations.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              100,
+              950,
+              200
+            ]
+          },
+          {
+            "canonical": "node permutation equivariance in GNNs",
+            "aliases": [
+              "permutation equivariant GCN computation"
+            ],
+            "evidence": "Node permutation equivariance in GNNs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              600,
+              500,
+              700
+            ]
+          },
+          {
+            "canonical": "graph neural network layer",
+            "aliases": [
+              "GNN layer",
+              "GCN layer"
+            ],
+            "evidence": "Consider the simple GNN layer: H_{k+1} = GraphLayer[H_k, A]",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              300,
+              950,
+              400
+            ]
+          },
+          {
+            "canonical": "permutation matrix",
+            "aliases": [
+              "P matrix"
+            ],
+            "evidence": "if P is a permutation matrix then we must have:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              700,
+              500,
+              750
+            ]
+          },
+          {
+            "canonical": "message update rule",
+            "aliases": [
+              "msg update rule"
+            ],
+            "evidence": "handwritten note: (msg update rule)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              850,
+              400,
+              900
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = \\text{sig}[\\beta_K + \\omega_K H_K 1/N]",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              0,
+              950,
+              50
+            ],
+            "label": "output equation"
+          },
+          {
+            "latex": "H_{k+1} = a[\\beta_k 1^T + \\Omega_k [H_k; H_k A]]",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              350,
+              950,
+              400
+            ],
+            "label": "GNN layer definition"
+          },
+          {
+            "latex": "H_{k+1} P = F[H_k P, P^T A P, \\phi_k]",
+            "related_concepts": [
+              "node permutation equivariance in GNNs",
+              "permutation matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              750,
+              500,
+              850
+            ],
+            "label": "permutation equivariance condition"
+          },
+          {
+            "latex": "GraphLayer[H_k P, P^T A P] = a[\\beta_k 1^T + \\Omega_k \\begin{bmatrix} H_k P \\\\ H_k P P^T A P \\end{bmatrix}]",
+            "related_concepts": [
+              "graph neural network layer",
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              500,
+              950,
+              600
+            ],
+            "label": "permuted GNN layer"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Commutative diagram showing equivariance: applying transformation t then function f equals applying f then transformation t",
+            "related_concepts": [
+              "permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              0,
+              500,
+              300
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of GNN layer computation with vertical concatenation notation",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              350,
+              950,
+              450
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "param",
+            "reason": "Handwritten annotation near formula, possibly indicating parameters",
+            "bbox": [
+              450,
+              750,
+              500,
+              780
+            ]
+          },
+          {
+            "transcription": "Outputs the new embedding",
+            "reason": "Handwritten note explaining formula component",
+            "bbox": [
+              200,
+              800,
+              400,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"permutation equivariance\",\n      \"aliases\": [\"equivariance to permutations\", \"permutation invariance\"],\n      \"evidence\": \"For graphs, it is possible to define networks that ensure equivariance or invariance to permutations.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 100, 950, 200]\n    },\n    {\n      \"canonical\": \"node permutation equivariance in GNNs\",\n      \"aliases\": [\"permutation equivariant GCN computation\"],\n      \"evidence\": \"Node permutation equivariance in GNNs. Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 600, 500, 700]\n    },\n    {\n      \"canonical\": \"graph neural network layer\",\n      \"aliases\": [\"GNN layer\", \"GCN layer\"],\n      \"evidence\": \"Consider the simple GNN layer: H_{k+1} = GraphLayer[H_k, A]\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 300, 950, 400]\n    },\n    {\n      \"canonical\": \"permutation matrix\",\n      \"aliases\": [\"P matrix\"],\n      \"evidence\": \"if P is a permutation matrix then we must have:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 700, 500, 750]\n    },\n    {\n      \"canonical\": \"message update rule\",\n      \"aliases\": [\"msg update rule\"],\n      \"evidence\": \"handwritten note: (msg update rule)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 850, 400, 900]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = \\\\text{sig}[\\\\beta_K + \\\\omega_K H_K 1/N]\",\n      \"related_concepts\": [\"graph neural network layer\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 0, 950, 50],\n      \"label\": \"output equation\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a[\\\\beta_k 1^T + \\\\Omega_k [H_k; H_k A]]\",\n      \"related_concepts\": [\"graph neural network layer\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 350, 950, 400],\n      \"label\": \"GNN layer definition\"\n    },\n    {\n      \"latex\": \"H_{k+1} P = F[H_k P, P^T A P, \\\\phi_k]\",\n      \"related_concepts\": [\"node permutation equivariance in GNNs\", \"permutation matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 750, 500, 850],\n      \"label\": \"permutation equivariance condition\"\n    },\n    {\n      \"latex\": \"GraphLayer[H_k P, P^T A P] = a[\\\\beta_k 1^T + \\\\Omega_k \\\\begin{bmatrix} H_k P \\\\\\\\ H_k P P^T A P \\\\end{bmatrix}]\",\n      \"related_concepts\": [\"graph neural network layer\", \"permutation matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 500, 950, 600],\n      \"label\": \"permuted GNN layer\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Commutative diagram showing equivariance: applying transformation t then function f equals applying f then transformation t\",\n      \"related_concepts\": [\"permutation equivariance\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 0, 500, 300]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of GNN layer computation with vertical concatenation notation\",\n      \"related_concepts\": [\"graph neural network layer\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 350, 950, 450]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"param\",\n      \"reason\": \"Handwritten annotation near formula, possibly indicating parameters\",\n      \"bbox\": [450, 750, 500, 780]\n    },\n    {\n      \"transcription\": \"Outputs the new embedding\",\n      \"reason\": \"Handwritten note explaining formula component\",\n      \"bbox\": [200, 800, 400, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Permutation Invariance and Equivariance in Graph Neural Networks",
+        "summary": "This lecture page defines and contrasts permutation invariance and equivariance within the context of Graph Neural Networks (GNNs). It establishes that GNNs must be permutation invariant for graph-level tasks (like classification) so that the output does not depend on node indexing, while node-level tasks require permutation equivariance where embeddings permute consistently with the input. The content includes mathematical formalizations using permutation matrices to demonstrate how adjacency and feature matrices transform under reordering.",
+        "key_topics": [
+          "permutation invariance",
+          "permutation equivariance",
+          "graph neural networks",
+          "permutation matrices",
+          "graph classification"
+        ],
+        "concepts": [
+          {
+            "canonical": "node permutation invariance",
+            "aliases": [
+              "permutation invariance",
+              "permutation invariant function",
+              "invariant to permutations",
+              "order invariance"
+            ],
+            "evidence": "GNNs need to be permutation-invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              55.0,
+              522.5,
+              137.5
+            ]
+          },
+          {
+            "canonical": "transformation invariance",
+            "aliases": [
+              "invariance to transformation"
+            ],
+            "evidence": "Reminder: Transformation invariance in Euclidean deep learning; x is invariant to a transformation t[x] if: f[t[x]] = f[x]",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              247.5,
+              137.5
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "gcn",
+              "graph convolutional network"
+            ],
+            "evidence": "GNNs need to be permutation invariant...; each GCN layer (including its operations) computing its embedding is permutation invariant.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              82.5,
+              522.5,
+              330.0
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level task",
+              "graph classification"
+            ],
+            "evidence": "Case study (graph classification); D = {(G1, y1), ..., (Gn, yn)}",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              412.5,
+              247.5,
+              522.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "embedding",
+              "node representation"
+            ],
+            "evidence": "learning representations (embeddings) that do not depend on the indexing of the graph nodes; computing its embedding is permutation invariant.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              82.5,
+              522.5,
+              330.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "adjacency",
+              "adjacency matrix",
+              "a"
+            ],
+            "evidence": "Visual representation of adjacency matrices Ai and A'i corresponding to different node orderings.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              137.5,
+              467.5,
+              220.0
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "node features",
+              "input features",
+              "feature matrix",
+              "x"
+            ],
+            "evidence": "Xi and X'i labeled as 'd features' feeding into the GNN block.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              247.5,
+              467.5,
+              330.0
+            ]
+          },
+          {
+            "canonical": "permutation",
+            "aliases": [
+              "bijection",
+              "reordering",
+              "bijective function"
+            ],
+            "evidence": "Permutations π are bijections from a set to itself.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              681.0,
+              71.5,
+              917.5,
+              110.0
+            ]
+          },
+          {
+            "canonical": "associativity",
+            "aliases": [
+              "associative property"
+            ],
+            "evidence": "Permutation is an associative function: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              681.0,
+              104.5,
+              917.5,
+              132.0
+            ]
+          },
+          {
+            "canonical": "non-commutativity",
+            "aliases": [
+              "non-commutative",
+              "not commutative"
+            ],
+            "evidence": "Permutation is a commutative function: π ∘ σ ≠ σ ∘ π",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              681.0,
+              132.0,
+              917.5,
+              159.5
+            ]
+          },
+          {
+            "canonical": "permutation matrix",
+            "aliases": [
+              "p",
+              "permutation matrix",
+              "p matrix"
+            ],
+            "evidence": "permutation matrix P",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              429.0,
+              917.5,
+              445.5
+            ]
+          },
+          {
+            "canonical": "node permutation equivariance",
+            "aliases": [
+              "equivariance"
+            ],
+            "evidence": "Node permutation equivariance",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              341.0,
+              917.5,
+              363.0
+            ]
+          },
+          {
+            "canonical": "transformation equivariance",
+            "aliases": [
+              "equivariant transformation"
+            ],
+            "evidence": "Transformation equivariance in Euclidean deep learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              374.0,
+              780.0,
+              390.5
+            ]
+          },
+          {
+            "canonical": "computational graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "The node computational graphs using 2 layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              231.0,
+              780.0,
+              247.5
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [],
+            "evidence": "For node classification and edge prediction tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              390.5,
+              917.5,
+              407.0
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [],
+            "evidence": "For node classification and edge prediction tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              390.5,
+              917.5,
+              407.0
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "aggregate"
+            ],
+            "evidence": "the final layer aggregates information from across the graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              412.5,
+              972.5,
+              429.0
+            ]
+          },
+          {
+            "canonical": "graph embedding",
+            "aliases": [
+              "graph representation"
+            ],
+            "evidence": "The learned graph embedding is invariant to its node permutation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              697.5,
+              440.0,
+              725.0
+            ]
+          },
+          {
+            "canonical": "node ordering",
+            "aliases": [
+              "node permutation"
+            ],
+            "evidence": "Let i and j denote different node orderings of the same graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              477.5,
+              495.0,
+              505.0
+            ]
+          },
+          {
+            "canonical": "graph topology",
+            "aliases": [],
+            "evidence": "the topology of the input graph remains unchanged",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              862.5,
+              220.0,
+              890.0
+            ]
+          },
+          {
+            "canonical": "node permutation equivariance in gnns",
+            "aliases": [
+              "permutation equivariant gcn computation"
+            ],
+            "evidence": "Node permutation equivariance in GNNs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              780.0,
+              725.0,
+              835.0
+            ]
+          },
+          {
+            "canonical": "graph neural network layer",
+            "aliases": [
+              "gnn layer",
+              "gcn layer"
+            ],
+            "evidence": "Consider the simple GNN layer: H_{k+1} = GraphLayer[H_k, A]",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              615.0,
+              972.5,
+              670.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f[t[x]] = f[x]",
+            "related_concepts": [
+              "transformation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              99.0,
+              192.5,
+              121.0
+            ],
+            "label": "invariance definition"
+          },
+          {
+            "latex": "f: \\mathcal{G} \\to \\mathbb{R}^d",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              385.0,
+              467.5,
+              412.5
+            ],
+            "label": "GNN mapping function"
+          },
+          {
+            "latex": "G \\mapsto f(A, X)",
+            "related_concepts": [
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              412.5,
+              467.5,
+              429.0
+            ],
+            "label": "GNN input"
+          },
+          {
+            "latex": "f(A_i, X_i) = f(A_j, X_j)",
+            "related_concepts": [
+              "node permutation invariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              467.5,
+              495.0,
+              495.0
+            ],
+            "label": "permutation invariance condition"
+          },
+          {
+            "latex": "\\mathcal{D} = \\{ (G_1, y_1), \\dots, (G_n, y_n) \\}",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              440.0,
+              220.0,
+              495.0
+            ],
+            "label": "dataset definition"
+          },
+          {
+            "latex": "P(i, \\pi(i)) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              44.0,
+              681.0,
+              60.5
+            ],
+            "label": "Permutation matrix definition"
+          },
+          {
+            "latex": "\\pi \\circ (\\sigma \\circ \\delta) = (\\pi \\circ \\sigma) \\circ \\delta",
+            "related_concepts": [
+              "associativity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              110.0,
+              917.5,
+              126.5
+            ],
+            "label": "Associativity of permutation"
+          },
+          {
+            "latex": "\\pi \\circ \\sigma \\neq \\sigma \\circ \\pi",
+            "related_concepts": [
+              "non-commutativity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              137.5,
+              917.5,
+              154.0
+            ],
+            "label": "Non-commutativity of permutation"
+          },
+          {
+            "latex": "f[t(\\mathbf{x})] = t[f(\\mathbf{x})]",
+            "related_concepts": [
+              "transformation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              429.0,
+              697.5,
+              445.5
+            ],
+            "label": "Equivariance definition"
+          },
+          {
+            "latex": "\\mathbf{y} = \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N]",
+            "related_concepts": [
+              "graph-level task",
+              "aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              807.5,
+              451.0,
+              972.5,
+              467.5
+            ],
+            "label": "Graph-level output formula"
+          },
+          {
+            "latex": "= \\text{sig}[\\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{P} \\mathbf{1} / N]",
+            "related_concepts": [
+              "permutation invariance",
+              "graph-level task"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              807.5,
+              467.5,
+              972.5,
+              484.0
+            ],
+            "label": "Permutation invariance in graph-level output"
+          },
+          {
+            "latex": "P^T A P",
+            "related_concepts": [
+              "permutation matrix",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              917.5,
+              44.0,
+              972.5,
+              60.5
+            ],
+            "label": "Permutation of adjacency matrix"
+          },
+          {
+            "latex": "f: \\mathbb{R}^{n \\times n} \\times \\mathbb{R}^{d_k \\times n} \\rightarrow \\mathbb{R}^{d_{k+1} \\times n}",
+            "related_concepts": [
+              "graph function",
+              "gcn layer"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              626.0,
+              495.0,
+              659.0
+            ],
+            "label": "graph function signature"
+          },
+          {
+            "latex": "H_{k+1} = f(A, H_k) = f(P^T A P, H_k P)",
+            "related_concepts": [
+              "gcn layer",
+              "permutation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              659.0,
+              467.5,
+              697.5
+            ],
+            "label": "GCN layer equivariance"
+          },
+          {
+            "latex": "\\pi = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ \\downarrow & \\downarrow & \\downarrow & \\downarrow \\\\ 4 & 1 & 3 & 2 \\end{pmatrix}",
+            "related_concepts": [
+              "bijection",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              302.5,
+              752.5,
+              440.0,
+              807.5
+            ],
+            "label": "permutation example"
+          },
+          {
+            "latex": "P^T(\\pi(i), i) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              835.0,
+              302.5,
+              851.5
+            ],
+            "label": "permutation matrix definition"
+          },
+          {
+            "latex": "P(i, \\pi(i)) = 1",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              835.0,
+              467.5,
+              851.5
+            ],
+            "label": "permutation matrix definition"
+          },
+          {
+            "latex": "A' = P^T A P",
+            "related_concepts": [
+              "adjacency matrix",
+              "permutation matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              851.5,
+              467.5,
+              945.0
+            ],
+            "label": "permuted adjacency matrix"
+          },
+          {
+            "latex": "y = \\text{sig}[\\beta_K + \\omega_K H_K 1/N]",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              450.0,
+              972.5,
+              477.5
+            ],
+            "label": "output equation"
+          },
+          {
+            "latex": "H_{k+1} = a[\\beta_k 1^T + \\Omega_k [H_k; H_k A]]",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              642.5,
+              972.5,
+              670.0
+            ],
+            "label": "GNN layer definition"
+          },
+          {
+            "latex": "H_{k+1} P = F[H_k P, P^T A P, \\phi_k]",
+            "related_concepts": [
+              "node permutation equivariance in gnns",
+              "permutation matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              862.5,
+              725.0,
+              917.5
+            ],
+            "label": "permutation equivariance condition"
+          },
+          {
+            "latex": "GraphLayer[H_k P, P^T A P] = a[\\beta_k 1^T + \\Omega_k \\begin{bmatrix} H_k P \\\\ H_k P P^T A P \\end{bmatrix}]",
+            "related_concepts": [
+              "graph neural network layer",
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              725.0,
+              972.5,
+              780.0
+            ],
+            "label": "permuted GNN layer"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of transformation invariance in image classification: input image of a tree transformed (t[x]) yields same classification output f(x)='yes'.",
+            "related_concepts": [
+              "transformation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              137.5,
+              247.5,
+              275.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing node permutation invariance in GNNs: a testing graph with two different node orderings (represented by adjacency matrices Ai and A'i and feature matrices Xi and X'i) produces the same output embedding via the GNN.",
+            "related_concepts": [
+              "node permutation invariance",
+              "graph neural network",
+              "adjacency matrix",
+              "feature matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              137.5,
+              495.0,
+              357.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Visual representation of a graph classification dataset D containing multiple graphs (G1 to Gn) with corresponding labels (y1 to yn).",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              440.0,
+              220.0,
+              522.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "A grid representing a permutation matrix with one entry highlighted.",
+            "related_concepts": [
+              "permutation matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              60.5,
+              681.0,
+              121.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small graph labeled 'testing graph' with colored nodes.",
+            "related_concepts": [
+              "computational graph",
+              "node permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              264.0,
+              604.0,
+              319.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A tree-like structure showing the computational graph for a node using 2 layers, with colored nodes and edges.",
+            "related_concepts": [
+              "computational graph",
+              "node permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              264.0,
+              752.5,
+              341.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A simplified computational graph for a single node.",
+            "related_concepts": [
+              "computational graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              769.0,
+              264.0,
+              807.5,
+              341.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A diagram illustrating transformation equivariance in Euclidean deep learning, showing input x, transformation t, function f, and output f(x).",
+            "related_concepts": [
+              "transformation equivariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              451.0,
+              752.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A small sketch showing a graph being permuted, with arrows indicating the permutation.",
+            "related_concepts": [
+              "permutation",
+              "node permutation equivariance"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              807.5,
+              374.0,
+              862.5,
+              412.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Diagram showing a GNN taking an adjacency matrix A_i and feature matrix X_i as input to produce a predicted output ŷ_i.",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              587.5,
+              220.0,
+              752.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two graphs with different node orderings but the same structure, illustrating permutation invariance.",
+            "related_concepts": [
+              "permutation invariance",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              477.5,
+              192.5,
+              560.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A graph and its permuted version, showing how node indices change but the graph structure remains the same.",
+            "related_concepts": [
+              "node ordering",
+              "graph topology"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              807.5,
+              467.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix multiplication showing how a permutation matrix P transforms an adjacency matrix A into A'.",
+            "related_concepts": [
+              "permutation matrix",
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              851.5,
+              467.5,
+              945.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two adjacency matrices representing the same graph with different node orderings.",
+            "related_concepts": [
+              "adjacency matrix",
+              "node ordering"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              890.0,
+              220.0,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Commutative diagram showing equivariance: applying transformation t then function f equals applying f then transformation t",
+            "related_concepts": [
+              "permutation equivariance"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              450.0,
+              725.0,
+              615.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of GNN layer computation with vertical concatenation notation",
+            "related_concepts": [
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              642.5,
+              972.5,
+              697.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "P = Z Q Y",
+            "reason": "The letters 'Z', 'Q', and 'Y' are handwritten and could be misinterpreted.",
+            "bbox": [
+              917.5,
+              60.5,
+              972.5,
+              77.0
+            ]
+          },
+          {
+            "transcription": "sig",
+            "reason": "Abbreviation for sigmoid function, but written in a stylized way.",
+            "bbox": [
+              807.5,
+              451.0,
+              835.0,
+              467.5
+            ]
+          },
+          {
+            "transcription": "nraining set",
+            "reason": "Handwritten text is partially obscured and difficult to read confidently.",
+            "bbox": [
+              0.0,
+              642.5,
+              27.5,
+              670.0
+            ]
+          },
+          {
+            "transcription": "Him",
+            "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+            "bbox": [
+              220.0,
+              642.5,
+              247.5,
+              670.0
+            ]
+          },
+          {
+            "transcription": "bisecting.ms",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              220.0,
+              752.5,
+              275.0,
+              780.0
+            ]
+          },
+          {
+            "transcription": "a234",
+            "reason": "Handwritten text is unclear and may be a misinterpretation of another symbol or word.",
+            "bbox": [
+              522.5,
+              752.5,
+              550.0,
+              780.0
+            ]
+          },
+          {
+            "transcription": "sooo way",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              522.5,
+              862.5,
+              550.0,
+              890.0
+            ]
+          },
+          {
+            "transcription": "sopha tonne",
+            "reason": "Handwritten text is unclear and does not seem to relate to the surrounding content.",
+            "bbox": [
+              522.5,
+              890.0,
+              550.0,
+              917.5
+            ]
+          },
+          {
+            "transcription": "param",
+            "reason": "Handwritten annotation near formula, possibly indicating parameters",
+            "bbox": [
+              697.5,
+              862.5,
+              725.0,
+              879.0
+            ]
+          },
+          {
+            "transcription": "Outputs the new embedding",
+            "reason": "Handwritten note explaining formula component",
+            "bbox": [
+              560.0,
+              890.0,
+              670.0,
+              917.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Permutation Invariance and Equivariance in Graph Neural Networks\",\n  \"summary\": \"This lecture page defines and contrasts permutation invariance and equivariance within the context of Graph Neural Networks (GNNs). It establishes that GNNs must be permutation invariant for graph-level tasks (like classification) so that the output does not depend on node indexing, while node-level tasks require permutation equivariance where embeddings permute consistently with the input. The content includes mathematical formalizations using permutation matrices to demonstrate how adjacency and feature matrices transform under reordering.\",\n  \"key_topics\": [\n    \"permutation invariance\",\n    \"permutation equivariance\",\n    \"graph neural networks\",\n    \"permutation matrices\",\n    \"graph classification\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"node permutation invariance\",\n      \"aliases\": [\n        \"permutation invariance\",\n        \"permutation invariant function\",\n        \"invariant to permutations\",\n        \"order invariance\"\n      ],\n      \"evidence\": \"GNNs need to be permutation-invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        55.0,\n        522.5,\n        137.5\n      ]\n    },\n    {\n      \"canonical\": \"transformation invariance\",\n      \"aliases\": [\n        \"invariance to transformation\"\n      ],\n      \"evidence\": \"Reminder: Transformation invariance in Euclidean deep learning; x is invariant to a transformation t[x] if: f[t[x]] = f[x]\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        55.0,\n        247.5,\n        137.5\n      ]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\n        \"gnn\",\n        \"gcn\",\n        \"graph convolutional network\"\n      ],\n      \"evidence\": \"GNNs need to be permutation invariant...; each GCN layer (including its operations) computing its embedding is permutation invariant.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        82.5,\n        522.5,\n        330.0\n      ]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\n        \"graph-level task\",\n        \"graph classification\"\n      ],\n      \"evidence\": \"Case study (graph classification); D = {(G1, y1), ..., (Gn, yn)}\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        412.5,\n        247.5,\n        522.5\n      ]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\n        \"embedding\",\n        \"node representation\"\n      ],\n      \"evidence\": \"learning representations (embeddings) that do not depend on the indexing of the graph nodes; computing its embedding is permutation invariant.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        82.5,\n        522.5,\n        330.0\n      ]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\n        \"adjacency\",\n        \"adjacency matrix\",\n        \"a\"\n      ],\n      \"evidence\": \"Visual representation of adjacency matrices Ai and A'i corresponding to different node orderings.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        302.5,\n        137.5,\n        467.5,\n        220.0\n      ]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\n        \"node features\",\n        \"input features\",\n        \"feature matrix\",\n        \"x\"\n      ],\n      \"evidence\": \"Xi and X'i labeled as 'd features' feeding into the GNN block.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        302.5,\n        247.5,\n        467.5,\n        330.0\n      ]\n    },\n    {\n      \"canonical\": \"permutation\",\n      \"aliases\": [\n        \"bijection\",\n        \"reordering\",\n        \"bijective function\"\n      ],\n      \"evidence\": \"Permutations π are bijections from a set to itself.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        681.0,\n        71.5,\n        917.5,\n        110.0\n      ]\n    },\n    {\n      \"canonical\": \"associativity\",\n      \"aliases\": [\n        \"associative property\"\n      ],\n      \"evidence\": \"Permutation is an associative function: π ∘ (σ ∘ δ) = (π ∘ σ) ∘ δ\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        681.0,\n        104.5,\n        917.5,\n        132.0\n      ]\n    },\n    {\n      \"canonical\": \"non-commutativity\",\n      \"aliases\": [\n        \"non-commutative\",\n        \"not commutative\"\n      ],\n      \"evidence\": \"Permutation is a commutative function: π ∘ σ ≠ σ ∘ π\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        681.0,\n        132.0,\n        917.5,\n        159.5\n      ]\n    },\n    {\n      \"canonical\": \"permutation matrix\",\n      \"aliases\": [\n        \"p\",\n        \"permutation matrix\",\n        \"p matrix\"\n      ],\n      \"evidence\": \"permutation matrix P\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        429.0,\n        917.5,\n        445.5\n      ]\n    },\n    {\n      \"canonical\": \"node permutation equivariance\",\n      \"aliases\": [\n        \"equivariance\"\n      ],\n      \"evidence\": \"Node permutation equivariance\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        560.0,\n        341.0,\n        917.5,\n        363.0\n      ]\n    },\n    {\n      \"canonical\": \"transformation equivariance\",\n      \"aliases\": [\n        \"equivariant transformation\"\n      ],\n      \"evidence\": \"Transformation equivariance in Euclidean deep learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        560.0,\n        374.0,\n        780.0,\n        390.5\n      ]\n    },\n    {\n      \"canonical\": \"computational graph\",\n      \"aliases\": [\n        \"computation graph\"\n      ],\n      \"evidence\": \"The node computational graphs using 2 layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        642.5,\n        231.0,\n        780.0,\n        247.5\n      ]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [],\n      \"evidence\": \"For node classification and edge prediction tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        390.5,\n        917.5,\n        407.0\n      ]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [],\n      \"evidence\": \"For node classification and edge prediction tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        390.5,\n        917.5,\n        407.0\n      ]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\n        \"aggregate\"\n      ],\n      \"evidence\": \"the final layer aggregates information from across the graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        412.5,\n        972.5,\n        429.0\n      ]\n    },\n    {\n      \"canonical\": \"graph embedding\",\n      \"aliases\": [\n        \"graph representation\"\n      ],\n      \"evidence\": \"The learned graph embedding is invariant to its node permutation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        220.0,\n        697.5,\n        440.0,\n        725.0\n      ]\n    },\n    {\n      \"canonical\": \"node ordering\",\n      \"aliases\": [\n        \"node permutation\"\n      ],\n      \"evidence\": \"Let i and j denote different node orderings of the same graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        220.0,\n        477.5,\n        495.0,\n        505.0\n      ]\n    },\n    {\n      \"canonical\": \"graph topology\",\n      \"aliases\": [],\n      \"evidence\": \"the topology of the input graph remains unchanged\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        0.0,\n        862.5,\n        220.0,\n        890.0\n      ]\n    },\n    {\n      \"canonical\": \"node permutation equivariance in gnns\",\n      \"aliases\": [\n        \"permutation equivariant gcn computation\"\n      ],\n      \"evidence\": \"Node permutation equivariance in GNNs. Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        505.0,\n        780.0,\n        725.0,\n        835.0\n      ]\n    },\n    {\n      \"canonical\": \"graph neural network layer\",\n      \"aliases\": [\n        \"gnn layer\",\n        \"gcn layer\"\n      ],\n      \"evidence\": \"Consider the simple GNN layer: H_{k+1} = GraphLayer[H_k, A]\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        741.5,\n        615.0,\n        972.5,\n        670.0\n      ]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f[t[x]] = f[x]\",\n      \"related_concepts\": [\n        \"transformation invariance\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        137.5,\n        99.0,\n        192.5,\n        121.0\n      ],\n      \"label\": \"invariance definition\"\n    },\n    {\n      \"latex\": \"f: \\\\mathcal{G} \\\\to \\\\mathbb{R}^d\",\n      \"related_concepts\": [\n        \"graph neural network\",\n        \"node embedding\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        357.5,\n        385.0,\n        467.5,\n        412.5\n      ],\n      \"label\": \"GNN mapping function\"\n    },\n    {\n      \"latex\": \"G \\\\mapsto f(A, X)\",\n      \"related_concepts\": [\n        \"graph neural network\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        357.5,\n        412.5,\n        467.5,\n        429.0\n      ],\n      \"label\": \"GNN input\"\n    },\n    {\n      \"latex\": \"f(A_i, X_i) = f(A_j, X_j)\",\n      \"related_concepts\": [\n        \"node permutation invariance\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        357.5,\n        467.5,\n        495.0,\n        495.0\n      ],\n      \"label\": \"permutation invariance condition\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{D} = \\\\{ (G_1, y_1), \\\\dots, (G_n, y_n) \\\\}\",\n      \"related_concepts\": [\n        \"graph classification\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        440.0,\n        220.0,\n        495.0\n      ],\n      \"label\": \"dataset definition\"\n    },\n    {\n      \"latex\": \"P(i, \\\\pi(i)) = 1\",\n      \"related_concepts\": [\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        604.0,\n        44.0,\n        681.0,\n        60.5\n      ],\n      \"label\": \"Permutation matrix definition\"\n    },\n    {\n      \"latex\": \"\\\\pi \\\\circ (\\\\sigma \\\\circ \\\\delta) = (\\\\pi \\\\circ \\\\sigma) \\\\circ \\\\delta\",\n      \"related_concepts\": [\n        \"associativity\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        110.0,\n        917.5,\n        126.5\n      ],\n      \"label\": \"Associativity of permutation\"\n    },\n    {\n      \"latex\": \"\\\\pi \\\\circ \\\\sigma \\\\neq \\\\sigma \\\\circ \\\\pi\",\n      \"related_concepts\": [\n        \"non-commutativity\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        807.5,\n        137.5,\n        917.5,\n        154.0\n      ],\n      \"label\": \"Non-commutativity of permutation\"\n    },\n    {\n      \"latex\": \"f[t(\\\\mathbf{x})] = t[f(\\\\mathbf{x})]\",\n      \"related_concepts\": [\n        \"transformation equivariance\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        587.5,\n        429.0,\n        697.5,\n        445.5\n      ],\n      \"label\": \"Equivariance definition\"\n    },\n    {\n      \"latex\": \"\\\\mathbf{y} = \\\\text{sig}[\\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{1} / N]\",\n      \"related_concepts\": [\n        \"graph-level task\",\n        \"aggregation\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        807.5,\n        451.0,\n        972.5,\n        467.5\n      ],\n      \"label\": \"Graph-level output formula\"\n    },\n    {\n      \"latex\": \"= \\\\text{sig}[\\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{P} \\\\mathbf{1} / N]\",\n      \"related_concepts\": [\n        \"permutation invariance\",\n        \"graph-level task\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        807.5,\n        467.5,\n        972.5,\n        484.0\n      ],\n      \"label\": \"Permutation invariance in graph-level output\"\n    },\n    {\n      \"latex\": \"P^T A P\",\n      \"related_concepts\": [\n        \"permutation matrix\",\n        \"adjacency matrix\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [\n        917.5,\n        44.0,\n        972.5,\n        60.5\n      ],\n      \"label\": \"Permutation of adjacency matrix\"\n    },\n    {\n      \"latex\": \"f: \\\\mathbb{R}^{n \\\\times n} \\\\times \\\\mathbb{R}^{d_k \\\\times n} \\\\rightarrow \\\\mathbb{R}^{d_{k+1} \\\\times n}\",\n      \"related_concepts\": [\n        \"graph function\",\n        \"gcn layer\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        247.5,\n        626.0,\n        495.0,\n        659.0\n      ],\n      \"label\": \"graph function signature\"\n    },\n    {\n      \"latex\": \"H_{k+1} = f(A, H_k) = f(P^T A P, H_k P)\",\n      \"related_concepts\": [\n        \"gcn layer\",\n        \"permutation equivariance\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        247.5,\n        659.0,\n        467.5,\n        697.5\n      ],\n      \"label\": \"GCN layer equivariance\"\n    },\n    {\n      \"latex\": \"\\\\pi = \\\\begin{pmatrix} 1 & 2 & 3 & 4 \\\\\\\\ \\\\downarrow & \\\\downarrow & \\\\downarrow & \\\\downarrow \\\\\\\\ 4 & 1 & 3 & 2 \\\\end{pmatrix}\",\n      \"related_concepts\": [\n        \"bijection\",\n        \"node ordering\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        302.5,\n        752.5,\n        440.0,\n        807.5\n      ],\n      \"label\": \"permutation example\"\n    },\n    {\n      \"latex\": \"P^T(\\\\pi(i), i) = 1\",\n      \"related_concepts\": [\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        247.5,\n        835.0,\n        302.5,\n        851.5\n      ],\n      \"label\": \"permutation matrix definition\"\n    },\n    {\n      \"latex\": \"P(i, \\\\pi(i)) = 1\",\n      \"related_concepts\": [\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        412.5,\n        835.0,\n        467.5,\n        851.5\n      ],\n      \"label\": \"permutation matrix definition\"\n    },\n    {\n      \"latex\": \"A' = P^T A P\",\n      \"related_concepts\": [\n        \"adjacency matrix\",\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        247.5,\n        851.5,\n        467.5,\n        945.0\n      ],\n      \"label\": \"permuted adjacency matrix\"\n    },\n    {\n      \"latex\": \"y = \\\\text{sig}[\\\\beta_K + \\\\omega_K H_K 1/N]\",\n      \"related_concepts\": [\n        \"graph neural network layer\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        741.5,\n        450.0,\n        972.5,\n        477.5\n      ],\n      \"label\": \"output equation\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a[\\\\beta_k 1^T + \\\\Omega_k [H_k; H_k A]]\",\n      \"related_concepts\": [\n        \"graph neural network layer\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        741.5,\n        642.5,\n        972.5,\n        670.0\n      ],\n      \"label\": \"GNN layer definition\"\n    },\n    {\n      \"latex\": \"H_{k+1} P = F[H_k P, P^T A P, \\\\phi_k]\",\n      \"related_concepts\": [\n        \"node permutation equivariance in gnns\",\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        505.0,\n        862.5,\n        725.0,\n        917.5\n      ],\n      \"label\": \"permutation equivariance condition\"\n    },\n    {\n      \"latex\": \"GraphLayer[H_k P, P^T A P] = a[\\\\beta_k 1^T + \\\\Omega_k \\\\begin{bmatrix} H_k P \\\\\\\\ H_k P P^T A P \\\\end{bmatrix}]\",\n      \"related_concepts\": [\n        \"graph neural network layer\",\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        741.5,\n        725.0,\n        972.5,\n        780.0\n      ],\n      \"label\": \"permuted GNN layer\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of transformation invariance in image classification: input image of a tree transformed (t[x]) yields same classification output f(x)='yes'.\",\n      \"related_concepts\": [\n        \"transformation invariance\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        137.5,\n        247.5,\n        275.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing node permutation invariance in GNNs: a testing graph with two different node orderings (represented by adjacency matrices Ai and A'i and feature matrices Xi and X'i) produces the same output embedding via the GNN.\",\n      \"related_concepts\": [\n        \"node permutation invariance\",\n        \"graph neural network\",\n        \"adjacency matrix\",\n        \"feature matrix\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        137.5,\n        495.0,\n        357.5\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Visual representation of a graph classification dataset D containing multiple graphs (G1 to Gn) with corresponding labels (y1 to yn).\",\n      \"related_concepts\": [\n        \"graph classification\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        440.0,\n        220.0,\n        522.5\n      ]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"A grid representing a permutation matrix with one entry highlighted.\",\n      \"related_concepts\": [\n        \"permutation matrix\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        604.0,\n        60.5,\n        681.0,\n        121.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small graph labeled 'testing graph' with colored nodes.\",\n      \"related_concepts\": [\n        \"computational graph\",\n        \"node permutation equivariance\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        532.5,\n        264.0,\n        604.0,\n        319.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A tree-like structure showing the computational graph for a node using 2 layers, with colored nodes and edges.\",\n      \"related_concepts\": [\n        \"computational graph\",\n        \"node permutation equivariance\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        615.0,\n        264.0,\n        752.5,\n        341.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A simplified computational graph for a single node.\",\n      \"related_concepts\": [\n        \"computational graph\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        769.0,\n        264.0,\n        807.5,\n        341.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A diagram illustrating transformation equivariance in Euclidean deep learning, showing input x, transformation t, function f, and output f(x).\",\n      \"related_concepts\": [\n        \"transformation equivariance\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        505.0,\n        451.0,\n        752.5,\n        522.5\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A small sketch showing a graph being permuted, with arrows indicating the permutation.\",\n      \"related_concepts\": [\n        \"permutation\",\n        \"node permutation equivariance\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [\n        807.5,\n        374.0,\n        862.5,\n        412.5\n      ]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram showing a GNN taking an adjacency matrix A_i and feature matrix X_i as input to produce a predicted output ŷ_i.\",\n      \"related_concepts\": [\n        \"graph neural network\",\n        \"graph classification\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        587.5,\n        220.0,\n        752.5\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two graphs with different node orderings but the same structure, illustrating permutation invariance.\",\n      \"related_concepts\": [\n        \"permutation invariance\",\n        \"node ordering\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        477.5,\n        192.5,\n        560.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A graph and its permuted version, showing how node indices change but the graph structure remains the same.\",\n      \"related_concepts\": [\n        \"node ordering\",\n        \"graph topology\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        247.5,\n        807.5,\n        467.5,\n        862.5\n      ]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix multiplication showing how a permutation matrix P transforms an adjacency matrix A into A'.\",\n      \"related_concepts\": [\n        \"permutation matrix\",\n        \"adjacency matrix\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        247.5,\n        851.5,\n        467.5,\n        945.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two adjacency matrices representing the same graph with different node orderings.\",\n      \"related_concepts\": [\n        \"adjacency matrix\",\n        \"node ordering\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        27.5,\n        890.0,\n        220.0,\n        972.5\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Commutative diagram showing equivariance: applying transformation t then function f equals applying f then transformation t\",\n      \"related_concepts\": [\n        \"permutation equivariance\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        505.0,\n        450.0,\n        725.0,\n        615.0\n      ]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of GNN layer computation with vertical concatenation notation\",\n      \"related_concepts\": [\n        \"graph neural network layer\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        741.5,\n        642.5,\n        972.5,\n        697.5\n      ]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"P = Z Q Y\",\n      \"reason\": \"The letters 'Z', 'Q', and 'Y' are handwritten and could be misinterpreted.\",\n      \"bbox\": [\n        917.5,\n        60.5,\n        972.5,\n        77.0\n      ]\n    },\n    {\n      \"transcription\": \"sig\",\n      \"reason\": \"Abbreviation for sigmoid function, but written in a stylized way.\",\n      \"bbox\": [\n        807.5,\n        451.0,\n        835.0,\n        467.5\n      ]\n    },\n    {\n      \"transcription\": \"nraining set\",\n      \"reason\": \"Handwritten text is partially obscured and difficult to read confidently.\",\n      \"bbox\": [\n        0.0,\n        642.5,\n        27.5,\n        670.0\n      ]\n    },\n    {\n      \"transcription\": \"Him\",\n      \"reason\": \"Handwritten text is unclear and may be a misinterpretation of another symbol or word.\",\n      \"bbox\": [\n        220.0,\n        642.5,\n        247.5,\n        670.0\n      ]\n    },\n    {\n      \"transcription\": \"bisecting.ms\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [\n        220.0,\n        752.5,\n        275.0,\n        780.0\n      ]\n    },\n    {\n      \"transcription\": \"a234\",\n      \"reason\": \"Handwritten text is unclear and may be a misinterpretation of another symbol or word.\",\n      \"bbox\": [\n        522.5,\n        752.5,\n        550.0,\n        780.0\n      ]\n    },\n    {\n      \"transcription\": \"sooo way\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [\n        522.5,\n        862.5,\n        550.0,\n        890.0\n      ]\n    },\n    {\n      \"transcription\": \"sopha tonne\",\n      \"reason\": \"Handwritten text is unclear and does not seem to relate to the surrounding content.\",\n      \"bbox\": [\n        522.5,\n        890.0,\n        550.0,\n        917.5\n      ]\n    },\n    {\n      \"transcription\": \"param\",\n      \"reason\": \"Handwritten annotation near formula, possibly indicating parameters\",\n      \"bbox\": [\n        697.5,\n        862.5,\n        725.0,\n        879.0\n      ]\n    },\n    {\n      \"transcription\": \"Outputs the new embedding\",\n      \"reason\": \"Handwritten note explaining formula component\",\n      \"bbox\": [\n        560.0,\n        890.0,\n        670.0,\n        917.5\n      ]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation invariance",
+      "into": "node permutation invariance"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph-level task",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph classification",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation invariance",
+      "into": "node permutation invariance"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation matrix",
+      "into": "permutation matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "bijection",
+      "into": "permutation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "feature matrix",
+      "into": "feature matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation equivariance",
+      "into": "node permutation invariance"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation matrix",
+      "into": "permutation matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation equivariance",
+      "into": "node permutation invariance"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: P^T A P",
+    "Dropped low-confidence visual: A small sketch showing a graph being permuted, with arrows indicating the permut"
+  ]
+}

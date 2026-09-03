@@ -1,0 +1,2599 @@
+{
+  "version": "1.0.0",
+  "chapter": 10,
+  "chapter_title": "Principles of Nonlinear Feature Engineering",
+  "pdf_start": 309,
+  "pdf_end": 338,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T21:29:59+00:00",
+  "concepts": [
+    {
+      "canonical": "nonlinear feature engineering",
+      "aliases": [
+        "nonlinear feature transformation",
+        "feature transformation",
+        "feature",
+        "feature map",
+        "nonlinear feature map",
+        "feature mapping"
+      ],
+      "evidence_page": 309,
+      "evidence": "nonlinear feature engineering in the context supervised and unsupervised learning",
+      "relevance": 0.95,
+      "anchor_page": 309
+    },
+    {
+      "canonical": "nonlinear regression",
+      "aliases": [],
+      "evidence_page": 309,
+      "evidence": "the general framework of nonlinear regression via engineering of nonlinear feature transformations",
+      "relevance": 0.9,
+      "anchor_page": 309
+    },
+    {
+      "canonical": "nonlinear model",
+      "aliases": [],
+      "evidence_page": 311,
+      "evidence": "model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB",
+      "relevance": 0.9,
+      "anchor_page": 311
+    },
+    {
+      "canonical": "feature engineering",
+      "aliases": [],
+      "evidence_page": 312,
+      "evidence": "feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise",
+      "relevance": 0.9,
+      "anchor_page": 312
+    },
+    {
+      "canonical": "transformed feature space",
+      "aliases": [],
+      "evidence_page": 312,
+      "evidence": "in this transformed feature space... our tuned nonlinear model becomes a linear one.",
+      "relevance": 0.8,
+      "anchor_page": 312
+    },
+    {
+      "canonical": "standard normalization",
+      "aliases": [
+        "standard normalizing"
+      ],
+      "evidence_page": 313,
+      "evidence": "it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes",
+      "relevance": 0.8,
+      "anchor_page": 313
+    },
+    {
+      "canonical": "non-convex cost function",
+      "aliases": [
+        "non-convex"
+      ],
+      "evidence_page": 316,
+      "evidence": "the corresponding cost functions are generally non-convex.",
+      "relevance": 0.8,
+      "anchor_page": 316
+    },
+    {
+      "canonical": "softmax cost function",
+      "aliases": [
+        "softmax cost",
+        "cross-entropy cost"
+      ],
+      "evidence_page": 317,
+      "evidence": "g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp",
+      "relevance": 0.9,
+      "anchor_page": 317
+    },
+    {
+      "canonical": "multi-output regression",
+      "aliases": [
+        "nonlinear multi-output regression"
+      ],
+      "evidence_page": 317,
+      "evidence": "nonlinear feature engineering for multi-output regression",
+      "relevance": 0.85,
+      "anchor_page": 317
+    },
+    {
+      "canonical": "decision boundary",
+      "aliases": [
+        "separating boundary"
+      ],
+      "evidence_page": 320,
+      "evidence": "our decision boundary here consists of all inputs x where ˚fTw = 0",
+      "relevance": 0.8,
+      "anchor_page": 320
+    },
+    {
+      "canonical": "gradient descent",
+      "aliases": [],
+      "evidence_page": 320,
+      "evidence": "minimizing the Least Squares cost in Equation (10.23) using gradient descent",
+      "relevance": 0.7,
+      "anchor_page": 320
+    },
+    {
+      "canonical": "fusion rule",
+      "aliases": [
+        "argmax decision rule",
+        "classification fusion rule"
+      ],
+      "evidence_page": 325,
+      "evidence": "we aim to tune the parameters of W to satisfy the fusion rule",
+      "relevance": 0.8,
+      "anchor_page": 325
+    },
+    {
+      "canonical": "one-versus-all classification",
+      "aliases": [
+        "one-vs-all",
+        "one-against-all",
+        "one-versus-all"
+      ],
+      "evidence_page": 325,
+      "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+      "relevance": 0.8,
+      "anchor_page": 325
+    },
+    {
+      "canonical": "automatic differentiation",
+      "aliases": [
+        "autodiff",
+        "automatic differentiator"
+      ],
+      "evidence_page": 325,
+      "evidence": "if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper",
+      "relevance": 0.7,
+      "anchor_page": 325
+    },
+    {
+      "canonical": "feature sharing",
+      "aliases": [
+        "shared feature transformations"
+      ],
+      "evidence_page": 326,
+      "evidence": "choose a single set of nonlinear feature transformations and share them among all C two-class models",
+      "relevance": 0.8,
+      "anchor_page": 326
+    },
+    {
+      "canonical": "degree two polynomial expansion",
+      "aliases": [
+        "quadratic feature expansion"
+      ],
+      "evidence_page": 327,
+      "evidence": "full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2",
+      "relevance": 0.7,
+      "anchor_page": 327
+    },
+    {
+      "canonical": "mean-centering",
+      "aliases": [
+        "mean subtraction",
+        "center data"
+      ],
+      "evidence_page": 328,
+      "evidence": "mean-centered N dimensional input datapoints",
+      "relevance": 0.8,
+      "anchor_page": 328
+    },
+    {
+      "canonical": "least squares cost function",
+      "aliases": [
+        "least squares error",
+        "mean squared error",
+        "least squares"
+      ],
+      "evidence_page": 329,
+      "evidence": "Least Squares error measurement",
+      "relevance": 0.9,
+      "anchor_page": 329
+    },
+    {
+      "canonical": "manifold",
+      "aliases": [
+        "nonlinear manifold"
+      ],
+      "evidence_page": 329,
+      "evidence": "nonlinear surface (also called a manifold)",
+      "relevance": 0.8,
+      "anchor_page": 329
+    },
+    {
+      "canonical": "encoder-decoder composition",
+      "aliases": [
+        "autoencoder composition"
+      ],
+      "evidence_page": 330,
+      "evidence": "model (x, Θ) = fd (fe (x))",
+      "relevance": 0.9,
+      "anchor_page": 330
+    },
+    {
+      "canonical": "output transformation",
+      "aliases": [
+        "response transformation",
+        "output linearization"
+      ],
+      "evidence_page": 334,
+      "evidence": "to produce a linear relationship you will end up having to transform the output, not the input.",
+      "relevance": 0.7,
+      "anchor_page": 334
+    },
+    {
+      "canonical": "nonlinear classification",
+      "aliases": [
+        "nonlinear two-class classification"
+      ],
+      "evidence_page": 336,
+      "evidence": "Nonlinear two-class classification",
+      "relevance": 0.8,
+      "anchor_page": 336
+    },
+    {
+      "canonical": "kernel pca",
+      "aliases": [
+        "kernel principal component analysis",
+        "nonlinear pca"
+      ],
+      "evidence_page": 337,
+      "evidence": "This is a more restricted version of nonlinear PCA, often termed Kernel PCA",
+      "relevance": 0.9,
+      "anchor_page": 337
+    },
+    {
+      "canonical": "kernel k-means",
+      "aliases": [
+        "kernel k-means clustering",
+        "nonlinear k-means"
+      ],
+      "evidence_page": 338,
+      "evidence": "The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.",
+      "relevance": 0.9,
+      "anchor_page": 338
+    },
+    {
+      "canonical": "standard basis vector constraint",
+      "aliases": [
+        "one‐hot constraint",
+        "basis vector assignment"
+      ],
+      "evidence_page": 338,
+      "evidence": "each weight vector wp ∈{ek}K k=1 is a standard basis vector",
+      "relevance": 0.7,
+      "anchor_page": 338
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "nonlinear model",
+      "latex": "model (x, \\Theta) = w_0 + f (x) w_1",
+      "pdf_page": 311,
+      "equation_label": "(10.6)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "nonlinear model",
+      "latex": "model (x, \\Theta) = w_0 + f_1 (x) w_1 + f_2 (x) w_2 + \\cdots + f_B (x) w_B",
+      "pdf_page": 311,
+      "equation_label": "(10.7)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "nonlinear model",
+      "latex": "model (x, \\Theta) = \\mathring{f}^T w",
+      "pdf_page": 311,
+      "equation_label": "(10.8)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "feature engineering",
+      "latex": "f(x) = \\sin(v_0 + x v_1)",
+      "pdf_page": 312,
+      "equation_label": "(10.12)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\text{model}\\left(\\mathbf{x},\\mathbf{W}\\right)=\\mathring{\\mathbf{x}}^{T}\\mathbf{W}",
+      "pdf_page": 317,
+      "equation_label": "(10.15)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\mathring{\\mathbf{x}}_{p}^{T}\\mathbf{W}\\approx\\mathbf{y}_{p},\\quad p=1,\\ldots,P",
+      "pdf_page": 317,
+      "equation_label": "(10.16)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "g(\\mathbf{W})=\\frac{1}{P}\\sum_{p=1}^{P}\\frac{1}{2}\\left\\Vert \\mathring{\\mathbf{x}}_{p}^{T}\\mathbf{W}-\\mathbf{y}_{p}\\right\\Vert^{2}",
+      "pdf_page": 317,
+      "equation_label": "(10.17)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=w_{c,0}+f_{c,1}(\\mathbf{x})w_{c,1}+f_{c,2}(\\mathbf{x})w_{c,2}+\\cdots+f_{c,B_{c}}(\\mathbf{x})w_{c,B_{c}}",
+      "pdf_page": 317,
+      "equation_label": "(10.18)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=w_{c,0}+f_{1}(\\mathbf{x})w_{c,1}+f_{2}(\\mathbf{x})w_{c,2}+\\cdots+f_{B}(\\mathbf{x})w_{c,B}",
+      "pdf_page": 317,
+      "equation_label": "(10.19)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=\\mathring{\\mathbf{f}}^{T}\\mathbf{w}_{c}",
+      "pdf_page": 317,
+      "equation_label": "(10.20)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\text{model}(\\mathbf{x},\\Theta)=\\mathring{\\mathbf{f}}^{T}\\mathbf{W}",
+      "pdf_page": 318,
+      "equation_label": "(10.21)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "multi-output regression",
+      "latex": "\\mathring{\\mathbf{f}}_{p}^{T}\\mathbf{W}\\approx\\mathbf{y}_{p},\\quad p=1,\\ldots,P",
+      "pdf_page": 318,
+      "equation_label": "(10.22)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "decision boundary",
+      "latex": "\\mathring{\\mathbf{f}}^T\\mathbf{w} = 0",
+      "pdf_page": 321,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "fusion rule",
+      "latex": "y_p = \\underset{c}{\\arg\\max} \\; \\left[ \\text{model}\\left(\\mathbf{x}_p, \\mathbf{W}\\right) \\right]_c, \\quad p = 1, \\dots, P",
+      "pdf_page": 325,
+      "equation_label": "(10.35)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "feature sharing",
+      "latex": "\\text{model}(x, \\Theta) = \\mathring{\\mathbf{f}}^T W",
+      "pdf_page": 327,
+      "equation_label": "10.40",
+      "confidence": 0.95
+    },
+    {
+      "concept": "degree two polynomial expansion",
+      "latex": "model (x, \\Theta) = w_0 + x_1 w_1 + x_2 w_2 + x_1 x_2 w_3 + x_1^2 w_4 + x_2^2 w_5",
+      "pdf_page": 327,
+      "equation_label": "10.43",
+      "confidence": 0.95
+    },
+    {
+      "concept": "least squares cost function",
+      "latex": "g(C) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| C C^T x_p - x_p \\right\\|_2^2",
+      "pdf_page": 329,
+      "equation_label": "(10.49)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "least squares cost function",
+      "latex": "g(\\Theta) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| f_d(f_e(x_p)) - x_p \\right\\|_2^2",
+      "pdf_page": 330,
+      "equation_label": "(10.54)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "encoder-decoder composition",
+      "latex": "model(x,\\Theta) = f_d(f_e(x))",
+      "pdf_page": 330,
+      "equation_label": "(10.51)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "encoder-decoder composition",
+      "latex": "model(x,C) = C C^T x",
+      "pdf_page": 329,
+      "equation_label": "(10.46)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "kernel pca",
+      "latex": "g (w_1, ..., w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - f_p \\right\\|_2^2",
+      "pdf_page": 337,
+      "equation_label": "(10.59)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "kernel k-means",
+      "latex": "g(w_1, \\dots, w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - f_p \\right\\|_2^2",
+      "pdf_page": 337,
+      "equation_label": "(10.59)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "standard basis vector constraint",
+      "latex": "w_p \\in \\{e_k\\}_{k=1}^K",
+      "pdf_page": 338,
+      "equation_label": "",
+      "confidence": 0.9
+    }
+  ],
+  "figures": [
+    {
+      "concept": "nonlinear feature engineering",
+      "pdf_page": 310,
+      "figure_label": "Figure 10.1",
+      "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "nonlinear regression",
+      "pdf_page": 310,
+      "figure_label": "Figure 10.1",
+      "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "nonlinear model",
+      "pdf_page": 310,
+      "figure_label": "Figure 10.1",
+      "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw . (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw . See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "transformed feature space",
+      "pdf_page": 312,
+      "figure_label": "Figure 10.2",
+      "caption": "Figure 10.2 Figure associated with Example 10.1. (left panel) A nonlinear regression dataset and corresponding tuned model defined in Equations (10.12) and (10.13). (right panel) The same data and tuned model viewed in the transformed feature space. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "standard normalization",
+      "pdf_page": 313,
+      "figure_label": "Figure 10.3",
+      "caption": "Figure 10.3 Figure associated with Example 10.1. See text for details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "multi-output regression",
+      "pdf_page": 318,
+      "figure_label": "Figure 10.6",
+      "caption": "Figurative illustrations of multi-output regression with C = 2 outputs. (left panel) Linear multi-output regression. (middle panel) Nonlinear multi-output regression where each regressor uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-output regression where both regressors share the same nonlinear feature transformations. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "decision boundary",
+      "pdf_page": 321,
+      "figure_label": "Figure 10.8",
+      "caption": "Figure 10.8 Figurative illustrations of two-class linear and nonlinear classification. (left panel) Linear two-class classification, where the separating boundary is defined by ˚xTw = 0. (right panel) Nonlinear two-class classification, where the separating boundary is defined as ˚fTw = 0. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "feature sharing",
+      "pdf_page": 326,
+      "figure_label": "Figure 10.12",
+      "caption": "Figurative illustrations of multi-class classifiers on a generic dataset with C = 3 classes. (left panel) Linear multi-class classification. (middle panel) Nonlinear multi-class classification where each classifier uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-class classification where all classifiers share the same nonlinear feature transformations. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "degree two polynomial expansion",
+      "pdf_page": 328,
+      "figure_label": "Figure 10.13",
+      "caption": "Figure associated with Example 10.6. See text for details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "manifold",
+      "pdf_page": 330,
+      "figure_label": "Figure 10.14",
+      "caption": "Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "encoder-decoder composition",
+      "pdf_page": 330,
+      "figure_label": "Figure 10.14",
+      "caption": "Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "output transformation",
+      "pdf_page": 334,
+      "figure_label": "Figure 10.18",
+      "caption": "As Moore proposed fifty years ago, the number of transistors in microprocessors versus the year they were invented follows an exponential pattern.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "output transformation",
+      "pdf_page": 335,
+      "figure_label": "Figure 10.19",
+      "caption": "(left panel) Experimental setup for verification of Ohm’s law. Black and brown wires are made up of constantan and copper, respectively. (right panel) Current measurements for 5 diﬀerent lengths of closing wire.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "nonlinear classification",
+      "pdf_page": 336,
+      "figure_label": "Figure 10.20",
+      "caption": "Figure associated with Exercise 10.8. See text for further details.",
+      "confidence": 1.0
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear feature engineering",
+            "aliases": [
+              "nonlinear feature transformation"
+            ],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "nonlinear feature engineering in the context supervised and unsupervised learning",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "nonlinear regression",
+            "aliases": [],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "the general framework of nonlinear regression via engineering of nonlinear feature transformations",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature transformation",
+            "aliases": [
+              "nonlinear feature transformation",
+              "feature"
+            ],
+            "evidence_page": 310,
+            "anchor_page": 310,
+            "evidence": "a nonlinear function f is often called a nonlinear feature transformation (or just a feature) since it transforms our original input features x",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "g (Θ) = 1/P ∑ (˚fT_p w − y_p)^2",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "feature engineering",
+            "aliases": [],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standard normalizing"
+            ],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "minimizing the Least Squares cost via gradient descent",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "non-convex cost function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "when employing parameterized models ... the corresponding cost functions are generally non-convex",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [
+              "nonlinear multi-output regression"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "nonlinear feature engineering for multi-output regression",
+            "relevance": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear feature engineering\",\n      \"aliases\": [\"nonlinear feature transformation\"],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"nonlinear feature engineering in the context supervised and unsupervised learning\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"nonlinear regression\",\n      \"aliases\": [],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"the general framework of nonlinear regression via engineering of nonlinear feature transformations\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature transformation\",\n      \"aliases\": [\"nonlinear feature transformation\", \"feature\"],\n      \"evidence_page\": 310,\n      \"anchor_page\": 310,\n      \"evidence\": \"a nonlinear function f is often called a nonlinear feature transformation (or just a feature) since it transforms our original input features x\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\"],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"g (Θ) = 1/P ∑ (˚fT_p w − y_p)^2\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standard normalizing\"],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"minimizing the Least Squares cost via gradient descent\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"non-convex cost function\",\n      \"aliases\": [\"non-convex\"],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"when employing parameterized models ... the corresponding cost functions are generally non-convex\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [\"nonlinear multi-output regression\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"nonlinear feature engineering for multi-output regression\",\n      \"relevance\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear multi-output regression",
+            "aliases": [
+              "multi-output nonlinear regression"
+            ],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "Nonlinear multi-output regression",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "shared feature transformations",
+            "aliases": [],
+            "evidence_page": 310,
+            "anchor_page": 310,
+            "evidence": "choose a single set of nonlinear feature transformations and share them among all C regression models.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "joint nonlinear model",
+            "aliases": [
+              "multi-output model"
+            ],
+            "evidence_page": 310,
+            "anchor_page": 310,
+            "evidence": "stacking all C weight vectors wc column-wise into a (B + 1) × C weight matrix W",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "g (Θ) = 1 P P X p=1 ˚fT pW −yp 2",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "parameterized features",
+            "aliases": [],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "when employing parameterized features (e.g., neural networks) then the cost function does not decompose over each regressor and we must tune all of our model parameters jointly",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear two-class classification",
+            "aliases": [
+              "nonlinear classification"
+            ],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "Nonlinear two-class classification",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear decision boundary",
+            "aliases": [],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "our decision boundary here consists of all inputs x where ˚fTw = 0",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "two-class softmax cost",
+            "aliases": [
+              "cross-entropy cost"
+            ],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "g (Θ) = 1 P P X p=1 log 1 + e−yp˚fT p w",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "quadratic feature transformation",
+            "aliases": [],
+            "evidence_page": 314,
+            "anchor_page": 314,
+            "evidence": "A quadratic model takes the form model(x, w) = w0 + xw1 + x2w2",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "feature space transformation",
+            "aliases": [
+              "feature space"
+            ],
+            "evidence_page": 314,
+            "anchor_page": 314,
+            "evidence": "a well separating nonlinear decision boundary in the original space of a dataset translates to a well-separating linear decision boundary in the transformed feature space.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear multi-class classification",
+            "aliases": [
+              "multi-class nonlinear classification"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "Nonlinear multi-class classification",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "yp = argmax [model (xp, W)]",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-class softmax cost",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "one-versus-all"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "minimizing the Least Squares cost in Equation (10.23) using gradient descent",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "feature engineering",
+            "aliases": [],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "Engineering features for nonlinear multi-output regression",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear multi-output regression\",\n      \"aliases\": [\"multi-output nonlinear regression\"],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"Nonlinear multi-output regression\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"shared feature transformations\",\n      \"aliases\": [],\n      \"evidence_page\": 310,\n      \"anchor_page\": 310,\n      \"evidence\": \"choose a single set of nonlinear feature transformations and share them among all C regression models.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"joint nonlinear model\",\n      \"aliases\": [\"multi-output model\"],\n      \"evidence_page\": 310,\n      \"anchor_page\": 310,\n      \"evidence\": \"stacking all C weight vectors wc column-wise into a (B + 1) × C weight matrix W\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\"],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"g (Θ) = 1 P P X p=1 ˚fT pW −yp 2\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"parameterized features\",\n      \"aliases\": [],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"when employing parameterized features (e.g., neural networks) then the cost function does not decompose over each regressor and we must tune all of our model parameters jointly\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear two-class classification\",\n      \"aliases\": [\"nonlinear classification\"],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"Nonlinear two-class classification\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear decision boundary\",\n      \"aliases\": [],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"our decision boundary here consists of all inputs x where ˚fTw = 0\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"two-class softmax cost\",\n      \"aliases\": [\"cross-entropy cost\"],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"g (Θ) = 1 P P X p=1 log 1 + e−yp˚fT p w\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"quadratic feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 314,\n      \"anchor_page\": 314,\n      \"evidence\": \"A quadratic model takes the form model(x, w) = w0 + xw1 + x2w2\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"feature space transformation\",\n      \"aliases\": [\"feature space\"],\n      \"evidence_page\": 314,\n      \"anchor_page\": 314,\n      \"evidence\": \"a well separating nonlinear decision boundary in the original space of a dataset translates to a well-separating linear decision boundary in the transformed feature space.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear multi-class classification\",\n      \"aliases\": [\"multi-class nonlinear classification\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"Nonlinear multi-class classification\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"yp = argmax [model (xp, W)]\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-class softmax cost\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"one-versus-all\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"minimizing the Least Squares cost in Equation (10.23) using gradient descent\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"Engineering features for nonlinear multi-output regression\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear multi-class classification",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "Nonlinear multi-class classification",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "multi-class softmax cost",
+            "aliases": [
+              "softmax cost"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "multi-class softmax cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax rule"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "fusion rule",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "one-versus-all approach",
+            "aliases": [
+              "one-vs-all"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "one-versus-all approach",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "shared feature transformations",
+            "aliases": [],
+            "evidence_page": 318,
+            "anchor_page": 318,
+            "evidence": "share the same nonlinear feature transformations",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "nonlinear autoencoder",
+            "aliases": [
+              "autoencoder"
+            ],
+            "evidence_page": 321,
+            "anchor_page": 321,
+            "evidence": "nonlinear Autoencoder",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "encoder model",
+            "aliases": [],
+            "evidence_page": 321,
+            "anchor_page": 321,
+            "evidence": "encoder model",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "decoder model",
+            "aliases": [],
+            "evidence_page": 321,
+            "anchor_page": 321,
+            "evidence": "decoder model",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares error"
+            ],
+            "evidence_page": 321,
+            "anchor_page": 321,
+            "evidence": "Least Squares error measurement",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear manifold",
+            "aliases": [],
+            "evidence_page": 322,
+            "anchor_page": 322,
+            "evidence": "nonlinear manifold",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 319,
+            "anchor_page": 319,
+            "evidence": "using gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear feature engineering",
+            "aliases": [],
+            "evidence_page": 324,
+            "anchor_page": 324,
+            "evidence": "Nonlinear feature engineering involves the design of nonlinear models",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear feature transformation",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "nonlinear feature transformations",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear multi-class classification\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"Nonlinear multi-class classification\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"multi-class softmax cost\",\n      \"aliases\": [\"softmax cost\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"multi-class softmax cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax rule\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"fusion rule\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"one-versus-all approach\",\n      \"aliases\": [\"one-vs-all\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"one-versus-all approach\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"shared feature transformations\",\n      \"aliases\": [],\n      \"evidence_page\": 318,\n      \"anchor_page\": 318,\n      \"evidence\": \"share the same nonlinear feature transformations\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"nonlinear autoencoder\",\n      \"aliases\": [\"autoencoder\"],\n      \"evidence_page\": 321,\n      \"anchor_page\": 321,\n      \"evidence\": \"nonlinear Autoencoder\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"encoder model\",\n      \"aliases\": [],\n      \"evidence_page\": 321,\n      \"anchor_page\": 321,\n      \"evidence\": \"encoder model\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"decoder model\",\n      \"aliases\": [],\n      \"evidence_page\": 321,\n      \"anchor_page\": 321,\n      \"evidence\": \"decoder model\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares error\"],\n      \"evidence_page\": 321,\n      \"anchor_page\": 321,\n      \"evidence\": \"Least Squares error measurement\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear manifold\",\n      \"aliases\": [],\n      \"evidence_page\": 322,\n      \"anchor_page\": 322,\n      \"evidence\": \"nonlinear manifold\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 319,\n      \"anchor_page\": 319,\n      \"evidence\": \"using gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 324,\n      \"anchor_page\": 324,\n      \"evidence\": \"Nonlinear feature engineering involves the design of nonlinear models\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"nonlinear feature transformations\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear feature engineering",
+            "aliases": [],
+            "evidence_page": 326,
+            "anchor_page": 326,
+            "evidence": "Principles of Nonlinear Feature Engineering",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares cost"
+            ],
+            "evidence_page": 326,
+            "anchor_page": 326,
+            "evidence": "Formulate and minimize a Least Squares cost function for appropriate weights",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "nonlinear feature transformation",
+            "aliases": [
+              "nonlinear transformation",
+              "feature transformation"
+            ],
+            "evidence_page": 327,
+            "anchor_page": 327,
+            "evidence": "Suggest a single nonlinear transformation of the original data to fit so that the transformed input/output data is related linearly.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "classic PCA solution to the problem of minimizing the cost function",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "kernel PCA",
+            "aliases": [
+              "nonlinear PCA"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "This is a more restricted version of nonlinear PCA, often termed Kernel PCA",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "kernel k-means",
+            "aliases": [
+              "nonlinear k-means"
+            ],
+            "evidence_page": 330,
+            "anchor_page": 330,
+            "evidence": "The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "k-means"
+            ],
+            "evidence_page": 330,
+            "anchor_page": 330,
+            "evidence": "K-means clustering (see Section 8.4)",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "autoencoder",
+            "aliases": [],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "extending autoencoders to allow PCA to capture nonlinear subspaces",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "orthogonal spanning set",
+            "aliases": [],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "the spanning set C is assumed to be orthogonal",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "linear subspace",
+            "aliases": [],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "determines a proper K dimensional linear subspace for the set of input points",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "nonlinear subspace",
+            "aliases": [],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "allow PCA to capture nonlinear subspaces",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [
+              "feature transformed space"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "learn a linear subspace for these transformed inputs ... in both the original and feature transformed space",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear two-class classification",
+            "aliases": [],
+            "evidence_page": 328,
+            "anchor_page": 328,
+            "evidence": "perform nonlinear two-class classification",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "the basis for similar nonlinear extensions of other unsupervised problems including K-means",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 326,\n      \"anchor_page\": 326,\n      \"evidence\": \"Principles of Nonlinear Feature Engineering\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares cost\"],\n      \"evidence_page\": 326,\n      \"anchor_page\": 326,\n      \"evidence\": \"Formulate and minimize a Least Squares cost function for appropriate weights\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"nonlinear feature transformation\",\n      \"aliases\": [\"nonlinear transformation\", \"feature transformation\"],\n      \"evidence_page\": 327,\n      \"anchor_page\": 327,\n      \"evidence\": \"Suggest a single nonlinear transformation of the original data to fit so that the transformed input/output data is related linearly.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"classic PCA solution to the problem of minimizing the cost function\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"kernel PCA\",\n      \"aliases\": [\"nonlinear PCA\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"This is a more restricted version of nonlinear PCA, often termed Kernel PCA\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"kernel k-means\",\n      \"aliases\": [\"nonlinear k-means\"],\n      \"evidence_page\": 330,\n      \"anchor_page\": 330,\n      \"evidence\": \"The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"k-means\"],\n      \"evidence_page\": 330,\n      \"anchor_page\": 330,\n      \"evidence\": \"K-means clustering (see Section 8.4)\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"autoencoder\",\n      \"aliases\": [],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"extending autoencoders to allow PCA to capture nonlinear subspaces\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"orthogonal spanning set\",\n      \"aliases\": [],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"the spanning set C is assumed to be orthogonal\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"linear subspace\",\n      \"aliases\": [],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"determines a proper K dimensional linear subspace for the set of input points\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"nonlinear subspace\",\n      \"aliases\": [],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"allow PCA to capture nonlinear subspaces\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [\"feature transformed space\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"learn a linear subspace for these transformed inputs ... in both the original and feature transformed space\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear two-class classification\",\n      \"aliases\": [],\n      \"evidence_page\": 328,\n      \"anchor_page\": 328,\n      \"evidence\": \"perform nonlinear two-class classification\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"the basis for similar nonlinear extensions of other unsupervised problems including K-means\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "unparameterized feature transformation",
+            "aliases": [],
+            "evidence_page": 310,
+            "anchor_page": 310,
+            "evidence": "f (e.g., a quadratic, a sine wave, a logistic function, etc.) that can be parameterized or unparameterized.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "internal parameters of feature transformations",
+            "aliases": [],
+            "evidence_page": 310,
+            "anchor_page": 310,
+            "evidence": "potential internal parameters of the function f itself.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "autograd automatic differentiation",
+            "aliases": [],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "employing the autograd'-wrapped numpy library if we wish to employ automatic diﬀerentiation (see Section B.8).",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "non-convex cost function",
+            "aliases": [],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "the corresponding cost functions are generally non-convex.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "zero-order optimization method",
+            "aliases": [],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "Thus either zero or first order methods should be applied",
+            "relevance": 0.4
+          },
+          {
+            "canonical": "first-order optimization method",
+            "aliases": [],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "Thus either zero or first order methods should be applied",
+            "relevance": 0.4
+          },
+          {
+            "canonical": "adjusted second-order method",
+            "aliases": [],
+            "evidence_page": 316,
+            "anchor_page": 316,
+            "evidence": "or second order methods adjusted in the manner detailed in Section A.7.",
+            "relevance": 0.3
+          },
+          {
+            "canonical": "joint multi-output regression",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "jointly, producing a single nonlinear model for all outputs simultaneously.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "feature sharing",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "choose a single set of nonlinear feature transformations and share them among all C regression models.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "transformed feature space",
+            "aliases": [],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "in this transformed feature space... our tuned nonlinear model becomes a linear one.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "In Figure 10.3 we show the cost function history plots",
+            "relevance": 0.3
+          },
+          {
+            "canonical": "visual intuition for feature selection",
+            "aliases": [],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "by visualizing the data, and by relying on our own pattern recognition abilities to determine the appropriate nonlinearities.",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"unparameterized feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 310,\n      \"anchor_page\": 310,\n      \"evidence\": \"f (e.g., a quadratic, a sine wave, a logistic function, etc.) that can be parameterized or unparameterized.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"internal parameters of feature transformations\",\n      \"aliases\": [],\n      \"evidence_page\": 310,\n      \"anchor_page\": 310,\n      \"evidence\": \"potential internal parameters of the function f itself.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"autograd automatic differentiation\",\n      \"aliases\": [],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"employing the autograd'-wrapped numpy library if we wish to employ automatic diﬀerentiation (see Section B.8).\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"non-convex cost function\",\n      \"aliases\": [],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"the corresponding cost functions are generally non-convex.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"zero-order optimization method\",\n      \"aliases\": [],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"Thus either zero or first order methods should be applied\",\n      \"relevance\": 0.4\n    },\n    {\n      \"canonical\": \"first-order optimization method\",\n      \"aliases\": [],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"Thus either zero or first order methods should be applied\",\n      \"relevance\": 0.4\n    },\n    {\n      \"canonical\": \"adjusted second-order method\",\n      \"aliases\": [],\n      \"evidence_page\": 316,\n      \"anchor_page\": 316,\n      \"evidence\": \"or second order methods adjusted in the manner detailed in Section A.7.\",\n      \"relevance\": 0.3\n    },\n    {\n      \"canonical\": \"joint multi-output regression\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"jointly, producing a single nonlinear model for all outputs simultaneously.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"feature sharing\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"choose a single set of nonlinear feature transformations and share them among all C regression models.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"transformed feature space\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"in this transformed feature space... our tuned nonlinear model becomes a linear one.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"In Figure 10.3 we show the cost function history plots\",\n      \"relevance\": 0.3\n    },\n    {\n      \"canonical\": \"visual intuition for feature selection\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"by visualizing the data, and by relying on our own pattern recognition abilities to determine the appropriate nonlinearities.\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "by minimizing an appropriate cost function, e.g., the Least Squares cost g (W) = 1 P X p=1 ˚xT pW −yp 2",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "multi-class softmax cost",
+              "cross-entropy cost"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "multi-class softmax cost g (W) = 1 P X p=1 log C−1 X c=0 e˚xT p wc − ˚xT p wyp",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 312,
+            "anchor_page": 312,
+            "evidence": "Fitting this set of nonlinear features jointly by minimizing the Least Squares cost in Equation (10.23) using gradient descent",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "decision boundary",
+            "aliases": [
+              "nonlinear decision boundary"
+            ],
+            "evidence_page": 313,
+            "anchor_page": 313,
+            "evidence": "our decision boundary here consists of all inputs x where ˚fTw = 0",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [
+              "transformed feature space"
+            ],
+            "evidence_page": 314,
+            "anchor_page": 314,
+            "evidence": "the data in the transformed feature space defined by our two features",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "parameterized feature transformations",
+            "aliases": [
+              "parameterized features"
+            ],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "where fc,1, fc,2, ... fc,Bc are nonlinear (potentially parameterized) functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "the fusion rule yp = argmax h model (xp, W) i",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "one-versus-all",
+            "aliases": [
+              "one-versus-all approach"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "shared feature transformations",
+            "aliases": [
+              "shared nonlinear features"
+            ],
+            "evidence_page": 309,
+            "anchor_page": 309,
+            "evidence": "choose a single set of nonlinear feature transformations and share them among all C regression models",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "joint tuning",
+            "aliases": [
+              "jointly tuning"
+            ],
+            "evidence_page": 311,
+            "anchor_page": 311,
+            "evidence": "we must tune all of our model parameters jointly",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\"],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"by minimizing an appropriate cost function, e.g., the Least Squares cost g (W) = 1 P X p=1 ˚xT pW −yp 2\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"multi-class softmax cost\", \"cross-entropy cost\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"multi-class softmax cost g (W) = 1 P X p=1 log C−1 X c=0 e˚xT p wc − ˚xT p wyp\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"anchor_page\": 312,\n      \"evidence\": \"Fitting this set of nonlinear features jointly by minimizing the Least Squares cost in Equation (10.23) using gradient descent\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"decision boundary\",\n      \"aliases\": [\"nonlinear decision boundary\"],\n      \"evidence_page\": 313,\n      \"anchor_page\": 313,\n      \"evidence\": \"our decision boundary here consists of all inputs x where ˚fTw = 0\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [\"transformed feature space\"],\n      \"evidence_page\": 314,\n      \"anchor_page\": 314,\n      \"evidence\": \"the data in the transformed feature space defined by our two features\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"parameterized feature transformations\",\n      \"aliases\": [\"parameterized features\"],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"where fc,1, fc,2, ... fc,Bc are nonlinear (potentially parameterized) functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"the fusion rule yp = argmax h model (xp, W) i\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"one-versus-all\",\n      \"aliases\": [\"one-versus-all approach\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"shared feature transformations\",\n      \"aliases\": [\"shared nonlinear features\"],\n      \"evidence_page\": 309,\n      \"anchor_page\": 309,\n      \"evidence\": \"choose a single set of nonlinear feature transformations and share them among all C regression models\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"joint tuning\",\n      \"aliases\": [\"jointly tuning\"],\n      \"evidence_page\": 311,\n      \"anchor_page\": 311,\n      \"evidence\": \"we must tune all of our model parameters jointly\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "multi-class softmax cost",
+            "aliases": [
+              "softmax cost"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "multi-class softmax cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "one-versus-all approach",
+            "aliases": [
+              "one-versus-all"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax decision rule"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "yp = argmax h model ( xp, W) i",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "feature sharing",
+            "aliases": [
+              "shared feature transformations"
+            ],
+            "evidence_page": 326,
+            "anchor_page": 326,
+            "evidence": "choose a single set of nonlinear feature transformations and share them among all C two-class models",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "degree two polynomial expansion",
+            "aliases": [
+              "quadratic feature expansion"
+            ],
+            "evidence_page": 327,
+            "anchor_page": 327,
+            "evidence": "full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "steepest descent"
+            ],
+            "evidence_page": 327,
+            "anchor_page": 327,
+            "evidence": "minimize the multi-class softmax ... using gradient descent",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "least squares error measurement",
+            "aliases": [
+              "least squares cost"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "Least Squares error measurement",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "manifold",
+            "aliases": [
+              "nonlinear manifold"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "nonlinear surface (also called a manifold)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "encoder-decoder composition",
+            "aliases": [
+              "autoencoder composition"
+            ],
+            "evidence_page": 330,
+            "anchor_page": 330,
+            "evidence": "model (x, Θ) = fd (fe (x))",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"multi-class softmax cost\",\n      \"aliases\": [\"softmax cost\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"multi-class softmax cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"one-versus-all approach\",\n      \"aliases\": [\"one-versus-all\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax decision rule\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"yp = argmax h model ( xp, W) i\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"feature sharing\",\n      \"aliases\": [\"shared feature transformations\"],\n      \"evidence_page\": 326,\n      \"anchor_page\": 326,\n      \"evidence\": \"choose a single set of nonlinear feature transformations and share them among all C two-class models\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"degree two polynomial expansion\",\n      \"aliases\": [\"quadratic feature expansion\"],\n      \"evidence_page\": 327,\n      \"anchor_page\": 327,\n      \"evidence\": \"full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"steepest descent\"],\n      \"evidence_page\": 327,\n      \"anchor_page\": 327,\n      \"evidence\": \"minimize the multi-class softmax ... using gradient descent\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"least squares error measurement\",\n      \"aliases\": [\"least squares cost\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"Least Squares error measurement\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"manifold\",\n      \"aliases\": [\"nonlinear manifold\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"nonlinear surface (also called a manifold)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"encoder-decoder composition\",\n      \"aliases\": [\"autoencoder composition\"],\n      \"evidence_page\": 330,\n      \"anchor_page\": 330,\n      \"evidence\": \"model (x, Θ) = fd (fe (x))\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "output transformation",
+            "aliases": [
+              "response transformation",
+              "output linearization"
+            ],
+            "evidence_page": 334,
+            "anchor_page": 334,
+            "evidence": "to produce a linear relationship you will end up having to transform the output, not the input.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "fixed basis functions",
+            "aliases": [
+              "unparameterized nonlinear features",
+              "parameter‑free feature transformation"
+            ],
+            "evidence_page": 337,
+            "anchor_page": 337,
+            "evidence": "choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "orthogonal spanning set",
+            "aliases": [
+              "orthogonal basis",
+              "orthonormal spanning set"
+            ],
+            "evidence_page": 337,
+            "anchor_page": 337,
+            "evidence": "This means that the spanning set C is assumed to be orthogonal.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "standard basis vector constraint",
+            "aliases": [
+              "one‑hot constraint",
+              "basis vector assignment"
+            ],
+            "evidence_page": 338,
+            "anchor_page": 338,
+            "evidence": "each weight vector wp ∈{ek}K k=1 is a standard basis vector",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"output transformation\",\n      \"aliases\": [\"response transformation\", \"output linearization\"],\n      \"evidence_page\": 334,\n      \"anchor_page\": 334,\n      \"evidence\": \"to produce a linear relationship you will end up having to transform the output, not the input.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"fixed basis functions\",\n      \"aliases\": [\"unparameterized nonlinear features\", \"parameter‑free feature transformation\"],\n      \"evidence_page\": 337,\n      \"anchor_page\": 337,\n      \"evidence\": \"choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"orthogonal spanning set\",\n      \"aliases\": [\"orthogonal basis\", \"orthonormal spanning set\"],\n      \"evidence_page\": 337,\n      \"anchor_page\": 337,\n      \"evidence\": \"This means that the spanning set C is assumed to be orthogonal.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"standard basis vector constraint\",\n      \"aliases\": [\"one‑hot constraint\", \"basis vector assignment\"],\n      \"evidence_page\": 338,\n      \"anchor_page\": 338,\n      \"evidence\": \"each weight vector wp ∈{ek}K k=1 is a standard basis vector\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear feature engineering",
+            "aliases": [
+              "nonlinear feature transformation",
+              "feature transformation",
+              "feature"
+            ],
+            "evidence_page": 309,
+            "evidence": "nonlinear feature engineering in the context supervised and unsupervised learning",
+            "relevance": 0.95,
+            "anchor_page": 309
+          },
+          {
+            "canonical": "nonlinear regression",
+            "aliases": [],
+            "evidence_page": 309,
+            "evidence": "the general framework of nonlinear regression via engineering of nonlinear feature transformations",
+            "relevance": 0.9,
+            "anchor_page": 309
+          },
+          {
+            "canonical": "fixed basis functions",
+            "aliases": [
+              "unparameterized feature transformation",
+              "unparameterized nonlinear features",
+              "parameter-free feature transformation"
+            ],
+            "evidence_page": 337,
+            "evidence": "f (e.g., a quadratic, a sine wave, a logistic function, etc.) that can be parameterized or unparameterized; choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly",
+            "relevance": 0.8,
+            "anchor_page": 337
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [],
+            "evidence_page": 311,
+            "evidence": "model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB",
+            "relevance": 0.9,
+            "anchor_page": 311
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares error measurement"
+            ],
+            "evidence_page": 311,
+            "evidence": "g (Θ) = 1/P ∑ (˚fT_p w − y_p)^2",
+            "relevance": 0.85,
+            "anchor_page": 311
+          },
+          {
+            "canonical": "feature engineering",
+            "aliases": [],
+            "evidence_page": 312,
+            "evidence": "feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise",
+            "relevance": 0.9,
+            "anchor_page": 312
+          },
+          {
+            "canonical": "transformed feature space",
+            "aliases": [],
+            "evidence_page": 312,
+            "evidence": "in this transformed feature space... our tuned nonlinear model becomes a linear one.",
+            "relevance": 0.8,
+            "anchor_page": 312
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 313,
+            "evidence": "minimizing the Least Squares cost via gradient descent",
+            "relevance": 0.85,
+            "anchor_page": 313
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standard normalizing"
+            ],
+            "evidence_page": 313,
+            "evidence": "it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes",
+            "relevance": 0.8,
+            "anchor_page": 313
+          },
+          {
+            "canonical": "non-convex cost function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 316,
+            "evidence": "the corresponding cost functions are generally non-convex.",
+            "relevance": 0.8,
+            "anchor_page": 316
+          },
+          {
+            "canonical": "softmax cost function",
+            "aliases": [
+              "softmax cost",
+              "cross-entropy cost"
+            ],
+            "evidence_page": 317,
+            "evidence": "g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp",
+            "relevance": 0.9,
+            "anchor_page": 317
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [
+              "nonlinear multi-output regression"
+            ],
+            "evidence_page": 317,
+            "evidence": "nonlinear feature engineering for multi-output regression",
+            "relevance": 0.85,
+            "anchor_page": 317
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax decision rule"
+            ],
+            "evidence_page": 317,
+            "evidence": "the fusion rule yp = argmax h model (xp, W) i",
+            "relevance": 0.8,
+            "anchor_page": 317
+          },
+          {
+            "canonical": "nonlinear multi-class classification",
+            "aliases": [
+              "multi-class nonlinear classification"
+            ],
+            "evidence_page": 317,
+            "evidence": "Nonlinear multi-class classification",
+            "relevance": 0.8,
+            "anchor_page": 317
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "one-versus-all",
+              "one-versus-all approach"
+            ],
+            "evidence_page": 317,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.8,
+            "anchor_page": 317
+          },
+          {
+            "canonical": "feature sharing",
+            "aliases": [
+              "shared feature transformations"
+            ],
+            "evidence_page": 326,
+            "evidence": "choose a single set of nonlinear feature transformations and share them among all C two-class models",
+            "relevance": 0.8,
+            "anchor_page": 326
+          },
+          {
+            "canonical": "degree two polynomial expansion",
+            "aliases": [
+              "quadratic feature expansion"
+            ],
+            "evidence_page": 327,
+            "evidence": "full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2",
+            "relevance": 0.7,
+            "anchor_page": 327
+          },
+          {
+            "canonical": "manifold",
+            "aliases": [
+              "nonlinear manifold"
+            ],
+            "evidence_page": 329,
+            "evidence": "nonlinear surface (also called a manifold)",
+            "relevance": 0.8,
+            "anchor_page": 329
+          },
+          {
+            "canonical": "encoder-decoder composition",
+            "aliases": [
+              "autoencoder composition"
+            ],
+            "evidence_page": 330,
+            "evidence": "model (x, Θ) = fd (fe (x))",
+            "relevance": 0.9,
+            "anchor_page": 330
+          },
+          {
+            "canonical": "output transformation",
+            "aliases": [
+              "response transformation",
+              "output linearization"
+            ],
+            "evidence_page": 334,
+            "evidence": "to produce a linear relationship you will end up having to transform the output, not the input.",
+            "relevance": 0.7,
+            "anchor_page": 334
+          },
+          {
+            "canonical": "standard basis vector constraint",
+            "aliases": [
+              "one‐hot constraint",
+              "basis vector assignment"
+            ],
+            "evidence_page": 338,
+            "evidence": "each weight vector wp ∈{ek}K k=1 is a standard basis vector",
+            "relevance": 0.7,
+            "anchor_page": 338
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear feature engineering\",\n      \"aliases\": [\"nonlinear feature transformation\", \"feature transformation\", \"feature\"],\n      \"evidence_page\": 309,\n      \"evidence\": \"nonlinear feature engineering in the context supervised and unsupervised learning\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 309\n    },\n    {\n      \"canonical\": \"nonlinear regression\",\n      \"aliases\": [],\n      \"evidence_page\": 309,\n      \"evidence\": \"the general framework of nonlinear regression via engineering of nonlinear feature transformations\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 309\n    },\n    {\n      \"canonical\": \"fixed basis functions\",\n      \"aliases\": [\"unparameterized feature transformation\", \"unparameterized nonlinear features\", \"parameter-free feature transformation\"],\n      \"evidence_page\": 337,\n      \"evidence\": \"f (e.g., a quadratic, a sine wave, a logistic function, etc.) that can be parameterized or unparameterized; choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 337\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [],\n      \"evidence_page\": 311,\n      \"evidence\": \"model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 311\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares\", \"least squares error measurement\"],\n      \"evidence_page\": 311,\n      \"evidence\": \"g (Θ) = 1/P ∑ (˚fT_p w − y_p)^2\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 311\n    },\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"evidence\": \"feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 312\n    },\n    {\n      \"canonical\": \"transformed feature space\",\n      \"aliases\": [],\n      \"evidence_page\": 312,\n      \"evidence\": \"in this transformed feature space... our tuned nonlinear model becomes a linear one.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 312\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 313,\n      \"evidence\": \"minimizing the Least Squares cost via gradient descent\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 313\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standard normalizing\"],\n      \"evidence_page\": 313,\n      \"evidence\": \"it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 313\n    },\n    {\n      \"canonical\": \"non-convex cost function\",\n      \"aliases\": [\"non-convex\"],\n      \"evidence_page\": 316,\n      \"evidence\": \"the corresponding cost functions are generally non-convex.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 316\n    },\n    {\n      \"canonical\": \"softmax cost function\",\n      \"aliases\": [\"softmax cost\", \"cross-entropy cost\"],\n      \"evidence_page\": 317,\n      \"evidence\": \"g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 317\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [\"nonlinear multi-output regression\"],\n      \"evidence_page\": 317,\n      \"evidence\": \"nonlinear feature engineering for multi-output regression\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 317\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax decision rule\"],\n      \"evidence_page\": 317,\n      \"evidence\": \"the fusion rule yp = argmax h model (xp, W) i\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 317\n    },\n    {\n      \"canonical\": \"nonlinear multi-class classification\",\n      \"aliases\": [\"multi-class nonlinear classification\"],\n      \"evidence_page\": 317,\n      \"evidence\": \"Nonlinear multi-class classification\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 317\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"one-versus-all\", \"one-versus-all approach\"],\n      \"evidence_page\": 317,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 317\n    },\n    {\n      \"canonical\": \"feature sharing\",\n      \"aliases\": [\"shared feature transformations\"],\n      \"evidence_page\": 326,\n      \"evidence\": \"choose a single set of nonlinear feature transformations and share them among all C two-class models\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 326\n    },\n    {\n      \"canonical\": \"degree two polynomial expansion\",\n      \"aliases\": [\"quadratic feature expansion\"],\n      \"evidence_page\": 327,\n      \"evidence\": \"full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 327\n    },\n    {\n      \"canonical\": \"manifold\",\n      \"aliases\": [\"nonlinear manifold\"],\n      \"evidence_page\": 329,\n      \"evidence\": \"nonlinear surface (also called a manifold)\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 329\n    },\n    {\n      \"canonical\": \"encoder-decoder composition\",\n      \"aliases\": [\"autoencoder composition\"],\n      \"evidence_page\": 330,\n      \"evidence\": \"model (x, Θ) = fd (fe (x))\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 330\n    },\n    {\n      \"canonical\": \"output transformation\",\n      \"aliases\": [\"response transformation\", \"output linearization\"],\n      \"evidence_page\": 334,\n      \"evidence\": \"to produce a linear relationship you will end up having to transform the output, not the input.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 334\n    },\n    {\n      \"canonical\": \"standard basis vector constraint\",\n      \"aliases\": [\"one‐hot constraint\", \"basis vector assignment\"],\n      \"evidence_page\": 338,\n      \"evidence\": \"each weight vector wp ∈{ek}K k=1 is a standard basis vector\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 338\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "nonlinear feature transformation",
+            "aliases": [
+              "feature transformation"
+            ],
+            "evidence_page": 302,
+            "anchor_page": 302,
+            "evidence": "In the jargon of machine learning such a nonlinear function f is often called a nonlinear feature transformation (or just a feature) since it transforms our original input features x.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "parameterized feature transformation",
+            "aliases": [],
+            "evidence_page": 303,
+            "anchor_page": 303,
+            "evidence": "f1, f2, ..., fB are nonlinear (parameterized or unparameterized) feature transformations",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "unparameterized feature transformation",
+            "aliases": [],
+            "evidence_page": 306,
+            "anchor_page": 306,
+            "evidence": "two unparameterized feature transformations: the identity transformation f1(x)=x and the quadratic transformation f2(x)=x^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "Least Squares cost"
+            ],
+            "evidence_page": 303,
+            "anchor_page": 303,
+            "evidence": "minimize a proper regression cost function, e.g., the Least Squares cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 304,
+            "anchor_page": 304,
+            "evidence": "by minimizing the Least Squares cost via gradient descent",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"nonlinear feature transformation\",\n      \"aliases\": [\"feature transformation\"],\n      \"evidence_page\": 302,\n      \"anchor_page\": 302,\n      \"evidence\": \"In the jargon of machine learning such a nonlinear function f is often called a nonlinear feature transformation (or just a feature) since it transforms our original input features x.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"parameterized feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 303,\n      \"anchor_page\": 303,\n      \"evidence\": \"f1, f2, ..., fB are nonlinear (parameterized or unparameterized) feature transformations\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"unparameterized feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 306,\n      \"anchor_page\": 306,\n      \"evidence\": \"two unparameterized feature transformations: the identity transformation f1(x)=x and the quadratic transformation f2(x)=x^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"Least Squares cost\"],\n      \"evidence_page\": 303,\n      \"anchor_page\": 303,\n      \"evidence\": \"minimize a proper regression cost function, e.g., the Least Squares cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 304,\n      \"anchor_page\": 304,\n      \"evidence\": \"by minimizing the Least Squares cost via gradient descent\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence_page": 317,
+            "anchor_page": 317,
+            "evidence": "minimizing an appropriate cost function, e.g., the Least Squares cost",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 320,
+            "anchor_page": 320,
+            "evidence": "minimizing the Least Squares cost in Equation (10.23) using gradient descent",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax rule"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "satisfy the fusion rule yp = argmax h model (xp, W) i",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "one-versus-all",
+            "aliases": [
+              "one-vs-all",
+              "one-versus-all approach"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "decision boundary",
+            "aliases": [
+              "separating boundary"
+            ],
+            "evidence_page": 320,
+            "anchor_page": 320,
+            "evidence": "our decision boundary here consists of all inputs x where ˚fTw = 0",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\"],\n      \"evidence_page\": 317,\n      \"anchor_page\": 317,\n      \"evidence\": \"minimizing an appropriate cost function, e.g., the Least Squares cost\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 320,\n      \"anchor_page\": 320,\n      \"evidence\": \"minimizing the Least Squares cost in Equation (10.23) using gradient descent\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax rule\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"satisfy the fusion rule yp = argmax h model (xp, W) i\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"one-versus-all\",\n      \"aliases\": [\"one-vs-all\", \"one-versus-all approach\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"decision boundary\",\n      \"aliases\": [\"separating boundary\"],\n      \"evidence_page\": 320,\n      \"anchor_page\": 320,\n      \"evidence\": \"our decision boundary here consists of all inputs x where ˚fTw = 0\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax decision rule",
+              "classification fusion rule"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "we aim to tune the parameters of W to satisfy the fusion rule",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "one-versus-all approach",
+            "aliases": [
+              "one-vs-all",
+              "one-against-all"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares error",
+              "mean squared error"
+            ],
+            "evidence_page": 329,
+            "anchor_page": 329,
+            "evidence": "Least Squares error measurement",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autodiff",
+              "automatic differentiator"
+            ],
+            "evidence_page": 325,
+            "anchor_page": 325,
+            "evidence": "if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "mean centering",
+            "aliases": [
+              "mean subtraction",
+              "center data"
+            ],
+            "evidence_page": 328,
+            "anchor_page": 328,
+            "evidence": "mean-centered N dimensional input datapoints",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax decision rule\", \"classification fusion rule\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"we aim to tune the parameters of W to satisfy the fusion rule\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"one-versus-all approach\",\n      \"aliases\": [\"one-vs-all\", \"one-against-all\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares error\", \"mean squared error\"],\n      \"evidence_page\": 329,\n      \"anchor_page\": 329,\n      \"evidence\": \"Least Squares error measurement\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autodiff\", \"automatic differentiator\"],\n      \"evidence_page\": 325,\n      \"anchor_page\": 325,\n      \"evidence\": \"if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"mean centering\",\n      \"aliases\": [\"mean subtraction\", \"center data\"],\n      \"evidence_page\": 328,\n      \"anchor_page\": 328,\n      \"evidence\": \"mean-centered N dimensional input datapoints\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "kernel pca",
+            "aliases": [
+              "kernel principal component analysis",
+              "nonlinear pca"
+            ],
+            "evidence_page": 337,
+            "anchor_page": 337,
+            "evidence": "This is a more restricted version of nonlinear PCA, often termed Kernel PCA",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "kernel k-means",
+            "aliases": [
+              "kernel k-means clustering",
+              "nonlinear k-means"
+            ],
+            "evidence_page": 338,
+            "anchor_page": 338,
+            "evidence": "The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear classification",
+            "aliases": [
+              "nonlinear two-class classification"
+            ],
+            "evidence_page": 336,
+            "anchor_page": 336,
+            "evidence": "Nonlinear two-class classification",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares cost",
+              "least squares error"
+            ],
+            "evidence_page": 334,
+            "anchor_page": 334,
+            "evidence": "Formulate and minimize a Least Squares cost function",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature map",
+            "aliases": [
+              "nonlinear feature map",
+              "feature transformation",
+              "feature mapping"
+            ],
+            "evidence_page": 337,
+            "anchor_page": 337,
+            "evidence": "choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly, and denote the transformation of xp using this entire set of feature transformations as fp",
+            "relevance": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"kernel pca\",\n      \"aliases\": [\"kernel principal component analysis\", \"nonlinear pca\"],\n      \"evidence_page\": 337,\n      \"anchor_page\": 337,\n      \"evidence\": \"This is a more restricted version of nonlinear PCA, often termed Kernel PCA\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"kernel k-means\",\n      \"aliases\": [\"kernel k-means clustering\", \"nonlinear k-means\"],\n      \"evidence_page\": 338,\n      \"anchor_page\": 338,\n      \"evidence\": \"The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear classification\",\n      \"aliases\": [\"nonlinear two-class classification\"],\n      \"evidence_page\": 336,\n      \"anchor_page\": 336,\n      \"evidence\": \"Nonlinear two-class classification\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares cost\", \"least squares error\"],\n      \"evidence_page\": 334,\n      \"anchor_page\": 334,\n      \"evidence\": \"Formulate and minimize a Least Squares cost function\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature map\",\n      \"aliases\": [\"nonlinear feature map\", \"feature transformation\", \"feature mapping\"],\n      \"evidence_page\": 337,\n      \"anchor_page\": 337,\n      \"evidence\": \"choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly, and denote the transformation of xp using this entire set of feature transformations as fp\",\n      \"relevance\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill_consolidation",
+      "round": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "decision boundary",
+            "aliases": [
+              "separating boundary"
+            ],
+            "evidence_page": 320,
+            "evidence": "our decision boundary here consists of all inputs x where ˚fTw = 0",
+            "relevance": 0.8,
+            "anchor_page": 320
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 320,
+            "evidence": "minimizing the Least Squares cost in Equation (10.23) using gradient descent",
+            "relevance": 0.7,
+            "anchor_page": 320
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax decision rule",
+              "classification fusion rule"
+            ],
+            "evidence_page": 325,
+            "evidence": "we aim to tune the parameters of W to satisfy the fusion rule",
+            "relevance": 0.8,
+            "anchor_page": 325
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "one-vs-all",
+              "one-against-all",
+              "one-versus-all"
+            ],
+            "evidence_page": 325,
+            "evidence": "by either tuning each column of W one-at-a-time in a one-versus-all approach",
+            "relevance": 0.8,
+            "anchor_page": 325
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autodiff",
+              "automatic differentiator"
+            ],
+            "evidence_page": 325,
+            "evidence": "if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper",
+            "relevance": 0.7,
+            "anchor_page": 325
+          },
+          {
+            "canonical": "mean-centering",
+            "aliases": [
+              "mean subtraction",
+              "center data"
+            ],
+            "evidence_page": 328,
+            "evidence": "mean-centered N dimensional input datapoints",
+            "relevance": 0.8,
+            "anchor_page": 328
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares error",
+              "mean squared error",
+              "least squares cost function",
+              "least squares"
+            ],
+            "evidence_page": 329,
+            "evidence": "Least Squares error measurement",
+            "relevance": 0.9,
+            "anchor_page": 329
+          },
+          {
+            "canonical": "nonlinear classification",
+            "aliases": [
+              "nonlinear two-class classification"
+            ],
+            "evidence_page": 336,
+            "evidence": "Nonlinear two-class classification",
+            "relevance": 0.8,
+            "anchor_page": 336
+          },
+          {
+            "canonical": "kernel pca",
+            "aliases": [
+              "kernel principal component analysis",
+              "nonlinear pca"
+            ],
+            "evidence_page": 337,
+            "evidence": "This is a more restricted version of nonlinear PCA, often termed Kernel PCA",
+            "relevance": 0.9,
+            "anchor_page": 337
+          },
+          {
+            "canonical": "feature map",
+            "aliases": [
+              "nonlinear feature map",
+              "feature transformation",
+              "feature mapping"
+            ],
+            "evidence_page": 337,
+            "evidence": "choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly, and denote the transformation of xp using this entire set of feature transformations as fp",
+            "relevance": 0.85,
+            "anchor_page": 337
+          },
+          {
+            "canonical": "kernel k-means",
+            "aliases": [
+              "kernel k-means clustering",
+              "nonlinear k-means"
+            ],
+            "evidence_page": 338,
+            "evidence": "The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.",
+            "relevance": 0.9,
+            "anchor_page": 338
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"decision boundary\",\n      \"aliases\": [\"separating boundary\"],\n      \"evidence_page\": 320,\n      \"evidence\": \"our decision boundary here consists of all inputs x where ˚fTw = 0\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 320\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 320,\n      \"evidence\": \"minimizing the Least Squares cost in Equation (10.23) using gradient descent\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 320\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax decision rule\", \"classification fusion rule\"],\n      \"evidence_page\": 325,\n      \"evidence\": \"we aim to tune the parameters of W to satisfy the fusion rule\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 325\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"one-vs-all\", \"one-against-all\", \"one-versus-all\"],\n      \"evidence_page\": 325,\n      \"evidence\": \"by either tuning each column of W one-at-a-time in a one-versus-all approach\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 325\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autodiff\", \"automatic differentiator\"],\n      \"evidence_page\": 325,\n      \"evidence\": \"if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 325\n    },\n    {\n      \"canonical\": \"mean-centering\",\n      \"aliases\": [\"mean subtraction\", \"center data\"],\n      \"evidence_page\": 328,\n      \"evidence\": \"mean-centered N dimensional input datapoints\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 328\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares error\", \"mean squared error\", \"least squares cost function\", \"least squares\"],\n      \"evidence_page\": 329,\n      \"evidence\": \"Least Squares error measurement\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 329\n    },\n    {\n      \"canonical\": \"nonlinear classification\",\n      \"aliases\": [\"nonlinear two-class classification\"],\n      \"evidence_page\": 336,\n      \"evidence\": \"Nonlinear two-class classification\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 336\n    },\n    {\n      \"canonical\": \"kernel pca\",\n      \"aliases\": [\"kernel principal component analysis\", \"nonlinear pca\"],\n      \"evidence_page\": 337,\n      \"evidence\": \"This is a more restricted version of nonlinear PCA, often termed Kernel PCA\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 337\n    },\n    {\n      \"canonical\": \"feature map\",\n      \"aliases\": [\"nonlinear feature map\", \"feature transformation\", \"feature mapping\"],\n      \"evidence_page\": 337,\n      \"evidence\": \"choose a set of B nonlinear features f1, f2, ..., fB that have no internal parameters and transform the input directly, and denote the transformation of xp using this entire set of feature transformations as fp\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 337\n    },\n    {\n      \"canonical\": \"kernel k-means\",\n      \"aliases\": [\"kernel k-means clustering\", \"nonlinear k-means\"],\n      \"evidence_page\": 338,\n      \"evidence\": \"The same idea introduced in the previous exercise can also be used to extend K-means clustering ... and is the basis for so-called kernel K-means.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 338\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 309,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "nonlinear feature engineering",
+            "pdf_page": 310,
+            "figure_label": "Figure 10.1",
+            "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "nonlinear regression",
+            "pdf_page": 310,
+            "figure_label": "Figure 10.1",
+            "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"nonlinear feature engineering\",\n      \"pdf_page\": 310,\n      \"figure_label\": \"Figure 10.1\",\n      \"caption\": \"Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"nonlinear regression\",\n      \"pdf_page\": 310,\n      \"figure_label\": \"Figure 10.1\",\n      \"caption\": \"Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw. (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 311,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "nonlinear model",
+            "latex": "model (x, \\Theta) = w_0 + f (x) w_1",
+            "pdf_page": 311,
+            "equation_label": "(10.6)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "nonlinear model",
+            "latex": "model (x, \\Theta) = w_0 + f_1 (x) w_1 + f_2 (x) w_2 + \\cdots + f_B (x) w_B",
+            "pdf_page": 311,
+            "equation_label": "(10.7)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "nonlinear model",
+            "latex": "model (x, \\Theta) = \\mathring{f}^T w",
+            "pdf_page": 311,
+            "equation_label": "(10.8)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "nonlinear model",
+            "pdf_page": 310,
+            "figure_label": "Figure 10.1",
+            "caption": "Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw . (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw . See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"nonlinear model\",\n      \"latex\": \"model (x, \\\\Theta) = w_0 + f (x) w_1\",\n      \"pdf_page\": 311,\n      \"equation_label\": \"(10.6)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"nonlinear model\",\n      \"latex\": \"model (x, \\\\Theta) = w_0 + f_1 (x) w_1 + f_2 (x) w_2 + \\\\cdots + f_B (x) w_B\",\n      \"pdf_page\": 311,\n      \"equation_label\": \"(10.7)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"nonlinear model\",\n      \"latex\": \"model (x, \\\\Theta) = \\\\mathring{f}^T w\",\n      \"pdf_page\": 311,\n      \"equation_label\": \"(10.8)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"nonlinear model\",\n      \"pdf_page\": 310,\n      \"figure_label\": \"Figure 10.1\",\n      \"caption\": \"Figure 10.1 (left panel) Linear regression illustrated. Here the fit to the data is defined by the linear model ˚xTw . (right panel) Nonlinear regression is achieved by injecting nonlinear feature transformations into our model. Here the fit to the data is a nonlinear curve defined by ˚fTw . See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 312,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "feature engineering",
+            "latex": "f(x) = \\sin(v_0 + x v_1)",
+            "pdf_page": 312,
+            "equation_label": "(10.12)",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "transformed feature space",
+            "pdf_page": 312,
+            "figure_label": "Figure 10.2",
+            "caption": "Figure 10.2 Figure associated with Example 10.1. (left panel) A nonlinear regression dataset and corresponding tuned model defined in Equations (10.12) and (10.13). (right panel) The same data and tuned model viewed in the transformed feature space. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"feature engineering\",\n      \"latex\": \"f(x) = \\\\sin(v_0 + x v_1)\",\n      \"pdf_page\": 312,\n      \"equation_label\": \"(10.12)\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"transformed feature space\",\n      \"pdf_page\": 312,\n      \"figure_label\": \"Figure 10.2\",\n      \"caption\": \"Figure 10.2 Figure associated with Example 10.1. (left panel) A nonlinear regression dataset and corresponding tuned model defined in Equations (10.12) and (10.13). (right panel) The same data and tuned model viewed in the transformed feature space. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 313,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "standard normalization",
+            "pdf_page": 313,
+            "figure_label": "Figure 10.3",
+            "caption": "Figure 10.3 Figure associated with Example 10.1. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"standard normalization\",\n      \"pdf_page\": 313,\n      \"figure_label\": \"Figure 10.3\",\n      \"caption\": \"Figure 10.3 Figure associated with Example 10.1. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 316,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 317,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "multi-output regression",
+            "latex": "\\text{model}\\left(\\mathbf{x},\\mathbf{W}\\right)=\\mathring{\\mathbf{x}}^{T}\\mathbf{W}",
+            "pdf_page": 317,
+            "equation_label": "(10.15)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\mathring{\\mathbf{x}}_{p}^{T}\\mathbf{W}\\approx\\mathbf{y}_{p},\\quad p=1,\\ldots,P",
+            "pdf_page": 317,
+            "equation_label": "(10.16)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "g(\\mathbf{W})=\\frac{1}{P}\\sum_{p=1}^{P}\\frac{1}{2}\\left\\Vert \\mathring{\\mathbf{x}}_{p}^{T}\\mathbf{W}-\\mathbf{y}_{p}\\right\\Vert^{2}",
+            "pdf_page": 317,
+            "equation_label": "(10.17)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=w_{c,0}+f_{c,1}(\\mathbf{x})w_{c,1}+f_{c,2}(\\mathbf{x})w_{c,2}+\\cdots+f_{c,B_{c}}(\\mathbf{x})w_{c,B_{c}}",
+            "pdf_page": 317,
+            "equation_label": "(10.18)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=w_{c,0}+f_{1}(\\mathbf{x})w_{c,1}+f_{2}(\\mathbf{x})w_{c,2}+\\cdots+f_{B}(\\mathbf{x})w_{c,B}",
+            "pdf_page": 317,
+            "equation_label": "(10.19)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\text{model}_{c}(\\mathbf{x},\\Theta_{c})=\\mathring{\\mathbf{f}}^{T}\\mathbf{w}_{c}",
+            "pdf_page": 317,
+            "equation_label": "(10.20)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\text{model}(\\mathbf{x},\\Theta)=\\mathring{\\mathbf{f}}^{T}\\mathbf{W}",
+            "pdf_page": 318,
+            "equation_label": "(10.21)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "multi-output regression",
+            "latex": "\\mathring{\\mathbf{f}}_{p}^{T}\\mathbf{W}\\approx\\mathbf{y}_{p},\\quad p=1,\\ldots,P",
+            "pdf_page": 318,
+            "equation_label": "(10.22)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "multi-output regression",
+            "pdf_page": 318,
+            "figure_label": "Figure 10.6",
+            "caption": "Figurative illustrations of multi-output regression with C = 2 outputs. (left panel) Linear multi-output regression. (middle panel) Nonlinear multi-output regression where each regressor uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-output regression where both regressors share the same nonlinear feature transformations. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\text{model}\\\\left(\\\\mathbf{x},\\\\mathbf{W}\\\\right)=\\\\mathring{\\\\mathbf{x}}^{T}\\\\mathbf{W}\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.15)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\mathring{\\\\mathbf{x}}_{p}^{T}\\\\mathbf{W}\\\\approx\\\\mathbf{y}_{p},\\\\quad p=1,\\\\ldots,P\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.16)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"g(\\\\mathbf{W})=\\\\frac{1}{P}\\\\sum_{p=1}^{P}\\\\frac{1}{2}\\\\left\\\\Vert \\\\mathring{\\\\mathbf{x}}_{p}^{T}\\\\mathbf{W}-\\\\mathbf{y}_{p}\\\\right\\\\Vert^{2}\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.17)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\text{model}_{c}(\\\\mathbf{x},\\\\Theta_{c})=w_{c,0}+f_{c,1}(\\\\mathbf{x})w_{c,1}+f_{c,2}(\\\\mathbf{x})w_{c,2}+\\\\cdots+f_{c,B_{c}}(\\\\mathbf{x})w_{c,B_{c}}\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.18)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\text{model}_{c}(\\\\mathbf{x},\\\\Theta_{c})=w_{c,0}+f_{1}(\\\\mathbf{x})w_{c,1}+f_{2}(\\\\mathbf{x})w_{c,2}+\\\\cdots+f_{B}(\\\\mathbf{x})w_{c,B}\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.19)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\text{model}_{c}(\\\\mathbf{x},\\\\Theta_{c})=\\\\mathring{\\\\mathbf{f}}^{T}\\\\mathbf{w}_{c}\",\n      \"pdf_page\": 317,\n      \"equation_label\": \"(10.20)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\text{model}(\\\\mathbf{x},\\\\Theta)=\\\\mathring{\\\\mathbf{f}}^{T}\\\\mathbf{W}\",\n      \"pdf_page\": 318,\n      \"equation_label\": \"(10.21)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"multi-output regression\",\n      \"latex\": \"\\\\mathring{\\\\mathbf{f}}_{p}^{T}\\\\mathbf{W}\\\\approx\\\\mathbf{y}_{p},\\\\quad p=1,\\\\ldots,P\",\n      \"pdf_page\": 318,\n      \"equation_label\": \"(10.22)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"multi-output regression\",\n      \"pdf_page\": 318,\n      \"figure_label\": \"Figure 10.6\",\n      \"caption\": \"Figurative illustrations of multi-output regression with C = 2 outputs. (left panel) Linear multi-output regression. (middle panel) Nonlinear multi-output regression where each regressor uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-output regression where both regressors share the same nonlinear feature transformations. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 320,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "decision boundary",
+            "latex": "\\mathring{\\mathbf{f}}^T\\mathbf{w} = 0",
+            "pdf_page": 321,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "decision boundary",
+            "pdf_page": 321,
+            "figure_label": "Figure 10.8",
+            "caption": "Figure 10.8 Figurative illustrations of two-class linear and nonlinear classification. (left panel) Linear two-class classification, where the separating boundary is defined by ˚xTw = 0. (right panel) Nonlinear two-class classification, where the separating boundary is defined as ˚fTw = 0. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"decision boundary\",\n      \"latex\": \"\\\\mathring{\\\\mathbf{f}}^T\\\\mathbf{w} = 0\",\n      \"pdf_page\": 321,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"decision boundary\",\n      \"pdf_page\": 321,\n      \"figure_label\": \"Figure 10.8\",\n      \"caption\": \"Figure 10.8 Figurative illustrations of two-class linear and nonlinear classification. (left panel) Linear two-class classification, where the separating boundary is defined by ˚xTw = 0. (right panel) Nonlinear two-class classification, where the separating boundary is defined as ˚fTw = 0. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 325,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "fusion rule",
+            "latex": "y_p = \\underset{c}{\\arg\\max} \\; \\left[ \\text{model}\\left(\\mathbf{x}_p, \\mathbf{W}\\right) \\right]_c, \\quad p = 1, \\dots, P",
+            "pdf_page": 325,
+            "equation_label": "(10.35)",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"fusion rule\",\n      \"latex\": \"y_p = \\\\underset{c}{\\\\arg\\\\max} \\\\; \\\\left[ \\\\text{model}\\\\left(\\\\mathbf{x}_p, \\\\mathbf{W}\\\\right) \\\\right]_c, \\\\quad p = 1, \\\\dots, P\",\n      \"pdf_page\": 325,\n      \"equation_label\": \"(10.35)\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 326,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "feature sharing",
+            "latex": "\\text{model}(x, \\Theta) = \\mathring{\\mathbf{f}}^T W",
+            "pdf_page": 327,
+            "equation_label": "10.40",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "feature sharing",
+            "pdf_page": 326,
+            "figure_label": "Figure 10.12",
+            "caption": "Figurative illustrations of multi-class classifiers on a generic dataset with C = 3 classes. (left panel) Linear multi-class classification. (middle panel) Nonlinear multi-class classification where each classifier uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-class classification where all classifiers share the same nonlinear feature transformations. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"feature sharing\",\n      \"latex\": \"\\\\text{model}(x, \\\\Theta) = \\\\mathring{\\\\mathbf{f}}^T W\",\n      \"pdf_page\": 327,\n      \"equation_label\": \"10.40\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"feature sharing\",\n      \"pdf_page\": 326,\n      \"figure_label\": \"Figure 10.12\",\n      \"caption\": \"Figurative illustrations of multi-class classifiers on a generic dataset with C = 3 classes. (left panel) Linear multi-class classification. (middle panel) Nonlinear multi-class classification where each classifier uses its own distinct nonlinear feature transformation. (right panel) Nonlinear multi-class classification where all classifiers share the same nonlinear feature transformations. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 327,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "degree two polynomial expansion",
+            "latex": "model (x, \\Theta) = w_0 + x_1 w_1 + x_2 w_2 + x_1 x_2 w_3 + x_1^2 w_4 + x_2^2 w_5",
+            "pdf_page": 327,
+            "equation_label": "10.43",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "degree two polynomial expansion",
+            "pdf_page": 328,
+            "figure_label": "Figure 10.13",
+            "caption": "Figure associated with Example 10.6. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"degree two polynomial expansion\",\n      \"latex\": \"model (x, \\\\Theta) = w_0 + x_1 w_1 + x_2 w_2 + x_1 x_2 w_3 + x_1^2 w_4 + x_2^2 w_5\",\n      \"pdf_page\": 327,\n      \"equation_label\": \"10.43\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"degree two polynomial expansion\",\n      \"pdf_page\": 328,\n      \"figure_label\": \"Figure 10.13\",\n      \"caption\": \"Figure associated with Example 10.6. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 328,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 329,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "least squares cost function",
+            "latex": "g(C) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| C C^T x_p - x_p \\right\\|_2^2",
+            "pdf_page": 329,
+            "equation_label": "(10.49)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "least squares cost function",
+            "latex": "g(\\Theta) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| f_d(f_e(x_p)) - x_p \\right\\|_2^2",
+            "pdf_page": 330,
+            "equation_label": "(10.54)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "manifold",
+            "pdf_page": 330,
+            "figure_label": "Figure 10.14",
+            "caption": "Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"least squares cost function\",\n      \"latex\": \"g(C) = \\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left\\\\| C C^T x_p - x_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 329,\n      \"equation_label\": \"(10.49)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"least squares cost function\",\n      \"latex\": \"g(\\\\Theta) = \\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left\\\\| f_d(f_e(x_p)) - x_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 330,\n      \"equation_label\": \"(10.54)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"manifold\",\n      \"pdf_page\": 330,\n      \"figure_label\": \"Figure 10.14\",\n      \"caption\": \"Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 330,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "encoder-decoder composition",
+            "latex": "model(x,\\Theta) = f_d(f_e(x))",
+            "pdf_page": 330,
+            "equation_label": "(10.51)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "encoder-decoder composition",
+            "latex": "model(x,C) = C C^T x",
+            "pdf_page": 329,
+            "equation_label": "(10.46)",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "encoder-decoder composition",
+            "pdf_page": 330,
+            "figure_label": "Figure 10.14",
+            "caption": "Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"encoder-decoder composition\",\n      \"latex\": \"model(x,\\\\Theta) = f_d(f_e(x))\",\n      \"pdf_page\": 330,\n      \"equation_label\": \"(10.51)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"encoder-decoder composition\",\n      \"latex\": \"model(x,C) = C C^T x\",\n      \"pdf_page\": 329,\n      \"equation_label\": \"(10.46)\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"encoder-decoder composition\",\n      \"pdf_page\": 330,\n      \"figure_label\": \"Figure 10.14\",\n      \"caption\": \"Figurative illustrations of a linear (left panel) and nonlinear (right panel) Autoencoder. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 334,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "output transformation",
+            "pdf_page": 334,
+            "figure_label": "Figure 10.18",
+            "caption": "As Moore proposed fifty years ago, the number of transistors in microprocessors versus the year they were invented follows an exponential pattern.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "output transformation",
+            "pdf_page": 335,
+            "figure_label": "Figure 10.19",
+            "caption": "(left panel) Experimental setup for verification of Ohm’s law. Black and brown wires are made up of constantan and copper, respectively. (right panel) Current measurements for 5 diﬀerent lengths of closing wire.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"output transformation\",\n      \"pdf_page\": 334,\n      \"figure_label\": \"Figure 10.18\",\n      \"caption\": \"As Moore proposed fifty years ago, the number of transistors in microprocessors versus the year they were invented follows an exponential pattern.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"output transformation\",\n      \"pdf_page\": 335,\n      \"figure_label\": \"Figure 10.19\",\n      \"caption\": \"(left panel) Experimental setup for verification of Ohm’s law. Black and brown wires are made up of constantan and copper, respectively. (right panel) Current measurements for 5 diﬀerent lengths of closing wire.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 336,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "nonlinear classification",
+            "pdf_page": 336,
+            "figure_label": "Figure 10.20",
+            "caption": "Figure associated with Exercise 10.8. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"nonlinear classification\",\n      \"pdf_page\": 336,\n      \"figure_label\": \"Figure 10.20\",\n      \"caption\": \"Figure associated with Exercise 10.8. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 337,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "kernel pca",
+            "latex": "g (w_1, ..., w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - f_p \\right\\|_2^2",
+            "pdf_page": 337,
+            "equation_label": "(10.59)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"kernel pca\",\n      \"latex\": \"g (w_1, ..., w_P, C) = \\\\frac{1}{P} \\\\sum_{p=1}^P \\\\left\\\\| C w_p - f_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 337,\n      \"equation_label\": \"(10.59)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 338,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "kernel k-means",
+            "latex": "g(w_1, \\dots, w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - f_p \\right\\|_2^2",
+            "pdf_page": 337,
+            "equation_label": "(10.59)",
+            "confidence": 0.9
+          },
+          {
+            "concept": "standard basis vector constraint",
+            "latex": "w_p \\in \\{e_k\\}_{k=1}^K",
+            "pdf_page": 338,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"kernel k-means\",\n      \"latex\": \"g(w_1, \\\\dots, w_P, C) = \\\\frac{1}{P} \\\\sum_{p=1}^P \\\\left\\\\| C w_p - f_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 337,\n      \"equation_label\": \"(10.59)\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"standard basis vector constraint\",\n      \"latex\": \"w_p \\\\in \\\\{e_k\\\\}_{k=1}^K\",\n      \"pdf_page\": 338,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "non-convex cost function",
+      "into": "non-convex cost function"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "softmax cost",
+      "into": "multi-class softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all classification",
+      "into": "one-versus-all"
+    },
+    {
+      "action": "local_merge",
+      "from": "non-convex cost function",
+      "into": "non-convex cost function"
+    },
+    {
+      "action": "local_merge",
+      "from": "fusion rule",
+      "into": "fusion rule"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "softmax cost",
+      "into": "multi-class softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "multi-class softmax cost",
+      "into": "multi-class softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all classification",
+      "into": "one-versus-all"
+    },
+    {
+      "action": "local_merge",
+      "from": "fusion rule",
+      "into": "fusion rule"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares error measurement",
+      "into": "least squares cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "non-convex cost function",
+      "into": "non-convex cost function"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature sharing",
+      "into": "feature sharing"
+    },
+    {
+      "action": "local_merge",
+      "from": "fusion rule",
+      "into": "fusion rule"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all approach",
+      "into": "one-versus-all"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "softmax cost",
+      "into": "multi-class softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "multi-class softmax cost",
+      "into": "multi-class softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all classification",
+      "into": "one-versus-all"
+    },
+    {
+      "action": "local_merge",
+      "from": "fusion rule",
+      "into": "fusion rule"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares error measurement",
+      "into": "least squares cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "non-convex cost function",
+      "into": "non-convex cost function"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature sharing",
+      "into": "feature sharing"
+    },
+    {
+      "action": "local_merge",
+      "from": "fusion rule",
+      "into": "fusion rule"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all approach",
+      "into": "one-versus-all"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares cost function",
+      "into": "least squares cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares cost",
+      "into": "least squares cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all",
+      "into": "one-versus-all approach"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature map",
+      "into": "nonlinear feature engineering"
+    }
+  ],
+  "warnings": [
+    "Rejected 6 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

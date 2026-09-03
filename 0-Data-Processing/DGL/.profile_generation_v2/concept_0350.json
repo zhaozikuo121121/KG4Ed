@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ed440f7c2793e0c9bb520730d9582846a71435e1ea7795f09adacfb6e02c43f7",
+  "concept_id": 350,
+  "concept_name": "rule-sequence",
+  "aliases": [
+    "rule-sequence",
+    "rule-sequence-based graph generation"
+  ],
+  "profile": "rule-sequence: In the taxonomy of generative graph learning, rule-sequence is a method placed under sequential generating. It is listed as one of the approaches for generating graphs sequentially within a broader classification of such methods. The available source does not provide specific operational details or algorithmic mechanisms for rule-sequence; no further technical specifics are given.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "rule-sequence: A method classified under sequential generating in the taxonomy of generative graph learning. It appears as one of the approaches for generating graphs sequentially, as part of a broader classification of generative graph learning methods. Specific operational details or algorithmic mechanisms are not provided in the available source.",
+    "claims": [
+      {
+        "claim": "rule-sequence is a method classified under sequential generating in the taxonomy of generative graph learning.",
+        "evidence_ids": [
+          "DGL-E0498"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence ID available; profile is therefore minimal."
+    ]
+  },
+  "review": {
+    "final_profile": "rule-sequence: In the taxonomy of generative graph learning, rule-sequence is a method placed under sequential generating. It is listed as one of the approaches for generating graphs sequentially within a broader classification of such methods. The available source does not provide specific operational details or algorithmic mechanisms for rule-sequence; no further technical specifics are given.",
+    "sentence_reviews": [
+      {
+        "sentence": "rule-sequence: In the taxonomy of generative graph learning, rule-sequence is a method placed under sequential generating.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0498"
+        ],
+        "reason": "The source lists rule-sequence as a method under sequential generating in the generative graph learning taxonomy."
+      },
+      {
+        "sentence": "It is listed as one of the approaches for generating graphs sequentially within a broader classification of such methods.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0498"
+        ],
+        "reason": "This restates the source's placement of rule-sequence within the sequential generating category of the taxonomy."
+      },
+      {
+        "sentence": "The available source does not provide specific operational details or algorithmic mechanisms for rule-sequence; no further technical specifics are given.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0498"
+        ],
+        "reason": "The source only gives the taxonomic placement and supplies no additional technical specifics."
+      }
+    ],
+    "warnings": [
+      "Only one evidence ID is available, so the profile is necessarily minimal."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"rule-sequence: A method classified under sequential generating in the taxonomy of generative graph learning. It appears as one of the approaches for generating graphs sequentially, as part of a broader classification of generative graph learning methods. Specific operational details or algorithmic mechanisms are not provided in the available source.\",\n  \"claims\": [\n    {\n      \"claim\": \"rule-sequence is a method classified under sequential generating in the taxonomy of generative graph learning.\",\n      \"evidence_ids\": [\"DGL-E0498\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only one evidence ID available; profile is therefore minimal.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"rule-sequence: In the taxonomy of generative graph learning, rule-sequence is a method placed under sequential generating. It is listed as one of the approaches for generating graphs sequentially within a broader classification of such methods. The available source does not provide specific operational details or algorithmic mechanisms for rule-sequence; no further technical specifics are given.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"rule-sequence: In the taxonomy of generative graph learning, rule-sequence is a method placed under sequential generating.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0498\"],\n      \"reason\": \"The source lists rule-sequence as a method under sequential generating in the generative graph learning taxonomy.\"\n    },\n    {\n      \"sentence\": \"It is listed as one of the approaches for generating graphs sequentially within a broader classification of such methods.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0498\"],\n      \"reason\": \"This restates the source's placement of rule-sequence within the sequential generating category of the taxonomy.\"\n    },\n    {\n      \"sentence\": \"The available source does not provide specific operational details or algorithmic mechanisms for rule-sequence; no further technical specifics are given.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0498\"],\n      \"reason\": \"The source only gives the taxonomic placement and supplies no additional technical specifics.\"\n    }\n  ],\n  \"warnings\": [\"Only one evidence ID is available, so the profile is necessarily minimal.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:03:22.278893+00:00"
+}

@@ -1,0 +1,1441 @@
+{
+  "version": "1.0.0",
+  "chapter": 9,
+  "chapter_title": "Feature Engineering and Selection",
+  "pdf_start": 269,
+  "pdf_end": 305,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T20:45:02+00:00",
+  "concepts": [
+    {
+      "canonical": "feature engineering",
+      "aliases": [
+        "designing features",
+        "feature design",
+        "feature extraction"
+      ],
+      "evidence_page": 269,
+      "evidence": "Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.",
+      "relevance": 0.9,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "feature selection",
+      "aliases": [],
+      "evidence_page": 269,
+      "evidence": "Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable.",
+      "relevance": 0.9,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "local optimization",
+      "aliases": [
+        "local optimization methods",
+        "local algorithm"
+      ],
+      "evidence_page": 269,
+      "evidence": "drastically improving the efficacy of many local optimization methods.",
+      "relevance": 0.9,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "regularization",
+      "aliases": [
+        "regularization strategies"
+      ],
+      "evidence_page": 269,
+      "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+      "relevance": 0.9,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "boosting",
+      "aliases": [],
+      "evidence_page": 269,
+      "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+      "relevance": 0.8,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "dimension reduction",
+      "aliases": [
+        "dimensionality reduction"
+      ],
+      "evidence_page": 269,
+      "evidence": "Feature selection can be thought of as a supervised dimension reduction technique",
+      "relevance": 0.8,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "histogram features",
+      "aliases": [
+        "histogram feature transformation"
+      ],
+      "evidence_page": 269,
+      "evidence": "the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data.",
+      "relevance": 0.7,
+      "anchor_page": 269
+    },
+    {
+      "canonical": "principal component analysis",
+      "aliases": [
+        "pca"
+      ],
+      "evidence_page": 270,
+      "evidence": "when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.",
+      "relevance": 0.9,
+      "anchor_page": 270
+    },
+    {
+      "canonical": "clustering",
+      "aliases": [
+        "clustering algorithms"
+      ],
+      "evidence_page": 270,
+      "evidence": "any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.",
+      "relevance": 0.8,
+      "anchor_page": 270
+    },
+    {
+      "canonical": "one-hot encoded labels",
+      "aliases": [
+        "one-hot encoding",
+        "one-hot encoded categorical labels",
+        "one-hot encoded vectors"
+      ],
+      "evidence_page": 272,
+      "evidence": "This method of encoding categorical features is sometimes referred to as one-hot encoding",
+      "relevance": 0.9,
+      "anchor_page": 272
+    },
+    {
+      "canonical": "inner product similarity",
+      "aliases": [
+        "cosine similarity"
+      ],
+      "evidence_page": 273,
+      "evidence": "the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity",
+      "relevance": 0.8,
+      "anchor_page": 273
+    },
+    {
+      "canonical": "normalization",
+      "aliases": [
+        "feature normalization"
+      ],
+      "evidence_page": 273,
+      "evidence": "each BoW vector is normalized to have unit length.",
+      "relevance": 0.8,
+      "anchor_page": 273
+    },
+    {
+      "canonical": "stemming",
+      "aliases": [
+        "word stemming"
+      ],
+      "evidence_page": 273,
+      "evidence": "This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.",
+      "relevance": 0.7,
+      "anchor_page": 273
+    },
+    {
+      "canonical": "stop words",
+      "aliases": [],
+      "evidence_page": 273,
+      "evidence": "uninformative words such as are and the, typically referred to as stop words",
+      "relevance": 0.7,
+      "anchor_page": 273
+    },
+    {
+      "canonical": "newton's method",
+      "aliases": [
+        "newtons method"
+      ],
+      "evidence_page": 275,
+      "evidence": "a run of Newton's method (see Section 4.4)",
+      "relevance": 0.8,
+      "anchor_page": 275
+    },
+    {
+      "canonical": "softmax cost function",
+      "aliases": [
+        "softmax loss",
+        "multi-class softmax cost",
+        "multiclass softmax loss",
+        "cross entropy cost",
+        "multi-class softmax",
+        "softmax cross entropy"
+      ],
+      "evidence_page": 275,
+      "evidence": "Employing the two-class Softmax cost (see Section 7.3) to learn the separator",
+      "relevance": 0.8,
+      "anchor_page": 275
+    },
+    {
+      "canonical": "discriminative features",
+      "aliases": [],
+      "evidence_page": 276,
+      "evidence": "pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.",
+      "relevance": 0.8,
+      "anchor_page": 276
+    },
+    {
+      "canonical": "edge histogram features",
+      "aliases": [
+        "edge histogram",
+        "edge-based histogram features",
+        "histogram of oriented gradients"
+      ],
+      "evidence_page": 277,
+      "evidence": "We then make normalized histogram of each image’s edge content (as shown for the examples in the right column of Figure 9.7).",
+      "relevance": 0.9,
+      "anchor_page": 277
+    },
+    {
+      "canonical": "mini-batch gradient descent",
+      "aliases": [
+        "minibatch gradient descent",
+        "mini-batch optimization"
+      ],
+      "evidence_page": 280,
+      "evidence": "mini-batch gradient descent (20 steps/epochs with a learning rate of α = 10−2 and batch size of 200 applied to a multi-class Softmax cost)",
+      "relevance": 0.9,
+      "anchor_page": 280
+    },
+    {
+      "canonical": "spectrogram",
+      "aliases": [
+        "spectral features",
+        "frequency histogram"
+      ],
+      "evidence_page": 281,
+      "evidence": "computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.",
+      "relevance": 0.8,
+      "anchor_page": 281
+    },
+    {
+      "canonical": "standard normalization",
+      "aliases": [
+        "standardize",
+        "standard normalize",
+        "standardize input features",
+        "feature scaling",
+        "standard scaling",
+        "z-score normalization"
+      ],
+      "evidence_page": 282,
+      "evidence": "Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.",
+      "relevance": 1.0,
+      "anchor_page": 282
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "inner product similarity",
+      "latex": "0 \\leq \\mathbf{x}_1^T \\mathbf{x}_2 \\leq 1",
+      "pdf_page": 273,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "standard normalization",
+      "latex": "\\frac{x_{p,n} - \\mu_n}{\\sigma_n}",
+      "pdf_page": 282,
+      "equation_label": "(9.2)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "standard normalization",
+      "latex": "\\mu_n = \\frac{1}{P}\\sum_{p=1}^{P} x_{p,n}, \\quad \\sigma_n = \\sqrt{\\frac{1}{P}\\sum_{p=1}^{P} \\left(x_{p,n} - \\mu_n\\right)^2}",
+      "pdf_page": 283,
+      "equation_label": "(9.3)",
+      "confidence": 1.0
+    }
+  ],
+  "figures": [
+    {
+      "concept": "feature selection",
+      "pdf_page": 270,
+      "figure_label": "Figure 9.1",
+      "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It doe",
+      "confidence": 0.95
+    },
+    {
+      "concept": "dimension reduction",
+      "pdf_page": 270,
+      "figure_label": "Figure 9.1",
+      "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It doe",
+      "confidence": 0.95
+    },
+    {
+      "concept": "principal component analysis",
+      "pdf_page": 270,
+      "figure_label": "Figure 9.1",
+      "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does",
+      "confidence": 0.95
+    },
+    {
+      "concept": "clustering",
+      "pdf_page": 270,
+      "figure_label": "Figure 9.1",
+      "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does",
+      "confidence": 0.95
+    },
+    {
+      "concept": "one-hot encoded labels",
+      "pdf_page": 272,
+      "figure_label": "Figure 9.2",
+      "caption": "Blood type converted into numerical features (top panels) and histogram-based features (bottom panel). See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "inner product similarity",
+      "pdf_page": 273,
+      "figure_label": "Figure 9.3",
+      "caption": "Bag of Words histogram features for the two example documents shown in Equation (9.1).",
+      "confidence": 0.9
+    },
+    {
+      "concept": "newton's method",
+      "pdf_page": 275,
+      "figure_label": "Figure 9.5",
+      "caption": "Figure 9.5 Figure associated with Example 9.2. See text for details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "softmax cost function",
+      "pdf_page": 275,
+      "figure_label": "Figure 9.5",
+      "caption": "Figure 9.5 Figure associated with Example 9.2. See text for details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "discriminative features",
+      "pdf_page": 277,
+      "figure_label": "Figure 9.7",
+      "caption": "Figure 9.7 (left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "edge histogram features",
+      "pdf_page": 277,
+      "figure_label": "Figure 9.7",
+      "caption": "(left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "edge histogram features",
+      "pdf_page": 278,
+      "figure_label": "Figure 9.9",
+      "caption": "A pictorial representation of the sort of generalized edge histogram feature transformation commonly used for object detection. An input image is broken down into small (here 9 × 9) blocks, and an edge histogram is computed on each of the smaller non-overlapping (here 3 × 3) patches that make up the block. The resulting histograms are then concatenated and normalized jointly, producing a feature vector for the entire block. Concatenating such block features by scanning the block window over the entire image gives the final feature vector.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "mini-batch gradient descent",
+      "pdf_page": 281,
+      "figure_label": "Figure 9.11",
+      "caption": "Figure associated with Example 9.3. See text for details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "spectrogram",
+      "pdf_page": 282,
+      "figure_label": "Figure 9.13",
+      "caption": "A pictorial representation of histogram-based features for audio data. The original speech signal (shown on the left) is broken up into small (overlapping) windows whose frequency histograms are computed and stacked vertically to produce a so-called spectrogram (shown on the right). Classification tasks like speech recognition are then performed using this feature representation or further refinements of it.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "feature engineering",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature scaling",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "the feature scaling techniques which we describe in Sections 9.3 through 9.5, properly normalize input data",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "histogram features",
+            "aliases": [
+              "histogram feature transformation"
+            ],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "dimension reduction",
+            "aliases": [
+              "dimensionality reduction"
+            ],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "Feature selection can be thought of as a supervised dimension reduction technique",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence_page": 270,
+            "anchor_page": 270,
+            "evidence": "when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "clustering",
+            "aliases": [],
+            "evidence_page": 270,
+            "anchor_page": 270,
+            "evidence": "any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "one-hot encoding",
+            "aliases": [],
+            "evidence_page": 272,
+            "anchor_page": 272,
+            "evidence": "This method of encoding categorical features is sometimes referred to as one-hot encoding",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bag of words",
+            "aliases": [
+              "BoW"
+            ],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "A very basic but widely used feature transformation of a document for machine learning tasks is called a Bag of Words (BoW) histogram or feature vector.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "stop words",
+            "aliases": [],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "uninformative words such as are and the, typically referred to as stop words",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "stemming",
+            "aliases": [],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "normalization",
+            "aliases": [
+              "feature normalization"
+            ],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "each BoW vector is normalized to have unit length.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "inner product similarity",
+            "aliases": [],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "the inner product between two BoW vectors x1 and x2 ... may be used as a rough geometric measure of similarity",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "softmax loss"
+            ],
+            "evidence_page": 275,
+            "anchor_page": 275,
+            "evidence": "Employing the two-class Softmax cost (see Section 7.3) to learn the separator",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [],
+            "evidence_page": 275,
+            "anchor_page": 275,
+            "evidence": "a run of Newton's method (see Section 4.4)",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature scaling\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"the feature scaling techniques which we describe in Sections 9.3 through 9.5, properly normalize input data\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"histogram features\",\n      \"aliases\": [\"histogram feature transformation\"],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"dimension reduction\",\n      \"aliases\": [\"dimensionality reduction\"],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"Feature selection can be thought of as a supervised dimension reduction technique\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence_page\": 270,\n      \"anchor_page\": 270,\n      \"evidence\": \"when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"clustering\",\n      \"aliases\": [],\n      \"evidence_page\": 270,\n      \"anchor_page\": 270,\n      \"evidence\": \"any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"one-hot encoding\",\n      \"aliases\": [],\n      \"evidence_page\": 272,\n      \"anchor_page\": 272,\n      \"evidence\": \"This method of encoding categorical features is sometimes referred to as one-hot encoding\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bag of words\",\n      \"aliases\": [\"BoW\"],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"A very basic but widely used feature transformation of a document for machine learning tasks is called a Bag of Words (BoW) histogram or feature vector.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"stop words\",\n      \"aliases\": [],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"uninformative words such as are and the, typically referred to as stop words\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"stemming\",\n      \"aliases\": [],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"normalization\",\n      \"aliases\": [\"feature normalization\"],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"each BoW vector is normalized to have unit length.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"inner product similarity\",\n      \"aliases\": [],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"the inner product between two BoW vectors x1 and x2 ... may be used as a rough geometric measure of similarity\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"softmax loss\"],\n      \"evidence_page\": 275,\n      \"anchor_page\": 275,\n      \"evidence\": \"Employing the two-class Softmax cost (see Section 7.3) to learn the separator\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [],\n      \"evidence_page\": 275,\n      \"anchor_page\": 275,\n      \"evidence\": \"a run of Newton's method (see Section 4.4)\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "edge histogram features",
+            "aliases": [
+              "edge histogram",
+              "edge-based histogram features",
+              "histogram of oriented gradients"
+            ],
+            "evidence_page": 277,
+            "anchor_page": 277,
+            "evidence": "We then make normalized histogram of each image’s edge content (as shown for the examples in the right column of Figure 9.7).",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "spectrogram",
+            "aliases": [
+              "spectral features",
+              "frequency histogram"
+            ],
+            "evidence_page": 281,
+            "anchor_page": 281,
+            "evidence": "computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "feature scaling",
+              "standard scaling",
+              "z-score normalization"
+            ],
+            "evidence_page": 282,
+            "anchor_page": 282,
+            "evidence": "Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "minibatch gradient descent"
+            ],
+            "evidence_page": 280,
+            "anchor_page": 280,
+            "evidence": "mini-batch gradient descent (20 steps/epochs with a learning rate of α = 10−2 and batch size of 200 applied to a multi-class Softmax cost)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "multi-class softmax cost",
+            "aliases": [
+              "softmax cost",
+              "multiclass softmax loss"
+            ],
+            "evidence_page": 280,
+            "anchor_page": 280,
+            "evidence": "multi-class Softmax cost",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"edge histogram features\",\n      \"aliases\": [\"edge histogram\", \"edge-based histogram features\", \"histogram of oriented gradients\"],\n      \"evidence_page\": 277,\n      \"anchor_page\": 277,\n      \"evidence\": \"We then make normalized histogram of each image’s edge content (as shown for the examples in the right column of Figure 9.7).\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"spectrogram\",\n      \"aliases\": [\"spectral features\", \"frequency histogram\"],\n      \"evidence_page\": 281,\n      \"anchor_page\": 281,\n      \"evidence\": \"computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"feature scaling\", \"standard scaling\", \"z-score normalization\"],\n      \"evidence_page\": 282,\n      \"anchor_page\": 282,\n      \"evidence\": \"Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"minibatch gradient descent\"],\n      \"evidence_page\": 280,\n      \"anchor_page\": 280,\n      \"evidence\": \"mini-batch gradient descent (20 steps/epochs with a learning rate of α = 10−2 and batch size of 200 applied to a multi-class Softmax cost)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"multi-class softmax cost\",\n      \"aliases\": [\"softmax cost\", \"multiclass softmax loss\"],\n      \"evidence_page\": 280,\n      \"anchor_page\": 280,\n      \"evidence\": \"multi-class Softmax cost\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "standard normalization",
+            "aliases": [],
+            "evidence_page": 275,
+            "anchor_page": 275,
+            "evidence": "standard normalization alters the shape of machine learning cost functions by making their contours appear more 'circular.'",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "zero-variance feature removal",
+            "aliases": [],
+            "evidence_page": 275,
+            "anchor_page": 275,
+            "evidence": "if σn = 0 for some n the standard normalization ... is undefined ... the corresponding input feature is redundant ... such a feature should be removed from the dataset",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "mean imputation",
+            "aliases": [],
+            "evidence_page": 279,
+            "anchor_page": 279,
+            "evidence": "This is often called mean imputation.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "pca-sphering",
+            "aliases": [
+              "whitening"
+            ],
+            "evidence_page": 280,
+            "anchor_page": 280,
+            "evidence": "PCA sphering takes the idea of standard normalization ... one step further by using PCA ... to rotate the mean-centered dataset, so that its largest orthogonal directions of variance align with the coordinate axes, prior to scaling each input by its standard deviation.",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [],\n      \"evidence_page\": 275,\n      \"anchor_page\": 275,\n      \"evidence\": \"standard normalization alters the shape of machine learning cost functions by making their contours appear more 'circular.'\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"zero-variance feature removal\",\n      \"aliases\": [],\n      \"evidence_page\": 275,\n      \"anchor_page\": 275,\n      \"evidence\": \"if σn = 0 for some n the standard normalization ... is undefined ... the corresponding input feature is redundant ... such a feature should be removed from the dataset\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"mean imputation\",\n      \"aliases\": [],\n      \"evidence_page\": 279,\n      \"anchor_page\": 279,\n      \"evidence\": \"This is often called mean imputation.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"pca-sphering\",\n      \"aliases\": [\"whitening\"],\n      \"evidence_page\": 280,\n      \"anchor_page\": 280,\n      \"evidence\": \"PCA sphering takes the idea of standard normalization ... one step further by using PCA ... to rotate the mean-centered dataset, so that its largest orthogonal directions of variance align with the coordinate axes, prior to scaling each input by its standard deviation.\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standard scaling"
+            ],
+            "evidence_page": 285,
+            "anchor_page": 285,
+            "evidence": "it is important to standard normalize the input data",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "pca-sphering",
+            "aliases": [],
+            "evidence_page": 282,
+            "anchor_page": 282,
+            "evidence": "PCA-sphering scheme applied to the same datapoint xp in three highly related steps",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [],
+            "evidence_page": 283,
+            "anchor_page": 283,
+            "evidence": "we can use what is called a feature selection technique",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [
+              "forward stagewise selection"
+            ],
+            "evidence_page": 283,
+            "anchor_page": 283,
+            "evidence": "Boosting is a bottom-up approach to feature selection wherein we gradually build up our model one feature at a time by training a supervised learner sequentially, one weight at a time.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "greedy algorithm",
+            "aliases": [],
+            "evidence_page": 287,
+            "anchor_page": 287,
+            "evidence": "Boosting is essentially a greedy algorithm, where at each stage we choose the next most important (feature-touching) weight and tune it properly",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "residual in boosting",
+            "aliases": [
+              "residual perspective on boosting"
+            ],
+            "evidence_page": 288,
+            "anchor_page": 288,
+            "evidence": "we can think about each round of boosting as determining the next feature that best correlates with the residual from the previous round",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence_page": 288,
+            "anchor_page": 288,
+            "evidence": "the simple linear combination of the cost function g and an auxiliary function h f(w) = g(w) + λ h(w) is often referred to as regularization",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "l0 norm regularizer",
+            "aliases": [
+              "ℓ0 regularization"
+            ],
+            "evidence_page": 289,
+            "anchor_page": 289,
+            "evidence": "By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥0), we penalize the regularized cost f for every non-zero entry of w",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "l1 norm regularizer",
+            "aliases": [
+              "ℓ1 regularization"
+            ],
+            "evidence_page": 289,
+            "anchor_page": 289,
+            "evidence": "By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥1), we penalize the regularized cost based on the sum of the absolute value of the entries of w.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "l2 norm regularizer",
+            "aliases": [
+              "ℓ2 regularization"
+            ],
+            "evidence_page": 289,
+            "anchor_page": 289,
+            "evidence": "By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥2), we penalize the regularized cost based on the sum of squares of the entries of w.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "sparse weight vector",
+            "aliases": [],
+            "evidence_page": 289,
+            "anchor_page": 289,
+            "evidence": "a weight vector w that is very sparse",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [],
+            "evidence_page": 285,
+            "anchor_page": 285,
+            "evidence": "M can be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standard scaling\"],\n      \"evidence_page\": 285,\n      \"anchor_page\": 285,\n      \"evidence\": \"it is important to standard normalize the input data\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"pca-sphering\",\n      \"aliases\": [],\n      \"evidence_page\": 282,\n      \"anchor_page\": 282,\n      \"evidence\": \"PCA-sphering scheme applied to the same datapoint xp in three highly related steps\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [],\n      \"evidence_page\": 283,\n      \"anchor_page\": 283,\n      \"evidence\": \"we can use what is called a feature selection technique\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [\"forward stagewise selection\"],\n      \"evidence_page\": 283,\n      \"anchor_page\": 283,\n      \"evidence\": \"Boosting is a bottom-up approach to feature selection wherein we gradually build up our model one feature at a time by training a supervised learner sequentially, one weight at a time.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"greedy algorithm\",\n      \"aliases\": [],\n      \"evidence_page\": 287,\n      \"anchor_page\": 287,\n      \"evidence\": \"Boosting is essentially a greedy algorithm, where at each stage we choose the next most important (feature-touching) weight and tune it properly\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"residual in boosting\",\n      \"aliases\": [\"residual perspective on boosting\"],\n      \"evidence_page\": 288,\n      \"anchor_page\": 288,\n      \"evidence\": \"we can think about each round of boosting as determining the next feature that best correlates with the residual from the previous round\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence_page\": 288,\n      \"anchor_page\": 288,\n      \"evidence\": \"the simple linear combination of the cost function g and an auxiliary function h f(w) = g(w) + λ h(w) is often referred to as regularization\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"l0 norm regularizer\",\n      \"aliases\": [\"ℓ0 regularization\"],\n      \"evidence_page\": 289,\n      \"anchor_page\": 289,\n      \"evidence\": \"By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥0), we penalize the regularized cost f for every non-zero entry of w\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"l1 norm regularizer\",\n      \"aliases\": [\"ℓ1 regularization\"],\n      \"evidence_page\": 289,\n      \"anchor_page\": 289,\n      \"evidence\": \"By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥1), we penalize the regularized cost based on the sum of the absolute value of the entries of w.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"l2 norm regularizer\",\n      \"aliases\": [\"ℓ2 regularization\"],\n      \"evidence_page\": 289,\n      \"anchor_page\": 289,\n      \"evidence\": \"By regularizing a cost g using this regularizer (i.e., f(w) = g(w) + λ ∥w∥2), we penalize the regularized cost based on the sum of squares of the entries of w.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"sparse weight vector\",\n      \"aliases\": [],\n      \"evidence_page\": 289,\n      \"anchor_page\": 289,\n      \"evidence\": \"a weight vector w that is very sparse\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 285,\n      \"anchor_page\": 285,\n      \"evidence\": \"M can be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "l0 norm",
+            "aliases": [
+              "ℓ0 norm",
+              "l0 regularizer"
+            ],
+            "evidence_page": 297,
+            "anchor_page": 289,
+            "evidence": "The ℓ0 vector norm of w, written as ∥w∥0, measures its length or magnitude as ∥w∥0 = number of non-zero entries of w.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "l1 norm",
+            "aliases": [
+              "ℓ1 norm",
+              "l1 regularizer"
+            ],
+            "evidence_page": 297,
+            "anchor_page": 289,
+            "evidence": "The ℓ1 vector norm, written as ∥w∥1, measures the magnitude of w as ∥w∥1 = Σ_{n=0}^N |w_n|.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "l2 norm",
+            "aliases": [
+              "ℓ2 norm",
+              "l2 regularizer"
+            ],
+            "evidence_page": 297,
+            "anchor_page": 289,
+            "evidence": "The ℓ2 vector norm of w, written as ∥w∥2, measures its magnitude as ∥w∥2 = √(Σ_{n=0}^N w_n^2).",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "sparsity",
+            "aliases": [
+              "sparse weight vector"
+            ],
+            "evidence_page": 297,
+            "anchor_page": 289,
+            "evidence": "the regularizer ∥w∥0 aims to determine a w that has as few non-zero elements as possible, or in other words, a weight vector w that is very sparse.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature selection via l1 regularization",
+            "aliases": [
+              "l1 feature selection",
+              "regularization‑based feature selection"
+            ],
+            "evidence_page": 298,
+            "anchor_page": 290,
+            "evidence": "Feature selection via ℓ1 regularization ... the ℓ1 norm is by far the more commonly used regularizer for feature selection in practice.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "regularization parameter",
+            "aliases": [
+              "λ selection"
+            ],
+            "evidence_page": 299,
+            "anchor_page": 291,
+            "evidence": "Selecting the right regularization parameter ... The value of λ can also be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [],
+            "evidence_page": 299,
+            "anchor_page": 291,
+            "evidence": "The value of λ can also be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standardize input"
+            ],
+            "evidence_page": 299,
+            "anchor_page": 291,
+            "evidence": "it is important to standard normalize the input data so that we can fairly compare each input feature’s contribution",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [
+              "boosting‑based feature selection"
+            ],
+            "evidence_page": 300,
+            "anchor_page": 292,
+            "evidence": "While boosting is an eﬃcient greedy scheme, the regularization idea detailed in this Section can be computationally intensive",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "greedy feature selection",
+            "aliases": [
+              "bottom‑up feature selection"
+            ],
+            "evidence_page": 300,
+            "anchor_page": 292,
+            "evidence": "boosting is a ‘bottom‑up’ approach that identifies individual features one‑at‑a‑time",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "top‑down feature selection",
+            "aliases": [
+              "regularization‑based feature selection"
+            ],
+            "evidence_page": 300,
+            "anchor_page": 292,
+            "evidence": "regularization takes a more ‘top‑down’ approach and identifies important features all at once",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "feature‑touching weights",
+            "aliases": [
+              "feature weights"
+            ],
+            "evidence_page": 298,
+            "anchor_page": 290,
+            "evidence": "feature-touching weights w1, w2, ..., wN, thus we only need regularize them (and not the bias weight w0).",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"l0 norm\",\n      \"aliases\": [\"ℓ0 norm\", \"l0 regularizer\"],\n      \"evidence_page\": 297,\n      \"anchor_page\": 289,\n      \"evidence\": \"The ℓ0 vector norm of w, written as ∥w∥0, measures its length or magnitude as ∥w∥0 = number of non-zero entries of w.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"l1 norm\",\n      \"aliases\": [\"ℓ1 norm\", \"l1 regularizer\"],\n      \"evidence_page\": 297,\n      \"anchor_page\": 289,\n      \"evidence\": \"The ℓ1 vector norm, written as ∥w∥1, measures the magnitude of w as ∥w∥1 = Σ_{n=0}^N |w_n|.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"l2 norm\",\n      \"aliases\": [\"ℓ2 norm\", \"l2 regularizer\"],\n      \"evidence_page\": 297,\n      \"anchor_page\": 289,\n      \"evidence\": \"The ℓ2 vector norm of w, written as ∥w∥2, measures its magnitude as ∥w∥2 = √(Σ_{n=0}^N w_n^2).\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"sparsity\",\n      \"aliases\": [\"sparse weight vector\"],\n      \"evidence_page\": 297,\n      \"anchor_page\": 289,\n      \"evidence\": \"the regularizer ∥w∥0 aims to determine a w that has as few non-zero elements as possible, or in other words, a weight vector w that is very sparse.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature selection via l1 regularization\",\n      \"aliases\": [\"l1 feature selection\", \"regularization‑based feature selection\"],\n      \"evidence_page\": 298,\n      \"anchor_page\": 290,\n      \"evidence\": \"Feature selection via ℓ1 regularization ... the ℓ1 norm is by far the more commonly used regularizer for feature selection in practice.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"regularization parameter\",\n      \"aliases\": [\"λ selection\"],\n      \"evidence_page\": 299,\n      \"anchor_page\": 291,\n      \"evidence\": \"Selecting the right regularization parameter ... The value of λ can also be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 299,\n      \"anchor_page\": 291,\n      \"evidence\": \"The value of λ can also be chosen entirely based on the sample statistics of the dataset via a procedure known as cross-validation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standardize input\"],\n      \"evidence_page\": 299,\n      \"anchor_page\": 291,\n      \"evidence\": \"it is important to standard normalize the input data so that we can fairly compare each input feature’s contribution\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [\"boosting‑based feature selection\"],\n      \"evidence_page\": 300,\n      \"anchor_page\": 292,\n      \"evidence\": \"While boosting is an eﬃcient greedy scheme, the regularization idea detailed in this Section can be computationally intensive\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"greedy feature selection\",\n      \"aliases\": [\"bottom‑up feature selection\"],\n      \"evidence_page\": 300,\n      \"anchor_page\": 292,\n      \"evidence\": \"boosting is a ‘bottom‑up’ approach that identifies individual features one‑at‑a‑time\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"top‑down feature selection\",\n      \"aliases\": [\"regularization‑based feature selection\"],\n      \"evidence_page\": 300,\n      \"anchor_page\": 292,\n      \"evidence\": \"regularization takes a more ‘top‑down’ approach and identifies important features all at once\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"feature‑touching weights\",\n      \"aliases\": [\"feature weights\"],\n      \"evidence_page\": 298,\n      \"anchor_page\": 290,\n      \"evidence\": \"feature-touching weights w1, w2, ..., wN, thus we only need regularize them (and not the bias weight w0).\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "stop words",
+            "aliases": [],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "uninformative words such as are and the, typically referred to as stop words",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "stemming",
+            "aliases": [
+              "word stemming"
+            ],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "one-hot encoding",
+            "aliases": [],
+            "evidence_page": 272,
+            "anchor_page": 272,
+            "evidence": "This method of encoding categorical features is sometimes referred to as one-hot encoding",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "unit length normalization",
+            "aliases": [
+              "vector normalization"
+            ],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "each BoW vector is normalized to have unit length.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "inner product similarity",
+            "aliases": [
+              "cosine similarity"
+            ],
+            "evidence_page": 273,
+            "anchor_page": 273,
+            "evidence": "the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "supervised dimension reduction",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "Feature selection can be thought of as a supervised dimension reduction technique",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "local optimization methods",
+            "aliases": [],
+            "evidence_page": 269,
+            "anchor_page": 269,
+            "evidence": "drastically improving the efficacy of many local optimization methods.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "discriminative features",
+            "aliases": [],
+            "evidence_page": 276,
+            "anchor_page": 276,
+            "evidence": "pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "raw pixel values",
+            "aliases": [],
+            "evidence_page": 276,
+            "anchor_page": 276,
+            "evidence": "raw pixel values",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "color channels",
+            "aliases": [],
+            "evidence_page": 276,
+            "anchor_page": 276,
+            "evidence": "one for each of the red, blue, and green channels.",
+            "relevance": 0.4
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"stop words\",\n      \"aliases\": [],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"uninformative words such as are and the, typically referred to as stop words\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"stemming\",\n      \"aliases\": [\"word stemming\"],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"one-hot encoding\",\n      \"aliases\": [],\n      \"evidence_page\": 272,\n      \"anchor_page\": 272,\n      \"evidence\": \"This method of encoding categorical features is sometimes referred to as one-hot encoding\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"unit length normalization\",\n      \"aliases\": [\"vector normalization\"],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"each BoW vector is normalized to have unit length.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"inner product similarity\",\n      \"aliases\": [\"cosine similarity\"],\n      \"evidence_page\": 273,\n      \"anchor_page\": 273,\n      \"evidence\": \"the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"supervised dimension reduction\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"Feature selection can be thought of as a supervised dimension reduction technique\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"local optimization methods\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"anchor_page\": 269,\n      \"evidence\": \"drastically improving the efficacy of many local optimization methods.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"discriminative features\",\n      \"aliases\": [],\n      \"evidence_page\": 276,\n      \"anchor_page\": 276,\n      \"evidence\": \"pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"raw pixel values\",\n      \"aliases\": [],\n      \"evidence_page\": 276,\n      \"anchor_page\": 276,\n      \"evidence\": \"raw pixel values\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"color channels\",\n      \"aliases\": [],\n      \"evidence_page\": 276,\n      \"anchor_page\": 276,\n      \"evidence\": \"one for each of the red, blue, and green channels.\",\n      \"relevance\": 0.4\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "feature engineering",
+            "aliases": [
+              "designing features",
+              "feature design",
+              "feature extraction"
+            ],
+            "evidence_page": 269,
+            "evidence": "Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.",
+            "relevance": 0.9,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [],
+            "evidence_page": 269,
+            "evidence": "Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable.",
+            "relevance": 0.9,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization methods",
+              "local optimization method",
+              "local algorithm"
+            ],
+            "evidence_page": 269,
+            "evidence": "drastically improving the efficacy of many local optimization methods.",
+            "relevance": 0.9,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularization strategies"
+            ],
+            "evidence_page": 269,
+            "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+            "relevance": 0.9,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [],
+            "evidence_page": 269,
+            "evidence": "In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.",
+            "relevance": 0.8,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "dimension reduction",
+            "aliases": [
+              "dimensionality reduction"
+            ],
+            "evidence_page": 269,
+            "evidence": "Feature selection can be thought of as a supervised dimension reduction technique",
+            "relevance": 0.8,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "histogram features",
+            "aliases": [
+              "histogram feature transformation"
+            ],
+            "evidence_page": 269,
+            "evidence": "the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data.",
+            "relevance": 0.7,
+            "anchor_page": 269
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "pca"
+            ],
+            "evidence_page": 270,
+            "evidence": "when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.",
+            "relevance": 0.9,
+            "anchor_page": 270
+          },
+          {
+            "canonical": "clustering",
+            "aliases": [
+              "clustering algorithms"
+            ],
+            "evidence_page": 270,
+            "evidence": "any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.",
+            "relevance": 0.8,
+            "anchor_page": 270
+          },
+          {
+            "canonical": "one-hot encoded labels",
+            "aliases": [
+              "one-hot encoding",
+              "one-hot encoded categorical labels",
+              "one-hot encoded vectors"
+            ],
+            "evidence_page": 272,
+            "evidence": "This method of encoding categorical features is sometimes referred to as one-hot encoding",
+            "relevance": 0.9,
+            "anchor_page": 272
+          },
+          {
+            "canonical": "bag of words",
+            "aliases": [
+              "bow"
+            ],
+            "evidence_page": 273,
+            "evidence": "A very basic but widely used feature transformation of a document for machine learning tasks is called a Bag of Words (BoW) histogram or feature vector.",
+            "relevance": 0.9,
+            "anchor_page": 273
+          },
+          {
+            "canonical": "inner product similarity",
+            "aliases": [
+              "cosine similarity"
+            ],
+            "evidence_page": 273,
+            "evidence": "the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity",
+            "relevance": 0.8,
+            "anchor_page": 273
+          },
+          {
+            "canonical": "normalization",
+            "aliases": [
+              "feature normalization"
+            ],
+            "evidence_page": 273,
+            "evidence": "each BoW vector is normalized to have unit length.",
+            "relevance": 0.8,
+            "anchor_page": 273
+          },
+          {
+            "canonical": "stemming",
+            "aliases": [
+              "word stemming"
+            ],
+            "evidence_page": 273,
+            "evidence": "This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.",
+            "relevance": 0.7,
+            "anchor_page": 273
+          },
+          {
+            "canonical": "stop words",
+            "aliases": [],
+            "evidence_page": 273,
+            "evidence": "uninformative words such as are and the, typically referred to as stop words",
+            "relevance": 0.7,
+            "anchor_page": 273
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newtons method"
+            ],
+            "evidence_page": 275,
+            "evidence": "a run of Newton's method (see Section 4.4)",
+            "relevance": 0.8,
+            "anchor_page": 275
+          },
+          {
+            "canonical": "softmax cost function",
+            "aliases": [
+              "softmax loss",
+              "multi-class softmax cost",
+              "multiclass softmax loss",
+              "cross entropy cost",
+              "multi-class softmax",
+              "softmax cross entropy"
+            ],
+            "evidence_page": 275,
+            "evidence": "Employing the two-class Softmax cost (see Section 7.3) to learn the separator",
+            "relevance": 0.8,
+            "anchor_page": 275
+          },
+          {
+            "canonical": "discriminative features",
+            "aliases": [],
+            "evidence_page": 276,
+            "evidence": "pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.",
+            "relevance": 0.8,
+            "anchor_page": 276
+          },
+          {
+            "canonical": "edge histogram features",
+            "aliases": [
+              "edge histogram",
+              "edge-based histogram features",
+              "histogram of oriented gradients"
+            ],
+            "evidence_page": 277,
+            "evidence": "We then make normalized histogram of each image’s edge content (as shown for the examples in the right column of Figure 9.7).",
+            "relevance": 0.9,
+            "anchor_page": 277
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "minibatch gradient descent",
+              "mini-batch optimization"
+            ],
+            "evidence_page": 280,
+            "evidence": "mini-batch gradient descent (20 steps/epochs with a learning rate of α = 10−2 and batch size of 200 applied to a multi-class Softmax cost)",
+            "relevance": 0.9,
+            "anchor_page": 280
+          },
+          {
+            "canonical": "spectrogram",
+            "aliases": [
+              "spectral features",
+              "frequency histogram"
+            ],
+            "evidence_page": 281,
+            "evidence": "computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.",
+            "relevance": 0.8,
+            "anchor_page": 281
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standardize",
+              "standard normalize",
+              "standardize input features",
+              "feature scaling",
+              "standard scaling",
+              "z-score normalization"
+            ],
+            "evidence_page": 282,
+            "evidence": "Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.",
+            "relevance": 1.0,
+            "anchor_page": 282
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [\"designing features\", \"feature design\", \"feature extraction\"],\n      \"evidence_page\": 269,\n      \"evidence\": \"Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"evidence\": \"Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local optimization methods\", \"local optimization method\", \"local algorithm\"],\n      \"evidence_page\": 269,\n      \"evidence\": \"drastically improving the efficacy of many local optimization methods.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularization strategies\"],\n      \"evidence_page\": 269,\n      \"evidence\": \"In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [],\n      \"evidence_page\": 269,\n      \"evidence\": \"In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"dimension reduction\",\n      \"aliases\": [\"dimensionality reduction\"],\n      \"evidence_page\": 269,\n      \"evidence\": \"Feature selection can be thought of as a supervised dimension reduction technique\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"histogram features\",\n      \"aliases\": [\"histogram feature transformation\"],\n      \"evidence_page\": 269,\n      \"evidence\": \"the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 269\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"pca\"],\n      \"evidence_page\": 270,\n      \"evidence\": \"when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 270\n    },\n    {\n      \"canonical\": \"clustering\",\n      \"aliases\": [\"clustering algorithms\"],\n      \"evidence_page\": 270,\n      \"evidence\": \"any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 270\n    },\n    {\n      \"canonical\": \"one-hot encoded labels\",\n      \"aliases\": [\"one-hot encoding\", \"one-hot encoded categorical labels\", \"one-hot encoded vectors\"],\n      \"evidence_page\": 272,\n      \"evidence\": \"This method of encoding categorical features is sometimes referred to as one-hot encoding\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 272\n    },\n    {\n      \"canonical\": \"bag of words\",\n      \"aliases\": [\"bow\"],\n      \"evidence_page\": 273,\n      \"evidence\": \"A very basic but widely used feature transformation of a document for machine learning tasks is called a Bag of Words (BoW) histogram or feature vector.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 273\n    },\n    {\n      \"canonical\": \"inner product similarity\",\n      \"aliases\": [\"cosine similarity\"],\n      \"evidence_page\": 273,\n      \"evidence\": \"the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 273\n    },\n    {\n      \"canonical\": \"normalization\",\n      \"aliases\": [\"feature normalization\"],\n      \"evidence_page\": 273,\n      \"evidence\": \"each BoW vector is normalized to have unit length.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 273\n    },\n    {\n      \"canonical\": \"stemming\",\n      \"aliases\": [\"word stemming\"],\n      \"evidence_page\": 273,\n      \"evidence\": \"This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 273\n    },\n    {\n      \"canonical\": \"stop words\",\n      \"aliases\": [],\n      \"evidence_page\": 273,\n      \"evidence\": \"uninformative words such as are and the, typically referred to as stop words\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 273\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newtons method\"],\n      \"evidence_page\": 275,\n      \"evidence\": \"a run of Newton's method (see Section 4.4)\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 275\n    },\n    {\n      \"canonical\": \"softmax cost function\",\n      \"aliases\": [\"softmax loss\", \"multi-class softmax cost\", \"multiclass softmax loss\", \"cross entropy cost\", \"multi-class softmax\", \"softmax cross entropy\"],\n      \"evidence_page\": 275,\n      \"evidence\": \"Employing the two-class Softmax cost (see Section 7.3) to learn the separator\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 275\n    },\n    {\n      \"canonical\": \"discriminative features\",\n      \"aliases\": [],\n      \"evidence_page\": 276,\n      \"evidence\": \"pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 276\n    },\n    {\n      \"canonical\": \"edge histogram features\",\n      \"aliases\": [\"edge histogram\", \"edge-based histogram features\", \"histogram of oriented gradients\"],\n      \"evidence_page\": 277,\n      \"evidence\": \"We then make normalized histogram of each image\\u2019s edge content (as shown for the examples in the right column of Figure 9.7).\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 277\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"minibatch gradient descent\", \"mini-batch optimization\"],\n      \"evidence_page\": 280,\n      \"evidence\": \"mini-batch gradient descent (20 steps/epochs with a learning rate of \\u03b1 = 10\\u22122 and batch size of 200 applied to a multi-class Softmax cost)\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 280\n    },\n    {\n      \"canonical\": \"spectrogram\",\n      \"aliases\": [\"spectral features\", \"frequency histogram\"],\n      \"evidence_page\": 281,\n      \"evidence\": \"computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 281\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standardize\", \"standard normalize\", \"standardize input features\", \"feature scaling\", \"standard scaling\", \"z-score normalization\"],\n      \"evidence_page\": 282,\n      \"evidence\": \"Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 282\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 269,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "feature selection",
+            "pdf_page": 270,
+            "figure_label": "Figure 9.1",
+            "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "dimension reduction",
+            "pdf_page": 270,
+            "figure_label": "Figure 9.1",
+            "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"feature selection\",\n      \"pdf_page\": 270,\n      \"figure_label\": \"Figure 9.1\",\n      \"caption\": \"A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"dimension reduction\",\n      \"pdf_page\": 270,\n      \"figure_label\": \"Figure 9.1\",\n      \"caption\": \"A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work differently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 270,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "principal component analysis",
+            "pdf_page": 270,
+            "figure_label": "Figure 9.1",
+            "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "clustering",
+            "pdf_page": 270,
+            "figure_label": "Figure 9.1",
+            "caption": "A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"principal component analysis\",\n      \"pdf_page\": 270,\n      \"figure_label\": \"Figure 9.1\",\n      \"caption\": \"A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"clustering\",\n      \"pdf_page\": 270,\n      \"figure_label\": \"Figure 9.1\",\n      \"caption\": \"A prototypical comparison of feature selection, PCA, and clustering as dimension reduction schemes on an arbitrary data matrix, like those we have discussed in previous chapters for un/supervised learning, whose rows contain features and columns individual data points. The former two methods reduce the dimension of the feature space, or in other words the number of rows in a data matrix. However, the two methods work diﬀerently: while feature selection literally selects rows from the original matrix to keep, PCA uses the geometry of the feature space to produce a new data matrix based on a lower feature dimensional version of the data. K-means, on the other hand, reduces the dimension of the data/number of data points, or equivalently the number of columns in the input data matrix. It does so by finding a small number of new averaged representatives or “centroids” of the input data, forming a new data matrix whose fewer columns (which are not present in the original data matrix) are precisely these centroids.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 272,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "one-hot encoded labels",
+            "pdf_page": 272,
+            "figure_label": "Figure 9.2",
+            "caption": "Blood type converted into numerical features (top panels) and histogram-based features (bottom panel). See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"one-hot encoded labels\",\n      \"pdf_page\": 272,\n      \"figure_label\": \"Figure 9.2\",\n      \"caption\": \"Blood type converted into numerical features (top panels) and histogram-based features (bottom panel). See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 273,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "inner product similarity",
+            "latex": "0 \\leq \\mathbf{x}_1^T \\mathbf{x}_2 \\leq 1",
+            "pdf_page": 273,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "inner product similarity",
+            "pdf_page": 273,
+            "figure_label": "Figure 9.3",
+            "caption": "Bag of Words histogram features for the two example documents shown in Equation (9.1).",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"inner product similarity\",\n      \"latex\": \"0 \\\\leq \\\\mathbf{x}_1^T \\\\mathbf{x}_2 \\\\leq 1\",\n      \"pdf_page\": 273,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"inner product similarity\",\n      \"pdf_page\": 273,\n      \"figure_label\": \"Figure 9.3\",\n      \"caption\": \"Bag of Words histogram features for the two example documents shown in Equation (9.1).\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 275,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "newton's method",
+            "pdf_page": 275,
+            "figure_label": "Figure 9.5",
+            "caption": "Figure 9.5 Figure associated with Example 9.2. See text for details.",
+            "confidence": 1.0
+          },
+          {
+            "concept": "softmax cost function",
+            "pdf_page": 275,
+            "figure_label": "Figure 9.5",
+            "caption": "Figure 9.5 Figure associated with Example 9.2. See text for details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"newton's method\",\n      \"pdf_page\": 275,\n      \"figure_label\": \"Figure 9.5\",\n      \"caption\": \"Figure 9.5 Figure associated with Example 9.2. See text for details.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"softmax cost function\",\n      \"pdf_page\": 275,\n      \"figure_label\": \"Figure 9.5\",\n      \"caption\": \"Figure 9.5 Figure associated with Example 9.2. See text for details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 276,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "discriminative features",
+            "pdf_page": 277,
+            "figure_label": "Figure 9.7",
+            "caption": "Figure 9.7 (left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"discriminative features\",\n      \"pdf_page\": 277,\n      \"figure_label\": \"Figure 9.7\",\n      \"caption\": \"Figure 9.7 (left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 277,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "edge histogram features",
+            "pdf_page": 277,
+            "figure_label": "Figure 9.7",
+            "caption": "(left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.",
+            "confidence": 1.0
+          },
+          {
+            "concept": "edge histogram features",
+            "pdf_page": 278,
+            "figure_label": "Figure 9.9",
+            "caption": "A pictorial representation of the sort of generalized edge histogram feature transformation commonly used for object detection. An input image is broken down into small (here 9 × 9) blocks, and an edge histogram is computed on each of the smaller non-overlapping (here 3 × 3) patches that make up the block. The resulting histograms are then concatenated and normalized jointly, producing a feature vector for the entire block. Concatenating such block features by scanning the block window over the entire image gives the final feature vector.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"edge histogram features\",\n      \"pdf_page\": 277,\n      \"figure_label\": \"Figure 9.7\",\n      \"caption\": \"(left column) Three images of simple shapes. While the triangles in the top two images are visually similar, this similarity is not reflected by comparing their raw pixel values. (middle column) Edge detected versions of the original images, here using 8 edge orientations, retain the distinguishing structural content while significantly reducing the amount of information in each image. (right column) By taking normalized histograms of the edge content we have a feature representation that captures the similarity of the two triangles quite well while distinguishing both from the square. See text for further details.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"edge histogram features\",\n      \"pdf_page\": 278,\n      \"figure_label\": \"Figure 9.9\",\n      \"caption\": \"A pictorial representation of the sort of generalized edge histogram feature transformation commonly used for object detection. An input image is broken down into small (here 9 × 9) blocks, and an edge histogram is computed on each of the smaller non-overlapping (here 3 × 3) patches that make up the block. The resulting histograms are then concatenated and normalized jointly, producing a feature vector for the entire block. Concatenating such block features by scanning the block window over the entire image gives the final feature vector.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 280,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "mini-batch gradient descent",
+            "pdf_page": 281,
+            "figure_label": "Figure 9.11",
+            "caption": "Figure associated with Example 9.3. See text for details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"mini-batch gradient descent\",\n      \"pdf_page\": 281,\n      \"figure_label\": \"Figure 9.11\",\n      \"caption\": \"Figure associated with Example 9.3. See text for details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 281,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "spectrogram",
+            "pdf_page": 282,
+            "figure_label": "Figure 9.13",
+            "caption": "A pictorial representation of histogram-based features for audio data. The original speech signal (shown on the left) is broken up into small (overlapping) windows whose frequency histograms are computed and stacked vertically to produce a so-called spectrogram (shown on the right). Classification tasks like speech recognition are then performed using this feature representation or further refinements of it.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"spectrogram\",\n      \"pdf_page\": 282,\n      \"figure_label\": \"Figure 9.13\",\n      \"caption\": \"A pictorial representation of histogram-based features for audio data. The original speech signal (shown on the left) is broken up into small (overlapping) windows whose frequency histograms are computed and stacked vertically to produce a so-called spectrogram (shown on the right). Classification tasks like speech recognition are then performed using this feature representation or further refinements of it.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 282,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "standard normalization",
+            "latex": "\\frac{x_{p,n} - \\mu_n}{\\sigma_n}",
+            "pdf_page": 282,
+            "equation_label": "(9.2)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "standard normalization",
+            "latex": "\\mu_n = \\frac{1}{P}\\sum_{p=1}^{P} x_{p,n}, \\quad \\sigma_n = \\sqrt{\\frac{1}{P}\\sum_{p=1}^{P} \\left(x_{p,n} - \\mu_n\\right)^2}",
+            "pdf_page": 283,
+            "equation_label": "(9.3)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"standard normalization\",\n      \"latex\": \"\\\\frac{x_{p,n} - \\\\mu_n}{\\\\sigma_n}\",\n      \"pdf_page\": 282,\n      \"equation_label\": \"(9.2)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"standard normalization\",\n      \"latex\": \"\\\\mu_n = \\\\frac{1}{P}\\\\sum_{p=1}^{P} x_{p,n}, \\\\quad \\\\sigma_n = \\\\sqrt{\\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left(x_{p,n} - \\\\mu_n\\\\right)^2}\",\n      \"pdf_page\": 283,\n      \"equation_label\": \"(9.3)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "feature scaling",
+      "into": "standard normalization"
+    },
+    {
+      "action": "local_merge",
+      "from": "multi-class softmax cost",
+      "into": "softmax cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-hot encoding",
+      "into": "one-hot encoding"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature scaling",
+      "into": "standard normalization"
+    },
+    {
+      "action": "local_merge",
+      "from": "multi-class softmax cost",
+      "into": "softmax cost"
+    }
+  ],
+  "warnings": [
+    "Rejected 1 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8d0662881176327a4c40ef5435981234f355d5acddeceb42a931c79201472ac3",
+  "concept_id": 14,
+  "concept_name": "directed graph",
+  "aliases": [
+    "directed graph",
+    "digraph",
+    "directed"
+  ],
+  "profile": "directed graph: A graph type in which edges have an orientation, also called a digraph. The term appears paired with the notation l_ij. It also appears in the context of graph properties and matrix representations.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "directed graph: A graph type in which edges have an orientation, commonly called a digraph. The word 'directed' appears in graph types and representations, and is paired with the notation l_ij. The same term appears again under graph properties and matrix representations.",
+    "claims": [
+      {
+        "claim": "A directed graph is a graph type in which edges have an orientation, commonly called a digraph.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "The word 'directed' appears in graph types and representations, and is paired with the notation l_ij.",
+        "evidence_ids": [
+          "DGL-E0011"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The same term appears again under graph properties and matrix representations.",
+        "evidence_ids": [
+          "DGL-E0046"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Handwritten notes provide limited evidence; the definition relies partly on background context."
+    ]
+  },
+  "review": {
+    "final_profile": "directed graph: A graph type in which edges have an orientation, also called a digraph. The term appears paired with the notation l_ij. It also appears in the context of graph properties and matrix representations.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph type in which edges have an orientation, also called a digraph.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Standard definition of a directed graph; not directly attested in the provided evidence but provides minimal necessary context."
+      },
+      {
+        "sentence": "The term appears paired with the notation l_ij.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0011"
+        ],
+        "reason": "The handwritten evidence shows 'directed l_ij'."
+      },
+      {
+        "sentence": "It also appears in the context of graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0046"
+        ],
+        "reason": "The term 'directed' appears on a page covering graph properties and matrix representations."
+      }
+    ],
+    "warnings": [
+      "Handwritten evidence is sparse; the orientational definition is background knowledge rather than directly sourced."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"directed graph: A graph type in which edges have an orientation, commonly called a digraph. The word 'directed' appears in graph types and representations, and is paired with the notation l_ij. The same term appears again under graph properties and matrix representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"A directed graph is a graph type in which edges have an orientation, commonly called a digraph.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"The word 'directed' appears in graph types and representations, and is paired with the notation l_ij.\",\n      \"evidence_ids\": [\"DGL-E0011\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The same term appears again under graph properties and matrix representations.\",\n      \"evidence_ids\": [\"DGL-E0046\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Handwritten notes provide limited evidence; the definition relies partly on background context.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"directed graph: A graph type in which edges have an orientation, also called a digraph. The term appears paired with the notation l_ij. It also appears in the context of graph properties and matrix representations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph type in which edges have an orientation, also called a digraph.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Standard definition of a directed graph; not directly attested in the provided evidence but provides minimal necessary context.\"\n    },\n    {\n      \"sentence\": \"The term appears paired with the notation l_ij.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0011\"],\n      \"reason\": \"The handwritten evidence shows 'directed l_ij'.\"\n    },\n    {\n      \"sentence\": \"It also appears in the context of graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0046\"],\n      \"reason\": \"The term 'directed' appears on a page covering graph properties and matrix representations.\"\n    }\n  ],\n  \"warnings\": [\n    \"Handwritten evidence is sparse; the orientational definition is background knowledge rather than directly sourced.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:55:14.523571+00:00"
+}

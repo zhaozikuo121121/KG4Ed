@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6e38dd137941e039cf0b57853a3d52374199b475300cbc475beb456954c22708",
+  "concept_id": 130,
+  "concept_name": "close/similar pairs",
+  "aliases": [
+    "close/similar pairs",
+    "similar node pairs"
+  ],
+  "profile": "close/similar pairs: pairs (u,v) of nodes that are close or similar. In graph neural networks and node embedding, the term denotes such node pairs.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "close/similar pairs: pairs (u,v) of nodes that are close or similar. The term appears in graph neural networks and node embedding, where it refers to node pairs that are close/similar.",
+    "claims": [
+      {
+        "claim": "Close/similar pairs are pairs (u,v) of nodes that are close or similar.",
+        "evidence_ids": [
+          "DGL-E0157"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term appears in graph neural networks and node embedding.",
+        "evidence_ids": [
+          "DGL-E0157"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Single handwritten source; usage details are not fully specified."
+    ]
+  },
+  "review": {
+    "final_profile": "close/similar pairs: pairs (u,v) of nodes that are close or similar. In graph neural networks and node embedding, the term denotes such node pairs.",
+    "sentence_reviews": [
+      {
+        "sentence": "close/similar pairs: pairs (u,v) of nodes that are close or similar.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0157"
+        ],
+        "reason": "The evidence directly defines the concept as pairs (u,v) that are close/similar."
+      },
+      {
+        "sentence": "In graph neural networks and node embedding, the term denotes such node pairs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0157"
+        ],
+        "reason": "The source page title and evidence are situated in graph neural networks and node embedding, and the term is used for close/similar node pairs."
+      }
+    ],
+    "warnings": [
+      "Single handwritten source; usage details are not fully specified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"close/similar pairs: pairs (u,v) of nodes that are close or similar. The term appears in graph neural networks and node embedding, where it refers to node pairs that are close/similar.\",\n  \"claims\": [\n    {\n      \"claim\": \"Close/similar pairs are pairs (u,v) of nodes that are close or similar.\",\n      \"evidence_ids\": [\"DGL-E0157\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term appears in graph neural networks and node embedding.\",\n      \"evidence_ids\": [\"DGL-E0157\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Single handwritten source; usage details are not fully specified.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"close/similar pairs: pairs (u,v) of nodes that are close or similar. In graph neural networks and node embedding, the term denotes such node pairs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"close/similar pairs: pairs (u,v) of nodes that are close or similar.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0157\"],\n      \"reason\": \"The evidence directly defines the concept as pairs (u,v) that are close/similar.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks and node embedding, the term denotes such node pairs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0157\"],\n      \"reason\": \"The source page title and evidence are situated in graph neural networks and node embedding, and the term is used for close/similar node pairs.\"\n    }\n  ],\n  \"warnings\": [\n    \"Single handwritten source; usage details are not fully specified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:44:49.509042+00:00"
+}

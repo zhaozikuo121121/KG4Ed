@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6b82339a0270dda4cacb7e361fddb56b5e48fecc105ef549e4ecb24493eb69b1",
+  "concept_id": 305,
+  "concept_name": "universal function approximator",
+  "aliases": [
+    "universal function approximator"
+  ],
+  "profile": "universal function approximator: a model capable of approximating a wide range of functions to arbitrary accuracy. Multi-layer perceptrons (MLPs) are universal function approximators.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "universal function approximator: a model capable of approximating any function to arbitrary accuracy. Multi-layer perceptrons (MLPs) are universal function approximators.",
+    "claims": [
+      {
+        "claim": "A universal function approximator is a model capable of approximating any function to arbitrary accuracy.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "Multi-layer perceptrons (MLPs) are universal function approximators.",
+        "evidence_ids": [
+          "DGL-E0450"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "universal function approximator: a model capable of approximating a wide range of functions to arbitrary accuracy. Multi-layer perceptrons (MLPs) are universal function approximators.",
+    "sentence_reviews": [
+      {
+        "sentence": "universal function approximator: a model capable of approximating a wide range of functions to arbitrary accuracy.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional context; not directly sourced but supports understanding of the term."
+      },
+      {
+        "sentence": "Multi-layer perceptrons (MLPs) are universal function approximators.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0450"
+        ],
+        "reason": "Directly stated in the source evidence."
+      }
+    ],
+    "warnings": [
+      "The definitional sentence is background context and is not explicitly grounded in the provided source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"universal function approximator: a model capable of approximating any function to arbitrary accuracy. Multi-layer perceptrons (MLPs) are universal function approximators.\",\n  \"claims\": [\n    {\n      \"claim\": \"A universal function approximator is a model capable of approximating any function to arbitrary accuracy.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"Multi-layer perceptrons (MLPs) are universal function approximators.\",\n      \"evidence_ids\": [\"DGL-E0450\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"universal function approximator: a model capable of approximating a wide range of functions to arbitrary accuracy. Multi-layer perceptrons (MLPs) are universal function approximators.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"universal function approximator: a model capable of approximating a wide range of functions to arbitrary accuracy.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional context; not directly sourced but supports understanding of the term.\"\n    },\n    {\n      \"sentence\": \"Multi-layer perceptrons (MLPs) are universal function approximators.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0450\"],\n      \"reason\": \"Directly stated in the source evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The definitional sentence is background context and is not explicitly grounded in the provided source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:49:07.727882+00:00"
+}

@@ -1,0 +1,124 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d8264ebf32c3eba5b80810ca7c14efb711f538afd95673446f1229f810e3dfab",
+  "concept_id": 151,
+  "concept_name": "softmax cost function",
+  "aliases": [
+    "softmax cost function",
+    "cross entropy cost",
+    "multi-class softmax",
+    "softmax cross entropy",
+    "softmax loss",
+    "multi-class softmax cost",
+    "multiclass softmax loss",
+    "softmax cost",
+    "softmax",
+    "two-class softmax cost"
+  ],
+  "profile": "softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost. It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator. The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}). It is also among the cost functions used in feature learning.",
+  "word_count": 81,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost. It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator. The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}). It is also among the cost functions used in feature learning.",
+    "claims": [
+      {
+        "claim": "Softmax cost function is a cost function for multi-class classification, also referred to as cross entropy cost.",
+        "evidence_ids": [
+          "MLR-E0170"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Softmax cost is minimized when training linear multi-class classifiers.",
+        "evidence_ids": [
+          "MLR-E0170"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A two-class softmax version can be used to learn the separator.",
+        "evidence_ids": [
+          "MLR-E0224"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points.",
+        "evidence_ids": [
+          "MLR-E0237"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}).",
+        "evidence_ids": [
+          "MLR-E0294"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The softmax cost is also among the cost functions used in feature learning.",
+        "evidence_ids": [
+          "MLR-E0260"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost. It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator. The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}). It is also among the cost functions used in feature learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0170"
+        ],
+        "reason": "The source refers to Cross Entropy / Softmax cost functions in the context of multi-class classification."
+      },
+      {
+        "sentence": "It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0170",
+          "MLR-E0224"
+        ],
+        "reason": "The source discusses minimizing these cost functions in linear multi-class classification, and another source explicitly uses the two-class Softmax cost to learn a separator."
+      },
+      {
+        "sentence": "The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0237",
+          "MLR-E0294"
+        ],
+        "reason": "The multi-class formula in the source matches the described average of log-sum-exp minus the true-class response, and the two-class formula is given as g(b, ω) = Σ log(1 + e^{-y_p(b + f_p^T ω)})."
+      },
+      {
+        "sentence": "It is also among the cost functions used in feature learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0260"
+        ],
+        "reason": "The softmax cost appears in the feature learning chapter's cost-function listing."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost. It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator. The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}). It is also among the cost functions used in feature learning.\",\n  \"claims\": [\n    {\n      \"claim\": \"Softmax cost function is a cost function for multi-class classification, also referred to as cross entropy cost.\",\n      \"evidence_ids\": [\"MLR-E0170\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Softmax cost is minimized when training linear multi-class classifiers.\",\n      \"evidence_ids\": [\"MLR-E0170\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A two-class softmax version can be used to learn the separator.\",\n      \"evidence_ids\": [\"MLR-E0224\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points.\",\n      \"evidence_ids\": [\"MLR-E0237\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}).\",\n      \"evidence_ids\": [\"MLR-E0294\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The softmax cost is also among the cost functions used in feature learning.\",\n      \"evidence_ids\": [\"MLR-E0260\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost. It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator. The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}). It is also among the cost functions used in feature learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"softmax cost function: A cost function for multi-class classification, also referred to as cross entropy cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0170\"],\n      \"reason\": \"The source refers to Cross Entropy / Softmax cost functions in the context of multi-class classification.\"\n    },\n    {\n      \"sentence\": \"It is minimized when training linear multi-class classifiers, and a two-class version can be used to learn a separator.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0170\", \"MLR-E0224\"],\n      \"reason\": \"The source discusses minimizing these cost functions in linear multi-class classification, and another source explicitly uses the two-class Softmax cost to learn a separator.\"\n    },\n    {\n      \"sentence\": \"The multi-class softmax cost averages a log-sum-exp term minus the linear response of the true class over data points; the two-class softmax cost has the form Σ log(1 + e^{-y_p(b + f_p^T ω)}).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0237\", \"MLR-E0294\"],\n      \"reason\": \"The multi-class formula in the source matches the described average of log-sum-exp minus the true-class response, and the two-class formula is given as g(b, ω) = Σ log(1 + e^{-y_p(b + f_p^T ω)}).\"\n    },\n    {\n      \"sentence\": \"It is also among the cost functions used in feature learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0260\"],\n      \"reason\": \"The softmax cost appears in the feature learning chapter's cost-function listing.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:25:29.106586+00:00"
+}

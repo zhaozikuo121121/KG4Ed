@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6fbe490d6f115909c4e40979f5c0a29ac71a9e1a5a86c878264c4a888472e050",
+  "concept_id": 51,
+  "concept_name": "principal component analysis",
+  "aliases": [
+    "principal component analysis",
+    "pca",
+    "linear autoencoder"
+  ],
+  "profile": "principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.",
+    "claims": [
+      {
+        "claim": "principal component analysis is equivalent to the eigen decomposition of the covariance matrix Σ.",
+        "evidence_ids": [
+          "DGL-E0064"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "principal component analysis is a linear autoencoder.",
+        "evidence_ids": [
+          "DGL-E0105"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "principal component analysis finds an orthonormal spanning basis while minimizing the data variance.",
+        "evidence_ids": [
+          "DGL-E0105"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.",
+    "sentence_reviews": [
+      {
+        "sentence": "principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0064",
+          "DGL-E0105"
+        ],
+        "reason": "Combines only the two source statements: eigendecomposition equivalence and linear-autoencoder/orthonormal-basis description."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.\",\n  \"claims\": [\n    {\n      \"claim\": \"principal component analysis is equivalent to the eigen decomposition of the covariance matrix Σ.\",\n      \"evidence_ids\": [\"DGL-E0064\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"principal component analysis is a linear autoencoder.\",\n      \"evidence_ids\": [\"DGL-E0105\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"principal component analysis finds an orthonormal spanning basis while minimizing the data variance.\",\n      \"evidence_ids\": [\"DGL-E0105\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"principal component analysis: a method equivalent to the eigen decomposition of the covariance matrix Σ and described as a linear autoencoder that finds an orthonormal spanning basis while minimizing the data variance.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0064\",\n        \"DGL-E0105\"\n      ],\n      \"reason\": \"Combines only the two source statements: eigendecomposition equivalence and linear-autoencoder/orthonormal-basis description.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:05:53.041732+00:00"
+}

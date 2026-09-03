@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f757bf55bde65d0ca309a6adbfb0f45068e17d6f39f059fb4de8ac41148b1c80",
+  "concept_id": 321,
+  "concept_name": "adjacency matrix generation",
+  "aliases": [
+    "adjacency matrix generation",
+    "generate graph adjacency matrix"
+  ],
+  "profile": "adjacency matrix generation: A generative learning task whose aim is to generate only the graph adjacency matrix.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "adjacency matrix generation: A generative learning task whose aim is to produce only the graph adjacency matrix, without generating other graph components.",
+    "claims": [
+      {
+        "claim": "Adjacency matrix generation is a generative learning task whose aim is to generate only the graph adjacency matrix.",
+        "evidence_ids": [
+          "DGL-E0456"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata limited to a single statement; no additional properties or examples are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "adjacency matrix generation: A generative learning task whose aim is to generate only the graph adjacency matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "adjacency matrix generation: A generative learning task whose aim is to generate only the graph adjacency matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0456"
+        ],
+        "reason": "The source explicitly states 'Aim: Generate only the graph adjacency matrix' in the context of generative learning tasks."
+      }
+    ],
+    "warnings": [
+      "Single-source statement provides no additional properties, applications, or examples."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"adjacency matrix generation: A generative learning task whose aim is to produce only the graph adjacency matrix, without generating other graph components.\",\n  \"claims\": [\n    {\n      \"claim\": \"Adjacency matrix generation is a generative learning task whose aim is to generate only the graph adjacency matrix.\",\n      \"evidence_ids\": [\"DGL-E0456\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata limited to a single statement; no additional properties or examples are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"adjacency matrix generation: A generative learning task whose aim is to generate only the graph adjacency matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"adjacency matrix generation: A generative learning task whose aim is to generate only the graph adjacency matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0456\"],\n      \"reason\": \"The source explicitly states 'Aim: Generate only the graph adjacency matrix' in the context of generative learning tasks.\"\n    }\n  ],\n  \"warnings\": [\n    \"Single-source statement provides no additional properties, applications, or examples.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:55:23.584912+00:00"
+}

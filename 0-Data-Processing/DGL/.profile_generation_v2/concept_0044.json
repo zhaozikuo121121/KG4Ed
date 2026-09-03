@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2ef3de5739dbc9cdffe174af6e08e3b9f36365dd1c8fb0b78e38915fbce70f60",
+  "concept_id": 44,
+  "concept_name": "percolation threshold",
+  "aliases": [
+    "percolation threshold"
+  ],
+  "profile": "percolation threshold: The term appears without an accompanying definition.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "percolation threshold: In percolation theory, it is the critical value at which a connected cluster spans the system, marking a phase transition from localized to global connectivity.",
+    "claims": [
+      {
+        "claim": "In percolation theory, it is the critical value at which a connected cluster spans the system, marking a phase transition from localized to global connectivity.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "No definitional or quantitative details were present in the metadata; the profile relies on one generic background sentence."
+    ]
+  },
+  "review": {
+    "final_profile": "percolation threshold: The term appears without an accompanying definition.",
+    "sentence_reviews": [
+      {
+        "sentence": "percolation threshold: The term appears without an accompanying definition.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0050"
+        ],
+        "reason": "The only available evidence is the standalone term, so no definitional content can be asserted."
+      }
+    ],
+    "warnings": [
+      "The available evidence is only the term itself; no definitional, quantitative, or contextual details are present."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"percolation threshold: In percolation theory, it is the critical value at which a connected cluster spans the system, marking a phase transition from localized to global connectivity.\",\n  \"claims\": [\n    {\n      \"claim\": \"In percolation theory, it is the critical value at which a connected cluster spans the system, marking a phase transition from localized to global connectivity.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"No definitional or quantitative details were present in the metadata; the profile relies on one generic background sentence.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"percolation threshold: The term appears without an accompanying definition.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"percolation threshold: The term appears without an accompanying definition.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0050\"],\n      \"reason\": \"The only available evidence is the standalone term, so no definitional content can be asserted.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available evidence is only the term itself; no definitional, quantitative, or contextual details are present.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:03:34.566238+00:00"
+}

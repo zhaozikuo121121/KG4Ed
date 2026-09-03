@@ -1,0 +1,1822 @@
+{
+  "version": "1.0.0",
+  "chapter": 7,
+  "chapter_title": "Linear Multi-class Classification",
+  "pdf_start": 204,
+  "pdf_end": 238,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T17:58:12+00:00",
+  "concepts": [
+    {
+      "canonical": "linear multi-class classification",
+      "aliases": [
+        "multi-class classification",
+        "multi-class linear classification"
+      ],
+      "evidence_page": 204,
+      "evidence": "In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.",
+      "relevance": 1.0,
+      "anchor_page": 204
+    },
+    {
+      "canonical": "multi-class perceptron",
+      "aliases": [],
+      "evidence_page": 204,
+      "evidence": "we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron",
+      "relevance": 0.85,
+      "anchor_page": 204
+    },
+    {
+      "canonical": "categorical multi-class classification",
+      "aliases": [
+        "categorical classification"
+      ],
+      "evidence_page": 204,
+      "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+      "relevance": 0.7,
+      "anchor_page": 204
+    },
+    {
+      "canonical": "weighted multi-class classification",
+      "aliases": [
+        "weighted classification"
+      ],
+      "evidence_page": 204,
+      "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+      "relevance": 0.7,
+      "anchor_page": 204
+    },
+    {
+      "canonical": "one-versus-all classification",
+      "aliases": [
+        "one-versus-rest",
+        "ova algorithm",
+        "one-versus-all multi-class classification",
+        "ova",
+        "one-vs-all",
+        "one-versus-all"
+      ],
+      "evidence_page": 205,
+      "evidence": "To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier.",
+      "relevance": 1.0,
+      "anchor_page": 205
+    },
+    {
+      "canonical": "signed distance to decision boundary",
+      "aliases": [
+        "signed distance"
+      ],
+      "evidence_page": 207,
+      "evidence": "we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.",
+      "relevance": 0.9,
+      "anchor_page": 207
+    },
+    {
+      "canonical": "weight normalization",
+      "aliases": [
+        "normalizing weights",
+        "normalize the weights"
+      ],
+      "evidence_page": 209,
+      "evidence": "if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)",
+      "relevance": 0.85,
+      "anchor_page": 209
+    },
+    {
+      "canonical": "bias",
+      "aliases": [
+        "bias weight",
+        "bias term"
+      ],
+      "evidence_page": 209,
+      "evidence": "Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}",
+      "relevance": 0.7,
+      "anchor_page": 209
+    },
+    {
+      "canonical": "fusion rule",
+      "aliases": [
+        "fusion rule for multi-class classification"
+      ],
+      "evidence_page": 211,
+      "evidence": "We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.",
+      "relevance": 0.95,
+      "anchor_page": 211
+    },
+    {
+      "canonical": "piecewise linear decision boundary",
+      "aliases": [
+        "piecewise linear boundary"
+      ],
+      "evidence_page": 212,
+      "evidence": "In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear",
+      "relevance": 0.8,
+      "anchor_page": 212
+    },
+    {
+      "canonical": "mini-batch gradient descent",
+      "aliases": [
+        "minibatch gradient descent",
+        "mini-batch optimization"
+      ],
+      "evidence_page": 235,
+      "evidence": "the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)",
+      "relevance": 0.95,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "softmax cost function",
+      "aliases": [
+        "cross entropy cost",
+        "multi-class softmax",
+        "softmax cross entropy"
+      ],
+      "evidence_page": 235,
+      "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+      "relevance": 0.95,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "multi-class perceptron cost",
+      "aliases": [
+        "multiclass perceptron",
+        "multi-class perceptron cost function",
+        "perceptron cost"
+      ],
+      "evidence_page": 235,
+      "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+      "relevance": 0.9,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "multi-class classification metrics",
+      "aliases": [
+        "multi-class metrics"
+      ],
+      "evidence_page": 235,
+      "evidence": "Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.",
+      "relevance": 0.8,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "batch size",
+      "aliases": [
+        "mini-batch size"
+      ],
+      "evidence_page": 235,
+      "evidence": "using a batch of size 200 for the mini-batch version",
+      "relevance": 0.7,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "categorical labels",
+      "aliases": [
+        "categorical label encoding"
+      ],
+      "evidence_page": 235,
+      "evidence": "we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels",
+      "relevance": 0.7,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "steplength",
+      "aliases": [
+        "learning rate",
+        "step size"
+      ],
+      "evidence_page": 235,
+      "evidence": "the same steplength for both runs",
+      "relevance": 0.7,
+      "anchor_page": 235
+    },
+    {
+      "canonical": "balanced accuracy",
+      "aliases": [
+        "balanced accuracy metric"
+      ],
+      "evidence_page": 237,
+      "evidence": "Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting.",
+      "relevance": 0.8,
+      "anchor_page": 237
+    },
+    {
+      "canonical": "weighted softmax cost",
+      "aliases": [
+        "weighted multi-class softmax",
+        "weighted softmax"
+      ],
+      "evidence_page": 237,
+      "evidence": "A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?",
+      "relevance": 0.8,
+      "anchor_page": 237
+    },
+    {
+      "canonical": "class imbalance",
+      "aliases": [
+        "imbalanced classes"
+      ],
+      "evidence_page": 237,
+      "evidence": "If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3",
+      "relevance": 0.75,
+      "anchor_page": 237
+    },
+    {
+      "canonical": "convexity of cost functions",
+      "aliases": [
+        "convex cost",
+        "convexity"
+      ],
+      "evidence_page": 237,
+      "evidence": "Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).",
+      "relevance": 0.75,
+      "anchor_page": 237
+    },
+    {
+      "canonical": "hessian of softmax cost",
+      "aliases": [
+        "softmax hessian",
+        "hessian matrix"
+      ],
+      "evidence_page": 237,
+      "evidence": "Show that the Hessian of the multi-class Softmax cost function can be computed block-wise",
+      "relevance": 0.7,
+      "anchor_page": 237
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "linear multi-class classification",
+      "latex": "\\tilde{y}_p = \\begin{cases} +1 & \\text{if } y_p = c \\\\ -1 & \\text{if } y_p \\neq c \\end{cases}",
+      "pdf_page": 205,
+      "equation_label": "7.1",
+      "confidence": 0.9
+    },
+    {
+      "concept": "one-versus-all classification",
+      "latex": "\\tilde{y}_p = \\begin{cases} +1 & \\text{if } y_p = c \\\\ -1 & \\text{if } y_p \\neq c \\end{cases}",
+      "pdf_page": 205,
+      "equation_label": "7.1",
+      "confidence": 0.95
+    },
+    {
+      "concept": "one-versus-all classification",
+      "latex": "\\mathbf{w}_c = \\begin{bmatrix} w_{0,c} \\\\ w_{1,c} \\\\ w_{2,c} \\\\ \\vdots \\\\ w_{N,c} \\end{bmatrix}",
+      "pdf_page": 206,
+      "equation_label": "7.2",
+      "confidence": 0.9
+    },
+    {
+      "concept": "one-versus-all classification",
+      "latex": "\\mathring{\\mathbf{x}}^T \\mathbf{w}_c = 0",
+      "pdf_page": 206,
+      "equation_label": "7.3",
+      "confidence": 0.9
+    },
+    {
+      "concept": "bias",
+      "latex": "b_j = w_{0,j}, \\quad \\omega_j = \\begin{bmatrix} w_{1,j} \\\\ w_{2,j} \\\\ \\vdots \\\\ w_{N,j} \\end{bmatrix}",
+      "pdf_page": 209,
+      "equation_label": "7.6",
+      "confidence": 0.95
+    },
+    {
+      "concept": "weight normalization",
+      "latex": "w_j \\leftarrow \\frac{w_j}{\\|\\omega_j\\|_2}",
+      "pdf_page": 209,
+      "equation_label": "7.8",
+      "confidence": 0.95
+    },
+    {
+      "concept": "weight normalization",
+      "latex": "y = \\underset{j = 0,\\dots,C-1}{\\mathrm{argmax}} \\; \\mathring{x}^T w_j",
+      "pdf_page": 210,
+      "equation_label": "7.10",
+      "confidence": 0.9
+    },
+    {
+      "concept": "fusion rule",
+      "latex": "y = \\underset{j = 0,\\ldots,C-1}{\\operatorname{argmax}} \\, \\mathring{x}^T w_j",
+      "pdf_page": 211,
+      "equation_label": "7.12",
+      "confidence": 1.0
+    },
+    {
+      "concept": "hessian of softmax cost",
+      "latex": "\\nabla^2_{w_s w_c} g = -\\left(\\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right)\\left(1 - \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right) x_p x_p^T \\quad \\text{for } s \\neq c",
+      "pdf_page": 237,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "hessian of softmax cost",
+      "latex": "\\nabla^2_{w_c w_c} g = \\sum_{p=1}^{P} \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\left(1 - \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right) x_p x_p^T",
+      "pdf_page": 237,
+      "equation_label": "",
+      "confidence": 0.9
+    }
+  ],
+  "figures": [
+    {
+      "concept": "linear multi-class classification",
+      "pdf_page": 205,
+      "figure_label": "Figure 7.1",
+      "caption": "A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "one-versus-all classification",
+      "pdf_page": 205,
+      "figure_label": "Figure 7.1",
+      "caption": "A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.",
+      "confidence": 0.85
+    },
+    {
+      "concept": "one-versus-all classification",
+      "pdf_page": 206,
+      "figure_label": "Figure 7.2",
+      "caption": "(top row) Three one-versus-all linear two-class classifiers learned to the dataset shown in Figure 7.1. (bottom row) All three classifiers shown on top of the original dataset. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "fusion rule",
+      "pdf_page": 212,
+      "figure_label": "Figure 7.6",
+      "caption": "The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "piecewise linear decision boundary",
+      "pdf_page": 212,
+      "figure_label": "Figure 7.6",
+      "caption": "The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "mini-batch gradient descent",
+      "pdf_page": 234,
+      "figure_label": "Figure 7.18",
+      "caption": "Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent, through the lens of machine learning using (for the sake of simplicity) a small dataset of points. In the full batch sweep we take a step in all points simultaneously, whereas (bottom panel) in the mini-batch approach we sweep through these points sequentially as if we received the data in an online fashion.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "mini-batch gradient descent",
+      "pdf_page": 235,
+      "figure_label": "Figure 7.19",
+      "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "softmax cost function",
+      "pdf_page": 235,
+      "figure_label": "Figure 7.19",
+      "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+      "confidence": 0.85
+    },
+    {
+      "concept": "batch size",
+      "pdf_page": 235,
+      "figure_label": "Figure 7.19",
+      "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+      "confidence": 0.85
+    },
+    {
+      "concept": "steplength",
+      "pdf_page": 235,
+      "figure_label": "Figure 7.19",
+      "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+      "confidence": 0.85
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "linear multi-class classification",
+            "aliases": [
+              "multi-class classification",
+              "linear multi-class classification"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "one-versus-rest",
+              "ova algorithm",
+              "one-versus-all multi-class classification"
+            ],
+            "evidence_page": 205,
+            "anchor_page": 205,
+            "evidence": "To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "fusion rule for multi-class classification"
+            ],
+            "evidence_page": 211,
+            "anchor_page": 211,
+            "evidence": "We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "signed distance to decision boundary",
+            "aliases": [
+              "signed distance"
+            ],
+            "evidence_page": 207,
+            "anchor_page": 207,
+            "evidence": "we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "weight normalization",
+            "aliases": [
+              "normalizing weights",
+              "normalize the weights"
+            ],
+            "evidence_page": 209,
+            "anchor_page": 209,
+            "evidence": "if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "argmax classification rule",
+            "aliases": [
+              "argmax rule",
+              "argmax labeling"
+            ],
+            "evidence_page": 207,
+            "anchor_page": 207,
+            "evidence": "y = argmax_{j = 0,...,C−1} x^T w_j",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "piecewise linear decision boundary",
+            "aliases": [
+              "piecewise linear boundary"
+            ],
+            "evidence_page": 212,
+            "anchor_page": 212,
+            "evidence": "In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "multi-class perceptron",
+            "aliases": [
+              "multi-class perceptron"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "mini-batch optimization",
+            "aliases": [
+              "mini-batch optimization"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "Here we also describe mini-batch optimization - first detailed in Section A.5 in the context of first order optimization - through the lens of machine learning",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "categorical multi-class classification",
+            "aliases": [
+              "categorical classification"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "weighted multi-class classification",
+            "aliases": [
+              "weighted classification"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "bias weight",
+            "aliases": [
+              "bias",
+              "bias term"
+            ],
+            "evidence_page": 209,
+            "anchor_page": 209,
+            "evidence": "Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "feature-touching weights",
+            "aliases": [
+              "feature weights",
+              "normal vector"
+            ],
+            "evidence_page": 209,
+            "anchor_page": 209,
+            "evidence": "(feature-touching weights): omega_j = [w_{1,j}, w_{2,j}, ..., w_{N,j}]^T",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"linear multi-class classification\",\n      \"aliases\": [\"multi-class classification\", \"linear multi-class classification\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"one-versus-rest\", \"ova algorithm\", \"one-versus-all multi-class classification\"],\n      \"evidence_page\": 205,\n      \"anchor_page\": 205,\n      \"evidence\": \"To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"fusion rule for multi-class classification\"],\n      \"evidence_page\": 211,\n      \"anchor_page\": 211,\n      \"evidence\": \"We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"signed distance to decision boundary\",\n      \"aliases\": [\"signed distance\"],\n      \"evidence_page\": 207,\n      \"anchor_page\": 207,\n      \"evidence\": \"we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"weight normalization\",\n      \"aliases\": [\"normalizing weights\", \"normalize the weights\"],\n      \"evidence_page\": 209,\n      \"anchor_page\": 209,\n      \"evidence\": \"if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"argmax classification rule\",\n      \"aliases\": [\"argmax rule\", \"argmax labeling\"],\n      \"evidence_page\": 207,\n      \"anchor_page\": 207,\n      \"evidence\": \"y = argmax_{j = 0,...,C−1} x^T w_j\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"piecewise linear decision boundary\",\n      \"aliases\": [\"piecewise linear boundary\"],\n      \"evidence_page\": 212,\n      \"anchor_page\": 212,\n      \"evidence\": \"In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"multi-class perceptron\",\n      \"aliases\": [\"multi-class perceptron\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"mini-batch optimization\",\n      \"aliases\": [\"mini-batch optimization\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"Here we also describe mini-batch optimization - first detailed in Section A.5 in the context of first order optimization - through the lens of machine learning\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"categorical multi-class classification\",\n      \"aliases\": [\"categorical classification\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"extensions of basic principles (including categorical and weighted multi-class classification)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"weighted multi-class classification\",\n      \"aliases\": [\"weighted classification\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"extensions of basic principles (including categorical and weighted multi-class classification)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"bias weight\",\n      \"aliases\": [\"bias\", \"bias term\"],\n      \"evidence_page\": 209,\n      \"anchor_page\": 209,\n      \"evidence\": \"Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"feature-touching weights\",\n      \"aliases\": [\"feature weights\", \"normal vector\"],\n      \"evidence_page\": 209,\n      \"anchor_page\": 209,\n      \"evidence\": \"(feature-touching weights): omega_j = [w_{1,j}, w_{2,j}, ..., w_{N,j}]^T\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "ova algorithm",
+              "one-versus-all multi-class classification"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "the two-step process we have now seen (i.e., learn C one-versus-all two-class classifiers and then combine them using the fusion rule) is generally referred to as the one-versus-all multi-class classification algorithm or OvA algorithm for short.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "multi-class fusion rule"
+            ],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "piecewise linear decision boundary",
+            "aliases": [],
+            "evidence_page": 204,
+            "anchor_page": 204,
+            "evidence": "In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "multi-class perceptron cost",
+            "aliases": [
+              "multi-class perceptron cost function"
+            ],
+            "evidence_page": 207,
+            "anchor_page": 207,
+            "evidence": "This cost function, which we refer to hereafter as the multi-class Perceptron cost, provides a way to tune all classifier weights simultaneously in order to recover weights that satisfy the fusion rule as well as possible.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "multi-class softmax cost",
+            "aliases": [
+              "multi-class cross entropy cost",
+              "softplus cost",
+              "multi-class logistic cost"
+            ],
+            "evidence_page": 210,
+            "anchor_page": 210,
+            "evidence": "This is referred to as the multi-class softmax cost function, both because it is built by smoothing the multi-class Perceptron using the softmax function",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "softmax function",
+            "aliases": [],
+            "evidence_page": 210,
+            "anchor_page": 210,
+            "evidence": "we can smooth the multi-class Perceptron cost employing the softmax function.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularized multi-class perceptron",
+              "regularized multi-class softmax"
+            ],
+            "evidence_page": 209,
+            "anchor_page": 209,
+            "evidence": "solve a regularized version... one can choose a single regularization parameter λ ≥0 to penalize the magnitude of all normal vectors simultaneously.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "standard gradient descent"
+            ],
+            "evidence_page": 208,
+            "anchor_page": 208,
+            "evidence": "minimizing the cost via the standard gradient descent procedure",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [],
+            "evidence_page": 210,
+            "anchor_page": 210,
+            "evidence": "we show the result of applying Newton's method to minimize the multi-class Softmax cost",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex cost function"
+            ],
+            "evidence_page": 207,
+            "anchor_page": 207,
+            "evidence": "the multi-class Perceptron is always convex regardless of the dataset employed",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second order methods"
+            ],
+            "evidence_page": 210,
+            "anchor_page": 210,
+            "evidence": "enabling us to use second order methods (in addition to zero and first order methods) in order to properly minimize it.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cross entropy",
+            "aliases": [
+              "multi-class cross entropy cost"
+            ],
+            "evidence_page": 211,
+            "anchor_page": 211,
+            "evidence": "This cost function is also referred to as the multi-class cross entropy cost because it is, likewise, a natural generalization of the two-class version",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "weight matrix stacking",
+            "aliases": [
+              "matrix notation for multi-class weights"
+            ],
+            "evidence_page": 212,
+            "anchor_page": 212,
+            "evidence": "we first stack the weights from our C classifiers together into a single (N + 1) × C array",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "argmax classification rule",
+            "aliases": [],
+            "evidence_page": 206,
+            "anchor_page": 206,
+            "evidence": "yp = argmax_{j = 0,...,C−1} x_p^T w_j",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "normal vector magnitude normalization",
+            "aliases": [
+              "unit length normal vectors"
+            ],
+            "evidence_page": 209,
+            "anchor_page": 209,
+            "evidence": "we have assumed that the normal vector for each two-class classifier has unit length, so that we can fairly compare the (signed) distance of each input",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"ova algorithm\", \"one-versus-all multi-class classification\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"the two-step process we have now seen (i.e., learn C one-versus-all two-class classifiers and then combine them using the fusion rule) is generally referred to as the one-versus-all multi-class classification algorithm or OvA algorithm for short.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"multi-class fusion rule\"],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"piecewise linear decision boundary\",\n      \"aliases\": [],\n      \"evidence_page\": 204,\n      \"anchor_page\": 204,\n      \"evidence\": \"In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"multi-class perceptron cost\",\n      \"aliases\": [\"multi-class perceptron cost function\"],\n      \"evidence_page\": 207,\n      \"anchor_page\": 207,\n      \"evidence\": \"This cost function, which we refer to hereafter as the multi-class Perceptron cost, provides a way to tune all classifier weights simultaneously in order to recover weights that satisfy the fusion rule as well as possible.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"multi-class softmax cost\",\n      \"aliases\": [\"multi-class cross entropy cost\", \"softplus cost\", \"multi-class logistic cost\"],\n      \"evidence_page\": 210,\n      \"anchor_page\": 210,\n      \"evidence\": \"This is referred to as the multi-class softmax cost function, both because it is built by smoothing the multi-class Perceptron using the softmax function\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"softmax function\",\n      \"aliases\": [],\n      \"evidence_page\": 210,\n      \"anchor_page\": 210,\n      \"evidence\": \"we can smooth the multi-class Perceptron cost employing the softmax function.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularized multi-class perceptron\", \"regularized multi-class softmax\"],\n      \"evidence_page\": 209,\n      \"anchor_page\": 209,\n      \"evidence\": \"solve a regularized version... one can choose a single regularization parameter λ ≥0 to penalize the magnitude of all normal vectors simultaneously.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"standard gradient descent\"],\n      \"evidence_page\": 208,\n      \"anchor_page\": 208,\n      \"evidence\": \"minimizing the cost via the standard gradient descent procedure\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [],\n      \"evidence_page\": 210,\n      \"anchor_page\": 210,\n      \"evidence\": \"we show the result of applying Newton's method to minimize the multi-class Softmax cost\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\"convex cost function\"],\n      \"evidence_page\": 207,\n      \"anchor_page\": 207,\n      \"evidence\": \"the multi-class Perceptron is always convex regardless of the dataset employed\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\"second order methods\"],\n      \"evidence_page\": 210,\n      \"anchor_page\": 210,\n      \"evidence\": \"enabling us to use second order methods (in addition to zero and first order methods) in order to properly minimize it.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cross entropy\",\n      \"aliases\": [\"multi-class cross entropy cost\"],\n      \"evidence_page\": 211,\n      \"anchor_page\": 211,\n      \"evidence\": \"This cost function is also referred to as the multi-class cross entropy cost because it is, likewise, a natural generalization of the two-class version\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"weight matrix stacking\",\n      \"aliases\": [\"matrix notation for multi-class weights\"],\n      \"evidence_page\": 212,\n      \"anchor_page\": 212,\n      \"evidence\": \"we first stack the weights from our C classifiers together into a single (N + 1) × C array\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"argmax classification rule\",\n      \"aliases\": [],\n      \"evidence_page\": 206,\n      \"anchor_page\": 206,\n      \"evidence\": \"yp = argmax_{j = 0,...,C−1} x_p^T w_j\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"normal vector magnitude normalization\",\n      \"aliases\": [\"unit length normal vectors\"],\n      \"evidence_page\": 209,\n      \"anchor_page\": 209,\n      \"evidence\": \"we have assumed that the normal vector for each two-class classifier has unit length, so that we can fairly compare the (signed) distance of each input\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "multi-class softmax cost function",
+            "aliases": [
+              "multi-class softmax",
+              "softmax cost"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 212,
+            "evidence": "Altogether we can then express the multi-class Softmax in Equation (7.23) equivalently as ... −1/P sum log( e^{x_p^T w_{yp}} / sum_j e^{x_p^T w_j} )",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularizer",
+              "l2 regularization"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 212,
+            "evidence": "it is common to regularize the multi-class Softmax as ... + lambda sum ||omega_j||^2",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newton method"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 212,
+            "evidence": "Regularization can also help prevent local optimization methods like Newton's method (which take large steps) from diverging when dealing with perfectly separable data",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight matrix stacking",
+            "aliases": [
+              "stacked weight matrix",
+              "weight matrix notation"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 212,
+            "evidence": "we first stack the weights from our C classifiers together into a single (N + 1) x C array",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-class perceptron cost",
+            "aliases": [
+              "multiclass perceptron",
+              "multi-class perceptron"
+            ],
+            "evidence_page": 221,
+            "anchor_page": 213,
+            "evidence": "we can write the pth summand of the multi-class Perceptron compactly as max[model(x_p, W)] - model(x_p, W)_{yp}",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "argmax fusion rule"
+            ],
+            "evidence_page": 221,
+            "anchor_page": 213,
+            "evidence": "we can write the fusion rule in Equation (7.12) itself equivalently as y = argmax[model(x, W)]",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "frobenius norm",
+            "aliases": [
+              "frobenius matrix norm"
+            ],
+            "evidence_page": 221,
+            "anchor_page": 213,
+            "evidence": "np.linalg.fro denotes the Frobenius matrix norm",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 222,
+            "anchor_page": 214,
+            "evidence": "directly employ the basic Python implementations of e.g., gradient descent (see Section 3.6.4) and Newton's method (see Section 4.4.6) without modification",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "autograd",
+            "aliases": [
+              "automatic differentiation"
+            ],
+            "evidence_page": 222,
+            "anchor_page": 214,
+            "evidence": "when using autograd as part of your optimization process it can be very convenient to first flatten your chosen cost",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "ova",
+              "one-vs-all",
+              "one-versus-all"
+            ],
+            "evidence_page": 222,
+            "anchor_page": 214,
+            "evidence": "two fundamental approaches to linear multi-class classification: the one-versus-all (OvA) and the multi-class Perceptron/Softmax",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "joint minimization",
+            "aliases": [
+              "simultaneous parameter tuning"
+            ],
+            "evidence_page": 222,
+            "anchor_page": 214,
+            "evidence": "with the multi-class Perceptron or Softmax cost function minimization we are tuning all parameters of all C classifiers simultaneously to directly satisfy the fusion rule",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "discrete probability distribution",
+            "aliases": [
+              "probability mass function"
+            ],
+            "evidence_page": 224,
+            "anchor_page": 216,
+            "evidence": "normalize data vectors like this one so that they can be interpreted as a discrete probability distribution",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "categorical cross entropy cost function",
+            "aliases": [
+              "categorical cross entropy",
+              "categorical cross-entropy cost"
+            ],
+            "evidence_page": 223,
+            "anchor_page": 215,
+            "evidence": "the notion of a categorical cross entropy cost, which (as we will see) is completely equivalent to the multi-class Softmax/cross entropy cost function",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "normalized exponential function",
+            "aliases": [
+              "softmax activation",
+              "normalized exponential"
+            ],
+            "evidence_page": 225,
+            "anchor_page": 217,
+            "evidence": "The function sigma(·) defined in Equation (7.36) is called a normalized exponential function. It is often used so that we may interpret an arbitrary vector s as a discrete probability distribution",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "exponentially normalized signed distances",
+            "aliases": [
+              "normalized signed distances"
+            ],
+            "evidence_page": 225,
+            "anchor_page": 217,
+            "evidence": "we can likewise consider the exponentially normalized signed distance in determining proper class ownership",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "one-hot encoding",
+            "aliases": [
+              "one-hot encoded vectors",
+              "one-hot encoded labels"
+            ],
+            "evidence_page": 227,
+            "anchor_page": 219,
+            "evidence": "transform our numerical label values yp in {0, 1, ..., C-1} with one-hot encoded vectors of the form",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [],
+            "evidence_page": 227,
+            "anchor_page": 219,
+            "evidence": "we can phrase multi-class classification as an instance of multi-output regression",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "probabilistic class assignment",
+            "aliases": [
+              "class ownership probabilistically"
+            ],
+            "evidence_page": 226,
+            "anchor_page": 218,
+            "evidence": "Transforming the histogram of signed distance measurements also gives us a way of considering class ownership probabilistically",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"multi-class softmax cost function\",\n      \"aliases\": [\"multi-class softmax\", \"softmax cost\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 212,\n      \"evidence\": \"Altogether we can then express the multi-class Softmax in Equation (7.23) equivalently as ... −1/P sum log( e^{x_p^T w_{yp}} / sum_j e^{x_p^T w_j} )\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularizer\", \"l2 regularization\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 212,\n      \"evidence\": \"it is common to regularize the multi-class Softmax as ... + lambda sum ||omega_j||^2\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newton method\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 212,\n      \"evidence\": \"Regularization can also help prevent local optimization methods like Newton's method (which take large steps) from diverging when dealing with perfectly separable data\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight matrix stacking\",\n      \"aliases\": [\"stacked weight matrix\", \"weight matrix notation\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 212,\n      \"evidence\": \"we first stack the weights from our C classifiers together into a single (N + 1) x C array\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-class perceptron cost\",\n      \"aliases\": [\"multiclass perceptron\", \"multi-class perceptron\"],\n      \"evidence_page\": 221,\n      \"anchor_page\": 213,\n      \"evidence\": \"we can write the pth summand of the multi-class Perceptron compactly as max[model(x_p, W)] - model(x_p, W)_{yp}\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [\"argmax fusion rule\"],\n      \"evidence_page\": 221,\n      \"anchor_page\": 213,\n      \"evidence\": \"we can write the fusion rule in Equation (7.12) itself equivalently as y = argmax[model(x, W)]\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"frobenius norm\",\n      \"aliases\": [\"frobenius matrix norm\"],\n      \"evidence_page\": 221,\n      \"anchor_page\": 213,\n      \"evidence\": \"np.linalg.fro denotes the Frobenius matrix norm\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 222,\n      \"anchor_page\": 214,\n      \"evidence\": \"directly employ the basic Python implementations of e.g., gradient descent (see Section 3.6.4) and Newton's method (see Section 4.4.6) without modification\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"autograd\",\n      \"aliases\": [\"automatic differentiation\"],\n      \"evidence_page\": 222,\n      \"anchor_page\": 214,\n      \"evidence\": \"when using autograd as part of your optimization process it can be very convenient to first flatten your chosen cost\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"ova\", \"one-vs-all\", \"one-versus-all\"],\n      \"evidence_page\": 222,\n      \"anchor_page\": 214,\n      \"evidence\": \"two fundamental approaches to linear multi-class classification: the one-versus-all (OvA) and the multi-class Perceptron/Softmax\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"joint minimization\",\n      \"aliases\": [\"simultaneous parameter tuning\"],\n      \"evidence_page\": 222,\n      \"anchor_page\": 214,\n      \"evidence\": \"with the multi-class Perceptron or Softmax cost function minimization we are tuning all parameters of all C classifiers simultaneously to directly satisfy the fusion rule\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"discrete probability distribution\",\n      \"aliases\": [\"probability mass function\"],\n      \"evidence_page\": 224,\n      \"anchor_page\": 216,\n      \"evidence\": \"normalize data vectors like this one so that they can be interpreted as a discrete probability distribution\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"categorical cross entropy cost function\",\n      \"aliases\": [\"categorical cross entropy\", \"categorical cross-entropy cost\"],\n      \"evidence_page\": 223,\n      \"anchor_page\": 215,\n      \"evidence\": \"the notion of a categorical cross entropy cost, which (as we will see) is completely equivalent to the multi-class Softmax/cross entropy cost function\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"normalized exponential function\",\n      \"aliases\": [\"softmax activation\", \"normalized exponential\"],\n      \"evidence_page\": 225,\n      \"anchor_page\": 217,\n      \"evidence\": \"The function sigma(·) defined in Equation (7.36) is called a normalized exponential function. It is often used so that we may interpret an arbitrary vector s as a discrete probability distribution\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"exponentially normalized signed distances\",\n      \"aliases\": [\"normalized signed distances\"],\n      \"evidence_page\": 225,\n      \"anchor_page\": 217,\n      \"evidence\": \"we can likewise consider the exponentially normalized signed distance in determining proper class ownership\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"one-hot encoding\",\n      \"aliases\": [\"one-hot encoded vectors\", \"one-hot encoded labels\"],\n      \"evidence_page\": 227,\n      \"anchor_page\": 219,\n      \"evidence\": \"transform our numerical label values yp in {0, 1, ..., C-1} with one-hot encoded vectors of the form\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [],\n      \"evidence_page\": 227,\n      \"anchor_page\": 219,\n      \"evidence\": \"we can phrase multi-class classification as an instance of multi-output regression\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"probabilistic class assignment\",\n      \"aliases\": [\"class ownership probabilistically\"],\n      \"evidence_page\": 226,\n      \"anchor_page\": 218,\n      \"evidence\": \"Transforming the histogram of signed distance measurements also gives us a way of considering class ownership probabilistically\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "one-hot encoding",
+            "aliases": [
+              "one-hot encoded vectors",
+              "one-hot encoded labels"
+            ],
+            "evidence_page": 219,
+            "anchor_page": 219,
+            "evidence": "transform our numerical label values yp ∈{0, 1, ..., C −1} with one-hot encoded vectors of the form",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [],
+            "evidence_page": 219,
+            "anchor_page": 219,
+            "evidence": "we can phrase multiclass classification as an instance of multi-output regression",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "normalized exponential transform",
+            "aliases": [
+              "softmax",
+              "normalized exponential"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 220,
+            "evidence": "taking the normalized exponential transform of our linear model normalizes it in such a way (by forcing all its entries to be non-negative and sum exactly to one)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "categorical cross entropy cost function",
+            "aliases": [
+              "multi-class cross entropy",
+              "softmax cost function",
+              "cross entropy cost"
+            ],
+            "evidence_page": 221,
+            "anchor_page": 219,
+            "evidence": "This is precisely a form of the standard Multi-class Cross Entropy / Softmax cost function",
+            "relevance": 0.98
+          },
+          {
+            "canonical": "log error",
+            "aliases": [
+              "log loss"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 220,
+            "evidence": "a more appropriate pointwise cost when dealing with binary output is the Log Error since it more heavily penalizes errors less than one in such instances",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence_page": 220,
+            "anchor_page": 220,
+            "evidence": "we could employ a standard pointwise regression cost like, for example, the Least Squares",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [],
+            "evidence_page": 221,
+            "anchor_page": 221,
+            "evidence": "to predict the label y′ of an input x′ we employ the fusion rule as y′ = argmax c=0,...,C−1 x′Tw⋆c",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "multi-class decision boundary",
+            "aliases": [
+              "decision boundary"
+            ],
+            "evidence_page": 221,
+            "anchor_page": 221,
+            "evidence": "this set of points forms the multi-class decision boundary",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "confidence scoring",
+            "aliases": [],
+            "evidence_page": 221,
+            "anchor_page": 221,
+            "evidence": "we can describe the confidence we have in any point based on the point's distance to the decision boundary",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "accuracy",
+            "aliases": [
+              "classification accuracy"
+            ],
+            "evidence_page": 222,
+            "anchor_page": 222,
+            "evidence": "compute the accuracy - denoted A - of a trained model. This is simply the normalized number of training data points whose labels are correctly predicted by the model",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "misclassification count",
+            "aliases": [
+              "number of misclassifications"
+            ],
+            "evidence_page": 222,
+            "anchor_page": 222,
+            "evidence": "Taking a sum of the above over all P points gives the total number of misclassifications of our trained model",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "confusion matrix",
+            "aliases": [],
+            "evidence_page": 224,
+            "anchor_page": 224,
+            "evidence": "The i, j th entry of this matrix counts the number of training data points that have true label y = i and predicted label ˆy = j",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "balanced accuracy",
+            "aliases": [],
+            "evidence_page": 224,
+            "anchor_page": 224,
+            "evidence": "advanced quality metrics we saw in the case of two-class classification to deal with severe class imbalance, including balanced accuracy",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "weighted multi-class classification",
+            "aliases": [],
+            "evidence_page": 225,
+            "anchor_page": 225,
+            "evidence": "Weighted multi-class classification arises for precisely the same reasons described for two-class classification, that is as a way of including a notion of confidence in datapoints and for dealing with severe class imbalances",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "mini-batch optimization",
+              "mini-batch learning"
+            ],
+            "evidence_page": 225,
+            "anchor_page": 225,
+            "evidence": "a simple extension of the standard gradient descent algorithm called mini-batch gradient descent. This approach is designed to accelerate the minimization of cost functions consisting of a sum of P terms",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "pointwise cost",
+            "aliases": [],
+            "evidence_page": 225,
+            "anchor_page": 225,
+            "evidence": "Each gp is what we have generally referred to as a pointwise cost that measures the error of a particular model on the pth point of a dataset",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "sgd"
+            ],
+            "evidence_page": 226,
+            "anchor_page": 226,
+            "evidence": "Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "epoch",
+            "aliases": [],
+            "evidence_page": 226,
+            "anchor_page": 226,
+            "evidence": "one complete sweep through the data being referred to as an epoch",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "online learning",
+            "aliases": [],
+            "evidence_page": 226,
+            "anchor_page": 226,
+            "evidence": "The mini-batch approach can also be used (or interpreted) as a so-called online learning technique, wherein data actually arises in small mini-batches and is directly used to update the parameters",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "full batch optimization",
+            "aliases": [
+              "full batch",
+              "standard gradient descent"
+            ],
+            "evidence_page": 226,
+            "anchor_page": 226,
+            "evidence": "as opposed to a standard (also called full batch) local optimization that takes individual steps by sweeping through an entire set of training data simultaneously",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "ova",
+              "one-versus-all"
+            ],
+            "evidence_page": 227,
+            "anchor_page": 227,
+            "evidence": "We began with the One-versus-All (or OvA for short) approach outlined in Section 7.2 which involves intelligently combining the results of several one-versus-all two-class classifiers",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "multi-class perceptron cost",
+            "aliases": [
+              "perceptron cost"
+            ],
+            "evidence_page": 227,
+            "anchor_page": 227,
+            "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "discrete probability distribution",
+            "aliases": [],
+            "evidence_page": 220,
+            "anchor_page": 220,
+            "evidence": "Interpreting σ(xTpW) as a discrete probability distribution, this is saying that we want to tune the weights of our model so that this distribution concentrates completely at index yp",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"one-hot encoding\",\n      \"aliases\": [\"one-hot encoded vectors\", \"one-hot encoded labels\"],\n      \"evidence_page\": 219,\n      \"anchor_page\": 219,\n      \"evidence\": \"transform our numerical label values yp ∈{0, 1, ..., C −1} with one-hot encoded vectors of the form\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [],\n      \"evidence_page\": 219,\n      \"anchor_page\": 219,\n      \"evidence\": \"we can phrase multiclass classification as an instance of multi-output regression\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"normalized exponential transform\",\n      \"aliases\": [\"softmax\", \"normalized exponential\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 220,\n      \"evidence\": \"taking the normalized exponential transform of our linear model normalizes it in such a way (by forcing all its entries to be non-negative and sum exactly to one)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"categorical cross entropy cost function\",\n      \"aliases\": [\"multi-class cross entropy\", \"softmax cost function\", \"cross entropy cost\"],\n      \"evidence_page\": 221,\n      \"anchor_page\": 219,\n      \"evidence\": \"This is precisely a form of the standard Multi-class Cross Entropy / Softmax cost function\",\n      \"relevance\": 0.98\n    },\n    {\n      \"canonical\": \"log error\",\n      \"aliases\": [\"log loss\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 220,\n      \"evidence\": \"a more appropriate pointwise cost when dealing with binary output is the Log Error since it more heavily penalizes errors less than one in such instances\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\"],\n      \"evidence_page\": 220,\n      \"anchor_page\": 220,\n      \"evidence\": \"we could employ a standard pointwise regression cost like, for example, the Least Squares\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"fusion rule\",\n      \"aliases\": [],\n      \"evidence_page\": 221,\n      \"anchor_page\": 221,\n      \"evidence\": \"to predict the label y′ of an input x′ we employ the fusion rule as y′ = argmax c=0,...,C−1 x′Tw⋆c\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"multi-class decision boundary\",\n      \"aliases\": [\"decision boundary\"],\n      \"evidence_page\": 221,\n      \"anchor_page\": 221,\n      \"evidence\": \"this set of points forms the multi-class decision boundary\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"confidence scoring\",\n      \"aliases\": [],\n      \"evidence_page\": 221,\n      \"anchor_page\": 221,\n      \"evidence\": \"we can describe the confidence we have in any point based on the point's distance to the decision boundary\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"accuracy\",\n      \"aliases\": [\"classification accuracy\"],\n      \"evidence_page\": 222,\n      \"anchor_page\": 222,\n      \"evidence\": \"compute the accuracy - denoted A - of a trained model. This is simply the normalized number of training data points whose labels are correctly predicted by the model\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"misclassification count\",\n      \"aliases\": [\"number of misclassifications\"],\n      \"evidence_page\": 222,\n      \"anchor_page\": 222,\n      \"evidence\": \"Taking a sum of the above over all P points gives the total number of misclassifications of our trained model\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"confusion matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 224,\n      \"anchor_page\": 224,\n      \"evidence\": \"The i, j th entry of this matrix counts the number of training data points that have true label y = i and predicted label ˆy = j\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"balanced accuracy\",\n      \"aliases\": [],\n      \"evidence_page\": 224,\n      \"anchor_page\": 224,\n      \"evidence\": \"advanced quality metrics we saw in the case of two-class classification to deal with severe class imbalance, including balanced accuracy\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"weighted multi-class classification\",\n      \"aliases\": [],\n      \"evidence_page\": 225,\n      \"anchor_page\": 225,\n      \"evidence\": \"Weighted multi-class classification arises for precisely the same reasons described for two-class classification, that is as a way of including a notion of confidence in datapoints and for dealing with severe class imbalances\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"mini-batch optimization\", \"mini-batch learning\"],\n      \"evidence_page\": 225,\n      \"anchor_page\": 225,\n      \"evidence\": \"a simple extension of the standard gradient descent algorithm called mini-batch gradient descent. This approach is designed to accelerate the minimization of cost functions consisting of a sum of P terms\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"pointwise cost\",\n      \"aliases\": [],\n      \"evidence_page\": 225,\n      \"anchor_page\": 225,\n      \"evidence\": \"Each gp is what we have generally referred to as a pointwise cost that measures the error of a particular model on the pth point of a dataset\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"sgd\"],\n      \"evidence_page\": 226,\n      \"anchor_page\": 226,\n      \"evidence\": \"Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"epoch\",\n      \"aliases\": [],\n      \"evidence_page\": 226,\n      \"anchor_page\": 226,\n      \"evidence\": \"one complete sweep through the data being referred to as an epoch\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"online learning\",\n      \"aliases\": [],\n      \"evidence_page\": 226,\n      \"anchor_page\": 226,\n      \"evidence\": \"The mini-batch approach can also be used (or interpreted) as a so-called online learning technique, wherein data actually arises in small mini-batches and is directly used to update the parameters\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"full batch optimization\",\n      \"aliases\": [\"full batch\", \"standard gradient descent\"],\n      \"evidence_page\": 226,\n      \"anchor_page\": 226,\n      \"evidence\": \"as opposed to a standard (also called full batch) local optimization that takes individual steps by sweeping through an entire set of training data simultaneously\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"ova\", \"one-versus-all\"],\n      \"evidence_page\": 227,\n      \"anchor_page\": 227,\n      \"evidence\": \"We began with the One-versus-All (or OvA for short) approach outlined in Section 7.2 which involves intelligently combining the results of several one-versus-all two-class classifiers\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"multi-class perceptron cost\",\n      \"aliases\": [\"perceptron cost\"],\n      \"evidence_page\": 227,\n      \"anchor_page\": 227,\n      \"evidence\": \"minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"discrete probability distribution\",\n      \"aliases\": [],\n      \"evidence_page\": 220,\n      \"anchor_page\": 220,\n      \"evidence\": \"Interpreting σ(xTpW) as a discrete probability distribution, this is saying that we want to tune the weights of our model so that this distribution concentrates completely at index yp\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "ova",
+              "one-vs-all",
+              "one-versus-rest"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "We began with the One-versus-All (or OvA for short) approach outlined in Section 7.2 which involves intelligently combining the results of several oneversus-all two-class classifiers.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "multi-class perceptron cost",
+            "aliases": [
+              "multiclass perceptron",
+              "multi-class perceptron cost function"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "softmax cost function",
+            "aliases": [
+              "cross entropy cost",
+              "multi-class softmax",
+              "softmax cross entropy"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "minibatch gradient descent",
+              "mini-batch optimization"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "categorical labels",
+            "aliases": [
+              "categorical label encoding"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-class classification metrics",
+            "aliases": [
+              "multi-class metrics"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "balanced accuracy",
+            "aliases": [
+              "balanced accuracy metric"
+            ],
+            "evidence_page": 237,
+            "anchor_page": 237,
+            "evidence": "Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weighted softmax cost",
+            "aliases": [
+              "weighted multi-class softmax",
+              "weighted softmax"
+            ],
+            "evidence_page": 237,
+            "anchor_page": 237,
+            "evidence": "A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convexity of cost functions",
+            "aliases": [
+              "convex cost",
+              "convexity"
+            ],
+            "evidence_page": 237,
+            "anchor_page": 237,
+            "evidence": "Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "hessian of softmax cost",
+            "aliases": [
+              "softmax hessian",
+              "hessian matrix"
+            ],
+            "evidence_page": 237,
+            "anchor_page": 237,
+            "evidence": "Show that the Hessian of the multi-class Softmax cost function can be computed block-wise",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "class imbalance",
+            "aliases": [
+              "imbalanced classes"
+            ],
+            "evidence_page": 237,
+            "anchor_page": 237,
+            "evidence": "If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "linear multi-class classification",
+            "aliases": [
+              "multi-class linear classification"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "In this Chapter we went from two to multi-class linear classification",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "batch size",
+            "aliases": [
+              "mini-batch size"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "using a batch of size 200 for the mini-batch version",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step size"
+            ],
+            "evidence_page": 235,
+            "anchor_page": 235,
+            "evidence": "the same steplength for both runs",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"one-versus-all classification\",\n      \"aliases\": [\"ova\", \"one-vs-all\", \"one-versus-rest\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"We began with the One-versus-All (or OvA for short) approach outlined in Section 7.2 which involves intelligently combining the results of several oneversus-all two-class classifiers.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"multi-class perceptron cost\",\n      \"aliases\": [\"multiclass perceptron\", \"multi-class perceptron cost function\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"softmax cost function\",\n      \"aliases\": [\"cross entropy cost\", \"multi-class softmax\", \"softmax cross entropy\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"minibatch gradient descent\", \"mini-batch optimization\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"categorical labels\",\n      \"aliases\": [\"categorical label encoding\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-class classification metrics\",\n      \"aliases\": [\"multi-class metrics\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"balanced accuracy\",\n      \"aliases\": [\"balanced accuracy metric\"],\n      \"evidence_page\": 237,\n      \"anchor_page\": 237,\n      \"evidence\": \"Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weighted softmax cost\",\n      \"aliases\": [\"weighted multi-class softmax\", \"weighted softmax\"],\n      \"evidence_page\": 237,\n      \"anchor_page\": 237,\n      \"evidence\": \"A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convexity of cost functions\",\n      \"aliases\": [\"convex cost\", \"convexity\"],\n      \"evidence_page\": 237,\n      \"anchor_page\": 237,\n      \"evidence\": \"Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"hessian of softmax cost\",\n      \"aliases\": [\"softmax hessian\", \"hessian matrix\"],\n      \"evidence_page\": 237,\n      \"anchor_page\": 237,\n      \"evidence\": \"Show that the Hessian of the multi-class Softmax cost function can be computed block-wise\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"class imbalance\",\n      \"aliases\": [\"imbalanced classes\"],\n      \"evidence_page\": 237,\n      \"anchor_page\": 237,\n      \"evidence\": \"If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"linear multi-class classification\",\n      \"aliases\": [\"multi-class linear classification\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"In this Chapter we went from two to multi-class linear classification\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"batch size\",\n      \"aliases\": [\"mini-batch size\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"using a batch of size 200 for the mini-batch version\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"learning rate\", \"step size\"],\n      \"evidence_page\": 235,\n      \"anchor_page\": 235,\n      \"evidence\": \"the same steplength for both runs\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "linear multi-class classification",
+            "aliases": [
+              "multi-class classification",
+              "multi-class linear classification"
+            ],
+            "evidence_page": 204,
+            "evidence": "In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.",
+            "relevance": 1.0,
+            "anchor_page": 204
+          },
+          {
+            "canonical": "multi-class perceptron",
+            "aliases": [],
+            "evidence_page": 204,
+            "evidence": "we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron",
+            "relevance": 0.85,
+            "anchor_page": 204
+          },
+          {
+            "canonical": "categorical multi-class classification",
+            "aliases": [
+              "categorical classification"
+            ],
+            "evidence_page": 204,
+            "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+            "relevance": 0.7,
+            "anchor_page": 204
+          },
+          {
+            "canonical": "weighted multi-class classification",
+            "aliases": [
+              "weighted classification"
+            ],
+            "evidence_page": 204,
+            "evidence": "extensions of basic principles (including categorical and weighted multi-class classification)",
+            "relevance": 0.7,
+            "anchor_page": 204
+          },
+          {
+            "canonical": "one-versus-all classification",
+            "aliases": [
+              "one-versus-rest",
+              "ova algorithm",
+              "one-versus-all multi-class classification",
+              "ova",
+              "one-vs-all",
+              "one-versus-all"
+            ],
+            "evidence_page": 205,
+            "evidence": "To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier.",
+            "relevance": 1.0,
+            "anchor_page": 205
+          },
+          {
+            "canonical": "argmax classification rule",
+            "aliases": [
+              "argmax rule",
+              "argmax labeling"
+            ],
+            "evidence_page": 207,
+            "evidence": "y = argmax_{j = 0,...,C−1} x^T w_j",
+            "relevance": 0.9,
+            "anchor_page": 207
+          },
+          {
+            "canonical": "signed distance to decision boundary",
+            "aliases": [
+              "signed distance"
+            ],
+            "evidence_page": 207,
+            "evidence": "we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.",
+            "relevance": 0.9,
+            "anchor_page": 207
+          },
+          {
+            "canonical": "weight normalization",
+            "aliases": [
+              "normalizing weights",
+              "normalize the weights"
+            ],
+            "evidence_page": 209,
+            "evidence": "if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)",
+            "relevance": 0.85,
+            "anchor_page": 209
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "bias weight",
+              "bias term"
+            ],
+            "evidence_page": 209,
+            "evidence": "Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}",
+            "relevance": 0.7,
+            "anchor_page": 209
+          },
+          {
+            "canonical": "feature-touching weights",
+            "aliases": [
+              "feature weights",
+              "normal vector"
+            ],
+            "evidence_page": 209,
+            "evidence": "(feature-touching weights): omega_j = [w_{1,j}, w_{2,j}, ..., w_{N,j}]^T",
+            "relevance": 0.65,
+            "anchor_page": 209
+          },
+          {
+            "canonical": "fusion rule",
+            "aliases": [
+              "fusion rule for multi-class classification"
+            ],
+            "evidence_page": 211,
+            "evidence": "We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.",
+            "relevance": 0.95,
+            "anchor_page": 211
+          },
+          {
+            "canonical": "piecewise linear decision boundary",
+            "aliases": [
+              "piecewise linear boundary"
+            ],
+            "evidence_page": 212,
+            "evidence": "In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear",
+            "relevance": 0.8,
+            "anchor_page": 212
+          },
+          {
+            "canonical": "weight matrix stacking",
+            "aliases": [
+              "matrix notation for multi-class weights"
+            ],
+            "evidence_page": 212,
+            "evidence": "we first stack the weights from our C classifiers together into a single (N + 1) × C array",
+            "relevance": 0.65,
+            "anchor_page": 212
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "minibatch gradient descent",
+              "mini-batch optimization"
+            ],
+            "evidence_page": 235,
+            "evidence": "the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)",
+            "relevance": 0.95,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "softmax cost function",
+            "aliases": [
+              "cross entropy cost",
+              "multi-class softmax",
+              "softmax cross entropy"
+            ],
+            "evidence_page": 235,
+            "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+            "relevance": 0.95,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "multi-class perceptron cost",
+            "aliases": [
+              "multiclass perceptron",
+              "multi-class perceptron cost function",
+              "perceptron cost"
+            ],
+            "evidence_page": 235,
+            "evidence": "minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions",
+            "relevance": 0.9,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "multi-class classification metrics",
+            "aliases": [
+              "multi-class metrics"
+            ],
+            "evidence_page": 235,
+            "evidence": "Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.",
+            "relevance": 0.8,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "batch size",
+            "aliases": [
+              "mini-batch size"
+            ],
+            "evidence_page": 235,
+            "evidence": "using a batch of size 200 for the mini-batch version",
+            "relevance": 0.7,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "categorical labels",
+            "aliases": [
+              "categorical label encoding"
+            ],
+            "evidence_page": 235,
+            "evidence": "we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels",
+            "relevance": 0.7,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step size"
+            ],
+            "evidence_page": 235,
+            "evidence": "the same steplength for both runs",
+            "relevance": 0.7,
+            "anchor_page": 235
+          },
+          {
+            "canonical": "balanced accuracy",
+            "aliases": [
+              "balanced accuracy metric"
+            ],
+            "evidence_page": 237,
+            "evidence": "Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting.",
+            "relevance": 0.8,
+            "anchor_page": 237
+          },
+          {
+            "canonical": "weighted softmax cost",
+            "aliases": [
+              "weighted multi-class softmax",
+              "weighted softmax"
+            ],
+            "evidence_page": 237,
+            "evidence": "A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?",
+            "relevance": 0.8,
+            "anchor_page": 237
+          },
+          {
+            "canonical": "class imbalance",
+            "aliases": [
+              "imbalanced classes"
+            ],
+            "evidence_page": 237,
+            "evidence": "If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3",
+            "relevance": 0.75,
+            "anchor_page": 237
+          },
+          {
+            "canonical": "convexity of cost functions",
+            "aliases": [
+              "convex cost",
+              "convexity"
+            ],
+            "evidence_page": 237,
+            "evidence": "Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).",
+            "relevance": 0.75,
+            "anchor_page": 237
+          },
+          {
+            "canonical": "hessian of softmax cost",
+            "aliases": [
+              "softmax hessian",
+              "hessian matrix"
+            ],
+            "evidence_page": 237,
+            "evidence": "Show that the Hessian of the multi-class Softmax cost function can be computed block-wise",
+            "relevance": 0.7,
+            "anchor_page": 237
+          }
+        ]
+      },
+      "raw": "{\"concepts\": [{\"canonical\": \"linear multi-class classification\", \"aliases\": [\"multi-class classification\", \"multi-class linear classification\"], \"evidence_page\": 204, \"evidence\": \"In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.\", \"relevance\": 1.0, \"anchor_page\": 204}, {\"canonical\": \"multi-class perceptron\", \"aliases\": [], \"evidence_page\": 204, \"evidence\": \"we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron\", \"relevance\": 0.85, \"anchor_page\": 204}, {\"canonical\": \"categorical multi-class classification\", \"aliases\": [\"categorical classification\"], \"evidence_page\": 204, \"evidence\": \"extensions of basic principles (including categorical and weighted multi-class classification)\", \"relevance\": 0.7, \"anchor_page\": 204}, {\"canonical\": \"weighted multi-class classification\", \"aliases\": [\"weighted classification\"], \"evidence_page\": 204, \"evidence\": \"extensions of basic principles (including categorical and weighted multi-class classification)\", \"relevance\": 0.7, \"anchor_page\": 204}, {\"canonical\": \"one-versus-all classification\", \"aliases\": [\"one-versus-rest\", \"ova algorithm\", \"one-versus-all multi-class classification\", \"ova\", \"one-vs-all\", \"one-versus-all\"], \"evidence_page\": 205, \"evidence\": \"To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier.\", \"relevance\": 1.0, \"anchor_page\": 205}, {\"canonical\": \"argmax classification rule\", \"aliases\": [\"argmax rule\", \"argmax labeling\"], \"evidence_page\": 207, \"evidence\": \"y = argmax_{j = 0,...,C−1} x^T w_j\", \"relevance\": 0.9, \"anchor_page\": 207}, {\"canonical\": \"signed distance to decision boundary\", \"aliases\": [\"signed distance\"], \"evidence_page\": 207, \"evidence\": \"we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.\", \"relevance\": 0.9, \"anchor_page\": 207}, {\"canonical\": \"weight normalization\", \"aliases\": [\"normalizing weights\", \"normalize the weights\"], \"evidence_page\": 209, \"evidence\": \"if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)\", \"relevance\": 0.85, \"anchor_page\": 209}, {\"canonical\": \"bias\", \"aliases\": [\"bias weight\", \"bias term\"], \"evidence_page\": 209, \"evidence\": \"Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}\", \"relevance\": 0.7, \"anchor_page\": 209}, {\"canonical\": \"feature-touching weights\", \"aliases\": [\"feature weights\", \"normal vector\"], \"evidence_page\": 209, \"evidence\": \"(feature-touching weights): omega_j = [w_{1,j}, w_{2,j}, ..., w_{N,j}]^T\", \"relevance\": 0.65, \"anchor_page\": 209}, {\"canonical\": \"fusion rule\", \"aliases\": [\"fusion rule for multi-class classification\"], \"evidence_page\": 211, \"evidence\": \"We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.\", \"relevance\": 0.95, \"anchor_page\": 211}, {\"canonical\": \"piecewise linear decision boundary\", \"aliases\": [\"piecewise linear boundary\"], \"evidence_page\": 212, \"evidence\": \"In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear\", \"relevance\": 0.8, \"anchor_page\": 212}, {\"canonical\": \"weight matrix stacking\", \"aliases\": [\"matrix notation for multi-class weights\"], \"evidence_page\": 212, \"evidence\": \"we first stack the weights from our C classifiers together into a single (N + 1) × C array\", \"relevance\": 0.65, \"anchor_page\": 212}, {\"canonical\": \"mini-batch gradient descent\", \"aliases\": [\"minibatch gradient descent\", \"mini-batch optimization\"], \"evidence_page\": 235, \"evidence\": \"the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)\", \"relevance\": 0.95, \"anchor_page\": 235}, {\"canonical\": \"softmax cost function\", \"aliases\": [\"cross entropy cost\", \"multi-class softmax\", \"softmax cross entropy\"], \"evidence_page\": 235, \"evidence\": \"minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions\", \"relevance\": 0.95, \"anchor_page\": 235}, {\"canonical\": \"multi-class perceptron cost\", \"aliases\": [\"multiclass perceptron\", \"multi-class perceptron cost function\", \"perceptron cost\"], \"evidence_page\": 235, \"evidence\": \"minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions\", \"relevance\": 0.9, \"anchor_page\": 235}, {\"canonical\": \"multi-class classification metrics\", \"aliases\": [\"multi-class metrics\"], \"evidence_page\": 235, \"evidence\": \"Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.\", \"relevance\": 0.8, \"anchor_page\": 235}, {\"canonical\": \"batch size\", \"aliases\": [\"mini-batch size\"], \"evidence_page\": 235, \"evidence\": \"using a batch of size 200 for the mini-batch version\", \"relevance\": 0.7, \"anchor_page\": 235}, {\"canonical\": \"categorical labels\", \"aliases\": [\"categorical label encoding\"], \"evidence_page\": 235, \"evidence\": \"we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels\", \"relevance\": 0.7, \"anchor_page\": 235}, {\"canonical\": \"steplength\", \"aliases\": [\"learning rate\", \"step size\"], \"evidence_page\": 235, \"evidence\": \"the same steplength for both runs\", \"relevance\": 0.7, \"anchor_page\": 235}, {\"canonical\": \"balanced accuracy\", \"aliases\": [\"balanced accuracy metric\"], \"evidence_page\": 237, \"evidence\": \"Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting.\", \"relevance\": 0.8, \"anchor_page\": 237}, {\"canonical\": \"weighted softmax cost\", \"aliases\": [\"weighted multi-class softmax\", \"weighted softmax\"], \"evidence_page\": 237, \"evidence\": \"A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?\", \"relevance\": 0.8, \"anchor_page\": 237}, {\"canonical\": \"class imbalance\", \"aliases\": [\"imbalanced classes\"], \"evidence_page\": 237, \"evidence\": \"If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3\", \"relevance\": 0.75, \"anchor_page\": 237}, {\"canonical\": \"convexity of cost functions\", \"aliases\": [\"convex cost\", \"convexity\"], \"evidence_page\": 237, \"evidence\": \"Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).\", \"relevance\": 0.75, \"anchor_page\": 237}, {\"canonical\": \"hessian of softmax cost\", \"aliases\": [\"softmax hessian\", \"hessian matrix\"], \"evidence_page\": 237, \"evidence\": \"Show that the Hessian of the multi-class Softmax cost function can be computed block-wise\", \"relevance\": 0.7, \"anchor_page\": 237}]}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 204,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "linear multi-class classification",
+            "latex": "\\tilde{y}_p = \\begin{cases} +1 & \\text{if } y_p = c \\\\ -1 & \\text{if } y_p \\neq c \\end{cases}",
+            "pdf_page": 205,
+            "equation_label": "7.1",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "linear multi-class classification",
+            "pdf_page": 205,
+            "figure_label": "Figure 7.1",
+            "caption": "A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"linear multi-class classification\",\n      \"latex\": \"\\\\tilde{y}_p = \\\\begin{cases} +1 & \\\\text{if } y_p = c \\\\\\\\ -1 & \\\\text{if } y_p \\\\neq c \\\\end{cases}\",\n      \"pdf_page\": 205,\n      \"equation_label\": \"7.1\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"linear multi-class classification\",\n      \"pdf_page\": 205,\n      \"figure_label\": \"Figure 7.1\",\n      \"caption\": \"A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 205,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "one-versus-all classification",
+            "latex": "\\tilde{y}_p = \\begin{cases} +1 & \\text{if } y_p = c \\\\ -1 & \\text{if } y_p \\neq c \\end{cases}",
+            "pdf_page": 205,
+            "equation_label": "7.1",
+            "confidence": 0.95
+          },
+          {
+            "concept": "one-versus-all classification",
+            "latex": "\\mathbf{w}_c = \\begin{bmatrix} w_{0,c} \\\\ w_{1,c} \\\\ w_{2,c} \\\\ \\vdots \\\\ w_{N,c} \\end{bmatrix}",
+            "pdf_page": 206,
+            "equation_label": "7.2",
+            "confidence": 0.9
+          },
+          {
+            "concept": "one-versus-all classification",
+            "latex": "\\mathring{\\mathbf{x}}^T \\mathbf{w}_c = 0",
+            "pdf_page": 206,
+            "equation_label": "7.3",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "one-versus-all classification",
+            "pdf_page": 205,
+            "figure_label": "Figure 7.1",
+            "caption": "A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.",
+            "confidence": 0.85
+          },
+          {
+            "concept": "one-versus-all classification",
+            "pdf_page": 206,
+            "figure_label": "Figure 7.2",
+            "caption": "(top row) Three one-versus-all linear two-class classifiers learned to the dataset shown in Figure 7.1. (bottom row) All three classifiers shown on top of the original dataset. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"one-versus-all classification\",\n      \"latex\": \"\\\\tilde{y}_p = \\\\begin{cases} +1 & \\\\text{if } y_p = c \\\\\\\\ -1 & \\\\text{if } y_p \\\\neq c \\\\end{cases}\",\n      \"pdf_page\": 205,\n      \"equation_label\": \"7.1\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"one-versus-all classification\",\n      \"latex\": \"\\\\mathbf{w}_c = \\\\begin{bmatrix} w_{0,c} \\\\\\\\ w_{1,c} \\\\\\\\ w_{2,c} \\\\\\\\ \\\\vdots \\\\\\\\ w_{N,c} \\\\end{bmatrix}\",\n      \"pdf_page\": 206,\n      \"equation_label\": \"7.2\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"one-versus-all classification\",\n      \"latex\": \"\\\\mathring{\\\\mathbf{x}}^T \\\\mathbf{w}_c = 0\",\n      \"pdf_page\": 206,\n      \"equation_label\": \"7.3\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"one-versus-all classification\",\n      \"pdf_page\": 205,\n      \"figure_label\": \"Figure 7.1\",\n      \"caption\": \"A prototypical classification dataset with C = 3 classes. Here points with label value yp = 0, yp = 1, and yp = 2 are colored blue, red, and green, respectively.\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"one-versus-all classification\",\n      \"pdf_page\": 206,\n      \"figure_label\": \"Figure 7.2\",\n      \"caption\": \"(top row) Three one-versus-all linear two-class classifiers learned to the dataset shown in Figure 7.1. (bottom row) All three classifiers shown on top of the original dataset. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 207,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "signed distance to decision boundary",
+            "latex": "\\mathring{x}^T w_c = \\max_{j=0,\\dots,C-1} \\mathring{x}^T w_j",
+            "pdf_page": 207,
+            "equation_label": "7.4",
+            "confidence": 0.6
+          },
+          {
+            "concept": "signed distance to decision boundary",
+            "latex": "y = \\arg\\max_{j=0,\\dots,C-1} \\mathring{x}^T w_j",
+            "pdf_page": 207,
+            "equation_label": "7.5",
+            "confidence": 0.6
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"signed distance to decision boundary\",\n      \"latex\": \"\\\\mathring{x}^T w_c = \\\\max_{j=0,\\\\dots,C-1} \\\\mathring{x}^T w_j\",\n      \"pdf_page\": 207,\n      \"equation_label\": \"7.4\",\n      \"confidence\": 0.6\n    },\n    {\n      \"concept\": \"signed distance to decision boundary\",\n      \"latex\": \"y = \\\\arg\\\\max_{j=0,\\\\dots,C-1} \\\\mathring{x}^T w_j\",\n      \"pdf_page\": 207,\n      \"equation_label\": \"7.5\",\n      \"confidence\": 0.6\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 209,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "bias",
+            "latex": "b_j = w_{0,j}, \\quad \\omega_j = \\begin{bmatrix} w_{1,j} \\\\ w_{2,j} \\\\ \\vdots \\\\ w_{N,j} \\end{bmatrix}",
+            "pdf_page": 209,
+            "equation_label": "7.6",
+            "confidence": 0.95
+          },
+          {
+            "concept": "weight normalization",
+            "latex": "w_j \\leftarrow \\frac{w_j}{\\|\\omega_j\\|_2}",
+            "pdf_page": 209,
+            "equation_label": "7.8",
+            "confidence": 0.95
+          },
+          {
+            "concept": "weight normalization",
+            "latex": "y = \\underset{j = 0,\\dots,C-1}{\\mathrm{argmax}} \\; \\mathring{x}^T w_j",
+            "pdf_page": 210,
+            "equation_label": "7.10",
+            "confidence": 0.9
+          },
+          {
+            "concept": "weight normalization",
+            "latex": "y = \\underset{j = 0,\\dots,C-1}{\\mathrm{argmax}} \\; \\mathring{x}^T w_j",
+            "pdf_page": 210,
+            "equation_label": "7.11",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"bias\",\n      \"latex\": \"b_j = w_{0,j}, \\\\quad \\\\omega_j = \\\\begin{bmatrix} w_{1,j} \\\\\\\\ w_{2,j} \\\\\\\\ \\\\vdots \\\\\\\\ w_{N,j} \\\\end{bmatrix}\",\n      \"pdf_page\": 209,\n      \"equation_label\": \"7.6\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"weight normalization\",\n      \"latex\": \"w_j \\\\leftarrow \\\\frac{w_j}{\\\\|\\\\omega_j\\\\|_2}\",\n      \"pdf_page\": 209,\n      \"equation_label\": \"7.8\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"weight normalization\",\n      \"latex\": \"y = \\\\underset{j = 0,\\\\dots,C-1}{\\\\mathrm{argmax}} \\\\; \\\\mathring{x}^T w_j\",\n      \"pdf_page\": 210,\n      \"equation_label\": \"7.10\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"weight normalization\",\n      \"latex\": \"y = \\\\underset{j = 0,\\\\dots,C-1}{\\\\mathrm{argmax}} \\\\; \\\\mathring{x}^T w_j\",\n      \"pdf_page\": 210,\n      \"equation_label\": \"7.11\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 211,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "fusion rule",
+            "latex": "y = \\underset{j = 0,\\ldots,C-1}{\\operatorname{argmax}} \\, \\mathring{x}^T w_j",
+            "pdf_page": 211,
+            "equation_label": "7.12",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "fusion rule",
+            "pdf_page": 212,
+            "figure_label": "Figure 7.6",
+            "caption": "The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"fusion rule\",\n      \"latex\": \"y = \\\\underset{j = 0,\\\\ldots,C-1}{\\\\operatorname{argmax}} \\\\, \\\\mathring{x}^T w_j\",\n      \"pdf_page\": 211,\n      \"equation_label\": \"7.12\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"fusion rule\",\n      \"pdf_page\": 212,\n      \"figure_label\": \"Figure 7.6\",\n      \"caption\": \"The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 212,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "piecewise linear decision boundary",
+            "pdf_page": 212,
+            "figure_label": "Figure 7.6",
+            "caption": "The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"piecewise linear decision boundary\",\n      \"pdf_page\": 212,\n      \"figure_label\": \"Figure 7.6\",\n      \"caption\": \"The result of applying the fusion rule in Equation (7.12) to the input space of our toy dataset, with regions colored according to their predicted label along with the original two-class decision boundaries (left panel) and fused multi-class decision boundary in black (right panel). See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 235,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "mini-batch gradient descent",
+            "pdf_page": 234,
+            "figure_label": "Figure 7.18",
+            "caption": "Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent, through the lens of machine learning using (for the sake of simplicity) a small dataset of points. In the full batch sweep we take a step in all points simultaneously, whereas (bottom panel) in the mini-batch approach we sweep through these points sequentially as if we received the data in an online fashion.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "mini-batch gradient descent",
+            "pdf_page": 235,
+            "figure_label": "Figure 7.19",
+            "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "softmax cost function",
+            "pdf_page": 235,
+            "figure_label": "Figure 7.19",
+            "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+            "confidence": 0.85
+          },
+          {
+            "concept": "batch size",
+            "pdf_page": 235,
+            "figure_label": "Figure 7.19",
+            "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+            "confidence": 0.85
+          },
+          {
+            "concept": "steplength",
+            "pdf_page": 235,
+            "figure_label": "Figure 7.19",
+            "caption": "Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.",
+            "confidence": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"mini-batch gradient descent\",\n      \"pdf_page\": 234,\n      \"figure_label\": \"Figure 7.18\",\n      \"caption\": \"Schematic comparison of first iteration of (top panel) full batch and (bottom) stochastic gradient descent, through the lens of machine learning using (for the sake of simplicity) a small dataset of points. In the full batch sweep we take a step in all points simultaneously, whereas (bottom panel) in the mini-batch approach we sweep through these points sequentially as if we received the data in an online fashion.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"mini-batch gradient descent\",\n      \"pdf_page\": 235,\n      \"figure_label\": \"Figure 7.19\",\n      \"caption\": \"Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"softmax cost function\",\n      \"pdf_page\": 235,\n      \"figure_label\": \"Figure 7.19\",\n      \"caption\": \"Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"batch size\",\n      \"pdf_page\": 235,\n      \"figure_label\": \"Figure 7.19\",\n      \"caption\": \"Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"steplength\",\n      \"pdf_page\": 235,\n      \"figure_label\": \"Figure 7.19\",\n      \"caption\": \"Figure associated with Example 7.10. A comparison of the progress made by standard (in black) and mini-batch (in magenta) gradient descent over the MNIST training dataset in terms of cost function value (left panel) and number of misclassifications (right panel). The mini-batch approach makes significantly faster progress than standard gradient descent in both measures.\",\n      \"confidence\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 237,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "hessian of softmax cost",
+            "latex": "\\nabla^2_{w_s w_c} g = -\\left(\\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right)\\left(1 - \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right) x_p x_p^T \\quad \\text{for } s \\neq c",
+            "pdf_page": 237,
+            "equation_label": "",
+            "confidence": 0.9
+          },
+          {
+            "concept": "hessian of softmax cost",
+            "latex": "\\nabla^2_{w_c w_c} g = \\sum_{p=1}^{P} \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\left(1 - \\frac{e^{x_p^T w_c}}{\\sum_{d=1}^{C} e^{x_p^T w_d}}\\right) x_p x_p^T",
+            "pdf_page": 237,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"hessian of softmax cost\",\n      \"latex\": \"\\\\nabla^2_{w_s w_c} g = -\\\\left(\\\\frac{e^{x_p^T w_c}}{\\\\sum_{d=1}^{C} e^{x_p^T w_d}}\\\\right)\\\\left(1 - \\\\frac{e^{x_p^T w_c}}{\\\\sum_{d=1}^{C} e^{x_p^T w_d}}\\\\right) x_p x_p^T \\\\quad \\\\text{for } s \\\\neq c\",\n      \"pdf_page\": 237,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"hessian of softmax cost\",\n      \"latex\": \"\\\\nabla^2_{w_c w_c} g = \\\\sum_{p=1}^{P} \\\\frac{e^{x_p^T w_c}}{\\\\sum_{d=1}^{C} e^{x_p^T w_d}}\\\\left(1 - \\\\frac{e^{x_p^T w_c}}{\\\\sum_{d=1}^{C} e^{x_p^T w_d}}\\\\right) x_p x_p^T\",\n      \"pdf_page\": 237,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "one-versus-all classification",
+      "into": "one-versus-all classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "one-versus-all classification",
+      "into": "one-versus-all classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear multi-class classification",
+      "into": "linear multi-class classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "mini-batch optimization",
+      "into": "mini-batch gradient descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "multi-class perceptron cost",
+      "into": "multi-class perceptron cost"
+    }
+  ],
+  "warnings": [
+    "Rejected 3 concepts whose quoted evidence was not found on the claimed page.",
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

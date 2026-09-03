@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8563aaa49e98bbaf851f48fd1f0264df56595352f3e0d8b58afc8227ecbce75b",
+  "concept_id": 126,
+  "concept_name": "graph autoencoder",
+  "aliases": [
+    "graph autoencoder",
+    "gae"
+  ],
+  "profile": "graph autoencoder: A graph autoencoder is represented as a Graph U-Autoencoder Block. The block appears in the context of encoder-decoder graph neural networks and graph generation.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph autoencoder: In the available material, a graph autoencoder is represented as a Graph U-Autoencoder Block and is associated with encoder-decoder graph neural networks and graph generation.",
+    "claims": [
+      {
+        "claim": "A graph autoencoder is represented as a Graph U-Autoencoder Block.",
+        "evidence_ids": [
+          "DGL-E0569"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A graph autoencoder is associated with encoder-decoder graph neural networks and graph generation.",
+        "evidence_ids": [
+          "DGL-E0569"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only a block label and page title; no detailed definition or properties are supplied."
+    ]
+  },
+  "review": {
+    "final_profile": "graph autoencoder: A graph autoencoder is represented as a Graph U-Autoencoder Block. The block appears in the context of encoder-decoder graph neural networks and graph generation.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph autoencoder is represented as a Graph U-Autoencoder Block.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0569"
+        ],
+        "reason": "The only evidence is the printed label 'Graph U-Autoencoder Block', which directly supports this representation."
+      },
+      {
+        "sentence": "The block appears in the context of encoder-decoder graph neural networks and graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0569"
+        ],
+        "reason": "The page title containing this block is 'Encoder-Decoder GNNs and Graph Generation', supporting the contextual association."
+      }
+    ],
+    "warnings": [
+      "Only a block label and the surrounding page title are available; no detailed definition or properties of graph autoencoders are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph autoencoder: In the available material, a graph autoencoder is represented as a Graph U-Autoencoder Block and is associated with encoder-decoder graph neural networks and graph generation.\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph autoencoder is represented as a Graph U-Autoencoder Block.\",\n      \"evidence_ids\": [\"DGL-E0569\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A graph autoencoder is associated with encoder-decoder graph neural networks and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0569\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only a block label and page title; no detailed definition or properties are supplied.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph autoencoder: A graph autoencoder is represented as a Graph U-Autoencoder Block. The block appears in the context of encoder-decoder graph neural networks and graph generation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph autoencoder is represented as a Graph U-Autoencoder Block.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0569\"],\n      \"reason\": \"The only evidence is the printed label 'Graph U-Autoencoder Block', which directly supports this representation.\"\n    },\n    {\n      \"sentence\": \"The block appears in the context of encoder-decoder graph neural networks and graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0569\"],\n      \"reason\": \"The page title containing this block is 'Encoder-Decoder GNNs and Graph Generation', supporting the contextual association.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a block label and the surrounding page title are available; no detailed definition or properties of graph autoencoders are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:43:18.239285+00:00"
+}

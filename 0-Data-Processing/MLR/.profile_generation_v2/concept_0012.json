@@ -1,0 +1,105 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "16d3cac98a42ceae01ccb2b5c3dfca018550f5e659b7df87b54a4448d6c4e9d4",
+  "concept_id": 12,
+  "concept_name": "regression",
+  "aliases": [
+    "regression",
+    "regression line",
+    "share price regression",
+    "linear regression",
+    "regression problem",
+    "fitting a representative line",
+    "fitting a hyperplane"
+  ],
+  "profile": "regression: Regression is a learning problem in which a model is fit to training data to make predictions about a continuous-valued output. It is one of two problem forms, along with classification, distinguished by the numerical form of the output. Linear regression fits a representative line or, in higher dimensions, a hyperplane to input/output data points. An example is predicting share price.",
+  "word_count": 63,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regression: Regression is a learning problem in which a model is fit to a set of training data to make predictions about a continuous-valued output. It is one of two problem forms, along with classification, distinguished by the numerical form of the output. A common approach is linear regression, which fits a representative line or, in higher dimensions, a hyperplane to input/output data points. An example is predicting share price.",
+    "claims": [
+      {
+        "claim": "Regression is a learning problem in which a model is fit to training data to predict a continuous-valued output.",
+        "evidence_ids": [
+          "MLR-E0350"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is one of two problem forms, along with classification, distinguished by the numerical form of the output.",
+        "evidence_ids": [
+          "MLR-E0013"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Linear regression fits a representative line or hyperplane to input/output data points.",
+        "evidence_ids": [
+          "MLR-E0094"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An example of a regression task is predicting share price.",
+        "evidence_ids": [
+          "MLR-E0350"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regression: Regression is a learning problem in which a model is fit to training data to make predictions about a continuous-valued output. It is one of two problem forms, along with classification, distinguished by the numerical form of the output. Linear regression fits a representative line or, in higher dimensions, a hyperplane to input/output data points. An example is predicting share price.",
+    "sentence_reviews": [
+      {
+        "sentence": "Regression is a learning problem in which a model is fit to training data to make predictions about a continuous-valued output.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0350"
+        ],
+        "reason": "E0350 defines regression as fitting a model to training data to predict a continuous-valued output (share price)."
+      },
+      {
+        "sentence": "It is one of two problem forms, along with classification, distinguished by the numerical form of the output.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0013"
+        ],
+        "reason": "E0013 says the problem comes in two forms, regression and classification, depending on the general numerical form of the output."
+      },
+      {
+        "sentence": "Linear regression fits a representative line or, in higher dimensions, a hyperplane to input/output data points.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0094"
+        ],
+        "reason": "E0094 describes linear regression as fitting a representative line or hyperplane to input/output data points."
+      },
+      {
+        "sentence": "An example is predicting share price.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0350"
+        ],
+        "reason": "E0350 uses share price as the continuous-valued output in its regression example."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regression: Regression is a learning problem in which a model is fit to a set of training data to make predictions about a continuous-valued output. It is one of two problem forms, along with classification, distinguished by the numerical form of the output. A common approach is linear regression, which fits a representative line or, in higher dimensions, a hyperplane to input/output data points. An example is predicting share price.\",\n  \"claims\": [\n    {\n      \"claim\": \"Regression is a learning problem in which a model is fit to training data to predict a continuous-valued output.\",\n      \"evidence_ids\": [\"MLR-E0350\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is one of two problem forms, along with classification, distinguished by the numerical form of the output.\",\n      \"evidence_ids\": [\"MLR-E0013\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Linear regression fits a representative line or hyperplane to input/output data points.\",\n      \"evidence_ids\": [\"MLR-E0094\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An example of a regression task is predicting share price.\",\n      \"evidence_ids\": [\"MLR-E0350\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regression: Regression is a learning problem in which a model is fit to training data to make predictions about a continuous-valued output. It is one of two problem forms, along with classification, distinguished by the numerical form of the output. Linear regression fits a representative line or, in higher dimensions, a hyperplane to input/output data points. An example is predicting share price.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Regression is a learning problem in which a model is fit to training data to make predictions about a continuous-valued output.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0350\"],\n      \"reason\": \"E0350 defines regression as fitting a model to training data to predict a continuous-valued output (share price).\"\n    },\n    {\n      \"sentence\": \"It is one of two problem forms, along with classification, distinguished by the numerical form of the output.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0013\"],\n      \"reason\": \"E0013 says the problem comes in two forms, regression and classification, depending on the general numerical form of the output.\"\n    },\n    {\n      \"sentence\": \"Linear regression fits a representative line or, in higher dimensions, a hyperplane to input/output data points.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0094\"],\n      \"reason\": \"E0094 describes linear regression as fitting a representative line or hyperplane to input/output data points.\"\n    },\n    {\n      \"sentence\": \"An example is predicting share price.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0350\"],\n      \"reason\": \"E0350 uses share price as the continuous-valued output in its regression example.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:24:39.410184+00:00"
+}

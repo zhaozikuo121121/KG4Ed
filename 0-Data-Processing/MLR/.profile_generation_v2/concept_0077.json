@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "69def638fe3320abc5aa3bc70962d482249a69f72de18f46dea37f36c338e7bf",
+  "concept_id": 77,
+  "concept_name": "sub-sampled newton's step",
+  "aliases": [
+    "sub-sampled newton's step",
+    "sub-sampled newton step"
+  ],
+  "profile": "sub-sampled newton's step: A second-order optimization technique. In one implementation, it forms the Hessian approximation by ignoring all off-diagonal elements.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sub-sampled newton's step: A second-order optimization technique. In the implementation described, it approximates the Hessian by ignoring all off-diagonal elements.",
+    "claims": [
+      {
+        "claim": "The sub-sampled Newton's step is a second-order optimization technique.",
+        "evidence_ids": [
+          "MLR-E0089"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The implementation described forms the Hessian approximation by ignoring all off-diagonal elements.",
+        "evidence_ids": [
+          "MLR-E0089"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to one mention; further details are not provided."
+    ]
+  },
+  "review": {
+    "final_profile": "sub-sampled newton's step: A second-order optimization technique. In one implementation, it forms the Hessian approximation by ignoring all off-diagonal elements.",
+    "sentence_reviews": [
+      {
+        "sentence": "sub-sampled newton's step: A second-order optimization technique.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0089"
+        ],
+        "reason": "The source places the technique in the context of second-order optimization."
+      },
+      {
+        "sentence": "In one implementation, it forms the Hessian approximation by ignoring all off-diagonal elements.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0089"
+        ],
+        "reason": "The source explicitly describes forming the sub-sampled Newton's step by ignoring all off-diagonal elements of the Hessian."
+      }
+    ],
+    "warnings": [
+      "Only a single mention is available; further implementation details are not provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sub-sampled newton's step: A second-order optimization technique. In the implementation described, it approximates the Hessian by ignoring all off-diagonal elements.\",\n  \"claims\": [\n    {\n      \"claim\": \"The sub-sampled Newton's step is a second-order optimization technique.\",\n      \"evidence_ids\": [\"MLR-E0089\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The implementation described forms the Hessian approximation by ignoring all off-diagonal elements.\",\n      \"evidence_ids\": [\"MLR-E0089\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to one mention; further details are not provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sub-sampled newton's step: A second-order optimization technique. In one implementation, it forms the Hessian approximation by ignoring all off-diagonal elements.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sub-sampled newton's step: A second-order optimization technique.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0089\"],\n      \"reason\": \"The source places the technique in the context of second-order optimization.\"\n    },\n    {\n      \"sentence\": \"In one implementation, it forms the Hessian approximation by ignoring all off-diagonal elements.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0089\"],\n      \"reason\": \"The source explicitly describes forming the sub-sampled Newton's step by ignoring all off-diagonal elements of the Hessian.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single mention is available; further implementation details are not provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:49:29.291789+00:00"
+}

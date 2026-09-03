@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a167a8750de033ff295993f3858d80817eb917065dfdaa825c7d68fc9cf644df",
+  "concept_id": 380,
+  "concept_name": "edge attributes",
+  "aliases": [
+    "edge attributes",
+    "edge features"
+  ],
+  "profile": "edge attributes: features associated with the edges of a graph that must be handled when generalizing models such as graph UNet to targets with edge-level information.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge attributes: features associated with the edges of a graph that need to be accounted for when generalizing models like graph UNet to targets that include edge-level information.",
+    "claims": [
+      {
+        "claim": "edge attributes are features associated with the edges of a graph that need to be accounted for when generalizing models like graph UNet to targets that include edge-level information.",
+        "evidence_ids": [
+          "DGL-E0560"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one metadata evidence available; profile may be incomplete."
+    ]
+  },
+  "review": {
+    "final_profile": "edge attributes: features associated with the edges of a graph that must be handled when generalizing models such as graph UNet to targets with edge-level information.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge attributes: features associated with the edges of a graph that must be handled when generalizing models such as graph UNet to targets with edge-level information.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0560"
+        ],
+        "reason": "The source asks how to generalize graph UNet to a target with edge attributes, supporting the idea that edge attributes are edge-level information needing consideration."
+      }
+    ],
+    "warnings": [
+      "Only one evidence item is available; the definition is minimal and lacks broader detail."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge attributes: features associated with the edges of a graph that need to be accounted for when generalizing models like graph UNet to targets that include edge-level information.\",\n  \"claims\": [\n    {\n      \"claim\": \"edge attributes are features associated with the edges of a graph that need to be accounted for when generalizing models like graph UNet to targets that include edge-level information.\",\n      \"evidence_ids\": [\"DGL-E0560\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only one metadata evidence available; profile may be incomplete.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge attributes: features associated with the edges of a graph that must be handled when generalizing models such as graph UNet to targets with edge-level information.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge attributes: features associated with the edges of a graph that must be handled when generalizing models such as graph UNet to targets with edge-level information.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0560\"],\n      \"reason\": \"The source asks how to generalize graph UNet to a target with edge attributes, supporting the idea that edge attributes are edge-level information needing consideration.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence item is available; the definition is minimal and lacks broader detail.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:11:54.774524+00:00"
+}

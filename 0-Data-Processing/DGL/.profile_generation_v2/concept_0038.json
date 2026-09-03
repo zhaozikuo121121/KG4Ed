@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "47359218475cb36b49cb142b6a4b8f2ef0eb3e4f81d627659249d735b6315ed1",
+  "concept_id": 38,
+  "concept_name": "edge set",
+  "aliases": [
+    "edge set",
+    "e(h",
+    "e(g"
+  ],
+  "profile": "edge set: E(H) and E(G) denote edge sets of graphs H and G, respectively. The relation E(H) \\subseteq E(G) indicates that the edge set of H is a subset of the edge set of G.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge set: the notation E(H) and E(G) represents an edge set associated with a graph H or G. In the given relation, E(H) \\subseteq E(G), so the edge set of H is a subset of the edge set of G.",
+    "claims": [
+      {
+        "claim": "The notation E(H) and E(G) represents an edge set associated with a graph H or G.",
+        "evidence_ids": [
+          "DGL-E0022"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "E(H) \\subseteq E(G) means the edge set of H is a subset of the edge set of G.",
+        "evidence_ids": [
+          "DGL-E0022"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only the subset relationship; no standalone definition of edge set is given."
+    ]
+  },
+  "review": {
+    "final_profile": "edge set: E(H) and E(G) denote edge sets of graphs H and G, respectively. The relation E(H) \\subseteq E(G) indicates that the edge set of H is a subset of the edge set of G.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge set: E(H) and E(G) denote edge sets of graphs H and G, respectively.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0022"
+        ],
+        "reason": "The metadata uses E(H) and E(G), and graph context supports interpreting these as edge sets."
+      },
+      {
+        "sentence": "The relation E(H) \\subseteq E(G) indicates that the edge set of H is a subset of the edge set of G.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0022"
+        ],
+        "reason": "The evidence directly provides E(H) \\subseteq E(G), which is the subset relation."
+      }
+    ],
+    "warnings": [
+      "Metadata provides only the subset relationship; no standalone definition of an edge set is given."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge set: the notation E(H) and E(G) represents an edge set associated with a graph H or G. In the given relation, E(H) \\\\subseteq E(G), so the edge set of H is a subset of the edge set of G.\",\n  \"claims\": [\n    {\n      \"claim\": \"The notation E(H) and E(G) represents an edge set associated with a graph H or G.\",\n      \"evidence_ids\": [\"DGL-E0022\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"E(H) \\\\subseteq E(G) means the edge set of H is a subset of the edge set of G.\",\n      \"evidence_ids\": [\"DGL-E0022\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata provides only the subset relationship; no standalone definition of edge set is given.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge set: E(H) and E(G) denote edge sets of graphs H and G, respectively. The relation E(H) \\\\subseteq E(G) indicates that the edge set of H is a subset of the edge set of G.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge set: E(H) and E(G) denote edge sets of graphs H and G, respectively.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0022\"],\n      \"reason\": \"The metadata uses E(H) and E(G), and graph context supports interpreting these as edge sets.\"\n    },\n    {\n      \"sentence\": \"The relation E(H) \\\\subseteq E(G) indicates that the edge set of H is a subset of the edge set of G.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0022\"],\n      \"reason\": \"The evidence directly provides E(H) \\\\subseteq E(G), which is the subset relation.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata provides only the subset relationship; no standalone definition of an edge set is given.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:01:53.771056+00:00"
+}

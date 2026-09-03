@@ -1,0 +1,2472 @@
+{
+  "version": "1.0.0",
+  "chapter": 13,
+  "chapter_title": "Fully-connected neural networks",
+  "pdf_start": 443,
+  "pdf_end": 482,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T23:21:52+00:00",
+  "concepts": [
+    {
+      "canonical": "fully-connected neural network",
+      "aliases": [
+        "multi-layer perceptron",
+        "deep feedforward neural network"
+      ],
+      "evidence_page": 443,
+      "evidence": "discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks.",
+      "relevance": 1.0,
+      "anchor_page": 443
+    },
+    {
+      "canonical": "activation function",
+      "aliases": [
+        "nonlinear activation function"
+      ],
+      "evidence_page": 443,
+      "evidence": "a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,).",
+      "relevance": 0.9,
+      "anchor_page": 443
+    },
+    {
+      "canonical": "single-layer unit",
+      "aliases": [
+        "single hidden-layer unit"
+      ],
+      "evidence_page": 443,
+      "evidence": "single hidden-layer unit, also called a single-layer unit for short",
+      "relevance": 0.9,
+      "anchor_page": 443
+    },
+    {
+      "canonical": "model capacity",
+      "aliases": [
+        "capacity",
+        "capacity dial"
+      ],
+      "evidence_page": 444,
+      "evidence": "This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters.",
+      "relevance": 0.9,
+      "anchor_page": 444
+    },
+    {
+      "canonical": "model parameters",
+      "aliases": [
+        "parameters",
+        "slope and vertical intercept",
+        "internal parameters"
+      ],
+      "evidence_page": 444,
+      "evidence": "the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly",
+      "relevance": 0.9,
+      "anchor_page": 444
+    },
+    {
+      "canonical": "recursive construction",
+      "aliases": [
+        "recursive recipe",
+        "recursive building"
+      ],
+      "evidence_page": 444,
+      "evidence": "We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units. The recursive nature of constructing two-layer units using single-layer ones is emphasized.",
+      "relevance": 0.8,
+      "anchor_page": 444
+    },
+    {
+      "canonical": "hidden layer",
+      "aliases": [
+        "single-hidden-layer"
+      ],
+      "evidence_page": 445,
+      "evidence": "In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.",
+      "relevance": 0.8,
+      "anchor_page": 445
+    },
+    {
+      "canonical": "neural network architecture",
+      "aliases": [
+        "architecture"
+      ],
+      "evidence_page": 445,
+      "evidence": "A visual representation like this is often referred to as a neural network architecture or just an architecture.",
+      "relevance": 0.8,
+      "anchor_page": 445
+    },
+    {
+      "canonical": "input layer",
+      "aliases": [
+        "first layer"
+      ],
+      "evidence_page": 445,
+      "evidence": "This layer is \"visible\" to us since this is where we inject the input data to our network which we ourselves can \"see,\" and is also often referred to as the first or input layer of the network.",
+      "relevance": 0.7,
+      "anchor_page": 445
+    },
+    {
+      "canonical": "output layer",
+      "aliases": [
+        "final layer"
+      ],
+      "evidence_page": 446,
+      "evidence": "This is the final output of the model, and is often called the final or output layer of the network which is again \"visible\" to us (not hidden).",
+      "relevance": 0.7,
+      "anchor_page": 446
+    },
+    {
+      "canonical": "weight matrix",
+      "aliases": [
+        "parameter matrix"
+      ],
+      "evidence_page": 447,
+      "evidence": "Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1",
+      "relevance": 0.9,
+      "anchor_page": 447
+    },
+    {
+      "canonical": "vector activation",
+      "aliases": [
+        "element-wise activation"
+      ],
+      "evidence_page": 447,
+      "evidence": "we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries",
+      "relevance": 0.7,
+      "anchor_page": 447
+    },
+    {
+      "canonical": "two-layer unit",
+      "aliases": [
+        "two-hidden-layer unit",
+        "two-layer neural network unit"
+      ],
+      "evidence_page": 448,
+      "evidence": "To create a two-hidden-layer neural network unit, or a two-layer unit for short",
+      "relevance": 0.9,
+      "anchor_page": 448
+    },
+    {
+      "canonical": "step function",
+      "aliases": [
+        "step activation"
+      ],
+      "evidence_page": 464,
+      "evidence": "a step function taking on just two values: 0 (off) and 1 (on)",
+      "relevance": 0.7,
+      "anchor_page": 464
+    },
+    {
+      "canonical": "vanishing gradient problem",
+      "aliases": [],
+      "evidence_page": 465,
+      "evidence": "a technical issue known as the vanishing gradient problem",
+      "relevance": 0.95,
+      "anchor_page": 465
+    },
+    {
+      "canonical": "sigmoid activation",
+      "aliases": [
+        "logistic sigmoid activation"
+      ],
+      "evidence_page": 465,
+      "evidence": "the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly",
+      "relevance": 0.85,
+      "anchor_page": 465
+    },
+    {
+      "canonical": "backpropagation",
+      "aliases": [
+        "backpropagation algorithm",
+        "backprop"
+      ],
+      "evidence_page": 467,
+      "evidence": "The backpropagation algorithm, often referred to simply as backpropagation or backprop for short",
+      "relevance": 0.95,
+      "anchor_page": 467
+    },
+    {
+      "canonical": "maxout activation",
+      "aliases": [],
+      "evidence_page": 467,
+      "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)",
+      "relevance": 0.8,
+      "anchor_page": 467
+    },
+    {
+      "canonical": "batch normalization",
+      "aliases": [
+        "batch norm",
+        "batch-normalized network",
+        "batch-normalized architecture"
+      ],
+      "evidence_page": 475,
+      "evidence": "13.6 Batch normalization",
+      "relevance": 0.95,
+      "anchor_page": 475
+    },
+    {
+      "canonical": "internal covariate shift",
+      "aliases": [
+        "covariate shift"
+      ],
+      "evidence_page": 476,
+      "evidence": "the covariate shift of this network is considerable",
+      "relevance": 0.8,
+      "anchor_page": 476
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "single-layer unit",
+      "latex": "f^{(1)}(x) = a\\left(w_0^{(1)} + \\sum_{n=1}^{N} w_n^{(1)} x_n\\right)",
+      "pdf_page": 443,
+      "equation_label": "(13.1)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "activation function",
+      "latex": "f^{(1)}(x) = a\\left(w_0^{(1)} + \\sum_{n=1}^{N} w_n^{(1)} x_n\\right)",
+      "pdf_page": 443,
+      "equation_label": "(13.1)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "single-layer unit",
+      "latex": "f^{(1)}(x) = \\tanh\\left(w_0^{(1)} + w_1^{(1)} x\\right)",
+      "pdf_page": 444,
+      "equation_label": "(13.2)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "activation function",
+      "latex": "f^{(1)}(x) = \\tanh\\left(w_0^{(1)} + w_1^{(1)} x\\right)",
+      "pdf_page": 444,
+      "equation_label": "(13.2)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "single-layer unit",
+      "latex": "f^{(1)}(x) = \\max\\left(0, w_0^{(1)} + w_1^{(1)} x\\right)",
+      "pdf_page": 444,
+      "equation_label": "(13.3)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "activation function",
+      "latex": "f^{(1)}(x) = \\max\\left(0, w_0^{(1)} + w_1^{(1)} x\\right)",
+      "pdf_page": 444,
+      "equation_label": "(13.3)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "fully-connected neural network",
+      "latex": "\\text{model}(x, \\Theta) = w_0 + f_1^{(1)}(x) w_1 + \\cdots + f_{U_1}^{(1)}(x) w_{U_1}",
+      "pdf_page": 444,
+      "equation_label": "(13.4)",
+      "confidence": 0.85
+    },
+    {
+      "concept": "model parameters",
+      "latex": "\\text{model}(x, \\Theta) = w_0 + f^{(1)}_1(x) w_1 + \\cdots + f^{(1)}_{U_1}(x) w_{U_1}",
+      "pdf_page": 444,
+      "equation_label": "(13.4)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "weight matrix",
+      "latex": "\\mathbf{W}_1 = \\begin{bmatrix} w_{0,1}^{(1)} & w_{0,2}^{(1)} & \\cdots & w_{0,U_1}^{(1)} \\\\ w_{1,1}^{(1)} & w_{1,2}^{(1)} & \\cdots & w_{2,U_1}^{(1)} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ w_{N,1}^{(1)} & w_{N,2}^{(1)} & \\cdots & w_{N,U_1}^{(1)} \\end{bmatrix}",
+      "pdf_page": 447,
+      "equation_label": "13.7",
+      "confidence": 0.95
+    },
+    {
+      "concept": "vector activation",
+      "latex": "\\mathbf{a}(\\mathbf{v}) = \\begin{bmatrix} a(v_1) \\\\ \\vdots \\\\ a(v_d) \\end{bmatrix}",
+      "pdf_page": 448,
+      "equation_label": "13.9",
+      "confidence": 0.95
+    },
+    {
+      "concept": "two-layer unit",
+      "latex": "f (x) = a \\left( w^{(2)}_0 + \\sum_{i=1}^{U_1} w^{(2)}_i f^{(1)}_i (x) \\right)",
+      "pdf_page": 449,
+      "equation_label": "13.13",
+      "confidence": 0.95
+    },
+    {
+      "concept": "maxout activation",
+      "latex": "a(x) = \\max(v_0 + v_1 x, w_0 + w_1 x)",
+      "pdf_page": 467,
+      "equation_label": "13.31",
+      "confidence": 0.95
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "f_j^{(2)}(x) \\leftarrow \\frac{f_j^{(2)}(x) - \\mu_{f_j^{(2)}}}{\\sigma_{f_j^{(2)}}}",
+      "pdf_page": 475,
+      "equation_label": "13.39",
+      "confidence": 1.0
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "\\mu_{f_j^{(2)}} = \\frac{1}{P} \\sum_{p=1}^{P} f_j^{(2)}(\\mathbf{x}_p) \\quad \\sigma_{f_j^{(2)}} = \\sqrt{ \\frac{1}{P} \\sum_{p=1}^{P} \\left(f_j^{(2)}(\\mathbf{x}_p) - \\mu_{f_j^{(2)}}\\right)^2 }",
+      "pdf_page": 475,
+      "equation_label": "13.40",
+      "confidence": 1.0
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "f_j^{(L)}(\\mathbf{x}) = a\\left(w_{0,j}^{(L)} + \\sum_{i=1}^{U_{L-1}} w_{i,j}^{(L)} f_i^{(L-1)}(\\mathbf{x})\\right)",
+      "pdf_page": 475,
+      "equation_label": "13.41",
+      "confidence": 1.0
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "f_j^{(L)}(\\mathbf{x}) \\leftarrow \\frac{f_j^{(L)}(\\mathbf{x}_p) - \\mu_{f_j^{(L)}}}{\\sigma_{f_j^{(L)}}}",
+      "pdf_page": 475,
+      "equation_label": "13.42",
+      "confidence": 1.0
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "\\mu_{f_j^{(L)}} = \\frac{1}{P} \\sum_{p=1}^{P} f_j^{(L)}(\\mathbf{x}_p) \\quad \\sigma_{f_j^{(L)}} = \\sqrt{ \\frac{1}{P} \\sum_{p=1}^{P} \\left(f_j^{(L)}(\\mathbf{x}_p) - \\mu_{f_j^{(L)}}\\right)^2 }",
+      "pdf_page": 475,
+      "equation_label": "13.43",
+      "confidence": 1.0
+    },
+    {
+      "concept": "batch normalization",
+      "latex": "f^{(L)}(\\mathbf{x}) \\leftarrow \\alpha \\frac{f^{(L)}(\\mathbf{x}) - \\mu_{f^{(L)}}}{\\sigma_{f^{(L)}}} + \\beta",
+      "pdf_page": 476,
+      "equation_label": "13.44",
+      "confidence": 1.0
+    }
+  ],
+  "figures": [
+    {
+      "concept": "model capacity",
+      "pdf_page": 445,
+      "figure_label": "Figure 13.1",
+      "caption": "Figure 13.1 Figure associated with Example 13.1. Four instances of a single-layer neural network unit with (top row) tanh and (bottom row) ReLU activation. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "hidden layer",
+      "pdf_page": 446,
+      "figure_label": "Figure 13.2",
+      "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "neural network architecture",
+      "pdf_page": 446,
+      "figure_label": "Figure 13.2",
+      "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "input layer",
+      "pdf_page": 446,
+      "figure_label": "Figure 13.2",
+      "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "output layer",
+      "pdf_page": 446,
+      "figure_label": "Figure 13.2",
+      "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "vanishing gradient problem",
+      "pdf_page": 466,
+      "figure_label": "Figure 13.13",
+      "caption": "Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "sigmoid activation",
+      "pdf_page": 466,
+      "figure_label": "Figure 13.13",
+      "caption": "Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "maxout activation",
+      "pdf_page": 467,
+      "figure_label": "Figure 13.14",
+      "caption": "Figure associated with Example 13.9. Four instances of a maxout unit in Equation (13.31), with parameters randomly set in each case. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "internal covariate shift",
+      "pdf_page": 477,
+      "figure_label": "Figure 13.19",
+      "caption": "Figure associated with Example 13.12. See text for details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "internal covariate shift",
+      "pdf_page": 477,
+      "figure_label": "Figure 13.20",
+      "caption": "Figure associated with Example 13.12. See text for details.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fully-connected neural network",
+            "aliases": [
+              "multi-layer perceptron",
+              "deep feedforward neural network"
+            ],
+            "evidence_page": 443,
+            "anchor_page": 443,
+            "evidence": "discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "nonlinear activation function"
+            ],
+            "evidence_page": 443,
+            "anchor_page": 443,
+            "evidence": "a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,).",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "single-hidden-layer"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "input layer",
+            "aliases": [
+              "first layer"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "This layer is \"visible\" to us since this is where we inject the input data to our network which we ourselves can \"see,\" and is also often referred to as the first or input layer of the network.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "output layer",
+            "aliases": [
+              "final layer"
+            ],
+            "evidence_page": 446,
+            "anchor_page": 446,
+            "evidence": "This is the final output of the model, and is often called the final or output layer of the network which is again \"visible\" to us (not hidden).",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "capacity",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all diﬀerent settings of its internal parameters.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "neural network architecture",
+            "aliases": [
+              "architecture"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "A visual representation like this is often referred to as a neural network architecture or just an architecture.",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "single-layer neural network",
+            "aliases": [
+              "single-hidden-layer network"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "The left panel of Figure 13.2 shows a common graphical representation of the single-layer model in Equation (13.4).",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "two-layer neural network",
+            "aliases": [
+              "two-hidden-layer network"
+            ],
+            "evidence_page": 448,
+            "anchor_page": 448,
+            "evidence": "To create a two-hidden-layer neural network unit, or a two-layer unit for short, we recurse on the idea of the single-layer unit detailed in the previous Section.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "recursive recipe",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "Recursive recipe for single-layer units 1: Choose an activation function a (·) 2: Compute the linear combination v = w(1)_0 + sum_{n=1}^N w(1)_n x_n 3: Pass the result through activation a (v)",
+            "relevance": 0.4
+          },
+          {
+            "canonical": "linear combination",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "Compute the linear combination v = w(1)_0 + sum_{n=1}^N w(1)_n x_n",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fully-connected neural network\",\n      \"aliases\": [\"multi-layer perceptron\", \"deep feedforward neural network\"],\n      \"evidence_page\": 443,\n      \"anchor_page\": 443,\n      \"evidence\": \"discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"nonlinear activation function\"],\n      \"evidence_page\": 443,\n      \"anchor_page\": 443,\n      \"evidence\": \"a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,).\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\"single-hidden-layer\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"input layer\",\n      \"aliases\": [\"first layer\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"This layer is \\\"visible\\\" to us since this is where we inject the input data to our network which we ourselves can \\\"see,\\\" and is also often referred to as the first or input layer of the network.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"output layer\",\n      \"aliases\": [\"final layer\"],\n      \"evidence_page\": 446,\n      \"anchor_page\": 446,\n      \"evidence\": \"This is the final output of the model, and is often called the final or output layer of the network which is again \\\"visible\\\" to us (not hidden).\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"capacity\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all diﬀerent settings of its internal parameters.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"neural network architecture\",\n      \"aliases\": [\"architecture\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"A visual representation like this is often referred to as a neural network architecture or just an architecture.\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"single-layer neural network\",\n      \"aliases\": [\"single-hidden-layer network\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"The left panel of Figure 13.2 shows a common graphical representation of the single-layer model in Equation (13.4).\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"two-layer neural network\",\n      \"aliases\": [\"two-hidden-layer network\"],\n      \"evidence_page\": 448,\n      \"anchor_page\": 448,\n      \"evidence\": \"To create a two-hidden-layer neural network unit, or a two-layer unit for short, we recurse on the idea of the single-layer unit detailed in the previous Section.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"recursive recipe\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"Recursive recipe for single-layer units 1: Choose an activation function a (·) 2: Compute the linear combination v = w(1)_0 + sum_{n=1}^N w(1)_n x_n 3: Pass the result through activation a (v)\",\n      \"relevance\": 0.4\n    },\n    {\n      \"canonical\": \"linear combination\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"Compute the linear combination v = w(1)_0 + sum_{n=1}^N w(1)_n x_n\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fully-connected neural network",
+            "aliases": [
+              "fully-connected network",
+              "FCN"
+            ],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "Fully-connected neural networks",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "activation",
+              "nonlinear activation"
+            ],
+            "evidence_page": 451,
+            "anchor_page": 451,
+            "evidence": "hence the name activation function.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "L-layer network unit",
+            "aliases": [
+              "multi-layer network unit",
+              "L-layer unit"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "To construct a general L-hidden-layer neural network unit, or L-layer unit for short, we simply recurse on the pattern...",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "deep network unit",
+            "aliases": [
+              "deep unit"
+            ],
+            "evidence_page": 446,
+            "anchor_page": 446,
+            "evidence": "Often units built using three or more hidden-layers are referred to as deep network units",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [
+              "weight matrices"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "the dimensions of the first two weight matrices W1 and W2 are (N + 1) × U1 and (U1 + 1) × (U2 + 1), respectively.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "hidden-layer"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "output of Lth hidden-layer: ˚a ( WT L ˚a ( WT L−1˚a ( · · · WT 1 ˚x ) · · · ) )",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "model capacity",
+            "aliases": [
+              "capacity"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "the capacity gained by adding new individual units to a neural network model is typically much smaller relative to the capacity gained by the addition of new hidden-layers",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [
+              "cross-validate"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "To determine the best architecture for use with a given dataset we must cross-validate an array of choices.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping regularization"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "early stopping based regularization (see Sections 11.6.2 and 13.7) is commonly employed with neural network models.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "artificial neuron",
+            "aliases": [
+              "neuron model"
+            ],
+            "evidence_page": 450,
+            "anchor_page": 450,
+            "evidence": "An artificial neuron comprises a set of dendrite-like edges that connect it to other neurons, each taking an input and multiplying it by a (synaptic) weight associated with that edge.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "compact representation",
+            "aliases": [
+              "compact notation"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "To simplify our understanding of a general multi-layer network architecture we can use precisely the same compact notation and visualizations",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autodiff"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "the use of automatic diﬀerentiation when employing first (and even second) order optimization techniques is extremely helpful",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "first-order optimization"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "first order local optimization schemes (e.g., gradient descent and its descendants) are the most common schemes used",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "non-convex optimization",
+            "aliases": [
+              "non-convex cost function"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "associated cost functions employing network models can be very non-convex",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "feature transformation",
+            "aliases": [
+              "feature transforms"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "Below we provide an implementation of a fully-connected network feature transformation called feature transforms",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fully-connected neural network\",\n      \"aliases\": [\"fully-connected network\", \"FCN\"],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"Fully-connected neural networks\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"activation\", \"nonlinear activation\"],\n      \"evidence_page\": 451,\n      \"anchor_page\": 451,\n      \"evidence\": \"hence the name activation function.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"L-layer network unit\",\n      \"aliases\": [\"multi-layer network unit\", \"L-layer unit\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"To construct a general L-hidden-layer neural network unit, or L-layer unit for short, we simply recurse on the pattern...\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"deep network unit\",\n      \"aliases\": [\"deep unit\"],\n      \"evidence_page\": 446,\n      \"anchor_page\": 446,\n      \"evidence\": \"Often units built using three or more hidden-layers are referred to as deep network units\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [\"weight matrices\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"the dimensions of the first two weight matrices W1 and W2 are (N + 1) × U1 and (U1 + 1) × (U2 + 1), respectively.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\"hidden-layer\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"output of Lth hidden-layer: ˚a ( WT L ˚a ( WT L−1˚a ( · · · WT 1 ˚x ) · · · ) )\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"model capacity\",\n      \"aliases\": [\"capacity\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"the capacity gained by adding new individual units to a neural network model is typically much smaller relative to the capacity gained by the addition of new hidden-layers\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [\"cross-validate\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"To determine the best architecture for use with a given dataset we must cross-validate an array of choices.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\"early stopping regularization\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"early stopping based regularization (see Sections 11.6.2 and 13.7) is commonly employed with neural network models.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"artificial neuron\",\n      \"aliases\": [\"neuron model\"],\n      \"evidence_page\": 450,\n      \"anchor_page\": 450,\n      \"evidence\": \"An artificial neuron comprises a set of dendrite-like edges that connect it to other neurons, each taking an input and multiplying it by a (synaptic) weight associated with that edge.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"compact representation\",\n      \"aliases\": [\"compact notation\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"To simplify our understanding of a general multi-layer network architecture we can use precisely the same compact notation and visualizations\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autodiff\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"the use of automatic diﬀerentiation when employing first (and even second) order optimization techniques is extremely helpful\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"first-order optimization\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"first order local optimization schemes (e.g., gradient descent and its descendants) are the most common schemes used\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"non-convex optimization\",\n      \"aliases\": [\"non-convex cost function\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"associated cost functions employing network models can be very non-convex\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"feature transformation\",\n      \"aliases\": [\"feature transforms\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"Below we provide an implementation of a fully-connected network feature transformation called feature transforms\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fully-connected neural network",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "Fully-connected neural networks",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "forward propagation",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "looping forward through the network architecture starting with the first hidden layer",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "feature transformation",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "a fully-connected network feature transformation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [],
+            "evidence_page": 456,
+            "anchor_page": 456,
+            "evidence": "In principle one can use any function as an activation for a fully connected network.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "relu activation",
+            "aliases": [
+              "rectified linear unit"
+            ],
+            "evidence_page": 458,
+            "anchor_page": 458,
+            "evidence": "The rectified linear unit (ReLU) activation",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "tanh activation",
+            "aliases": [
+              "hyperbolic tangent"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "the simple tanh activation can be written as np.tanh(a)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [
+              "logistic sigmoid"
+            ],
+            "evidence_page": 456,
+            "anchor_page": 456,
+            "evidence": "the sigmoid function was one of the first popularly used activation functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "maxout activation",
+            "aliases": [],
+            "evidence_page": 459,
+            "anchor_page": 459,
+            "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "step function activation",
+            "aliases": [
+              "step activation"
+            ],
+            "evidence_page": 456,
+            "anchor_page": 456,
+            "evidence": "step function taking on just two values: 0 (off) and 1 (on)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "vanishing gradient problem",
+            "aliases": [],
+            "evidence_page": 457,
+            "anchor_page": 457,
+            "evidence": "the vanishing gradient problem",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 453,
+            "anchor_page": 453,
+            "evidence": "tune the parameters of this model by minimizing an associated two-class Softmax cost via gradient descent",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "two-class softmax cost",
+              "multi-class softmax cost"
+            ],
+            "evidence_page": 453,
+            "anchor_page": 453,
+            "evidence": "two-class Softmax cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "Least Squares cost",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "autoencoder",
+            "aliases": [
+              "nonlinear autoencoder"
+            ],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "the general nonlinear Autoencoder",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "encoder",
+            "aliases": [],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "consists of two nonlinear functions: an encoder fe and decoder fd",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "decoder",
+            "aliases": [],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "consists of two nonlinear functions: an encoder fe and decoder fd",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "manifold",
+            "aliases": [
+              "nonlinear manifold"
+            ],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "the best nonlinear manifold on which an input dataset rests",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight initialization",
+            "aliases": [
+              "initialization"
+            ],
+            "evidence_page": 453,
+            "anchor_page": 453,
+            "evidence": "creates initial weights for a general network model",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "shared scheme",
+            "aliases": [
+              "parameter sharing"
+            ],
+            "evidence_page": 455,
+            "anchor_page": 455,
+            "evidence": "using a shared scheme (that is, the network architecture is shared by each classifier",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "backpropagation algorithm",
+              "backprop"
+            ],
+            "evidence_page": 459,
+            "anchor_page": 459,
+            "evidence": "The backpropagation algorithm, often referred to simply as backpropagation or backprop",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "first-order optimization",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "first (and even second) order optimization techniques",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "second-order optimization",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "first (and even second) order optimization techniques",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "tensor",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "Such a list of weight matrices is often referred to as a tensor in practice.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "weight matrices",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [],
+            "evidence_page": 454,
+            "anchor_page": 454,
+            "evidence": "hidden-layers",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "unit",
+            "aliases": [
+              "neuron"
+            ],
+            "evidence_page": 454,
+            "anchor_page": 454,
+            "evidence": "10 units",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fully-connected neural network\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"Fully-connected neural networks\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"forward propagation\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"looping forward through the network architecture starting with the first hidden layer\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"feature transformation\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"a fully-connected network feature transformation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [],\n      \"evidence_page\": 456,\n      \"anchor_page\": 456,\n      \"evidence\": \"In principle one can use any function as an activation for a fully connected network.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"relu activation\",\n      \"aliases\": [\"rectified linear unit\"],\n      \"evidence_page\": 458,\n      \"anchor_page\": 458,\n      \"evidence\": \"The rectified linear unit (ReLU) activation\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"tanh activation\",\n      \"aliases\": [\"hyperbolic tangent\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"the simple tanh activation can be written as np.tanh(a)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [\"logistic sigmoid\"],\n      \"evidence_page\": 456,\n      \"anchor_page\": 456,\n      \"evidence\": \"the sigmoid function was one of the first popularly used activation functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"maxout activation\",\n      \"aliases\": [],\n      \"evidence_page\": 459,\n      \"anchor_page\": 459,\n      \"evidence\": \"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"step function activation\",\n      \"aliases\": [\"step activation\"],\n      \"evidence_page\": 456,\n      \"anchor_page\": 456,\n      \"evidence\": \"step function taking on just two values: 0 (off) and 1 (on)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"vanishing gradient problem\",\n      \"aliases\": [],\n      \"evidence_page\": 457,\n      \"anchor_page\": 457,\n      \"evidence\": \"the vanishing gradient problem\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 453,\n      \"anchor_page\": 453,\n      \"evidence\": \"tune the parameters of this model by minimizing an associated two-class Softmax cost via gradient descent\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"two-class softmax cost\", \"multi-class softmax cost\"],\n      \"evidence_page\": 453,\n      \"anchor_page\": 453,\n      \"evidence\": \"two-class Softmax cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"Least Squares cost\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"autoencoder\",\n      \"aliases\": [\"nonlinear autoencoder\"],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"the general nonlinear Autoencoder\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"encoder\",\n      \"aliases\": [],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"consists of two nonlinear functions: an encoder fe and decoder fd\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"decoder\",\n      \"aliases\": [],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"consists of two nonlinear functions: an encoder fe and decoder fd\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"manifold\",\n      \"aliases\": [\"nonlinear manifold\"],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"the best nonlinear manifold on which an input dataset rests\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight initialization\",\n      \"aliases\": [\"initialization\"],\n      \"evidence_page\": 453,\n      \"anchor_page\": 453,\n      \"evidence\": \"creates initial weights for a general network model\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"shared scheme\",\n      \"aliases\": [\"parameter sharing\"],\n      \"evidence_page\": 455,\n      \"anchor_page\": 455,\n      \"evidence\": \"using a shared scheme (that is, the network architecture is shared by each classifier\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"backpropagation algorithm\", \"backprop\"],\n      \"evidence_page\": 459,\n      \"anchor_page\": 459,\n      \"evidence\": \"The backpropagation algorithm, often referred to simply as backpropagation or backprop\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"first-order optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"first (and even second) order optimization techniques\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"second-order optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"first (and even second) order optimization techniques\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"tensor\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"Such a list of weight matrices is often referred to as a tensor in practice.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"weight matrices\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [],\n      \"evidence_page\": 454,\n      \"anchor_page\": 454,\n      \"evidence\": \"hidden-layers\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"unit\",\n      \"aliases\": [\"neuron\"],\n      \"evidence_page\": 454,\n      \"anchor_page\": 454,\n      \"evidence\": \"10 units\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "maxout activation",
+            "aliases": [
+              "maxout"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 459,
+            "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x) is a relative of the ReLU that takes the maximum of two linear combinations of the input",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "backprop",
+              "backpropagation algorithm"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 460,
+            "evidence": "The backpropagation algorithm, often referred to simply as backpropagation or backprop for short, is the jargon phrase used in machine learning to describe an approach to computing gradients algorithmically",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autodiff",
+              "reverse mode automatic differentiation"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 460,
+            "evidence": "Backprop is a special case of a more general scheme generally referred to as the reverse mode of automatic differentiation.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "non-convexity",
+            "aliases": [
+              "non-convex cost function",
+              "non-convex optimization"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 460,
+            "evidence": "Typically cost functions associated with fully-connected neural network models are highly non-convex.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "momentum-based gradient descent",
+            "aliases": [
+              "momentum method",
+              "momentum"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "momentum-based (see Appendix Section A.2) and normalized gradient methods (see Appendix Section A.3) enhancements to gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "normalized gradient methods",
+            "aliases": [
+              "normalized gradient descent",
+              "component-normalized gradient descent"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "normalized gradient methods (see Appendix Section A.3)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "mini-batch optimization",
+            "aliases": [
+              "minibatch optimization",
+              "mini-batch gradient descent"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "in addition to mini-batch optimization (see Section 7.8 and Appendix Section A.5) can further enhance gradient-based methods",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "batch norm"
+            ],
+            "evidence_page": 471,
+            "anchor_page": 463,
+            "evidence": "With this extended standard normalization technique, called batch normalization [62], we standard-normalize not just the input to our fully-connected network but the distribution of every unit in every hidden layer",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "internal covariate shift",
+            "aliases": [
+              "covariate shift"
+            ],
+            "evidence_page": 472,
+            "anchor_page": 464,
+            "evidence": "The constant alteration of these distributions is referred to as internal covariate shift in the jargon of machine learning",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "feature normalization",
+              "input normalization"
+            ],
+            "evidence_page": 471,
+            "anchor_page": 463,
+            "evidence": "standard normalization involves normalizing the distribution of each input dimension of a dataset",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "component-normalized gradient descent",
+            "aliases": [
+              "component-normalized version"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "its component-normalized version (see Section A.3.2)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "rmsprop",
+            "aliases": [
+              "RMSprop"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "RMSprop (see Section A.4)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "vanishing gradients",
+            "aliases": [
+              "vanishing gradient problem"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 459,
+            "evidence": "fewer issues with gradients vanishing",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "relu activation",
+            "aliases": [
+              "ReLU",
+              "rectified linear unit"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 459,
+            "evidence": "fully connected network employing ReLU activations should be initialized away from the origin to avoid too many of the units (and their gradients) from disappearing",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "tanh activation",
+            "aliases": [
+              "hyperbolic tangent activation"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "using a tanh activation",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "multiclass softmax cost",
+            "aliases": [
+              "softmax cost",
+              "cross-entropy loss"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "minimize the multi-class Softmax cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "saddle points",
+            "aliases": [
+              "saddle point"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "many saddle points and local minima",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "local minima",
+            "aliases": [
+              "local minimum"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "many saddle points and local minima",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minima"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "global minima",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "long narrow valleys",
+            "aliases": [],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "long narrow valleys, flat areas, and many saddle points and local minima",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "flat areas",
+            "aliases": [
+              "flat regions"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 461,
+            "evidence": "long narrow valleys, flat areas, and many saddle points and local minima",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"maxout activation\",\n      \"aliases\": [\"maxout\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 459,\n      \"evidence\": \"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x) is a relative of the ReLU that takes the maximum of two linear combinations of the input\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"backprop\", \"backpropagation algorithm\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 460,\n      \"evidence\": \"The backpropagation algorithm, often referred to simply as backpropagation or backprop for short, is the jargon phrase used in machine learning to describe an approach to computing gradients algorithmically\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autodiff\", \"reverse mode automatic differentiation\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 460,\n      \"evidence\": \"Backprop is a special case of a more general scheme generally referred to as the reverse mode of automatic differentiation.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"non-convexity\",\n      \"aliases\": [\"non-convex cost function\", \"non-convex optimization\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 460,\n      \"evidence\": \"Typically cost functions associated with fully-connected neural network models are highly non-convex.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"momentum-based gradient descent\",\n      \"aliases\": [\"momentum method\", \"momentum\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"momentum-based (see Appendix Section A.2) and normalized gradient methods (see Appendix Section A.3) enhancements to gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"normalized gradient methods\",\n      \"aliases\": [\"normalized gradient descent\", \"component-normalized gradient descent\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"normalized gradient methods (see Appendix Section A.3)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"mini-batch optimization\",\n      \"aliases\": [\"minibatch optimization\", \"mini-batch gradient descent\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"in addition to mini-batch optimization (see Section 7.8 and Appendix Section A.5) can further enhance gradient-based methods\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"batch norm\"],\n      \"evidence_page\": 471,\n      \"anchor_page\": 463,\n      \"evidence\": \"With this extended standard normalization technique, called batch normalization [62], we standard-normalize not just the input to our fully-connected network but the distribution of every unit in every hidden layer\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"internal covariate shift\",\n      \"aliases\": [\"covariate shift\"],\n      \"evidence_page\": 472,\n      \"anchor_page\": 464,\n      \"evidence\": \"The constant alteration of these distributions is referred to as internal covariate shift in the jargon of machine learning\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"feature normalization\", \"input normalization\"],\n      \"evidence_page\": 471,\n      \"anchor_page\": 463,\n      \"evidence\": \"standard normalization involves normalizing the distribution of each input dimension of a dataset\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"component-normalized gradient descent\",\n      \"aliases\": [\"component-normalized version\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"its component-normalized version (see Section A.3.2)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"rmsprop\",\n      \"aliases\": [\"RMSprop\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"RMSprop (see Section A.4)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"vanishing gradients\",\n      \"aliases\": [\"vanishing gradient problem\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 459,\n      \"evidence\": \"fewer issues with gradients vanishing\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"relu activation\",\n      \"aliases\": [\"ReLU\", \"rectified linear unit\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 459,\n      \"evidence\": \"fully connected network employing ReLU activations should be initialized away from the origin to avoid too many of the units (and their gradients) from disappearing\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"tanh activation\",\n      \"aliases\": [\"hyperbolic tangent activation\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"using a tanh activation\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"multiclass softmax cost\",\n      \"aliases\": [\"softmax cost\", \"cross-entropy loss\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"minimize the multi-class Softmax cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"saddle points\",\n      \"aliases\": [\"saddle point\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"many saddle points and local minima\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"local minima\",\n      \"aliases\": [\"local minimum\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"many saddle points and local minima\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\"global minima\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"global minima\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"long narrow valleys\",\n      \"aliases\": [],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"long narrow valleys, flat areas, and many saddle points and local minima\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"flat areas\",\n      \"aliases\": [\"flat regions\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 461,\n      \"evidence\": \"long narrow valleys, flat areas, and many saddle points and local minima\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "batch norm",
+              "batch-normalized network",
+              "batch-normalized architecture"
+            ],
+            "evidence_page": 475,
+            "anchor_page": 475,
+            "evidence": "13.6 Batch normalization",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "internal covariate shift",
+            "aliases": [
+              "covariate shift"
+            ],
+            "evidence_page": 476,
+            "anchor_page": 476,
+            "evidence": "the covariate shift of this network is considerable",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping regularization",
+              "early stopping cross-validation"
+            ],
+            "evidence_page": 479,
+            "anchor_page": 479,
+            "evidence": "early stopping based regularization, which involves selecting parameters to minimize validation error during a single run of optimization, is a popular cross-validation technique",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "multi-class softmax cost",
+              "softmax loss"
+            ],
+            "evidence_page": 480,
+            "anchor_page": 480,
+            "evidence": "multi-class Softmax cost",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "stochastic gradient descent",
+              "mini-batch first order method"
+            ],
+            "evidence_page": 476,
+            "anchor_page": 476,
+            "evidence": "stochastic or mini-batch first order method for optimization",
+            "relevance": 0.4
+          },
+          {
+            "canonical": "parameterized batch normalization",
+            "aliases": [
+              "batch normalization with parameters"
+            ],
+            "evidence_page": 476,
+            "anchor_page": 476,
+            "evidence": "the batch normalization formula in Equation (13.42) is often parameterized as",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\n        \"batch norm\",\n        \"batch-normalized network\",\n        \"batch-normalized architecture\"\n      ],\n      \"evidence_page\": 475,\n      \"anchor_page\": 475,\n      \"evidence\": \"13.6 Batch normalization\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"internal covariate shift\",\n      \"aliases\": [\n        \"covariate shift\"\n      ],\n      \"evidence_page\": 476,\n      \"anchor_page\": 476,\n      \"evidence\": \"the covariate shift of this network is considerable\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\n        \"early stopping regularization\",\n        \"early stopping cross-validation\"\n      ],\n      \"evidence_page\": 479,\n      \"anchor_page\": 479,\n      \"evidence\": \"early stopping based regularization, which involves selecting parameters to minimize validation error during a single run of optimization, is a popular cross-validation technique\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\n        \"multi-class softmax cost\",\n        \"softmax loss\"\n      ],\n      \"evidence_page\": 480,\n      \"anchor_page\": 480,\n      \"evidence\": \"multi-class Softmax cost\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\n        \"stochastic gradient descent\",\n        \"mini-batch first order method\"\n      ],\n      \"evidence_page\": 476,\n      \"anchor_page\": 476,\n      \"evidence\": \"stochastic or mini-batch first order method for optimization\",\n      \"relevance\": 0.4\n    },\n    {\n      \"canonical\": \"parameterized batch normalization\",\n      \"aliases\": [\n        \"batch normalization with parameters\"\n      ],\n      \"evidence_page\": 476,\n      \"anchor_page\": 476,\n      \"evidence\": \"the batch normalization formula in Equation (13.42) is often parameterized as\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "capacity",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "recursive recipe",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units, and summarize it below.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "element-wise activation",
+            "aliases": [
+              "vector activation"
+            ],
+            "evidence_page": 448,
+            "anchor_page": 448,
+            "evidence": "we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [
+              "parameter matrix"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "neural network architecture",
+            "aliases": [
+              "architecture"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "A visual representation like this is often referred to as a neural network architecture or just an architecture.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "compact representation",
+            "aliases": [
+              "compact notation"
+            ],
+            "evidence_page": 446,
+            "anchor_page": 446,
+            "evidence": "In order to keep ourselves organized and better prepared to understand deeper network units, it is quite helpful to compactify this visualization.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "internal parameters",
+            "aliases": [],
+            "evidence_page": 444,
+            "anchor_page": 444,
+            "evidence": "the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "recursive construction",
+            "aliases": [
+              "recursive building"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "the recursive nature of constructing two-layer units using single-layer ones",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear feature transformations",
+            "aliases": [
+              "feature transformations"
+            ],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "composed of U1 single-layer nonlinear feature transformations",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "appending a 1",
+            "aliases": [
+              "augmented vector",
+              "bias trick"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "placing a 1 at the top of our input vector x, which we denote by placing a hollow ring symbol over x",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"capacity\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"recursive recipe\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units, and summarize it below.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"element-wise activation\",\n      \"aliases\": [\"vector activation\"],\n      \"evidence_page\": 448,\n      \"anchor_page\": 448,\n      \"evidence\": \"we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [\"parameter matrix\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"neural network architecture\",\n      \"aliases\": [\"architecture\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"A visual representation like this is often referred to as a neural network architecture or just an architecture.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"compact representation\",\n      \"aliases\": [\"compact notation\"],\n      \"evidence_page\": 446,\n      \"anchor_page\": 446,\n      \"evidence\": \"In order to keep ourselves organized and better prepared to understand deeper network units, it is quite helpful to compactify this visualization.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"internal parameters\",\n      \"aliases\": [],\n      \"evidence_page\": 444,\n      \"anchor_page\": 444,\n      \"evidence\": \"the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"recursive construction\",\n      \"aliases\": [\"recursive building\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"the recursive nature of constructing two-layer units using single-layer ones\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear feature transformations\",\n      \"aliases\": [\"feature transformations\"],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"composed of U1 single-layer nonlinear feature transformations\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"appending a 1\",\n      \"aliases\": [\"augmented vector\", \"bias trick\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"placing a 1 at the top of our input vector x, which we denote by placing a hollow ring symbol over x\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "fully-connected neural network",
+            "aliases": [
+              "multi-layer perceptron",
+              "deep feedforward neural network"
+            ],
+            "evidence_page": 443,
+            "evidence": "discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks.",
+            "relevance": 1.0,
+            "anchor_page": 443
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "nonlinear activation function"
+            ],
+            "evidence_page": 443,
+            "evidence": "a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,).",
+            "relevance": 0.9,
+            "anchor_page": 443
+          },
+          {
+            "canonical": "model capacity",
+            "aliases": [
+              "capacity",
+              "capacity dial"
+            ],
+            "evidence_page": 444,
+            "evidence": "This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters.",
+            "relevance": 0.9,
+            "anchor_page": 444
+          },
+          {
+            "canonical": "model parameters",
+            "aliases": [
+              "parameters",
+              "slope and vertical intercept",
+              "internal parameters"
+            ],
+            "evidence_page": 444,
+            "evidence": "the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly",
+            "relevance": 0.9,
+            "anchor_page": 444
+          },
+          {
+            "canonical": "recursive construction",
+            "aliases": [
+              "recursive recipe",
+              "recursive building"
+            ],
+            "evidence_page": 444,
+            "evidence": "We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units. The recursive nature of constructing two-layer units using single-layer ones is emphasized.",
+            "relevance": 0.8,
+            "anchor_page": 444
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "single-hidden-layer"
+            ],
+            "evidence_page": 445,
+            "evidence": "In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.",
+            "relevance": 0.8,
+            "anchor_page": 445
+          },
+          {
+            "canonical": "neural network architecture",
+            "aliases": [
+              "architecture"
+            ],
+            "evidence_page": 445,
+            "evidence": "A visual representation like this is often referred to as a neural network architecture or just an architecture.",
+            "relevance": 0.8,
+            "anchor_page": 445
+          },
+          {
+            "canonical": "nonlinear feature engineering",
+            "aliases": [
+              "nonlinear feature transformation",
+              "feature transformation",
+              "feature",
+              "feature map",
+              "nonlinear feature map",
+              "feature mapping",
+              "nonlinear feature transformations",
+              "feature transforms"
+            ],
+            "evidence_page": 445,
+            "evidence": "composed of U1 single-layer nonlinear feature transformations",
+            "relevance": 0.8,
+            "anchor_page": 445
+          },
+          {
+            "canonical": "input layer",
+            "aliases": [
+              "first layer"
+            ],
+            "evidence_page": 445,
+            "evidence": "This layer is \"visible\" to us since this is where we inject the input data to our network which we ourselves can \"see,\" and is also often referred to as the first or input layer of the network.",
+            "relevance": 0.7,
+            "anchor_page": 445
+          },
+          {
+            "canonical": "compact representation",
+            "aliases": [
+              "compact notation"
+            ],
+            "evidence_page": 446,
+            "evidence": "In order to keep ourselves organized and better prepared to understand deeper network units, it is quite helpful to compactify this visualization.",
+            "relevance": 0.7,
+            "anchor_page": 446
+          },
+          {
+            "canonical": "output layer",
+            "aliases": [
+              "final layer"
+            ],
+            "evidence_page": 446,
+            "evidence": "This is the final output of the model, and is often called the final or output layer of the network which is again \"visible\" to us (not hidden).",
+            "relevance": 0.7,
+            "anchor_page": 446
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [
+              "parameter matrix"
+            ],
+            "evidence_page": 447,
+            "evidence": "Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1",
+            "relevance": 0.9,
+            "anchor_page": 447
+          },
+          {
+            "canonical": "element-wise activation",
+            "aliases": [
+              "vector activation"
+            ],
+            "evidence_page": 448,
+            "evidence": "we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries",
+            "relevance": 0.7,
+            "anchor_page": 448
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "gradient calculator",
+              "automatic differentiator",
+              "autodiff"
+            ],
+            "evidence_page": 452,
+            "evidence": "the use of automatic diﬀerentiation when employing first (and even second) order optimization techniques is extremely helpful",
+            "relevance": 0.9,
+            "anchor_page": 452
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "first order methods",
+              "gradient-based optimization",
+              "first-order optimization"
+            ],
+            "evidence_page": 452,
+            "evidence": "first order local optimization schemes (e.g., gradient descent and its descendants) are the most common schemes used",
+            "relevance": 0.9,
+            "anchor_page": 452
+          },
+          {
+            "canonical": "non-convex minimization",
+            "aliases": [
+              "minimizing non-convex functions",
+              "non-convexity",
+              "non-convex optimization"
+            ],
+            "evidence_page": 452,
+            "evidence": "associated cost functions employing network models can be very non-convex",
+            "relevance": 0.8,
+            "anchor_page": 452
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "batch norm",
+              "batch-normalized network",
+              "batch-normalized architecture"
+            ],
+            "evidence_page": 475,
+            "evidence": "13.6 Batch normalization",
+            "relevance": 0.95,
+            "anchor_page": 475
+          },
+          {
+            "canonical": "internal covariate shift",
+            "aliases": [
+              "covariate shift"
+            ],
+            "evidence_page": 476,
+            "evidence": "the covariate shift of this network is considerable",
+            "relevance": 0.8,
+            "anchor_page": 476
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping regularization",
+              "early stopping cross-validation"
+            ],
+            "evidence_page": 479,
+            "evidence": "early stopping based regularization, which involves selecting parameters to minimize validation error during a single run of optimization, is a popular cross-validation technique",
+            "relevance": 0.9,
+            "anchor_page": 479
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"fully-connected neural network\",\n      \"aliases\": [\n        \"multi-layer perceptron\",\n        \"deep feedforward neural network\"\n      ],\n      \"evidence_page\": 443,\n      \"evidence\": \"discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 443\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\n        \"nonlinear activation function\"\n      ],\n      \"evidence_page\": 443,\n      \"evidence\": \"a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,).\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 443\n    },\n    {\n      \"canonical\": \"model capacity\",\n      \"aliases\": [\n        \"capacity\",\n        \"capacity dial\"\n      ],\n      \"evidence_page\": 444,\n      \"evidence\": \"This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 444\n    },\n    {\n      \"canonical\": \"model parameters\",\n      \"aliases\": [\n        \"parameters\",\n        \"slope and vertical intercept\",\n        \"internal parameters\"\n      ],\n      \"evidence_page\": 444,\n      \"evidence\": \"the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 444\n    },\n    {\n      \"canonical\": \"recursive construction\",\n      \"aliases\": [\n        \"recursive recipe\",\n        \"recursive building\"\n      ],\n      \"evidence_page\": 444,\n      \"evidence\": \"We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units. The recursive nature of constructing two-layer units using single-layer ones is emphasized.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 444\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\n        \"single-hidden-layer\"\n      ],\n      \"evidence_page\": 445,\n      \"evidence\": \"In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 445\n    },\n    {\n      \"canonical\": \"neural network architecture\",\n      \"aliases\": [\n        \"architecture\"\n      ],\n      \"evidence_page\": 445,\n      \"evidence\": \"A visual representation like this is often referred to as a neural network architecture or just an architecture.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 445\n    },\n    {\n      \"canonical\": \"nonlinear feature engineering\",\n      \"aliases\": [\n        \"nonlinear feature transformation\",\n        \"feature transformation\",\n        \"feature\",\n        \"feature map\",\n        \"nonlinear feature map\",\n        \"feature mapping\",\n        \"nonlinear feature transformations\",\n        \"feature transforms\"\n      ],\n      \"evidence_page\": 445,\n      \"evidence\": \"composed of U1 single-layer nonlinear feature transformations\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 445\n    },\n    {\n      \"canonical\": \"input layer\",\n      \"aliases\": [\n        \"first layer\"\n      ],\n      \"evidence_page\": 445,\n      \"evidence\": \"This layer is \\\"visible\\\" to us since this is where we inject the input data to our network which we ourselves can \\\"see,\\\" and is also often referred to as the first or input layer of the network.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 445\n    },\n    {\n      \"canonical\": \"compact representation\",\n      \"aliases\": [\n        \"compact notation\"\n      ],\n      \"evidence_page\": 446,\n      \"evidence\": \"In order to keep ourselves organized and better prepared to understand deeper network units, it is quite helpful to compactify this visualization.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 446\n    },\n    {\n      \"canonical\": \"output layer\",\n      \"aliases\": [\n        \"final layer\"\n      ],\n      \"evidence_page\": 446,\n      \"evidence\": \"This is the final output of the model, and is often called the final or output layer of the network which is again \\\"visible\\\" to us (not hidden).\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 446\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [\n        \"parameter matrix\"\n      ],\n      \"evidence_page\": 447,\n      \"evidence\": \"Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 447\n    },\n    {\n      \"canonical\": \"element-wise activation\",\n      \"aliases\": [\n        \"vector activation\"\n      ],\n      \"evidence_page\": 448,\n      \"evidence\": \"we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 448\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\n        \"autograd\",\n        \"gradient calculator\",\n        \"automatic differentiator\",\n        \"autodiff\"\n      ],\n      \"evidence_page\": 452,\n      \"evidence\": \"the use of automatic diﬀerentiation when employing first (and even second) order optimization techniques is extremely helpful\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 452\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\n        \"first order methods\",\n        \"gradient-based optimization\",\n        \"first-order optimization\"\n      ],\n      \"evidence_page\": 452,\n      \"evidence\": \"first order local optimization schemes (e.g., gradient descent and its descendants) are the most common schemes used\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 452\n    },\n    {\n      \"canonical\": \"non-convex minimization\",\n      \"aliases\": [\n        \"minimizing non-convex functions\",\n        \"non-convexity\",\n        \"non-convex optimization\"\n      ],\n      \"evidence_page\": 452,\n      \"evidence\": \"associated cost functions employing network models can be very non-convex\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 452\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\n        \"batch norm\",\n        \"batch-normalized network\",\n        \"batch-normalized architecture\"\n      ],\n      \"evidence_page\": 475,\n      \"evidence\": \"13.6 Batch normalization\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 475\n    },\n    {\n      \"canonical\": \"internal covariate shift\",\n      \"aliases\": [\n        \"covariate shift\"\n      ],\n      \"evidence_page\": 476,\n      \"evidence\": \"the covariate shift of this network is considerable\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 476\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\n        \"early stopping regularization\",\n        \"early stopping cross-validation\"\n      ],\n      \"evidence_page\": 479,\n      \"evidence\": \"early stopping based regularization, which involves selecting parameters to minimize validation error during a single run of optimization, is a popular cross-validation technique\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 479\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "single-layer unit",
+            "aliases": [
+              "single hidden-layer unit",
+              "single-layer unit"
+            ],
+            "evidence_page": 443,
+            "anchor_page": 443,
+            "evidence": "single hidden-layer unit, also called a single-layer unit for short",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "two-layer unit",
+            "aliases": [
+              "two-hidden-layer unit",
+              "two-layer neural network unit"
+            ],
+            "evidence_page": 448,
+            "anchor_page": 448,
+            "evidence": "To create a two-hidden-layer neural network unit, or a two-layer unit for short",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "bias term"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "starting with the bias w(1)0,j",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "linear combination",
+            "aliases": [],
+            "evidence_page": 443,
+            "anchor_page": 443,
+            "evidence": "a linear combination of input passed through a nonlinear activation",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "vector activation",
+            "aliases": [
+              "element-wise activation"
+            ],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "nonlinear feature transformation",
+            "aliases": [
+              "feature transformation"
+            ],
+            "evidence_page": 446,
+            "anchor_page": 446,
+            "evidence": "composed of U1 single-layer nonlinear feature transformations",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "matrix-vector product",
+            "aliases": [],
+            "evidence_page": 447,
+            "anchor_page": 447,
+            "evidence": "the matrix-vector product WT1 x",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "summation unit",
+            "aliases": [],
+            "evidence_page": 445,
+            "anchor_page": 445,
+            "evidence": "hollow circle (summation unit)",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"single-layer unit\",\n      \"aliases\": [\"single hidden-layer unit\", \"single-layer unit\"],\n      \"evidence_page\": 443,\n      \"anchor_page\": 443,\n      \"evidence\": \"single hidden-layer unit, also called a single-layer unit for short\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"two-layer unit\",\n      \"aliases\": [\"two-hidden-layer unit\", \"two-layer neural network unit\"],\n      \"evidence_page\": 448,\n      \"anchor_page\": 448,\n      \"evidence\": \"To create a two-hidden-layer neural network unit, or a two-layer unit for short\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"bias term\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"starting with the bias w(1)0,j\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"linear combination\",\n      \"aliases\": [],\n      \"evidence_page\": 443,\n      \"anchor_page\": 443,\n      \"evidence\": \"a linear combination of input passed through a nonlinear activation\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"vector activation\",\n      \"aliases\": [\"element-wise activation\"],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"nonlinear feature transformation\",\n      \"aliases\": [\"feature transformation\"],\n      \"evidence_page\": 446,\n      \"anchor_page\": 446,\n      \"evidence\": \"composed of U1 single-layer nonlinear feature transformations\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"matrix-vector product\",\n      \"aliases\": [],\n      \"evidence_page\": 447,\n      \"anchor_page\": 447,\n      \"evidence\": \"the matrix-vector product WT1 x\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"summation unit\",\n      \"aliases\": [],\n      \"evidence_page\": 445,\n      \"anchor_page\": 445,\n      \"evidence\": \"hollow circle (summation unit)\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "deep network",
+            "aliases": [
+              "deep network units",
+              "deep network models"
+            ],
+            "evidence_page": 446,
+            "anchor_page": 446,
+            "evidence": "Often units built using three or more hidden-layers are referred to as deep network units in the jargon of machine learning, and models built using such units are correspondingly referred to as deep network models.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autodiff"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping based regularization"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "To this end early stopping based regularization (see Sections 11.6.2 and 13.7) is commonly employed with neural network models.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [
+              "model selection via cross-validation"
+            ],
+            "evidence_page": 449,
+            "anchor_page": 449,
+            "evidence": "In principle to determine the best architecture for use with a given dataset we must cross-validate an array of choices.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "tensor",
+            "aliases": [
+              "list of weight matrices",
+              "parameter tensor"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "Such a list of weight matrices is often referred to as a tensor in practice.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "first-order optimization",
+            "aliases": [
+              "first order local optimization",
+              "first-order descent"
+            ],
+            "evidence_page": 452,
+            "anchor_page": 452,
+            "evidence": "first order local optimization schemes (e.g., gradient descent and its descendants - detailed in Chapter 3) are the most common schemes used to tune the parameters of general fully-connected network.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "artificial neuron",
+            "aliases": [
+              "artificial neuron model"
+            ],
+            "evidence_page": 450,
+            "anchor_page": 450,
+            "evidence": "These early models, later dubbed as artificial neurons (a basic exemplar of which is shown in the top right panel of Figure 13.9).",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "perceptron",
+            "aliases": [
+              "perceptron model"
+            ],
+            "evidence_page": 450,
+            "anchor_page": 450,
+            "evidence": "culminated in the introduction of the perceptron model in 1957 [59].",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"deep network\",\n      \"aliases\": [\"deep network units\", \"deep network models\"],\n      \"evidence_page\": 446,\n      \"anchor_page\": 446,\n      \"evidence\": \"Often units built using three or more hidden-layers are referred to as deep network units in the jargon of machine learning, and models built using such units are correspondingly referred to as deep network models.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autodiff\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\"early stopping based regularization\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"To this end early stopping based regularization (see Sections 11.6.2 and 13.7) is commonly employed with neural network models.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [\"model selection via cross-validation\"],\n      \"evidence_page\": 449,\n      \"anchor_page\": 449,\n      \"evidence\": \"In principle to determine the best architecture for use with a given dataset we must cross-validate an array of choices.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"tensor\",\n      \"aliases\": [\"list of weight matrices\", \"parameter tensor\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"Such a list of weight matrices is often referred to as a tensor in practice.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"first-order optimization\",\n      \"aliases\": [\"first order local optimization\", \"first-order descent\"],\n      \"evidence_page\": 452,\n      \"anchor_page\": 452,\n      \"evidence\": \"first order local optimization schemes (e.g., gradient descent and its descendants - detailed in Chapter 3) are the most common schemes used to tune the parameters of general fully-connected network.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"artificial neuron\",\n      \"aliases\": [\"artificial neuron model\"],\n      \"evidence_page\": 450,\n      \"anchor_page\": 450,\n      \"evidence\": \"These early models, later dubbed as artificial neurons (a basic exemplar of which is shown in the top right panel of Figure 13.9).\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"perceptron\",\n      \"aliases\": [\"perceptron model\"],\n      \"evidence_page\": 450,\n      \"anchor_page\": 450,\n      \"evidence\": \"culminated in the introduction of the perceptron model in 1957 [59].\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "automatic differentiator"
+            ],
+            "evidence_page": 460,
+            "anchor_page": 460,
+            "evidence": "the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "tensor",
+            "aliases": [
+              "weight tensor"
+            ],
+            "evidence_page": 460,
+            "anchor_page": 460,
+            "evidence": "Such a list of weight matrices is often referred to as a tensor in practice.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "vanishing gradient problem",
+            "aliases": [],
+            "evidence_page": 465,
+            "anchor_page": 465,
+            "evidence": "a technical issue known as the vanishing gradient problem",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "step function",
+            "aliases": [
+              "step activation"
+            ],
+            "evidence_page": 464,
+            "anchor_page": 464,
+            "evidence": "a step function taking on just two values: 0 (off) and 1 (on)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [
+              "logistic sigmoid activation"
+            ],
+            "evidence_page": 465,
+            "anchor_page": 465,
+            "evidence": "the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "rectified linear unit activation",
+            "aliases": [
+              "ReLU activation"
+            ],
+            "evidence_page": 466,
+            "anchor_page": 466,
+            "evidence": "The simple ReLU function - first introduced in Section 11.2.3 - was the first such activation function to be popularized",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "maxout activation",
+            "aliases": [],
+            "evidence_page": 467,
+            "anchor_page": 467,
+            "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "backpropagation algorithm",
+              "backprop"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 467,
+            "evidence": "The backpropagation algorithm, often referred to simply as backpropagation or backprop for short",
+            "relevance": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"automatic differentiator\"],\n      \"evidence_page\": 460,\n      \"anchor_page\": 460,\n      \"evidence\": \"the use of automatic differentiation when employing first (and even second) order optimization techniques is extremely helpful\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"tensor\",\n      \"aliases\": [\"weight tensor\"],\n      \"evidence_page\": 460,\n      \"anchor_page\": 460,\n      \"evidence\": \"Such a list of weight matrices is often referred to as a tensor in practice.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"vanishing gradient problem\",\n      \"aliases\": [],\n      \"evidence_page\": 465,\n      \"anchor_page\": 465,\n      \"evidence\": \"a technical issue known as the vanishing gradient problem\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"step function\",\n      \"aliases\": [\"step activation\"],\n      \"evidence_page\": 464,\n      \"anchor_page\": 464,\n      \"evidence\": \"a step function taking on just two values: 0 (off) and 1 (on)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [\"logistic sigmoid activation\"],\n      \"evidence_page\": 465,\n      \"anchor_page\": 465,\n      \"evidence\": \"the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"rectified linear unit activation\",\n      \"aliases\": [\"ReLU activation\"],\n      \"evidence_page\": 466,\n      \"anchor_page\": 466,\n      \"evidence\": \"The simple ReLU function - first introduced in Section 11.2.3 - was the first such activation function to be popularized\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"maxout activation\",\n      \"aliases\": [],\n      \"evidence_page\": 467,\n      \"anchor_page\": 467,\n      \"evidence\": \"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"backpropagation algorithm\", \"backprop\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 467,\n      \"evidence\": \"The backpropagation algorithm, often referred to simply as backpropagation or backprop for short\",\n      \"relevance\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "automatic diﬀerentiation",
+              "reverse mode of automatic differentiation"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 467,
+            "evidence": "Backprop is a special case of a more general scheme generally referred to as the reverse mode of automatic diﬀerentiation.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "non-convexity",
+            "aliases": [
+              "non-convex cost function",
+              "non-convex"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 468,
+            "evidence": "Typically cost functions associated with fully-connected neural network models are highly non-convex.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "saddle points",
+            "aliases": [
+              "saddle point"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "long narrow valleys, flat areas, and many saddle points and local minima.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "local minima",
+            "aliases": [
+              "local minimum"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "local minima tend to lie at a depth close to that of their global minima",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "momentum-based methods",
+            "aliases": [
+              "momentum",
+              "momentum-based gradient descent"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "these were precisely the motivation for momentum-based ... and normalized gradient methods ... enhancements to gradient descent.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "normalized gradient methods",
+            "aliases": [
+              "component-normalized gradient descent",
+              "normalized gradient descent"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "these were precisely the motivation for momentum-based ... and normalized gradient methods ... enhancements to gradient descent.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "mini-batch optimization",
+            "aliases": [
+              "mini-batch gradient descent",
+              "minibatch optimization"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "in addition to mini-batch optimization ... can further enhance gradient-based methods",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "input normalization",
+              "feature normalization"
+            ],
+            "evidence_page": 471,
+            "anchor_page": 471,
+            "evidence": "standard normalization involves normalizing the distribution of each input dimension of a dataset",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "softmax loss",
+              "multiclass softmax cost"
+            ],
+            "evidence_page": 469,
+            "anchor_page": 469,
+            "evidence": "minimize the multi-class Softmax cost",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "maxout activation",
+            "aliases": [
+              "maxout unit"
+            ],
+            "evidence_page": 467,
+            "anchor_page": 467,
+            "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"automatic diﬀerentiation\", \"reverse mode of automatic differentiation\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 467,\n      \"evidence\": \"Backprop is a special case of a more general scheme generally referred to as the reverse mode of automatic diﬀerentiation.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"non-convexity\",\n      \"aliases\": [\"non-convex cost function\", \"non-convex\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 468,\n      \"evidence\": \"Typically cost functions associated with fully-connected neural network models are highly non-convex.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"saddle points\",\n      \"aliases\": [\"saddle point\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"long narrow valleys, flat areas, and many saddle points and local minima.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"local minima\",\n      \"aliases\": [\"local minimum\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"local minima tend to lie at a depth close to that of their global minima\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"momentum-based methods\",\n      \"aliases\": [\"momentum\", \"momentum-based gradient descent\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"these were precisely the motivation for momentum-based ... and normalized gradient methods ... enhancements to gradient descent.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"normalized gradient methods\",\n      \"aliases\": [\"component-normalized gradient descent\", \"normalized gradient descent\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"these were precisely the motivation for momentum-based ... and normalized gradient methods ... enhancements to gradient descent.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"mini-batch optimization\",\n      \"aliases\": [\"mini-batch gradient descent\", \"minibatch optimization\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"in addition to mini-batch optimization ... can further enhance gradient-based methods\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"input normalization\", \"feature normalization\"],\n      \"evidence_page\": 471,\n      \"anchor_page\": 471,\n      \"evidence\": \"standard normalization involves normalizing the distribution of each input dimension of a dataset\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"softmax loss\", \"multiclass softmax cost\"],\n      \"evidence_page\": 469,\n      \"anchor_page\": 469,\n      \"evidence\": \"minimize the multi-class Softmax cost\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"maxout activation\",\n      \"aliases\": [\"maxout unit\"],\n      \"evidence_page\": 467,\n      \"anchor_page\": 467,\n      \"evidence\": \"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standard-normalize",
+              "zero-mean unit-variance normalization"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 468,
+            "evidence": "Standard normalize f (L) via f (L) (x) ←− f (L)(x)−µf(L) σf(L)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "scale and shift parameters",
+            "aliases": [
+              "tunable parameters α and β",
+              "batch normalization learnable parameters"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 468,
+            "evidence": "the batch normalization formula in Equation (13.42) is often parameterized as f (L) (x) ←−α f (L) (x) −µf (L) σf (L) + β where inclusion of the tunable parameters α and β allows for more flexibility",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "frozen normalization constants",
+            "aliases": [
+              "test-time normalization",
+              "inference normalization"
+            ],
+            "evidence_page": 470,
+            "anchor_page": 470,
+            "evidence": "the final normalization constants determined during training (i.e., the various means and standard deviations of the input as well as those for each hidden-layer output) must be saved and re-used in order to properly evaluate new datapoints.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping cross-validation",
+              "early stopping regularization"
+            ],
+            "evidence_page": 470,
+            "anchor_page": 470,
+            "evidence": "early stopping based regularization ... is a popular cross-validation technique when employing fully connected networks.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "validation error",
+            "aliases": [
+              "validation cost",
+              "validation loss"
+            ],
+            "evidence_page": 470,
+            "anchor_page": 470,
+            "evidence": "selecting parameters to minimize validation error during a single run of optimization",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "bagging",
+            "aliases": [
+              "bootstrap aggregating"
+            ],
+            "evidence_page": 471,
+            "anchor_page": 471,
+            "evidence": "ensembling techniques which aim at producing a set of network models for bagging",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "mini-batch gradient descent",
+            "aliases": [
+              "stochastic gradient descent",
+              "mini-batch optimization"
+            ],
+            "evidence_page": 468,
+            "anchor_page": 468,
+            "evidence": "When employing a stochastic or mini-batch first order method for optimization",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "multi-class softmax cost",
+              "softmax loss"
+            ],
+            "evidence_page": 472,
+            "anchor_page": 472,
+            "evidence": "Employing the multi-class Softmax cost we found",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "non-convexity",
+            "aliases": [
+              "non-convex optimization",
+              "non-convex loss landscape"
+            ],
+            "evidence_page": 472,
+            "anchor_page": 472,
+            "evidence": "the non-convexity of cost functions over network-based models",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standard-normalize\", \"zero-mean unit-variance normalization\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 468,\n      \"evidence\": \"Standard normalize f (L) via f (L) (x) ←− f (L)(x)−µf(L) σf(L)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"scale and shift parameters\",\n      \"aliases\": [\"tunable parameters α and β\", \"batch normalization learnable parameters\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 468,\n      \"evidence\": \"the batch normalization formula in Equation (13.42) is often parameterized as f (L) (x) ←−α f (L) (x) −µf (L) σf (L) + β where inclusion of the tunable parameters α and β allows for more flexibility\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"frozen normalization constants\",\n      \"aliases\": [\"test-time normalization\", \"inference normalization\"],\n      \"evidence_page\": 470,\n      \"anchor_page\": 470,\n      \"evidence\": \"the final normalization constants determined during training (i.e., the various means and standard deviations of the input as well as those for each hidden-layer output) must be saved and re-used in order to properly evaluate new datapoints.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\"early stopping cross-validation\", \"early stopping regularization\"],\n      \"evidence_page\": 470,\n      \"anchor_page\": 470,\n      \"evidence\": \"early stopping based regularization ... is a popular cross-validation technique when employing fully connected networks.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"validation error\",\n      \"aliases\": [\"validation cost\", \"validation loss\"],\n      \"evidence_page\": 470,\n      \"anchor_page\": 470,\n      \"evidence\": \"selecting parameters to minimize validation error during a single run of optimization\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"bagging\",\n      \"aliases\": [\"bootstrap aggregating\"],\n      \"evidence_page\": 471,\n      \"anchor_page\": 471,\n      \"evidence\": \"ensembling techniques which aim at producing a set of network models for bagging\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"mini-batch gradient descent\",\n      \"aliases\": [\"stochastic gradient descent\", \"mini-batch optimization\"],\n      \"evidence_page\": 468,\n      \"anchor_page\": 468,\n      \"evidence\": \"When employing a stochastic or mini-batch first order method for optimization\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"multi-class softmax cost\", \"softmax loss\"],\n      \"evidence_page\": 472,\n      \"anchor_page\": 472,\n      \"evidence\": \"Employing the multi-class Softmax cost we found\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"non-convexity\",\n      \"aliases\": [\"non-convex optimization\", \"non-convex loss landscape\"],\n      \"evidence_page\": 472,\n      \"anchor_page\": 472,\n      \"evidence\": \"the non-convexity of cost functions over network-based models\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill_consolidation",
+      "round": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "single-layer unit",
+            "aliases": [
+              "single hidden-layer unit"
+            ],
+            "evidence_page": 443,
+            "evidence": "single hidden-layer unit, also called a single-layer unit for short",
+            "relevance": 0.9,
+            "anchor_page": 443
+          },
+          {
+            "canonical": "vector activation",
+            "aliases": [
+              "element-wise activation"
+            ],
+            "evidence_page": 447,
+            "evidence": "we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries",
+            "relevance": 0.7,
+            "anchor_page": 447
+          },
+          {
+            "canonical": "two-layer unit",
+            "aliases": [
+              "two-hidden-layer unit",
+              "two-layer neural network unit"
+            ],
+            "evidence_page": 448,
+            "evidence": "To create a two-hidden-layer neural network unit, or a two-layer unit for short",
+            "relevance": 0.9,
+            "anchor_page": 448
+          },
+          {
+            "canonical": "step function",
+            "aliases": [
+              "step activation"
+            ],
+            "evidence_page": 464,
+            "evidence": "a step function taking on just two values: 0 (off) and 1 (on)",
+            "relevance": 0.7,
+            "anchor_page": 464
+          },
+          {
+            "canonical": "vanishing gradient problem",
+            "aliases": [],
+            "evidence_page": 465,
+            "evidence": "a technical issue known as the vanishing gradient problem",
+            "relevance": 0.95,
+            "anchor_page": 465
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [
+              "logistic sigmoid activation"
+            ],
+            "evidence_page": 465,
+            "evidence": "the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly",
+            "relevance": 0.85,
+            "anchor_page": 465
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "backpropagation algorithm",
+              "backprop"
+            ],
+            "evidence_page": 467,
+            "evidence": "The backpropagation algorithm, often referred to simply as backpropagation or backprop for short",
+            "relevance": 0.95,
+            "anchor_page": 467
+          },
+          {
+            "canonical": "maxout activation",
+            "aliases": [],
+            "evidence_page": 467,
+            "evidence": "The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)",
+            "relevance": 0.8,
+            "anchor_page": 467
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"single-layer unit\",\n      \"aliases\": [\"single hidden-layer unit\"],\n      \"evidence_page\": 443,\n      \"evidence\": \"single hidden-layer unit, also called a single-layer unit for short\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 443\n    },\n    {\n      \"canonical\": \"vector activation\",\n      \"aliases\": [\"element-wise activation\"],\n      \"evidence_page\": 447,\n      \"evidence\": \"we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 447\n    },\n    {\n      \"canonical\": \"two-layer unit\",\n      \"aliases\": [\"two-hidden-layer unit\", \"two-layer neural network unit\"],\n      \"evidence_page\": 448,\n      \"evidence\": \"To create a two-hidden-layer neural network unit, or a two-layer unit for short\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 448\n    },\n    {\n      \"canonical\": \"step function\",\n      \"aliases\": [\"step activation\"],\n      \"evidence_page\": 464,\n      \"evidence\": \"a step function taking on just two values: 0 (off) and 1 (on)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 464\n    },\n    {\n      \"canonical\": \"vanishing gradient problem\",\n      \"aliases\": [],\n      \"evidence_page\": 465,\n      \"evidence\": \"a technical issue known as the vanishing gradient problem\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 465\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [\"logistic sigmoid activation\"],\n      \"evidence_page\": 465,\n      \"evidence\": \"the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 465\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"backpropagation algorithm\", \"backprop\"],\n      \"evidence_page\": 467,\n      \"evidence\": \"The backpropagation algorithm, often referred to simply as backpropagation or backprop for short\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 467\n    },\n    {\n      \"canonical\": \"maxout activation\",\n      \"aliases\": [],\n      \"evidence_page\": 467,\n      \"evidence\": \"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 467\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 443,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "single-layer unit",
+            "latex": "f^{(1)}(x) = a\\left(w_0^{(1)} + \\sum_{n=1}^{N} w_n^{(1)} x_n\\right)",
+            "pdf_page": 443,
+            "equation_label": "(13.1)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "activation function",
+            "latex": "f^{(1)}(x) = a\\left(w_0^{(1)} + \\sum_{n=1}^{N} w_n^{(1)} x_n\\right)",
+            "pdf_page": 443,
+            "equation_label": "(13.1)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "single-layer unit",
+            "latex": "f^{(1)}(x) = \\tanh\\left(w_0^{(1)} + w_1^{(1)} x\\right)",
+            "pdf_page": 444,
+            "equation_label": "(13.2)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "activation function",
+            "latex": "f^{(1)}(x) = \\tanh\\left(w_0^{(1)} + w_1^{(1)} x\\right)",
+            "pdf_page": 444,
+            "equation_label": "(13.2)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "single-layer unit",
+            "latex": "f^{(1)}(x) = \\max\\left(0, w_0^{(1)} + w_1^{(1)} x\\right)",
+            "pdf_page": 444,
+            "equation_label": "(13.3)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "activation function",
+            "latex": "f^{(1)}(x) = \\max\\left(0, w_0^{(1)} + w_1^{(1)} x\\right)",
+            "pdf_page": 444,
+            "equation_label": "(13.3)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "fully-connected neural network",
+            "latex": "\\text{model}(x, \\Theta) = w_0 + f_1^{(1)}(x) w_1 + \\cdots + f_{U_1}^{(1)}(x) w_{U_1}",
+            "pdf_page": 444,
+            "equation_label": "(13.4)",
+            "confidence": 0.85
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"single-layer unit\",\n      \"latex\": \"f^{(1)}(x) = a\\\\left(w_0^{(1)} + \\\\sum_{n=1}^{N} w_n^{(1)} x_n\\\\right)\",\n      \"pdf_page\": 443,\n      \"equation_label\": \"(13.1)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"activation function\",\n      \"latex\": \"f^{(1)}(x) = a\\\\left(w_0^{(1)} + \\\\sum_{n=1}^{N} w_n^{(1)} x_n\\\\right)\",\n      \"pdf_page\": 443,\n      \"equation_label\": \"(13.1)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"single-layer unit\",\n      \"latex\": \"f^{(1)}(x) = \\\\tanh\\\\left(w_0^{(1)} + w_1^{(1)} x\\\\right)\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.2)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"activation function\",\n      \"latex\": \"f^{(1)}(x) = \\\\tanh\\\\left(w_0^{(1)} + w_1^{(1)} x\\\\right)\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.2)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"single-layer unit\",\n      \"latex\": \"f^{(1)}(x) = \\\\max\\\\left(0, w_0^{(1)} + w_1^{(1)} x\\\\right)\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.3)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"activation function\",\n      \"latex\": \"f^{(1)}(x) = \\\\max\\\\left(0, w_0^{(1)} + w_1^{(1)} x\\\\right)\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.3)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"fully-connected neural network\",\n      \"latex\": \"\\\\text{model}(x, \\\\Theta) = w_0 + f_1^{(1)}(x) w_1 + \\\\cdots + f_{U_1}^{(1)}(x) w_{U_1}\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.4)\",\n      \"confidence\": 0.85\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 444,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "model parameters",
+            "latex": "\\text{model}(x, \\Theta) = w_0 + f^{(1)}_1(x) w_1 + \\cdots + f^{(1)}_{U_1}(x) w_{U_1}",
+            "pdf_page": 444,
+            "equation_label": "(13.4)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "model capacity",
+            "pdf_page": 445,
+            "figure_label": "Figure 13.1",
+            "caption": "Figure 13.1 Figure associated with Example 13.1. Four instances of a single-layer neural network unit with (top row) tanh and (bottom row) ReLU activation. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"model parameters\",\n      \"latex\": \"\\\\text{model}(x, \\\\Theta) = w_0 + f^{(1)}_1(x) w_1 + \\\\cdots + f^{(1)}_{U_1}(x) w_{U_1}\",\n      \"pdf_page\": 444,\n      \"equation_label\": \"(13.4)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"model capacity\",\n      \"pdf_page\": 445,\n      \"figure_label\": \"Figure 13.1\",\n      \"caption\": \"Figure 13.1 Figure associated with Example 13.1. Four instances of a single-layer neural network unit with (top row) tanh and (bottom row) ReLU activation. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 445,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "hidden layer",
+            "pdf_page": 446,
+            "figure_label": "Figure 13.2",
+            "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+            "confidence": 1.0
+          },
+          {
+            "concept": "neural network architecture",
+            "pdf_page": 446,
+            "figure_label": "Figure 13.2",
+            "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+            "confidence": 1.0
+          },
+          {
+            "concept": "input layer",
+            "pdf_page": 446,
+            "figure_label": "Figure 13.2",
+            "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"hidden layer\",\n      \"pdf_page\": 446,\n      \"figure_label\": \"Figure 13.2\",\n      \"caption\": \"Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"neural network architecture\",\n      \"pdf_page\": 446,\n      \"figure_label\": \"Figure 13.2\",\n      \"caption\": \"Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"input layer\",\n      \"pdf_page\": 446,\n      \"figure_label\": \"Figure 13.2\",\n      \"caption\": \"Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 446,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "output layer",
+            "pdf_page": 446,
+            "figure_label": "Figure 13.2",
+            "caption": "Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"output layer\",\n      \"pdf_page\": 446,\n      \"figure_label\": \"Figure 13.2\",\n      \"caption\": \"Figure 13.2 (left panel) Graphical representation of a single-layer neural network model, given in Equation (13.4), which is composed of U1 single-layer nonlinear feature transformations. (top right panel) A condensed graphical representation of a single-layer neural network. (bottom right panel) This network can be represented even more compactly, illustrating in a simple diagram all of the computation performed by a single layer network model. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 447,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "weight matrix",
+            "latex": "\\mathbf{W}_1 = \\begin{bmatrix} w_{0,1}^{(1)} & w_{0,2}^{(1)} & \\cdots & w_{0,U_1}^{(1)} \\\\ w_{1,1}^{(1)} & w_{1,2}^{(1)} & \\cdots & w_{2,U_1}^{(1)} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ w_{N,1}^{(1)} & w_{N,2}^{(1)} & \\cdots & w_{N,U_1}^{(1)} \\end{bmatrix}",
+            "pdf_page": 447,
+            "equation_label": "13.7",
+            "confidence": 0.95
+          },
+          {
+            "concept": "vector activation",
+            "latex": "\\mathbf{a}(\\mathbf{v}) = \\begin{bmatrix} a(v_1) \\\\ \\vdots \\\\ a(v_d) \\end{bmatrix}",
+            "pdf_page": 448,
+            "equation_label": "13.9",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"weight matrix\",\n      \"latex\": \"\\\\mathbf{W}_1 = \\\\begin{bmatrix} w_{0,1}^{(1)} & w_{0,2}^{(1)} & \\\\cdots & w_{0,U_1}^{(1)} \\\\\\\\ w_{1,1}^{(1)} & w_{1,2}^{(1)} & \\\\cdots & w_{2,U_1}^{(1)} \\\\\\\\ \\\\vdots & \\\\vdots & \\\\ddots & \\\\vdots \\\\\\\\ w_{N,1}^{(1)} & w_{N,2}^{(1)} & \\\\cdots & w_{N,U_1}^{(1)} \\\\end{bmatrix}\",\n      \"pdf_page\": 447,\n      \"equation_label\": \"13.7\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"vector activation\",\n      \"latex\": \"\\\\mathbf{a}(\\\\mathbf{v}) = \\\\begin{bmatrix} a(v_1) \\\\\\\\ \\\\vdots \\\\\\\\ a(v_d) \\\\end{bmatrix}\",\n      \"pdf_page\": 448,\n      \"equation_label\": \"13.9\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 448,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "two-layer unit",
+            "latex": "f (x) = a \\left( w^{(2)}_0 + \\sum_{i=1}^{U_1} w^{(2)}_i f^{(1)}_i (x) \\right)",
+            "pdf_page": 449,
+            "equation_label": "13.13",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"two-layer unit\",\n      \"latex\": \"f (x) = a \\\\left( w^{(2)}_0 + \\\\sum_{i=1}^{U_1} w^{(2)}_i f^{(1)}_i (x) \\\\right)\",\n      \"pdf_page\": 449,\n      \"equation_label\": \"13.13\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 464,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 465,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "vanishing gradient problem",
+            "pdf_page": 466,
+            "figure_label": "Figure 13.13",
+            "caption": "Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "sigmoid activation",
+            "pdf_page": 466,
+            "figure_label": "Figure 13.13",
+            "caption": "Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"vanishing gradient problem\",\n      \"pdf_page\": 466,\n      \"figure_label\": \"Figure 13.13\",\n      \"caption\": \"Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"sigmoid activation\",\n      \"pdf_page\": 466,\n      \"figure_label\": \"Figure 13.13\",\n      \"caption\": \"Figure 13.13 Figure associated with Examples 13.7 and 13.8. (left column) The sigmoid function (top panel) and its derivative (bottom panel). The derivative here maps most input values away from the origin to output near zero, which can cause the gradient of a network employing sigmoid activation to vanish during optimization and thus prevent adequate parameter tuning. (right column) The ReLU function (top panel) and its derivative (bottom panel). While not as susceptible to vanishing gradient problems, networks employing the ReLU need to be initialized away from zero to prevent units from disappearing. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 467,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "maxout activation",
+            "latex": "a(x) = \\max(v_0 + v_1 x, w_0 + w_1 x)",
+            "pdf_page": 467,
+            "equation_label": "13.31",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "maxout activation",
+            "pdf_page": 467,
+            "figure_label": "Figure 13.14",
+            "caption": "Figure associated with Example 13.9. Four instances of a maxout unit in Equation (13.31), with parameters randomly set in each case. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"maxout activation\",\n      \"latex\": \"a(x) = \\\\max(v_0 + v_1 x, w_0 + w_1 x)\",\n      \"pdf_page\": 467,\n      \"equation_label\": \"13.31\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"maxout activation\",\n      \"pdf_page\": 467,\n      \"figure_label\": \"Figure 13.14\",\n      \"caption\": \"Figure associated with Example 13.9. Four instances of a maxout unit in Equation (13.31), with parameters randomly set in each case. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 475,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "batch normalization",
+            "latex": "f_j^{(2)}(x) \\leftarrow \\frac{f_j^{(2)}(x) - \\mu_{f_j^{(2)}}}{\\sigma_{f_j^{(2)}}}",
+            "pdf_page": 475,
+            "equation_label": "13.39",
+            "confidence": 1.0
+          },
+          {
+            "concept": "batch normalization",
+            "latex": "\\mu_{f_j^{(2)}} = \\frac{1}{P} \\sum_{p=1}^{P} f_j^{(2)}(\\mathbf{x}_p) \\quad \\sigma_{f_j^{(2)}} = \\sqrt{ \\frac{1}{P} \\sum_{p=1}^{P} \\left(f_j^{(2)}(\\mathbf{x}_p) - \\mu_{f_j^{(2)}}\\right)^2 }",
+            "pdf_page": 475,
+            "equation_label": "13.40",
+            "confidence": 1.0
+          },
+          {
+            "concept": "batch normalization",
+            "latex": "f_j^{(L)}(\\mathbf{x}) = a\\left(w_{0,j}^{(L)} + \\sum_{i=1}^{U_{L-1}} w_{i,j}^{(L)} f_i^{(L-1)}(\\mathbf{x})\\right)",
+            "pdf_page": 475,
+            "equation_label": "13.41",
+            "confidence": 1.0
+          },
+          {
+            "concept": "batch normalization",
+            "latex": "f_j^{(L)}(\\mathbf{x}) \\leftarrow \\frac{f_j^{(L)}(\\mathbf{x}_p) - \\mu_{f_j^{(L)}}}{\\sigma_{f_j^{(L)}}}",
+            "pdf_page": 475,
+            "equation_label": "13.42",
+            "confidence": 1.0
+          },
+          {
+            "concept": "batch normalization",
+            "latex": "\\mu_{f_j^{(L)}} = \\frac{1}{P} \\sum_{p=1}^{P} f_j^{(L)}(\\mathbf{x}_p) \\quad \\sigma_{f_j^{(L)}} = \\sqrt{ \\frac{1}{P} \\sum_{p=1}^{P} \\left(f_j^{(L)}(\\mathbf{x}_p) - \\mu_{f_j^{(L)}}\\right)^2 }",
+            "pdf_page": 475,
+            "equation_label": "13.43",
+            "confidence": 1.0
+          },
+          {
+            "concept": "batch normalization",
+            "latex": "f^{(L)}(\\mathbf{x}) \\leftarrow \\alpha \\frac{f^{(L)}(\\mathbf{x}) - \\mu_{f^{(L)}}}{\\sigma_{f^{(L)}}} + \\beta",
+            "pdf_page": 476,
+            "equation_label": "13.44",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"f_j^{(2)}(x) \\\\leftarrow \\\\frac{f_j^{(2)}(x) - \\\\mu_{f_j^{(2)}}}{\\\\sigma_{f_j^{(2)}}}\",\n      \"pdf_page\": 475,\n      \"equation_label\": \"13.39\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"\\\\mu_{f_j^{(2)}} = \\\\frac{1}{P} \\\\sum_{p=1}^{P} f_j^{(2)}(\\\\mathbf{x}_p) \\\\quad \\\\sigma_{f_j^{(2)}} = \\\\sqrt{ \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left(f_j^{(2)}(\\\\mathbf{x}_p) - \\\\mu_{f_j^{(2)}}\\\\right)^2 }\",\n      \"pdf_page\": 475,\n      \"equation_label\": \"13.40\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"f_j^{(L)}(\\\\mathbf{x}) = a\\\\left(w_{0,j}^{(L)} + \\\\sum_{i=1}^{U_{L-1}} w_{i,j}^{(L)} f_i^{(L-1)}(\\\\mathbf{x})\\\\right)\",\n      \"pdf_page\": 475,\n      \"equation_label\": \"13.41\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"f_j^{(L)}(\\\\mathbf{x}) \\\\leftarrow \\\\frac{f_j^{(L)}(\\\\mathbf{x}_p) - \\\\mu_{f_j^{(L)}}}{\\\\sigma_{f_j^{(L)}}}\",\n      \"pdf_page\": 475,\n      \"equation_label\": \"13.42\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"\\\\mu_{f_j^{(L)}} = \\\\frac{1}{P} \\\\sum_{p=1}^{P} f_j^{(L)}(\\\\mathbf{x}_p) \\\\quad \\\\sigma_{f_j^{(L)}} = \\\\sqrt{ \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left(f_j^{(L)}(\\\\mathbf{x}_p) - \\\\mu_{f_j^{(L)}}\\\\right)^2 }\",\n      \"pdf_page\": 475,\n      \"equation_label\": \"13.43\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"batch normalization\",\n      \"latex\": \"f^{(L)}(\\\\mathbf{x}) \\\\leftarrow \\\\alpha \\\\frac{f^{(L)}(\\\\mathbf{x}) - \\\\mu_{f^{(L)}}}{\\\\sigma_{f^{(L)}}} + \\\\beta\",\n      \"pdf_page\": 476,\n      \"equation_label\": \"13.44\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 476,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "internal covariate shift",
+            "pdf_page": 477,
+            "figure_label": "Figure 13.19",
+            "caption": "Figure associated with Example 13.12. See text for details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "internal covariate shift",
+            "pdf_page": 477,
+            "figure_label": "Figure 13.20",
+            "caption": "Figure associated with Example 13.12. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"internal covariate shift\",\n      \"pdf_page\": 477,\n      \"figure_label\": \"Figure 13.19\",\n      \"caption\": \"Figure associated with Example 13.12. See text for details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"internal covariate shift\",\n      \"pdf_page\": 477,\n      \"figure_label\": \"Figure 13.20\",\n      \"caption\": \"Figure associated with Example 13.12. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "feature transformation",
+      "into": "nonlinear feature transformations"
+    },
+    {
+      "action": "local_merge",
+      "from": "automatic differentiation",
+      "into": "automatic differentiation"
+    },
+    {
+      "action": "local_merge",
+      "from": "automatic differentiation",
+      "into": "automatic differentiation"
+    }
+  ],
+  "warnings": [
+    "Rejected 7 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

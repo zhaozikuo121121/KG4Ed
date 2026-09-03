@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "a3a7cced52c7fd9046346a6dfd7df14ba8a2b1d1dc9b01f9c0d3ae13e029b286",
+  "concept_id": 45,
+  "concept_name": "automatic differentiation",
+  "aliases": [
+    "automatic differentiation",
+    "autograd",
+    "gradient calculator",
+    "automatic differentiator",
+    "autodiff"
+  ],
+  "profile": "automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations. Libraries such as autograd implement automatic differentiation and work with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.",
+  "word_count": 43,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations, rather than relying on numerical approximations. Libraries such as autograd implement automatic differentiation and integrate with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.",
+    "claims": [
+      {
+        "claim": "Automatic differentiation is a type of gradient calculator that automates the simple derivative rules for elementary functions and operations.",
+        "evidence_ids": [
+          "MLR-E0047"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Autograd implements automatic differentiation and integrates with numpy.",
+        "evidence_ids": [
+          "MLR-E0080",
+          "MLR-E0243"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "When using an automatic differentiator, functions should be expressed with autograd's numpy wrapper.",
+        "evidence_ids": [
+          "MLR-E0243"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations. Libraries such as autograd implement automatic differentiation and work with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.",
+    "sentence_reviews": [
+      {
+        "sentence": "automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0047"
+        ],
+        "reason": "E0047 describes gradient calculators that automate derivative rules for elementary functions and operations."
+      },
+      {
+        "sentence": "Libraries such as autograd implement automatic differentiation and work with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0080",
+          "MLR-E0243"
+        ],
+        "reason": "E0080 references autograd, automatic differentiation, and numpy; E0243 instructs using autograd’s numpy wrapper for an automatic differentiator."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations, rather than relying on numerical approximations. Libraries such as autograd implement automatic differentiation and integrate with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.\",\n  \"claims\": [\n    {\n      \"claim\": \"Automatic differentiation is a type of gradient calculator that automates the simple derivative rules for elementary functions and operations.\",\n      \"evidence_ids\": [\"MLR-E0047\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Autograd implements automatic differentiation and integrates with numpy.\",\n      \"evidence_ids\": [\"MLR-E0080\", \"MLR-E0243\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"When using an automatic differentiator, functions should be expressed with autograd's numpy wrapper.\",\n      \"evidence_ids\": [\"MLR-E0243\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations. Libraries such as autograd implement automatic differentiation and work with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"automatic differentiation: a type of gradient calculator that automates the simple derivative rules for elementary functions and operations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0047\"],\n      \"reason\": \"E0047 describes gradient calculators that automate derivative rules for elementary functions and operations.\"\n    },\n    {\n      \"sentence\": \"Libraries such as autograd implement automatic differentiation and work with numpy; when using an automatic differentiator, functions should be expressed with autograd’s numpy wrapper.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0080\", \"MLR-E0243\"],\n      \"reason\": \"E0080 references autograd, automatic differentiation, and numpy; E0243 instructs using autograd’s numpy wrapper for an automatic differentiator.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:37:49.877968+00:00"
+}

@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "a818681a4e54dde5c660dda7d1c1e6ced9e08399ce98cf346372379404dd659c",
+  "concept_id": 247,
+  "concept_name": "hidden layer",
+  "aliases": [
+    "hidden layer",
+    "single-hidden-layer"
+  ],
+  "profile": "hidden layer: In a visual depiction of a neural network model, the hidden layer appears in the middle, where blue circles representing all U1 activations align. The hidden layer is therefore associated with these activations.",
+  "word_count": 35,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hidden layer: The hidden layer is the layer positioned in the middle of a network model. In visual depictions, it is shown where blue circles representing all U1 activations align. Thus, the hidden layer is associated with these activations.",
+    "claims": [
+      {
+        "claim": "The hidden layer is positioned in the middle of a network model, where blue circles representing all U1 activations align.",
+        "evidence_ids": [
+          "MLR-E0311"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "hidden layer: In a visual depiction of a neural network model, the hidden layer appears in the middle, where blue circles representing all U1 activations align. The hidden layer is therefore associated with these activations.",
+    "sentence_reviews": [
+      {
+        "sentence": "In a visual depiction of a neural network model, the hidden layer appears in the middle, where blue circles representing all U1 activations align.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0311"
+        ],
+        "reason": "The source states that in the middle of the visual depiction, where blue circles representing all U1 activations align, is the hidden layer."
+      },
+      {
+        "sentence": "The hidden layer is therefore associated with these activations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0311"
+        ],
+        "reason": "Since the hidden layer is located where the U1 activations align, the source directly links the hidden layer to those activations."
+      }
+    ],
+    "warnings": [
+      "The source describes a specific visual depiction; the middle position is visually depicted rather than asserted as a general architectural property.",
+      "U1 activations are specific to the depicted model and are not generalized beyond that context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hidden layer: The hidden layer is the layer positioned in the middle of a network model. In visual depictions, it is shown where blue circles representing all U1 activations align. Thus, the hidden layer is associated with these activations.\",\n  \"claims\": [\n    {\n      \"claim\": \"The hidden layer is positioned in the middle of a network model, where blue circles representing all U1 activations align.\",\n      \"evidence_ids\": [\"MLR-E0311\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hidden layer: In a visual depiction of a neural network model, the hidden layer appears in the middle, where blue circles representing all U1 activations align. The hidden layer is therefore associated with these activations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In a visual depiction of a neural network model, the hidden layer appears in the middle, where blue circles representing all U1 activations align.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0311\"],\n      \"reason\": \"The source states that in the middle of the visual depiction, where blue circles representing all U1 activations align, is the hidden layer.\"\n    },\n    {\n      \"sentence\": \"The hidden layer is therefore associated with these activations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0311\"],\n      \"reason\": \"Since the hidden layer is located where the U1 activations align, the source directly links the hidden layer to those activations.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source describes a specific visual depiction; the middle position is visually depicted rather than asserted as a general architectural property.\",\n    \"U1 activations are specific to the depicted model and are not generalized beyond that context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:59:07.584798+00:00"
+}

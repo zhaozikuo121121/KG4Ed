@@ -1,0 +1,93 @@
+{
+  "stage": "stage1",
+  "config": {
+    "project_root": "G:\\ACG-CD",
+    "dataset_name": "universitycourse",
+    "train_ratio": 0.6,
+    "val_ratio_to_train": 0.1,
+    "seed": 42,
+    "reverse_negative_count": 0,
+    "hard_negative_count": 0,
+    "label_file_negative_ratio_to_train": 1.5,
+    "label_file_negative_count": null,
+    "config_path": "G:\\ACG-CD\\stage1\\config.yaml",
+    "stage1_dir": "G:\\ACG-CD\\stage1",
+    "data_dir": "G:\\ACG-CD\\data\\UniversityCourse",
+    "label_file": "UniversityCourse_prerequisites.csv",
+    "stage0_outputs_dir": "G:\\ACG-CD\\stage0\\outputs_universitycourse",
+    "stage1_outputs_dir": "G:\\ACG-CD\\stage1\\outputs_universitycourse",
+    "output_dir": "G:\\ACG-CD\\stage1\\outputs_universitycourse"
+  },
+  "concept_count": 467,
+  "label_stats": {
+    "label_file_rows": 1750,
+    "label_1": 994,
+    "label_0": 756,
+    "ignored_file_negative_rows": 756,
+    "invalid_rows": 2,
+    "self_loop_rows": 0,
+    "duplicate_rows": 1,
+    "unique_directed_positive_edges": 993
+  },
+  "split_counts": {
+    "positive_edges_all": 993,
+    "train_pos": 596,
+    "val_pos": 60,
+    "test_pos": 337,
+    "train_neg_reverse": 0,
+    "train_neg_hard": 0,
+    "train_neg_file_random": 755,
+    "val_neg": 60,
+    "test_neg": 337,
+    "train_labels_initial": 1351,
+    "val_labels": 120,
+    "test_labels": 674,
+    "heldout_pairs": 794
+  },
+  "label_file_random_negative_stats": {
+    "label_file_negative_rows": 756,
+    "invalid_label_file_negative_rows": 2,
+    "self_loop_label_file_negative_rows": 0,
+    "duplicate_label_file_negative_rows": 0,
+    "unique_label_file_negative_edges": 756,
+    "enabled": true,
+    "requested": 894,
+    "available_after_exclusion": 755,
+    "sampled": 755,
+    "capped_by_available": true
+  },
+  "schema": [
+    "source_id",
+    "target_id",
+    "source_index",
+    "target_index",
+    "source",
+    "target",
+    "label",
+    "split",
+    "negative_type",
+    "similarity"
+  ],
+  "leakage_guard": "Stage2 must exclude heldout_pairs.csv from supervised training and pseudo-label generation candidates.",
+  "notes": [
+    "Sampled negative rows in UniversityCourse_prerequisites.csv are added as label_file_random training negatives; remaining file negatives stay unused.",
+    "source_id/source_index and target_id/target_index are both Stage0 concept_id values for direct indexing into Stage0 numpy arrays."
+  ],
+  "outputs": {
+    "positive_edges_all.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\positive_edges_all.csv",
+    "train_pos.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\train_pos.csv",
+    "val_pos.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\val_pos.csv",
+    "test_pos.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\test_pos.csv",
+    "train_neg_reverse.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\train_neg_reverse.csv",
+    "train_neg_hard.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\train_neg_hard.csv",
+    "train_neg_file_random.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\train_neg_file_random.csv",
+    "val_neg.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\val_neg.csv",
+    "test_neg.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\test_neg.csv",
+    "train_labels_initial.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\train_labels_initial.csv",
+    "val_labels.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\val_labels.csv",
+    "test_labels.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\test_labels.csv",
+    "heldout_pairs.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\heldout_pairs.csv",
+    "pseudo_pos_empty.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\pseudo_pos_empty.csv",
+    "pseudo_neg_empty.csv": "G:\\ACG-CD\\stage1\\outputs_universitycourse\\pseudo_neg_empty.csv"
+  }
+}

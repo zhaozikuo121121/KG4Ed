@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "42575bf7bc1f80fa2955cbef37f02ad6e8fa5f7c35456bb9f03175c92e8aea09",
+  "concept_id": 166,
+  "concept_name": "dimension reduction",
+  "aliases": [
+    "dimension reduction",
+    "dimensionality reduction"
+  ],
+  "profile": "dimension reduction: PCA can be used to reduce the dimension of data in predictive modeling. Feature selection can be thought of as a supervised dimension reduction technique.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "dimension reduction: PCA can be used to reduce the dimension of data in predictive modeling. Feature selection can be considered a supervised dimension reduction technique.",
+    "claims": [
+      {
+        "claim": "PCA can be used to reduce the dimension of data in predictive modeling.",
+        "evidence_ids": [
+          "MLR-E0189"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Feature selection can be considered a supervised dimension reduction technique.",
+        "evidence_ids": [
+          "MLR-E0214"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "dimension reduction: PCA can be used to reduce the dimension of data in predictive modeling. Feature selection can be thought of as a supervised dimension reduction technique.",
+    "sentence_reviews": [
+      {
+        "sentence": "PCA can be used to reduce the dimension of data in predictive modeling.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0189"
+        ],
+        "reason": "The source states that PCA can technically be used to reduce the dimension of data in a predictive modeling scenario."
+      },
+      {
+        "sentence": "Feature selection can be thought of as a supervised dimension reduction technique.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0214"
+        ],
+        "reason": "The source states that feature selection can be thought of as a supervised dimension reduction technique."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"dimension reduction: PCA can be used to reduce the dimension of data in predictive modeling. Feature selection can be considered a supervised dimension reduction technique.\",\n  \"claims\": [\n    {\n      \"claim\": \"PCA can be used to reduce the dimension of data in predictive modeling.\",\n      \"evidence_ids\": [\"MLR-E0189\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Feature selection can be considered a supervised dimension reduction technique.\",\n      \"evidence_ids\": [\"MLR-E0214\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"dimension reduction: PCA can be used to reduce the dimension of data in predictive modeling. Feature selection can be thought of as a supervised dimension reduction technique.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"PCA can be used to reduce the dimension of data in predictive modeling.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0189\"],\n      \"reason\": \"The source states that PCA can technically be used to reduce the dimension of data in a predictive modeling scenario.\"\n    },\n    {\n      \"sentence\": \"Feature selection can be thought of as a supervised dimension reduction technique.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0214\"],\n      \"reason\": \"The source states that feature selection can be thought of as a supervised dimension reduction technique.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:30:14.008711+00:00"
+}

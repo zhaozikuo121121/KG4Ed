@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "6be5556b4861bcaf8005db6b0d3042742d106d667950500baf55f53bb9af07d2",
+  "concept_id": 134,
+  "concept_name": "cost function versus misclassification discrepancy",
+  "aliases": [
+    "cost function versus misclassification discrepancy"
+  ],
+  "profile": "cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications. Cost value and misclassification count can therefore diverge during optimization: the two measure different criteria, so a lower cost does not by itself indicate better classification performance.",
+  "word_count": 47,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications. In other words, optimization of the cost function may not directly correspond to classification accuracy, and the two metrics can diverge during training.",
+    "claims": [
+      {
+        "claim": "A decreasing cost function value does not guarantee a decrease in the number of misclassifications.",
+        "evidence_ids": [
+          "MLR-E0150"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications. Cost value and misclassification count can therefore diverge during optimization: the two measure different criteria, so a lower cost does not by itself indicate better classification performance.",
+    "sentence_reviews": [
+      {
+        "sentence": "cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0150"
+        ],
+        "reason": "Directly restates the evidence sentence."
+      },
+      {
+        "sentence": "Cost value and misclassification count can therefore diverge during optimization: the two measure different criteria, so a lower cost does not by itself indicate better classification performance.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0150"
+        ],
+        "reason": "Directly follows from the evidence: if decreasing cost does not imply decreasing misclassifications, the two criteria can diverge and lower cost alone does not ensure better classification performance."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications. In other words, optimization of the cost function may not directly correspond to classification accuracy, and the two metrics can diverge during training.\",\n  \"claims\": [\n    {\n      \"claim\": \"A decreasing cost function value does not guarantee a decrease in the number of misclassifications.\",\n      \"evidence_ids\": [\"MLR-E0150\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications. Cost value and misclassification count can therefore diverge during optimization: the two measure different criteria, so a lower cost does not by itself indicate better classification performance.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"cost function versus misclassification discrepancy: A decreasing cost function value does not guarantee a decrease in the number of misclassifications.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0150\"],\n      \"reason\": \"Directly restates the evidence sentence.\"\n    },\n    {\n      \"sentence\": \"Cost value and misclassification count can therefore diverge during optimization: the two measure different criteria, so a lower cost does not by itself indicate better classification performance.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0150\"],\n      \"reason\": \"Directly follows from the evidence: if decreasing cost does not imply decreasing misclassifications, the two criteria can diverge and lower cost alone does not ensure better classification performance.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:18:49.995051+00:00"
+}

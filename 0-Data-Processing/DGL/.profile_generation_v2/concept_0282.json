@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "7ad429a4acd7f885b12310bbd84ac874ac0143404c828b2f908b8a2346f1c460",
+  "concept_id": 282,
+  "concept_name": "node permutation equivariance in gnns",
+  "aliases": [
+    "node permutation equivariance in gnns",
+    "permutation equivariant gcn computation"
+  ],
+  "profile": "node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+  "word_count": 38,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+    "claims": [
+      {
+        "claim": "Considering all nodes in a graph, GCN computation is permutation equivariant.",
+        "evidence_ids": [
+          "DGL-E0421"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs. Considering all nodes in a graph, GCN computation is permutation equivariant.",
+    "sentence_reviews": [
+      {
+        "sentence": "node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0421"
+        ],
+        "reason": "The evidence names node permutation equivariance in GNNs and describes it in terms of graph reordering and corresponding output reordering."
+      },
+      {
+        "sentence": "Considering all nodes in a graph, GCN computation is permutation equivariant.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0421"
+        ],
+        "reason": "This is a direct restatement of the source evidence."
+      }
+    ],
+    "warnings": [
+      "Source support is limited to a single slide assertion; no further formal details are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs. Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n  \"claims\": [\n    {\n      \"claim\": \"Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n      \"evidence_ids\": [\"DGL-E0421\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs. Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node permutation equivariance in gnns: a property of graph neural network computations whereby reordering the nodes of a graph leads to a corresponding reordering of the outputs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0421\"],\n      \"reason\": \"The evidence names node permutation equivariance in GNNs and describes it in terms of graph reordering and corresponding output reordering.\"\n    },\n    {\n      \"sentence\": \"Considering all nodes in a graph, GCN computation is permutation equivariant.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0421\"],\n      \"reason\": \"This is a direct restatement of the source evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source support is limited to a single slide assertion; no further formal details are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:42:08.193368+00:00"
+}

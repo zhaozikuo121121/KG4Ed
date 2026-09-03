@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "13e2e7f02e76428b106cccbd83067327fa347e0610eda748c0174deb2380db19",
+  "concept_id": 262,
+  "concept_name": "graphsaint",
+  "aliases": [
+    "graphsaint"
+  ],
+  "profile": "graphsaint: GraphSAINT is presented as an example of a sampling strategy in GNN training. The method is attributed to Zeng et al. (2019).",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graphsaint: GraphSAINT is a graph sampling method used in GNN training. It is presented as an example of a sampling strategy in the context of GNN training, particularly regarding sampling strategies and batch normalization. The method is attributed to Zeng et al. (2019).",
+    "claims": [
+      {
+        "claim": "GraphSAINT is presented as an example of a sampling strategy in the context of GNN training.",
+        "evidence_ids": [
+          "DGL-E0360"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "GraphSAINT is attributed to Zeng et al. (2019).",
+        "evidence_ids": [
+          "DGL-E0360"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Profile is based on a single mention in the metadata; specific details about the method are not provided."
+    ]
+  },
+  "review": {
+    "final_profile": "graphsaint: GraphSAINT is presented as an example of a sampling strategy in GNN training. The method is attributed to Zeng et al. (2019).",
+    "sentence_reviews": [
+      {
+        "sentence": "GraphSAINT is presented as an example of a sampling strategy in GNN training.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0360"
+        ],
+        "reason": "Metadata shows GraphSAINT listed as an example under 'GNN Training: Sampling Strategies and Batch Normalization'."
+      },
+      {
+        "sentence": "The method is attributed to Zeng et al. (2019).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0360"
+        ],
+        "reason": "The source explicitly cites GraphSAINT (Zeng et al., 2019)."
+      }
+    ],
+    "warnings": [
+      "Profile is based on a single mention in the metadata; specific details about the method are not provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graphsaint: GraphSAINT is a graph sampling method used in GNN training. It is presented as an example of a sampling strategy in the context of GNN training, particularly regarding sampling strategies and batch normalization. The method is attributed to Zeng et al. (2019).\",\n  \"claims\": [\n    {\n      \"claim\": \"GraphSAINT is presented as an example of a sampling strategy in the context of GNN training.\",\n      \"evidence_ids\": [\"DGL-E0360\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"GraphSAINT is attributed to Zeng et al. (2019).\",\n      \"evidence_ids\": [\"DGL-E0360\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Profile is based on a single mention in the metadata; specific details about the method are not provided.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graphsaint: GraphSAINT is presented as an example of a sampling strategy in GNN training. The method is attributed to Zeng et al. (2019).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"GraphSAINT is presented as an example of a sampling strategy in GNN training.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0360\"],\n      \"reason\": \"Metadata shows GraphSAINT listed as an example under 'GNN Training: Sampling Strategies and Batch Normalization'.\"\n    },\n    {\n      \"sentence\": \"The method is attributed to Zeng et al. (2019).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0360\"],\n      \"reason\": \"The source explicitly cites GraphSAINT (Zeng et al., 2019).\"\n    }\n  ],\n  \"warnings\": [\n    \"Profile is based on a single mention in the metadata; specific details about the method are not provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:33:56.721840+00:00"
+}

@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "74c84be508dc3041ca773b31c060a223612b086b9110d079cc36872022495db9",
+  "concept_id": 256,
+  "concept_name": "sigmoid activation",
+  "aliases": [
+    "sigmoid activation",
+    "logistic sigmoid activation"
+  ],
+  "profile": "sigmoid activation: The logistic sigmoid can be used as an activation function. It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sigmoid activation: The logistic sigmoid can be used as an activation function. It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.",
+    "claims": [
+      {
+        "claim": "The logistic sigmoid can be used as an activation function.",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly.",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "sigmoid activation: The logistic sigmoid can be used as an activation function. It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.",
+    "sentence_reviews": [
+      {
+        "sentence": "The logistic sigmoid can be used as an activation function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "reason": "The source describes the logistic sigmoid being used as an activation function."
+      },
+      {
+        "sentence": "It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "reason": "The source states this directly."
+      },
+      {
+        "sentence": "When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0320"
+        ],
+        "reason": "The source says it often leads to the vanishing gradient problem."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sigmoid activation: The logistic sigmoid can be used as an activation function. It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.\",\n  \"claims\": [\n    {\n      \"claim\": \"The logistic sigmoid can be used as an activation function.\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly.\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sigmoid activation: The logistic sigmoid can be used as an activation function. It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The logistic sigmoid can be used as an activation function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"reason\": \"The source describes the logistic sigmoid being used as an activation function.\"\n    },\n    {\n      \"sentence\": \"It was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"reason\": \"The source states this directly.\"\n    },\n    {\n      \"sentence\": \"When used as an activation function, it often leads to a technical issue called the vanishing gradient problem.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0320\"],\n      \"reason\": \"The source says it often leads to the vanishing gradient problem.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:02:54.055745+00:00"
+}

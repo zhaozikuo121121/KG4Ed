@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a047bcf7acfc8bdfb3cfb5cb324dc5c165c32da495b9be8e1d97384155f78dca",
+  "concept_id": 239,
+  "concept_name": "noise in training",
+  "aliases": [
+    "noise in training",
+    "noisy updates"
+  ],
+  "profile": "noise in training: updates can be noisy, leading to more erratic convergence behavior.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "noise in training: the phenomenon where updates are noisy, which can lead to more erratic convergence behavior.",
+    "claims": [
+      {
+        "claim": "The updates can be noisy, leading to more erratic convergence behavior.",
+        "evidence_ids": [
+          "DGL-E0335"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "noise in training: updates can be noisy, leading to more erratic convergence behavior.",
+    "sentence_reviews": [
+      {
+        "sentence": "noise in training: updates can be noisy, leading to more erratic convergence behavior.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0335"
+        ],
+        "reason": "Directly matches the source statement that noisy updates can lead to more erratic convergence behavior."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"noise in training: the phenomenon where updates are noisy, which can lead to more erratic convergence behavior.\",\n  \"claims\": [\n    {\n      \"claim\": \"The updates can be noisy, leading to more erratic convergence behavior.\",\n      \"evidence_ids\": [\"DGL-E0335\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"noise in training: updates can be noisy, leading to more erratic convergence behavior.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"noise in training: updates can be noisy, leading to more erratic convergence behavior.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0335\"],\n      \"reason\": \"Directly matches the source statement that noisy updates can lead to more erratic convergence behavior.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:24:36.482302+00:00"
+}

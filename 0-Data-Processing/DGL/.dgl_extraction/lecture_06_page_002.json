@@ -1,0 +1,2594 @@
+{
+  "version": "1.0.0",
+  "lecture": 6,
+  "pdf_file": "DGL_Lecture_6_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "Generative Graph Learning and Taxonomy",
+  "summary": "This page formalizes generative learning tasks for graphs, distinguishing between graph encoders (graph to embeddings) and decoders (embeddings to graphs). It outlines the utility of graph generation for understanding formation processes and predicting new structures, such as molecules or brain connectivity graphs. The content details the machine learning basics for self-supervised generation, focusing on density estimation via maximum likelihood and sampling from noise distributions. Finally, it presents a comprehensive taxonomy of deep graph generation methods, categorizing them into unconditional and conditional approaches with specific sequential and one-shot techniques.",
+  "key_topics": [
+    "generative graph learning",
+    "graph generation taxonomy",
+    "maximum likelihood estimation",
+    "density estimation",
+    "self-supervised learning",
+    "sequential graph generation"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:35:04+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "generative learning tasks",
+      "aliases": [
+        "generative gnn tasks",
+        "self-supervised generative gnn tasks"
+      ],
+      "evidence": "Generative learning tasks formalization; Self-supervised/unsupervised generative GNN tasks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        15.0,
+        480.0,
+        60.0
+      ]
+    },
+    {
+      "canonical": "graph generation",
+      "aliases": [
+        "graph to embeddings",
+        "embeddings to graphs",
+        "graph encoders",
+        "graph decoders"
+      ],
+      "evidence": "Graph generation: Previously, we learned about encoding graph structure by generating node embeddings... Graph encoders -> graph to embeddings... Graph decoders -> embeddings to graphs",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        100.0,
+        480.0,
+        180.0
+      ]
+    },
+    {
+      "canonical": "unconditional generation",
+      "aliases": [
+        "conditional generation"
+      ],
+      "evidence": "Taxonomy tree branch: Unconditional generation",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        520.0,
+        100.0,
+        750.0,
+        130.0
+      ]
+    },
+    {
+      "canonical": "one-shot generating",
+      "aliases": [],
+      "evidence": "Sub-category under unconditional generation: One-shot generating",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        520.0,
+        140.0,
+        620.0,
+        160.0
+      ]
+    },
+    {
+      "canonical": "sequential generating",
+      "aliases": [],
+      "evidence": "Sub-category under unconditional generation: Sequential generating",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        630.0,
+        140.0,
+        730.0,
+        160.0
+      ]
+    },
+    {
+      "canonical": "node-sequence",
+      "aliases": [
+        "node-sequence-based graph generation"
+      ],
+      "evidence": "Method under sequential generating: Node-sequence",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        630.0,
+        170.0,
+        680.0,
+        190.0
+      ]
+    },
+    {
+      "canonical": "edge-sequence",
+      "aliases": [
+        "edge-sequence-based graph generation"
+      ],
+      "evidence": "Method under sequential generating: Edge-sequence",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        690.0,
+        170.0,
+        740.0,
+        190.0
+      ]
+    },
+    {
+      "canonical": "motif-sequence",
+      "aliases": [
+        "motif-sequence-based graph generation"
+      ],
+      "evidence": "Method under sequential generating: Motif-sequence",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        750.0,
+        170.0,
+        800.0,
+        190.0
+      ]
+    },
+    {
+      "canonical": "rule-sequence",
+      "aliases": [
+        "rule-sequence-based graph generation"
+      ],
+      "evidence": "Method under sequential generating: Rule-sequence",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        810.0,
+        170.0,
+        860.0,
+        190.0
+      ]
+    },
+    {
+      "canonical": "utility of graph generation",
+      "aliases": [
+        "graph formation process",
+        "identifying abnormal parts",
+        "predicting new structures"
+      ],
+      "evidence": "Utility: Graph generation is useful to understand graph formation process, identifying abnormal parts of the graph, predicting new structures...",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        200.0,
+        480.0,
+        240.0
+      ]
+    },
+    {
+      "canonical": "molecular graph generation",
+      "aliases": [
+        "chemical graph generation"
+      ],
+      "evidence": "Example 1: generate a new kind of molecule that cures a certain disease...",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        250.0,
+        480.0,
+        280.0
+      ]
+    },
+    {
+      "canonical": "density estimation",
+      "aliases": [
+        "learn the distribution"
+      ],
+      "evidence": "1) learn a good model that represents a graph, in other words learn the distribution p_model(g; theta) ~ p_data(g) [density estimation]",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        320.0,
+        480.0,
+        360.0
+      ]
+    },
+    {
+      "canonical": "sampling",
+      "aliases": [
+        "generative sampling"
+      ],
+      "evidence": "2) identify how sample from p_model(g) to generate a new graph [sampling]",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        360.0,
+        480.0,
+        380.0
+      ]
+    },
+    {
+      "canonical": "maximum likelihood estimation",
+      "aliases": [
+        "mle"
+      ],
+      "evidence": "Use the maximum likelihood to make p_model(g; theta) ~ p_data(g)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        450.0,
+        300.0,
+        470.0
+      ]
+    },
+    {
+      "canonical": "noise distribution",
+      "aliases": [
+        "prior distribution"
+      ],
+      "evidence": "samples from a simple noise distribution: z_i ~ N(0, 1)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        550.0,
+        250.0,
+        570.0
+      ]
+    },
+    {
+      "canonical": "node addition",
+      "aliases": [],
+      "evidence": "Handwritten note 'add a new node with two edges' in panel (b).",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        640.0,
+        580.0,
+        700.0,
+        620.0
+      ]
+    },
+    {
+      "canonical": "deep network function",
+      "aliases": [
+        "generator network"
+      ],
+      "evidence": "transforms the noise z_i via a deep network function f(.)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        590.0,
+        300.0,
+        610.0
+      ]
+    },
+    {
+      "canonical": "edge connection",
+      "aliases": [],
+      "evidence": "Handwritten note 'connect existing nodes' in panel (b).",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        860.0,
+        600.0,
+        920.0,
+        630.0
+      ]
+    },
+    {
+      "canonical": "self-supervised learning",
+      "aliases": [
+        "unsupervised learning"
+      ],
+      "evidence": "Handwritten note: 'self-regeneration -> self supervised (unsupervised)'",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        320.0,
+        850.0,
+        450.0,
+        890.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "p_{model}(g; \\theta) \\sim p_{data}(g)",
+      "related_concepts": [
+        "density estimation",
+        "maximum likelihood estimation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        330.0,
+        350.0,
+        350.0
+      ],
+      "label": "density matching"
+    },
+    {
+      "latex": "\\theta^* = \\arg\\max_{\\theta} \\mathbb{E}_{g \\sim p_{data}} \\log p_{model}(g; \\theta)",
+      "related_concepts": [
+        "maximum likelihood estimation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        80.0,
+        480.0,
+        350.0,
+        510.0
+      ],
+      "label": "MLE objective"
+    },
+    {
+      "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+      "related_concepts": [
+        "noise distribution",
+        "sampling"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        160.0,
+        560.0,
+        250.0,
+        580.0
+      ],
+      "label": "noise prior"
+    },
+    {
+      "latex": "g_i = f(z_i; \\theta^*)",
+      "related_concepts": [
+        "deep network function",
+        "graph generation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        130.0,
+        600.0,
+        250.0,
+        620.0
+      ],
+      "label": "generator function"
+    },
+    {
+      "latex": "(v_1, \\{\\}) \\rightarrow (v_2, \\{e_{12}\\}) \\rightarrow (v_3, \\{e_{13}, e_{23}\\}) \\rightarrow (v_4, \\{e_{34}, e_{24}\\})",
+      "related_concepts": [
+        "node-sequence",
+        "sequential generating"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        530.0,
+        500.0,
+        920.0,
+        540.0
+      ],
+      "label": "Node and edge sequence"
+    },
+    {
+      "latex": "(e_{12}, \\{v_1, v_2\\}) \\rightarrow (e_{13}, \\{v_1, v_3\\}) \\rightarrow (e_{14}, \\{v_1, v_4\\}) \\rightarrow (e_{23}, \\{v_2, v_3\\})",
+      "related_concepts": [
+        "edge-sequence",
+        "sequential generating"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        530.0,
+        640.0,
+        920.0,
+        680.0
+      ],
+      "label": "Edge and node set sequence"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "A taxonomy tree of deep graph generation methods, branching into unconditional and conditional generation, with further sub-categories like one-shot, sequential, and specific methods listed.",
+      "related_concepts": [
+        "generative learning tasks",
+        "unconditional generation",
+        "sequential generating",
+        "one-shot generating"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        500.0,
+        50.0,
+        980.0,
+        250.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Molecular graph generation pipeline showing train data molecules, density distribution curves (p_data and p_model), and generated molecules.",
+      "related_concepts": [
+        "molecular graph generation",
+        "density estimation",
+        "sampling"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        50.0,
+        400.0,
+        450.0,
+        650.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of node-sequence-based graph generation, showing the step-by-step addition of nodes and edges to build a graph.",
+      "related_concepts": [
+        "node-sequence",
+        "sequential generating"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        500.0,
+        350.0,
+        920.0,
+        550.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A four-step process showing the sequential addition of edges to a graph, with handwritten notes explaining node addition and edge connection.",
+      "related_concepts": [
+        "edge-sequence",
+        "node addition",
+        "edge connection"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        500.0,
+        560.0,
+        950.0,
+        700.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A four-step process showing the sequential addition of motifs (subgraphs) to build a larger graph.",
+      "related_concepts": [
+        "motif-sequence"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        500.0,
+        700.0,
+        950.0,
+        840.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A flowchart illustrating a rule-based graph generation process for a molecular structure (benzene ring).",
+      "related_concepts": [
+        "rule-sequence"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        500.0,
+        840.0,
+        950.0,
+        980.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Self-regeneration loop diagram showing graph g with parameters theta* pointing back to itself, labeled 'self-regeneration' and 'self supervised'.",
+      "related_concepts": [
+        "self-supervised learning",
+        "graph generation"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        300.0,
+        830.0,
+        400.0,
+        900.0
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        0.0,
+        0.0,
+        550.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "catenasceaseseamangiven",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        0.0,
+        0.0,
+        550.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "Luang",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        0.0,
+        0.0,
+        550.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "does not always imply that we are in a fully unsupervised framework",
+      "reason": "Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain, though the overall meaning is clear.",
+      "bbox": [
+        697.5,
+        286.0,
+        862.5,
+        319.0
+      ]
+    },
+    {
+      "transcription": "1 2 3 4 / 0 1 1 1 0",
+      "reason": "Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning in this context without further explanation is uncertain. It might represent an adjacency vector or some other encoding.",
+      "bbox": [
+        879.0,
+        429.0,
+        917.5,
+        451.0
+      ]
+    },
+    {
+      "transcription": "on average ~",
+      "reason": "Handwritten annotation above expectation operator is partially unclear",
+      "bbox": [
+        247.5,
+        802.0,
+        319.0,
+        813.0
+      ]
+    },
+    {
+      "transcription": "1.8, 0.1, 0.52",
+      "reason": "Handwritten numerical values next to noise distribution are small and slightly ambiguous",
+      "bbox": [
+        264.0,
+        917.5,
+        286.0,
+        945.0
+      ]
+    },
+    {
+      "transcription": "how to learn f?",
+      "reason": "Handwritten question in bottom left corner has slightly unclear handwriting",
+      "bbox": [
+        27.5,
+        956.0,
+        82.5,
+        983.5
+      ]
+    },
+    {
+      "transcription": "emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        10.0,
+        150.0,
+        480.0,
+        180.0
+      ]
+    },
+    {
+      "transcription": "catenasceaseseamangiven",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        10.0,
+        260.0,
+        480.0,
+        280.0
+      ]
+    },
+    {
+      "transcription": "Luang",
+      "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+      "bbox": [
+        10.0,
+        380.0,
+        480.0,
+        400.0
+      ]
+    },
+    {
+      "transcription": "does not always imply that we are in a fully unsupervised framework",
+      "reason": "Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain.",
+      "bbox": [
+        700.0,
+        280.0,
+        860.0,
+        320.0
+      ]
+    },
+    {
+      "transcription": "1 2 3 4 / 0 1 1 1 0",
+      "reason": "Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning is uncertain.",
+      "bbox": [
+        880.0,
+        430.0,
+        920.0,
+        450.0
+      ]
+    },
+    {
+      "transcription": "on average ~",
+      "reason": "Handwritten annotation above expectation operator is partially unclear",
+      "bbox": [
+        250.0,
+        470.0,
+        320.0,
+        480.0
+      ]
+    },
+    {
+      "transcription": "1.8, 0.1, 0.52",
+      "reason": "Handwritten numerical values next to noise distribution are small and slightly ambiguous",
+      "bbox": [
+        260.0,
+        550.0,
+        290.0,
+        570.0
+      ]
+    },
+    {
+      "transcription": "how to learn f?",
+      "reason": "Handwritten question in bottom left corner has slightly unclear handwriting",
+      "bbox": [
+        30.0,
+        620.0,
+        80.0,
+        640.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "generative learning tasks formalization",
+            "aliases": [
+              "generative GNN tasks",
+              "self-supervised generative GNN tasks",
+              "unsupervised generative GNN tasks"
+            ],
+            "evidence": "Generative learning tasks formalization; Self-supervised/unsupervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "graph to embeddings",
+              "embeddings to graphs"
+            ],
+            "evidence": "Graph generation: Previously, we learned about encoding graph structure by generating node embeddings based on local network neighbourhood.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph neural networks",
+            "aliases": [
+              "GNNs"
+            ],
+            "evidence": "Graph neural networks are different from traditional neural networks in a sense that we want the neural network to capture feature information and also the graph structure.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph encoders",
+            "aliases": [
+              "graph to embeddings"
+            ],
+            "evidence": "Graph encoders -> graph to embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph decoders",
+            "aliases": [
+              "embeddings to graphs"
+            ],
+            "evidence": "Graph decoders -> embeddings to graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "utility of graph generation",
+            "aliases": [
+              "graph formation process",
+              "identifying abnormal parts of the graph",
+              "predicting new structures",
+              "simulations of novel graph structures",
+              "graph completion"
+            ],
+            "evidence": "Utility: Graph generation is useful to understand graph formation process, identifying abnormal parts of the graph, predicting new structures, simulations of novel graph structures, in some cases graph completion in case of partially available graph data has real",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "example 1",
+            "aliases": [
+              "generate a new kind of molecule that cures a certain disease"
+            ],
+            "evidence": "Example 1: generate a new kind of molecule that cures a certain disease, given a class of molecules like toxic/non-toxic we want new molecules that satisfy this class.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "example 2",
+            "aliases": [
+              "generate the dynamic evolution brain connectivity graph"
+            ],
+            "evidence": "Example 2: generate the dynamic evolution brain connectivity graph to spot atypical alterations that may be linked to neurological disorders.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "ml basics for self-supervised/unsupervised graph generation",
+            "aliases": [
+              "density estimation",
+              "sampling"
+            ],
+            "evidence": "ML basics for self-supervised/unsupervised graph generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "learn and sample",
+            "aliases": [
+              "learn a good model",
+              "identify how sample from p_model(g)"
+            ],
+            "evidence": "Learn and sample",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "p_{data}(g)",
+            "related_concepts": [
+              "data distribution"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ],
+            "label": "data distribution"
+          },
+          {
+            "latex": "p_{model}(g; \\theta) \\sim p_{data}(g)",
+            "related_concepts": [
+              "model distribution",
+              "density estimation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ],
+            "label": "model distribution"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing the process of learning and sampling from a model distribution to approximate the data distribution, with examples of molecular structures.",
+            "related_concepts": [
+              "learn and sample",
+              "density estimation",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "transcription": "catenasceaseseamangiven",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "transcription": "Luang",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"generative learning tasks formalization\",\n      \"aliases\": [\"generative GNN tasks\", \"self-supervised generative GNN tasks\", \"unsupervised generative GNN tasks\"],\n      \"evidence\": \"Generative learning tasks formalization; Self-supervised/unsupervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"graph to embeddings\", \"embeddings to graphs\"],\n      \"evidence\": \"Graph generation: Previously, we learned about encoding graph structure by generating node embeddings based on local network neighbourhood.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph neural networks\",\n      \"aliases\": [\"GNNs\"],\n      \"evidence\": \"Graph neural networks are different from traditional neural networks in a sense that we want the neural network to capture feature information and also the graph structure.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph encoders\",\n      \"aliases\": [\"graph to embeddings\"],\n      \"evidence\": \"Graph encoders -> graph to embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph decoders\",\n      \"aliases\": [\"embeddings to graphs\"],\n      \"evidence\": \"Graph decoders -> embeddings to graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"utility of graph generation\",\n      \"aliases\": [\"graph formation process\", \"identifying abnormal parts of the graph\", \"predicting new structures\", \"simulations of novel graph structures\", \"graph completion\"],\n      \"evidence\": \"Utility: Graph generation is useful to understand graph formation process, identifying abnormal parts of the graph, predicting new structures, simulations of novel graph structures, in some cases graph completion in case of partially available graph data has real\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"example 1\",\n      \"aliases\": [\"generate a new kind of molecule that cures a certain disease\"],\n      \"evidence\": \"Example 1: generate a new kind of molecule that cures a certain disease, given a class of molecules like toxic/non-toxic we want new molecules that satisfy this class.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"example 2\",\n      \"aliases\": [\"generate the dynamic evolution brain connectivity graph\"],\n      \"evidence\": \"Example 2: generate the dynamic evolution brain connectivity graph to spot atypical alterations that may be linked to neurological disorders.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"ml basics for self-supervised/unsupervised graph generation\",\n      \"aliases\": [\"density estimation\", \"sampling\"],\n      \"evidence\": \"ML basics for self-supervised/unsupervised graph generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"learn and sample\",\n      \"aliases\": [\"learn a good model\", \"identify how sample from p_model(g)\"],\n      \"evidence\": \"Learn and sample\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"p_{data}(g)\",\n      \"related_concepts\": [\"data distribution\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000],\n      \"label\": \"data distribution\"\n    },\n    {\n      \"latex\": \"p_{model}(g; \\\\theta) \\\\sim p_{data}(g)\",\n      \"related_concepts\": [\"model distribution\", \"density estimation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000],\n      \"label\": \"model distribution\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing the process of learning and sampling from a model distribution to approximate the data distribution, with examples of molecular structures.\",\n      \"related_concepts\": [\"learn and sample\", \"density estimation\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"transcription\": \"catenasceaseseamangiven\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"transcription\": \"Luang\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "deep graph generation",
+            "aliases": [
+              "graph generation"
+            ],
+            "evidence": "Top-level node in the taxonomy tree diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              458,
+              105,
+              541,
+              130
+            ]
+          },
+          {
+            "canonical": "unconditional generation",
+            "aliases": [],
+            "evidence": "Left branch of the taxonomy tree; also a printed heading below the tree.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              290,
+              175,
+              410,
+              200
+            ]
+          },
+          {
+            "canonical": "conditional generation",
+            "aliases": [],
+            "evidence": "Right branch of the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              590,
+              175,
+              710,
+              200
+            ]
+          },
+          {
+            "canonical": "one-shot generating",
+            "aliases": [],
+            "evidence": "Sub-category under unconditional generation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              245,
+              320,
+              270
+            ]
+          },
+          {
+            "canonical": "sequential generating",
+            "aliases": [],
+            "evidence": "Sub-category under unconditional generation in the taxonomy tree; also a printed heading.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              380,
+              245,
+              480,
+              270
+            ]
+          },
+          {
+            "canonical": "adjacency-matrix-based",
+            "aliases": [],
+            "evidence": "Method under one-shot generating in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              315,
+              250,
+              340
+            ]
+          },
+          {
+            "canonical": "edge-list-based",
+            "aliases": [],
+            "evidence": "Method under one-shot generating in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              270,
+              315,
+              350,
+              340
+            ]
+          },
+          {
+            "canonical": "node-sequence",
+            "aliases": [],
+            "evidence": "Method under sequential generating in the taxonomy tree; also the label for diagram (a).",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              315,
+              480,
+              340
+            ]
+          },
+          {
+            "canonical": "edge-sequence",
+            "aliases": [],
+            "evidence": "Method under sequential generating in the taxonomy tree; also the label for diagram (b).",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              315,
+              580,
+              340
+            ]
+          },
+          {
+            "canonical": "motif-sequence",
+            "aliases": [],
+            "evidence": "Method under sequential generating in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              315,
+              680,
+              340
+            ]
+          },
+          {
+            "canonical": "rule-sequence",
+            "aliases": [],
+            "evidence": "Method under sequential generating in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              315,
+              780,
+              340
+            ]
+          },
+          {
+            "canonical": "conditioning on sequence",
+            "aliases": [],
+            "evidence": "Sub-category under conditional generation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              245,
+              600,
+              270
+            ]
+          },
+          {
+            "canonical": "conditioning on semantic context",
+            "aliases": [],
+            "evidence": "Sub-category under conditional generation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              620,
+              245,
+              760,
+              270
+            ]
+          },
+          {
+            "canonical": "conditioning on graphs",
+            "aliases": [],
+            "evidence": "Sub-category under conditional generation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780,
+              245,
+              900,
+              270
+            ]
+          },
+          {
+            "canonical": "edge transformation",
+            "aliases": [],
+            "evidence": "Method under conditioning on graphs in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780,
+              315,
+              860,
+              340
+            ]
+          },
+          {
+            "canonical": "node-edge co-transformation",
+            "aliases": [],
+            "evidence": "Method under conditioning on graphs in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              880,
+              315,
+              980,
+              340
+            ]
+          },
+          {
+            "canonical": "message passing-based",
+            "aliases": [],
+            "evidence": "Listed under adjacency-matrix-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              360,
+              250,
+              380
+            ]
+          },
+          {
+            "canonical": "invertible-transform-based",
+            "aliases": [],
+            "evidence": "Listed under adjacency-matrix-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              380,
+              250,
+              400
+            ]
+          },
+          {
+            "canonical": "mlp-based",
+            "aliases": [
+              "multilayer perceptron-based"
+            ],
+            "evidence": "Listed under adjacency-matrix-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              400,
+              200,
+              420
+            ]
+          },
+          {
+            "canonical": "transposed-convolution-based",
+            "aliases": [],
+            "evidence": "Listed under adjacency-matrix-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              420,
+              250,
+              440
+            ]
+          },
+          {
+            "canonical": "random-walk-based",
+            "aliases": [],
+            "evidence": "Listed under edge-list-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              270,
+              360,
+              350,
+              380
+            ]
+          },
+          {
+            "canonical": "node-similarity-based",
+            "aliases": [],
+            "evidence": "Listed under edge-list-based in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              270,
+              380,
+              350,
+              400
+            ]
+          },
+          {
+            "canonical": "collective-associated-edge generation",
+            "aliases": [],
+            "evidence": "Listed under node-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              360,
+              480,
+              380
+            ]
+          },
+          {
+            "canonical": "progressive-associated-edge generation",
+            "aliases": [],
+            "evidence": "Listed under node-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              380,
+              480,
+              400
+            ]
+          },
+          {
+            "canonical": "independency-based",
+            "aliases": [],
+            "evidence": "Listed under edge-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              360,
+              580,
+              380
+            ]
+          },
+          {
+            "canonical": "dependency-based",
+            "aliases": [],
+            "evidence": "Listed under edge-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              380,
+              580,
+              400
+            ]
+          },
+          {
+            "canonical": "domain-agnostic-based",
+            "aliases": [],
+            "evidence": "Listed under motif-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              360,
+              680,
+              380
+            ]
+          },
+          {
+            "canonical": "domain-specific-based",
+            "aliases": [],
+            "evidence": "Listed under motif-sequence in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              380,
+              680,
+              400
+            ]
+          },
+          {
+            "canonical": "editing-based",
+            "aliases": [],
+            "evidence": "Listed under node-edge co-transformation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              880,
+              360,
+              960,
+              380
+            ]
+          },
+          {
+            "canonical": "embedding-based",
+            "aliases": [],
+            "evidence": "Listed under node-edge co-transformation in the taxonomy tree.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              880,
+              380,
+              960,
+              400
+            ]
+          },
+          {
+            "canonical": "unsupervised framework",
+            "aliases": [],
+            "evidence": "Handwritten note: 'does not always imply that we are in a fully unsupervised framework'.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              520,
+              750,
+              580
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A taxonomy tree of deep graph generation methods, branching into unconditional and conditional generation, with further sub-categories and specific methods listed.",
+            "related_concepts": [
+              "deep graph generation",
+              "unconditional generation",
+              "conditional generation",
+              "one-shot generating",
+              "sequential generating",
+              "adjacency-matrix-based",
+              "edge-list-based",
+              "node-sequence",
+              "edge-sequence",
+              "motif-sequence",
+              "rule-sequence",
+              "conditioning on sequence",
+              "conditioning on semantic context",
+              "conditioning on graphs",
+              "edge transformation",
+              "node-edge co-transformation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              950,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of node-sequence-based graph generation, showing the step-by-step addition of nodes and edges to build a graph. It depicts the state of the graph at each step, from a single node to a four-node graph, with corresponding mathematical notation for the vertex and edge sets.",
+            "related_concepts": [
+              "node-sequence",
+              "sequential generating"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              650,
+              850,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "does not always imply that we are in a fully unsupervised framework",
+            "reason": "Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain, though the overall meaning is clear.",
+            "bbox": [
+              450,
+              520,
+              750,
+              580
+            ]
+          },
+          {
+            "transcription": "1 2 3 4 / 0 1 1 1 0",
+            "reason": "Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning in this context without further explanation is uncertain. It might represent an adjacency vector or some other encoding.",
+            "bbox": [
+              780,
+              780,
+              850,
+              820
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"deep graph generation\",\n      \"aliases\": [\"graph generation\"],\n      \"evidence\": \"Top-level node in the taxonomy tree diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [458, 105, 541, 130]\n    },\n    {\n      \"canonical\": \"unconditional generation\",\n      \"aliases\": [],\n      \"evidence\": \"Left branch of the taxonomy tree; also a printed heading below the tree.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [290, 175, 410, 200]\n    },\n    {\n      \"canonical\": \"conditional generation\",\n      \"aliases\": [],\n      \"evidence\": \"Right branch of the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [590, 175, 710, 200]\n    },\n    {\n      \"canonical\": \"one-shot generating\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under unconditional generation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 245, 320, 270]\n    },\n    {\n      \"canonical\": \"sequential generating\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under unconditional generation in the taxonomy tree; also a printed heading.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [380, 245, 480, 270]\n    },\n    {\n      \"canonical\": \"adjacency-matrix-based\",\n      \"aliases\": [],\n      \"evidence\": \"Method under one-shot generating in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 315, 250, 340]\n    },\n    {\n      \"canonical\": \"edge-list-based\",\n      \"aliases\": [],\n      \"evidence\": \"Method under one-shot generating in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [270, 315, 350, 340]\n    },\n    {\n      \"canonical\": \"node-sequence\",\n      \"aliases\": [],\n      \"evidence\": \"Method under sequential generating in the taxonomy tree; also the label for diagram (a).\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 315, 480, 340]\n    },\n    {\n      \"canonical\": \"edge-sequence\",\n      \"aliases\": [],\n      \"evidence\": \"Method under sequential generating in the taxonomy tree; also the label for diagram (b).\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 315, 580, 340]\n    },\n    {\n      \"canonical\": \"motif-sequence\",\n      \"aliases\": [],\n      \"evidence\": \"Method under sequential generating in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 315, 680, 340]\n    },\n    {\n      \"canonical\": \"rule-sequence\",\n      \"aliases\": [],\n      \"evidence\": \"Method under sequential generating in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 315, 780, 340]\n    },\n    {\n      \"canonical\": \"conditioning on sequence\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under conditional generation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 245, 600, 270]\n    },\n    {\n      \"canonical\": \"conditioning on semantic context\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under conditional generation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [620, 245, 760, 270]\n    },\n    {\n      \"canonical\": \"conditioning on graphs\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under conditional generation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780, 245, 900, 270]\n    },\n    {\n      \"canonical\": \"edge transformation\",\n      \"aliases\": [],\n      \"evidence\": \"Method under conditioning on graphs in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780, 315, 860, 340]\n    },\n    {\n      \"canonical\": \"node-edge co-transformation\",\n      \"aliases\": [],\n      \"evidence\": \"Method under conditioning on graphs in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [880, 315, 980, 340]\n    },\n    {\n      \"canonical\": \"message passing-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under adjacency-matrix-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 360, 250, 380]\n    },\n    {\n      \"canonical\": \"invertible-transform-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under adjacency-matrix-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 380, 250, 400]\n    },\n    {\n      \"canonical\": \"mlp-based\",\n      \"aliases\": [\"multilayer perceptron-based\"],\n      \"evidence\": \"Listed under adjacency-matrix-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 400, 200, 420]\n    },\n    {\n      \"canonical\": \"transposed-convolution-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under adjacency-matrix-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 420, 250, 440]\n    },\n    {\n      \"canonical\": \"random-walk-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under edge-list-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [270, 360, 350, 380]\n    },\n    {\n      \"canonical\": \"node-similarity-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under edge-list-based in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [270, 380, 350, 400]\n    },\n    {\n      \"canonical\": \"collective-associated-edge generation\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under node-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 360, 480, 380]\n    },\n    {\n      \"canonical\": \"progressive-associated-edge generation\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under node-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 380, 480, 400]\n    },\n    {\n      \"canonical\": \"independency-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under edge-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 360, 580, 380]\n    },\n    {\n      \"canonical\": \"dependency-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under edge-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 380, 580, 400]\n    },\n    {\n      \"canonical\": \"domain-agnostic-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under motif-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 360, 680, 380]\n    },\n    {\n      \"canonical\": \"domain-specific-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under motif-sequence in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 380, 680, 400]\n    },\n    {\n      \"canonical\": \"editing-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under node-edge co-transformation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [880, 360, 960, 380]\n    },\n    {\n      \"canonical\": \"embedding-based\",\n      \"aliases\": [],\n      \"evidence\": \"Listed under node-edge co-transformation in the taxonomy tree.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [880, 380, 960, 400]\n    },\n    {\n      \"canonical\": \"unsupervised framework\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note: 'does not always imply that we are in a fully unsupervised framework'.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 520, 750, 580]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A taxonomy tree of deep graph generation methods, branching into unconditional and conditional generation, with further sub-categories and specific methods listed.\",\n      \"related_concepts\": [\"deep graph generation\", \"unconditional generation\", \"conditional generation\", \"one-shot generating\", \"sequential generating\", \"adjacency-matrix-based\", \"edge-list-based\", \"node-sequence\", \"edge-sequence\", \"motif-sequence\", \"rule-sequence\", \"conditioning on sequence\", \"conditioning on semantic context\", \"conditioning on graphs\", \"edge transformation\", \"node-edge co-transformation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 950, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of node-sequence-based graph generation, showing the step-by-step addition of nodes and edges to build a graph. It depicts the state of the graph at each step, from a single node to a four-node graph, with corresponding mathematical notation for the vertex and edge sets.\",\n      \"related_concepts\": [\"node-sequence\", \"sequential generating\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 650, 850, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"does not always imply that we are in a fully unsupervised framework\",\n      \"reason\": \"Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain, though the overall meaning is clear.\",\n      \"bbox\": [450, 520, 750, 580]\n    },\n    {\n      \"transcription\": \"1 2 3 4 / 0 1 1 1 0\",\n      \"reason\": \"Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning in this context without further explanation is uncertain. It might represent an adjacency vector or some other encoding.\",\n      \"bbox\": [780, 780, 850, 820]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "density estimation",
+            "aliases": [
+              "distribution learning"
+            ],
+            "evidence": "1- [density estimation]",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              580,
+              180,
+              610
+            ]
+          },
+          {
+            "canonical": "maximum likelihood estimation",
+            "aliases": [
+              "MLE"
+            ],
+            "evidence": "Use the maximum likelihood to make p_model(g; theta) ~ p_data(g)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              615,
+              550,
+              650
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative modeling"
+            ],
+            "evidence": "find the model that is mostly likely to have generated the observed graphs g",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              720,
+              600,
+              750
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [
+              "generative sampling"
+            ],
+            "evidence": "2- [sampling] Sample from the complex distribution p_model(g; theta*)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              780,
+              450,
+              820
+            ]
+          },
+          {
+            "canonical": "noise distribution",
+            "aliases": [
+              "prior distribution"
+            ],
+            "evidence": "samples from a simple noise distribution: z_i ~ N(0, 1)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              850,
+              400,
+              890
+            ]
+          },
+          {
+            "canonical": "deep network function",
+            "aliases": [
+              "generator network"
+            ],
+            "evidence": "transforms the noise z_i via a deep network function f(.)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              910,
+              550,
+              940
+            ]
+          },
+          {
+            "canonical": "self-supervised learning",
+            "aliases": [
+              "unsupervised learning"
+            ],
+            "evidence": "self-regeneration -> self supervised (unsupervised)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              750,
+              850,
+              820
+            ]
+          },
+          {
+            "canonical": "molecular graph generation",
+            "aliases": [
+              "chemical graph generation"
+            ],
+            "evidence": "Visual diagram showing train data molecules and generated molecules",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              10,
+              650,
+              450
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "p_{model}(g; \\theta) \\sim p_{data}(g)",
+            "related_concepts": [
+              "density estimation",
+              "maximum likelihood estimation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              620,
+              550,
+              650
+            ],
+            "label": "density matching"
+          },
+          {
+            "latex": "\\theta^* = \\arg\\max_{\\theta} \\mathbb{E}_{g \\sim p_{data}} \\log p_{model}(g; \\theta)",
+            "related_concepts": [
+              "maximum likelihood estimation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              660,
+              650,
+              710
+            ],
+            "label": "MLE objective"
+          },
+          {
+            "latex": "\\theta^* = \\min_{\\theta} - \\mathbb{E}",
+            "related_concepts": [
+              "maximum likelihood estimation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              680,
+              670,
+              850,
+              700
+            ],
+            "label": "loss minimization"
+          },
+          {
+            "latex": "\\sum_i \\log p_{model}(g_i; \\theta^*)",
+            "related_concepts": [
+              "maximum likelihood estimation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              690,
+              600,
+              720
+            ],
+            "label": "log-likelihood sum"
+          },
+          {
+            "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+            "related_concepts": [
+              "noise distribution",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              860,
+              450,
+              890
+            ],
+            "label": "noise prior"
+          },
+          {
+            "latex": "g_i = f(z_i; \\theta^*)",
+            "related_concepts": [
+              "deep network function",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              940,
+              450,
+              980
+            ],
+            "label": "generator function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Molecular graph generation pipeline showing train data molecules, density distribution curves (p_data in pink, p_model in green), and generated molecules with 'generate' and 'sample new graphs' annotations",
+            "related_concepts": [
+              "molecular graph generation",
+              "density estimation",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              10,
+              650,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Self-regeneration loop diagram showing graph g with parameters theta* pointing back to itself, labeled 'self-regeneration' and 'self supervised (unsupervised)'",
+            "related_concepts": [
+              "self-supervised learning",
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              700,
+              700,
+              800
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "on average ~",
+            "reason": "Handwritten annotation above expectation operator is partially unclear",
+            "bbox": [
+              450,
+              640,
+              580,
+              660
+            ]
+          },
+          {
+            "transcription": "1.8, 0.1, 0.52",
+            "reason": "Handwritten numerical values next to noise distribution are small and slightly ambiguous",
+            "bbox": [
+              480,
+              850,
+              520,
+              900
+            ]
+          },
+          {
+            "transcription": "how to learn f?",
+            "reason": "Handwritten question in bottom left corner has slightly unclear handwriting",
+            "bbox": [
+              50,
+              920,
+              150,
+              970
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"density estimation\",\n      \"aliases\": [\"distribution learning\"],\n      \"evidence\": \"1- [density estimation]\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 580, 180, 610]\n    },\n    {\n      \"canonical\": \"maximum likelihood estimation\",\n      \"aliases\": [\"MLE\"],\n      \"evidence\": \"Use the maximum likelihood to make p_model(g; theta) ~ p_data(g)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 615, 550, 650]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative modeling\"],\n      \"evidence\": \"find the model that is mostly likely to have generated the observed graphs g\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 720, 600, 750]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [\"generative sampling\"],\n      \"evidence\": \"2- [sampling] Sample from the complex distribution p_model(g; theta*)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 780, 450, 820]\n    },\n    {\n      \"canonical\": \"noise distribution\",\n      \"aliases\": [\"prior distribution\"],\n      \"evidence\": \"samples from a simple noise distribution: z_i ~ N(0, 1)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 850, 400, 890]\n    },\n    {\n      \"canonical\": \"deep network function\",\n      \"aliases\": [\"generator network\"],\n      \"evidence\": \"transforms the noise z_i via a deep network function f(.)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 910, 550, 940]\n    },\n    {\n      \"canonical\": \"self-supervised learning\",\n      \"aliases\": [\"unsupervised learning\"],\n      \"evidence\": \"self-regeneration -> self supervised (unsupervised)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 750, 850, 820]\n    },\n    {\n      \"canonical\": \"molecular graph generation\",\n      \"aliases\": [\"chemical graph generation\"],\n      \"evidence\": \"Visual diagram showing train data molecules and generated molecules\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 10, 650, 450]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"p_{model}(g; \\\\theta) \\\\sim p_{data}(g)\",\n      \"related_concepts\": [\"density estimation\", \"maximum likelihood estimation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 620, 550, 650],\n      \"label\": \"density matching\"\n    },\n    {\n      \"latex\": \"\\\\theta^* = \\\\arg\\\\max_{\\\\theta} \\\\mathbb{E}_{g \\\\sim p_{data}} \\\\log p_{model}(g; \\\\theta)\",\n      \"related_concepts\": [\"maximum likelihood estimation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 660, 650, 710],\n      \"label\": \"MLE objective\"\n    },\n    {\n      \"latex\": \"\\\\theta^* = \\\\min_{\\\\theta} - \\\\mathbb{E}\",\n      \"related_concepts\": [\"maximum likelihood estimation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [680, 670, 850, 700],\n      \"label\": \"loss minimization\"\n    },\n    {\n      \"latex\": \"\\\\sum_i \\\\log p_{model}(g_i; \\\\theta^*)\",\n      \"related_concepts\": [\"maximum likelihood estimation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 690, 600, 720],\n      \"label\": \"log-likelihood sum\"\n    },\n    {\n      \"latex\": \"z_i \\\\sim \\\\mathcal{N}(0, 1)\",\n      \"related_concepts\": [\"noise distribution\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 860, 450, 890],\n      \"label\": \"noise prior\"\n    },\n    {\n      \"latex\": \"g_i = f(z_i; \\\\theta^*)\",\n      \"related_concepts\": [\"deep network function\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 940, 450, 980],\n      \"label\": \"generator function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Molecular graph generation pipeline showing train data molecules, density distribution curves (p_data in pink, p_model in green), and generated molecules with 'generate' and 'sample new graphs' annotations\",\n      \"related_concepts\": [\"molecular graph generation\", \"density estimation\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 10, 650, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Self-regeneration loop diagram showing graph g with parameters theta* pointing back to itself, labeled 'self-regeneration' and 'self supervised (unsupervised)'\",\n      \"related_concepts\": [\"self-supervised learning\", \"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 700, 700, 800]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"on average ~\",\n      \"reason\": \"Handwritten annotation above expectation operator is partially unclear\",\n      \"bbox\": [450, 640, 580, 660]\n    },\n    {\n      \"transcription\": \"1.8, 0.1, 0.52\",\n      \"reason\": \"Handwritten numerical values next to noise distribution are small and slightly ambiguous\",\n      \"bbox\": [480, 850, 520, 900]\n    },\n    {\n      \"transcription\": \"how to learn f?\",\n      \"reason\": \"Handwritten question in bottom left corner has slightly unclear handwriting\",\n      \"bbox\": [50, 920, 150, 970]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "edge-sequence-based graph generation",
+            "aliases": [
+              "edge sequence"
+            ],
+            "evidence": "Printed heading '(b) Edge-sequence-based' and the sequence of graph states showing edges being added one by one.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              900,
+              450
+            ]
+          },
+          {
+            "canonical": "motif-sequence-based graph generation",
+            "aliases": [
+              "motif sequence"
+            ],
+            "evidence": "Printed heading '(c) Motif-sequence-based' and the diagram showing the addition of subgraph motifs (C1, C2, C3, C4).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              900,
+              700
+            ]
+          },
+          {
+            "canonical": "rule-sequence-based graph generation",
+            "aliases": [
+              "rule sequence"
+            ],
+            "evidence": "Printed heading '(d) Rule-sequence-based' and the flowchart showing steps like 'add branched atom' and 'construct a ring'.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              700,
+              900,
+              950
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative models for graphs"
+            ],
+            "evidence": "The entire tile illustrates different sequential methods for constructing graphs, from nodes/edges to motifs and rules.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "node addition",
+            "aliases": [],
+            "evidence": "Handwritten note 'add a new node with two edges' in panel (b).",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              250,
+              450,
+              320
+            ]
+          },
+          {
+            "canonical": "edge connection",
+            "aliases": [],
+            "evidence": "Handwritten note 'connect existing nodes' in panel (b).",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              280,
+              850,
+              330
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "(v_1, \\{\\}) \\rightarrow (v_2, \\{e_{12}\\}) \\rightarrow (v_3, \\{e_{13}, e_{23}\\}) \\rightarrow (v_4, \\{e_{34}, e_{24}\\})",
+            "related_concepts": [
+              "edge-sequence-based graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              100,
+              850,
+              180
+            ],
+            "label": "Node and edge sequence"
+          },
+          {
+            "latex": "(e_{12}, \\{v_1, v_2\\}) \\rightarrow (e_{13}, \\{v_1, v_3\\}) \\rightarrow (e_{14}, \\{v_1, v_4\\}) \\rightarrow (e_{23}, \\{v_2, v_3\\})",
+            "related_concepts": [
+              "edge-sequence-based graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              350,
+              850,
+              420
+            ],
+            "label": "Edge and node set sequence"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A four-step process showing the sequential addition of edges to a graph, starting from two nodes and ending with four nodes and four edges. Handwritten notes explain the actions.",
+            "related_concepts": [
+              "edge-sequence-based graph generation",
+              "node addition",
+              "edge connection"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              900,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A four-step process showing the sequential addition of motifs (subgraphs) to build a larger graph. The motifs are labeled C1 through C4.",
+            "related_concepts": [
+              "motif-sequence-based graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              900,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A flowchart illustrating a rule-based graph generation process for a molecular structure (benzene ring). It includes steps like 'add branched atom', 'construct a ring', and 'add single bonds'.",
+            "related_concepts": [
+              "rule-sequence-based graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              700,
+              900,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "ntietage I I yn.us o w is 8898 a i n",
+            "reason": "This text from the clipped PDF is nonsensical and does not correspond to any visible content in the image tile. It is likely an OCR error from a different part of the document.",
+            "bbox": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"edge-sequence-based graph generation\",\n      \"aliases\": [\"edge sequence\"],\n      \"evidence\": \"Printed heading '(b) Edge-sequence-based' and the sequence of graph states showing edges being added one by one.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 900, 450]\n    },\n    {\n      \"canonical\": \"motif-sequence-based graph generation\",\n      \"aliases\": [\"motif sequence\"],\n      \"evidence\": \"Printed heading '(c) Motif-sequence-based' and the diagram showing the addition of subgraph motifs (C1, C2, C3, C4).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 900, 700]\n    },\n    {\n      \"canonical\": \"rule-sequence-based graph generation\",\n      \"aliases\": [\"rule sequence\"],\n      \"evidence\": \"Printed heading '(d) Rule-sequence-based' and the flowchart showing steps like 'add branched atom' and 'construct a ring'.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 700, 900, 950]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative models for graphs\"],\n      \"evidence\": \"The entire tile illustrates different sequential methods for constructing graphs, from nodes/edges to motifs and rules.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 950, 950]\n    },\n    {\n      \"canonical\": \"node addition\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'add a new node with two edges' in panel (b).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 250, 450, 320]\n    },\n    {\n      \"canonical\": \"edge connection\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'connect existing nodes' in panel (b).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 280, 850, 330]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"(v_1, \\\\{\\\\}) \\\\rightarrow (v_2, \\\\{e_{12}\\\\}) \\\\rightarrow (v_3, \\\\{e_{13}, e_{23}\\\\}) \\\\rightarrow (v_4, \\\\{e_{34}, e_{24}\\\\})\",\n      \"related_concepts\": [\"edge-sequence-based graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 100, 850, 180],\n      \"label\": \"Node and edge sequence\"\n    },\n    {\n      \"latex\": \"(e_{12}, \\\\{v_1, v_2\\\\}) \\\\rightarrow (e_{13}, \\\\{v_1, v_3\\\\}) \\\\rightarrow (e_{14}, \\\\{v_1, v_4\\\\}) \\\\rightarrow (e_{23}, \\\\{v_2, v_3\\\\})\",\n      \"related_concepts\": [\"edge-sequence-based graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 350, 850, 420],\n      \"label\": \"Edge and node set sequence\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A four-step process showing the sequential addition of edges to a graph, starting from two nodes and ending with four nodes and four edges. Handwritten notes explain the actions.\",\n      \"related_concepts\": [\"edge-sequence-based graph generation\", \"node addition\", \"edge connection\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 900, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A four-step process showing the sequential addition of motifs (subgraphs) to build a larger graph. The motifs are labeled C1 through C4.\",\n      \"related_concepts\": [\"motif-sequence-based graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 900, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A flowchart illustrating a rule-based graph generation process for a molecular structure (benzene ring). It includes steps like 'add branched atom', 'construct a ring', and 'add single bonds'.\",\n      \"related_concepts\": [\"rule-sequence-based graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 700, 900, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"ntietage I I yn.us o w is 8898 a i n\",\n      \"reason\": \"This text from the clipped PDF is nonsensical and does not correspond to any visible content in the image tile. It is likely an OCR error from a different part of the document.\",\n      \"bbox\": [0, 0, 0, 0]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Generative Graph Learning and Taxonomy",
+        "summary": "This page formalizes generative learning tasks for graphs, distinguishing between graph encoders (graph to embeddings) and decoders (embeddings to graphs). It outlines the utility of graph generation for understanding formation processes and predicting new structures, such as molecules or brain connectivity graphs. The content details the machine learning basics for self-supervised generation, focusing on density estimation via maximum likelihood and sampling from noise distributions. Finally, it presents a comprehensive taxonomy of deep graph generation methods, categorizing them into unconditional and conditional approaches with specific sequential and one-shot techniques.",
+        "key_topics": [
+          "generative graph learning",
+          "graph generation taxonomy",
+          "maximum likelihood estimation",
+          "density estimation",
+          "self-supervised learning",
+          "sequential graph generation"
+        ],
+        "concepts": [
+          {
+            "canonical": "generative learning tasks",
+            "aliases": [
+              "generative gnn tasks",
+              "self-supervised generative gnn tasks"
+            ],
+            "evidence": "Generative learning tasks formalization; Self-supervised/unsupervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              15,
+              480,
+              60
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "graph to embeddings",
+              "embeddings to graphs",
+              "graph encoders",
+              "graph decoders"
+            ],
+            "evidence": "Graph generation: Previously, we learned about encoding graph structure by generating node embeddings... Graph encoders -> graph to embeddings... Graph decoders -> embeddings to graphs",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              480,
+              180
+            ]
+          },
+          {
+            "canonical": "utility of graph generation",
+            "aliases": [
+              "graph formation process",
+              "identifying abnormal parts",
+              "predicting new structures"
+            ],
+            "evidence": "Utility: Graph generation is useful to understand graph formation process, identifying abnormal parts of the graph, predicting new structures...",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              480,
+              240
+            ]
+          },
+          {
+            "canonical": "molecular graph generation",
+            "aliases": [
+              "chemical graph generation"
+            ],
+            "evidence": "Example 1: generate a new kind of molecule that cures a certain disease...",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              250,
+              480,
+              280
+            ]
+          },
+          {
+            "canonical": "density estimation",
+            "aliases": [
+              "learn the distribution"
+            ],
+            "evidence": "1) learn a good model that represents a graph, in other words learn the distribution p_model(g; theta) ~ p_data(g) [density estimation]",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              320,
+              480,
+              360
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [
+              "generative sampling"
+            ],
+            "evidence": "2) identify how sample from p_model(g) to generate a new graph [sampling]",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              360,
+              480,
+              380
+            ]
+          },
+          {
+            "canonical": "maximum likelihood estimation",
+            "aliases": [
+              "mle"
+            ],
+            "evidence": "Use the maximum likelihood to make p_model(g; theta) ~ p_data(g)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              300,
+              470
+            ]
+          },
+          {
+            "canonical": "noise distribution",
+            "aliases": [
+              "prior distribution"
+            ],
+            "evidence": "samples from a simple noise distribution: z_i ~ N(0, 1)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              550,
+              250,
+              570
+            ]
+          },
+          {
+            "canonical": "deep network function",
+            "aliases": [
+              "generator network"
+            ],
+            "evidence": "transforms the noise z_i via a deep network function f(.)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              590,
+              300,
+              610
+            ]
+          },
+          {
+            "canonical": "unconditional generation",
+            "aliases": [],
+            "evidence": "Taxonomy tree branch: Unconditional generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              100,
+              750,
+              130
+            ]
+          },
+          {
+            "canonical": "conditional generation",
+            "aliases": [],
+            "evidence": "Taxonomy tree branch: Conditional generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              760,
+              100,
+              950,
+              130
+            ]
+          },
+          {
+            "canonical": "one-shot generating",
+            "aliases": [],
+            "evidence": "Sub-category under unconditional generation: One-shot generating",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              140,
+              620,
+              160
+            ]
+          },
+          {
+            "canonical": "sequential generating",
+            "aliases": [],
+            "evidence": "Sub-category under unconditional generation: Sequential generating",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              630,
+              140,
+              730,
+              160
+            ]
+          },
+          {
+            "canonical": "node-sequence",
+            "aliases": [
+              "node-sequence-based graph generation"
+            ],
+            "evidence": "Method under sequential generating: Node-sequence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              630,
+              170,
+              680,
+              190
+            ]
+          },
+          {
+            "canonical": "edge-sequence",
+            "aliases": [
+              "edge-sequence-based graph generation"
+            ],
+            "evidence": "Method under sequential generating: Edge-sequence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              690,
+              170,
+              740,
+              190
+            ]
+          },
+          {
+            "canonical": "motif-sequence",
+            "aliases": [
+              "motif-sequence-based graph generation"
+            ],
+            "evidence": "Method under sequential generating: Motif-sequence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              170,
+              800,
+              190
+            ]
+          },
+          {
+            "canonical": "rule-sequence",
+            "aliases": [
+              "rule-sequence-based graph generation"
+            ],
+            "evidence": "Method under sequential generating: Rule-sequence",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              810,
+              170,
+              860,
+              190
+            ]
+          },
+          {
+            "canonical": "self-supervised learning",
+            "aliases": [
+              "unsupervised learning"
+            ],
+            "evidence": "Handwritten note: 'self-regeneration -> self supervised (unsupervised)'",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              320,
+              850,
+              450,
+              890
+            ]
+          },
+          {
+            "canonical": "node addition",
+            "aliases": [],
+            "evidence": "Handwritten note 'add a new node with two edges' in panel (b).",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              640,
+              580,
+              700,
+              620
+            ]
+          },
+          {
+            "canonical": "edge connection",
+            "aliases": [],
+            "evidence": "Handwritten note 'connect existing nodes' in panel (b).",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              860,
+              600,
+              920,
+              630
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "p_{model}(g; \\theta) \\sim p_{data}(g)",
+            "related_concepts": [
+              "density estimation",
+              "maximum likelihood estimation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              110,
+              330,
+              350,
+              350
+            ],
+            "label": "density matching"
+          },
+          {
+            "latex": "\\theta^* = \\arg\\max_{\\theta} \\mathbb{E}_{g \\sim p_{data}} \\log p_{model}(g; \\theta)",
+            "related_concepts": [
+              "maximum likelihood estimation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              80,
+              480,
+              350,
+              510
+            ],
+            "label": "MLE objective"
+          },
+          {
+            "latex": "\\theta^* = \\min_{\\theta} - \\mathbb{E}",
+            "related_concepts": [
+              "maximum likelihood estimation",
+              "loss minimization"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              370,
+              490,
+              460,
+              510
+            ],
+            "label": "loss minimization"
+          },
+          {
+            "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+            "related_concepts": [
+              "noise distribution",
+              "sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              160,
+              560,
+              250,
+              580
+            ],
+            "label": "noise prior"
+          },
+          {
+            "latex": "g_i = f(z_i; \\theta^*)",
+            "related_concepts": [
+              "deep network function",
+              "graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              130,
+              600,
+              250,
+              620
+            ],
+            "label": "generator function"
+          },
+          {
+            "latex": "(v_1, \\{\\}) \\rightarrow (v_2, \\{e_{12}\\}) \\rightarrow (v_3, \\{e_{13}, e_{23}\\}) \\rightarrow (v_4, \\{e_{34}, e_{24}\\})",
+            "related_concepts": [
+              "node-sequence",
+              "sequential generating"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              500,
+              920,
+              540
+            ],
+            "label": "Node and edge sequence"
+          },
+          {
+            "latex": "(e_{12}, \\{v_1, v_2\\}) \\rightarrow (e_{13}, \\{v_1, v_3\\}) \\rightarrow (e_{14}, \\{v_1, v_4\\}) \\rightarrow (e_{23}, \\{v_2, v_3\\})",
+            "related_concepts": [
+              "edge-sequence",
+              "sequential generating"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              640,
+              920,
+              680
+            ],
+            "label": "Edge and node set sequence"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A taxonomy tree of deep graph generation methods, branching into unconditional and conditional generation, with further sub-categories like one-shot, sequential, and specific methods listed.",
+            "related_concepts": [
+              "generative learning tasks",
+              "unconditional generation",
+              "conditional generation",
+              "sequential generating",
+              "one-shot generating"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              50,
+              980,
+              250
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Molecular graph generation pipeline showing train data molecules, density distribution curves (p_data and p_model), and generated molecules.",
+            "related_concepts": [
+              "molecular graph generation",
+              "density estimation",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              400,
+              450,
+              650
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of node-sequence-based graph generation, showing the step-by-step addition of nodes and edges to build a graph.",
+            "related_concepts": [
+              "node-sequence",
+              "sequential generating"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              350,
+              920,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A four-step process showing the sequential addition of edges to a graph, with handwritten notes explaining node addition and edge connection.",
+            "related_concepts": [
+              "edge-sequence",
+              "node addition",
+              "edge connection"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              560,
+              950,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A four-step process showing the sequential addition of motifs (subgraphs) to build a larger graph.",
+            "related_concepts": [
+              "motif-sequence"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              700,
+              950,
+              840
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A flowchart illustrating a rule-based graph generation process for a molecular structure (benzene ring).",
+            "related_concepts": [
+              "rule-sequence"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              840,
+              950,
+              980
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Self-regeneration loop diagram showing graph g with parameters theta* pointing back to itself, labeled 'self-regeneration' and 'self supervised'.",
+            "related_concepts": [
+              "self-supervised learning",
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              830,
+              400,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              10,
+              150,
+              480,
+              180
+            ]
+          },
+          {
+            "transcription": "catenasceaseseamangiven",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              10,
+              260,
+              480,
+              280
+            ]
+          },
+          {
+            "transcription": "Luang",
+            "reason": "Handwriting is unclear and difficult to transcribe accurately.",
+            "bbox": [
+              10,
+              380,
+              480,
+              400
+            ]
+          },
+          {
+            "transcription": "does not always imply that we are in a fully unsupervised framework",
+            "reason": "Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain.",
+            "bbox": [
+              700,
+              280,
+              860,
+              320
+            ]
+          },
+          {
+            "transcription": "1 2 3 4 / 0 1 1 1 0",
+            "reason": "Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning is uncertain.",
+            "bbox": [
+              880,
+              430,
+              920,
+              450
+            ]
+          },
+          {
+            "transcription": "on average ~",
+            "reason": "Handwritten annotation above expectation operator is partially unclear",
+            "bbox": [
+              250,
+              470,
+              320,
+              480
+            ]
+          },
+          {
+            "transcription": "1.8, 0.1, 0.52",
+            "reason": "Handwritten numerical values next to noise distribution are small and slightly ambiguous",
+            "bbox": [
+              260,
+              550,
+              290,
+              570
+            ]
+          },
+          {
+            "transcription": "how to learn f?",
+            "reason": "Handwritten question in bottom left corner has slightly unclear handwriting",
+            "bbox": [
+              30,
+              620,
+              80,
+              640
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Generative Graph Learning and Taxonomy\",\n  \"summary\": \"This page formalizes generative learning tasks for graphs, distinguishing between graph encoders (graph to embeddings) and decoders (embeddings to graphs). It outlines the utility of graph generation for understanding formation processes and predicting new structures, such as molecules or brain connectivity graphs. The content details the machine learning basics for self-supervised generation, focusing on density estimation via maximum likelihood and sampling from noise distributions. Finally, it presents a comprehensive taxonomy of deep graph generation methods, categorizing them into unconditional and conditional approaches with specific sequential and one-shot techniques.\",\n  \"key_topics\": [\n    \"generative graph learning\",\n    \"graph generation taxonomy\",\n    \"maximum likelihood estimation\",\n    \"density estimation\",\n    \"self-supervised learning\",\n    \"sequential graph generation\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"generative learning tasks\",\n      \"aliases\": [\"generative gnn tasks\", \"self-supervised generative gnn tasks\"],\n      \"evidence\": \"Generative learning tasks formalization; Self-supervised/unsupervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 15, 480, 60]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"graph to embeddings\", \"embeddings to graphs\", \"graph encoders\", \"graph decoders\"],\n      \"evidence\": \"Graph generation: Previously, we learned about encoding graph structure by generating node embeddings... Graph encoders -> graph to embeddings... Graph decoders -> embeddings to graphs\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 480, 180]\n    },\n    {\n      \"canonical\": \"utility of graph generation\",\n      \"aliases\": [\"graph formation process\", \"identifying abnormal parts\", \"predicting new structures\"],\n      \"evidence\": \"Utility: Graph generation is useful to understand graph formation process, identifying abnormal parts of the graph, predicting new structures...\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 480, 240]\n    },\n    {\n      \"canonical\": \"molecular graph generation\",\n      \"aliases\": [\"chemical graph generation\"],\n      \"evidence\": \"Example 1: generate a new kind of molecule that cures a certain disease...\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 250, 480, 280]\n    },\n    {\n      \"canonical\": \"density estimation\",\n      \"aliases\": [\"learn the distribution\"],\n      \"evidence\": \"1) learn a good model that represents a graph, in other words learn the distribution p_model(g; theta) ~ p_data(g) [density estimation]\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 320, 480, 360]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [\"generative sampling\"],\n      \"evidence\": \"2) identify how sample from p_model(g) to generate a new graph [sampling]\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 360, 480, 380]\n    },\n    {\n      \"canonical\": \"maximum likelihood estimation\",\n      \"aliases\": [\"mle\"],\n      \"evidence\": \"Use the maximum likelihood to make p_model(g; theta) ~ p_data(g)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 300, 470]\n    },\n    {\n      \"canonical\": \"noise distribution\",\n      \"aliases\": [\"prior distribution\"],\n      \"evidence\": \"samples from a simple noise distribution: z_i ~ N(0, 1)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 550, 250, 570]\n    },\n    {\n      \"canonical\": \"deep network function\",\n      \"aliases\": [\"generator network\"],\n      \"evidence\": \"transforms the noise z_i via a deep network function f(.)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 590, 300, 610]\n    },\n    {\n      \"canonical\": \"unconditional generation\",\n      \"aliases\": [],\n      \"evidence\": \"Taxonomy tree branch: Unconditional generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 100, 750, 130]\n    },\n    {\n      \"canonical\": \"conditional generation\",\n      \"aliases\": [],\n      \"evidence\": \"Taxonomy tree branch: Conditional generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [760, 100, 950, 130]\n    },\n    {\n      \"canonical\": \"one-shot generating\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under unconditional generation: One-shot generating\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 140, 620, 160]\n    },\n    {\n      \"canonical\": \"sequential generating\",\n      \"aliases\": [],\n      \"evidence\": \"Sub-category under unconditional generation: Sequential generating\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [630, 140, 730, 160]\n    },\n    {\n      \"canonical\": \"node-sequence\",\n      \"aliases\": [\"node-sequence-based graph generation\"],\n      \"evidence\": \"Method under sequential generating: Node-sequence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [630, 170, 680, 190]\n    },\n    {\n      \"canonical\": \"edge-sequence\",\n      \"aliases\": [\"edge-sequence-based graph generation\"],\n      \"evidence\": \"Method under sequential generating: Edge-sequence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [690, 170, 740, 190]\n    },\n    {\n      \"canonical\": \"motif-sequence\",\n      \"aliases\": [\"motif-sequence-based graph generation\"],\n      \"evidence\": \"Method under sequential generating: Motif-sequence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 170, 800, 190]\n    },\n    {\n      \"canonical\": \"rule-sequence\",\n      \"aliases\": [\"rule-sequence-based graph generation\"],\n      \"evidence\": \"Method under sequential generating: Rule-sequence\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [810, 170, 860, 190]\n    },\n    {\n      \"canonical\": \"self-supervised learning\",\n      \"aliases\": [\"unsupervised learning\"],\n      \"evidence\": \"Handwritten note: 'self-regeneration -> self supervised (unsupervised)'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [320, 850, 450, 890]\n    },\n    {\n      \"canonical\": \"node addition\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'add a new node with two edges' in panel (b).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [640, 580, 700, 620]\n    },\n    {\n      \"canonical\": \"edge connection\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'connect existing nodes' in panel (b).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [860, 600, 920, 630]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"p_{model}(g; \\\\theta) \\\\sim p_{data}(g)\",\n      \"related_concepts\": [\"density estimation\", \"maximum likelihood estimation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110, 330, 350, 350],\n      \"label\": \"density matching\"\n    },\n    {\n      \"latex\": \"\\\\theta^* = \\\\arg\\\\max_{\\\\theta} \\\\mathbb{E}_{g \\\\sim p_{data}} \\\\log p_{model}(g; \\\\theta)\",\n      \"related_concepts\": [\"maximum likelihood estimation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [80, 480, 350, 510],\n      \"label\": \"MLE objective\"\n    },\n    {\n      \"latex\": \"\\\\theta^* = \\\\min_{\\\\theta} - \\\\mathbb{E}\",\n      \"related_concepts\": [\"maximum likelihood estimation\", \"loss minimization\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [370, 490, 460, 510],\n      \"label\": \"loss minimization\"\n    },\n    {\n      \"latex\": \"z_i \\\\sim \\\\mathcal{N}(0, 1)\",\n      \"related_concepts\": [\"noise distribution\", \"sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [160, 560, 250, 580],\n      \"label\": \"noise prior\"\n    },\n    {\n      \"latex\": \"g_i = f(z_i; \\\\theta^*)\",\n      \"related_concepts\": [\"deep network function\", \"graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [130, 600, 250, 620],\n      \"label\": \"generator function\"\n    },\n    {\n      \"latex\": \"(v_1, \\\\{\\\\}) \\\\rightarrow (v_2, \\\\{e_{12}\\\\}) \\\\rightarrow (v_3, \\\\{e_{13}, e_{23}\\\\}) \\\\rightarrow (v_4, \\\\{e_{34}, e_{24}\\\\})\",\n      \"related_concepts\": [\"node-sequence\", \"sequential generating\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 500, 920, 540],\n      \"label\": \"Node and edge sequence\"\n    },\n    {\n      \"latex\": \"(e_{12}, \\\\{v_1, v_2\\\\}) \\\\rightarrow (e_{13}, \\\\{v_1, v_3\\\\}) \\\\rightarrow (e_{14}, \\\\{v_1, v_4\\\\}) \\\\rightarrow (e_{23}, \\\\{v_2, v_3\\\\})\",\n      \"related_concepts\": [\"edge-sequence\", \"sequential generating\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 640, 920, 680],\n      \"label\": \"Edge and node set sequence\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A taxonomy tree of deep graph generation methods, branching into unconditional and conditional generation, with further sub-categories like one-shot, sequential, and specific methods listed.\",\n      \"related_concepts\": [\"generative learning tasks\", \"unconditional generation\", \"conditional generation\", \"sequential generating\", \"one-shot generating\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 50, 980, 250]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Molecular graph generation pipeline showing train data molecules, density distribution curves (p_data and p_model), and generated molecules.\",\n      \"related_concepts\": [\"molecular graph generation\", \"density estimation\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 400, 450, 650]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of node-sequence-based graph generation, showing the step-by-step addition of nodes and edges to build a graph.\",\n      \"related_concepts\": [\"node-sequence\", \"sequential generating\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 350, 920, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A four-step process showing the sequential addition of edges to a graph, with handwritten notes explaining node addition and edge connection.\",\n      \"related_concepts\": [\"edge-sequence\", \"node addition\", \"edge connection\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 560, 950, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A four-step process showing the sequential addition of motifs (subgraphs) to build a larger graph.\",\n      \"related_concepts\": [\"motif-sequence\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 700, 950, 840]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A flowchart illustrating a rule-based graph generation process for a molecular structure (benzene ring).\",\n      \"related_concepts\": [\"rule-sequence\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 840, 950, 980]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Self-regeneration loop diagram showing graph g with parameters theta* pointing back to itself, labeled 'self-regeneration' and 'self supervised'.\",\n      \"related_concepts\": [\"self-supervised learning\", \"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 830, 400, 900]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"emomaienmaaeaasinns.insees generatepower givena.eu ghasecawains\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [10, 150, 480, 180]\n    },\n    {\n      \"transcription\": \"catenasceaseseamangiven\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [10, 260, 480, 280]\n    },\n    {\n      \"transcription\": \"Luang\",\n      \"reason\": \"Handwriting is unclear and difficult to transcribe accurately.\",\n      \"bbox\": [10, 380, 480, 400]\n    },\n    {\n      \"transcription\": \"does not always imply that we are in a fully unsupervised framework\",\n      \"reason\": \"Handwriting is slightly cursive and some letters are connected, making individual character recognition less certain.\",\n      \"bbox\": [700, 280, 860, 320]\n    },\n    {\n      \"transcription\": \"1 2 3 4 / 0 1 1 1 0\",\n      \"reason\": \"Handwritten numbers next to the final graph state in diagram (a). The sequence '0 1 1 1 0' is clear, but its exact meaning is uncertain.\",\n      \"bbox\": [880, 430, 920, 450]\n    },\n    {\n      \"transcription\": \"on average ~\",\n      \"reason\": \"Handwritten annotation above expectation operator is partially unclear\",\n      \"bbox\": [250, 470, 320, 480]\n    },\n    {\n      \"transcription\": \"1.8, 0.1, 0.52\",\n      \"reason\": \"Handwritten numerical values next to noise distribution are small and slightly ambiguous\",\n      \"bbox\": [260, 550, 290, 570]\n    },\n    {\n      \"transcription\": \"how to learn f?\",\n      \"reason\": \"Handwritten question in bottom left corner has slightly unclear handwriting\",\n      \"bbox\": [30, 620, 80, 640]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph encoders",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph decoders",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "deep graph generation",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "conditional generation",
+      "into": "unconditional generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "dependency-based",
+      "into": "independency-based"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "density estimation",
+      "into": "ml basics for self-supervised/unsupervised graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sampling",
+      "into": "ml basics for self-supervised/unsupervised graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge-sequence-based graph generation",
+      "into": "edge-sequence"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "motif-sequence-based graph generation",
+      "into": "motif-sequence"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "rule-sequence-based graph generation",
+      "into": "rule-sequence"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "graph generation"
+    }
+  ],
+  "warnings": [
+    "Merged duplicate concept conditional generation into unconditional generation",
+    "Dropped low-confidence formula: \\theta^* = \\min_{\\theta} - \\mathbb{E}"
+  ]
+}

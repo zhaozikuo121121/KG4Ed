@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4a0c4f518d59aafbf99e8e264ff8682ba9260735c7471b602d25faf965161013",
+  "concept_id": 77,
+  "concept_name": "backpropagation",
+  "aliases": [
+    "backpropagation",
+    "gradient descent",
+    "optimization",
+    "gd"
+  ],
+  "profile": "backpropagation: a neural network training technique that uses the chain rule during the backward pass. It is conceptually linked with composition, and training includes loss optimization through gradient descent.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "backpropagation: a deep learning training method that uses the chain rule during the backward pass, enabling loss optimization through gradient descent. It is conceptually linked with composition of functions in neural networks.",
+    "claims": [
+      {
+        "claim": "Backpropagation uses the chain rule during the backward pass.",
+        "evidence_ids": [
+          "DGL-E0247"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Backpropagation enables loss optimization through gradient descent.",
+        "evidence_ids": [
+          "DGL-E0250"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Backpropagation is conceptually linked with composition of functions in neural networks.",
+        "evidence_ids": [
+          "DGL-E0110"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The link between backpropagation and composition is inferred from a section heading in DGL-E0110, which may not be a complete statement."
+    ]
+  },
+  "review": {
+    "final_profile": "backpropagation: a neural network training technique that uses the chain rule during the backward pass. It is conceptually linked with composition, and training includes loss optimization through gradient descent.",
+    "sentence_reviews": [
+      {
+        "sentence": "backpropagation: a neural network training technique that uses the chain rule during the backward pass.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0247"
+        ],
+        "reason": "Source states 'using the chain rule during the backward pass' in a training/optimization context."
+      },
+      {
+        "sentence": "It is conceptually linked with composition.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0110"
+        ],
+        "reason": "Source heading pairs 'COMPOSITION & BACKPROPAGATION'."
+      },
+      {
+        "sentence": "Training includes loss optimization through gradient descent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0250"
+        ],
+        "reason": "Source states 'Loss optimization through gradient descent' in a training pipeline."
+      }
+    ],
+    "warnings": [
+      "The composition link comes from a section heading and is therefore broad rather than a detailed definitional claim."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"backpropagation: a deep learning training method that uses the chain rule during the backward pass, enabling loss optimization through gradient descent. It is conceptually linked with composition of functions in neural networks.\",\n  \"claims\": [\n    {\n      \"claim\": \"Backpropagation uses the chain rule during the backward pass.\",\n      \"evidence_ids\": [\"DGL-E0247\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Backpropagation enables loss optimization through gradient descent.\",\n      \"evidence_ids\": [\"DGL-E0250\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Backpropagation is conceptually linked with composition of functions in neural networks.\",\n      \"evidence_ids\": [\"DGL-E0110\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The link between backpropagation and composition is inferred from a section heading in DGL-E0110, which may not be a complete statement.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"backpropagation: a neural network training technique that uses the chain rule during the backward pass. It is conceptually linked with composition, and training includes loss optimization through gradient descent.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"backpropagation: a neural network training technique that uses the chain rule during the backward pass.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0247\"],\n      \"reason\": \"Source states 'using the chain rule during the backward pass' in a training/optimization context.\"\n    },\n    {\n      \"sentence\": \"It is conceptually linked with composition.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0110\"],\n      \"reason\": \"Source heading pairs 'COMPOSITION & BACKPROPAGATION'.\"\n    },\n    {\n      \"sentence\": \"Training includes loss optimization through gradient descent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0250\"],\n      \"reason\": \"Source states 'Loss optimization through gradient descent' in a training pipeline.\"\n    }\n  ],\n  \"warnings\": [\"The composition link comes from a section heading and is therefore broad rather than a detailed definitional claim.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:18:27.332584+00:00"
+}

@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "087aa722057f5b6374f2e938dbbaa75f1596af6503a9b9d85385673fbd261eba",
+  "concept_id": 381,
+  "concept_name": "graph reconstruction",
+  "aliases": [
+    "graph reconstruction"
+  ],
+  "profile": "graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.",
+    "claims": [
+      {
+        "claim": "Graph reconstruction is the transformation G(E,F) -> G'(E',F').",
+        "evidence_ids": [
+          "DGL-E0565"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph reconstruction appears in the context of encoder-decoder GNNs and graph generation.",
+        "evidence_ids": [
+          "DGL-E0565"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The symbols E, F, E', F' are not explicitly defined in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0565"
+        ],
+        "reason": "The evidence directly provides the transformation and the page title places it under encoder-decoder GNNs and graph generation."
+      }
+    ],
+    "warnings": [
+      "The symbols E, F, E', F' are not explicitly defined in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph reconstruction is the transformation G(E,F) -> G'(E',F').\",\n      \"evidence_ids\": [\"DGL-E0565\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph reconstruction appears in the context of encoder-decoder GNNs and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0565\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The symbols E, F, E', F' are not explicitly defined in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph reconstruction: the transformation G(E,F) -> G'(E',F'), appearing in the context of encoder-decoder GNNs and graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0565\"],\n      \"reason\": \"The evidence directly provides the transformation and the page title places it under encoder-decoder GNNs and graph generation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The symbols E, F, E', F' are not explicitly defined in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:12:18.784418+00:00"
+}

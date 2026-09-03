@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7905cd115078b8a7807cd8f08d8498865311d80a6fd03dcdfc1144c0e784dba5",
+  "concept_id": 10,
+  "concept_name": "misclassification",
+  "aliases": [
+    "misclassification",
+    "misidentification"
+  ],
+  "profile": "misclassification: Misclassification, also known as misidentification, occurs when an item is assigned a wrong label. A single dog (a Boston terrier) was misidentified. The error was due largely to the choice of features.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "misclassification: Misclassification, also known as misidentification, occurs when an item is assigned a wrong label. The example involves a single dog (a Boston terrier) that was misidentified. This error was due largely to the choice of features. The case illustrates that feature selection can be a major cause of classification errors.",
+    "claims": [
+      {
+        "claim": "Misclassification, also known as misidentification, occurs when an item is assigned a wrong label.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "The example involves a single dog (a Boston terrier) that was misidentified.",
+        "evidence_ids": [
+          "MLR-E0011"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This error was due largely to the choice of features.",
+        "evidence_ids": [
+          "MLR-E0011"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The case illustrates that feature selection can be a major cause of classification errors.",
+        "evidence_ids": [
+          "MLR-E0011"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only one illustrative example; no formal definition or broader taxonomy was supplied."
+    ]
+  },
+  "review": {
+    "final_profile": "misclassification: Misclassification, also known as misidentification, occurs when an item is assigned a wrong label. A single dog (a Boston terrier) was misidentified. The error was due largely to the choice of features.",
+    "sentence_reviews": [
+      {
+        "sentence": "Misclassification, also known as misidentification, occurs when an item is assigned a wrong label.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition used only to connect the source-backed example; no source definition was provided."
+      },
+      {
+        "sentence": "A single dog (a Boston terrier) was misidentified.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0011"
+        ],
+        "reason": "The evidence explicitly identifies a Boston terrier as the single misidentified dog."
+      },
+      {
+        "sentence": "The error was due largely to the choice of features.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0011"
+        ],
+        "reason": "The evidence states the misidentification is due largely to the choice of features."
+      }
+    ],
+    "warnings": [
+      "No formal definition was supplied in metadata; the definitional sentence is allowed background. The broader implication that feature selection is a major cause is not generalized in the final profile."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"misclassification: Misclassification, also known as misidentification, occurs when an item is assigned a wrong label. The example involves a single dog (a Boston terrier) that was misidentified. This error was due largely to the choice of features. The case illustrates that feature selection can be a major cause of classification errors.\",\n  \"claims\": [\n    {\n      \"claim\": \"Misclassification, also known as misidentification, occurs when an item is assigned a wrong label.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"The example involves a single dog (a Boston terrier) that was misidentified.\",\n      \"evidence_ids\": [\"MLR-E0011\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This error was due largely to the choice of features.\",\n      \"evidence_ids\": [\"MLR-E0011\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The case illustrates that feature selection can be a major cause of classification errors.\",\n      \"evidence_ids\": [\"MLR-E0011\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only one illustrative example; no formal definition or broader taxonomy was supplied.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"misclassification: Misclassification, also known as misidentification, occurs when an item is assigned a wrong label. A single dog (a Boston terrier) was misidentified. The error was due largely to the choice of features.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Misclassification, also known as misidentification, occurs when an item is assigned a wrong label.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition used only to connect the source-backed example; no source definition was provided.\"\n    },\n    {\n      \"sentence\": \"A single dog (a Boston terrier) was misidentified.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0011\"],\n      \"reason\": \"The evidence explicitly identifies a Boston terrier as the single misidentified dog.\"\n    },\n    {\n      \"sentence\": \"The error was due largely to the choice of features.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0011\"],\n      \"reason\": \"The evidence states the misidentification is due largely to the choice of features.\"\n    }\n  ],\n  \"warnings\": [\n    \"No formal definition was supplied in metadata; the definitional sentence is allowed background. The broader implication that feature selection is a major cause is not generalized in the final profile.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:23:48.703293+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "8cc6548acab098b929d4e1403382d775ba4cf0231ee774ba811b891e97c5ec59",
+  "concept_id": 173,
+  "concept_name": "centroid initialization",
+  "aliases": [
+    "centroid initialization",
+    "random initialization"
+  ],
+  "profile": "centroid initialization: selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "centroid initialization: the process of selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.",
+    "claims": [
+      {
+        "claim": "Centroid initialization is the process of selecting starting locations for K centroids.",
+        "evidence_ids": [
+          "MLR-E0197"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "One way to perform centroid initialization is to start with a random guess at the locations of the K centroids.",
+        "evidence_ids": [
+          "MLR-E0197"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "centroid initialization: selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.",
+    "sentence_reviews": [
+      {
+        "sentence": "centroid initialization: selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0197"
+        ],
+        "reason": "The source directly states that we can begin with a random guess at the locations of K centroids, supporting the idea of selecting starting locations and the random-guess method."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"centroid initialization: the process of selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.\",\n  \"claims\": [\n    {\n      \"claim\": \"Centroid initialization is the process of selecting starting locations for K centroids.\",\n      \"evidence_ids\": [\"MLR-E0197\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"One way to perform centroid initialization is to start with a random guess at the locations of the K centroids.\",\n      \"evidence_ids\": [\"MLR-E0197\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"centroid initialization: selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"centroid initialization: selecting starting locations for K centroids; one way is to start with a random guess at the locations of the K centroids.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0197\"],\n      \"reason\": \"The source directly states that we can begin with a random guess at the locations of K centroids, supporting the idea of selecting starting locations and the random-guess method.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:33:15.237802+00:00"
+}

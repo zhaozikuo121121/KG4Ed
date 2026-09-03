@@ -1,0 +1,3305 @@
+{
+  "version": "1.0.0",
+  "lecture": 6,
+  "pdf_file": "DGL_Lecture_6_Annotated.pdf",
+  "pdf_page": 4,
+  "page_title": "Encoder-Decoder GNNs and Graph Generation",
+  "summary": "This page covers encoder-decoder architectures for graphs, specifically Graph UNet and NED-VAE, for tasks like graph super-resolution and generation. It distinguishes between supervised generation with ground-truth targets and unsupervised learning of graph distributions. The page details evaluation metrics for generative models, including statistical measures like KL divergence and MMD, and topological measures like eigenvector centrality.",
+  "key_topics": [
+    "graph unet",
+    "graph generation",
+    "encoder-decoder gnn",
+    "graph super-resolution",
+    "evaluation metrics",
+    "ned-vae",
+    "supervised learning",
+    "unsupervised learning"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:57:26+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "graph unet",
+      "aliases": [
+        "graph u-net",
+        "g-unet"
+      ],
+      "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        104.5,
+        5.5,
+        357.5,
+        27.5
+      ]
+    },
+    {
+      "canonical": "encoder-decoder gnn",
+      "aliases": [
+        "encoder decoder graph neural network"
+      ],
+      "evidence": "Encoder-Decoder GNNs case study",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        104.5,
+        5.5,
+        220.0,
+        27.5
+      ]
+    },
+    {
+      "canonical": "graph super-resolution",
+      "aliases": [
+        "graph sr",
+        "super-resolving graphs"
+      ],
+      "evidence": "How can we use Graph UNet for super-resolving graphs?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        44.0,
+        192.5,
+        66.0
+      ]
+    },
+    {
+      "canonical": "graph generation",
+      "aliases": [
+        "generating new graphs",
+        "generative models for graphs"
+      ],
+      "evidence": "How to generate new graphs?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        44.0,
+        412.5,
+        66.0
+      ]
+    },
+    {
+      "canonical": "supervised learning",
+      "aliases": [
+        "supervised",
+        "unsupervised learning",
+        "self-supervised",
+        "ul"
+      ],
+      "evidence": "Ground-truth target graph is available (supervised)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        55.0,
+        780.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graph u-autoencoder",
+      "aliases": [
+        "graph uae"
+      ],
+      "evidence": "Graph U-Autoencoder Block",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        82.5,
+        137.5,
+        99.0
+      ]
+    },
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn"
+      ],
+      "evidence": "GCN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        110.0,
+        82.5,
+        137.5
+      ]
+    },
+    {
+      "canonical": "graph distribution",
+      "aliases": [
+        "p_data(g",
+        "p_model(g; theta"
+      ],
+      "evidence": "p_data(g) ~ p_model(g; theta)",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        110.0,
+        945.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "mean absolute error",
+      "aliases": [
+        "mae"
+      ],
+      "evidence": "1) MAE (At, At~)",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        587.5,
+        330.0,
+        725.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "graph pooling",
+      "aliases": [
+        "gpool",
+        "graph unpooling",
+        "gunpool"
+      ],
+      "evidence": "Graph Pooling Layer",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        357.5,
+        110.0,
+        374.0
+      ]
+    },
+    {
+      "canonical": "reconstruction loss",
+      "aliases": [
+        "self-reconstruction loss"
+      ],
+      "evidence": "self-reconstruction loss",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        385.0,
+        192.5,
+        401.5
+      ]
+    },
+    {
+      "canonical": "eigenvector centrality",
+      "aliases": [
+        "centrality measures"
+      ],
+      "evidence": "MAE (Eigenvector centrality)",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        587.5,
+        440.0,
+        752.5,
+        467.5
+      ]
+    },
+    {
+      "canonical": "edge attributes",
+      "aliases": [
+        "edge features"
+      ],
+      "evidence": "How to generalize graph UNet to a target with also edge attributes?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        467.5,
+        247.5,
+        489.5
+      ]
+    },
+    {
+      "canonical": "degree distribution",
+      "aliases": [
+        "degree"
+      ],
+      "evidence": "degree",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        642.5,
+        467.5,
+        697.5,
+        495.0
+      ]
+    },
+    {
+      "canonical": "variational autoencoder",
+      "aliases": [
+        "vae"
+      ],
+      "evidence": "NED-VAE",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        483.0,
+        55.0,
+        499.5
+      ]
+    },
+    {
+      "canonical": "ned-vae",
+      "aliases": [
+        "node edge distribution variational autoencoder"
+      ],
+      "evidence": "NED-VAE (Guo et al., 2020)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        522.5,
+        137.5,
+        539.0
+      ]
+    },
+    {
+      "canonical": "latent variable",
+      "aliases": [
+        "latent representation"
+      ],
+      "evidence": "z_f, z_g, z_e",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        165.0,
+        532.5,
+        220.0,
+        697.5
+      ]
+    },
+    {
+      "canonical": "graph reconstruction",
+      "aliases": [],
+      "evidence": "G(E,F) -> G'(E',F')",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        560.0,
+        330.0,
+        670.0
+      ]
+    },
+    {
+      "canonical": "evaluation metrics",
+      "aliases": [
+        "metrics for graph generative models"
+      ],
+      "evidence": "Evaluation Metrics for Deep Generative-Based Methods",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        769.0,
+        626.0,
+        956.0,
+        642.5
+      ]
+    },
+    {
+      "canonical": "kl divergence",
+      "aliases": [
+        "kld",
+        "kl",
+        "kullback-leibler divergence"
+      ],
+      "evidence": "KLD: KL divergence between distributions",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        769.0,
+        824.0,
+        956.0,
+        840.5
+      ]
+    },
+    {
+      "canonical": "maximum mean discrepancy",
+      "aliases": [
+        "mmd"
+      ],
+      "evidence": "MMD: Maximum Mean Discrepancy",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        769.0,
+        840.5,
+        956.0,
+        857.0
+      ]
+    },
+    {
+      "canonical": "fréchet inception distance",
+      "aliases": [
+        "fid"
+      ],
+      "evidence": "FID: Fréchet Inception Distance between multivariate Gaussian distributions",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        769.0,
+        857.0,
+        956.0,
+        884.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "p_{data}(g) \\sim p_{model}(g; \\theta)",
+      "related_concepts": [
+        "graph distribution",
+        "supervised learning"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        110.0,
+        945.0,
+        165.0
+      ],
+      "label": "distribution matching"
+    },
+    {
+      "latex": "q_\\phi(z_f|F)",
+      "related_concepts": [
+        "latent variable"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        99.0,
+        549.0,
+        154.0,
+        560.0
+      ],
+      "label": "node encoder distribution"
+    },
+    {
+      "latex": "q_\\phi(z_g|E,F)",
+      "related_concepts": [
+        "latent variable"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        99.0,
+        604.0,
+        154.0,
+        615.0
+      ],
+      "label": "graph encoder distribution"
+    },
+    {
+      "latex": "q_\\phi(z_e|E)",
+      "related_concepts": [
+        "latent variable"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        99.0,
+        659.0,
+        154.0,
+        670.0
+      ],
+      "label": "edge encoder distribution"
+    },
+    {
+      "latex": "p_\\theta(F|z_f,z_g)",
+      "related_concepts": [
+        "latent variable"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        549.0,
+        319.0,
+        560.0
+      ],
+      "label": "node decoder distribution"
+    },
+    {
+      "latex": "p_\\theta(E|z_e,z_g)",
+      "related_concepts": [
+        "latent variable"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        659.0,
+        319.0,
+        670.0
+      ],
+      "label": "edge decoder distribution"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "architecture",
+      "description": "Graph U-Autoencoder Block showing encoder-decoder structure with GCN, pooling, and unpooling layers",
+      "related_concepts": [
+        "graph u-autoencoder",
+        "graph convolutional network",
+        "graph pooling"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        82.5,
+        220.0,
+        357.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Encoder-decoder process for graph generation showing input graph, latent representation, and output graph",
+      "related_concepts": [
+        "graph generation",
+        "encoder-decoder gnn"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        82.5,
+        522.5,
+        357.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example graphs showing input and generated high-resolution brain graphs",
+      "related_concepts": [
+        "graph super-resolution",
+        "graph generation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        110.0,
+        192.5,
+        330.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Supervised graph generation pipeline showing source graph, function f, predicted graph, and ground-truth graph comparison",
+      "related_concepts": [
+        "graph generation",
+        "supervised learning"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        560.0,
+        82.5,
+        780.0,
+        275.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Unsupervised graph generation showing train graphs distribution p_data(g) approximating model distribution p_model(g; theta)",
+      "related_concepts": [
+        "graph generation",
+        "supervised learning",
+        "graph distribution"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        82.5,
+        972.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "NED-VAE architecture showing encoders and decoders for nodes, edges, and graphs with latent variables",
+      "related_concepts": [
+        "ned-vae",
+        "latent variable"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        505.0,
+        330.0,
+        697.5
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Table of evaluation metrics for deep generative-based methods, categorized by type and evaluation feature.",
+      "related_concepts": [
+        "evaluation metrics"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        769.0,
+        642.5,
+        956.0,
+        763.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "maybe add a new block for SR",
+      "reason": "Handwriting is somewhat unclear, particularly 'SR' abbreviation",
+      "bbox": [
+        27.5,
+        412.5,
+        192.5,
+        440.0
+      ]
+    },
+    {
+      "transcription": "add new edges / nodes",
+      "reason": "Handwriting is small and slightly unclear",
+      "bbox": [
+        192.5,
+        165.0,
+        247.5,
+        220.0
+      ]
+    },
+    {
+      "transcription": "upscaling / extending g UNets",
+      "reason": "Handwriting is somewhat unclear, particularly 'extending'",
+      "bbox": [
+        192.5,
+        247.5,
+        247.5,
+        302.5
+      ]
+    },
+    {
+      "transcription": "p(z)",
+      "reason": "Small handwritten notation, context suggests probability distribution",
+      "bbox": [
+        330.0,
+        247.5,
+        357.5,
+        275.0
+      ]
+    },
+    {
+      "transcription": "z_i + ... = z_{i+1}",
+      "reason": "Intermediate steps in the diagram are partially obscured by arrows",
+      "bbox": [
+        302.5,
+        275.0,
+        385.0,
+        330.0
+      ]
+    },
+    {
+      "transcription": "n_e ~ g^n_ph",
+      "reason": "Handwritten notation unclear, possibly related to graph generation parameters",
+      "bbox": [
+        505.0,
+        82.5,
+        532.5,
+        110.0
+      ]
+    },
+    {
+      "transcription": "P_generated data",
+      "reason": "Handwritten label partially obscured, context suggests generated data distribution",
+      "bbox": [
+        532.5,
+        137.5,
+        560.0,
+        165.0
+      ]
+    },
+    {
+      "transcription": "theta*, phi*",
+      "reason": "Handwritten optimal parameters notation, context unclear",
+      "bbox": [
+        477.5,
+        467.5,
+        532.5,
+        495.0
+      ]
+    },
+    {
+      "transcription": "same graph (SSL)",
+      "reason": "Handwriting is somewhat unclear, especially 'SSL'",
+      "bbox": [
+        330.0,
+        521.5,
+        412.5,
+        532.5
+      ]
+    },
+    {
+      "transcription": "batch norm?",
+      "reason": "Very unclear handwriting, possibly 'batch norm' or similar",
+      "bbox": [
+        330.0,
+        576.5,
+        385.0,
+        587.5
+      ]
+    },
+    {
+      "transcription": "f_enc, f_dec",
+      "reason": "Handwriting is somewhat unclear",
+      "bbox": [
+        330.0,
+        587.5,
+        385.0,
+        598.5
+      ]
+    },
+    {
+      "transcription": "N(mu_g, sigma_g)",
+      "reason": "Handwriting is somewhat unclear, especially subscripts",
+      "bbox": [
+        192.5,
+        741.5,
+        302.5,
+        752.5
+      ]
+    },
+    {
+      "transcription": "N(mu_e, sigma_e)",
+      "reason": "Handwriting is somewhat unclear, especially subscripts",
+      "bbox": [
+        192.5,
+        796.5,
+        302.5,
+        807.5
+      ]
+    },
+    {
+      "transcription": "is good",
+      "reason": "Handwriting is partially obscured and difficult to read clearly.",
+      "bbox": [
+        791.0,
+        703.0,
+        813.0,
+        714.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph unet",
+            "aliases": [
+              "graph u-net",
+              "g-unet"
+            ],
+            "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              10,
+              650,
+              50
+            ]
+          },
+          {
+            "canonical": "graph super-resolution",
+            "aliases": [
+              "graph sr",
+              "super-resolving graphs"
+            ],
+            "evidence": "How can we use Graph UNet for super-resolving graphs?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              80,
+              350,
+              120
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generating new graphs"
+            ],
+            "evidence": "How to generate new graphs?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              80,
+              750,
+              120
+            ]
+          },
+          {
+            "canonical": "graph u-autoencoder",
+            "aliases": [
+              "graph uae"
+            ],
+            "evidence": "Graph U-Autoencoder Block",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              150,
+              250,
+              180
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              150,
+              250
+            ]
+          },
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "gpool"
+            ],
+            "evidence": "Graph Pooling Layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              650,
+              200,
+              680
+            ]
+          },
+          {
+            "canonical": "graph unpooling",
+            "aliases": [
+              "gunpool"
+            ],
+            "evidence": "Graph Unpooling Layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              700,
+              200,
+              730
+            ]
+          },
+          {
+            "canonical": "self-reconstruction loss",
+            "aliases": [
+              "reconstruction loss"
+            ],
+            "evidence": "self-reconstruction loss",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              700,
+              350,
+              730
+            ]
+          },
+          {
+            "canonical": "encoder-decoder gnn",
+            "aliases": [
+              "encoder decoder graph neural network"
+            ],
+            "evidence": "Encoder-Decoder GNNs case study",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              10,
+              400,
+              50
+            ]
+          },
+          {
+            "canonical": "gsr-net",
+            "aliases": [
+              "graph super-resolution network"
+            ],
+            "evidence": "GSR-Net (Isallari et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              130,
+              250,
+              150
+            ]
+          },
+          {
+            "canonical": "ned-vae",
+            "aliases": [
+              "node edge distribution variational autoencoder"
+            ],
+            "evidence": "NED-VAE (Guo et al., 2020)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              950,
+              250,
+              980
+            ]
+          },
+          {
+            "canonical": "edge attributes",
+            "aliases": [
+              "edge features"
+            ],
+            "evidence": "How to generalize graph UNet to a target with also edge attributes?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              850,
+              450,
+              890
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f_{enc}(g_i; \\theta)",
+            "related_concepts": [
+              "encoder",
+              "graph convolutional network",
+              "graph pooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              250,
+              550,
+              350
+            ],
+            "label": "encoder function"
+          },
+          {
+            "latex": "f_{dec}(z_i; \\phi)",
+            "related_concepts": [
+              "decoder",
+              "graph unpooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              250,
+              750,
+              350
+            ],
+            "label": "decoder function"
+          },
+          {
+            "latex": "\\tilde{g}_i = f_{dec}(z_i; \\phi^*)",
+            "related_concepts": [
+              "graph generation",
+              "decoder"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              400,
+              950,
+              450
+            ],
+            "label": "generated graph"
+          },
+          {
+            "latex": "\\min_{\\theta, \\phi} \\| f_{dec}(f_{enc}(g_i; \\theta); \\phi^*) - g_i \\|",
+            "related_concepts": [
+              "self-reconstruction loss",
+              "optimization"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              550,
+              950,
+              650
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "f_{dec}(z_{i,p}, \\phi^*) \\Rightarrow \\tilde{g}_{i,p}",
+            "related_concepts": [
+              "graph generation",
+              "decoder"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              500,
+              800,
+              750,
+              850
+            ],
+            "label": "partial graph generation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Graph U-Autoencoder Block showing encoder-decoder structure with GCN, pooling, and unpooling layers",
+            "related_concepts": [
+              "graph u-autoencoder",
+              "graph convolutional network",
+              "graph pooling",
+              "graph unpooling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              150,
+              400,
+              650
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Encoder-decoder process for graph generation showing input graph, latent representation, and output graph",
+            "related_concepts": [
+              "graph generation",
+              "encoder-decoder gnn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              150,
+              950,
+              650
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example graphs showing input and generated high-resolution brain graphs",
+            "related_concepts": [
+              "graph super-resolution",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              200,
+              350,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "maybe add a new block for SR",
+            "reason": "Handwriting is somewhat unclear, particularly 'SR' abbreviation",
+            "bbox": [
+              50,
+              750,
+              350,
+              800
+            ]
+          },
+          {
+            "transcription": "add new edges / nodes",
+            "reason": "Handwriting is small and slightly unclear",
+            "bbox": [
+              350,
+              300,
+              450,
+              400
+            ]
+          },
+          {
+            "transcription": "upscaling / extending g UNets",
+            "reason": "Handwriting is somewhat unclear, particularly 'extending'",
+            "bbox": [
+              350,
+              450,
+              450,
+              550
+            ]
+          },
+          {
+            "transcription": "p(z)",
+            "reason": "Small handwritten notation, context suggests probability distribution",
+            "bbox": [
+              600,
+              450,
+              650,
+              500
+            ]
+          },
+          {
+            "transcription": "z_i + ... = z_{i+1}",
+            "reason": "Intermediate steps in the diagram are partially obscured by arrows",
+            "bbox": [
+              550,
+              500,
+              700,
+              600
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph unet\",\n      \"aliases\": [\"graph u-net\", \"g-unet\"],\n      \"evidence\": \"Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 10, 650, 50]\n    },\n    {\n      \"canonical\": \"graph super-resolution\",\n      \"aliases\": [\"graph sr\", \"super-resolving graphs\"],\n      \"evidence\": \"How can we use Graph UNet for super-resolving graphs?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 80, 350, 120]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generating new graphs\"],\n      \"evidence\": \"How to generate new graphs?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 80, 750, 120]\n    },\n    {\n      \"canonical\": \"graph u-autoencoder\",\n      \"aliases\": [\"graph uae\"],\n      \"evidence\": \"Graph U-Autoencoder Block\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 150, 250, 180]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 150, 250]\n    },\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"gpool\"],\n      \"evidence\": \"Graph Pooling Layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 650, 200, 680]\n    },\n    {\n      \"canonical\": \"graph unpooling\",\n      \"aliases\": [\"gunpool\"],\n      \"evidence\": \"Graph Unpooling Layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 700, 200, 730]\n    },\n    {\n      \"canonical\": \"self-reconstruction loss\",\n      \"aliases\": [\"reconstruction loss\"],\n      \"evidence\": \"self-reconstruction loss\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 700, 350, 730]\n    },\n    {\n      \"canonical\": \"encoder-decoder gnn\",\n      \"aliases\": [\"encoder decoder graph neural network\"],\n      \"evidence\": \"Encoder-Decoder GNNs case study\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 10, 400, 50]\n    },\n    {\n      \"canonical\": \"gsr-net\",\n      \"aliases\": [\"graph super-resolution network\"],\n      \"evidence\": \"GSR-Net (Isallari et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 130, 250, 150]\n    },\n    {\n      \"canonical\": \"ned-vae\",\n      \"aliases\": [\"node edge distribution variational autoencoder\"],\n      \"evidence\": \"NED-VAE (Guo et al., 2020)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 950, 250, 980]\n    },\n    {\n      \"canonical\": \"edge attributes\",\n      \"aliases\": [\"edge features\"],\n      \"evidence\": \"How to generalize graph UNet to a target with also edge attributes?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 850, 450, 890]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f_{enc}(g_i; \\\\theta)\",\n      \"related_concepts\": [\"encoder\", \"graph convolutional network\", \"graph pooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 250, 550, 350],\n      \"label\": \"encoder function\"\n    },\n    {\n      \"latex\": \"f_{dec}(z_i; \\\\phi)\",\n      \"related_concepts\": [\"decoder\", \"graph unpooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 250, 750, 350],\n      \"label\": \"decoder function\"\n    },\n    {\n      \"latex\": \"\\\\tilde{g}_i = f_{dec}(z_i; \\\\phi^*)\",\n      \"related_concepts\": [\"graph generation\", \"decoder\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 400, 950, 450],\n      \"label\": \"generated graph\"\n    },\n    {\n      \"latex\": \"\\\\min_{\\\\theta, \\\\phi} \\\\| f_{dec}(f_{enc}(g_i; \\\\theta); \\\\phi^*) - g_i \\\\|\",\n      \"related_concepts\": [\"self-reconstruction loss\", \"optimization\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 550, 950, 650],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"f_{dec}(z_{i,p}, \\\\phi^*) \\\\Rightarrow \\\\tilde{g}_{i,p}\",\n      \"related_concepts\": [\"graph generation\", \"decoder\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [500, 800, 750, 850],\n      \"label\": \"partial graph generation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph U-Autoencoder Block showing encoder-decoder structure with GCN, pooling, and unpooling layers\",\n      \"related_concepts\": [\"graph u-autoencoder\", \"graph convolutional network\", \"graph pooling\", \"graph unpooling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 150, 400, 650]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Encoder-decoder process for graph generation showing input graph, latent representation, and output graph\",\n      \"related_concepts\": [\"graph generation\", \"encoder-decoder gnn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 150, 950, 650]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graphs showing input and generated high-resolution brain graphs\",\n      \"related_concepts\": [\"graph super-resolution\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 200, 350, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"maybe add a new block for SR\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'SR' abbreviation\",\n      \"bbox\": [50, 750, 350, 800]\n    },\n    {\n      \"transcription\": \"add new edges / nodes\",\n      \"reason\": \"Handwriting is small and slightly unclear\",\n      \"bbox\": [350, 300, 450, 400]\n    },\n    {\n      \"transcription\": \"upscaling / extending g UNets\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'extending'\",\n      \"bbox\": [350, 450, 450, 550]\n    },\n    {\n      \"transcription\": \"p(z)\",\n      \"reason\": \"Small handwritten notation, context suggests probability distribution\",\n      \"bbox\": [600, 450, 650, 500]\n    },\n    {\n      \"transcription\": \"z_i + ... = z_{i+1}\",\n      \"reason\": \"Intermediate steps in the diagram are partially obscured by arrows\",\n      \"bbox\": [550, 500, 700, 600]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative models for graphs"
+            ],
+            "evidence": "Evaluation measures for graph generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              0,
+              800,
+              100
+            ]
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [
+              "supervised"
+            ],
+            "evidence": "Ground-truth target graph is available (supervised)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              100,
+              600,
+              150
+            ]
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [
+              "self-supervised",
+              "unsupervised"
+            ],
+            "evidence": "Ground-truth target graph is unavailable (self/unsupervised)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              950,
+              150
+            ]
+          },
+          {
+            "canonical": "mean absolute error",
+            "aliases": [
+              "MAE"
+            ],
+            "evidence": "1) MAE (At, At~)",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              600,
+              500,
+              650
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "kullback-leibler divergence"
+            ],
+            "evidence": "KL-divergence",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              700,
+              600,
+              750
+            ]
+          },
+          {
+            "canonical": "topological measures",
+            "aliases": [
+              "graph topology metrics"
+            ],
+            "evidence": "2) topological measures - soundness",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              750,
+              550,
+              800
+            ]
+          },
+          {
+            "canonical": "eigenvector centrality",
+            "aliases": [
+              "centrality measures"
+            ],
+            "evidence": "MAE (Eigenvector centrality)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              800,
+              550,
+              850
+            ]
+          },
+          {
+            "canonical": "degree distribution",
+            "aliases": [
+              "degree"
+            ],
+            "evidence": "degree",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              850,
+              450,
+              900
+            ]
+          },
+          {
+            "canonical": "graph distribution",
+            "aliases": [
+              "p_data(g)",
+              "p_model(g; theta)"
+            ],
+            "evidence": "p_data(g) ~ p_model(g; theta)",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              200,
+              900,
+              300
+            ]
+          },
+          {
+            "canonical": "train graphs",
+            "aliases": [
+              "training set"
+            ],
+            "evidence": "train graphs",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              500,
+              700,
+              550
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "dist(g_t, \\tilde{g}_t)",
+            "related_concepts": [
+              "graph generation",
+              "supervised learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              550,
+              450,
+              600
+            ],
+            "label": "distance metric"
+          },
+          {
+            "latex": "MAE(A_t, \\tilde{A}_t)",
+            "related_concepts": [
+              "mean absolute error",
+              "supervised learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              600,
+              500,
+              650
+            ],
+            "label": "adjacency matrix MAE"
+          },
+          {
+            "latex": "\\| \\square - \\square \\| = 0.01",
+            "related_concepts": [
+              "mean absolute error"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              500,
+              600,
+              700,
+              650
+            ],
+            "label": "MAE threshold"
+          },
+          {
+            "latex": "MAE(\\text{Eigenvector centrality})",
+            "related_concepts": [
+              "eigenvector centrality",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              800,
+              550,
+              850
+            ],
+            "label": "centrality MAE"
+          },
+          {
+            "latex": "\\| v_i - \\tilde{v}_i \\| \\rightarrow \\text{test set}(i)",
+            "related_concepts": [
+              "eigenvector centrality",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              700,
+              800,
+              950,
+              850
+            ],
+            "label": "eigenvector difference"
+          },
+          {
+            "latex": "p_{data}(g) \\sim p_{model}(g; \\theta)",
+            "related_concepts": [
+              "graph distribution",
+              "unsupervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              200,
+              900,
+              300
+            ],
+            "label": "distribution matching"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Supervised graph generation pipeline showing source graph, function f, predicted graph, and ground-truth graph comparison",
+            "related_concepts": [
+              "graph generation",
+              "supervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              150,
+              600,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Unsupervised graph generation showing train graphs distribution p_data(g) approximating model distribution p_model(g; theta)",
+            "related_concepts": [
+              "graph generation",
+              "unsupervised learning",
+              "graph distribution"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              150,
+              950,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small example graphs showing source and predicted structures with node colors",
+            "related_concepts": [
+              "graph generation",
+              "supervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              200,
+              550,
+              450
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Collection of molecular graphs in train graphs and model output distributions",
+            "related_concepts": [
+              "graph generation",
+              "unsupervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              620,
+              250,
+              930,
+              530
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Bar chart comparing degree distributions A and DC",
+            "related_concepts": [
+              "degree distribution",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              850,
+              850,
+              950
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A and its approximation A~ with eigenvector v~",
+            "related_concepts": [
+              "eigenvector centrality",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              600,
+              750,
+              700,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "n_e ~ g^n_ph",
+            "reason": "Handwritten notation unclear, possibly related to graph generation parameters",
+            "bbox": [
+              100,
+              150,
+              150,
+              200
+            ]
+          },
+          {
+            "transcription": "P_generated data",
+            "reason": "Handwritten label partially obscured, context suggests generated data distribution",
+            "bbox": [
+              150,
+              250,
+              200,
+              300
+            ]
+          },
+          {
+            "transcription": "theta*, phi*",
+            "reason": "Handwritten optimal parameters notation, context unclear",
+            "bbox": [
+              50,
+              850,
+              150,
+              900
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative models for graphs\"],\n      \"evidence\": \"Evaluation measures for graph generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 0, 800, 100]\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [\"supervised\"],\n      \"evidence\": \"Ground-truth target graph is available (supervised)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 100, 600, 150]\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [\"self-supervised\", \"unsupervised\"],\n      \"evidence\": \"Ground-truth target graph is unavailable (self/unsupervised)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 950, 150]\n    },\n    {\n      \"canonical\": \"mean absolute error\",\n      \"aliases\": [\"MAE\"],\n      \"evidence\": \"1) MAE (At, At~)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 600, 500, 650]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"kullback-leibler divergence\"],\n      \"evidence\": \"KL-divergence\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 700, 600, 750]\n    },\n    {\n      \"canonical\": \"topological measures\",\n      \"aliases\": [\"graph topology metrics\"],\n      \"evidence\": \"2) topological measures - soundness\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 750, 550, 800]\n    },\n    {\n      \"canonical\": \"eigenvector centrality\",\n      \"aliases\": [\"centrality measures\"],\n      \"evidence\": \"MAE (Eigenvector centrality)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 800, 550, 850]\n    },\n    {\n      \"canonical\": \"degree distribution\",\n      \"aliases\": [\"degree\"],\n      \"evidence\": \"degree\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 850, 450, 900]\n    },\n    {\n      \"canonical\": \"graph distribution\",\n      \"aliases\": [\"p_data(g)\", \"p_model(g; theta)\"],\n      \"evidence\": \"p_data(g) ~ p_model(g; theta)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 200, 900, 300]\n    },\n    {\n      \"canonical\": \"train graphs\",\n      \"aliases\": [\"training set\"],\n      \"evidence\": \"train graphs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 500, 700, 550]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"dist(g_t, \\\\tilde{g}_t)\",\n      \"related_concepts\": [\"graph generation\", \"supervised learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 550, 450, 600],\n      \"label\": \"distance metric\"\n    },\n    {\n      \"latex\": \"MAE(A_t, \\\\tilde{A}_t)\",\n      \"related_concepts\": [\"mean absolute error\", \"supervised learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 600, 500, 650],\n      \"label\": \"adjacency matrix MAE\"\n    },\n    {\n      \"latex\": \"\\\\| \\\\square - \\\\square \\\\| = 0.01\",\n      \"related_concepts\": [\"mean absolute error\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [500, 600, 700, 650],\n      \"label\": \"MAE threshold\"\n    },\n    {\n      \"latex\": \"MAE(\\\\text{Eigenvector centrality})\",\n      \"related_concepts\": [\"eigenvector centrality\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 800, 550, 850],\n      \"label\": \"centrality MAE\"\n    },\n    {\n      \"latex\": \"\\\\| v_i - \\\\tilde{v}_i \\\\| \\\\rightarrow \\\\text{test set}(i)\",\n      \"related_concepts\": [\"eigenvector centrality\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [700, 800, 950, 850],\n      \"label\": \"eigenvector difference\"\n    },\n    {\n      \"latex\": \"p_{data}(g) \\\\sim p_{model}(g; \\\\theta)\",\n      \"related_concepts\": [\"graph distribution\", \"unsupervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 200, 900, 300],\n      \"label\": \"distribution matching\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Supervised graph generation pipeline showing source graph, function f, predicted graph, and ground-truth graph comparison\",\n      \"related_concepts\": [\"graph generation\", \"supervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 150, 600, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Unsupervised graph generation showing train graphs distribution p_data(g) approximating model distribution p_model(g; theta)\",\n      \"related_concepts\": [\"graph generation\", \"unsupervised learning\", \"graph distribution\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 150, 950, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small example graphs showing source and predicted structures with node colors\",\n      \"related_concepts\": [\"graph generation\", \"supervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 200, 550, 450]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Collection of molecular graphs in train graphs and model output distributions\",\n      \"related_concepts\": [\"graph generation\", \"unsupervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [620, 250, 930, 530]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Bar chart comparing degree distributions A and DC\",\n      \"related_concepts\": [\"degree distribution\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 850, 850, 950]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A and its approximation A~ with eigenvector v~\",\n      \"related_concepts\": [\"eigenvector centrality\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [600, 750, 700, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"n_e ~ g^n_ph\",\n      \"reason\": \"Handwritten notation unclear, possibly related to graph generation parameters\",\n      \"bbox\": [100, 150, 150, 200]\n    },\n    {\n      \"transcription\": \"P_generated data\",\n      \"reason\": \"Handwritten label partially obscured, context suggests generated data distribution\",\n      \"bbox\": [150, 250, 200, 300]\n    },\n    {\n      \"transcription\": \"theta*, phi*\",\n      \"reason\": \"Handwritten optimal parameters notation, context unclear\",\n      \"bbox\": [50, 850, 150, 900]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph unet",
+            "aliases": [
+              "graph UNet"
+            ],
+            "evidence": "How to generalize graph UNet to a target with also edge attributes?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              10,
+              450,
+              50
+            ]
+          },
+          {
+            "canonical": "edge attributes",
+            "aliases": [
+              "edge features"
+            ],
+            "evidence": "target with also edge attributes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              10,
+              550,
+              50
+            ]
+          },
+          {
+            "canonical": "ned-vae",
+            "aliases": [
+              "NED-VAE"
+            ],
+            "evidence": "NED-VAE (Guo et al., 2020)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              60,
+              250,
+              90
+            ]
+          },
+          {
+            "canonical": "node encoder",
+            "aliases": [],
+            "evidence": "Node Encoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              150,
+              250,
+              180
+            ]
+          },
+          {
+            "canonical": "graph encoder",
+            "aliases": [],
+            "evidence": "Graph Encoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              250,
+              250,
+              280
+            ]
+          },
+          {
+            "canonical": "edge encoder",
+            "aliases": [],
+            "evidence": "Edge Encoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              350,
+              250,
+              380
+            ]
+          },
+          {
+            "canonical": "node decoder",
+            "aliases": [],
+            "evidence": "Node Decoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              150,
+              550,
+              180
+            ]
+          },
+          {
+            "canonical": "edge decoder",
+            "aliases": [],
+            "evidence": "Edge Decoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              350,
+              550,
+              380
+            ]
+          },
+          {
+            "canonical": "variational autoencoder",
+            "aliases": [
+              "VAE"
+            ],
+            "evidence": "NED-VAE",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              60,
+              100,
+              90
+            ]
+          },
+          {
+            "canonical": "latent variable",
+            "aliases": [
+              "latent representation"
+            ],
+            "evidence": "z_f, z_g, z_e",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              150,
+              400,
+              450
+            ]
+          },
+          {
+            "canonical": "gaussian distribution",
+            "aliases": [
+              "normal distribution"
+            ],
+            "evidence": "N(mu, sigma)",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              350,
+              500,
+              550,
+              650
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "Kullback-Leibler divergence"
+            ],
+            "evidence": "|| G - G_tilde ||",
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              600,
+              100,
+              800,
+              200
+            ]
+          },
+          {
+            "canonical": "graph reconstruction",
+            "aliases": [],
+            "evidence": "G(E,F) -> G'(E',F')",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              200,
+              600,
+              400
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "q_\\phi(z_f|F)",
+            "related_concepts": [
+              "node encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              180,
+              280,
+              200
+            ],
+            "label": "node encoder distribution"
+          },
+          {
+            "latex": "q_\\phi(z_g|E,F)",
+            "related_concepts": [
+              "graph encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              280,
+              280,
+              300
+            ],
+            "label": "graph encoder distribution"
+          },
+          {
+            "latex": "q_\\phi(z_e|E)",
+            "related_concepts": [
+              "edge encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              380,
+              280,
+              400
+            ],
+            "label": "edge encoder distribution"
+          },
+          {
+            "latex": "p_\\theta(F|z_f,z_g)",
+            "related_concepts": [
+              "node decoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              180,
+              580,
+              200
+            ],
+            "label": "node decoder distribution"
+          },
+          {
+            "latex": "p_\\theta(E|z_e,z_g)",
+            "related_concepts": [
+              "edge decoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              380,
+              580,
+              400
+            ],
+            "label": "edge decoder distribution"
+          },
+          {
+            "latex": "z_f \\sim \\mathcal{N}(\\mu_f, \\sigma_f)",
+            "related_concepts": [
+              "latent variable",
+              "gaussian distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              350,
+              500,
+              550,
+              530
+            ],
+            "label": "node latent variable distribution"
+          },
+          {
+            "latex": "z_g \\sim \\dots",
+            "related_concepts": [
+              "latent variable",
+              "gaussian distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              350,
+              550,
+              450,
+              580
+            ],
+            "label": "graph latent variable distribution"
+          },
+          {
+            "latex": "z_e \\sim \\dots",
+            "related_concepts": [
+              "latent variable",
+              "gaussian distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              350,
+              600,
+              450,
+              630
+            ],
+            "label": "edge latent variable distribution"
+          },
+          {
+            "latex": "\\| G - \\tilde{G} \\|",
+            "related_concepts": [
+              "graph reconstruction",
+              "kl divergence"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              600,
+              100,
+              750,
+              130
+            ],
+            "label": "graph reconstruction loss"
+          },
+          {
+            "latex": "\\| G_T - \\tilde{G}_T \\|",
+            "related_concepts": [
+              "graph reconstruction",
+              "kl divergence"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              600,
+              150,
+              750,
+              180
+            ],
+            "label": "target graph reconstruction loss"
+          },
+          {
+            "latex": "f(G_s, \\Theta)",
+            "related_concepts": [
+              "graph reconstruction"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.6,
+            "bbox": [
+              600,
+              200,
+              700,
+              230
+            ],
+            "label": "graph function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "NED-VAE architecture showing encoders and decoders for nodes, edges, and graphs with latent variables",
+            "related_concepts": [
+              "ned-vae",
+              "node encoder",
+              "graph encoder",
+              "edge encoder",
+              "node decoder",
+              "edge decoder",
+              "latent variable"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              600,
+              450
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Input graph G(E,F) with node and edge features",
+            "related_concepts": [
+              "graph reconstruction",
+              "edge attributes"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              200,
+              150,
+              300
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Reconstructed graph G'(E',F') with node and edge features",
+            "related_concepts": [
+              "graph reconstruction",
+              "edge attributes"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              200,
+              600,
+              300
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Node feature matrix F",
+            "related_concepts": [
+              "node encoder"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              100,
+              150
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Edge feature tensor E",
+            "related_concepts": [
+              "edge encoder"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              100,
+              400
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Reconstructed node feature matrix F'",
+            "related_concepts": [
+              "node decoder"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              100,
+              600,
+              150
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Reconstructed edge feature tensor E'",
+            "related_concepts": [
+              "edge decoder"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              350,
+              600,
+              400
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "same graph (SSL)",
+            "reason": "Handwriting is somewhat unclear, especially 'SSL'",
+            "bbox": [
+              600,
+              130,
+              750,
+              150
+            ]
+          },
+          {
+            "transcription": "batch norm?",
+            "reason": "Very unclear handwriting, possibly 'batch norm' or similar",
+            "bbox": [
+              600,
+              230,
+              700,
+              250
+            ]
+          },
+          {
+            "transcription": "f_enc, f_dec",
+            "reason": "Handwriting is somewhat unclear",
+            "bbox": [
+              600,
+              250,
+              700,
+              270
+            ]
+          },
+          {
+            "transcription": "N(mu_g, sigma_g)",
+            "reason": "Handwriting is somewhat unclear, especially subscripts",
+            "bbox": [
+              350,
+              530,
+              550,
+              550
+            ]
+          },
+          {
+            "transcription": "N(mu_e, sigma_e)",
+            "reason": "Handwriting is somewhat unclear, especially subscripts",
+            "bbox": [
+              350,
+              630,
+              550,
+              650
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph unet\",\n      \"aliases\": [\"graph UNet\"],\n      \"evidence\": \"How to generalize graph UNet to a target with also edge attributes?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 10, 450, 50]\n    },\n    {\n      \"canonical\": \"edge attributes\",\n      \"aliases\": [\"edge features\"],\n      \"evidence\": \"target with also edge attributes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 10, 550, 50]\n    },\n    {\n      \"canonical\": \"ned-vae\",\n      \"aliases\": [\"NED-VAE\"],\n      \"evidence\": \"NED-VAE (Guo et al., 2020)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 60, 250, 90]\n    },\n    {\n      \"canonical\": \"node encoder\",\n      \"aliases\": [],\n      \"evidence\": \"Node Encoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 150, 250, 180]\n    },\n    {\n      \"canonical\": \"graph encoder\",\n      \"aliases\": [],\n      \"evidence\": \"Graph Encoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 250, 250, 280]\n    },\n    {\n      \"canonical\": \"edge encoder\",\n      \"aliases\": [],\n      \"evidence\": \"Edge Encoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 350, 250, 380]\n    },\n    {\n      \"canonical\": \"node decoder\",\n      \"aliases\": [],\n      \"evidence\": \"Node Decoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 150, 550, 180]\n    },\n    {\n      \"canonical\": \"edge decoder\",\n      \"aliases\": [],\n      \"evidence\": \"Edge Decoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 350, 550, 380]\n    },\n    {\n      \"canonical\": \"variational autoencoder\",\n      \"aliases\": [\"VAE\"],\n      \"evidence\": \"NED-VAE\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 60, 100, 90]\n    },\n    {\n      \"canonical\": \"latent variable\",\n      \"aliases\": [\"latent representation\"],\n      \"evidence\": \"z_f, z_g, z_e\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 150, 400, 450]\n    },\n    {\n      \"canonical\": \"gaussian distribution\",\n      \"aliases\": [\"normal distribution\"],\n      \"evidence\": \"N(mu, sigma)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [350, 500, 550, 650]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"Kullback-Leibler divergence\"],\n      \"evidence\": \"|| G - G_tilde ||\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [600, 100, 800, 200]\n    },\n    {\n      \"canonical\": \"graph reconstruction\",\n      \"aliases\": [],\n      \"evidence\": \"G(E,F) -> G'(E',F')\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 200, 600, 400]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"q_\\\\phi(z_f|F)\",\n      \"related_concepts\": [\"node encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 180, 280, 200],\n      \"label\": \"node encoder distribution\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z_g|E,F)\",\n      \"related_concepts\": [\"graph encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 280, 280, 300],\n      \"label\": \"graph encoder distribution\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z_e|E)\",\n      \"related_concepts\": [\"edge encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 380, 280, 400],\n      \"label\": \"edge encoder distribution\"\n    },\n    {\n      \"latex\": \"p_\\\\theta(F|z_f,z_g)\",\n      \"related_concepts\": [\"node decoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 180, 580, 200],\n      \"label\": \"node decoder distribution\"\n    },\n    {\n      \"latex\": \"p_\\\\theta(E|z_e,z_g)\",\n      \"related_concepts\": [\"edge decoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 380, 580, 400],\n      \"label\": \"edge decoder distribution\"\n    },\n    {\n      \"latex\": \"z_f \\\\sim \\\\mathcal{N}(\\\\mu_f, \\\\sigma_f)\",\n      \"related_concepts\": [\"latent variable\", \"gaussian distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [350, 500, 550, 530],\n      \"label\": \"node latent variable distribution\"\n    },\n    {\n      \"latex\": \"z_g \\\\sim \\\\dots\",\n      \"related_concepts\": [\"latent variable\", \"gaussian distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [350, 550, 450, 580],\n      \"label\": \"graph latent variable distribution\"\n    },\n    {\n      \"latex\": \"z_e \\\\sim \\\\dots\",\n      \"related_concepts\": [\"latent variable\", \"gaussian distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [350, 600, 450, 630],\n      \"label\": \"edge latent variable distribution\"\n    },\n    {\n      \"latex\": \"\\\\| G - \\\\tilde{G} \\\\|\",\n      \"related_concepts\": [\"graph reconstruction\", \"kl divergence\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [600, 100, 750, 130],\n      \"label\": \"graph reconstruction loss\"\n    },\n    {\n      \"latex\": \"\\\\| G_T - \\\\tilde{G}_T \\\\|\",\n      \"related_concepts\": [\"graph reconstruction\", \"kl divergence\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [600, 150, 750, 180],\n      \"label\": \"target graph reconstruction loss\"\n    },\n    {\n      \"latex\": \"f(G_s, \\\\Theta)\",\n      \"related_concepts\": [\"graph reconstruction\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.6,\n      \"bbox\": [600, 200, 700, 230],\n      \"label\": \"graph function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"NED-VAE architecture showing encoders and decoders for nodes, edges, and graphs with latent variables\",\n      \"related_concepts\": [\"ned-vae\", \"node encoder\", \"graph encoder\", \"edge encoder\", \"node decoder\", \"edge decoder\", \"latent variable\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 600, 450]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Input graph G(E,F) with node and edge features\",\n      \"related_concepts\": [\"graph reconstruction\", \"edge attributes\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 200, 150, 300]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Reconstructed graph G'(E',F') with node and edge features\",\n      \"related_concepts\": [\"graph reconstruction\", \"edge attributes\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 200, 600, 300]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Node feature matrix F\",\n      \"related_concepts\": [\"node encoder\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 100, 150]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Edge feature tensor E\",\n      \"related_concepts\": [\"edge encoder\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 100, 400]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Reconstructed node feature matrix F'\",\n      \"related_concepts\": [\"node decoder\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 100, 600, 150]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Reconstructed edge feature tensor E'\",\n      \"related_concepts\": [\"edge decoder\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 350, 600, 400]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"same graph (SSL)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially 'SSL'\",\n      \"bbox\": [600, 130, 750, 150]\n    },\n    {\n      \"transcription\": \"batch norm?\",\n      \"reason\": \"Very unclear handwriting, possibly 'batch norm' or similar\",\n      \"bbox\": [600, 230, 700, 250]\n    },\n    {\n      \"transcription\": \"f_enc, f_dec\",\n      \"reason\": \"Handwriting is somewhat unclear\",\n      \"bbox\": [600, 250, 700, 270]\n    },\n    {\n      \"transcription\": \"N(mu_g, sigma_g)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially subscripts\",\n      \"bbox\": [350, 530, 550, 550]\n    },\n    {\n      \"transcription\": \"N(mu_e, sigma_e)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially subscripts\",\n      \"bbox\": [350, 630, 550, 650]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generative models",
+            "aliases": [
+              "ggms",
+              "deep generative models for graphs"
+            ],
+            "evidence": "ON EVALUATION METRICS FOR GRAPH GENERATIVE MODELS",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              130,
+              220,
+              480,
+              280
+            ]
+          },
+          {
+            "canonical": "evaluation metrics",
+            "aliases": [
+              "metrics for graph generative models"
+            ],
+            "evidence": "Evaluation Metrics for Deep Generative-Based Methods",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              320,
+              920,
+              350
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "kld",
+              "kl"
+            ],
+            "evidence": "KLD: KL divergence between distributions",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              680,
+              920,
+              710
+            ]
+          },
+          {
+            "canonical": "maximum mean discrepancy",
+            "aliases": [
+              "mmd"
+            ],
+            "evidence": "MMD: Maximum Mean Discrepancy",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              710,
+              920,
+              740
+            ]
+          },
+          {
+            "canonical": "fréchet inception distance",
+            "aliases": [
+              "fid"
+            ],
+            "evidence": "FID: Fréchet Inception Distance between multivariate Gaussian distributions",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              740,
+              920,
+              790
+            ]
+          },
+          {
+            "canonical": "statistics-based metrics",
+            "aliases": [
+              "statistics-based"
+            ],
+            "evidence": "Statistics-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              380,
+              820,
+              400
+            ]
+          },
+          {
+            "canonical": "classifier-based metrics",
+            "aliases": [
+              "classifier-based"
+            ],
+            "evidence": "Classifier-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              410,
+              820,
+              430
+            ]
+          },
+          {
+            "canonical": "intrinsic-quality-based metrics",
+            "aliases": [
+              "intrinsic-quality-based"
+            ],
+            "evidence": "Intrinsic-quality-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              440,
+              820,
+              460
+            ]
+          },
+          {
+            "canonical": "graph property-based metrics",
+            "aliases": [
+              "graph property-based"
+            ],
+            "evidence": "Graph property-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              520,
+              820,
+              540
+            ]
+          },
+          {
+            "canonical": "mapping-relationship-based metrics",
+            "aliases": [
+              "mapping-relationship-based"
+            ],
+            "evidence": "Mapping-relationship-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              550,
+              820,
+              570
+            ]
+          },
+          {
+            "canonical": "condition-specialized metrics",
+            "aliases": [
+              "condition-specialized"
+            ],
+            "evidence": "Condition-specialized",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              520,
+              720,
+              540
+            ]
+          },
+          {
+            "canonical": "average kld",
+            "aliases": [
+              "average kl divergence"
+            ],
+            "evidence": "Average KLD",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              380,
+              920,
+              400
+            ]
+          },
+          {
+            "canonical": "accuracy-based metrics",
+            "aliases": [
+              "accuracy-based"
+            ],
+            "evidence": "Accuracy-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              410,
+              920,
+              430
+            ]
+          },
+          {
+            "canonical": "validity",
+            "aliases": [],
+            "evidence": "Validity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              470,
+              920,
+              490
+            ]
+          },
+          {
+            "canonical": "uniqueness",
+            "aliases": [],
+            "evidence": "Uniqueness",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              500,
+              920,
+              520
+            ]
+          },
+          {
+            "canonical": "novelty",
+            "aliases": [],
+            "evidence": "Novelty",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              530,
+              920,
+              550
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f(g) = \\sum_{i=1}^{n} \\text{metric}_i",
+            "related_concepts": [
+              "evaluation metrics"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              580,
+              380,
+              680,
+              460
+            ],
+            "label": "General"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "table",
+            "description": "Table of evaluation metrics for deep generative-based methods, categorized by type and evaluation feature.",
+            "related_concepts": [
+              "evaluation metrics",
+              "statistics-based metrics",
+              "classifier-based metrics",
+              "intrinsic-quality-based metrics",
+              "graph property-based metrics",
+              "mapping-relationship-based metrics",
+              "condition-specialized metrics"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              350,
+              920,
+              570
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "is good",
+            "reason": "Handwriting is partially obscured and difficult to read clearly.",
+            "bbox": [
+              620,
+              460,
+              660,
+              480
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generative models\",\n      \"aliases\": [\"ggms\", \"deep generative models for graphs\"],\n      \"evidence\": \"ON EVALUATION METRICS FOR GRAPH GENERATIVE MODELS\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [130, 220, 480, 280]\n    },\n    {\n      \"canonical\": \"evaluation metrics\",\n      \"aliases\": [\"metrics for graph generative models\"],\n      \"evidence\": \"Evaluation Metrics for Deep Generative-Based Methods\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 320, 920, 350]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"kld\", \"kl\"],\n      \"evidence\": \"KLD: KL divergence between distributions\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 680, 920, 710]\n    },\n    {\n      \"canonical\": \"maximum mean discrepancy\",\n      \"aliases\": [\"mmd\"],\n      \"evidence\": \"MMD: Maximum Mean Discrepancy\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 710, 920, 740]\n    },\n    {\n      \"canonical\": \"fréchet inception distance\",\n      \"aliases\": [\"fid\"],\n      \"evidence\": \"FID: Fréchet Inception Distance between multivariate Gaussian distributions\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 740, 920, 790]\n    },\n    {\n      \"canonical\": \"statistics-based metrics\",\n      \"aliases\": [\"statistics-based\"],\n      \"evidence\": \"Statistics-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 380, 820, 400]\n    },\n    {\n      \"canonical\": \"classifier-based metrics\",\n      \"aliases\": [\"classifier-based\"],\n      \"evidence\": \"Classifier-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 410, 820, 430]\n    },\n    {\n      \"canonical\": \"intrinsic-quality-based metrics\",\n      \"aliases\": [\"intrinsic-quality-based\"],\n      \"evidence\": \"Intrinsic-quality-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 440, 820, 460]\n    },\n    {\n      \"canonical\": \"graph property-based metrics\",\n      \"aliases\": [\"graph property-based\"],\n      \"evidence\": \"Graph property-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 520, 820, 540]\n    },\n    {\n      \"canonical\": \"mapping-relationship-based metrics\",\n      \"aliases\": [\"mapping-relationship-based\"],\n      \"evidence\": \"Mapping-relationship-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 550, 820, 570]\n    },\n    {\n      \"canonical\": \"condition-specialized metrics\",\n      \"aliases\": [\"condition-specialized\"],\n      \"evidence\": \"Condition-specialized\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 520, 720, 540]\n    },\n    {\n      \"canonical\": \"average kld\",\n      \"aliases\": [\"average kl divergence\"],\n      \"evidence\": \"Average KLD\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 380, 920, 400]\n    },\n    {\n      \"canonical\": \"accuracy-based metrics\",\n      \"aliases\": [\"accuracy-based\"],\n      \"evidence\": \"Accuracy-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 410, 920, 430]\n    },\n    {\n      \"canonical\": \"validity\",\n      \"aliases\": [],\n      \"evidence\": \"Validity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 470, 920, 490]\n    },\n    {\n      \"canonical\": \"uniqueness\",\n      \"aliases\": [],\n      \"evidence\": \"Uniqueness\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 500, 920, 520]\n    },\n    {\n      \"canonical\": \"novelty\",\n      \"aliases\": [],\n      \"evidence\": \"Novelty\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 530, 920, 550]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f(g) = \\\\sum_{i=1}^{n} \\\\text{metric}_i\",\n      \"related_concepts\": [\"evaluation metrics\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [580, 380, 680, 460],\n      \"label\": \"General\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"table\",\n      \"description\": \"Table of evaluation metrics for deep generative-based methods, categorized by type and evaluation feature.\",\n      \"related_concepts\": [\"evaluation metrics\", \"statistics-based metrics\", \"classifier-based metrics\", \"intrinsic-quality-based metrics\", \"graph property-based metrics\", \"mapping-relationship-based metrics\", \"condition-specialized metrics\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 350, 920, 570]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"is good\",\n      \"reason\": \"Handwriting is partially obscured and difficult to read clearly.\",\n      \"bbox\": [620, 460, 660, 480]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Encoder-Decoder GNNs and Graph Generation",
+        "summary": "This page covers encoder-decoder architectures for graphs, specifically Graph UNet and NED-VAE, for tasks like graph super-resolution and generation. It distinguishes between supervised generation with ground-truth targets and unsupervised learning of graph distributions. The page details evaluation metrics for generative models, including statistical measures like KL divergence and MMD, and topological measures like eigenvector centrality.",
+        "key_topics": [
+          "graph unet",
+          "graph generation",
+          "encoder-decoder gnn",
+          "graph super-resolution",
+          "evaluation metrics",
+          "ned-vae",
+          "supervised learning",
+          "unsupervised learning"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph unet",
+            "aliases": [
+              "graph u-net",
+              "g-unet"
+            ],
+            "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              104.5,
+              5.5,
+              357.5,
+              27.5
+            ]
+          },
+          {
+            "canonical": "graph super-resolution",
+            "aliases": [
+              "graph sr",
+              "super-resolving graphs"
+            ],
+            "evidence": "How can we use Graph UNet for super-resolving graphs?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              44.0,
+              192.5,
+              66.0
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generating new graphs",
+              "generative models for graphs"
+            ],
+            "evidence": "How to generate new graphs?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              44.0,
+              412.5,
+              66.0
+            ]
+          },
+          {
+            "canonical": "graph u-autoencoder",
+            "aliases": [
+              "graph uae"
+            ],
+            "evidence": "Graph U-Autoencoder Block",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              82.5,
+              137.5,
+              99.0
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              110.0,
+              82.5,
+              137.5
+            ]
+          },
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "gpool",
+              "graph unpooling",
+              "gunpool"
+            ],
+            "evidence": "Graph Pooling Layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              357.5,
+              110.0,
+              374.0
+            ]
+          },
+          {
+            "canonical": "reconstruction loss",
+            "aliases": [
+              "self-reconstruction loss"
+            ],
+            "evidence": "self-reconstruction loss",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              385.0,
+              192.5,
+              401.5
+            ]
+          },
+          {
+            "canonical": "encoder-decoder gnn",
+            "aliases": [
+              "encoder decoder graph neural network"
+            ],
+            "evidence": "Encoder-Decoder GNNs case study",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              104.5,
+              5.5,
+              220.0,
+              27.5
+            ]
+          },
+          {
+            "canonical": "ned-vae",
+            "aliases": [
+              "node edge distribution variational autoencoder"
+            ],
+            "evidence": "NED-VAE (Guo et al., 2020)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              522.5,
+              137.5,
+              539.0
+            ]
+          },
+          {
+            "canonical": "edge attributes",
+            "aliases": [
+              "edge features"
+            ],
+            "evidence": "How to generalize graph UNet to a target with also edge attributes?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              467.5,
+              247.5,
+              489.5
+            ]
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [
+              "supervised"
+            ],
+            "evidence": "Ground-truth target graph is available (supervised)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              55.0,
+              780.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [
+              "self-supervised",
+              "ul"
+            ],
+            "evidence": "Ground-truth target graph is unavailable (self/unsupervised)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              55.0,
+              972.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "variational autoencoder",
+            "aliases": [
+              "vae"
+            ],
+            "evidence": "NED-VAE",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              483.0,
+              55.0,
+              499.5
+            ]
+          },
+          {
+            "canonical": "evaluation metrics",
+            "aliases": [
+              "metrics for graph generative models"
+            ],
+            "evidence": "Evaluation Metrics for Deep Generative-Based Methods",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              769.0,
+              626.0,
+              956.0,
+              642.5
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "kld",
+              "kl",
+              "kullback-leibler divergence"
+            ],
+            "evidence": "KLD: KL divergence between distributions",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              769.0,
+              824.0,
+              956.0,
+              840.5
+            ]
+          },
+          {
+            "canonical": "maximum mean discrepancy",
+            "aliases": [
+              "mmd"
+            ],
+            "evidence": "MMD: Maximum Mean Discrepancy",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              769.0,
+              840.5,
+              956.0,
+              857.0
+            ]
+          },
+          {
+            "canonical": "fréchet inception distance",
+            "aliases": [
+              "fid"
+            ],
+            "evidence": "FID: Fréchet Inception Distance between multivariate Gaussian distributions",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              769.0,
+              857.0,
+              956.0,
+              884.5
+            ]
+          },
+          {
+            "canonical": "mean absolute error",
+            "aliases": [
+              "mae"
+            ],
+            "evidence": "1) MAE (At, At~)",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              330.0,
+              725.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "eigenvector centrality",
+            "aliases": [
+              "centrality measures"
+            ],
+            "evidence": "MAE (Eigenvector centrality)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              440.0,
+              752.5,
+              467.5
+            ]
+          },
+          {
+            "canonical": "degree distribution",
+            "aliases": [
+              "degree"
+            ],
+            "evidence": "degree",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              467.5,
+              697.5,
+              495.0
+            ]
+          },
+          {
+            "canonical": "graph distribution",
+            "aliases": [
+              "p_data(g)",
+              "p_model(g; theta)"
+            ],
+            "evidence": "p_data(g) ~ p_model(g; theta)",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              110.0,
+              945.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "latent variable",
+            "aliases": [
+              "latent representation"
+            ],
+            "evidence": "z_f, z_g, z_e",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              165.0,
+              532.5,
+              220.0,
+              697.5
+            ]
+          },
+          {
+            "canonical": "graph reconstruction",
+            "aliases": [],
+            "evidence": "G(E,F) -> G'(E',F')",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              560.0,
+              330.0,
+              670.0
+            ]
+          },
+          {
+            "canonical": "gaussian distribution",
+            "aliases": [
+              "normal distribution"
+            ],
+            "evidence": "N(mu, sigma)",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              192.5,
+              725.0,
+              302.5,
+              807.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f_{enc}(g_i; \\theta)",
+            "related_concepts": [
+              "encoder",
+              "graph convolutional network",
+              "graph pooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              220.0,
+              137.5,
+              302.5,
+              192.5
+            ],
+            "label": "encoder function"
+          },
+          {
+            "latex": "f_{dec}(z_i; \\phi)",
+            "related_concepts": [
+              "decoder",
+              "graph unpooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              137.5,
+              412.5,
+              192.5
+            ],
+            "label": "decoder function"
+          },
+          {
+            "latex": "\\tilde{g}_i = f_{dec}(z_i; \\phi^*)",
+            "related_concepts": [
+              "graph generation",
+              "decoder"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              412.5,
+              220.0,
+              522.5,
+              247.5
+            ],
+            "label": "generated graph"
+          },
+          {
+            "latex": "\\min_{\\theta, \\phi} \\| f_{dec}(f_{enc}(g_i; \\theta); \\phi^*) - g_i \\|",
+            "related_concepts": [
+              "reconstruction loss",
+              "optimization"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              412.5,
+              302.5,
+              522.5,
+              357.5
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "dist(g_t, \\tilde{g}_t)",
+            "related_concepts": [
+              "graph generation",
+              "supervised learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              302.5,
+              697.5,
+              330.0
+            ],
+            "label": "distance metric"
+          },
+          {
+            "latex": "MAE(A_t, \\tilde{A}_t)",
+            "related_concepts": [
+              "mean absolute error",
+              "supervised learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              330.0,
+              725.0,
+              357.5
+            ],
+            "label": "adjacency matrix MAE"
+          },
+          {
+            "latex": "MAE(\\text{Eigenvector centrality})",
+            "related_concepts": [
+              "eigenvector centrality",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              440.0,
+              752.5,
+              467.5
+            ],
+            "label": "centrality MAE"
+          },
+          {
+            "latex": "p_{data}(g) \\sim p_{model}(g; \\theta)",
+            "related_concepts": [
+              "graph distribution",
+              "unsupervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              110.0,
+              945.0,
+              165.0
+            ],
+            "label": "distribution matching"
+          },
+          {
+            "latex": "q_\\phi(z_f|F)",
+            "related_concepts": [
+              "node encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              99.0,
+              549.0,
+              154.0,
+              560.0
+            ],
+            "label": "node encoder distribution"
+          },
+          {
+            "latex": "q_\\phi(z_g|E,F)",
+            "related_concepts": [
+              "graph encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              99.0,
+              604.0,
+              154.0,
+              615.0
+            ],
+            "label": "graph encoder distribution"
+          },
+          {
+            "latex": "q_\\phi(z_e|E)",
+            "related_concepts": [
+              "edge encoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              99.0,
+              659.0,
+              154.0,
+              670.0
+            ],
+            "label": "edge encoder distribution"
+          },
+          {
+            "latex": "p_\\theta(F|z_f,z_g)",
+            "related_concepts": [
+              "node decoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              549.0,
+              319.0,
+              560.0
+            ],
+            "label": "node decoder distribution"
+          },
+          {
+            "latex": "p_\\theta(E|z_e,z_g)",
+            "related_concepts": [
+              "edge decoder",
+              "latent variable"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              659.0,
+              319.0,
+              670.0
+            ],
+            "label": "edge decoder distribution"
+          },
+          {
+            "latex": "z_f \\sim \\mathcal{N}(\\mu_f, \\sigma_f)",
+            "related_concepts": [
+              "latent variable",
+              "gaussian distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              192.5,
+              725.0,
+              302.5,
+              741.5
+            ],
+            "label": "node latent variable distribution"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Graph U-Autoencoder Block showing encoder-decoder structure with GCN, pooling, and unpooling layers",
+            "related_concepts": [
+              "graph u-autoencoder",
+              "graph convolutional network",
+              "graph pooling",
+              "graph unpooling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              82.5,
+              220.0,
+              357.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Encoder-decoder process for graph generation showing input graph, latent representation, and output graph",
+            "related_concepts": [
+              "graph generation",
+              "encoder-decoder gnn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              82.5,
+              522.5,
+              357.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example graphs showing input and generated high-resolution brain graphs",
+            "related_concepts": [
+              "graph super-resolution",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              110.0,
+              192.5,
+              330.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Supervised graph generation pipeline showing source graph, function f, predicted graph, and ground-truth graph comparison",
+            "related_concepts": [
+              "graph generation",
+              "supervised learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              560.0,
+              82.5,
+              780.0,
+              275.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Unsupervised graph generation showing train graphs distribution p_data(g) approximating model distribution p_model(g; theta)",
+            "related_concepts": [
+              "graph generation",
+              "unsupervised learning",
+              "graph distribution"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              82.5,
+              972.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "NED-VAE architecture showing encoders and decoders for nodes, edges, and graphs with latent variables",
+            "related_concepts": [
+              "ned-vae",
+              "node encoder",
+              "graph encoder",
+              "edge encoder",
+              "node decoder",
+              "edge decoder",
+              "latent variable"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              505.0,
+              330.0,
+              697.5
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Table of evaluation metrics for deep generative-based methods, categorized by type and evaluation feature.",
+            "related_concepts": [
+              "evaluation metrics",
+              "statistics-based metrics",
+              "classifier-based metrics",
+              "intrinsic-quality-based metrics",
+              "graph property-based metrics",
+              "mapping-relationship-based metrics",
+              "condition-specialized metrics"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              769.0,
+              642.5,
+              956.0,
+              763.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Bar chart comparing degree distributions A and DC",
+            "related_concepts": [
+              "degree distribution",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              862.5,
+              467.5,
+              917.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A and its approximation A~ with eigenvector v~",
+            "related_concepts": [
+              "eigenvector centrality",
+              "topological measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              780.0,
+              412.5,
+              835.0,
+              467.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "maybe add a new block for SR",
+            "reason": "Handwriting is somewhat unclear, particularly 'SR' abbreviation",
+            "bbox": [
+              27.5,
+              412.5,
+              192.5,
+              440.0
+            ]
+          },
+          {
+            "transcription": "add new edges / nodes",
+            "reason": "Handwriting is small and slightly unclear",
+            "bbox": [
+              192.5,
+              165.0,
+              247.5,
+              220.0
+            ]
+          },
+          {
+            "transcription": "upscaling / extending g UNets",
+            "reason": "Handwriting is somewhat unclear, particularly 'extending'",
+            "bbox": [
+              192.5,
+              247.5,
+              247.5,
+              302.5
+            ]
+          },
+          {
+            "transcription": "p(z)",
+            "reason": "Small handwritten notation, context suggests probability distribution",
+            "bbox": [
+              330.0,
+              247.5,
+              357.5,
+              275.0
+            ]
+          },
+          {
+            "transcription": "z_i + ... = z_{i+1}",
+            "reason": "Intermediate steps in the diagram are partially obscured by arrows",
+            "bbox": [
+              302.5,
+              275.0,
+              385.0,
+              330.0
+            ]
+          },
+          {
+            "transcription": "n_e ~ g^n_ph",
+            "reason": "Handwritten notation unclear, possibly related to graph generation parameters",
+            "bbox": [
+              505.0,
+              82.5,
+              532.5,
+              110.0
+            ]
+          },
+          {
+            "transcription": "P_generated data",
+            "reason": "Handwritten label partially obscured, context suggests generated data distribution",
+            "bbox": [
+              532.5,
+              137.5,
+              560.0,
+              165.0
+            ]
+          },
+          {
+            "transcription": "theta*, phi*",
+            "reason": "Handwritten optimal parameters notation, context unclear",
+            "bbox": [
+              477.5,
+              467.5,
+              532.5,
+              495.0
+            ]
+          },
+          {
+            "transcription": "same graph (SSL)",
+            "reason": "Handwriting is somewhat unclear, especially 'SSL'",
+            "bbox": [
+              330.0,
+              521.5,
+              412.5,
+              532.5
+            ]
+          },
+          {
+            "transcription": "batch norm?",
+            "reason": "Very unclear handwriting, possibly 'batch norm' or similar",
+            "bbox": [
+              330.0,
+              576.5,
+              385.0,
+              587.5
+            ]
+          },
+          {
+            "transcription": "f_enc, f_dec",
+            "reason": "Handwriting is somewhat unclear",
+            "bbox": [
+              330.0,
+              587.5,
+              385.0,
+              598.5
+            ]
+          },
+          {
+            "transcription": "N(mu_g, sigma_g)",
+            "reason": "Handwriting is somewhat unclear, especially subscripts",
+            "bbox": [
+              192.5,
+              741.5,
+              302.5,
+              752.5
+            ]
+          },
+          {
+            "transcription": "N(mu_e, sigma_e)",
+            "reason": "Handwriting is somewhat unclear, especially subscripts",
+            "bbox": [
+              192.5,
+              796.5,
+              302.5,
+              807.5
+            ]
+          },
+          {
+            "transcription": "is good",
+            "reason": "Handwriting is partially obscured and difficult to read clearly.",
+            "bbox": [
+              791.0,
+              703.0,
+              813.0,
+              714.0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Encoder-Decoder GNNs and Graph Generation\",\n  \"summary\": \"This page covers encoder-decoder architectures for graphs, specifically Graph UNet and NED-VAE, for tasks like graph super-resolution and generation. It distinguishes between supervised generation with ground-truth targets and unsupervised learning of graph distributions. The page details evaluation metrics for generative models, including statistical measures like KL divergence and MMD, and topological measures like eigenvector centrality.\",\n  \"key_topics\": [\n    \"graph unet\",\n    \"graph generation\",\n    \"encoder-decoder gnn\",\n    \"graph super-resolution\",\n    \"evaluation metrics\",\n    \"ned-vae\",\n    \"supervised learning\",\n    \"unsupervised learning\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph unet\",\n      \"aliases\": [\"graph u-net\", \"g-unet\"],\n      \"evidence\": \"Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [104.5, 5.5, 357.5, 27.5]\n    },\n    {\n      \"canonical\": \"graph super-resolution\",\n      \"aliases\": [\"graph sr\", \"super-resolving graphs\"],\n      \"evidence\": \"How can we use Graph UNet for super-resolving graphs?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 44.0, 192.5, 66.0]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generating new graphs\", \"generative models for graphs\"],\n      \"evidence\": \"How to generate new graphs?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 44.0, 412.5, 66.0]\n    },\n    {\n      \"canonical\": \"graph u-autoencoder\",\n      \"aliases\": [\"graph uae\"],\n      \"evidence\": \"Graph U-Autoencoder Block\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 82.5, 137.5, 99.0]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 110.0, 82.5, 137.5]\n    },\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"gpool\", \"graph unpooling\", \"gunpool\"],\n      \"evidence\": \"Graph Pooling Layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 357.5, 110.0, 374.0]\n    },\n    {\n      \"canonical\": \"reconstruction loss\",\n      \"aliases\": [\"self-reconstruction loss\"],\n      \"evidence\": \"self-reconstruction loss\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 385.0, 192.5, 401.5]\n    },\n    {\n      \"canonical\": \"encoder-decoder gnn\",\n      \"aliases\": [\"encoder decoder graph neural network\"],\n      \"evidence\": \"Encoder-Decoder GNNs case study\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [104.5, 5.5, 220.0, 27.5]\n    },\n    {\n      \"canonical\": \"ned-vae\",\n      \"aliases\": [\"node edge distribution variational autoencoder\"],\n      \"evidence\": \"NED-VAE (Guo et al., 2020)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 522.5, 137.5, 539.0]\n    },\n    {\n      \"canonical\": \"edge attributes\",\n      \"aliases\": [\"edge features\"],\n      \"evidence\": \"How to generalize graph UNet to a target with also edge attributes?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 467.5, 247.5, 489.5]\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [\"supervised\"],\n      \"evidence\": \"Ground-truth target graph is available (supervised)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 55.0, 780.0, 82.5]\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [\"self-supervised\", \"ul\"],\n      \"evidence\": \"Ground-truth target graph is unavailable (self/unsupervised)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 55.0, 972.5, 82.5]\n    },\n    {\n      \"canonical\": \"variational autoencoder\",\n      \"aliases\": [\"vae\"],\n      \"evidence\": \"NED-VAE\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 483.0, 55.0, 499.5]\n    },\n    {\n      \"canonical\": \"evaluation metrics\",\n      \"aliases\": [\"metrics for graph generative models\"],\n      \"evidence\": \"Evaluation Metrics for Deep Generative-Based Methods\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [769.0, 626.0, 956.0, 642.5]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"kld\", \"kl\", \"kullback-leibler divergence\"],\n      \"evidence\": \"KLD: KL divergence between distributions\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [769.0, 824.0, 956.0, 840.5]\n    },\n    {\n      \"canonical\": \"maximum mean discrepancy\",\n      \"aliases\": [\"mmd\"],\n      \"evidence\": \"MMD: Maximum Mean Discrepancy\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [769.0, 840.5, 956.0, 857.0]\n    },\n    {\n      \"canonical\": \"fréchet inception distance\",\n      \"aliases\": [\"fid\"],\n      \"evidence\": \"FID: Fréchet Inception Distance between multivariate Gaussian distributions\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [769.0, 857.0, 956.0, 884.5]\n    },\n    {\n      \"canonical\": \"mean absolute error\",\n      \"aliases\": [\"mae\"],\n      \"evidence\": \"1) MAE (At, At~)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 330.0, 725.0, 357.5]\n    },\n    {\n      \"canonical\": \"eigenvector centrality\",\n      \"aliases\": [\"centrality measures\"],\n      \"evidence\": \"MAE (Eigenvector centrality)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 440.0, 752.5, 467.5]\n    },\n    {\n      \"canonical\": \"degree distribution\",\n      \"aliases\": [\"degree\"],\n      \"evidence\": \"degree\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 467.5, 697.5, 495.0]\n    },\n    {\n      \"canonical\": \"graph distribution\",\n      \"aliases\": [\"p_data(g)\", \"p_model(g; theta)\"],\n      \"evidence\": \"p_data(g) ~ p_model(g; theta)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 110.0, 945.0, 165.0]\n    },\n    {\n      \"canonical\": \"latent variable\",\n      \"aliases\": [\"latent representation\"],\n      \"evidence\": \"z_f, z_g, z_e\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [165.0, 532.5, 220.0, 697.5]\n    },\n    {\n      \"canonical\": \"graph reconstruction\",\n      \"aliases\": [],\n      \"evidence\": \"G(E,F) -> G'(E',F')\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 560.0, 330.0, 670.0]\n    },\n    {\n      \"canonical\": \"gaussian distribution\",\n      \"aliases\": [\"normal distribution\"],\n      \"evidence\": \"N(mu, sigma)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [192.5, 725.0, 302.5, 807.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f_{enc}(g_i; \\\\theta)\",\n      \"related_concepts\": [\"encoder\", \"graph convolutional network\", \"graph pooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [220.0, 137.5, 302.5, 192.5],\n      \"label\": \"encoder function\"\n    },\n    {\n      \"latex\": \"f_{dec}(z_i; \\\\phi)\",\n      \"related_concepts\": [\"decoder\", \"graph unpooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 137.5, 412.5, 192.5],\n      \"label\": \"decoder function\"\n    },\n    {\n      \"latex\": \"\\\\tilde{g}_i = f_{dec}(z_i; \\\\phi^*)\",\n      \"related_concepts\": [\"graph generation\", \"decoder\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [412.5, 220.0, 522.5, 247.5],\n      \"label\": \"generated graph\"\n    },\n    {\n      \"latex\": \"\\\\min_{\\\\theta, \\\\phi} \\\\| f_{dec}(f_{enc}(g_i; \\\\theta); \\\\phi^*) - g_i \\\\|\",\n      \"related_concepts\": [\"reconstruction loss\", \"optimization\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [412.5, 302.5, 522.5, 357.5],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"dist(g_t, \\\\tilde{g}_t)\",\n      \"related_concepts\": [\"graph generation\", \"supervised learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 302.5, 697.5, 330.0],\n      \"label\": \"distance metric\"\n    },\n    {\n      \"latex\": \"MAE(A_t, \\\\tilde{A}_t)\",\n      \"related_concepts\": [\"mean absolute error\", \"supervised learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 330.0, 725.0, 357.5],\n      \"label\": \"adjacency matrix MAE\"\n    },\n    {\n      \"latex\": \"MAE(\\\\text{Eigenvector centrality})\",\n      \"related_concepts\": [\"eigenvector centrality\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 440.0, 752.5, 467.5],\n      \"label\": \"centrality MAE\"\n    },\n    {\n      \"latex\": \"p_{data}(g) \\\\sim p_{model}(g; \\\\theta)\",\n      \"related_concepts\": [\"graph distribution\", \"unsupervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 110.0, 945.0, 165.0],\n      \"label\": \"distribution matching\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z_f|F)\",\n      \"related_concepts\": [\"node encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [99.0, 549.0, 154.0, 560.0],\n      \"label\": \"node encoder distribution\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z_g|E,F)\",\n      \"related_concepts\": [\"graph encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [99.0, 604.0, 154.0, 615.0],\n      \"label\": \"graph encoder distribution\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z_e|E)\",\n      \"related_concepts\": [\"edge encoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [99.0, 659.0, 154.0, 670.0],\n      \"label\": \"edge encoder distribution\"\n    },\n    {\n      \"latex\": \"p_\\\\theta(F|z_f,z_g)\",\n      \"related_concepts\": [\"node decoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [264.0, 549.0, 319.0, 560.0],\n      \"label\": \"node decoder distribution\"\n    },\n    {\n      \"latex\": \"p_\\\\theta(E|z_e,z_g)\",\n      \"related_concepts\": [\"edge decoder\", \"latent variable\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [264.0, 659.0, 319.0, 670.0],\n      \"label\": \"edge decoder distribution\"\n    },\n    {\n      \"latex\": \"z_f \\\\sim \\\\mathcal{N}(\\\\mu_f, \\\\sigma_f)\",\n      \"related_concepts\": [\"latent variable\", \"gaussian distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [192.5, 725.0, 302.5, 741.5],\n      \"label\": \"node latent variable distribution\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph U-Autoencoder Block showing encoder-decoder structure with GCN, pooling, and unpooling layers\",\n      \"related_concepts\": [\"graph u-autoencoder\", \"graph convolutional network\", \"graph pooling\", \"graph unpooling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 82.5, 220.0, 357.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Encoder-decoder process for graph generation showing input graph, latent representation, and output graph\",\n      \"related_concepts\": [\"graph generation\", \"encoder-decoder gnn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 82.5, 522.5, 357.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graphs showing input and generated high-resolution brain graphs\",\n      \"related_concepts\": [\"graph super-resolution\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 110.0, 192.5, 330.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Supervised graph generation pipeline showing source graph, function f, predicted graph, and ground-truth graph comparison\",\n      \"related_concepts\": [\"graph generation\", \"supervised learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [560.0, 82.5, 780.0, 275.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Unsupervised graph generation showing train graphs distribution p_data(g) approximating model distribution p_model(g; theta)\",\n      \"related_concepts\": [\"graph generation\", \"unsupervised learning\", \"graph distribution\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 82.5, 972.5, 302.5]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"NED-VAE architecture showing encoders and decoders for nodes, edges, and graphs with latent variables\",\n      \"related_concepts\": [\"ned-vae\", \"node encoder\", \"graph encoder\", \"edge encoder\", \"node decoder\", \"edge decoder\", \"latent variable\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 505.0, 330.0, 697.5]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Table of evaluation metrics for deep generative-based methods, categorized by type and evaluation feature.\",\n      \"related_concepts\": [\"evaluation metrics\", \"statistics-based metrics\", \"classifier-based metrics\", \"intrinsic-quality-based metrics\", \"graph property-based metrics\", \"mapping-relationship-based metrics\", \"condition-specialized metrics\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [769.0, 642.5, 956.0, 763.5]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Bar chart comparing degree distributions A and DC\",\n      \"related_concepts\": [\"degree distribution\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [862.5, 467.5, 917.5, 522.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A and its approximation A~ with eigenvector v~\",\n      \"related_concepts\": [\"eigenvector centrality\", \"topological measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [780.0, 412.5, 835.0, 467.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"maybe add a new block for SR\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'SR' abbreviation\",\n      \"bbox\": [27.5, 412.5, 192.5, 440.0]\n    },\n    {\n      \"transcription\": \"add new edges / nodes\",\n      \"reason\": \"Handwriting is small and slightly unclear\",\n      \"bbox\": [192.5, 165.0, 247.5, 220.0]\n    },\n    {\n      \"transcription\": \"upscaling / extending g UNets\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'extending'\",\n      \"bbox\": [192.5, 247.5, 247.5, 302.5]\n    },\n    {\n      \"transcription\": \"p(z)\",\n      \"reason\": \"Small handwritten notation, context suggests probability distribution\",\n      \"bbox\": [330.0, 247.5, 357.5, 275.0]\n    },\n    {\n      \"transcription\": \"z_i + ... = z_{i+1}\",\n      \"reason\": \"Intermediate steps in the diagram are partially obscured by arrows\",\n      \"bbox\": [302.5, 275.0, 385.0, 330.0]\n    },\n    {\n      \"transcription\": \"n_e ~ g^n_ph\",\n      \"reason\": \"Handwritten notation unclear, possibly related to graph generation parameters\",\n      \"bbox\": [505.0, 82.5, 532.5, 110.0]\n    },\n    {\n      \"transcription\": \"P_generated data\",\n      \"reason\": \"Handwritten label partially obscured, context suggests generated data distribution\",\n      \"bbox\": [532.5, 137.5, 560.0, 165.0]\n    },\n    {\n      \"transcription\": \"theta*, phi*\",\n      \"reason\": \"Handwritten optimal parameters notation, context unclear\",\n      \"bbox\": [477.5, 467.5, 532.5, 495.0]\n    },\n    {\n      \"transcription\": \"same graph (SSL)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially 'SSL'\",\n      \"bbox\": [330.0, 521.5, 412.5, 532.5]\n    },\n    {\n      \"transcription\": \"batch norm?\",\n      \"reason\": \"Very unclear handwriting, possibly 'batch norm' or similar\",\n      \"bbox\": [330.0, 576.5, 385.0, 587.5]\n    },\n    {\n      \"transcription\": \"f_enc, f_dec\",\n      \"reason\": \"Handwriting is somewhat unclear\",\n      \"bbox\": [330.0, 587.5, 385.0, 598.5]\n    },\n    {\n      \"transcription\": \"N(mu_g, sigma_g)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially subscripts\",\n      \"bbox\": [192.5, 741.5, 302.5, 752.5]\n    },\n    {\n      \"transcription\": \"N(mu_e, sigma_e)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially subscripts\",\n      \"bbox\": [192.5, 796.5, 302.5, 807.5]\n    },\n    {\n      \"transcription\": \"is good\",\n      \"reason\": \"Handwriting is partially obscured and difficult to read clearly.\",\n      \"bbox\": [791.0, 703.0, 813.0, 714.0]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph unpooling",
+      "into": "graph pooling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph unet",
+      "into": "graph unet"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge attributes",
+      "into": "edge attributes"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "ned-vae",
+      "into": "ned-vae"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node decoder",
+      "into": "node encoder"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge decoder",
+      "into": "edge encoder"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generative models",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "kl divergence",
+      "into": "kl divergence"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "kl divergence",
+      "into": "kl divergence"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence concept: gaussian distribution",
+    "Merged duplicate concept unsupervised learning into supervised learning",
+    "Dropped low-confidence formula: f_{enc}(g_i; \\theta)",
+    "Dropped low-confidence formula: f_{dec}(z_i; \\phi)",
+    "Dropped low-confidence formula: \\tilde{g}_i = f_{dec}(z_i; \\phi^*)",
+    "Dropped low-confidence formula: \\min_{\\theta, \\phi} \\| f_{dec}(f_{enc}(g_i; \\theta); \\phi^*) - g_i \\|",
+    "Dropped low-confidence formula: dist(g_t, \\tilde{g}_t)",
+    "Dropped low-confidence formula: MAE(A_t, \\tilde{A}_t)",
+    "Dropped low-confidence formula: MAE(\\text{Eigenvector centrality})",
+    "Dropped low-confidence formula: z_f \\sim \\mathcal{N}(\\mu_f, \\sigma_f)",
+    "Dropped low-confidence visual: Bar chart comparing degree distributions A and DC",
+    "Dropped low-confidence visual: Adjacency matrix A and its approximation A~ with eigenvector v~"
+  ]
+}

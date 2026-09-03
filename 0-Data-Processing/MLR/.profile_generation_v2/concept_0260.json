@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ce8007a33b06964f27aef793048613cc73f1c8115a816e4b7fc815a6e8317d67",
+  "concept_id": 260,
+  "concept_name": "internal covariate shift",
+  "aliases": [
+    "internal covariate shift",
+    "covariate shift"
+  ],
+  "profile": "internal covariate shift: the constant alteration of these distributions, also called covariate shift for short.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "internal covariate shift: the constant alteration of these distributions is referred to as internal covariate shift in machine learning jargon, or just covariate shift for short. The covariate shift of a network can be considerable.",
+    "claims": [
+      {
+        "claim": "Internal covariate shift is the constant alteration of these distributions, also called covariate shift for short.",
+        "evidence_ids": [
+          "MLR-E0368"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The covariate shift of a network can be considerable.",
+        "evidence_ids": [
+          "MLR-E0324"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source does not specify which distributions are meant by 'these distributions'."
+    ]
+  },
+  "review": {
+    "final_profile": "internal covariate shift: the constant alteration of these distributions, also called covariate shift for short.",
+    "sentence_reviews": [
+      {
+        "sentence": "internal covariate shift: the constant alteration of these distributions, also called covariate shift for short.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0368"
+        ],
+        "reason": "Directly restates the evidence that the constant alteration of these distributions is referred to as internal covariate shift, or covariate shift for short."
+      }
+    ],
+    "warnings": [
+      "The available evidence does not specify which distributions are meant by 'these distributions'.",
+      "The draft's second claim about covariate shift being considerable was removed because it overgeneralized a specific network observation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"internal covariate shift: the constant alteration of these distributions is referred to as internal covariate shift in machine learning jargon, or just covariate shift for short. The covariate shift of a network can be considerable.\",\n  \"claims\": [\n    {\n      \"claim\": \"Internal covariate shift is the constant alteration of these distributions, also called covariate shift for short.\",\n      \"evidence_ids\": [\"MLR-E0368\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The covariate shift of a network can be considerable.\",\n      \"evidence_ids\": [\"MLR-E0324\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The source does not specify which distributions are meant by 'these distributions'.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"internal covariate shift: the constant alteration of these distributions, also called covariate shift for short.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"internal covariate shift: the constant alteration of these distributions, also called covariate shift for short.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0368\"],\n      \"reason\": \"Directly restates the evidence that the constant alteration of these distributions is referred to as internal covariate shift, or covariate shift for short.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available evidence does not specify which distributions are meant by 'these distributions'.\",\n    \"The draft's second claim about covariate shift being considerable was removed because it overgeneralized a specific network observation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:04:28.193469+00:00"
+}

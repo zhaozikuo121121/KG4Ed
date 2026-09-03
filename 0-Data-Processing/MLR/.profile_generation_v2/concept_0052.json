@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "3dbc9f4552cf06bb0943b3c606daad1dbe1e9f7030b61868803d24277eb3b69c",
+  "concept_id": 52,
+  "concept_name": "saddle points",
+  "aliases": [
+    "saddle points"
+  ],
+  "profile": "saddle points: The first-order condition characterizes maxima and saddle points of non-convex functions. A saddle point is identified when the second derivative is zero and changes sign at that point.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "saddle points: The first-order condition characterizes maxima and saddle points of non-convex functions. A saddle point is identified when the second derivative is zero and changes sign at that point.",
+    "claims": [
+      {
+        "claim": "The first-order condition characterizes maxima and saddle points of non-convex functions.",
+        "evidence_ids": [
+          "MLR-E0055"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A saddle point occurs if the second derivative is zero and changes sign at that point.",
+        "evidence_ids": [
+          "MLR-E0072"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "saddle points: The first-order condition characterizes maxima and saddle points of non-convex functions. A saddle point is identified when the second derivative is zero and changes sign at that point.",
+    "sentence_reviews": [
+      {
+        "sentence": "The first-order condition characterizes maxima and saddle points of non-convex functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0055"
+        ],
+        "reason": "The evidence states that the first-order condition equally characterizes maxima and saddle points of non-convex functions."
+      },
+      {
+        "sentence": "A saddle point is identified when the second derivative is zero and changes sign at that point.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0072"
+        ],
+        "reason": "The evidence defines a saddle point by the second derivative being zero and changing sign at that point."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"saddle points: The first-order condition characterizes maxima and saddle points of non-convex functions. A saddle point is identified when the second derivative is zero and changes sign at that point.\",\n  \"claims\": [\n    {\n      \"claim\": \"The first-order condition characterizes maxima and saddle points of non-convex functions.\",\n      \"evidence_ids\": [\"MLR-E0055\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A saddle point occurs if the second derivative is zero and changes sign at that point.\",\n      \"evidence_ids\": [\"MLR-E0072\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"saddle points: The first-order condition characterizes maxima and saddle points of non-convex functions. A saddle point is identified when the second derivative is zero and changes sign at that point.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The first-order condition characterizes maxima and saddle points of non-convex functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0055\"],\n      \"reason\": \"The evidence states that the first-order condition equally characterizes maxima and saddle points of non-convex functions.\"\n    },\n    {\n      \"sentence\": \"A saddle point is identified when the second derivative is zero and changes sign at that point.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0072\"],\n      \"reason\": \"The evidence defines a saddle point by the second derivative being zero and changing sign at that point.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:39:58.774328+00:00"
+}

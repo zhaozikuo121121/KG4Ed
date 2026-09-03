@@ -1,0 +1,108 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "db47c2b628fe0af41f717ff71b4f0b57aaf77bfc0ba2535125468611e1f78ecf",
+  "concept_id": 184,
+  "concept_name": "boosting",
+  "aliases": [
+    "boosting"
+  ],
+  "profile": "boosting: Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach. It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time. Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit. It is presented as one of two popular feature-selection methods, alongside regularization.",
+  "word_count": 65,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "boosting: Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach. It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time. Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit. It is presented as one of two popular feature-selection methods, alongside regularization.",
+    "claims": [
+      {
+        "claim": "Boosting is also called forward stagewise selection.",
+        "evidence_ids": [
+          "MLR-E0363"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Boosting is a popular bottom-up feature-selection approach.",
+        "evidence_ids": [
+          "MLR-E0213",
+          "MLR-E0363"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Boosting gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time.",
+        "evidence_ids": [
+          "MLR-E0363"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit.",
+        "evidence_ids": [
+          "MLR-E0276"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Boosting is presented as one of two popular feature-selection methods, alongside regularization.",
+        "evidence_ids": [
+          "MLR-E0213"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "boosting: Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach. It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time. Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit. It is presented as one of two popular feature-selection methods, alongside regularization.",
+    "sentence_reviews": [
+      {
+        "sentence": "Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0363",
+          "MLR-E0213"
+        ],
+        "reason": "E0363 explicitly calls boosting 'forward stagewise selection' and a 'bottom-up approach to feature selection'; E0213 calls it a popular feature-selection method."
+      },
+      {
+        "sentence": "It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0363"
+        ],
+        "reason": "E0363 states the model is gradually built one feature at a time by training a supervised learner sequentially, one weight at a time."
+      },
+      {
+        "sentence": "Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0276"
+        ],
+        "reason": "E0276 describes building a single cross-validated model by gradually adding simple models with a single universal approximator unit."
+      },
+      {
+        "sentence": "It is presented as one of two popular feature-selection methods, alongside regularization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0213"
+        ],
+        "reason": "E0213 introduces boosting and regularization as two popular ways of performing feature selection."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"boosting: Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach. It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time. Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit. It is presented as one of two popular feature-selection methods, alongside regularization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Boosting is also called forward stagewise selection.\",\n      \"evidence_ids\": [\"MLR-E0363\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Boosting is a popular bottom-up feature-selection approach.\",\n      \"evidence_ids\": [\"MLR-E0213\", \"MLR-E0363\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Boosting gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time.\",\n      \"evidence_ids\": [\"MLR-E0363\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit.\",\n      \"evidence_ids\": [\"MLR-E0276\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Boosting is presented as one of two popular feature-selection methods, alongside regularization.\",\n      \"evidence_ids\": [\"MLR-E0213\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"boosting: Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach. It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time. Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit. It is presented as one of two popular feature-selection methods, alongside regularization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Boosting, also called forward stagewise selection, is a popular bottom-up feature-selection approach.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0363\", \"MLR-E0213\"],\n      \"reason\": \"E0363 explicitly calls boosting 'forward stagewise selection' and a 'bottom-up approach to feature selection'; E0213 calls it a popular feature-selection method.\"\n    },\n    {\n      \"sentence\": \"It gradually builds a model one feature at a time by training a supervised learner sequentially, one weight at a time.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0363\"],\n      \"reason\": \"E0363 states the model is gradually built one feature at a time by training a supervised learner sequentially, one weight at a time.\"\n    },\n    {\n      \"sentence\": \"Boosting builds up a single cross-validated model by gradually adding simple models consisting of a single universal approximator unit.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0276\"],\n      \"reason\": \"E0276 describes building a single cross-validated model by gradually adding simple models with a single universal approximator unit.\"\n    },\n    {\n      \"sentence\": \"It is presented as one of two popular feature-selection methods, alongside regularization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0213\"],\n      \"reason\": \"E0213 introduces boosting and regularization as two popular ways of performing feature selection.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:37:20.465085+00:00"
+}

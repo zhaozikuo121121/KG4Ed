@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e212db53410df0ae2fe2b813bca8feedda81b06f4cd080c7b48bb0a675ae3b7c",
+  "concept_id": 292,
+  "concept_name": "node representation capacity",
+  "aliases": [
+    "node representation capacity",
+    "embedding capacity"
+  ],
+  "profile": "node representation capacity: a graph neural network's capacity to represent nodes in the embedding space. A model can maximize this capacity, and doing so is associated with its expressive power.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node representation capacity: the capacity of a graph neural network to maximize its node representations in the embedding space, reflecting the model's expressive power in representing nodes.",
+    "claims": [
+      {
+        "claim": "Node representation capacity is the capacity of a graph neural network to maximize its node representations in the embedding space.",
+        "evidence_ids": [
+          "DGL-E0428"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is associated with the expressive power of graph neural networks.",
+        "evidence_ids": [
+          "DGL-E0428"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node representation capacity: a graph neural network's capacity to represent nodes in the embedding space. A model can maximize this capacity, and doing so is associated with its expressive power.",
+    "sentence_reviews": [
+      {
+        "sentence": "node representation capacity: a graph neural network's capacity to represent nodes in the embedding space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0428"
+        ],
+        "reason": "Directly reflects the source phrase about node representation capacity in the embedding space."
+      },
+      {
+        "sentence": "A model can maximize this capacity, and doing so is associated with its expressive power.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0428"
+        ],
+        "reason": "The source phrase mentions maximizing node representation capacity, and the page title links it to expressive power."
+      }
+    ],
+    "warnings": [
+      "Source evidence is limited; the profile avoids adding unsupported specifics."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node representation capacity: the capacity of a graph neural network to maximize its node representations in the embedding space, reflecting the model's expressive power in representing nodes.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node representation capacity is the capacity of a graph neural network to maximize its node representations in the embedding space.\",\n      \"evidence_ids\": [\"DGL-E0428\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is associated with the expressive power of graph neural networks.\",\n      \"evidence_ids\": [\"DGL-E0428\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node representation capacity: a graph neural network's capacity to represent nodes in the embedding space. A model can maximize this capacity, and doing so is associated with its expressive power.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node representation capacity: a graph neural network's capacity to represent nodes in the embedding space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0428\"],\n      \"reason\": \"Directly reflects the source phrase about node representation capacity in the embedding space.\"\n    },\n    {\n      \"sentence\": \"A model can maximize this capacity, and doing so is associated with its expressive power.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0428\"],\n      \"reason\": \"The source phrase mentions maximizing node representation capacity, and the page title links it to expressive power.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source evidence is limited; the profile avoids adding unsupported specifics.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:45:01.494887+00:00"
+}

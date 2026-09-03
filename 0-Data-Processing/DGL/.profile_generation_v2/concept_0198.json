@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ad2bc7e2ea8f33f9a42d9cb48d840384d01333ef81d0feb75e4a68c441f06857",
+  "concept_id": 198,
+  "concept_name": "few-shot learning",
+  "aliases": [
+    "few-shot learning"
+  ],
+  "profile": "few-shot learning: a machine learning approach that aims to learn from a small number of examples. The term appears in the context of graph learning research trends and tasks.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "few-shot learning: a machine learning approach that aims to learn from a small number of examples, and is mentioned in the context of graph learning research trends and tasks.",
+    "claims": [
+      {
+        "claim": "few-shot learning is a machine learning approach that aims to learn from a small number of examples.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "few-shot learning is mentioned in the context of graph learning research trends and tasks.",
+        "evidence_ids": [
+          "DGL-E0221"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "few-shot learning: a machine learning approach that aims to learn from a small number of examples. The term appears in the context of graph learning research trends and tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "few-shot learning: a machine learning approach that aims to learn from a small number of examples.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic background definition; not explicitly defined in the source evidence."
+      },
+      {
+        "sentence": "The term appears in the context of graph learning research trends and tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0221"
+        ],
+        "reason": "The source lists 'few-shot learning' under a page titled 'Graph Learning Research Trends and Tasks'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"few-shot learning: a machine learning approach that aims to learn from a small number of examples, and is mentioned in the context of graph learning research trends and tasks.\",\n  \"claims\": [\n    {\n      \"claim\": \"few-shot learning is a machine learning approach that aims to learn from a small number of examples.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"few-shot learning is mentioned in the context of graph learning research trends and tasks.\",\n      \"evidence_ids\": [\"DGL-E0221\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"few-shot learning: a machine learning approach that aims to learn from a small number of examples. The term appears in the context of graph learning research trends and tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"few-shot learning: a machine learning approach that aims to learn from a small number of examples.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic background definition; not explicitly defined in the source evidence.\"\n    },\n    {\n      \"sentence\": \"The term appears in the context of graph learning research trends and tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0221\"],\n      \"reason\": \"The source lists 'few-shot learning' under a page titled 'Graph Learning Research Trends and Tasks'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:12:12.727771+00:00"
+}

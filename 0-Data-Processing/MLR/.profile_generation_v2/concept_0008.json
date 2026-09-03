@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c6075bc71a8fe2bd90a4af5e2c6854833679cf38c05b8d51b77ba80b0988e7df",
+  "concept_id": 8,
+  "concept_name": "model validation",
+  "aliases": [
+    "model validation",
+    "validating the model"
+  ],
+  "profile": "model validation: Model validation is the act of validating the efficacy of a trained learner by showing the computer a batch of previously unseen images.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "model validation: In this context, model validation is the act of validating the efficacy of a trained learner. To perform validation, the computer is shown a batch of previously unseen images. This process relies on previously unseen data to check the trained model's effectiveness.",
+    "claims": [
+      {
+        "claim": "Model validation is the act of validating the efficacy of a trained learner.",
+        "evidence_ids": [
+          "MLR-E0009"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "To perform validation, the computer is shown a batch of previously unseen images.",
+        "evidence_ids": [
+          "MLR-E0009"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This process relies on previously unseen data to check the trained model's effectiveness.",
+        "evidence_ids": [
+          "MLR-E0009"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence item was available, limiting the profile's scope."
+    ]
+  },
+  "review": {
+    "final_profile": "model validation: Model validation is the act of validating the efficacy of a trained learner by showing the computer a batch of previously unseen images.",
+    "sentence_reviews": [
+      {
+        "sentence": "model validation: Model validation is the act of validating the efficacy of a trained learner by showing the computer a batch of previously unseen images.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0009"
+        ],
+        "reason": "The source directly states that to validate the efficacy of the trained learner, the computer is shown a batch of previously unseen images."
+      }
+    ],
+    "warnings": [
+      "Only one evidence item was available, limiting the profile's scope."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"model validation: In this context, model validation is the act of validating the efficacy of a trained learner. To perform validation, the computer is shown a batch of previously unseen images. This process relies on previously unseen data to check the trained model's effectiveness.\",\n  \"claims\": [\n    {\n      \"claim\": \"Model validation is the act of validating the efficacy of a trained learner.\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"To perform validation, the computer is shown a batch of previously unseen images.\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This process relies on previously unseen data to check the trained model's effectiveness.\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence item was available, limiting the profile's scope.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"model validation: Model validation is the act of validating the efficacy of a trained learner. To perform validation, the computer is shown a batch of previously unseen images. This process relies on previously unseen data to check the trained model's effectiveness.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Model validation is the act of validating the efficacy of a trained learner.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"reason\": \"The source directly describes validating the efficacy of the trained learner.\"\n    },\n    {\n      \"sentence\": \"To perform validation, the computer is shown a batch of previously unseen images.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"reason\": \"The source states that the computer is shown a batch of previously unseen images to validate efficacy.\"\n    },\n    {\n      \"sentence\": \"This process relies on previously unseen data to check the trained model's effectiveness.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0009\"],\n      \"reason\": \"The source ties validation to previously unseen images and the trained learner's efficacy.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence item was available, limiting the profile's scope.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"model validation: Model validation is the act of validating the efficacy of a trained learner by showing the computer a batch of previously unseen images.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"model validation: Model validation is the act of validating the efficacy of a trained learner by showing the computer a batch of previously unseen images.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0009\"\n      ],\n      \"reason\": \"The source directly states that to validate the efficacy of the trained learner, the computer is shown a batch of previously unseen images.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence item was available, limiting the profile's scope.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T20:57:45.357671+00:00"
+}

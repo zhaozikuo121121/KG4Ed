@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "fa56263b5264e0b08ebc1b22009a4529c9577d2aad316f04b3b7e45552e7d12b",
+  "concept_id": 163,
+  "concept_name": "graph feature sampling method",
+  "aliases": [
+    "graph feature sampling method",
+    "feature sampling technique"
+  ],
+  "profile": "graph feature sampling method: a sampling approach in GNN training. Node sampling randomly selects a subset of target nodes.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature sampling method: a technique used in GNN training sampling strategies. Node sampling is a sampling strategy that randomly selects a subset of target nodes.",
+    "claims": [
+      {
+        "claim": "The graph feature sampling method is a technique used in GNN training sampling strategies.",
+        "evidence_ids": [
+          "DGL-E0586"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node sampling is a sampling strategy that randomly selects a subset of target nodes.",
+        "evidence_ids": [
+          "DGL-E0586"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The term 'graph feature sampling method' does not explicitly appear in the provided metadata; the profile is based on its relation to sampling strategies in GNN training and node sampling as an example."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature sampling method: a sampling approach in GNN training. Node sampling randomly selects a subset of target nodes.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph feature sampling method: a sampling approach in GNN training.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0586"
+        ],
+        "reason": "The source title and evidence situate this under GNN training sampling strategies, but the exact concept phrase is not explicit."
+      },
+      {
+        "sentence": "Node sampling randomly selects a subset of target nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0586"
+        ],
+        "reason": "The metadata defines node sampling as randomly selecting a subset of target nodes."
+      }
+    ],
+    "warnings": [
+      "The exact phrase 'graph feature sampling method' does not appear in the provided metadata; the profile reflects only the supported sampling-strategy context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature sampling method: a technique used in GNN training sampling strategies. Node sampling is a sampling strategy that randomly selects a subset of target nodes.\",\n  \"claims\": [\n    {\n      \"claim\": \"The graph feature sampling method is a technique used in GNN training sampling strategies.\",\n      \"evidence_ids\": [\"DGL-E0586\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node sampling is a sampling strategy that randomly selects a subset of target nodes.\",\n      \"evidence_ids\": [\"DGL-E0586\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The term 'graph feature sampling method' does not explicitly appear in the provided metadata; the profile is based on its relation to sampling strategies in GNN training and node sampling as an example.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature sampling method: a sampling approach in GNN training. Node sampling randomly selects a subset of target nodes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph feature sampling method: a sampling approach in GNN training.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0586\"],\n      \"reason\": \"The source title and evidence situate this under GNN training sampling strategies, but the exact concept phrase is not explicit.\"\n    },\n    {\n      \"sentence\": \"Node sampling randomly selects a subset of target nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0586\"],\n      \"reason\": \"The metadata defines node sampling as randomly selecting a subset of target nodes.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact phrase 'graph feature sampling method' does not appear in the provided metadata; the profile reflects only the supported sampling-strategy context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:58:05.572708+00:00"
+}

@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1882b6d537df3438531d65450e1f628154b33ee3c7768f6fe390e87ea0a65786",
+  "concept_id": 13,
+  "concept_name": "circuit graph",
+  "aliases": [
+    "circuit graph",
+    "electrical circuit"
+  ],
+  "profile": "circuit graph: Electrical circuits are naturally structured as graphs.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "circuit graph: Electrical circuits are naturally structured as graphs.",
+    "claims": [
+      {
+        "claim": "Electrical circuits are naturally structured as graphs.",
+        "evidence_ids": [
+          "DGL-E0008"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "circuit graph: Electrical circuits are naturally structured as graphs.",
+    "sentence_reviews": [
+      {
+        "sentence": "Electrical circuits are naturally structured as graphs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0008"
+        ],
+        "reason": "The source states that electrical circuits are naturally structured as graphs, so the claim is directly supported."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"circuit graph: Electrical circuits are naturally structured as graphs.\",\n  \"claims\": [\n    {\n      \"claim\": \"Electrical circuits are naturally structured as graphs.\",\n      \"evidence_ids\": [\"DGL-E0008\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"circuit graph: Electrical circuits are naturally structured as graphs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Electrical circuits are naturally structured as graphs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0008\"],\n      \"reason\": \"The source states that electrical circuits are naturally structured as graphs, so the claim is directly supported.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:54:41.216674+00:00"
+}

@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "44a250f9f8f1b914cc203d36568ed64995e80b0c1491df509371d5dd45ac751f",
+  "concept_id": 302,
+  "concept_name": "max aggregator",
+  "aliases": [
+    "max aggregator",
+    "max aggregation"
+  ],
+  "profile": "max aggregator: an aggregator that, together with mean aggregators, fails to distinguish certain graph structures.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "max aggregator: together with mean aggregators, it fails to distinguish certain graph structures.",
+    "claims": [
+      {
+        "claim": "Together with mean aggregators, it fails to distinguish certain graph structures.",
+        "evidence_ids": [
+          "DGL-E0430"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "max aggregator: an aggregator that, together with mean aggregators, fails to distinguish certain graph structures.",
+    "sentence_reviews": [
+      {
+        "sentence": "max aggregator: an aggregator that, together with mean aggregators, fails to distinguish certain graph structures.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0430"
+        ],
+        "reason": "The source caption states that mean and max aggregators fail to distinguish certain graph structures."
+      }
+    ],
+    "warnings": [
+      "No further details about the max aggregator are supported by the provided source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"max aggregator: together with mean aggregators, it fails to distinguish certain graph structures.\",\n  \"claims\": [\n    {\n      \"claim\": \"Together with mean aggregators, it fails to distinguish certain graph structures.\",\n      \"evidence_ids\": [\"DGL-E0430\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"max aggregator: an aggregator that, together with mean aggregators, fails to distinguish certain graph structures.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"max aggregator: an aggregator that, together with mean aggregators, fails to distinguish certain graph structures.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0430\"],\n      \"reason\": \"The source caption states that mean and max aggregators fail to distinguish certain graph structures.\"\n    }\n  ],\n  \"warnings\": [\"No further details about the max aggregator are supported by the provided source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:48:09.370486+00:00"
+}

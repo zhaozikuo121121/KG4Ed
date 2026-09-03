@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f651c52ff8cfe4e97aee61fca46314334c4320c96219637315591623f46d9bca",
+  "concept_id": 386,
+  "concept_name": "eigenvector centrality",
+  "aliases": [
+    "eigenvector centrality",
+    "centrality measures"
+  ],
+  "profile": "eigenvector centrality: a centrality measure. The material contains the notation 'MAE (Eigenvector centrality)'.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "eigenvector centrality: a centrality measure; also labeled as MAE.",
+    "claims": [
+      {
+        "claim": "Eigenvector centrality is a centrality measure.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "Eigenvector centrality is also labeled as MAE.",
+        "evidence_ids": [
+          "DGL-E0559"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to the label MAE; no further details are supported."
+    ]
+  },
+  "review": {
+    "final_profile": "eigenvector centrality: a centrality measure. The material contains the notation 'MAE (Eigenvector centrality)'.",
+    "sentence_reviews": [
+      {
+        "sentence": "eigenvector centrality: a centrality measure.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic description of eigenvector centrality; not directly defined in the evidence."
+      },
+      {
+        "sentence": "The material contains the notation 'MAE (Eigenvector centrality)'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0559"
+        ],
+        "reason": "The handwritten evidence reads exactly 'MAE (Eigenvector centrality)'."
+      }
+    ],
+    "warnings": [
+      "The exact meaning of MAE is not defined; it may be an abbreviation or annotation rather than a synonym.",
+      "Only the notation is supported; no additional properties or applications of eigenvector centrality are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"eigenvector centrality: a centrality measure; also labeled as MAE.\",\n  \"claims\": [\n    {\n      \"claim\": \"Eigenvector centrality is a centrality measure.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"Eigenvector centrality is also labeled as MAE.\",\n      \"evidence_ids\": [\"DGL-E0559\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to the label MAE; no further details are supported.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"eigenvector centrality: a centrality measure. The material contains the notation 'MAE (Eigenvector centrality)'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"eigenvector centrality: a centrality measure.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic description of eigenvector centrality; not directly defined in the evidence.\"\n    },\n    {\n      \"sentence\": \"The material contains the notation 'MAE (Eigenvector centrality)'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0559\"],\n      \"reason\": \"The handwritten evidence reads exactly 'MAE (Eigenvector centrality)'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact meaning of MAE is not defined; it may be an abbreviation or annotation rather than a synonym.\",\n    \"Only the notation is supported; no additional properties or applications of eigenvector centrality are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:14:15.557732+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "59c2b683cbd2430477b6bc836a87748b5a72a3320474fece933438d6c4be1ed1",
+  "concept_id": 82,
+  "concept_name": "least absolute deviations",
+  "aliases": [
+    "least absolute deviations",
+    "least absolute deviations cost"
+  ],
+  "profile": "least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.",
+    "claims": [
+      {
+        "claim": "least absolute deviations is a cost discussed in the context of linear regression",
+        "evidence_ids": [
+          "MLR-E0095"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "the discussion includes least squares and least absolute deviations costs",
+        "evidence_ids": [
+          "MLR-E0095"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.",
+    "sentence_reviews": [
+      {
+        "sentence": "least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0095"
+        ],
+        "reason": "The source mentions a discussion of Least Squares and Least Absolute Deviations costs in the linear regression chapter."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.\",\n  \"claims\": [\n    {\n      \"claim\": \"least absolute deviations is a cost discussed in the context of linear regression\",\n      \"evidence_ids\": [\"MLR-E0095\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"the discussion includes least squares and least absolute deviations costs\",\n      \"evidence_ids\": [\"MLR-E0095\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"least absolute deviations: a cost discussed in the context of linear regression, alongside least squares.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0095\"],\n      \"reason\": \"The source mentions a discussion of Least Squares and Least Absolute Deviations costs in the linear regression chapter.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:52:08.699864+00:00"
+}

@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "36f88b50575b23e539f415c5aa745c8383ad99d61f8bcd879bfe22039df554b1",
+  "concept_id": 137,
+  "concept_name": "precision",
+  "aliases": [
+    "precision",
+    "a+1",
+    "specificity"
+  ],
+  "profile": "precision: In machine learning jargon, precision is an individual accuracy metric, also called A+1. It is paired with specificity, also called A−1.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "precision: In machine learning jargon, precision is an individual accuracy metric, also called A+1. It is paired with specificity, also called A−1.",
+    "claims": [
+      {
+        "claim": "Precision is an individual accuracy metric in machine learning jargon.",
+        "evidence_ids": [
+          "MLR-E0153"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Precision is also called A+1.",
+        "evidence_ids": [
+          "MLR-E0153"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Precision is paired with specificity, which is called A−1.",
+        "evidence_ids": [
+          "MLR-E0153"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "precision: In machine learning jargon, precision is an individual accuracy metric, also called A+1. It is paired with specificity, also called A−1.",
+    "sentence_reviews": [
+      {
+        "sentence": "In machine learning jargon, precision is an individual accuracy metric, also called A+1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0153"
+        ],
+        "reason": "Source states that these individual accuracy metrics are often called precision (A+1)."
+      },
+      {
+        "sentence": "It is paired with specificity, also called A−1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0153"
+        ],
+        "reason": "Source states precision and specificity are individual accuracy metrics, named A+1 and A−1 respectively."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"precision: In machine learning jargon, precision is an individual accuracy metric, also called A+1. It is paired with specificity, also called A−1.\",\n  \"claims\": [\n    {\n      \"claim\": \"Precision is an individual accuracy metric in machine learning jargon.\",\n      \"evidence_ids\": [\"MLR-E0153\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Precision is also called A+1.\",\n      \"evidence_ids\": [\"MLR-E0153\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Precision is paired with specificity, which is called A−1.\",\n      \"evidence_ids\": [\"MLR-E0153\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"precision: In machine learning jargon, precision is an individual accuracy metric, also called A+1. It is paired with specificity, also called A−1.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In machine learning jargon, precision is an individual accuracy metric, also called A+1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0153\"],\n      \"reason\": \"Source states that these individual accuracy metrics are often called precision (A+1).\"\n    },\n    {\n      \"sentence\": \"It is paired with specificity, also called A−1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0153\"],\n      \"reason\": \"Source states precision and specificity are individual accuracy metrics, named A+1 and A−1 respectively.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:19:33.705492+00:00"
+}

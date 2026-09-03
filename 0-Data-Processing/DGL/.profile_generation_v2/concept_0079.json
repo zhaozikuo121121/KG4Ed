@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6624b2f0d548de4ef15b9ffbddfe27afc8fc210fab8274b2df694c2af8814eee",
+  "concept_id": 79,
+  "concept_name": "dimensionality reduction",
+  "aliases": [
+    "dimensionality reduction",
+    "lower-dimensional spanning space"
+  ],
+  "profile": "dimensionality reduction: A representation that uses a lower-dimensional spanning space. The spanning space has dimension K, and the data space has dimension d, with K less than d. The lower-dimensional spanning space is imperfect.",
+  "word_count": 34,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "dimensionality reduction: A representation that uses an imperfect lower-dimensional spanning space. The spanning space has dimension K, and the original data space has dimension d, with K less than d. Because the spanning space is lower-dimensional, it is an imperfect approximation of the original space. This captures the essential idea of reducing dimensionality while accepting some information loss.",
+    "claims": [
+      {
+        "claim": "Dimensionality reduction uses a lower-dimensional spanning space.",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The spanning space has dimension K, and the original data space has dimension d, with K less than d.",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The lower-dimensional spanning space is an imperfect approximation of the original space.",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not explicitly define d as the original dimension; it is inferred from K < d."
+    ]
+  },
+  "review": {
+    "final_profile": "dimensionality reduction: A representation that uses a lower-dimensional spanning space. The spanning space has dimension K, and the data space has dimension d, with K less than d. The lower-dimensional spanning space is imperfect.",
+    "sentence_reviews": [
+      {
+        "sentence": "dimensionality reduction: A representation that uses a lower-dimensional spanning space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "reason": "The evidence describes a lower-dimensional spanning space."
+      },
+      {
+        "sentence": "The spanning space has dimension K, and the data space has dimension d, with K less than d.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "reason": "The evidence states K < d and refers to the spanning space as lower-dimensional."
+      },
+      {
+        "sentence": "The lower-dimensional spanning space is imperfect.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0101"
+        ],
+        "reason": "The evidence explicitly calls the K < d lower-dimensional spanning space imperfect."
+      }
+    ],
+    "warnings": [
+      "The identity of d as the data-space dimension is inferred from the K < d notation rather than explicitly stated."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"dimensionality reduction: A representation that uses an imperfect lower-dimensional spanning space. The spanning space has dimension K, and the original data space has dimension d, with K less than d. Because the spanning space is lower-dimensional, it is an imperfect approximation of the original space. This captures the essential idea of reducing dimensionality while accepting some information loss.\",\n  \"claims\": [\n    {\n      \"claim\": \"Dimensionality reduction uses a lower-dimensional spanning space.\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The spanning space has dimension K, and the original data space has dimension d, with K less than d.\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The lower-dimensional spanning space is an imperfect approximation of the original space.\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not explicitly define d as the original dimension; it is inferred from K < d.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"dimensionality reduction: A representation that uses a lower-dimensional spanning space. The spanning space has dimension K, and the data space has dimension d, with K less than d. The lower-dimensional spanning space is imperfect.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"dimensionality reduction: A representation that uses a lower-dimensional spanning space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"reason\": \"The evidence describes a lower-dimensional spanning space.\"\n    },\n    {\n      \"sentence\": \"The spanning space has dimension K, and the data space has dimension d, with K less than d.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"reason\": \"The evidence states K < d and refers to the spanning space as lower-dimensional.\"\n    },\n    {\n      \"sentence\": \"The lower-dimensional spanning space is imperfect.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0101\"],\n      \"reason\": \"The evidence explicitly calls the K < d lower-dimensional spanning space imperfect.\"\n    }\n  ],\n  \"warnings\": [\n    \"The identity of d as the data-space dimension is inferred from the K < d notation rather than explicitly stated.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:19:11.105830+00:00"
+}

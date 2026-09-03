@@ -1,0 +1,36 @@
+project_root: "${PROJECT_ROOT:-.}"
+dataset_name: "universitycourse"
+
+seed: 42
+device: auto
+
+profile:
+  prompt_version: "profile_v3"
+
+stage0_outputs_dir: "stage0/outputs_universitycourse"
+stage1_outputs_dir: "stage1/outputs_universitycourse"
+stage3_outputs_dir: "stage3/outputs_moocml_to_universitycourse"
+
+checkpoint_dir: "stage2/checkpoints_moocml"
+content_checkpoint: "stage2/checkpoints_moocml/content_final.pt"
+graph_checkpoint: "stage2/checkpoints_moocml/graph_final.pt"
+fusion_params_path: "stage2/outputs_moocml/fusion_params.json"
+
+content_model_name: allenai/scibert_scivocab_uncased
+content_max_length: 384
+content_batch_size: 8
+content_dropout: 0.1
+
+model_type: rel_graphsage
+num_relations: 4
+graph_hidden_dim: 128
+graph_latent_dim: 64
+graph_dropout: 0.2
+decoder_type: diagonal_bilinear
+decoder_dropout: 0.2
+graphsage_layers: 2
+semantic_top_k: 10
+semantic_top_k_fallback: 15
+semantic_connectivity_threshold: 0.9
+use_graph_calibration: true
+

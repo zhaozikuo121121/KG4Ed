@@ -1,0 +1,131 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "bb23aefeb94dfc90c01da2bfee75085560ec62fca9f3a487ef343715ac7d2923",
+  "concept_id": 67,
+  "concept_name": "graph neural network",
+  "aliases": [
+    "graph neural network",
+    "gnn",
+    "gcn",
+    "deep graph learning",
+    "graph convolutional network"
+  ],
+  "profile": "graph neural network: A graph neural network (GNN) is used for graph-based learning and prediction tasks. The graph convolutional network (GCN) is a GNN model. GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings. Each GCN layer is permutation invariant. GCNs support deep, sequential node representation learning.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph neural network: A graph neural network (GNN) is used for graph-based learning and prediction tasks. Its GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings. Each GCN layer is permutation invariant. GNNs support deep, sequential node representation learning, and models include the graph convolutional network (GCN) (Kipf & Welling, 2017).",
+    "claims": [
+      {
+        "claim": "A graph neural network (GNN) is used for graph-based learning and prediction tasks.",
+        "evidence_ids": [
+          "DGL-E0072",
+          "DGL-E0209"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Its GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings.",
+        "evidence_ids": [
+          "DGL-E0279",
+          "DGL-E0295",
+          "DGL-E0347",
+          "DGL-E0489"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Each GCN layer is permutation invariant.",
+        "evidence_ids": [
+          "DGL-E0404"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "GNNs support deep, sequential node representation learning.",
+        "evidence_ids": [
+          "DGL-E0195"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Models include the graph convolutional network (GCN) (Kipf & Welling, 2017).",
+        "evidence_ids": [
+          "DGL-E0441"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph neural network: A graph neural network (GNN) is used for graph-based learning and prediction tasks. The graph convolutional network (GCN) is a GNN model. GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings. Each GCN layer is permutation invariant. GCNs support deep, sequential node representation learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph neural network (GNN) is used for graph-based learning and prediction tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0072",
+          "DGL-E0209"
+        ],
+        "reason": "Slide/page titles link GNNs to graph learning and prediction tasks."
+      },
+      {
+        "sentence": "The graph convolutional network (GCN) is a GNN model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0134",
+          "DGL-E0273",
+          "DGL-E0441"
+        ],
+        "reason": "GCN appears in GNN diagrams and slide text, and a slide refers to GNN models in a GCN context."
+      },
+      {
+        "sentence": "GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0279",
+          "DGL-E0295",
+          "DGL-E0347",
+          "DGL-E0489"
+        ],
+        "reason": "Source text identifies graph-based aggregation as the GNN hallmark and gives a GCN node embedding rule."
+      },
+      {
+        "sentence": "Each GCN layer is permutation invariant.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0404"
+        ],
+        "reason": "Explicit source statement that each GCN layer computing its embedding is permutation invariant."
+      },
+      {
+        "sentence": "GCNs support deep, sequential node representation learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0195"
+        ],
+        "reason": "Slide text 'Deep (sequential) node representation learning' appears in GCN layer mechanics context."
+      }
+    ],
+    "warnings": [
+      "The statement that GCN is a GNN model is inferred from GCN labels, GNN diagram usage, and slide text rather than an explicit formal definition.",
+      "The deep, sequential node representation learning point comes from a slide heading and may be most directly tied to GCN layer mechanics."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph neural network: A graph neural network (GNN) is used for graph-based learning and prediction tasks. Its GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings. Each GCN layer is permutation invariant. GNNs support deep, sequential node representation learning, and models include the graph convolutional network (GCN) (Kipf & Welling, 2017).\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph neural network (GNN) is used for graph-based learning and prediction tasks.\",\n      \"evidence_ids\": [\"DGL-E0072\", \"DGL-E0209\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Its GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings.\",\n      \"evidence_ids\": [\"DGL-E0279\", \"DGL-E0295\", \"DGL-E0347\", \"DGL-E0489\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Each GCN layer is permutation invariant.\",\n      \"evidence_ids\": [\"DGL-E0404\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"GNNs support deep, sequential node representation learning.\",\n      \"evidence_ids\": [\"DGL-E0195\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Models include the graph convolutional network (GCN) (Kipf & Welling, 2017).\",\n      \"evidence_ids\": [\"DGL-E0441\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph neural network: A graph neural network (GNN) is used for graph-based learning and prediction tasks. The graph convolutional network (GCN) is a GNN model. GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings. Each GCN layer is permutation invariant. GCNs support deep, sequential node representation learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph neural network (GNN) is used for graph-based learning and prediction tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0072\", \"DGL-E0209\"],\n      \"reason\": \"Slide/page titles link GNNs to graph learning and prediction tasks.\"\n    },\n    {\n      \"sentence\": \"The graph convolutional network (GCN) is a GNN model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0134\", \"DGL-E0273\", \"DGL-E0441\"],\n      \"reason\": \"GCN appears in GNN diagrams and slide text, and a slide refers to GNN models in a GCN context.\"\n    },\n    {\n      \"sentence\": \"GCN layers perform graph-based aggregation, a GNN hallmark, to compute node embeddings.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0279\", \"DGL-E0295\", \"DGL-E0347\", \"DGL-E0489\"],\n      \"reason\": \"Source text identifies graph-based aggregation as the GNN hallmark and gives a GCN node embedding rule.\"\n    },\n    {\n      \"sentence\": \"Each GCN layer is permutation invariant.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0404\"],\n      \"reason\": \"Explicit source statement that each GCN layer computing its embedding is permutation invariant.\"\n    },\n    {\n      \"sentence\": \"GCNs support deep, sequential node representation learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0195\"],\n      \"reason\": \"Slide text 'Deep (sequential) node representation learning' appears in GCN layer mechanics context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The statement that GCN is a GNN model is inferred from GCN labels, GNN diagram usage, and slide text rather than an explicit formal definition.\",\n    \"The deep, sequential node representation learning point comes from a slide heading and may be most directly tied to GCN layer mechanics.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:13:04.421286+00:00"
+}

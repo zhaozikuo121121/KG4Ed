@@ -1,0 +1,2141 @@
+{
+  "version": "1.0.0",
+  "lecture": 1,
+  "pdf_file": "DGL_Lecture_1_Annotated.pdf",
+  "pdf_page": 3,
+  "page_title": "Graph Neural Network Prediction Tasks",
+  "summary": "This page details three primary prediction tasks in Deep Graph Learning: graph classification, node classification, and edge prediction. It illustrates how Graph Neural Networks (GNNs) generate node embeddings which are then processed via pooling or dot products to produce outputs for these tasks. The page also provides the mathematical definitions for the logistic activation (sigmoid) function and its derivative, which are used to map network outputs to probabilities.",
+  "key_topics": [
+    "graph classification",
+    "node classification",
+    "edge prediction",
+    "node embedding",
+    "logistic activation"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T09:28:03+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "classify a graph",
+        "graph-level prediction"
+      ],
+      "evidence": "Printed heading 'Graph classification' and handwritten note 'classify a graph (e.g., molecule poisoning or not)'.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        0.0,
+        275.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "node classification",
+      "aliases": [
+        "classify node",
+        "node-level prediction"
+      ],
+      "evidence": "Printed heading 'Node classification' and handwritten note 'Classify node from node embedding'.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        0.0,
+        550.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "node representation",
+        "embeddings",
+        "learned representation"
+      ],
+      "evidence": "Handwritten label 'node embedding' pointing to vector h_k^(n) and printed text 'embedding of m' and 'embedding of n'.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "canonical": "edge prediction",
+      "aliases": [
+        "link prediction",
+        "edge-level prediction"
+      ],
+      "evidence": "Printed heading 'Edge prediction' and diagram showing prediction of edge presence between nodes 1 and 2.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        730.5,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn"
+      ],
+      "evidence": "Diagram label 'Graph neural network' with an arrow indicating the transformation process.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        110.0,
+        110.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "fixed adjacency matrix",
+      "aliases": [
+        "a = fixed"
+      ],
+      "evidence": "Handwritten note 'A = fixed' under the graph diagrams, indicating the structure does not change during the specific operation shown.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        110.0,
+        220.0,
+        220.0,
+        247.5
+      ]
+    },
+    {
+      "canonical": "logistic activation",
+      "aliases": [
+        "sigmoid",
+        "sigmoid function"
+      ],
+      "evidence": "Printed text 'Logistic activation (sigmoid)' and handwritten formula usage 'y = sig[...]'.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        275.0,
+        275.0,
+        330.0
+      ]
+    },
+    {
+      "canonical": "average pooling",
+      "aliases": [
+        "mean pooling"
+      ],
+      "evidence": "Handwritten note 'average / mean pooling' pointing to the operation involving the '1' vector and scalar N.",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        220.0,
+        275.0,
+        330.0,
+        330.0
+      ]
+    },
+    {
+      "canonical": "dot product",
+      "aliases": [
+        "inner product"
+      ],
+      "evidence": "Formula h^(m)T h^(n) representing the dot product between two node embeddings for edge prediction.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        730.5,
+        275.0,
+        945.0,
+        385.0
+      ]
+    },
+    {
+      "canonical": "predicted class probability",
+      "aliases": [
+        "output probability"
+      ],
+      "evidence": "Handwritten note 'predicted class probability' pointing to the output $y$.",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        0.0,
+        302.5,
+        82.5,
+        357.5
+      ]
+    },
+    {
+      "canonical": "binary classification",
+      "aliases": [
+        "0/1 prediction"
+      ],
+      "evidence": "Handwritten note 'prob. of link existence' and output y^(mn) ∈ {0, 1}, indicating a binary classification task.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        730.5,
+        330.0,
+        945.0,
+        495.0
+      ]
+    },
+    {
+      "canonical": "learned weights",
+      "aliases": [
+        "parameters"
+      ],
+      "evidence": "Printed text 'learned weights' and handwritten symbol omega_K.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        780.0,
+        165.0,
+        796.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "y = \\text{sig} \\left[ \\beta_K + \\omega_K H_K \\mathbf{1} / N \\right]",
+      "related_concepts": [
+        "graph classification",
+        "logistic activation",
+        "average pooling",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        27.5,
+        247.5,
+        247.5,
+        302.5
+      ],
+      "label": "Graph Classification Output"
+    },
+    {
+      "latex": "y^{(n)} = \\text{sig} \\left[ \\beta_K + \\omega_K h_K^{(n)} \\right]",
+      "related_concepts": [
+        "node classification",
+        "logistic activation",
+        "learned weights",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        302.5,
+        247.5,
+        522.5,
+        302.5
+      ],
+      "label": "Node Classification Output"
+    },
+    {
+      "latex": "\\omega_K \\times H_K \\times \\frac{1}{N}\\mathbf{1} = \\text{scalar}",
+      "related_concepts": [
+        "average pooling",
+        "node embedding",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        0.0,
+        357.5,
+        275.0,
+        467.5
+      ],
+      "label": "Pooling Operation Detail"
+    },
+    {
+      "latex": "y^{(mn)} = \\text{sig} \\left[ h^{(m)T} h^{(n)} \\right]",
+      "related_concepts": [
+        "edge prediction",
+        "logistic activation",
+        "dot product",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        730.5,
+        275.0,
+        945.0,
+        357.5
+      ],
+      "label": "Edge prediction output"
+    },
+    {
+      "latex": "\\sigma(x) = \\frac{1}{1 + e^{-x}}",
+      "related_concepts": [
+        "logistic activation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        560.0,
+        275.0,
+        604.0
+      ],
+      "label": "sigmoid function"
+    },
+    {
+      "latex": "\\frac{d}{dx}\\sigma(x) = \\sigma(x) \\cdot (1 - \\sigma(x))",
+      "related_concepts": [
+        "logistic activation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        642.5,
+        330.0,
+        686.5
+      ],
+      "label": "derivative of sigmoid"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "graph example",
+      "description": "Diagram showing a graph with 6 nodes and input features being processed by a Graph Neural Network to produce a single classification vector (Class 1, 2, 3 probabilities).",
+      "related_concepts": [
+        "graph classification",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        82.5,
+        275.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Diagram showing a graph where a specific node (node 4) is highlighted, and the network outputs an embedding/classification for that specific node.",
+      "related_concepts": [
+        "node classification",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        82.5,
+        550.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Visual breakdown of the matrix multiplication for pooling: Learned weights ($1 \\times D$) multiplied by Node Embeddings matrix ($D \\times N$) multiplied by a '1' vector ($N \\times 1$) scaled by $1/N$.",
+      "related_concepts": [
+        "average pooling",
+        "node embedding",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        0.0,
+        330.0,
+        275.0,
+        495.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram illustrating node classification, where a graph neural network produces node embeddings, and the embedding of a specific node (node 4) is used to predict its class label.",
+      "related_concepts": [
+        "node classification",
+        "node embedding",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        55.0,
+        719.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram illustrating edge prediction, where a graph neural network produces node embeddings, and the embeddings of two adjacent nodes (1 and 2) are used to predict the presence of an edge between them.",
+      "related_concepts": [
+        "edge prediction",
+        "node embedding",
+        "graph neural network",
+        "dot product"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        730.5,
+        55.0,
+        1000.0,
+        247.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Plot of the logistic activation (sigmoid) function showing the smooth transition from 0 to 1",
+      "related_concepts": [
+        "logistic activation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        560.0,
+        137.5,
+        642.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Plot of the derivative of the logistic activation function",
+      "related_concepts": [
+        "logistic activation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        648.0,
+        137.5,
+        730.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "A hand-drawn graph with nodes and edges illustrating different prediction tasks: link prediction (dotted edge), node-level tasks (colored node), and graph-level tasks (enclosing boundary).",
+      "related_concepts": [
+        "node classification",
+        "edge prediction",
+        "graph classification"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        725.0,
+        780.0,
+        917.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "poisoning",
+      "reason": "Handwritten word in the example 'molecule poisoning or not' is slightly scribbled, though contextually clear.",
+      "bbox": [
+        192.5,
+        44.0,
+        247.5,
+        66.0
+      ]
+    },
+    {
+      "transcription": "h_K^(n)",
+      "reason": "Superscript notation in the node classification formula is small and handwritten.",
+      "bbox": [
+        467.5,
+        275.0,
+        495.0,
+        291.5
+      ]
+    },
+    {
+      "transcription": "\"cat\"",
+      "reason": "Handwritten text in quotes above node 1 in the node classification diagram is ambiguous.",
+      "bbox": [
+        642.5,
+        55.0,
+        670.0,
+        82.5
+      ]
+    },
+    {
+      "transcription": "\"dog\"",
+      "reason": "Handwritten text in quotes below node 2 in the node classification diagram is ambiguous.",
+      "bbox": [
+        615.0,
+        192.5,
+        642.5,
+        220.0
+      ]
+    },
+    {
+      "transcription": "c_K^(n)",
+      "reason": "The subscript and superscript in the node embedding computation formula are slightly unclear.",
+      "bbox": [
+        587.5,
+        385.0,
+        615.0,
+        412.5
+      ]
+    },
+    {
+      "transcription": "smooths of a step function",
+      "reason": "Handwriting is somewhat unclear, especially the word 'smooths'",
+      "bbox": [
+        82.5,
+        560.0,
+        137.5,
+        587.5
+      ]
+    },
+    {
+      "transcription": "classification",
+      "reason": "Handwriting is somewhat unclear, but context suggests 'classification'",
+      "bbox": [
+        137.5,
+        615.0,
+        192.5,
+        631.5
+      ]
+    },
+    {
+      "transcription": "ksr node",
+      "reason": "Handwriting is ambiguous; could be 'key node', 'test node', or an abbreviation.",
+      "bbox": [
+        505.0,
+        769.0,
+        532.5,
+        796.5
+      ]
+    },
+    {
+      "transcription": "training nodes",
+      "reason": "Handwriting is slightly unclear, but context suggests 'training nodes'.",
+      "bbox": [
+        752.5,
+        725.0,
+        807.5,
+        752.5
+      ]
+    },
+    {
+      "transcription": "generate another graph from th",
+      "reason": "The last word is cut off or abbreviated, likely 'them'.",
+      "bbox": [
+        807.5,
+        846.0,
+        917.5,
+        917.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "classify a graph"
+            ],
+            "evidence": "Printed heading 'Graph classification' and handwritten note 'classify a graph (e.g., molecule poisoning or not)'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              500,
+              150
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "classify node"
+            ],
+            "evidence": "Printed heading 'Node classification' and handwritten note 'Classify node from node embedding'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              0,
+              1000,
+              150
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Diagram label 'Graph neural network' with an arrow indicating the transformation process.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              200,
+              300
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "Handwritten label 'learned weights' pointing to matrix $\\omega_K$ and vector $\\beta_K$.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              600,
+              150,
+              750
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "embeddings",
+              "learned representation"
+            ],
+            "evidence": "Handwritten note 'learned representation = embedding' and label 'node embedding' pointing to matrix columns.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              600,
+              400,
+              800
+            ]
+          },
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid",
+              "sig"
+            ],
+            "evidence": "Printed text 'Logistic activation (sigmoid)' and handwritten formula usage 'y = sig[...]'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              500,
+              500,
+              600
+            ]
+          },
+          {
+            "canonical": "average pooling",
+            "aliases": [
+              "mean pooling",
+              "1/N vector"
+            ],
+            "evidence": "Handwritten note 'average / mean pooling' pointing to the operation involving the '1' vector and scalar N.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              500,
+              600,
+              600
+            ]
+          },
+          {
+            "canonical": "predicted class probability",
+            "aliases": [
+              "output probability"
+            ],
+            "evidence": "Handwritten note 'predicted class probability' pointing to the output $y$.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              550,
+              150,
+              650
+            ]
+          },
+          {
+            "canonical": "fixed adjacency matrix",
+            "aliases": [
+              "A = fixed"
+            ],
+            "evidence": "Handwritten note 'A = fixed' under the graph diagrams, indicating the structure does not change during the specific operation shown.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              400,
+              400,
+              450
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = \\text{sig} \\left[ \\beta_K + \\omega_K H_K \\mathbf{1} / N \\right]",
+            "related_concepts": [
+              "graph classification",
+              "logistic activation",
+              "average pooling",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              450,
+              450,
+              550
+            ],
+            "label": "Graph Classification Output"
+          },
+          {
+            "latex": "y^{(n)} = \\text{sig} \\left[ \\beta_K + \\omega_K h_K^{(n)} \\right]",
+            "related_concepts": [
+              "node classification",
+              "logistic activation",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              450,
+              950,
+              550
+            ],
+            "label": "Node Classification Output"
+          },
+          {
+            "latex": "\\omega_K \\times H_K \\times \\frac{1}{N}\\mathbf{1} = \\text{scalar}",
+            "related_concepts": [
+              "average pooling",
+              "node embedding",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              650,
+              500,
+              850
+            ],
+            "label": "Pooling Operation Detail"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Diagram showing a graph with 6 nodes and input features being processed by a Graph Neural Network to produce a single classification vector (Class 1, 2, 3 probabilities).",
+            "related_concepts": [
+              "graph classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              150,
+              500,
+              400
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram showing a graph where a specific node (node 4) is highlighted, and the network outputs an embedding/classification for that specific node.",
+            "related_concepts": [
+              "node classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              1000,
+              400
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Visual breakdown of the matrix multiplication for pooling: Learned weights ($1 \\times D$) multiplied by Node Embeddings matrix ($D \\times N$) multiplied by a '1' vector ($N \\times 1$) scaled by $1/N$.",
+            "related_concepts": [
+              "average pooling",
+              "node embedding",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              600,
+              500,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "poisoning",
+            "reason": "Handwritten word in the example 'molecule poisoning or not' is slightly scribbled, though contextually clear.",
+            "bbox": [
+              350,
+              80,
+              450,
+              120
+            ]
+          },
+          {
+            "transcription": "h_K^(n)",
+            "reason": "Superscript notation in the node classification formula is small and handwritten.",
+            "bbox": [
+              850,
+              500,
+              900,
+              530
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"classify a graph\"],\n      \"evidence\": \"Printed heading 'Graph classification' and handwritten note 'classify a graph (e.g., molecule poisoning or not)'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 500, 150]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"classify node\"],\n      \"evidence\": \"Printed heading 'Node classification' and handwritten note 'Classify node from node embedding'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 0, 1000, 150]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Diagram label 'Graph neural network' with an arrow indicating the transformation process.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 200, 300]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"Handwritten label 'learned weights' pointing to matrix $\\\\omega_K$ and vector $\\\\beta_K$.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 600, 150, 750]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"embeddings\", \"learned representation\"],\n      \"evidence\": \"Handwritten note 'learned representation = embedding' and label 'node embedding' pointing to matrix columns.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 600, 400, 800]\n    },\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\"sigmoid\", \"sig\"],\n      \"evidence\": \"Printed text 'Logistic activation (sigmoid)' and handwritten formula usage 'y = sig[...]'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 500, 500, 600]\n    },\n    {\n      \"canonical\": \"average pooling\",\n      \"aliases\": [\"mean pooling\", \"1/N vector\"],\n      \"evidence\": \"Handwritten note 'average / mean pooling' pointing to the operation involving the '1' vector and scalar N.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 500, 600, 600]\n    },\n    {\n      \"canonical\": \"predicted class probability\",\n      \"aliases\": [\"output probability\"],\n      \"evidence\": \"Handwritten note 'predicted class probability' pointing to the output $y$.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 550, 150, 650]\n    },\n    {\n      \"canonical\": \"fixed adjacency matrix\",\n      \"aliases\": [\"A = fixed\"],\n      \"evidence\": \"Handwritten note 'A = fixed' under the graph diagrams, indicating the structure does not change during the specific operation shown.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 400, 400, 450]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = \\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K H_K \\\\mathbf{1} / N \\\\right]\",\n      \"related_concepts\": [\"graph classification\", \"logistic activation\", \"average pooling\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 450, 450, 550],\n      \"label\": \"Graph Classification Output\"\n    },\n    {\n      \"latex\": \"y^{(n)} = \\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K h_K^{(n)} \\\\right]\",\n      \"related_concepts\": [\"node classification\", \"logistic activation\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 450, 950, 550],\n      \"label\": \"Node Classification Output\"\n    },\n    {\n      \"latex\": \"\\\\omega_K \\\\times H_K \\\\times \\\\frac{1}{N}\\\\mathbf{1} = \\\\text{scalar}\",\n      \"related_concepts\": [\"average pooling\", \"node embedding\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 650, 500, 850],\n      \"label\": \"Pooling Operation Detail\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram showing a graph with 6 nodes and input features being processed by a Graph Neural Network to produce a single classification vector (Class 1, 2, 3 probabilities).\",\n      \"related_concepts\": [\"graph classification\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 150, 500, 400]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram showing a graph where a specific node (node 4) is highlighted, and the network outputs an embedding/classification for that specific node.\",\n      \"related_concepts\": [\"node classification\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 1000, 400]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Visual breakdown of the matrix multiplication for pooling: Learned weights ($1 \\\\times D$) multiplied by Node Embeddings matrix ($D \\\\times N$) multiplied by a '1' vector ($N \\\\times 1$) scaled by $1/N$.\",\n      \"related_concepts\": [\"average pooling\", \"node embedding\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 600, 500, 900]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"poisoning\",\n      \"reason\": \"Handwritten word in the example 'molecule poisoning or not' is slightly scribbled, though contextually clear.\",\n      \"bbox\": [350, 80, 450, 120]\n    },\n    {\n      \"transcription\": \"h_K^(n)\",\n      \"reason\": \"Superscript notation in the node classification formula is small and handwritten.\",\n      \"bbox\": [850, 500, 900, 530]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "node label prediction"
+            ],
+            "evidence": "Printed heading 'Node classification' and diagram showing classification of node 4 based on its embedding.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              490,
+              1000
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [
+              "link prediction"
+            ],
+            "evidence": "Printed heading 'Edge prediction' and diagram showing prediction of edge presence between nodes 1 and 2.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              510,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation",
+              "h_k^(n)"
+            ],
+            "evidence": "Handwritten label 'node embedding' pointing to vector h_k^(n) and printed text 'embedding of m' and 'embedding of n'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [
+              "sig",
+              "sigma",
+              "activation function"
+            ],
+            "evidence": "Printed 'sig' in formulas and handwritten 'sig' and 'σ(x)' indicating the sigmoid activation.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Printed text 'Graph neural network' shown as the process transforming the input graph to embeddings.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              510,
+              200,
+              700,
+              300
+            ]
+          },
+          {
+            "canonical": "dot product",
+            "aliases": [
+              "inner product",
+              "h^(m)T h^(n)"
+            ],
+            "evidence": "Formula h^(m)T h^(n) representing the dot product between two node embeddings for edge prediction.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              510,
+              500,
+              900,
+              700
+            ]
+          },
+          {
+            "canonical": "binary classification",
+            "aliases": [
+              "0/1 prediction"
+            ],
+            "evidence": "Handwritten note 'prob. of link existence' and output y^(mn) ∈ {0, 1}, indicating a binary classification task.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              510,
+              600,
+              900,
+              900
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y^{(n)} = \\text{sig} \\left[ \\beta_K + \\omega_K h_K^{(n)} \\right]",
+            "related_concepts": [
+              "node classification",
+              "sigmoid function",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              500,
+              400,
+              600
+            ],
+            "label": "Node classification output"
+          },
+          {
+            "latex": "h_K^{(n)} = \\sigma(c_K^{(n)} + \\beta_K)",
+            "related_concepts": [
+              "node embedding",
+              "sigmoid function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.85,
+            "bbox": [
+              0,
+              650,
+              400,
+              800
+            ],
+            "label": "Node embedding computation"
+          },
+          {
+            "latex": "y^{(mn)} = \\text{sig} \\left[ h^{(m)T} h^{(n)} \\right]",
+            "related_concepts": [
+              "edge prediction",
+              "sigmoid function",
+              "dot product",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              510,
+              500,
+              900,
+              650
+            ],
+            "label": "Edge prediction output"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating node classification, where a graph neural network produces node embeddings, and the embedding of a specific node (node 4) is used to predict its class label.",
+            "related_concepts": [
+              "node classification",
+              "node embedding",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              100,
+              490,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating edge prediction, where a graph neural network produces node embeddings, and the embeddings of two adjacent nodes (1 and 2) are used to predict the presence of an edge between them.",
+            "related_concepts": [
+              "edge prediction",
+              "node embedding",
+              "graph neural network",
+              "dot product"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              510,
+              100,
+              1000,
+              450
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "\"cat\"",
+            "reason": "Handwritten text in quotes above node 1 in the node classification diagram is ambiguous.",
+            "bbox": [
+              350,
+              100,
+              400,
+              150
+            ]
+          },
+          {
+            "transcription": "\"dog\"",
+            "reason": "Handwritten text in quotes below node 2 in the node classification diagram is ambiguous.",
+            "bbox": [
+              300,
+              350,
+              350,
+              400
+            ]
+          },
+          {
+            "transcription": "c_K^(n)",
+            "reason": "The subscript and superscript in the node embedding computation formula are slightly unclear.",
+            "bbox": [
+              250,
+              700,
+              300,
+              750
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"node label prediction\"],\n      \"evidence\": \"Printed heading 'Node classification' and diagram showing classification of node 4 based on its embedding.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 490, 1000]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [\"link prediction\"],\n      \"evidence\": \"Printed heading 'Edge prediction' and diagram showing prediction of edge presence between nodes 1 and 2.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [510, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node representation\", \"h_k^(n)\"],\n      \"evidence\": \"Handwritten label 'node embedding' pointing to vector h_k^(n) and printed text 'embedding of m' and 'embedding of n'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [\"sig\", \"sigma\", \"activation function\"],\n      \"evidence\": \"Printed 'sig' in formulas and handwritten 'sig' and 'σ(x)' indicating the sigmoid activation.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Printed text 'Graph neural network' shown as the process transforming the input graph to embeddings.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [510, 200, 700, 300]\n    },\n    {\n      \"canonical\": \"dot product\",\n      \"aliases\": [\"inner product\", \"h^(m)T h^(n)\"],\n      \"evidence\": \"Formula h^(m)T h^(n) representing the dot product between two node embeddings for edge prediction.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [510, 500, 900, 700]\n    },\n    {\n      \"canonical\": \"binary classification\",\n      \"aliases\": [\"0/1 prediction\"],\n      \"evidence\": \"Handwritten note 'prob. of link existence' and output y^(mn) ∈ {0, 1}, indicating a binary classification task.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [510, 600, 900, 900]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y^{(n)} = \\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K h_K^{(n)} \\\\right]\",\n      \"related_concepts\": [\"node classification\", \"sigmoid function\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 500, 400, 600],\n      \"label\": \"Node classification output\"\n    },\n    {\n      \"latex\": \"h_K^{(n)} = \\\\sigma(c_K^{(n)} + \\\\beta_K)\",\n      \"related_concepts\": [\"node embedding\", \"sigmoid function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.85,\n      \"bbox\": [0, 650, 400, 800],\n      \"label\": \"Node embedding computation\"\n    },\n    {\n      \"latex\": \"y^{(mn)} = \\\\text{sig} \\\\left[ h^{(m)T} h^{(n)} \\\\right]\",\n      \"related_concepts\": [\"edge prediction\", \"sigmoid function\", \"dot product\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [510, 500, 900, 650],\n      \"label\": \"Edge prediction output\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating node classification, where a graph neural network produces node embeddings, and the embedding of a specific node (node 4) is used to predict its class label.\",\n      \"related_concepts\": [\"node classification\", \"node embedding\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 100, 490, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating edge prediction, where a graph neural network produces node embeddings, and the embeddings of two adjacent nodes (1 and 2) are used to predict the presence of an edge between them.\",\n      \"related_concepts\": [\"edge prediction\", \"node embedding\", \"graph neural network\", \"dot product\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [510, 100, 1000, 450]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"\\\"cat\\\"\",\n      \"reason\": \"Handwritten text in quotes above node 1 in the node classification diagram is ambiguous.\",\n      \"bbox\": [350, 100, 400, 150]\n    },\n    {\n      \"transcription\": \"\\\"dog\\\"\",\n      \"reason\": \"Handwritten text in quotes below node 2 in the node classification diagram is ambiguous.\",\n      \"bbox\": [300, 350, 350, 400]\n    },\n    {\n      \"transcription\": \"c_K^(n)\",\n      \"reason\": \"The subscript and superscript in the node embedding computation formula are slightly unclear.\",\n      \"bbox\": [250, 700, 300, 750]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid function",
+              "sigmoid"
+            ],
+            "evidence": "Logistic activation (sigmoid)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              150,
+              200,
+              180
+            ]
+          },
+          {
+            "canonical": "classification",
+            "aliases": [],
+            "evidence": "classification",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              300,
+              350,
+              330
+            ]
+          },
+          {
+            "canonical": "step function",
+            "aliases": [],
+            "evidence": "smooths of a step function",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              150,
+              200,
+              250,
+              250
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [],
+            "evidence": "learned weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              600,
+              300,
+              630
+            ]
+          },
+          {
+            "canonical": "embedding",
+            "aliases": [],
+            "evidence": "embedding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              700,
+              350,
+              730
+            ]
+          },
+          {
+            "canonical": "mapping function",
+            "aliases": [],
+            "evidence": "mapping function",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              750,
+              350,
+              800
+            ]
+          },
+          {
+            "canonical": "key node",
+            "aliases": [],
+            "evidence": "key node",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              600,
+              850,
+              650
+            ]
+          },
+          {
+            "canonical": "prediction",
+            "aliases": [],
+            "evidence": "predict",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              650,
+              800,
+              700
+            ]
+          },
+          {
+            "canonical": "label",
+            "aliases": [],
+            "evidence": "label",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              700,
+              750,
+              750
+            ]
+          },
+          {
+            "canonical": "score",
+            "aliases": [],
+            "evidence": "score",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              700,
+              850,
+              750
+            ]
+          },
+          {
+            "canonical": "regression",
+            "aliases": [],
+            "evidence": "regression",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              750,
+              850,
+              800
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\sigma(x) = \\frac{1}{1 + e^{-x}}",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              200,
+              500,
+              280
+            ],
+            "label": "sigmoid function"
+          },
+          {
+            "latex": "\\frac{d}{dx}\\sigma(x) = \\sigma(x) \\cdot (1 - \\sigma(x))",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              350,
+              600,
+              430
+            ],
+            "label": "derivative of sigmoid"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "plot",
+            "description": "Plot of the logistic activation (sigmoid) function showing the smooth transition from 0 to 1",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              250,
+              350
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot of the derivative of the logistic activation function",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              360,
+              250,
+              510
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating the concept of learned weights and embedding in a mapping function",
+            "related_concepts": [
+              "learned weights",
+              "embedding",
+              "mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              550,
+              500,
+              850
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph example showing key nodes, predictions, labels, scores, and regression",
+            "related_concepts": [
+              "key node",
+              "prediction",
+              "label",
+              "score",
+              "regression"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              550,
+              950,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "smooths of a step function",
+            "reason": "Handwriting is somewhat unclear, especially the word 'smooths'",
+            "bbox": [
+              150,
+              200,
+              250,
+              250
+            ]
+          },
+          {
+            "transcription": "classification",
+            "reason": "Handwriting is somewhat unclear, but context suggests 'classification'",
+            "bbox": [
+              250,
+              300,
+              350,
+              330
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\"sigmoid function\", \"sigmoid\"],\n      \"evidence\": \"Logistic activation (sigmoid)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 150, 200, 180]\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [],\n      \"evidence\": \"classification\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 300, 350, 330]\n    },\n    {\n      \"canonical\": \"step function\",\n      \"aliases\": [],\n      \"evidence\": \"smooths of a step function\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [150, 200, 250, 250]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [],\n      \"evidence\": \"learned weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 600, 300, 630]\n    },\n    {\n      \"canonical\": \"embedding\",\n      \"aliases\": [],\n      \"evidence\": \"embedding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 700, 350, 730]\n    },\n    {\n      \"canonical\": \"mapping function\",\n      \"aliases\": [],\n      \"evidence\": \"mapping function\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 750, 350, 800]\n    },\n    {\n      \"canonical\": \"key node\",\n      \"aliases\": [],\n      \"evidence\": \"key node\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 600, 850, 650]\n    },\n    {\n      \"canonical\": \"prediction\",\n      \"aliases\": [],\n      \"evidence\": \"predict\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 650, 800, 700]\n    },\n    {\n      \"canonical\": \"label\",\n      \"aliases\": [],\n      \"evidence\": \"label\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 700, 750, 750]\n    },\n    {\n      \"canonical\": \"score\",\n      \"aliases\": [],\n      \"evidence\": \"score\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 700, 850, 750]\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [],\n      \"evidence\": \"regression\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 750, 850, 800]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\sigma(x) = \\\\frac{1}{1 + e^{-x}}\",\n      \"related_concepts\": [\"logistic activation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 200, 500, 280],\n      \"label\": \"sigmoid function\"\n    },\n    {\n      \"latex\": \"\\\\frac{d}{dx}\\\\sigma(x) = \\\\sigma(x) \\\\cdot (1 - \\\\sigma(x))\",\n      \"related_concepts\": [\"logistic activation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 350, 600, 430],\n      \"label\": \"derivative of sigmoid\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot of the logistic activation (sigmoid) function showing the smooth transition from 0 to 1\",\n      \"related_concepts\": [\"logistic activation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 250, 350]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot of the derivative of the logistic activation function\",\n      \"related_concepts\": [\"logistic activation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 360, 250, 510]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating the concept of learned weights and embedding in a mapping function\",\n      \"related_concepts\": [\"learned weights\", \"embedding\", \"mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 550, 500, 850]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph example showing key nodes, predictions, labels, scores, and regression\",\n      \"related_concepts\": [\"key node\", \"prediction\", \"label\", \"score\", \"regression\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 550, 950, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"smooths of a step function\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'smooths'\",\n      \"bbox\": [150, 200, 250, 250]\n    },\n    {\n      \"transcription\": \"classification\",\n      \"reason\": \"Handwriting is somewhat unclear, but context suggests 'classification'\",\n      \"bbox\": [250, 300, 350, 330]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node-level prediction",
+            "aliases": [
+              "node classification",
+              "node regression"
+            ],
+            "evidence": "Handwritten list item '1) node-level' grouped under 'Generalized prediction'",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              190,
+              280,
+              380,
+              330
+            ]
+          },
+          {
+            "canonical": "edge-level prediction",
+            "aliases": [
+              "link prediction"
+            ],
+            "evidence": "Handwritten list item '2) edge-level' grouped under 'Generalized prediction'",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              190,
+              330,
+              380,
+              380
+            ]
+          },
+          {
+            "canonical": "graph-level prediction",
+            "aliases": [
+              "graph classification",
+              "graph regression"
+            ],
+            "evidence": "Handwritten list item '3) graph level' grouped under 'Generalized prediction'",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              190,
+              380,
+              380,
+              430
+            ]
+          },
+          {
+            "canonical": "link prediction",
+            "aliases": [
+              "edge prediction"
+            ],
+            "evidence": "Handwritten label 'link / edge prediction' pointing to a dotted edge between nodes",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              320,
+              450,
+              550,
+              500
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "label prediction"
+            ],
+            "evidence": "Handwritten text 'label / classify' associated with the graph structure",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              580,
+              850,
+              630
+            ]
+          },
+          {
+            "canonical": "node regression",
+            "aliases": [
+              "score prediction"
+            ],
+            "evidence": "Handwritten text 'score / regress' associated with the graph structure",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              650,
+              850,
+              700
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative models"
+            ],
+            "evidence": "Handwritten text 'generate another graph from th[em]' associated with the graph structure",
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              650,
+              720,
+              850,
+              850
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "A hand-drawn graph with nodes and edges illustrating different prediction tasks: link prediction (dotted edge), node-level tasks (colored node), and graph-level tasks (enclosing boundary).",
+            "related_concepts": [
+              "node-level prediction",
+              "edge-level prediction",
+              "graph-level prediction",
+              "link prediction",
+              "node classification",
+              "node regression",
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              500,
+              600,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "ksr node",
+            "reason": "Handwriting is ambiguous; could be 'key node', 'test node', or an abbreviation.",
+            "bbox": [
+              100,
+              580,
+              150,
+              630
+            ]
+          },
+          {
+            "transcription": "training nodes",
+            "reason": "Handwriting is slightly unclear, but context suggests 'training nodes'.",
+            "bbox": [
+              550,
+              500,
+              650,
+              550
+            ]
+          },
+          {
+            "transcription": "generate another graph from th",
+            "reason": "The last word is cut off or abbreviated, likely 'them'.",
+            "bbox": [
+              650,
+              720,
+              850,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node-level prediction\",\n      \"aliases\": [\"node classification\", \"node regression\"],\n      \"evidence\": \"Handwritten list item '1) node-level' grouped under 'Generalized prediction'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [190, 280, 380, 330]\n    },\n    {\n      \"canonical\": \"edge-level prediction\",\n      \"aliases\": [\"link prediction\"],\n      \"evidence\": \"Handwritten list item '2) edge-level' grouped under 'Generalized prediction'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [190, 330, 380, 380]\n    },\n    {\n      \"canonical\": \"graph-level prediction\",\n      \"aliases\": [\"graph classification\", \"graph regression\"],\n      \"evidence\": \"Handwritten list item '3) graph level' grouped under 'Generalized prediction'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [190, 380, 380, 430]\n    },\n    {\n      \"canonical\": \"link prediction\",\n      \"aliases\": [\"edge prediction\"],\n      \"evidence\": \"Handwritten label 'link / edge prediction' pointing to a dotted edge between nodes\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [320, 450, 550, 500]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"label prediction\"],\n      \"evidence\": \"Handwritten text 'label / classify' associated with the graph structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 580, 850, 630]\n    },\n    {\n      \"canonical\": \"node regression\",\n      \"aliases\": [\"score prediction\"],\n      \"evidence\": \"Handwritten text 'score / regress' associated with the graph structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 650, 850, 700]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative models\"],\n      \"evidence\": \"Handwritten text 'generate another graph from th[em]' associated with the graph structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [650, 720, 850, 850]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A hand-drawn graph with nodes and edges illustrating different prediction tasks: link prediction (dotted edge), node-level tasks (colored node), and graph-level tasks (enclosing boundary).\",\n      \"related_concepts\": [\"node-level prediction\", \"edge-level prediction\", \"graph-level prediction\", \"link prediction\", \"node classification\", \"node regression\", \"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 500, 600, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"ksr node\",\n      \"reason\": \"Handwriting is ambiguous; could be 'key node', 'test node', or an abbreviation.\",\n      \"bbox\": [100, 580, 150, 630]\n    },\n    {\n      \"transcription\": \"training nodes\",\n      \"reason\": \"Handwriting is slightly unclear, but context suggests 'training nodes'.\",\n      \"bbox\": [550, 500, 650, 550]\n    },\n    {\n      \"transcription\": \"generate another graph from th\",\n      \"reason\": \"The last word is cut off or abbreviated, likely 'them'.\",\n      \"bbox\": [650, 720, 850, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Neural Network Prediction Tasks",
+        "summary": "This page details three primary prediction tasks in Deep Graph Learning: graph classification, node classification, and edge prediction. It illustrates how Graph Neural Networks (GNNs) generate node embeddings which are then processed via pooling or dot products to produce outputs for these tasks. The page also provides the mathematical definitions for the logistic activation (sigmoid) function and its derivative, which are used to map network outputs to probabilities.",
+        "key_topics": [
+          "graph classification",
+          "node classification",
+          "edge prediction",
+          "node embedding",
+          "logistic activation"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "classify a graph",
+              "graph-level prediction"
+            ],
+            "evidence": "Printed heading 'Graph classification' and handwritten note 'classify a graph (e.g., molecule poisoning or not)'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              0.0,
+              275.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "classify node",
+              "node-level prediction"
+            ],
+            "evidence": "Printed heading 'Node classification' and handwritten note 'Classify node from node embedding'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              0.0,
+              550.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [
+              "link prediction",
+              "edge-level prediction"
+            ],
+            "evidence": "Printed heading 'Edge prediction' and diagram showing prediction of edge presence between nodes 1 and 2.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              730.5,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "Diagram label 'Graph neural network' with an arrow indicating the transformation process.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              110.0,
+              110.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation",
+              "embeddings",
+              "learned representation"
+            ],
+            "evidence": "Handwritten label 'node embedding' pointing to vector h_k^(n) and printed text 'embedding of m' and 'embedding of n'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid",
+              "sigmoid function"
+            ],
+            "evidence": "Printed text 'Logistic activation (sigmoid)' and handwritten formula usage 'y = sig[...]'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              275.0,
+              275.0,
+              330.0
+            ]
+          },
+          {
+            "canonical": "average pooling",
+            "aliases": [
+              "mean pooling"
+            ],
+            "evidence": "Handwritten note 'average / mean pooling' pointing to the operation involving the '1' vector and scalar N.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              220.0,
+              275.0,
+              330.0,
+              330.0
+            ]
+          },
+          {
+            "canonical": "dot product",
+            "aliases": [
+              "inner product"
+            ],
+            "evidence": "Formula h^(m)T h^(n) representing the dot product between two node embeddings for edge prediction.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              730.5,
+              275.0,
+              945.0,
+              385.0
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "Printed text 'learned weights' and handwritten symbol omega_K.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              780.0,
+              165.0,
+              796.5
+            ]
+          },
+          {
+            "canonical": "fixed adjacency matrix",
+            "aliases": [
+              "a = fixed"
+            ],
+            "evidence": "Handwritten note 'A = fixed' under the graph diagrams, indicating the structure does not change during the specific operation shown.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              110.0,
+              220.0,
+              220.0,
+              247.5
+            ]
+          },
+          {
+            "canonical": "binary classification",
+            "aliases": [
+              "0/1 prediction"
+            ],
+            "evidence": "Handwritten note 'prob. of link existence' and output y^(mn) ∈ {0, 1}, indicating a binary classification task.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              730.5,
+              330.0,
+              945.0,
+              495.0
+            ]
+          },
+          {
+            "canonical": "predicted class probability",
+            "aliases": [
+              "output probability"
+            ],
+            "evidence": "Handwritten note 'predicted class probability' pointing to the output $y$.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0.0,
+              302.5,
+              82.5,
+              357.5
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative models"
+            ],
+            "evidence": "Handwritten text 'generate another graph from th[em]' associated with the graph structure",
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              807.5,
+              846.0,
+              917.5,
+              917.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = \\text{sig} \\left[ \\beta_K + \\omega_K H_K \\mathbf{1} / N \\right]",
+            "related_concepts": [
+              "graph classification",
+              "logistic activation",
+              "average pooling",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              27.5,
+              247.5,
+              247.5,
+              302.5
+            ],
+            "label": "Graph Classification Output"
+          },
+          {
+            "latex": "y^{(n)} = \\text{sig} \\left[ \\beta_K + \\omega_K h_K^{(n)} \\right]",
+            "related_concepts": [
+              "node classification",
+              "logistic activation",
+              "learned weights",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              302.5,
+              247.5,
+              522.5,
+              302.5
+            ],
+            "label": "Node Classification Output"
+          },
+          {
+            "latex": "\\omega_K \\times H_K \\times \\frac{1}{N}\\mathbf{1} = \\text{scalar}",
+            "related_concepts": [
+              "average pooling",
+              "node embedding",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0.0,
+              357.5,
+              275.0,
+              467.5
+            ],
+            "label": "Pooling Operation Detail"
+          },
+          {
+            "latex": "y^{(mn)} = \\text{sig} \\left[ h^{(m)T} h^{(n)} \\right]",
+            "related_concepts": [
+              "edge prediction",
+              "logistic activation",
+              "dot product",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              730.5,
+              275.0,
+              945.0,
+              357.5
+            ],
+            "label": "Edge prediction output"
+          },
+          {
+            "latex": "\\sigma(x) = \\frac{1}{1 + e^{-x}}",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              560.0,
+              275.0,
+              604.0
+            ],
+            "label": "sigmoid function"
+          },
+          {
+            "latex": "\\frac{d}{dx}\\sigma(x) = \\sigma(x) \\cdot (1 - \\sigma(x))",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              642.5,
+              330.0,
+              686.5
+            ],
+            "label": "derivative of sigmoid"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Diagram showing a graph with 6 nodes and input features being processed by a Graph Neural Network to produce a single classification vector (Class 1, 2, 3 probabilities).",
+            "related_concepts": [
+              "graph classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              82.5,
+              275.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram showing a graph where a specific node (node 4) is highlighted, and the network outputs an embedding/classification for that specific node.",
+            "related_concepts": [
+              "node classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              82.5,
+              550.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Visual breakdown of the matrix multiplication for pooling: Learned weights ($1 \\times D$) multiplied by Node Embeddings matrix ($D \\times N$) multiplied by a '1' vector ($N \\times 1$) scaled by $1/N$.",
+            "related_concepts": [
+              "average pooling",
+              "node embedding",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0.0,
+              330.0,
+              275.0,
+              495.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating node classification, where a graph neural network produces node embeddings, and the embedding of a specific node (node 4) is used to predict its class label.",
+            "related_concepts": [
+              "node classification",
+              "node embedding",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              55.0,
+              719.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating edge prediction, where a graph neural network produces node embeddings, and the embeddings of two adjacent nodes (1 and 2) are used to predict the presence of an edge between them.",
+            "related_concepts": [
+              "edge prediction",
+              "node embedding",
+              "graph neural network",
+              "dot product"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              730.5,
+              55.0,
+              1000.0,
+              247.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot of the logistic activation (sigmoid) function showing the smooth transition from 0 to 1",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              560.0,
+              137.5,
+              642.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot of the derivative of the logistic activation function",
+            "related_concepts": [
+              "logistic activation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              648.0,
+              137.5,
+              730.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A hand-drawn graph with nodes and edges illustrating different prediction tasks: link prediction (dotted edge), node-level tasks (colored node), and graph-level tasks (enclosing boundary).",
+            "related_concepts": [
+              "node classification",
+              "edge prediction",
+              "graph classification",
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              725.0,
+              780.0,
+              917.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "poisoning",
+            "reason": "Handwritten word in the example 'molecule poisoning or not' is slightly scribbled, though contextually clear.",
+            "bbox": [
+              192.5,
+              44.0,
+              247.5,
+              66.0
+            ]
+          },
+          {
+            "transcription": "h_K^(n)",
+            "reason": "Superscript notation in the node classification formula is small and handwritten.",
+            "bbox": [
+              467.5,
+              275.0,
+              495.0,
+              291.5
+            ]
+          },
+          {
+            "transcription": "\"cat\"",
+            "reason": "Handwritten text in quotes above node 1 in the node classification diagram is ambiguous.",
+            "bbox": [
+              642.5,
+              55.0,
+              670.0,
+              82.5
+            ]
+          },
+          {
+            "transcription": "\"dog\"",
+            "reason": "Handwritten text in quotes below node 2 in the node classification diagram is ambiguous.",
+            "bbox": [
+              615.0,
+              192.5,
+              642.5,
+              220.0
+            ]
+          },
+          {
+            "transcription": "c_K^(n)",
+            "reason": "The subscript and superscript in the node embedding computation formula are slightly unclear.",
+            "bbox": [
+              587.5,
+              385.0,
+              615.0,
+              412.5
+            ]
+          },
+          {
+            "transcription": "smooths of a step function",
+            "reason": "Handwriting is somewhat unclear, especially the word 'smooths'",
+            "bbox": [
+              82.5,
+              560.0,
+              137.5,
+              587.5
+            ]
+          },
+          {
+            "transcription": "classification",
+            "reason": "Handwriting is somewhat unclear, but context suggests 'classification'",
+            "bbox": [
+              137.5,
+              615.0,
+              192.5,
+              631.5
+            ]
+          },
+          {
+            "transcription": "ksr node",
+            "reason": "Handwriting is ambiguous; could be 'key node', 'test node', or an abbreviation.",
+            "bbox": [
+              505.0,
+              769.0,
+              532.5,
+              796.5
+            ]
+          },
+          {
+            "transcription": "training nodes",
+            "reason": "Handwriting is slightly unclear, but context suggests 'training nodes'.",
+            "bbox": [
+              752.5,
+              725.0,
+              807.5,
+              752.5
+            ]
+          },
+          {
+            "transcription": "generate another graph from th",
+            "reason": "The last word is cut off or abbreviated, likely 'them'.",
+            "bbox": [
+              807.5,
+              846.0,
+              917.5,
+              917.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Neural Network Prediction Tasks\",\n  \"summary\": \"This page details three primary prediction tasks in Deep Graph Learning: graph classification, node classification, and edge prediction. It illustrates how Graph Neural Networks (GNNs) generate node embeddings which are then processed via pooling or dot products to produce outputs for these tasks. The page also provides the mathematical definitions for the logistic activation (sigmoid) function and its derivative, which are used to map network outputs to probabilities.\",\n  \"key_topics\": [\n    \"graph classification\",\n    \"node classification\",\n    \"edge prediction\",\n    \"node embedding\",\n    \"logistic activation\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\n        \"classify a graph\",\n        \"graph-level prediction\"\n      ],\n      \"evidence\": \"Printed heading 'Graph classification' and handwritten note 'classify a graph (e.g., molecule poisoning or not)'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        0.0,\n        0.0,\n        275.0,\n        82.5\n      ]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\n        \"classify node\",\n        \"node-level prediction\"\n      ],\n      \"evidence\": \"Printed heading 'Node classification' and handwritten note 'Classify node from node embedding'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        0.0,\n        550.0,\n        82.5\n      ]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [\n        \"link prediction\",\n        \"edge-level prediction\"\n      ],\n      \"evidence\": \"Printed heading 'Edge prediction' and diagram showing prediction of edge presence between nodes 1 and 2.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        730.5,\n        0.0,\n        1000.0,\n        550.0\n      ]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\n        \"gnn\"\n      ],\n      \"evidence\": \"Diagram label 'Graph neural network' with an arrow indicating the transformation process.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        55.0,\n        110.0,\n        110.0,\n        165.0\n      ]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\n        \"node representation\",\n        \"embeddings\",\n        \"learned representation\"\n      ],\n      \"evidence\": \"Handwritten label 'node embedding' pointing to vector h_k^(n) and printed text 'embedding of m' and 'embedding of n'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        450.0,\n        0.0,\n        1000.0,\n        550.0\n      ]\n    },\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\n        \"sigmoid\",\n        \"sigmoid function\"\n      ],\n      \"evidence\": \"Printed text 'Logistic activation (sigmoid)' and handwritten formula usage 'y = sig[...]'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        0.0,\n        275.0,\n        275.0,\n        330.0\n      ]\n    },\n    {\n      \"canonical\": \"average pooling\",\n      \"aliases\": [\n        \"mean pooling\"\n      ],\n      \"evidence\": \"Handwritten note 'average / mean pooling' pointing to the operation involving the '1' vector and scalar N.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        220.0,\n        275.0,\n        330.0,\n        330.0\n      ]\n    },\n    {\n      \"canonical\": \"dot product\",\n      \"aliases\": [\n        \"inner product\"\n      ],\n      \"evidence\": \"Formula h^(m)T h^(n) representing the dot product between two node embeddings for edge prediction.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        730.5,\n        275.0,\n        945.0,\n        385.0\n      ]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\n        \"parameters\"\n      ],\n      \"evidence\": \"Printed text 'learned weights' and handwritten symbol omega_K.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        110.0,\n        780.0,\n        165.0,\n        796.5\n      ]\n    },\n    {\n      \"canonical\": \"fixed adjacency matrix\",\n      \"aliases\": [\n        \"a = fixed\"\n      ],\n      \"evidence\": \"Handwritten note 'A = fixed' under the graph diagrams, indicating the structure does not change during the specific operation shown.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        110.0,\n        220.0,\n        220.0,\n        247.5\n      ]\n    },\n    {\n      \"canonical\": \"binary classification\",\n      \"aliases\": [\n        \"0/1 prediction\"\n      ],\n      \"evidence\": \"Handwritten note 'prob. of link existence' and output y^(mn) ∈ {0, 1}, indicating a binary classification task.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        730.5,\n        330.0,\n        945.0,\n        495.0\n      ]\n    },\n    {\n      \"canonical\": \"predicted class probability\",\n      \"aliases\": [\n        \"output probability\"\n      ],\n      \"evidence\": \"Handwritten note 'predicted class probability' pointing to the output $y$.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        0.0,\n        302.5,\n        82.5,\n        357.5\n      ]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\n        \"generative models\"\n      ],\n      \"evidence\": \"Handwritten text 'generate another graph from th[em]' associated with the graph structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [\n        807.5,\n        846.0,\n        917.5,\n        917.5\n      ]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = \\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K H_K \\\\mathbf{1} / N \\\\right]\",\n      \"related_concepts\": [\n        \"graph classification\",\n        \"logistic activation\",\n        \"average pooling\",\n        \"learned weights\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        27.5,\n        247.5,\n        247.5,\n        302.5\n      ],\n      \"label\": \"Graph Classification Output\"\n    },\n    {\n      \"latex\": \"y^{(n)} = \\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K h_K^{(n)} \\\\right]\",\n      \"related_concepts\": [\n        \"node classification\",\n        \"logistic activation\",\n        \"learned weights\",\n        \"node embedding\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        302.5,\n        247.5,\n        522.5,\n        302.5\n      ],\n      \"label\": \"Node Classification Output\"\n    },\n    {\n      \"latex\": \"\\\\omega_K \\\\times H_K \\\\times \\\\frac{1}{N}\\\\mathbf{1} = \\\\text{scalar}\",\n      \"related_concepts\": [\n        \"average pooling\",\n        \"node embedding\",\n        \"learned weights\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [\n        0.0,\n        357.5,\n        275.0,\n        467.5\n      ],\n      \"label\": \"Pooling Operation Detail\"\n    },\n    {\n      \"latex\": \"y^{(mn)} = \\\\text{sig} \\\\left[ h^{(m)T} h^{(n)} \\\\right]\",\n      \"related_concepts\": [\n        \"edge prediction\",\n        \"logistic activation\",\n        \"dot product\",\n        \"node embedding\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        730.5,\n        275.0,\n        945.0,\n        357.5\n      ],\n      \"label\": \"Edge prediction output\"\n    },\n    {\n      \"latex\": \"\\\\sigma(x) = \\\\frac{1}{1 + e^{-x}}\",\n      \"related_concepts\": [\n        \"logistic activation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        165.0,\n        560.0,\n        275.0,\n        604.0\n      ],\n      \"label\": \"sigmoid function\"\n    },\n    {\n      \"latex\": \"\\\\frac{d}{dx}\\\\sigma(x) = \\\\sigma(x) \\\\cdot (1 - \\\\sigma(x))\",\n      \"related_concepts\": [\n        \"logistic activation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        165.0,\n        642.5,\n        330.0,\n        686.5\n      ],\n      \"label\": \"derivative of sigmoid\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram showing a graph with 6 nodes and input features being processed by a Graph Neural Network to produce a single classification vector (Class 1, 2, 3 probabilities).\",\n      \"related_concepts\": [\n        \"graph classification\",\n        \"graph neural network\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        0.0,\n        82.5,\n        275.0,\n        220.0\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram showing a graph where a specific node (node 4) is highlighted, and the network outputs an embedding/classification for that specific node.\",\n      \"related_concepts\": [\n        \"node classification\",\n        \"graph neural network\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        275.0,\n        82.5,\n        550.0,\n        220.0\n      ]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Visual breakdown of the matrix multiplication for pooling: Learned weights ($1 \\\\times D$) multiplied by Node Embeddings matrix ($D \\\\times N$) multiplied by a '1' vector ($N \\\\times 1$) scaled by $1/N$.\",\n      \"related_concepts\": [\n        \"average pooling\",\n        \"node embedding\",\n        \"learned weights\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        0.0,\n        330.0,\n        275.0,\n        495.0\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating node classification, where a graph neural network produces node embeddings, and the embedding of a specific node (node 4) is used to predict its class label.\",\n      \"related_concepts\": [\n        \"node classification\",\n        \"node embedding\",\n        \"graph neural network\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        450.0,\n        55.0,\n        719.5,\n        247.5\n      ]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating edge prediction, where a graph neural network produces node embeddings, and the embeddings of two adjacent nodes (1 and 2) are used to predict the presence of an edge between them.\",\n      \"related_concepts\": [\n        \"edge prediction\",\n        \"node embedding\",\n        \"graph neural network\",\n        \"dot product\"\n      ],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        730.5,\n        55.0,\n        1000.0,\n        247.5\n      ]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot of the logistic activation (sigmoid) function showing the smooth transition from 0 to 1\",\n      \"related_concepts\": [\n        \"logistic activation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        560.0,\n        137.5,\n        642.5\n      ]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot of the derivative of the logistic activation function\",\n      \"related_concepts\": [\n        \"logistic activation\"\n      ],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [\n        5.5,\n        648.0,\n        137.5,\n        730.5\n      ]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A hand-drawn graph with nodes and edges illustrating different prediction tasks: link prediction (dotted edge), node-level tasks (colored node), and graph-level tasks (enclosing boundary).\",\n      \"related_concepts\": [\n        \"node classification\",\n        \"edge prediction\",\n        \"graph classification\",\n        \"graph generation\"\n      ],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [\n        505.0,\n        725.0,\n        780.0,\n        917.5\n      ]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"poisoning\",\n      \"reason\": \"Handwritten word in the example 'molecule poisoning or not' is slightly scribbled, though contextually clear.\",\n      \"bbox\": [\n        192.5,\n        44.0,\n        247.5,\n        66.0\n      ]\n    },\n    {\n      \"transcription\": \"h_K^(n)\",\n      \"reason\": \"Superscript notation in the node classification formula is small and handwritten.\",\n      \"bbox\": [\n        467.5,\n        275.0,\n        495.0,\n        291.5\n      ]\n    },\n    {\n      \"transcription\": \"\\\"cat\\\"\",\n      \"reason\": \"Handwritten text in quotes above node 1 in the node classification diagram is ambiguous.\",\n      \"bbox\": [\n        642.5,\n        55.0,\n        670.0,\n        82.5\n      ]\n    },\n    {\n      \"transcription\": \"\\\"dog\\\"\",\n      \"reason\": \"Handwritten text in quotes below node 2 in the node classification diagram is ambiguous.\",\n      \"bbox\": [\n        615.0,\n        192.5,\n        642.5,\n        220.0\n      ]\n    },\n    {\n      \"transcription\": \"c_K^(n)\",\n      \"reason\": \"The subscript and superscript in the node embedding computation formula are slightly unclear.\",\n      \"bbox\": [\n        587.5,\n        385.0,\n        615.0,\n        412.5\n      ]\n    },\n    {\n      \"transcription\": \"smooths of a step function\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'smooths'\",\n      \"bbox\": [\n        82.5,\n        560.0,\n        137.5,\n        587.5\n      ]\n    },\n    {\n      \"transcription\": \"classification\",\n      \"reason\": \"Handwriting is somewhat unclear, but context suggests 'classification'\",\n      \"bbox\": [\n        137.5,\n        615.0,\n        192.5,\n        631.5\n      ]\n    },\n    {\n      \"transcription\": \"ksr node\",\n      \"reason\": \"Handwriting is ambiguous; could be 'key node', 'test node', or an abbreviation.\",\n      \"bbox\": [\n        505.0,\n        769.0,\n        532.5,\n        796.5\n      ]\n    },\n    {\n      \"transcription\": \"training nodes\",\n      \"reason\": \"Handwriting is slightly unclear, but context suggests 'training nodes'.\",\n      \"bbox\": [\n        752.5,\n        725.0,\n        807.5,\n        752.5\n      ]\n    },\n    {\n      \"transcription\": \"generate another graph from th\",\n      \"reason\": \"The last word is cut off or abbreviated, likely 'them'.\",\n      \"bbox\": [\n        807.5,\n        846.0,\n        917.5,\n        917.5\n      ]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "node classification",
+      "into": "node classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sigmoid function",
+      "into": "logistic activation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "logistic activation",
+      "into": "logistic activation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "learned weights",
+      "into": "learned weights"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node-level prediction",
+      "into": "node classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge-level prediction",
+      "into": "edge prediction"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph-level prediction",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "link prediction",
+      "into": "edge prediction"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node classification",
+      "into": "node classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node regression",
+      "into": "node classification"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence concept: graph generation"
+  ]
+}

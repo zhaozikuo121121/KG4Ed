@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e27e067f9496cce953d6c57fb24da9323f4215811b8f7e78953049e4cd08d8ab",
+  "concept_id": 34,
+  "concept_name": "vertex set",
+  "aliases": [
+    "vertex set",
+    "v(h",
+    "v(g"
+  ],
+  "profile": "vertex set: In graph theory, a vertex set is the set of all vertices of a graph. The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G. Equivalently, every vertex of H is also a vertex of G.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "vertex set: In graph theory, a vertex set is the set of vertices of a graph. The metadata evidence shows V(H) ⊆ V(G), meaning the vertex set of H is a subset of the vertex set of G.",
+    "claims": [
+      {
+        "claim": "In graph theory, a vertex set is the set of vertices of a graph.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G.",
+        "evidence_ids": [
+          "DGL-E0021"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not explicitly define the vertex set; the definition is standard background context."
+    ]
+  },
+  "review": {
+    "final_profile": "vertex set: In graph theory, a vertex set is the set of all vertices of a graph. The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G. Equivalently, every vertex of H is also a vertex of G.",
+    "sentence_reviews": [
+      {
+        "sentence": "In graph theory, a vertex set is the set of all vertices of a graph.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition used to introduce the term; no explicit definition appears in the metadata."
+      },
+      {
+        "sentence": "The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0021"
+        ],
+        "reason": "The metadata evidence directly provides V(H) ⊆ V(G)."
+      },
+      {
+        "sentence": "Equivalently, every vertex of H is also a vertex of G.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0021"
+        ],
+        "reason": "This is a direct restatement of the subset relation V(H) ⊆ V(G)."
+      }
+    ],
+    "warnings": [
+      "The general definition of vertex set is background context; the only source-backed claim is the subset relation V(H) ⊆ V(G)."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"vertex set: In graph theory, a vertex set is the set of vertices of a graph. The metadata evidence shows V(H) ⊆ V(G), meaning the vertex set of H is a subset of the vertex set of G.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph theory, a vertex set is the set of vertices of a graph.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G.\",\n      \"evidence_ids\": [\"DGL-E0021\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata does not explicitly define the vertex set; the definition is standard background context.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"vertex set: In graph theory, a vertex set is the set of all vertices of a graph. The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G. Equivalently, every vertex of H is also a vertex of G.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In graph theory, a vertex set is the set of all vertices of a graph.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition used to introduce the term; no explicit definition appears in the metadata.\"\n    },\n    {\n      \"sentence\": \"The notation V(H) ⊆ V(G) indicates that the vertex set of H is a subset of the vertex set of G.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0021\"],\n      \"reason\": \"The metadata evidence directly provides V(H) ⊆ V(G).\"\n    },\n    {\n      \"sentence\": \"Equivalently, every vertex of H is also a vertex of G.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0021\"],\n      \"reason\": \"This is a direct restatement of the subset relation V(H) ⊆ V(G).\"\n    }\n  ],\n  \"warnings\": [\n    \"The general definition of vertex set is background context; the only source-backed claim is the subset relation V(H) ⊆ V(G).\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:00:47.280005+00:00"
+}

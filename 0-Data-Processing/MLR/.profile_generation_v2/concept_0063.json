@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "526cfb501a8f022c1096343b6b737620e6805839c5c61ac528e13477f085f5a6",
+  "concept_id": 63,
+  "concept_name": "curvature",
+  "aliases": [
+    "curvature",
+    "local curvature",
+    "function curvature",
+    "second derivative information"
+  ],
+  "profile": "curvature: a notion defined by second derivatives. For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "curvature: a notion defined by second derivatives. For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.",
+    "claims": [
+      {
+        "claim": "Curvature is defined by second derivatives.",
+        "evidence_ids": [
+          "MLR-E0069"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.",
+        "evidence_ids": [
+          "MLR-E0069"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "curvature: a notion defined by second derivatives. For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.",
+    "sentence_reviews": [
+      {
+        "sentence": "curvature: a notion defined by second derivatives.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0069"
+        ],
+        "reason": "The source explicitly defines curvature by second derivatives."
+      },
+      {
+        "sentence": "For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0069"
+        ],
+        "reason": "The source states that for a single-input function, convexity or concavity at a point is checked using curvature or second derivative information."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"curvature: a notion defined by second derivatives. For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.\",\n  \"claims\": [\n    {\n      \"claim\": \"Curvature is defined by second derivatives.\",\n      \"evidence_ids\": [\"MLR-E0069\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.\",\n      \"evidence_ids\": [\"MLR-E0069\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"curvature: a notion defined by second derivatives. For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"curvature: a notion defined by second derivatives.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0069\"],\n      \"reason\": \"The source explicitly defines curvature by second derivatives.\"\n    },\n    {\n      \"sentence\": \"For a single-input function, curvature determines whether the function is convex or concave at a point via second derivative information.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0069\"],\n      \"reason\": \"The source states that for a single-input function, convexity or concavity at a point is checked using curvature or second derivative information.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:44:46.133363+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "25eafb05c82d985d96e844f18fe420bc8412b298f9abe244f8418911667e2639",
+  "concept_id": 94,
+  "concept_name": "non-negative eigenvalues",
+  "aliases": [
+    "non-negative eigenvalues",
+    "positive semi-definite eigenvalues"
+  ],
+  "profile": "non-negative eigenvalues: In linear regression, the eigenvalues of such a matrix are always non-negative. This property means every eigenvalue is greater than or equal to zero.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "non-negative eigenvalues: In linear regression, a matrix is described as having eigenvalues that are always non-negative. This property means every eigenvalue is greater than or equal to zero.",
+    "claims": [
+      {
+        "claim": "In linear regression, a matrix is described as having eigenvalues that are always non-negative.",
+        "evidence_ids": [
+          "MLR-E0110"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This property means every eigenvalue is greater than or equal to zero.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The specific matrix type to which the statement refers is not identified in the provided metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "non-negative eigenvalues: In linear regression, the eigenvalues of such a matrix are always non-negative. This property means every eigenvalue is greater than or equal to zero.",
+    "sentence_reviews": [
+      {
+        "sentence": "In linear regression, the eigenvalues of such a matrix are always non-negative.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0110"
+        ],
+        "reason": "The evidence states 'the eigenvalues of such a matrix are always non-negative' within the linear regression chapter."
+      },
+      {
+        "sentence": "This property means every eigenvalue is greater than or equal to zero.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "This is a standard definitional restatement of 'non-negative eigenvalues' and does not introduce unsupported specifics."
+      }
+    ],
+    "warnings": [
+      "The specific matrix type to which the statement refers is not identified in the provided metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"non-negative eigenvalues: In linear regression, a matrix is described as having eigenvalues that are always non-negative. This property means every eigenvalue is greater than or equal to zero.\",\n  \"claims\": [\n    {\n      \"claim\": \"In linear regression, a matrix is described as having eigenvalues that are always non-negative.\",\n      \"evidence_ids\": [\"MLR-E0110\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This property means every eigenvalue is greater than or equal to zero.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"The specific matrix type to which the statement refers is not identified in the provided metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"non-negative eigenvalues: In linear regression, the eigenvalues of such a matrix are always non-negative. This property means every eigenvalue is greater than or equal to zero.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In linear regression, the eigenvalues of such a matrix are always non-negative.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0110\"],\n      \"reason\": \"The evidence states 'the eigenvalues of such a matrix are always non-negative' within the linear regression chapter.\"\n    },\n    {\n      \"sentence\": \"This property means every eigenvalue is greater than or equal to zero.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"This is a standard definitional restatement of 'non-negative eigenvalues' and does not introduce unsupported specifics.\"\n    }\n  ],\n  \"warnings\": [\n    \"The specific matrix type to which the statement refers is not identified in the provided metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:57:44.576041+00:00"
+}

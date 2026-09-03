@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "d7c11295eb13274e0bf07d4ed1798b5021876d455010004d18cbe5f7a5dbe891",
+  "concept_id": 137,
+  "concept_name": "node similarity",
+  "aliases": [
+    "node similarity",
+    "similarity between nodes"
+  ],
+  "profile": "node similarity: a topic raised by the question 'How to define node similarity?' in material on graph neural networks and node embedding. No definition or method is supplied.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node similarity: a concept introduced by the question 'How to define node similarity?' It appears in material on graph neural networks and node embedding, implying that measuring similarity between nodes is a relevant problem for these topics. No definition or method is supplied.",
+    "claims": [
+      {
+        "claim": "The concept is introduced by the question 'How to define node similarity?'",
+        "evidence_ids": [
+          "DGL-E0164"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It appears in material on graph neural networks and node embedding.",
+        "evidence_ids": [
+          "DGL-E0164"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "No definition or method is supplied.",
+        "evidence_ids": [
+          "DGL-E0164"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node similarity: a topic raised by the question 'How to define node similarity?' in material on graph neural networks and node embedding. No definition or method is supplied.",
+    "sentence_reviews": [
+      {
+        "sentence": "node similarity: a topic raised by the question 'How to define node similarity?' in material on graph neural networks and node embedding.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0164"
+        ],
+        "reason": "The evidence contains this question and the surrounding material is titled 'Graph Neural Networks and Node Embedding'."
+      },
+      {
+        "sentence": "No definition or method is supplied.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0164"
+        ],
+        "reason": "The available evidence is only the question, with no accompanying definition or method."
+      }
+    ],
+    "warnings": [
+      "The record is limited to a single question; no formal definition, algorithm, or application is documented."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node similarity: a concept introduced by the question 'How to define node similarity?' It appears in material on graph neural networks and node embedding, implying that measuring similarity between nodes is a relevant problem for these topics. No definition or method is supplied.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept is introduced by the question 'How to define node similarity?'\",\n      \"evidence_ids\": [\"DGL-E0164\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It appears in material on graph neural networks and node embedding.\",\n      \"evidence_ids\": [\"DGL-E0164\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"No definition or method is supplied.\",\n      \"evidence_ids\": [\"DGL-E0164\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node similarity: a topic raised by the question 'How to define node similarity?' in material on graph neural networks and node embedding. No definition or method is supplied.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node similarity: a topic raised by the question 'How to define node similarity?' in material on graph neural networks and node embedding.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0164\"],\n      \"reason\": \"The evidence contains this question and the surrounding material is titled 'Graph Neural Networks and Node Embedding'.\"\n    },\n    {\n      \"sentence\": \"No definition or method is supplied.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0164\"],\n      \"reason\": \"The available evidence is only the question, with no accompanying definition or method.\"\n    }\n  ],\n  \"warnings\": [\n    \"The record is limited to a single question; no formal definition, algorithm, or application is documented.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:47:51.924421+00:00"
+}

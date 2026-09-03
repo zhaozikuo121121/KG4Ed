@@ -1,0 +1,117 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b8354c52923169d6c43b2df5d5cb1b2a01cfdbe862d9909d6f5baca2978880b2",
+  "concept_id": 75,
+  "concept_name": "representation learning",
+  "aliases": [
+    "representation learning",
+    "feature transformation",
+    "embedding",
+    "linear transformation",
+    "weight matrix multiplication",
+    "feature learning",
+    "graph feature learning",
+    "weight matrix",
+    "linear transform",
+    "matrix multiplication",
+    "transform"
+  ],
+  "profile": "representation learning: transforms complex features into a space where linear models can work well in the final representation space. In network layers, it is carried out by feature transformations using linear transformations, such as applying the same linear transformation to aggregated nodes. In graph neural networks, representation learning is described as deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform). The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.",
+  "word_count": 92,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "representation learning: transforms complex features into a space where linear models can work well in the final representation space. It uses feature transformation with weight matrices and linear transformations, including applying the same linear transformation to aggregated nodes. In graphs, representation learning is deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform). The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.",
+    "claims": [
+      {
+        "claim": "representation learning transforms complex features into a space where linear models can work well in the final representation space.",
+        "evidence_ids": [
+          "DGL-E0099"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It uses feature transformation with weight matrices and linear transformations, including applying the same linear transformation to aggregated nodes.",
+        "evidence_ids": [
+          "DGL-E0142",
+          "DGL-E0189",
+          "DGL-E0239"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In graphs, representation learning is deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform).",
+        "evidence_ids": [
+          "DGL-E0174",
+          "DGL-E0281",
+          "DGL-E0289"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.",
+        "evidence_ids": [
+          "DGL-E0277"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "representation learning: transforms complex features into a space where linear models can work well in the final representation space. In network layers, it is carried out by feature transformations using linear transformations, such as applying the same linear transformation to aggregated nodes. In graph neural networks, representation learning is described as deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform). The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.",
+    "sentence_reviews": [
+      {
+        "sentence": "representation learning: transforms complex features into a space where linear models can work well in the final representation space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0099"
+        ],
+        "reason": "Directly mirrors the aim stated in the source."
+      },
+      {
+        "sentence": "In network layers, it is carried out by feature transformations using linear transformations, such as applying the same linear transformation to aggregated nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0142",
+          "DGL-E0189",
+          "DGL-E0239"
+        ],
+        "reason": "Combines source references to feature transformation, applying a linear transformation, and applying the same linear transformation to aggregated nodes."
+      },
+      {
+        "sentence": "In graph neural networks, representation learning is described as deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0174",
+          "DGL-E0281",
+          "DGL-E0289"
+        ],
+        "reason": "Uses exact phrases from node embedding, Transform, and AGG + Transform annotations."
+      },
+      {
+        "sentence": "The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0277"
+        ],
+        "reason": "Reflects the H_K and W notation shown under graph-level prediction."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"representation learning: transforms complex features into a space where linear models can work well in the final representation space. It uses feature transformation with weight matrices and linear transformations, including applying the same linear transformation to aggregated nodes. In graphs, representation learning is deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform). The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.\",\n  \"claims\": [\n    {\n      \"claim\": \"representation learning transforms complex features into a space where linear models can work well in the final representation space.\",\n      \"evidence_ids\": [\"DGL-E0099\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It uses feature transformation with weight matrices and linear transformations, including applying the same linear transformation to aggregated nodes.\",\n      \"evidence_ids\": [\"DGL-E0142\", \"DGL-E0189\", \"DGL-E0239\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In graphs, representation learning is deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform).\",\n      \"evidence_ids\": [\"DGL-E0174\", \"DGL-E0281\", \"DGL-E0289\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.\",\n      \"evidence_ids\": [\"DGL-E0277\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"representation learning: transforms complex features into a space where linear models can work well in the final representation space. In network layers, it is carried out by feature transformations using linear transformations, such as applying the same linear transformation to aggregated nodes. In graph neural networks, representation learning is described as deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform). The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"representation learning: transforms complex features into a space where linear models can work well in the final representation space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0099\"],\n      \"reason\": \"Directly mirrors the aim stated in the source.\"\n    },\n    {\n      \"sentence\": \"In network layers, it is carried out by feature transformations using linear transformations, such as applying the same linear transformation to aggregated nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0142\", \"DGL-E0189\", \"DGL-E0239\"],\n      \"reason\": \"Combines source references to feature transformation, applying a linear transformation, and applying the same linear transformation to aggregated nodes.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks, representation learning is described as deep sequential node representation learning (embedding), with a Transform step that 'represents it better' and is paired with aggregation (AGG + Transform).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0174\", \"DGL-E0281\", \"DGL-E0289\"],\n      \"reason\": \"Uses exact phrases from node embedding, Transform, and AGG + Transform annotations.\"\n    },\n    {\n      \"sentence\": \"The learned representation is a matrix H_K that can be transformed by a weight matrix W for graph-level prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0277\"],\n      \"reason\": \"Reflects the H_K and W notation shown under graph-level prediction.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:17:51.025921+00:00"
+}

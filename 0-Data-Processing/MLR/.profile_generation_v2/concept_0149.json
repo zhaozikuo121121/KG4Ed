@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7b62680d875a16281450a7215cec4e56e052aff71c71ed05f9be8eecb5ea4527",
+  "concept_id": 149,
+  "concept_name": "piecewise linear decision boundary",
+  "aliases": [
+    "piecewise linear decision boundary",
+    "piecewise linear boundary"
+  ],
+  "profile": "piecewise linear decision boundary: A decision boundary made up of linear segments. In general, when using linear two-class classifiers, the boundary resulting from the fusion rule is always piecewise linear.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "piecewise linear decision boundary: A decision boundary that consists of multiple linear segments rather than a single straight line. In multi-class classification, when linear two-class classifiers are combined using a fusion rule, the resulting decision boundary is always piecewise linear. This means that the overall classifier's decision regions are separated by a set of connected linear pieces, reflecting the combined decisions of the individual classifiers.",
+    "claims": [
+      {
+        "claim": "When using linear two-class classifiers, the boundary resulting from the fusion rule will always be piecewise linear.",
+        "evidence_ids": [
+          "MLR-E0168"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not specify the exact fusion rule or the number of linear segments."
+    ]
+  },
+  "review": {
+    "final_profile": "piecewise linear decision boundary: A decision boundary made up of linear segments. In general, when using linear two-class classifiers, the boundary resulting from the fusion rule is always piecewise linear.",
+    "sentence_reviews": [
+      {
+        "sentence": "A decision boundary made up of linear segments.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition of the concept; not a source-specific claim."
+      },
+      {
+        "sentence": "In general, when using linear two-class classifiers, the boundary resulting from the fusion rule is always piecewise linear.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0168"
+        ],
+        "reason": "Directly restates the evidence without adding details."
+      }
+    ],
+    "warnings": [
+      "The exact fusion rule and number of linear segments are not specified in the available source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"piecewise linear decision boundary: A decision boundary that consists of multiple linear segments rather than a single straight line. In multi-class classification, when linear two-class classifiers are combined using a fusion rule, the resulting decision boundary is always piecewise linear. This means that the overall classifier's decision regions are separated by a set of connected linear pieces, reflecting the combined decisions of the individual classifiers.\",\n  \"claims\": [\n    {\n      \"claim\": \"When using linear two-class classifiers, the boundary resulting from the fusion rule will always be piecewise linear.\",\n      \"evidence_ids\": [\"MLR-E0168\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not specify the exact fusion rule or the number of linear segments.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"piecewise linear decision boundary: A decision boundary made up of linear segments. In general, when using linear two-class classifiers, the boundary resulting from the fusion rule is always piecewise linear.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A decision boundary made up of linear segments.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition of the concept; not a source-specific claim.\"\n    },\n    {\n      \"sentence\": \"In general, when using linear two-class classifiers, the boundary resulting from the fusion rule is always piecewise linear.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0168\"],\n      \"reason\": \"Directly restates the evidence without adding details.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact fusion rule and number of linear segments are not specified in the available source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:24:14.565268+00:00"
+}

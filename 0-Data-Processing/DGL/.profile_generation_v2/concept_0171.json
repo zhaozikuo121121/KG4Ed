@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f9ca9fdb1328ee83a7cfa4dac8600427bafe8c9a00f2ef20fd0679ae28038b9c",
+  "concept_id": 171,
+  "concept_name": "learnable parameters",
+  "aliases": [
+    "learnable parameters",
+    "parameters"
+  ],
+  "profile": "learnable parameters: the exact phrase 'all learnable parameters' appears in a discussion of graph neural networks and node embedding; no definition or explanation is provided in the available material.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "learnable parameters: the exact phrase 'all learnable parameters' appears in handwritten annotations for a lesson on Graph Neural Networks and Node Embedding. No additional definition, role, mechanism, properties, or examples are provided.",
+    "claims": [
+      {
+        "claim": "The phrase 'all learnable parameters' appears in handwritten annotations for a lesson on Graph Neural Networks and Node Embedding.",
+        "evidence_ids": [
+          "DGL-E0170"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to one phrase; no definition or examples are available."
+    ]
+  },
+  "review": {
+    "final_profile": "learnable parameters: the exact phrase 'all learnable parameters' appears in a discussion of graph neural networks and node embedding; no definition or explanation is provided in the available material.",
+    "sentence_reviews": [
+      {
+        "sentence": "learnable parameters: the exact phrase 'all learnable parameters' appears in a discussion of graph neural networks and node embedding; no definition or explanation is provided in the available material.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0170"
+        ],
+        "reason": "The phrase and page topic come directly from the annotated source; the limitation statement reflects the absence of further content in the source."
+      }
+    ],
+    "warnings": [
+      "The source contains only a single handwritten phrase, so the profile cannot describe the role or properties of learnable parameters."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"learnable parameters: the exact phrase 'all learnable parameters' appears in handwritten annotations for a lesson on Graph Neural Networks and Node Embedding. No additional definition, role, mechanism, properties, or examples are provided.\",\n  \"claims\": [\n    {\n      \"claim\": \"The phrase 'all learnable parameters' appears in handwritten annotations for a lesson on Graph Neural Networks and Node Embedding.\",\n      \"evidence_ids\": [\"DGL-E0170\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to one phrase; no definition or examples are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"learnable parameters: the exact phrase 'all learnable parameters' appears in a discussion of graph neural networks and node embedding; no definition or explanation is provided in the available material.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"learnable parameters: the exact phrase 'all learnable parameters' appears in a discussion of graph neural networks and node embedding; no definition or explanation is provided in the available material.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0170\"],\n      \"reason\": \"The phrase and page topic come directly from the annotated source; the limitation statement reflects the absence of further content in the source.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source contains only a single handwritten phrase, so the profile cannot describe the role or properties of learnable parameters.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:01:38.320379+00:00"
+}

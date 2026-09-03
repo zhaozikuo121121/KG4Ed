@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b29c0d8ea5f66309e63849aa0f4ef518e711ad30166ba7706ab26c6497ea583f",
+  "concept_id": 232,
+  "concept_name": "local embedding aggregation",
+  "aliases": [
+    "local embedding aggregation",
+    "node level aggregation"
+  ],
+  "profile": "local embedding aggregation: the process of aggregating embeddings at the node level within a graph.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "local embedding aggregation: the process of aggregating embeddings at the node level within a graph.",
+    "claims": [
+      {
+        "claim": "local embedding aggregation is an aggregation process performed at the node level",
+        "evidence_ids": [
+          "DGL-E0290"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "local embedding aggregation: the process of aggregating embeddings at the node level within a graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "local embedding aggregation: the process of aggregating embeddings at the node level within a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0290"
+        ],
+        "reason": "The evidence directly states 'Local embedding aggregation at the node level', supporting the definition as node-level aggregation."
+      }
+    ],
+    "warnings": [
+      "The source provides only a brief phrase, so details about the aggregation mechanism are not supported by the available metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"local embedding aggregation: the process of aggregating embeddings at the node level within a graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"local embedding aggregation is an aggregation process performed at the node level\",\n      \"evidence_ids\": [\"DGL-E0290\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"local embedding aggregation: the process of aggregating embeddings at the node level within a graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"local embedding aggregation: the process of aggregating embeddings at the node level within a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0290\"],\n      \"reason\": \"The evidence directly states 'Local embedding aggregation at the node level', supporting the definition as node-level aggregation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a brief phrase, so details about the aggregation mechanism are not supported by the available metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:22:41.737993+00:00"
+}

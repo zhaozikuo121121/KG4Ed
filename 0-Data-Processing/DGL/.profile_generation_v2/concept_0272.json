@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6a457849905fa247706bab78001051620b19ee3b06d206d9ca0984f9fbebecde",
+  "concept_id": 272,
+  "concept_name": "linear layer",
+  "aliases": [
+    "linear layer",
+    "linear transformation"
+  ],
+  "profile": "linear layer: A neural network layer that applies a linear transformation to its input. In the absence of a batch normalization layer, dropout is applied directly to the linear layer.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "linear layer: A neural network layer that applies a linear transformation to its input. In the absence of a batch normalization layer, dropout is applied directly to the linear layer.",
+    "claims": [
+      {
+        "claim": "A neural network layer that applies a linear transformation to its input.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In the absence of a batch normalization layer, dropout is applied directly to the linear layer.",
+        "evidence_ids": [
+          "DGL-E0385"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "linear layer: A neural network layer that applies a linear transformation to its input. In the absence of a batch normalization layer, dropout is applied directly to the linear layer.",
+    "sentence_reviews": [
+      {
+        "sentence": "A neural network layer that applies a linear transformation to its input.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition of a linear layer; not directly stated in the supplied evidence."
+      },
+      {
+        "sentence": "In the absence of a batch normalization layer, dropout is applied directly to the linear layer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0385"
+        ],
+        "reason": "Directly matches the evidence that dropout is applied directly to the linear layer when no BN layer is present."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"linear layer: A neural network layer that applies a linear transformation to its input. In the absence of a batch normalization layer, dropout is applied directly to the linear layer.\",\n  \"claims\": [\n    {\n      \"claim\": \"A neural network layer that applies a linear transformation to its input.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In the absence of a batch normalization layer, dropout is applied directly to the linear layer.\",\n      \"evidence_ids\": [\"DGL-E0385\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"linear layer: A neural network layer that applies a linear transformation to its input. In the absence of a batch normalization layer, dropout is applied directly to the linear layer.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A neural network layer that applies a linear transformation to its input.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition of a linear layer; not directly stated in the supplied evidence.\"\n    },\n    {\n      \"sentence\": \"In the absence of a batch normalization layer, dropout is applied directly to the linear layer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0385\"],\n      \"reason\": \"Directly matches the evidence that dropout is applied directly to the linear layer when no BN layer is present.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:37:19.993222+00:00"
+}

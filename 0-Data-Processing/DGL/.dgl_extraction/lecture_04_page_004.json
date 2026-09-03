@@ -1,0 +1,2136 @@
+{
+  "version": "1.0.0",
+  "lecture": 4,
+  "pdf_file": "DGL_Lecture_4_Annotated.pdf",
+  "pdf_page": 4,
+  "page_title": "Inductive vs. Transductive Learning and Graph Classification",
+  "summary": "This page contrasts inductive and transductive learning paradigms in graph neural networks, highlighting differences in training data access, memory usage, and generalization capabilities. It details the architecture for graph classification, involving node embeddings, global pooling, and a sigmoid activation for output prediction. Formulas for both graph-level and node-level classification are presented, emphasizing the role of learned weights and bias terms.",
+  "key_topics": [
+    "inductive learning",
+    "transductive learning",
+    "graph classification",
+    "node classification",
+    "global pooling",
+    "graph neural network"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T14:17:16+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "unsupervised learning",
+      "aliases": [
+        "ssl",
+        "self-supervised learning"
+      ],
+      "evidence": "SSL => training samples can be unlabeled",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        55.0,
+        27.5,
+        275.0,
+        44.0
+      ]
+    },
+    {
+      "canonical": "test set inference",
+      "aliases": [
+        "prediction"
+      ],
+      "evidence": "Handwritten notation '$h_K^{(test)}$' indicating the output representation for test data.",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        697.5,
+        27.5,
+        780.0,
+        55.0
+      ]
+    },
+    {
+      "canonical": "inductive learning",
+      "aliases": [
+        "inductive setting",
+        "inductive node classification"
+      ],
+      "evidence": "Inductive setting",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        93.5,
+        55.0,
+        165.0,
+        66.0
+      ]
+    },
+    {
+      "canonical": "transductive learning",
+      "aliases": [
+        "transductive setting",
+        "transductive node classification"
+      ],
+      "evidence": "Transductive setting",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        55.0,
+        330.0,
+        66.0
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "graph-level classification"
+      ],
+      "evidence": "Graph classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        110.0,
+        522.5,
+        121.0
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn"
+      ],
+      "evidence": "Graph neural network",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        137.5,
+        440.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "test graph",
+      "aliases": [],
+      "evidence": "Test graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        220.0,
+        209.0,
+        231.0
+      ]
+    },
+    {
+      "canonical": "training graphs",
+      "aliases": [],
+      "evidence": "Training graphs",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        247.5,
+        110.0,
+        258.5
+      ]
+    },
+    {
+      "canonical": "logistic activation",
+      "aliases": [
+        "sigmoid",
+        "sigmoid function"
+      ],
+      "evidence": "Printed text 'sig' at the beginning of the formula line.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        275.0,
+        477.5,
+        291.5
+      ]
+    },
+    {
+      "canonical": "node classification",
+      "aliases": [
+        "node classification task"
+      ],
+      "evidence": "Node classification task",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        302.5,
+        192.5,
+        313.5
+      ]
+    },
+    {
+      "canonical": "learned weights",
+      "aliases": [
+        "weights",
+        "trainable parameters"
+      ],
+      "evidence": "learned weights",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        385.0,
+        302.5,
+        440.0,
+        313.5
+      ]
+    },
+    {
+      "canonical": "global pooling",
+      "aliases": [
+        "readout",
+        "aggregation"
+      ],
+      "evidence": "Visual operation showing multiplication by a '1' vector and division by N, representing averaging node embeddings to form a graph representation.",
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        302.5,
+        670.0,
+        440.0
+      ]
+    },
+    {
+      "canonical": "node embeddings",
+      "aliases": [
+        "embeddings",
+        "node representations"
+      ],
+      "evidence": "embeddings",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        357.5,
+        495.0,
+        368.5
+      ]
+    },
+    {
+      "canonical": "bias",
+      "aliases": [
+        "bias term"
+      ],
+      "evidence": "Handwritten label 'bias' under the term $\\beta_K 1^T$ in the formula breakdown.",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        862.5,
+        357.5,
+        917.5
+      ]
+    },
+    {
+      "canonical": "batching",
+      "aliases": [
+        "batch nodes"
+      ],
+      "evidence": "Printed text 'How to batch nodes...' and handwritten label 'test nodes' on the matrix.",
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        455.5,
+        945.0,
+        560.0,
+        961.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "y^{\\text{test}} = \\text{sig} [\\beta_K + \\omega_K H_K]",
+      "related_concepts": [
+        "graph neural network",
+        "learned weights",
+        "node embeddings"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        385.0,
+        247.5,
+        522.5,
+        275.0
+      ],
+      "label": "output prediction formula"
+    },
+    {
+      "latex": "\\text{sig} \\left[ \\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N \\right]",
+      "related_concepts": [
+        "graph classification",
+        "global pooling",
+        "logistic activation",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        450.0,
+        264.0,
+        670.0,
+        297.0
+      ],
+      "label": "Graph classification readout function"
+    },
+    {
+      "latex": "y = \\text{sig}[\\beta_K 1^T + \\omega_K 1]",
+      "related_concepts": [
+        "transductive learning",
+        "logistic activation",
+        "bias",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        302.5,
+        752.5,
+        522.5,
+        807.5
+      ],
+      "label": "transductive prediction rule"
+    },
+    {
+      "latex": "\\text{sig}[\\beta_K \\mathbf{1}^T + \\omega_K \\mathbf{H}_K]",
+      "related_concepts": [
+        "graph classification",
+        "logistic activation",
+        "learned weights",
+        "node embeddings"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        455.5,
+        697.5,
+        642.5,
+        725.0
+      ],
+      "label": "Graph classification readout"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Comparison of inductive and transductive settings with training and test graphs",
+      "related_concepts": [
+        "inductive learning",
+        "transductive learning",
+        "node classification"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        357.5,
+        275.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Graph neural network architecture for graph classification",
+      "related_concepts": [
+        "graph neural network",
+        "graph classification"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        385.0,
+        110.0,
+        522.5,
+        220.0
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Comparison table of inductive and transductive learning characteristics",
+      "related_concepts": [
+        "inductive learning",
+        "transductive learning"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        385.0,
+        357.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Pipeline for graph classification: a graph with numbered nodes (1-6) and associated feature vectors are processed into a matrix, combined, and classified into Class 1, 2, or 3.",
+      "related_concepts": [
+        "graph classification"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        477.5,
+        99.0,
+        670.0,
+        192.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Matrix visualization of the pooling operation: 'learned weights' ($\\omega_K$) multiplied by 'embeddings' matrix (columns represent nodes), multiplied by a '\"1\" vector', scaled by $1/N$.",
+      "related_concepts": [
+        "global pooling",
+        "node embeddings",
+        "learned weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        450.0,
+        302.5,
+        670.0,
+        440.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "A small undirected graph with 6 nodes labeled 1 through 6, used to illustrate the input for graph classification.",
+      "related_concepts": [
+        "graph classification"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        494.0,
+        110.0,
+        587.5,
+        181.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Comparison of transductive vs inductive learning on a graph. Left side shows 'evaluate over test' and 'optimize over train' on a single graph structure (transductive). Right side shows 'Graph classification' with question marks on test nodes, implying separate graphs or unseen structures (inductive).",
+      "related_concepts": [
+        "transductive learning",
+        "inductive learning",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        532.5,
+        522.5,
+        697.5
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "A comparison table listing properties of two learning paradigms. Left column (inductive) mentions learning a rule, not accessing test features during training, and testing on unseen nodes. Right column (transductive) mentions labeling unknown outputs, considering labeled and unlabeled data jointly, high memory cost, and retraining when new data is added.",
+      "related_concepts": [
+        "transductive learning",
+        "inductive learning"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        450.0,
+        275.0,
+        780.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "A schematic for graph classification showing a graph with node embeddings, a 'Combine' step resulting in a graph-level representation, and a 'Classify' step outputting class probabilities.",
+      "related_concepts": [
+        "graph classification",
+        "graph neural network",
+        "node embeddings"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        494.0,
+        521.5,
+        697.5,
+        642.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "A visual breakdown of the matrix operation in the classification formula, showing the multiplication of learned weights ($\\omega_K$) with a matrix of node embeddings.",
+      "related_concepts": [
+        "learned weights",
+        "node embeddings",
+        "batching"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        455.5,
+        752.5,
+        697.5,
+        862.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "evaluate the generalizability",
+      "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+      "bbox": [
+        165.0,
+        357.5,
+        275.0,
+        374.0
+      ]
+    },
+    {
+      "transcription": "optimize over train",
+      "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+      "bbox": [
+        440.0,
+        467.5,
+        495.0,
+        484.0
+      ]
+    },
+    {
+      "transcription": "tj rned",
+      "reason": "Handwriting is partially obscured or scribbled over printed text 'learned'.",
+      "bbox": [
+        461.0,
+        319.0,
+        494.0,
+        330.0
+      ]
+    },
+    {
+      "transcription": "nodes",
+      "reason": "Handwritten word above the matrix columns is slightly messy, though context suggests 'nodes' or 'total nodes'.",
+      "bbox": [
+        571.0,
+        308.0,
+        604.0,
+        319.0
+      ]
+    },
+    {
+      "transcription": "domain fracture",
+      "reason": "The second word is scribbled and could be 'shift' or 'fracture', but 'fracture' seems more visually accurate despite being less common terminology.",
+      "bbox": [
+        99.0,
+        593.0,
+        132.0,
+        609.5
+      ]
+    },
+    {
+      "transcription": "train & test jointly",
+      "reason": "Handwriting is slightly messy, specifically the ampersand and 'jointly'.",
+      "bbox": [
+        137.5,
+        736.0,
+        220.0,
+        758.0
+      ]
+    },
+    {
+      "transcription": "minimize over train",
+      "reason": "Handwriting is slightly cursive and partially cut off, but contextually clear.",
+      "bbox": [
+        455.5,
+        494.0,
+        505.0,
+        516.0
+      ]
+    },
+    {
+      "transcription": "test nodes",
+      "reason": "Handwritten label above the embedding matrix; 'test' is clear, 'nodes' is slightly abbreviated.",
+      "bbox": [
+        642.5,
+        752.5,
+        681.0,
+        763.5
+      ]
+    },
+    {
+      "transcription": "?",
+      "reason": "Two question marks in circles, likely indicating unknown variables or steps in the process.",
+      "bbox": [
+        642.5,
+        659.0,
+        659.0,
+        686.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "inductive learning",
+            "aliases": [
+              "inductive setting",
+              "inductive node classification"
+            ],
+            "evidence": "Inductive setting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              170,
+              100,
+              300,
+              120
+            ]
+          },
+          {
+            "canonical": "transductive learning",
+            "aliases": [
+              "transductive setting",
+              "transductive node classification"
+            ],
+            "evidence": "Transductive setting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              100,
+              600,
+              120
+            ]
+          },
+          {
+            "canonical": "semi-supervised learning",
+            "aliases": [
+              "SSL"
+            ],
+            "evidence": "SSL => training samples can be unlabeled",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              50,
+              500,
+              80
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN",
+              "graph neural network"
+            ],
+            "evidence": "Graph neural network",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              250,
+              800,
+              300
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "node classification task"
+            ],
+            "evidence": "Node classification task",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              550,
+              350,
+              570
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph classification"
+            ],
+            "evidence": "Graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              200,
+              950,
+              220
+            ]
+          },
+          {
+            "canonical": "training graphs",
+            "aliases": [
+              "training graphs"
+            ],
+            "evidence": "Training graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              200,
+              470
+            ]
+          },
+          {
+            "canonical": "test graph",
+            "aliases": [
+              "test graph"
+            ],
+            "evidence": "Test graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              400,
+              380,
+              420
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "learned weights"
+            ],
+            "evidence": "learned weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              550,
+              800,
+              570
+            ]
+          },
+          {
+            "canonical": "embeddings",
+            "aliases": [
+              "embeddings"
+            ],
+            "evidence": "embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              650,
+              900,
+              670
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y^{\\text{test}} = \\text{sig} [\\beta_K + \\omega_K H_K]",
+            "related_concepts": [
+              "graph neural network",
+              "learned weights",
+              "embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              450,
+              950,
+              500
+            ],
+            "label": "output prediction formula"
+          },
+          {
+            "latex": "A = \\begin{bmatrix} A^{tr} & A^{tr, te} \\\\ A^{te, tr} & A^{te} \\end{bmatrix}",
+            "related_concepts": [
+              "transductive learning",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              500,
+              700,
+              550
+            ],
+            "label": "adjacency matrix partition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of inductive and transductive settings with training and test graphs",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning",
+              "node classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              650,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Graph neural network architecture for graph classification",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              200,
+              950,
+              400
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Comparison table of inductive and transductive learning characteristics",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              700,
+              650,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "evaluate the generalizability",
+            "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+            "bbox": [
+              300,
+              650,
+              500,
+              680
+            ]
+          },
+          {
+            "transcription": "optimize over train",
+            "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+            "bbox": [
+              800,
+              850,
+              900,
+              880
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"inductive learning\",\n      \"aliases\": [\"inductive setting\", \"inductive node classification\"],\n      \"evidence\": \"Inductive setting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [170, 100, 300, 120]\n    },\n    {\n      \"canonical\": \"transductive learning\",\n      \"aliases\": [\"transductive setting\", \"transductive node classification\"],\n      \"evidence\": \"Transductive setting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 100, 600, 120]\n    },\n    {\n      \"canonical\": \"semi-supervised learning\",\n      \"aliases\": [\"SSL\"],\n      \"evidence\": \"SSL => training samples can be unlabeled\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 50, 500, 80]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\", \"graph neural network\"],\n      \"evidence\": \"Graph neural network\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 250, 800, 300]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"node classification task\"],\n      \"evidence\": \"Node classification task\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 550, 350, 570]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph classification\"],\n      \"evidence\": \"Graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 200, 950, 220]\n    },\n    {\n      \"canonical\": \"training graphs\",\n      \"aliases\": [\"training graphs\"],\n      \"evidence\": \"Training graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 200, 470]\n    },\n    {\n      \"canonical\": \"test graph\",\n      \"aliases\": [\"test graph\"],\n      \"evidence\": \"Test graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 400, 380, 420]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"learned weights\"],\n      \"evidence\": \"learned weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 550, 800, 570]\n    },\n    {\n      \"canonical\": \"embeddings\",\n      \"aliases\": [\"embeddings\"],\n      \"evidence\": \"embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 650, 900, 670]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y^{\\\\text{test}} = \\\\text{sig} [\\\\beta_K + \\\\omega_K H_K]\",\n      \"related_concepts\": [\"graph neural network\", \"learned weights\", \"embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 450, 950, 500],\n      \"label\": \"output prediction formula\"\n    },\n    {\n      \"latex\": \"A = \\\\begin{bmatrix} A^{tr} & A^{tr, te} \\\\\\\\ A^{te, tr} & A^{te} \\\\end{bmatrix}\",\n      \"related_concepts\": [\"transductive learning\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 500, 700, 550],\n      \"label\": \"adjacency matrix partition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of inductive and transductive settings with training and test graphs\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\", \"node classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 650, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Graph neural network architecture for graph classification\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 200, 950, 400]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Comparison table of inductive and transductive learning characteristics\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 700, 650, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"evaluate the generalizability\",\n      \"reason\": \"Handwriting is somewhat unclear and may be misinterpreted\",\n      \"bbox\": [300, 650, 500, 680]\n    },\n    {\n      \"transcription\": \"optimize over train\",\n      \"reason\": \"Handwriting is somewhat unclear and may be misinterpreted\",\n      \"bbox\": [800, 850, 900, 880]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level classification"
+            ],
+            "evidence": "Printed text 'Graph classification' above the graph diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              150,
+              250,
+              170
+            ]
+          },
+          {
+            "canonical": "node embeddings",
+            "aliases": [
+              "node representations",
+              "feature vectors"
+            ],
+            "evidence": "Handwritten label 'embeddings' pointing to the matrix columns representing nodes.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              650,
+              200,
+              750
+            ]
+          },
+          {
+            "canonical": "global pooling",
+            "aliases": [
+              "readout",
+              "aggregation"
+            ],
+            "evidence": "Visual operation showing multiplication by a '1' vector and division by N, representing averaging node embeddings to form a graph representation.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              550,
+              400,
+              800
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "Printed text 'learned weights' and handwritten symbol '$\\omega_K$'.",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              580,
+              100,
+              620
+            ]
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [
+              "sigmoid function"
+            ],
+            "evidence": "Printed text 'sig' at the beginning of the formula line.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              500,
+              50,
+              530
+            ]
+          },
+          {
+            "canonical": "test set inference",
+            "aliases": [
+              "prediction"
+            ],
+            "evidence": "Handwritten notation '$h_K^{(test)}$' indicating the output representation for test data.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              50,
+              600,
+              100
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\text{sig} \\left[ \\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N \\right]",
+            "related_concepts": [
+              "graph classification",
+              "global pooling",
+              "sigmoid activation",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              480,
+              400,
+              540
+            ],
+            "label": "Graph classification readout function"
+          },
+          {
+            "latex": "h_K^{(test)}",
+            "related_concepts": [
+              "test set inference",
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              50,
+              600,
+              100
+            ],
+            "label": "Test graph representation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Pipeline for graph classification: a graph with numbered nodes (1-6) and associated feature vectors are processed into a matrix, combined, and classified into Class 1, 2, or 3.",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              180,
+              400,
+              350
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix visualization of the pooling operation: 'learned weights' ($\\omega_K$) multiplied by 'embeddings' matrix (columns represent nodes), multiplied by a '\"1\" vector', scaled by $1/N$.",
+            "related_concepts": [
+              "global pooling",
+              "node embeddings",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              550,
+              400,
+              800
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small undirected graph with 6 nodes labeled 1 through 6, used to illustrate the input for graph classification.",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              80,
+              200,
+              250,
+              330
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "tj rned",
+            "reason": "Handwriting is partially obscured or scribbled over printed text 'learned'.",
+            "bbox": [
+              20,
+              580,
+              80,
+              600
+            ]
+          },
+          {
+            "transcription": "nodes",
+            "reason": "Handwritten word above the matrix columns is slightly messy, though context suggests 'nodes' or 'total nodes'.",
+            "bbox": [
+              220,
+              560,
+              280,
+              580
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level classification\"],\n      \"evidence\": \"Printed text 'Graph classification' above the graph diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 150, 250, 170]\n    },\n    {\n      \"canonical\": \"node embeddings\",\n      \"aliases\": [\"node representations\", \"feature vectors\"],\n      \"evidence\": \"Handwritten label 'embeddings' pointing to the matrix columns representing nodes.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 650, 200, 750]\n    },\n    {\n      \"canonical\": \"global pooling\",\n      \"aliases\": [\"readout\", \"aggregation\"],\n      \"evidence\": \"Visual operation showing multiplication by a '1' vector and division by N, representing averaging node embeddings to form a graph representation.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 550, 400, 800]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"Printed text 'learned weights' and handwritten symbol '$\\\\omega_K$'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 580, 100, 620]\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [\"sigmoid function\"],\n      \"evidence\": \"Printed text 'sig' at the beginning of the formula line.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 500, 50, 530]\n    },\n    {\n      \"canonical\": \"test set inference\",\n      \"aliases\": [\"prediction\"],\n      \"evidence\": \"Handwritten notation '$h_K^{(test)}$' indicating the output representation for test data.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 50, 600, 100]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{1} / N \\\\right]\",\n      \"related_concepts\": [\"graph classification\", \"global pooling\", \"sigmoid activation\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 480, 400, 540],\n      \"label\": \"Graph classification readout function\"\n    },\n    {\n      \"latex\": \"h_K^{(test)}\",\n      \"related_concepts\": [\"test set inference\", \"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 50, 600, 100],\n      \"label\": \"Test graph representation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Pipeline for graph classification: a graph with numbered nodes (1-6) and associated feature vectors are processed into a matrix, combined, and classified into Class 1, 2, or 3.\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 180, 400, 350]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix visualization of the pooling operation: 'learned weights' ($\\\\omega_K$) multiplied by 'embeddings' matrix (columns represent nodes), multiplied by a '\\\"1\\\" vector', scaled by $1/N$.\",\n      \"related_concepts\": [\"global pooling\", \"node embeddings\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 550, 400, 800]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small undirected graph with 6 nodes labeled 1 through 6, used to illustrate the input for graph classification.\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [80, 200, 250, 330]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"tj rned\",\n      \"reason\": \"Handwriting is partially obscured or scribbled over printed text 'learned'.\",\n      \"bbox\": [20, 580, 80, 600]\n    },\n    {\n      \"transcription\": \"nodes\",\n      \"reason\": \"Handwritten word above the matrix columns is slightly messy, though context suggests 'nodes' or 'total nodes'.\",\n      \"bbox\": [220, 560, 280, 580]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "transductive node classification",
+            "aliases": [
+              "transductive learning"
+            ],
+            "evidence": "Printed heading 'Transductive node classification' and comparison points in the table.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "inductive learning",
+            "aliases": [
+              "inductive node classification"
+            ],
+            "evidence": "The left column describes learning a rule to apply to new data, which is the definition of inductive learning, contrasted with transductive learning.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              0,
+              500,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Printed label 'Graph neural network' pointing to a diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              200,
+              750,
+              300
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [
+              "sigmoid",
+              "sig"
+            ],
+            "evidence": "Printed text 'applies the sigmoid function' and formula usage 'sig[...]'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              500,
+              1000,
+              900
+            ]
+          },
+          {
+            "canonical": "bias term",
+            "aliases": [
+              "bias"
+            ],
+            "evidence": "Handwritten label 'bias' under the term $\\beta_K 1^T$ in the formula breakdown.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              650,
+              850
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "weights"
+            ],
+            "evidence": "Printed label 'learned weights' pointing to the green box in the formula breakdown.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              650,
+              900,
+              700
+            ]
+          },
+          {
+            "canonical": "domain shift",
+            "aliases": [],
+            "evidence": "Handwritten note 'domain fracture' (interpreted as shift) near the inductive learning description.",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              150,
+              250,
+              250,
+              300
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = \\text{sig}[\\beta_K 1^T + \\omega_K 1]",
+            "related_concepts": [
+              "transductive node classification",
+              "sigmoid function",
+              "bias term",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              550,
+              950,
+              650
+            ],
+            "label": "transductive prediction rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of transductive vs inductive learning on a graph. Left side shows 'evaluate over test' and 'optimize over train' on a single graph structure (transductive). Right side shows 'Graph classification' with question marks on test nodes, implying separate graphs or unseen structures (inductive).",
+            "related_concepts": [
+              "transductive node classification",
+              "inductive learning",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              150,
+              950,
+              450
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "A comparison table listing properties of two learning paradigms. Left column (inductive) mentions learning a rule, not accessing test features during training, and testing on unseen nodes. Right column (transductive) mentions labeling unknown outputs, considering labeled and unlabeled data jointly, high memory cost, and retraining when new data is added.",
+            "related_concepts": [
+              "transductive node classification",
+              "inductive learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              500,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "domain fracture",
+            "reason": "The second word is scribbled and could be 'shift' or 'fracture', but 'fracture' seems more visually accurate despite being less common terminology.",
+            "bbox": [
+              180,
+              260,
+              240,
+              290
+            ]
+          },
+          {
+            "transcription": "train & test jointly",
+            "reason": "Handwriting is slightly messy, specifically the ampersand and 'jointly'.",
+            "bbox": [
+              250,
+              520,
+              400,
+              560
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"transductive node classification\",\n      \"aliases\": [\"transductive learning\"],\n      \"evidence\": \"Printed heading 'Transductive node classification' and comparison points in the table.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"inductive learning\",\n      \"aliases\": [\"inductive node classification\"],\n      \"evidence\": \"The left column describes learning a rule to apply to new data, which is the definition of inductive learning, contrasted with transductive learning.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 0, 500, 1000]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Printed label 'Graph neural network' pointing to a diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 200, 750, 300]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [\"sigmoid\", \"sig\"],\n      \"evidence\": \"Printed text 'applies the sigmoid function' and formula usage 'sig[...]'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 500, 1000, 900]\n    },\n    {\n      \"canonical\": \"bias term\",\n      \"aliases\": [\"bias\"],\n      \"evidence\": \"Handwritten label 'bias' under the term $\\\\beta_K 1^T$ in the formula breakdown.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 650, 850]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"weights\"],\n      \"evidence\": \"Printed label 'learned weights' pointing to the green box in the formula breakdown.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 650, 900, 700]\n    },\n    {\n      \"canonical\": \"domain shift\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'domain fracture' (interpreted as shift) near the inductive learning description.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [150, 250, 250, 300]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = \\\\text{sig}[\\\\beta_K 1^T + \\\\omega_K 1]\",\n      \"related_concepts\": [\"transductive node classification\", \"sigmoid function\", \"bias term\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 550, 950, 650],\n      \"label\": \"transductive prediction rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of transductive vs inductive learning on a graph. Left side shows 'evaluate over test' and 'optimize over train' on a single graph structure (transductive). Right side shows 'Graph classification' with question marks on test nodes, implying separate graphs or unseen structures (inductive).\",\n      \"related_concepts\": [\"transductive node classification\", \"inductive learning\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 150, 950, 450]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"A comparison table listing properties of two learning paradigms. Left column (inductive) mentions learning a rule, not accessing test features during training, and testing on unseen nodes. Right column (transductive) mentions labeling unknown outputs, considering labeled and unlabeled data jointly, high memory cost, and retraining when new data is added.\",\n      \"related_concepts\": [\"transductive node classification\", \"inductive learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 500, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"domain fracture\",\n      \"reason\": \"The second word is scribbled and could be 'shift' or 'fracture', but 'fracture' seems more visually accurate despite being less common terminology.\",\n      \"bbox\": [180, 260, 240, 290]\n    },\n    {\n      \"transcription\": \"train & test jointly\",\n      \"reason\": \"Handwriting is slightly messy, specifically the ampersand and 'jointly'.\",\n      \"bbox\": [250, 520, 400, 560]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level classification"
+            ],
+            "evidence": "Printed text 'Graph classification' above the diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              200,
+              120
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Printed text 'Graph neural network' with an arrow pointing to the graph structure.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              150,
+              80,
+              200
+            ]
+          },
+          {
+            "canonical": "node embeddings",
+            "aliases": [
+              "node representations"
+            ],
+            "evidence": "Handwritten label 'embeddings' pointing to the matrix columns representing nodes.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              600,
+              300,
+              700
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "trainable parameters"
+            ],
+            "evidence": "Printed text 'learned weights' and handwritten label '$\\omega_K$' in the formula breakdown.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              550,
+              300,
+              580
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [
+              "activation function",
+              "sigmoid"
+            ],
+            "evidence": "Printed text 'sigmoid function independently to every element of the row vector input.' and the 'sig' operator in the formula.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              800,
+              500,
+              830
+            ]
+          },
+          {
+            "canonical": "transductive learning",
+            "aliases": [
+              "transductive learning paradigm"
+            ],
+            "evidence": "Printed text 'How to batch nodes in a transductive learning paradigm?' and handwritten note 'transductive'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              900,
+              400,
+              930
+            ]
+          },
+          {
+            "canonical": "batching",
+            "aliases": [
+              "batch nodes"
+            ],
+            "evidence": "Printed text 'How to batch nodes...' and handwritten label 'test nodes' on the matrix.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              900,
+              200,
+              930
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\text{sig}[\\beta_K \\mathbf{1}^T + \\omega_K \\mathbf{H}_K]",
+            "related_concepts": [
+              "graph classification",
+              "sigmoid function",
+              "learned weights",
+              "node embeddings"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              450,
+              350,
+              500
+            ],
+            "label": "Graph classification readout"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A schematic for graph classification showing a graph with node embeddings, a 'Combine' step resulting in a graph-level representation, and a 'Classify' step outputting class probabilities.",
+            "related_concepts": [
+              "graph classification",
+              "graph neural network",
+              "node embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              80,
+              130,
+              450,
+              350
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "A visual breakdown of the matrix operation in the classification formula, showing the multiplication of learned weights ($\\omega_K$) with a matrix of node embeddings.",
+            "related_concepts": [
+              "learned weights",
+              "node embeddings",
+              "batching"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              550,
+              450,
+              750
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "minimize over train",
+            "reason": "Handwriting is slightly cursive and partially cut off, but contextually clear.",
+            "bbox": [
+              10,
+              80,
+              100,
+              120
+            ]
+          },
+          {
+            "transcription": "test nodes",
+            "reason": "Handwritten label above the embedding matrix; 'test' is clear, 'nodes' is slightly abbreviated.",
+            "bbox": [
+              350,
+              550,
+              420,
+              570
+            ]
+          },
+          {
+            "transcription": "?",
+            "reason": "Two question marks in circles, likely indicating unknown variables or steps in the process.",
+            "bbox": [
+              350,
+              380,
+              380,
+              430
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level classification\"],\n      \"evidence\": \"Printed text 'Graph classification' above the diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 200, 120]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Printed text 'Graph neural network' with an arrow pointing to the graph structure.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 150, 80, 200]\n    },\n    {\n      \"canonical\": \"node embeddings\",\n      \"aliases\": [\"node representations\"],\n      \"evidence\": \"Handwritten label 'embeddings' pointing to the matrix columns representing nodes.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 600, 300, 700]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"trainable parameters\"],\n      \"evidence\": \"Printed text 'learned weights' and handwritten label '$\\\\omega_K$' in the formula breakdown.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 550, 300, 580]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [\"activation function\", \"sigmoid\"],\n      \"evidence\": \"Printed text 'sigmoid function independently to every element of the row vector input.' and the 'sig' operator in the formula.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 800, 500, 830]\n    },\n    {\n      \"canonical\": \"transductive learning\",\n      \"aliases\": [\"transductive learning paradigm\"],\n      \"evidence\": \"Printed text 'How to batch nodes in a transductive learning paradigm?' and handwritten note 'transductive'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 900, 400, 930]\n    },\n    {\n      \"canonical\": \"batching\",\n      \"aliases\": [\"batch nodes\"],\n      \"evidence\": \"Printed text 'How to batch nodes...' and handwritten label 'test nodes' on the matrix.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 900, 200, 930]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\text{sig}[\\\\beta_K \\\\mathbf{1}^T + \\\\omega_K \\\\mathbf{H}_K]\",\n      \"related_concepts\": [\"graph classification\", \"sigmoid function\", \"learned weights\", \"node embeddings\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 450, 350, 500],\n      \"label\": \"Graph classification readout\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A schematic for graph classification showing a graph with node embeddings, a 'Combine' step resulting in a graph-level representation, and a 'Classify' step outputting class probabilities.\",\n      \"related_concepts\": [\"graph classification\", \"graph neural network\", \"node embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [80, 130, 450, 350]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"A visual breakdown of the matrix operation in the classification formula, showing the multiplication of learned weights ($\\\\omega_K$) with a matrix of node embeddings.\",\n      \"related_concepts\": [\"learned weights\", \"node embeddings\", \"batching\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 550, 450, 750]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"minimize over train\",\n      \"reason\": \"Handwriting is slightly cursive and partially cut off, but contextually clear.\",\n      \"bbox\": [10, 80, 100, 120]\n    },\n    {\n      \"transcription\": \"test nodes\",\n      \"reason\": \"Handwritten label above the embedding matrix; 'test' is clear, 'nodes' is slightly abbreviated.\",\n      \"bbox\": [350, 550, 420, 570]\n    },\n    {\n      \"transcription\": \"?\",\n      \"reason\": \"Two question marks in circles, likely indicating unknown variables or steps in the process.\",\n      \"bbox\": [350, 380, 380, 430]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Inductive vs. Transductive Learning and Graph Classification",
+        "summary": "This page contrasts inductive and transductive learning paradigms in graph neural networks, highlighting differences in training data access, memory usage, and generalization capabilities. It details the architecture for graph classification, involving node embeddings, global pooling, and a sigmoid activation for output prediction. Formulas for both graph-level and node-level classification are presented, emphasizing the role of learned weights and bias terms.",
+        "key_topics": [
+          "inductive learning",
+          "transductive learning",
+          "graph classification",
+          "node classification",
+          "global pooling",
+          "graph neural network"
+        ],
+        "concepts": [
+          {
+            "canonical": "inductive learning",
+            "aliases": [
+              "inductive setting",
+              "inductive node classification"
+            ],
+            "evidence": "Inductive setting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              93.5,
+              55.0,
+              165.0,
+              66.0
+            ]
+          },
+          {
+            "canonical": "transductive learning",
+            "aliases": [
+              "transductive setting",
+              "transductive node classification"
+            ],
+            "evidence": "Transductive setting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              55.0,
+              330.0,
+              66.0
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "Graph neural network",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              137.5,
+              440.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "node classification task"
+            ],
+            "evidence": "Node classification task",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              302.5,
+              192.5,
+              313.5
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level classification"
+            ],
+            "evidence": "Graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              110.0,
+              522.5,
+              121.0
+            ]
+          },
+          {
+            "canonical": "training graphs",
+            "aliases": [],
+            "evidence": "Training graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              247.5,
+              110.0,
+              258.5
+            ]
+          },
+          {
+            "canonical": "test graph",
+            "aliases": [],
+            "evidence": "Test graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              220.0,
+              209.0,
+              231.0
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "weights",
+              "trainable parameters"
+            ],
+            "evidence": "learned weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              385.0,
+              302.5,
+              440.0,
+              313.5
+            ]
+          },
+          {
+            "canonical": "node embeddings",
+            "aliases": [
+              "embeddings",
+              "node representations"
+            ],
+            "evidence": "embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              357.5,
+              495.0,
+              368.5
+            ]
+          },
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid",
+              "sigmoid function"
+            ],
+            "evidence": "Printed text 'sig' at the beginning of the formula line.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              275.0,
+              477.5,
+              291.5
+            ]
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "bias term"
+            ],
+            "evidence": "Handwritten label 'bias' under the term $\\beta_K 1^T$ in the formula breakdown.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              862.5,
+              357.5,
+              917.5
+            ]
+          },
+          {
+            "canonical": "global pooling",
+            "aliases": [
+              "readout",
+              "aggregation"
+            ],
+            "evidence": "Visual operation showing multiplication by a '1' vector and division by N, representing averaging node embeddings to form a graph representation.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              302.5,
+              670.0,
+              440.0
+            ]
+          },
+          {
+            "canonical": "batching",
+            "aliases": [
+              "batch nodes"
+            ],
+            "evidence": "Printed text 'How to batch nodes...' and handwritten label 'test nodes' on the matrix.",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              455.5,
+              945.0,
+              560.0,
+              961.5
+            ]
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [
+              "ssl",
+              "self-supervised learning"
+            ],
+            "evidence": "SSL => training samples can be unlabeled",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              27.5,
+              275.0,
+              44.0
+            ]
+          },
+          {
+            "canonical": "test set inference",
+            "aliases": [
+              "prediction"
+            ],
+            "evidence": "Handwritten notation '$h_K^{(test)}$' indicating the output representation for test data.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              697.5,
+              27.5,
+              780.0,
+              55.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y^{\\text{test}} = \\text{sig} [\\beta_K + \\omega_K H_K]",
+            "related_concepts": [
+              "graph neural network",
+              "learned weights",
+              "node embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              385.0,
+              247.5,
+              522.5,
+              275.0
+            ],
+            "label": "output prediction formula"
+          },
+          {
+            "latex": "A = \\begin{bmatrix} A^{tr} & A^{tr, te} \\\\ A^{te, tr} & A^{te} \\end{bmatrix}",
+            "related_concepts": [
+              "transductive learning",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              275.0,
+              275.0,
+              385.0,
+              302.5
+            ],
+            "label": "adjacency matrix partition"
+          },
+          {
+            "latex": "\\text{sig} \\left[ \\beta_K + \\omega_K \\mathbf{H}_K \\mathbf{1} / N \\right]",
+            "related_concepts": [
+              "graph classification",
+              "global pooling",
+              "logistic activation",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              450.0,
+              264.0,
+              670.0,
+              297.0
+            ],
+            "label": "Graph classification readout function"
+          },
+          {
+            "latex": "h_K^{(test)}",
+            "related_concepts": [
+              "test set inference",
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              697.5,
+              27.5,
+              780.0,
+              55.0
+            ],
+            "label": "Test graph representation"
+          },
+          {
+            "latex": "y = \\text{sig}[\\beta_K 1^T + \\omega_K 1]",
+            "related_concepts": [
+              "transductive learning",
+              "logistic activation",
+              "bias",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              302.5,
+              752.5,
+              522.5,
+              807.5
+            ],
+            "label": "transductive prediction rule"
+          },
+          {
+            "latex": "\\text{sig}[\\beta_K \\mathbf{1}^T + \\omega_K \\mathbf{H}_K]",
+            "related_concepts": [
+              "graph classification",
+              "logistic activation",
+              "learned weights",
+              "node embeddings"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              455.5,
+              697.5,
+              642.5,
+              725.0
+            ],
+            "label": "Graph classification readout"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of inductive and transductive settings with training and test graphs",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning",
+              "node classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              357.5,
+              275.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Graph neural network architecture for graph classification",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              385.0,
+              110.0,
+              522.5,
+              220.0
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Comparison table of inductive and transductive learning characteristics",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              385.0,
+              357.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Pipeline for graph classification: a graph with numbered nodes (1-6) and associated feature vectors are processed into a matrix, combined, and classified into Class 1, 2, or 3.",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              477.5,
+              99.0,
+              670.0,
+              192.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix visualization of the pooling operation: 'learned weights' ($\\omega_K$) multiplied by 'embeddings' matrix (columns represent nodes), multiplied by a '\"1\" vector', scaled by $1/N$.",
+            "related_concepts": [
+              "global pooling",
+              "node embeddings",
+              "learned weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              450.0,
+              302.5,
+              670.0,
+              440.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small undirected graph with 6 nodes labeled 1 through 6, used to illustrate the input for graph classification.",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              494.0,
+              110.0,
+              587.5,
+              181.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Comparison of transductive vs inductive learning on a graph. Left side shows 'evaluate over test' and 'optimize over train' on a single graph structure (transductive). Right side shows 'Graph classification' with question marks on test nodes, implying separate graphs or unseen structures (inductive).",
+            "related_concepts": [
+              "transductive learning",
+              "inductive learning",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              532.5,
+              522.5,
+              697.5
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "A comparison table listing properties of two learning paradigms. Left column (inductive) mentions learning a rule, not accessing test features during training, and testing on unseen nodes. Right column (transductive) mentions labeling unknown outputs, considering labeled and unlabeled data jointly, high memory cost, and retraining when new data is added.",
+            "related_concepts": [
+              "transductive learning",
+              "inductive learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              450.0,
+              275.0,
+              780.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "A schematic for graph classification showing a graph with node embeddings, a 'Combine' step resulting in a graph-level representation, and a 'Classify' step outputting class probabilities.",
+            "related_concepts": [
+              "graph classification",
+              "graph neural network",
+              "node embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              494.0,
+              521.5,
+              697.5,
+              642.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "A visual breakdown of the matrix operation in the classification formula, showing the multiplication of learned weights ($\\omega_K$) with a matrix of node embeddings.",
+            "related_concepts": [
+              "learned weights",
+              "node embeddings",
+              "batching"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              455.5,
+              752.5,
+              697.5,
+              862.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "evaluate the generalizability",
+            "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+            "bbox": [
+              165.0,
+              357.5,
+              275.0,
+              374.0
+            ]
+          },
+          {
+            "transcription": "optimize over train",
+            "reason": "Handwriting is somewhat unclear and may be misinterpreted",
+            "bbox": [
+              440.0,
+              467.5,
+              495.0,
+              484.0
+            ]
+          },
+          {
+            "transcription": "tj rned",
+            "reason": "Handwriting is partially obscured or scribbled over printed text 'learned'.",
+            "bbox": [
+              461.0,
+              319.0,
+              494.0,
+              330.0
+            ]
+          },
+          {
+            "transcription": "nodes",
+            "reason": "Handwritten word above the matrix columns is slightly messy, though context suggests 'nodes' or 'total nodes'.",
+            "bbox": [
+              571.0,
+              308.0,
+              604.0,
+              319.0
+            ]
+          },
+          {
+            "transcription": "domain fracture",
+            "reason": "The second word is scribbled and could be 'shift' or 'fracture', but 'fracture' seems more visually accurate despite being less common terminology.",
+            "bbox": [
+              99.0,
+              593.0,
+              132.0,
+              609.5
+            ]
+          },
+          {
+            "transcription": "train & test jointly",
+            "reason": "Handwriting is slightly messy, specifically the ampersand and 'jointly'.",
+            "bbox": [
+              137.5,
+              736.0,
+              220.0,
+              758.0
+            ]
+          },
+          {
+            "transcription": "minimize over train",
+            "reason": "Handwriting is slightly cursive and partially cut off, but contextually clear.",
+            "bbox": [
+              455.5,
+              494.0,
+              505.0,
+              516.0
+            ]
+          },
+          {
+            "transcription": "test nodes",
+            "reason": "Handwritten label above the embedding matrix; 'test' is clear, 'nodes' is slightly abbreviated.",
+            "bbox": [
+              642.5,
+              752.5,
+              681.0,
+              763.5
+            ]
+          },
+          {
+            "transcription": "?",
+            "reason": "Two question marks in circles, likely indicating unknown variables or steps in the process.",
+            "bbox": [
+              642.5,
+              659.0,
+              659.0,
+              686.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Inductive vs. Transductive Learning and Graph Classification\",\n  \"summary\": \"This page contrasts inductive and transductive learning paradigms in graph neural networks, highlighting differences in training data access, memory usage, and generalization capabilities. It details the architecture for graph classification, involving node embeddings, global pooling, and a sigmoid activation for output prediction. Formulas for both graph-level and node-level classification are presented, emphasizing the role of learned weights and bias terms.\",\n  \"key_topics\": [\n    \"inductive learning\",\n    \"transductive learning\",\n    \"graph classification\",\n    \"node classification\",\n    \"global pooling\",\n    \"graph neural network\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"inductive learning\",\n      \"aliases\": [\"inductive setting\", \"inductive node classification\"],\n      \"evidence\": \"Inductive setting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [93.5, 55.0, 165.0, 66.0]\n    },\n    {\n      \"canonical\": \"transductive learning\",\n      \"aliases\": [\"transductive setting\", \"transductive node classification\"],\n      \"evidence\": \"Transductive setting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 55.0, 330.0, 66.0]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"Graph neural network\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 137.5, 440.0, 165.0]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"node classification task\"],\n      \"evidence\": \"Node classification task\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 302.5, 192.5, 313.5]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level classification\"],\n      \"evidence\": \"Graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 110.0, 522.5, 121.0]\n    },\n    {\n      \"canonical\": \"training graphs\",\n      \"aliases\": [],\n      \"evidence\": \"Training graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 247.5, 110.0, 258.5]\n    },\n    {\n      \"canonical\": \"test graph\",\n      \"aliases\": [],\n      \"evidence\": \"Test graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [165.0, 220.0, 209.0, 231.0]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"weights\", \"trainable parameters\"],\n      \"evidence\": \"learned weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [385.0, 302.5, 440.0, 313.5]\n    },\n    {\n      \"canonical\": \"node embeddings\",\n      \"aliases\": [\"embeddings\", \"node representations\"],\n      \"evidence\": \"embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 357.5, 495.0, 368.5]\n    },\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\"sigmoid\", \"sigmoid function\"],\n      \"evidence\": \"Printed text 'sig' at the beginning of the formula line.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450.0, 275.0, 477.5, 291.5]\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"bias term\"],\n      \"evidence\": \"Handwritten label 'bias' under the term $\\\\beta_K 1^T$ in the formula breakdown.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 862.5, 357.5, 917.5]\n    },\n    {\n      \"canonical\": \"global pooling\",\n      \"aliases\": [\"readout\", \"aggregation\"],\n      \"evidence\": \"Visual operation showing multiplication by a '1' vector and division by N, representing averaging node embeddings to form a graph representation.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [505.0, 302.5, 670.0, 440.0]\n    },\n    {\n      \"canonical\": \"batching\",\n      \"aliases\": [\"batch nodes\"],\n      \"evidence\": \"Printed text 'How to batch nodes...' and handwritten label 'test nodes' on the matrix.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [455.5, 945.0, 560.0, 961.5]\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [\"ssl\", \"self-supervised learning\"],\n      \"evidence\": \"SSL => training samples can be unlabeled\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 27.5, 275.0, 44.0]\n    },\n    {\n      \"canonical\": \"test set inference\",\n      \"aliases\": [\"prediction\"],\n      \"evidence\": \"Handwritten notation '$h_K^{(test)}$' indicating the output representation for test data.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [697.5, 27.5, 780.0, 55.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y^{\\\\text{test}} = \\\\text{sig} [\\\\beta_K + \\\\omega_K H_K]\",\n      \"related_concepts\": [\"graph neural network\", \"learned weights\", \"node embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [385.0, 247.5, 522.5, 275.0],\n      \"label\": \"output prediction formula\"\n    },\n    {\n      \"latex\": \"A = \\\\begin{bmatrix} A^{tr} & A^{tr, te} \\\\\\\\ A^{te, tr} & A^{te} \\\\end{bmatrix}\",\n      \"related_concepts\": [\"transductive learning\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [275.0, 275.0, 385.0, 302.5],\n      \"label\": \"adjacency matrix partition\"\n    },\n    {\n      \"latex\": \"\\\\text{sig} \\\\left[ \\\\beta_K + \\\\omega_K \\\\mathbf{H}_K \\\\mathbf{1} / N \\\\right]\",\n      \"related_concepts\": [\"graph classification\", \"global pooling\", \"logistic activation\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [450.0, 264.0, 670.0, 297.0],\n      \"label\": \"Graph classification readout function\"\n    },\n    {\n      \"latex\": \"h_K^{(test)}\",\n      \"related_concepts\": [\"test set inference\", \"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [697.5, 27.5, 780.0, 55.0],\n      \"label\": \"Test graph representation\"\n    },\n    {\n      \"latex\": \"y = \\\\text{sig}[\\\\beta_K 1^T + \\\\omega_K 1]\",\n      \"related_concepts\": [\"transductive learning\", \"logistic activation\", \"bias\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [302.5, 752.5, 522.5, 807.5],\n      \"label\": \"transductive prediction rule\"\n    },\n    {\n      \"latex\": \"\\\\text{sig}[\\\\beta_K \\\\mathbf{1}^T + \\\\omega_K \\\\mathbf{H}_K]\",\n      \"related_concepts\": [\"graph classification\", \"logistic activation\", \"learned weights\", \"node embeddings\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [455.5, 697.5, 642.5, 725.0],\n      \"label\": \"Graph classification readout\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of inductive and transductive settings with training and test graphs\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\", \"node classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 55.0, 357.5, 275.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Graph neural network architecture for graph classification\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [385.0, 110.0, 522.5, 220.0]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Comparison table of inductive and transductive learning characteristics\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 385.0, 357.5, 522.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Pipeline for graph classification: a graph with numbered nodes (1-6) and associated feature vectors are processed into a matrix, combined, and classified into Class 1, 2, or 3.\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [477.5, 99.0, 670.0, 192.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix visualization of the pooling operation: 'learned weights' ($\\\\omega_K$) multiplied by 'embeddings' matrix (columns represent nodes), multiplied by a '\\\"1\\\" vector', scaled by $1/N$.\",\n      \"related_concepts\": [\"global pooling\", \"node embeddings\", \"learned weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [450.0, 302.5, 670.0, 440.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small undirected graph with 6 nodes labeled 1 through 6, used to illustrate the input for graph classification.\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [494.0, 110.0, 587.5, 181.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of transductive vs inductive learning on a graph. Left side shows 'evaluate over test' and 'optimize over train' on a single graph structure (transductive). Right side shows 'Graph classification' with question marks on test nodes, implying separate graphs or unseen structures (inductive).\",\n      \"related_concepts\": [\"transductive learning\", \"inductive learning\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 532.5, 522.5, 697.5]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"A comparison table listing properties of two learning paradigms. Left column (inductive) mentions learning a rule, not accessing test features during training, and testing on unseen nodes. Right column (transductive) mentions labeling unknown outputs, considering labeled and unlabeled data jointly, high memory cost, and retraining when new data is added.\",\n      \"related_concepts\": [\"transductive learning\", \"inductive learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 450.0, 275.0, 780.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A schematic for graph classification showing a graph with node embeddings, a 'Combine' step resulting in a graph-level representation, and a 'Classify' step outputting class probabilities.\",\n      \"related_concepts\": [\"graph classification\", \"graph neural network\", \"node embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [494.0, 521.5, 697.5, 642.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"A visual breakdown of the matrix operation in the classification formula, showing the multiplication of learned weights ($\\\\omega_K$) with a matrix of node embeddings.\",\n      \"related_concepts\": [\"learned weights\", \"node embeddings\", \"batching\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [455.5, 752.5, 697.5, 862.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"evaluate the generalizability\",\n      \"reason\": \"Handwriting is somewhat unclear and may be misinterpreted\",\n      \"bbox\": [165.0, 357.5, 275.0, 374.0]\n    },\n    {\n      \"transcription\": \"optimize over train\",\n      \"reason\": \"Handwriting is somewhat unclear and may be misinterpreted\",\n      \"bbox\": [440.0, 467.5, 495.0, 484.0]\n    },\n    {\n      \"transcription\": \"tj rned\",\n      \"reason\": \"Handwriting is partially obscured or scribbled over printed text 'learned'.\",\n      \"bbox\": [461.0, 319.0, 494.0, 330.0]\n    },\n    {\n      \"transcription\": \"nodes\",\n      \"reason\": \"Handwritten word above the matrix columns is slightly messy, though context suggests 'nodes' or 'total nodes'.\",\n      \"bbox\": [571.0, 308.0, 604.0, 319.0]\n    },\n    {\n      \"transcription\": \"domain fracture\",\n      \"reason\": \"The second word is scribbled and could be 'shift' or 'fracture', but 'fracture' seems more visually accurate despite being less common terminology.\",\n      \"bbox\": [99.0, 593.0, 132.0, 609.5]\n    },\n    {\n      \"transcription\": \"train & test jointly\",\n      \"reason\": \"Handwriting is slightly messy, specifically the ampersand and 'jointly'.\",\n      \"bbox\": [137.5, 736.0, 220.0, 758.0]\n    },\n    {\n      \"transcription\": \"minimize over train\",\n      \"reason\": \"Handwriting is slightly cursive and partially cut off, but contextually clear.\",\n      \"bbox\": [455.5, 494.0, 505.0, 516.0]\n    },\n    {\n      \"transcription\": \"test nodes\",\n      \"reason\": \"Handwritten label above the embedding matrix; 'test' is clear, 'nodes' is slightly abbreviated.\",\n      \"bbox\": [642.5, 752.5, 681.0, 763.5]\n    },\n    {\n      \"transcription\": \"?\",\n      \"reason\": \"Two question marks in circles, likely indicating unknown variables or steps in the process.\",\n      \"bbox\": [642.5, 659.0, 659.0, 686.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph classification",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "transductive node classification",
+      "into": "transductive learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sigmoid function",
+      "into": "sigmoid activation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "learned weights",
+      "into": "learned weights"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph classification",
+      "into": "graph classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "learned weights",
+      "into": "learned weights"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sigmoid function",
+      "into": "sigmoid activation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "transductive learning",
+      "into": "transductive learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "inductive learning",
+      "into": "inductive learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "learned weights",
+      "into": "learned weights"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embeddings",
+      "into": "node embeddings"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: A = \\begin{bmatrix} A^{tr} & A^{tr, te} \\\\ A^{te, tr} & A^{te} \\end{bmatrix}",
+    "Dropped low-confidence formula: h_K^{(test)}"
+  ]
+}

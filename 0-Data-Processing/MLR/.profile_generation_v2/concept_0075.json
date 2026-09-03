@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "8cc55c64133564659b18c666a523dd07b266b8a25ae21eef196a3402f0582d4e",
+  "concept_id": 75,
+  "concept_name": "eigenvalue decomposition",
+  "aliases": [
+    "eigenvalue decomposition",
+    "eigenvalues of a symmetric matrix"
+  ],
+  "profile": "eigenvalue decomposition: an alternative approach for checking that the eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are all non-negative. It is presented in the context of second-order optimization techniques.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "eigenvalue decomposition: a method for examining whether all eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are non-negative. It provides an alternative approach to this check in second-order optimization techniques.",
+    "claims": [
+      {
+        "claim": "Eigenvalue decomposition offers an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C are all non-negative.",
+        "evidence_ids": [
+          "MLR-E0087"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The matrix C can be a Hessian matrix.",
+        "evidence_ids": [
+          "MLR-E0087"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This approach appears in the context of second-order optimization techniques.",
+        "evidence_ids": [
+          "MLR-E0087"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "eigenvalue decomposition: an alternative approach for checking that the eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are all non-negative. It is presented in the context of second-order optimization techniques.",
+    "sentence_reviews": [
+      {
+        "sentence": "eigenvalue decomposition: an alternative approach for checking that the eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are all non-negative.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0087"
+        ],
+        "reason": "The source directly describes an alternative approach to checking non-negativity of eigenvalues for an N × N square symmetric matrix C, with a Hessian matrix as an example."
+      },
+      {
+        "sentence": "It is presented in the context of second-order optimization techniques.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0087"
+        ],
+        "reason": "The chapter title in the source metadata is 'Second order optimization techniques', providing the contextual frame."
+      }
+    ],
+    "warnings": [
+      "The available source only supports this checking-oriented description; the broader mathematical definition of eigenvalue decomposition is not covered by the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"eigenvalue decomposition: a method for examining whether all eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are non-negative. It provides an alternative approach to this check in second-order optimization techniques.\",\n  \"claims\": [\n    {\n      \"claim\": \"Eigenvalue decomposition offers an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C are all non-negative.\",\n      \"evidence_ids\": [\"MLR-E0087\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The matrix C can be a Hessian matrix.\",\n      \"evidence_ids\": [\"MLR-E0087\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This approach appears in the context of second-order optimization techniques.\",\n      \"evidence_ids\": [\"MLR-E0087\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"eigenvalue decomposition: an alternative approach for checking that the eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are all non-negative. It is presented in the context of second-order optimization techniques.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"eigenvalue decomposition: an alternative approach for checking that the eigenvalues of an N × N square symmetric matrix C, such as a Hessian matrix, are all non-negative.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0087\"],\n      \"reason\": \"The source directly describes an alternative approach to checking non-negativity of eigenvalues for an N × N square symmetric matrix C, with a Hessian matrix as an example.\"\n    },\n    {\n      \"sentence\": \"It is presented in the context of second-order optimization techniques.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0087\"],\n      \"reason\": \"The chapter title in the source metadata is 'Second order optimization techniques', providing the contextual frame.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available source only supports this checking-oriented description; the broader mathematical definition of eigenvalue decomposition is not covered by the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:48:56.572600+00:00"
+}

@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "a235177b5ffa3a2db22c0731c6bd5fd03da0dd35d80df1e25bf727d5e73403bb",
+  "concept_id": 9,
+  "concept_name": "nonlinear model",
+  "aliases": [
+    "nonlinear model",
+    "nonlinear manifolds",
+    "complex rule"
+  ],
+  "profile": "nonlinear model: An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs. More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "nonlinear model: In machine learning, an array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish cats and dogs. More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.",
+    "claims": [
+      {
+        "claim": "An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish cats and dogs.",
+        "evidence_ids": [
+          "MLR-E0010"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions.",
+        "evidence_ids": [
+          "MLR-E0256"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The general form can be written as model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.",
+        "evidence_ids": [
+          "MLR-E0232"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "nonlinear model: An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs. More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.",
+    "sentence_reviews": [
+      {
+        "sentence": "nonlinear model: An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0010"
+        ],
+        "reason": "The source states that an array of nonlinear models can be tried out, i.e., trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs."
+      },
+      {
+        "sentence": "More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0256",
+          "MLR-E0232"
+        ],
+        "reason": "One source describes the general nonlinear model for regression and two-class classification as a weighted sum of B nonlinear functions; another provides the corresponding formula."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"nonlinear model: In machine learning, an array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish cats and dogs. More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.\",\n  \"claims\": [\n    {\n      \"claim\": \"An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish cats and dogs.\",\n      \"evidence_ids\": [\"MLR-E0010\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions.\",\n      \"evidence_ids\": [\"MLR-E0256\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The general form can be written as model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.\",\n      \"evidence_ids\": [\"MLR-E0232\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"nonlinear model: An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs. More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"nonlinear model: An array of nonlinear models can be trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0010\"],\n      \"reason\": \"The source states that an array of nonlinear models can be tried out, i.e., trained and validated, with the hope that a more complex rule might better distinguish between cats and dogs.\"\n    },\n    {\n      \"sentence\": \"More generally, a general nonlinear model for regression and two-class classification is a weighted sum of B nonlinear functions: model(x, Θ) = w0 + f1(x)w1 + ... + fB(x)wB.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0256\", \"MLR-E0232\"],\n      \"reason\": \"One source describes the general nonlinear model for regression and two-class classification as a weighted sum of B nonlinear functions; another provides the corresponding formula.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:23:06.246931+00:00"
+}

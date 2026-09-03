@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "13d8d6be45217654c20be29d0ea191d7ad9d371dfb231f84fa676929744ec684",
+  "concept_id": 247,
+  "concept_name": "node embedding computation graph",
+  "aliases": [
+    "node embedding computation graph",
+    "computation graph"
+  ],
+  "profile": "node embedding computation graph: in GNN training, the term is associated with batching and with layer architecture and dropout regularization.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node embedding computation graph: a graph structure that determines how a node embedding is calculated from neighboring node features. In GNN training, the term is associated with batching strategies and layer architecture, including dropout regularization.",
+    "claims": [
+      {
+        "claim": "A node embedding computation graph determines how a node embedding is calculated from neighboring node features.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In GNN training, the term is associated with batching strategies.",
+        "evidence_ids": [
+          "DGL-E0322"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In GNN training, the term is associated with layer architecture, including dropout regularization.",
+        "evidence_ids": [
+          "DGL-E0384"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is sparse and provides no explicit definition of the concept beyond its occurrence in the listed contexts."
+    ]
+  },
+  "review": {
+    "final_profile": "node embedding computation graph: in GNN training, the term is associated with batching and with layer architecture and dropout regularization.",
+    "sentence_reviews": [
+      {
+        "sentence": "node embedding computation graph: in GNN training, the term is associated with batching and with layer architecture and dropout regularization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0322",
+          "DGL-E0384"
+        ],
+        "reason": "The contextual associations with batching and layer architecture/dropout regularization are directly reflected in the supplied source context."
+      }
+    ],
+    "warnings": [
+      "Source context is sparse and provides no explicit definition; the profile records only contextual associations."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node embedding computation graph: a graph structure that determines how a node embedding is calculated from neighboring node features. In GNN training, the term is associated with batching strategies and layer architecture, including dropout regularization.\",\n  \"claims\": [\n    {\n      \"claim\": \"A node embedding computation graph determines how a node embedding is calculated from neighboring node features.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In GNN training, the term is associated with batching strategies.\",\n      \"evidence_ids\": [\"DGL-E0322\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In GNN training, the term is associated with layer architecture, including dropout regularization.\",\n      \"evidence_ids\": [\"DGL-E0384\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is sparse and provides no explicit definition of the concept beyond its occurrence in the listed contexts.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node embedding computation graph: in GNN training, the term is associated with batching and with layer architecture and dropout regularization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node embedding computation graph: in GNN training, the term is associated with batching and with layer architecture and dropout regularization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0322\", \"DGL-E0384\"],\n      \"reason\": \"The contextual associations with batching and layer architecture/dropout regularization are directly reflected in the supplied source context.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source context is sparse and provides no explicit definition; the profile records only contextual associations.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:27:38.584717+00:00"
+}

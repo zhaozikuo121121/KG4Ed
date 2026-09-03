@@ -1,0 +1,115 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f66ecdcfb3c58df9706fad494ce7d484bc671a441d5d895b7042ffcb5ef97996",
+  "concept_id": 182,
+  "concept_name": "message passing",
+  "aliases": [
+    "message passing",
+    "propagation rule",
+    "feature aggregation",
+    "neighbor aggregation",
+    "neighborhood aggregation",
+    "mpnn",
+    "aggregate information",
+    "aggregation",
+    "msg passing",
+    "message-passing-based"
+  ],
+  "profile": "message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes. Also called feature aggregation and referred to as MPNN, it is a generalized message propagation rule for updating embeddings in a GCN layer; message update rules appear in models such as GIN.",
+  "word_count": 59,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes. Also known as feature aggregation or neighbor aggregation, and referred to as MPNN. It is described as a generalized message propagation rule for updating embeddings in a GCN layer, and message update rules appear in models such as GIN.",
+    "claims": [
+      {
+        "claim": "message passing is a layer-wise feature embedding rule",
+        "evidence_ids": [
+          "DGL-E0147"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "it updates node embeddings by aggregating feature information from a node itself and its neighboring nodes",
+        "evidence_ids": [
+          "DGL-E0237",
+          "DGL-E0283",
+          "DGL-E0188"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Also known as feature aggregation or neighbor aggregation",
+        "evidence_ids": [
+          "DGL-E0147",
+          "DGL-E0188"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "referred to as MPNN",
+        "evidence_ids": [
+          "DGL-E0217"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is described as a generalized message propagation rule for updating embeddings in a GCN layer",
+        "evidence_ids": [
+          "DGL-E0235"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "message update rules appear in models such as GIN",
+        "evidence_ids": [
+          "DGL-E0451"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes. Also called feature aggregation and referred to as MPNN, it is a generalized message propagation rule for updating embeddings in a GCN layer; message update rules appear in models such as GIN.",
+    "sentence_reviews": [
+      {
+        "sentence": "message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0147",
+          "DGL-E0237",
+          "DGL-E0283",
+          "DGL-E0188"
+        ],
+        "reason": "E0147 calls it a layer-wise feature embedding rule; E0237 and E0283 describe aggregating information from self and neighbors; E0188 describes aggregating neighboring nodes into a vector."
+      },
+      {
+        "sentence": "Also called feature aggregation and referred to as MPNN, it is a generalized message propagation rule for updating embeddings in a GCN layer; message update rules appear in models such as GIN.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0147",
+          "DGL-E0217",
+          "DGL-E0235",
+          "DGL-E0451"
+        ],
+        "reason": "E0147 includes feature aggregation; E0217 mentions MPNN; E0235 describes a generalized message propagation rule for updating embeddings in a GCN layer; E0451 appears in the GIN section discussing a message update rule."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes. Also known as feature aggregation or neighbor aggregation, and referred to as MPNN. It is described as a generalized message propagation rule for updating embeddings in a GCN layer, and message update rules appear in models such as GIN.\",\n  \"claims\": [\n    {\n      \"claim\": \"message passing is a layer-wise feature embedding rule\",\n      \"evidence_ids\": [\"DGL-E0147\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"it updates node embeddings by aggregating feature information from a node itself and its neighboring nodes\",\n      \"evidence_ids\": [\"DGL-E0237\", \"DGL-E0283\", \"DGL-E0188\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Also known as feature aggregation or neighbor aggregation\",\n      \"evidence_ids\": [\"DGL-E0147\", \"DGL-E0188\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"referred to as MPNN\",\n      \"evidence_ids\": [\"DGL-E0217\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is described as a generalized message propagation rule for updating embeddings in a GCN layer\",\n      \"evidence_ids\": [\"DGL-E0235\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"message update rules appear in models such as GIN\",\n      \"evidence_ids\": [\"DGL-E0451\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes. Also called feature aggregation and referred to as MPNN, it is a generalized message propagation rule for updating embeddings in a GCN layer; message update rules appear in models such as GIN.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"message passing: a layer-wise feature embedding rule in graph neural networks that updates node embeddings by aggregating feature information from a node itself and its neighboring nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0147\", \"DGL-E0237\", \"DGL-E0283\", \"DGL-E0188\"],\n      \"reason\": \"E0147 calls it a layer-wise feature embedding rule; E0237 and E0283 describe aggregating information from self and neighbors; E0188 describes aggregating neighboring nodes into a vector.\"\n    },\n    {\n      \"sentence\": \"Also called feature aggregation and referred to as MPNN, it is a generalized message propagation rule for updating embeddings in a GCN layer; message update rules appear in models such as GIN.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0147\", \"DGL-E0217\", \"DGL-E0235\", \"DGL-E0451\"],\n      \"reason\": \"E0147 includes feature aggregation; E0217 mentions MPNN; E0235 describes a generalized message propagation rule for updating embeddings in a GCN layer; E0451 appears in the GIN section discussing a message update rule.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:06:36.472894+00:00"
+}

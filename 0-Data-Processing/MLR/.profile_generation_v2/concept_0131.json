@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "bd49fa7e4b926170cce218da86ce5e280bb040a9769dd6c1e98b636d133a0e52",
+  "concept_id": 131,
+  "concept_name": "misclassification count",
+  "aliases": [
+    "misclassification count",
+    "number of misclassifications"
+  ],
+  "profile": "misclassification count: the number of misclassifications that a fully trained model produces over its training dataset. It is called the simplest metric for judging the quality of a fully trained model, obtained by counting those errors.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "misclassification count: the number of misclassifications a fully trained model produces over its training dataset. It is called the simplest metric for judging the quality of a fully trained model, requiring only a count of errors. No further characteristics are specified in the source.",
+    "claims": [
+      {
+        "claim": "The misclassification count is the number of misclassifications a fully trained model produces over its training dataset.",
+        "evidence_ids": [
+          "MLR-E0147"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is the simplest metric for judging the quality of a fully trained model.",
+        "evidence_ids": [
+          "MLR-E0147"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "misclassification count: the number of misclassifications that a fully trained model produces over its training dataset. It is called the simplest metric for judging the quality of a fully trained model, obtained by counting those errors.",
+    "sentence_reviews": [
+      {
+        "sentence": "misclassification count: the number of misclassifications that a fully trained model produces over its training dataset.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0147"
+        ],
+        "reason": "Directly restates the source definition of counting misclassifications over the training dataset for a fully trained model."
+      },
+      {
+        "sentence": "It is called the simplest metric for judging the quality of a fully trained model, obtained by counting those errors.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0147"
+        ],
+        "reason": "Matches the source description of the metric as the simplest way to judge a fully trained model by counting misclassifications."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"misclassification count: the number of misclassifications a fully trained model produces over its training dataset. It is called the simplest metric for judging the quality of a fully trained model, requiring only a count of errors. No further characteristics are specified in the source.\",\n  \"claims\": [\n    {\n      \"claim\": \"The misclassification count is the number of misclassifications a fully trained model produces over its training dataset.\",\n      \"evidence_ids\": [\"MLR-E0147\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is the simplest metric for judging the quality of a fully trained model.\",\n      \"evidence_ids\": [\"MLR-E0147\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"misclassification count: the number of misclassifications that a fully trained model produces over its training dataset. It is called the simplest metric for judging the quality of a fully trained model, obtained by counting those errors.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"misclassification count: the number of misclassifications that a fully trained model produces over its training dataset.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0147\"],\n      \"reason\": \"Directly restates the source definition of counting misclassifications over the training dataset for a fully trained model.\"\n    },\n    {\n      \"sentence\": \"It is called the simplest metric for judging the quality of a fully trained model, obtained by counting those errors.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0147\"],\n      \"reason\": \"Matches the source description of the metric as the simplest way to judge a fully trained model by counting misclassifications.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:17:30.437605+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "113203393ed901032a3a9fb0d9fcf89df771fcd96f995e03f604628dc558197f",
+  "concept_id": 27,
+  "concept_name": "loop",
+  "aliases": [
+    "loop",
+    "self-connection",
+    "self-loop"
+  ],
+  "profile": "loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself. In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I ('self loop').",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself. In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I, where I is the identity matrix.",
+    "claims": [
+      {
+        "claim": "A loop is an edge that connects a node to itself (self-connection).",
+        "evidence_ids": [
+          "DGL-E0009"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I, where I is the identity matrix.",
+        "evidence_ids": [
+          "DGL-E0251"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself. In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I ('self loop').",
+    "sentence_reviews": [
+      {
+        "sentence": "loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0009"
+        ],
+        "reason": "The handwritten note defines a loop as a self-connection: an edge that connects up the same node."
+      },
+      {
+        "sentence": "In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I ('self loop').",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0251"
+        ],
+        "reason": "The source shows A_hat = A + I labeled 'self loop' in a GCN context."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself. In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I, where I is the identity matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"A loop is an edge that connects a node to itself (self-connection).\",\n      \"evidence_ids\": [\"DGL-E0009\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I, where I is the identity matrix.\",\n      \"evidence_ids\": [\"DGL-E0251\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself. In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I ('self loop').\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"loop: A loop (also called self-loop or self-connection) is an edge that connects a node to itself.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0009\"],\n      \"reason\": \"The handwritten note defines a loop as a self-connection: an edge that connects up the same node.\"\n    },\n    {\n      \"sentence\": \"In graph convolutional networks, self-loops are incorporated by modifying the adjacency matrix as A_hat = A + I ('self loop').\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0251\"],\n      \"reason\": \"The source shows A_hat = A + I labeled 'self loop' in a GCN context.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:58:19.227273+00:00"
+}

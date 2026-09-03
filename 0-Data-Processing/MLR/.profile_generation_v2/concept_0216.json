@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d46f1e99afa2915696f0c78daa8f1a244da9094a4e91ee6d828ee9a080a91b7a",
+  "concept_id": 216,
+  "concept_name": "high capacity model",
+  "aliases": [
+    "high capacity model"
+  ],
+  "profile": "high capacity model: The term appears. No definition is provided.",
+  "word_count": 10,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "high capacity model: The term appears, but no definition is provided.",
+    "claims": [
+      {
+        "claim": "The term appears.",
+        "evidence_ids": [
+          "MLR-E0271"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "No definition is provided.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The evidence only contains the term itself; no defining context is available."
+    ]
+  },
+  "review": {
+    "final_profile": "high capacity model: The term appears. No definition is provided.",
+    "sentence_reviews": [
+      {
+        "sentence": "high capacity model: The term appears.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0271"
+        ],
+        "reason": "The supplied context records the exact term 'high capacity model'."
+      },
+      {
+        "sentence": "No definition is provided.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The available context contains no defining information; this sentence only notes the absence."
+      }
+    ],
+    "warnings": [
+      "The source contains only the term, so no definitional content can be grounded."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"high capacity model: The term appears, but no definition is provided.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term appears.\",\n      \"evidence_ids\": [\"MLR-E0271\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"No definition is provided.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"The evidence only contains the term itself; no defining context is available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"high capacity model: The term appears. No definition is provided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"high capacity model: The term appears.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0271\"],\n      \"reason\": \"The supplied context records the exact term 'high capacity model'.\"\n    },\n    {\n      \"sentence\": \"No definition is provided.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The available context contains no defining information; this sentence only notes the absence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source contains only the term, so no definitional content can be grounded.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:48:33.949864+00:00"
+}

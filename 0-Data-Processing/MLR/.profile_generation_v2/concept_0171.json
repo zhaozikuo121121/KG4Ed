@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d55ae50e8d89d1ccec4f2d0b7841f4117e39de79021dcd684086b03b29b9fe4d",
+  "concept_id": 171,
+  "concept_name": "cluster centroid",
+  "aliases": [
+    "cluster centroid",
+    "centroid"
+  ],
+  "profile": "cluster centroid: A cluster center is also called a centroid. Each cluster centroid is marked by a star symbol.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "cluster centroid: A cluster center is also called a centroid. In the provided material, each cluster centroid is visually marked by a star symbol.",
+    "claims": [
+      {
+        "claim": "A cluster center is also called a centroid.",
+        "evidence_ids": [
+          "MLR-E0195"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Each cluster centroid is marked by a star symbol.",
+        "evidence_ids": [
+          "MLR-E0195"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "cluster centroid: A cluster center is also called a centroid. Each cluster centroid is marked by a star symbol.",
+    "sentence_reviews": [
+      {
+        "sentence": "A cluster center is also called a centroid.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0195"
+        ],
+        "reason": "The evidence explicitly states that each cluster center is also called a centroid."
+      },
+      {
+        "sentence": "Each cluster centroid is marked by a star symbol.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0195"
+        ],
+        "reason": "The evidence states that each cluster center/centroid is marked by a star symbol."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"cluster centroid: A cluster center is also called a centroid. In the provided material, each cluster centroid is visually marked by a star symbol.\",\n  \"claims\": [\n    {\n      \"claim\": \"A cluster center is also called a centroid.\",\n      \"evidence_ids\": [\"MLR-E0195\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Each cluster centroid is marked by a star symbol.\",\n      \"evidence_ids\": [\"MLR-E0195\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"cluster centroid: A cluster center is also called a centroid. Each cluster centroid is marked by a star symbol.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A cluster center is also called a centroid.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0195\"],\n      \"reason\": \"The evidence explicitly states that each cluster center is also called a centroid.\"\n    },\n    {\n      \"sentence\": \"Each cluster centroid is marked by a star symbol.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0195\"],\n      \"reason\": \"The evidence states that each cluster center/centroid is marked by a star symbol.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:32:30.787315+00:00"
+}

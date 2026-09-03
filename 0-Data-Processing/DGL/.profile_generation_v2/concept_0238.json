@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c9bbaa47fc07d17b2f439e4bd5d7dc44ae71522774adb646d97e02ebe5089d85",
+  "concept_id": 238,
+  "concept_name": "parameter update",
+  "aliases": [
+    "parameter update",
+    "update parameters"
+  ],
+  "profile": "parameter update: A parameter update is a rule for revising model parameters during training. The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "parameter update: A parameter update is a rule for revising model parameters during training. The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.",
+    "claims": [
+      {
+        "claim": "The parameter update rule is w_{t+1} = w_t - η∇L.",
+        "evidence_ids": [
+          "DGL-E0330"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "parameter update: A parameter update is a rule for revising model parameters during training. The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.",
+    "sentence_reviews": [
+      {
+        "sentence": "A parameter update is a rule for revising model parameters during training.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic framing that only connects the formula to training; no extra technical claim is introduced."
+      },
+      {
+        "sentence": "The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0330"
+        ],
+        "reason": "The formula and its interpretation match the supplied evidence exactly."
+      }
+    ],
+    "warnings": [
+      "The source provides only the update formula, so no further training-strategy claims are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"parameter update: A parameter update is a rule for revising model parameters during training. The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.\",\n  \"claims\": [\n    {\n      \"claim\": \"The parameter update rule is w_{t+1} = w_t - η∇L.\",\n      \"evidence_ids\": [\"DGL-E0330\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"parameter update: A parameter update is a rule for revising model parameters during training. The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A parameter update is a rule for revising model parameters during training.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic framing that only connects the formula to training; no extra technical claim is introduced.\"\n    },\n    {\n      \"sentence\": \"The update is expressed as w_{t+1} = w_t - η∇L, where the next parameter vector equals the current parameter vector minus a gradient-based adjustment.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0330\"\n      ],\n      \"reason\": \"The formula and its interpretation match the supplied evidence exactly.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only the update formula, so no further training-strategy claims are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:24:28.541583+00:00"
+}

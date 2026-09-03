@@ -1,0 +1,109 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b061adeb494ff3a6679452af24b6349c6743b73887c5e15893dd929fb29d9c02",
+  "concept_id": 64,
+  "concept_name": "graph classification",
+  "aliases": [
+    "graph classification",
+    "classify a graph",
+    "graph-level prediction",
+    "graph prediction",
+    "graph-level task",
+    "graph-level classification"
+  ],
+  "profile": "graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not). Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}. It appears in discussions of GCN training and graph neural network expressiveness.",
+  "word_count": 43,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not). Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}. It appears in discussions of GCN training and graph neural network expressiveness.",
+    "claims": [
+      {
+        "claim": "Graph classification is a supervised prediction task.",
+        "evidence_ids": [
+          "DGL-E0230",
+          "DGL-E0415"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph classification classifies an entire graph.",
+        "evidence_ids": [
+          "DGL-E0068"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An example is molecule poisoning or not.",
+        "evidence_ids": [
+          "DGL-E0068"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}.",
+        "evidence_ids": [
+          "DGL-E0415"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph classification appears in discussions of GCN training and graph neural network expressiveness.",
+        "evidence_ids": [
+          "DGL-E0230",
+          "DGL-E0453"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not). Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}. It appears in discussions of GCN training and graph neural network expressiveness.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0068",
+          "DGL-E0230"
+        ],
+        "reason": "E0068 gives 'classify a graph (e.g., molecule poisoning or not)'; E0230 mentions supervised graph-based classification."
+      },
+      {
+        "sentence": "Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0415"
+        ],
+        "reason": "E0415 presents graph classification with D = {(G1, y1), ..., (Gn, yn)}."
+      },
+      {
+        "sentence": "It appears in discussions of GCN training and graph neural network expressiveness.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0230",
+          "DGL-E0453"
+        ],
+        "reason": "E0230 occurs in a GCN training/optimization context and E0453 cites graph classification tasks in a GIN expressiveness discussion."
+      }
+    ],
+    "warnings": [
+      "No substantive gaps; 'prediction task' is a close paraphrase of 'supervised classification'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not). Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}. It appears in discussions of GCN training and graph neural network expressiveness.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph classification is a supervised prediction task.\",\n      \"evidence_ids\": [\"DGL-E0230\", \"DGL-E0415\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph classification classifies an entire graph.\",\n      \"evidence_ids\": [\"DGL-E0068\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An example is molecule poisoning or not.\",\n      \"evidence_ids\": [\"DGL-E0068\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}.\",\n      \"evidence_ids\": [\"DGL-E0415\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph classification appears in discussions of GCN training and graph neural network expressiveness.\",\n      \"evidence_ids\": [\"DGL-E0230\", \"DGL-E0453\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not). Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}. It appears in discussions of GCN training and graph neural network expressiveness.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph classification: a supervised prediction task that classifies an entire graph (e.g., molecule poisoning or not).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0068\", \"DGL-E0230\"],\n      \"reason\": \"E0068 gives 'classify a graph (e.g., molecule poisoning or not)'; E0230 mentions supervised graph-based classification.\"\n    },\n    {\n      \"sentence\": \"Datasets for graph classification contain graph-label pairs, such as D = {(G1, y1), ..., (Gn, yn)}.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0415\"],\n      \"reason\": \"E0415 presents graph classification with D = {(G1, y1), ..., (Gn, yn)}.\"\n    },\n    {\n      \"sentence\": \"It appears in discussions of GCN training and graph neural network expressiveness.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0230\", \"DGL-E0453\"],\n      \"reason\": \"E0230 occurs in a GCN training/optimization context and E0453 cites graph classification tasks in a GIN expressiveness discussion.\"\n    }\n  ],\n  \"warnings\": [\"No substantive gaps; 'prediction task' is a close paraphrase of 'supervised classification'.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:10:06.495242+00:00"
+}

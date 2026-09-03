@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "164ff6bf3dada3552adf31fee09e0ed54acf209754a59cf723e055a77a280c47",
+  "concept_id": 21,
+  "concept_name": "node type",
+  "aliases": [
+    "node type"
+  ],
+  "profile": "node type: In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node type: In graph representations, a node can have a node type; such typed nodes are denoted v_i, where v_i ∈ V.",
+    "claims": [
+      {
+        "claim": "In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.",
+        "evidence_ids": [
+          "DGL-E0033"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No further semantics of node types or set V are provided by the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "node type: In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.",
+    "sentence_reviews": [
+      {
+        "sentence": "In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0033"
+        ],
+        "reason": "The evidence states 'nodes with node types v_i ∈ V', directly supporting the existence and notation of node types."
+      }
+    ],
+    "warnings": [
+      "No further semantics of node types or set V are provided by the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node type: In graph representations, a node can have a node type; such typed nodes are denoted v_i, where v_i ∈ V.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.\",\n      \"evidence_ids\": [\"DGL-E0033\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No further semantics of node types or set V are provided by the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node type: In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In graph representations, a node can have a node type, denoted v_i, where v_i ∈ V.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0033\"],\n      \"reason\": \"The evidence states 'nodes with node types v_i ∈ V', directly supporting the existence and notation of node types.\"\n    }\n  ],\n  \"warnings\": [\n    \"No further semantics of node types or set V are provided by the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:56:45.354460+00:00"
+}

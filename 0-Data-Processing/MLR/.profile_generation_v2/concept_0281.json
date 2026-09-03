@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c4de8b3ac0e3172b3e609b8863df02d1c0a04364ac993cc930779bb15387c50d",
+  "concept_id": 281,
+  "concept_name": "pruning",
+  "aliases": [
+    "pruning",
+    "tree pruning"
+  ],
+  "profile": "pruning: Pruning is a tree-specific form of regularization that is based on cross-validation.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "pruning: Pruning is a tree-specific form of regularization. In tree-based learners, pruning is based on cross-validation and is used as a regularization technique.",
+    "claims": [
+      {
+        "claim": "Pruning is a tree-specific form of regularization.",
+        "evidence_ids": [
+          "MLR-E0345"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Pruning is based on cross-validation.",
+        "evidence_ids": [
+          "MLR-E0345"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only a brief definition; no specific mechanism, procedure, or examples of pruning are described."
+    ]
+  },
+  "review": {
+    "final_profile": "pruning: Pruning is a tree-specific form of regularization that is based on cross-validation.",
+    "sentence_reviews": [
+      {
+        "sentence": "pruning: Pruning is a tree-specific form of regularization that is based on cross-validation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0345"
+        ],
+        "reason": "The source states that pruning is a tree-specific form of regularization based on cross-validation."
+      }
+    ],
+    "warnings": [
+      "The source provides only a brief definitional statement; no details about pruning mechanisms or procedures are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"pruning: Pruning is a tree-specific form of regularization. In tree-based learners, pruning is based on cross-validation and is used as a regularization technique.\",\n  \"claims\": [\n    {\n      \"claim\": \"Pruning is a tree-specific form of regularization.\",\n      \"evidence_ids\": [\"MLR-E0345\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Pruning is based on cross-validation.\",\n      \"evidence_ids\": [\"MLR-E0345\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata provides only a brief definition; no specific mechanism, procedure, or examples of pruning are described.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"pruning: Pruning is a tree-specific form of regularization that is based on cross-validation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"pruning: Pruning is a tree-specific form of regularization that is based on cross-validation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0345\"],\n      \"reason\": \"The source states that pruning is a tree-specific form of regularization based on cross-validation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a brief definitional statement; no details about pruning mechanisms or procedures are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:12:13.700724+00:00"
+}

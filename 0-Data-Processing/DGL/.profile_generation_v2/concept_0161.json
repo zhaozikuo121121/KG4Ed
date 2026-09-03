@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "471b487bbefcb3dfcaf46f8cf18fa111924d70d504301783a34c0e3e69a1a771",
+  "concept_id": 161,
+  "concept_name": "graph feature sampling",
+  "aliases": [
+    "graph feature sampling",
+    "feature sampling"
+  ],
+  "profile": "graph feature sampling: a graph neural network training term. Node sampling randomly selects a subset of target nodes.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature sampling: a strategy in GNN training that randomly selects a subset of target nodes.",
+    "claims": [
+      {
+        "claim": "Graph feature sampling randomly selects a subset of target nodes during GNN training.",
+        "evidence_ids": [
+          "DGL-E0584"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence specifically describes 'node sampling'; the term 'feature sampling' is not used in the source."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature sampling: a graph neural network training term. Node sampling randomly selects a subset of target nodes.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph feature sampling: a graph neural network training term.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic context identifying the domain; no specific claim beyond source scope."
+      },
+      {
+        "sentence": "Node sampling randomly selects a subset of target nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0584"
+        ],
+        "reason": "Directly matches the source statement 'Node sampling: Randomly select a subset of target nodes...'."
+      }
+    ],
+    "warnings": [
+      "Evidence describes 'node sampling', not 'feature sampling'; the profile retains the concept label while grounding the action in the source's node sampling definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature sampling: a strategy in GNN training that randomly selects a subset of target nodes.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph feature sampling randomly selects a subset of target nodes during GNN training.\",\n      \"evidence_ids\": [\"DGL-E0584\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The evidence specifically describes 'node sampling'; the term 'feature sampling' is not used in the source.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature sampling: a graph neural network training term. Node sampling randomly selects a subset of target nodes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph feature sampling: a graph neural network training term.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic context identifying the domain; no specific claim beyond source scope.\"\n    },\n    {\n      \"sentence\": \"Node sampling randomly selects a subset of target nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0584\"],\n      \"reason\": \"Directly matches the source statement 'Node sampling: Randomly select a subset of target nodes...'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence describes 'node sampling', not 'feature sampling'; the profile retains the concept label while grounding the action in the source's node sampling definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:56:56.401098+00:00"
+}

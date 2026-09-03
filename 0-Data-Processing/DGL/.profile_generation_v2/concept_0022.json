@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4f4a019e0bfaf1d524a1aff1438fa134c37c11619cecc5ea8753ee7b6bbb3e8c",
+  "concept_id": 22,
+  "concept_name": "relation type",
+  "aliases": [
+    "relation type"
+  ],
+  "profile": "relation type: A relation type is denoted by r and is an element of a set R.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "relation type: In graph notation, a relation type is denoted by the symbol r and is an element of a set R.",
+    "claims": [
+      {
+        "claim": "A relation type is denoted by the symbol r and is an element of a set R.",
+        "evidence_ids": [
+          "DGL-E0032"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "relation type: A relation type is denoted by r and is an element of a set R.",
+    "sentence_reviews": [
+      {
+        "sentence": "relation type: A relation type is denoted by r and is an element of a set R.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0032"
+        ],
+        "reason": "The handwritten evidence states 'relation type r ∈ R', directly supporting the denotation and set membership."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"relation type: In graph notation, a relation type is denoted by the symbol r and is an element of a set R.\",\n  \"claims\": [\n    {\n      \"claim\": \"A relation type is denoted by the symbol r and is an element of a set R.\",\n      \"evidence_ids\": [\"DGL-E0032\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"relation type: A relation type is denoted by r and is an element of a set R.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"relation type: A relation type is denoted by r and is an element of a set R.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0032\"],\n      \"reason\": \"The handwritten evidence states 'relation type r ∈ R', directly supporting the denotation and set membership.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:56:54.987260+00:00"
+}

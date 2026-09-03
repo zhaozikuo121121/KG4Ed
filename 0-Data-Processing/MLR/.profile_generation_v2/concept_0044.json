@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "72f46b6a0efe420d6afac155fec973630cc58fcabf7703cd834a80abf18fedd8",
+  "concept_id": 44,
+  "concept_name": "gradient",
+  "aliases": [
+    "gradient",
+    "first derivative"
+  ],
+  "profile": "gradient: The first derivative of a function, generalized to multiple inputs. At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point. Fundamental first-order optimization algorithms leverage the first derivative or gradient of a function.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "gradient: The first derivative of a function, generalized to multiple inputs. At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point. Because of this, the gradient is used by fundamental first-order optimization algorithms.",
+    "claims": [
+      {
+        "claim": "The gradient is the first derivative of a function, generalized to multiple inputs.",
+        "evidence_ids": [
+          "MLR-E0045",
+          "MLR-E0357"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "At a point, the derivative of a single-input function or the gradient of a multi-input function gives precisely the slope information at that point.",
+        "evidence_ids": [
+          "MLR-E0357"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The gradient is used by fundamental first-order optimization algorithms.",
+        "evidence_ids": [
+          "MLR-E0045"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "gradient: The first derivative of a function, generalized to multiple inputs. At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point. Fundamental first-order optimization algorithms leverage the first derivative or gradient of a function.",
+    "sentence_reviews": [
+      {
+        "sentence": "The first derivative of a function, generalized to multiple inputs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0045",
+          "MLR-E0357"
+        ],
+        "reason": "Evidence identifies the gradient as the first derivative and describes the multi-input counterpart of the single-input derivative."
+      },
+      {
+        "sentence": "At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0357"
+        ],
+        "reason": "The evidence states this slope-information role directly."
+      },
+      {
+        "sentence": "Fundamental first-order optimization algorithms leverage the first derivative or gradient of a function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0045"
+        ],
+        "reason": "The evidence describes fundamental optimization algorithms that leverage the first derivative or gradient."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"gradient: The first derivative of a function, generalized to multiple inputs. At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point. Because of this, the gradient is used by fundamental first-order optimization algorithms.\",\n  \"claims\": [\n    {\n      \"claim\": \"The gradient is the first derivative of a function, generalized to multiple inputs.\",\n      \"evidence_ids\": [\"MLR-E0045\", \"MLR-E0357\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"At a point, the derivative of a single-input function or the gradient of a multi-input function gives precisely the slope information at that point.\",\n      \"evidence_ids\": [\"MLR-E0357\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The gradient is used by fundamental first-order optimization algorithms.\",\n      \"evidence_ids\": [\"MLR-E0045\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"gradient: The first derivative of a function, generalized to multiple inputs. At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point. Fundamental first-order optimization algorithms leverage the first derivative or gradient of a function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The first derivative of a function, generalized to multiple inputs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0045\",\n        \"MLR-E0357\"\n      ],\n      \"reason\": \"Evidence identifies the gradient as the first derivative and describes the multi-input counterpart of the single-input derivative.\"\n    },\n    {\n      \"sentence\": \"At a point, the derivative of a single-input function, or the gradient of a multi-input function, gives precisely the slope information at that point.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0357\"\n      ],\n      \"reason\": \"The evidence states this slope-information role directly.\"\n    },\n    {\n      \"sentence\": \"Fundamental first-order optimization algorithms leverage the first derivative or gradient of a function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0045\"\n      ],\n      \"reason\": \"The evidence describes fundamental optimization algorithms that leverage the first derivative or gradient.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:37:25.866018+00:00"
+}

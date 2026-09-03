@@ -1,0 +1,1502 @@
+{
+  "version": "1.0.0",
+  "lecture": 5,
+  "pdf_file": "DGL_Lecture_5_Annotated.pdf",
+  "pdf_page": 3,
+  "page_title": "Graph Isomorphism Network (GIN) and Expressiveness",
+  "summary": "This page details the Graph Isomorphism Network (GIN), a maximally expressive GNN architecture that matches the power of the Weisfeiler-Lehman (WL) test. It presents the theoretical conditions for GNN expressiveness, specifically requiring injective aggregation functions, and contrasts GIN with less expressive models like GCN and GraphSAGE. The page includes the specific GIN message update rule and architectural diagrams illustrating pre-layers, GNN layers, and post-layers for node and graph classification tasks.",
+  "key_topics": [
+    "graph isomorphism network",
+    "weisfeiler-lehman test",
+    "gnn expressiveness",
+    "injective aggregation",
+    "message passing"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:10:06+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "prediction head",
+      "aliases": [
+        "output layer"
+      ],
+      "evidence": "Handwritten annotation 'prediction head' pointing to the output of the GNN block",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        250.0,
+        100.0,
+        350.0,
+        150.0
+      ]
+    },
+    {
+      "canonical": "weisfeiler-lehman test",
+      "aliases": [
+        "wl test"
+      ],
+      "evidence": "GNNs are at most as powerful as the WL test in distinguishing graph structures",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        130.0,
+        400.0,
+        150.0
+      ]
+    },
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn"
+      ],
+      "evidence": "GCN (Kipf & Welling, 2017)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        180.0,
+        150.0,
+        195.0
+      ]
+    },
+    {
+      "canonical": "graphsage",
+      "aliases": [],
+      "evidence": "GraphSAGE (Hamilton et al., 2017a)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        180.0,
+        250.0,
+        195.0
+      ]
+    },
+    {
+      "canonical": "injective aggregation",
+      "aliases": [
+        "injective neighbor aggregation"
+      ],
+      "evidence": "functions f, which operates on multisets, and phi are injective",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        200.0,
+        350.0,
+        220.0
+      ]
+    },
+    {
+      "canonical": "multiset",
+      "aliases": [],
+      "evidence": "operates on multisets",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        205.0,
+        100.0,
+        220.0
+      ]
+    },
+    {
+      "canonical": "graph isomorphism network",
+      "aliases": [
+        "gin"
+      ],
+      "evidence": "Graph Isomorphism Network (GIN)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        240.0,
+        250.0,
+        260.0
+      ]
+    },
+    {
+      "canonical": "graph pooling",
+      "aliases": [
+        "pooling layers"
+      ],
+      "evidence": "Handwritten diagram showing aggregation operations like MAX and MEAN",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        450.0,
+        450.0,
+        550.0,
+        600.0
+      ]
+    },
+    {
+      "canonical": "aggregation function",
+      "aliases": [
+        "agg"
+      ],
+      "evidence": "Handwritten text 'MAX' and 'MEAN' next to the pooling diagram",
+      "source_type": "handwritten",
+      "confidence": 0.98,
+      "bbox": [
+        480.0,
+        560.0,
+        520.0,
+        600.0
+      ]
+    },
+    {
+      "canonical": "gnn expressiveness",
+      "aliases": [
+        "expressive power"
+      ],
+      "evidence": "How to maximize the expressiveness of a GNN model?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        680.0,
+        250.0,
+        700.0
+      ]
+    },
+    {
+      "canonical": "multi-layer perceptron",
+      "aliases": [
+        "mlp"
+      ],
+      "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        700.0,
+        300.0,
+        720.0
+      ]
+    },
+    {
+      "canonical": "universal function approximator",
+      "aliases": [],
+      "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        700.0,
+        300.0,
+        720.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "propagation rule"
+      ],
+      "evidence": "Its message update rule takes the following form:",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        740.0,
+        250.0,
+        760.0
+      ]
+    },
+    {
+      "canonical": "node classification",
+      "aliases": [
+        "classify node"
+      ],
+      "evidence": "(e.g., node classification tasks)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        150.0,
+        880.0,
+        250.0,
+        900.0
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "classify a graph"
+      ],
+      "evidence": "(e.g., graph classification tasks)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        350.0,
+        880.0,
+        450.0,
+        900.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "h_v^{(k)} = \\phi \\left( h_v^{(k-1)}, f \\left( \\{ h_u^{(k-1)} : u \\in \\mathcal{N}(v) \\} \\right) \\right)",
+      "related_concepts": [
+        "message passing",
+        "injective aggregation",
+        "multiset"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        190.0,
+        400.0,
+        230.0
+      ],
+      "label": "General GNN update rule"
+    },
+    {
+      "latex": "h_v^{(k)} = \\text{MLP}^{(k)} \\left( (1 + \\epsilon^{(k)}) \\cdot h_v^{(k-1)} + \\sum_{u \\in \\mathcal{N}(v)} h_u^{(k-1)} \\right)",
+      "related_concepts": [
+        "graph isomorphism network",
+        "message passing",
+        "multi-layer perceptron"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        760.0,
+        350.0,
+        800.0
+      ],
+      "label": "GIN message update rule"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Figure 2: Ranking by expressive power for sum, mean, and max aggregators over a multiset, illustrating how different aggregators capture distribution information.",
+      "related_concepts": [
+        "aggregation function",
+        "multiset",
+        "gnn expressiveness"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        100.0,
+        400.0,
+        400.0,
+        600.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "An expressive GNN block architecture diagram showing Pre-layers (MLPs), GNN layers, and Post-layers (MLPs) for node and graph classification tasks.",
+      "related_concepts": [
+        "graph isomorphism network",
+        "multi-layer perceptron",
+        "node classification",
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        10.0,
+        800.0,
+        450.0,
+        900.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Two small graphs with node features used to illustrate distinguishability by the WL test and GNNs.",
+      "related_concepts": [
+        "weisfeiler-lehman test",
+        "graph isomorphism network"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        400.0,
+        300.0,
+        550.0,
+        450.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Hand-drawn schematic illustrating hierarchical graph pooling with parent nodes branching to child nodes, aggregated via MAX and MEAN operations.",
+      "related_concepts": [
+        "graph pooling",
+        "aggregation function"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        450.0,
+        450.0,
+        550.0,
+        600.0
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "nina too near mean IEEE sv I infra cheating gig smug I 88",
+      "reason": "Handwriting is unclear and may contain irrelevant or nonsensical text",
+      "bbox": [
+        0.0,
+        0.0,
+        550.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "Recall box: summarize what you remember from this lecture below",
+      "reason": "Printed text is present, but the request asks for uncertain handwriting. There is no handwriting in the main area, only a partial diagram on the far left edge which is cut off and illegible.",
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "increase the capacity for the network",
+      "reason": "Handwriting is somewhat unclear and may be misinterpreted.",
+      "bbox": [
+        220.0,
+        780.0,
+        330.0,
+        807.5
+      ]
+    },
+    {
+      "transcription": "nina too near mean IEEE sv I infra cheating gig smug I 88",
+      "reason": "Handwriting is unclear and appears to be nonsensical or irrelevant scribbles in the margin.",
+      "bbox": [
+        10.0,
+        110.0,
+        200.0,
+        130.0
+      ]
+    },
+    {
+      "transcription": "increase the capacity for the network",
+      "reason": "Handwriting is somewhat slanted and partially obscured, though context suggests meaning.",
+      "bbox": [
+        350.0,
+        750.0,
+        450.0,
+        780.0
+      ]
+    },
+    {
+      "transcription": "fixed aggregation function",
+      "reason": "Handwritten annotation near the GIN formula, slightly difficult to read due to ink density.",
+      "bbox": [
+        10.0,
+        810.0,
+        150.0,
+        830.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph isomorphism network",
+            "aliases": [
+              "gin"
+            ],
+            "evidence": "Graph Isomorphism Network (GIN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman test",
+            "aliases": [
+              "wl test"
+            ],
+            "evidence": "WL test in distinguishing graph structures",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "neighbor aggregation",
+            "aliases": [],
+            "evidence": "neighbor aggregation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph readout",
+            "aliases": [],
+            "evidence": "graph readout functions",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "GNNs are at most as powerful as the WL test",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "GCN (Kipf & Welling, 2017)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [],
+            "evidence": "GraphSAGE (Hamilton et al., 2017a)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "injective function",
+            "aliases": [],
+            "evidence": "functions f, which operates on multisets, and phi are injective",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "multiset",
+            "aliases": [],
+            "evidence": "operates on multisets",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "node feature update",
+            "aliases": [],
+            "evidence": "A aggregates and updates node features iteratively",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph-level readout",
+            "aliases": [],
+            "evidence": "A's graph-level readout, which operates on the multiset of node features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "discriminative power",
+            "aliases": [],
+            "evidence": "discriminative/representational power is equal to the power of the WL test",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "prediction head",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "update rule",
+            "aliases": [],
+            "evidence": "update rule",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "aggregation functions",
+            "aliases": [],
+            "evidence": "max, sum, mean",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "distinguish graphs",
+            "aliases": [],
+            "evidence": "distinguish",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_v^{(k)} = \\phi \\left( h_v^{(k-1)}, f \\left( \\{ h_u^{(k-1)} : u \\in N(v) \\} \\right) \\right)",
+            "related_concepts": [
+              "node feature update",
+              "neighbor aggregation",
+              "injective function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ],
+            "label": "GNN update rule"
+          },
+          {
+            "latex": "A: \\mathcal{G} \\to \\mathbb{R}^d",
+            "related_concepts": [
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ],
+            "label": "GNN mapping"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing input graph, aggregation (sum, mean, max), and resulting embeddings",
+            "related_concepts": [
+              "neighbor aggregation",
+              "multiset",
+              "graph-level readout"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two small graphs with node features to illustrate distinguishability",
+            "related_concepts": [
+              "weisfeiler-lehman test",
+              "distinguish graphs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nina too near mean IEEE sv I infra cheating gig smug I 88",
+            "reason": "Handwriting is unclear and may contain irrelevant or nonsensical text",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph isomorphism network\",\n      \"aliases\": [\"gin\"],\n      \"evidence\": \"Graph Isomorphism Network (GIN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman test\",\n      \"aliases\": [\"wl test\"],\n      \"evidence\": \"WL test in distinguishing graph structures\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"neighbor aggregation\",\n      \"aliases\": [],\n      \"evidence\": \"neighbor aggregation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph readout\",\n      \"aliases\": [],\n      \"evidence\": \"graph readout functions\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"GNNs are at most as powerful as the WL test\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"GCN (Kipf & Welling, 2017)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [],\n      \"evidence\": \"GraphSAGE (Hamilton et al., 2017a)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"injective function\",\n      \"aliases\": [],\n      \"evidence\": \"functions f, which operates on multisets, and phi are injective\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"multiset\",\n      \"aliases\": [],\n      \"evidence\": \"operates on multisets\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"node feature update\",\n      \"aliases\": [],\n      \"evidence\": \"A aggregates and updates node features iteratively\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph-level readout\",\n      \"aliases\": [],\n      \"evidence\": \"A's graph-level readout, which operates on the multiset of node features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"discriminative power\",\n      \"aliases\": [],\n      \"evidence\": \"discriminative/representational power is equal to the power of the WL test\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"prediction head\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"update rule\",\n      \"aliases\": [],\n      \"evidence\": \"update rule\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"aggregation functions\",\n      \"aliases\": [],\n      \"evidence\": \"max, sum, mean\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"distinguish graphs\",\n      \"aliases\": [],\n      \"evidence\": \"distinguish\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_v^{(k)} = \\\\phi \\\\left( h_v^{(k-1)}, f \\\\left( \\\\{ h_u^{(k-1)} : u \\\\in N(v) \\\\} \\\\right) \\\\right)\",\n      \"related_concepts\": [\"node feature update\", \"neighbor aggregation\", \"injective function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000],\n      \"label\": \"GNN update rule\"\n    },\n    {\n      \"latex\": \"A: \\\\mathcal{G} \\\\to \\\\mathbb{R}^d\",\n      \"related_concepts\": [\"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000],\n      \"label\": \"GNN mapping\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing input graph, aggregation (sum, mean, max), and resulting embeddings\",\n      \"related_concepts\": [\"neighbor aggregation\", \"multiset\", \"graph-level readout\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two small graphs with node features to illustrate distinguishability\",\n      \"related_concepts\": [\"weisfeiler-lehman test\", \"distinguish graphs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nina too near mean IEEE sv I infra cheating gig smug I 88\",\n      \"reason\": \"Handwriting is unclear and may contain irrelevant or nonsensical text\",\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [],
+        "formulas": [],
+        "visuals": [],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Recall box: summarize what you remember from this lecture below",
+            "reason": "Printed text is present, but the request asks for uncertain handwriting. There is no handwriting in the main area, only a partial diagram on the far left edge which is cut off and illegible.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [],\n  \"formulas\": [],\n  \"visuals\": [],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Recall box: summarize what you remember from this lecture below\",\n      \"reason\": \"Printed text is present, but the request asks for uncertain handwriting. There is no handwriting in the main area, only a partial diagram on the far left edge which is cut off and illegible.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "How to maximize the expressiveness of a GNN model?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              500,
+              400,
+              530
+            ]
+          },
+          {
+            "canonical": "multi-layer perceptron",
+            "aliases": [
+              "mlp"
+            ],
+            "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              540,
+              400,
+              570
+            ]
+          },
+          {
+            "canonical": "graph isomorphism network",
+            "aliases": [
+              "gin"
+            ],
+            "evidence": "GIN is a maximally expressive (powerful) GNN among others that may exist",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              580,
+              400,
+              610
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "message update rule"
+            ],
+            "evidence": "Its message update rule takes the following form:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              620,
+              400,
+              650
+            ]
+          },
+          {
+            "canonical": "aggregation function",
+            "aliases": [
+              "fixed aggregation function"
+            ],
+            "evidence": "fixed aggregation function",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              700,
+              200,
+              730
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [],
+            "evidence": "(e.g., node classification tasks)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              850,
+              200,
+              880
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [],
+            "evidence": "(e.g., graph classification tasks)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              850,
+              600,
+              880
+            ]
+          },
+          {
+            "canonical": "expressiveness",
+            "aliases": [],
+            "evidence": "How to maximize the expressiveness of a GNN model?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              500,
+              400,
+              530
+            ]
+          },
+          {
+            "canonical": "universal function approximator",
+            "aliases": [],
+            "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              540,
+              400,
+              570
+            ]
+          },
+          {
+            "canonical": "pre-layers",
+            "aliases": [],
+            "evidence": "Pre-layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              820,
+              200,
+              850
+            ]
+          },
+          {
+            "canonical": "post-layers",
+            "aliases": [],
+            "evidence": "Post-layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              820,
+              600,
+              850
+            ]
+          },
+          {
+            "canonical": "learnable self",
+            "aliases": [],
+            "evidence": "learnable self",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              680,
+              200,
+              710
+            ]
+          },
+          {
+            "canonical": "neighbors",
+            "aliases": [],
+            "evidence": "neighbors",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              680,
+              400,
+              710
+            ]
+          },
+          {
+            "canonical": "max",
+            "aliases": [],
+            "evidence": "max",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              660,
+              50,
+              690
+            ]
+          },
+          {
+            "canonical": "mean",
+            "aliases": [],
+            "evidence": "mean",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              660,
+              100,
+              690
+            ]
+          },
+          {
+            "canonical": "sum",
+            "aliases": [],
+            "evidence": "sum",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              660,
+              150,
+              690
+            ]
+          },
+          {
+            "canonical": "increase the capacity for the network",
+            "aliases": [],
+            "evidence": "increase the capacity for the network",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              400,
+              600,
+              600,
+              650
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_v^{(k)} = \\text{MLP}^{(k)} \\left( (1 + \\epsilon^{(k)}) \\cdot h_v^{(k-1)} + \\sum_{u \\in \\mathcal{N}(v)} h_u^{(k-1)} \\right)",
+            "related_concepts": [
+              "graph isomorphism network",
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              620,
+              400,
+              680
+            ],
+            "label": "GIN message update rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "An expressive GNN block architecture with pre-layers, GNN layers, and post-layers.",
+            "related_concepts": [
+              "graph neural network",
+              "pre-layers",
+              "post-layers"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              700,
+              600,
+              880
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "increase the capacity for the network",
+            "reason": "Handwriting is somewhat unclear and may be misinterpreted.",
+            "bbox": [
+              400,
+              600,
+              600,
+              650
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"How to maximize the expressiveness of a GNN model?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 500, 400, 530]\n    },\n    {\n      \"canonical\": \"multi-layer perceptron\",\n      \"aliases\": [\"mlp\"],\n      \"evidence\": \"Multi-layer perceptrons (MLPs) are universal function approximators\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 540, 400, 570]\n    },\n    {\n      \"canonical\": \"graph isomorphism network\",\n      \"aliases\": [\"gin\"],\n      \"evidence\": \"GIN is a maximally expressive (powerful) GNN among others that may exist\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 580, 400, 610]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"message update rule\"],\n      \"evidence\": \"Its message update rule takes the following form:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 620, 400, 650]\n    },\n    {\n      \"canonical\": \"aggregation function\",\n      \"aliases\": [\"fixed aggregation function\"],\n      \"evidence\": \"fixed aggregation function\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 700, 200, 730]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [],\n      \"evidence\": \"(e.g., node classification tasks)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 850, 200, 880]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [],\n      \"evidence\": \"(e.g., graph classification tasks)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 850, 600, 880]\n    },\n    {\n      \"canonical\": \"expressiveness\",\n      \"aliases\": [],\n      \"evidence\": \"How to maximize the expressiveness of a GNN model?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 500, 400, 530]\n    },\n    {\n      \"canonical\": \"universal function approximator\",\n      \"aliases\": [],\n      \"evidence\": \"Multi-layer perceptrons (MLPs) are universal function approximators\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 540, 400, 570]\n    },\n    {\n      \"canonical\": \"pre-layers\",\n      \"aliases\": [],\n      \"evidence\": \"Pre-layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 820, 200, 850]\n    },\n    {\n      \"canonical\": \"post-layers\",\n      \"aliases\": [],\n      \"evidence\": \"Post-layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 820, 600, 850]\n    },\n    {\n      \"canonical\": \"learnable self\",\n      \"aliases\": [],\n      \"evidence\": \"learnable self\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 680, 200, 710]\n    },\n    {\n      \"canonical\": \"neighbors\",\n      \"aliases\": [],\n      \"evidence\": \"neighbors\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 680, 400, 710]\n    },\n    {\n      \"canonical\": \"max\",\n      \"aliases\": [],\n      \"evidence\": \"max\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 660, 50, 690]\n    },\n    {\n      \"canonical\": \"mean\",\n      \"aliases\": [],\n      \"evidence\": \"mean\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 660, 100, 690]\n    },\n    {\n      \"canonical\": \"sum\",\n      \"aliases\": [],\n      \"evidence\": \"sum\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 660, 150, 690]\n    },\n    {\n      \"canonical\": \"increase the capacity for the network\",\n      \"aliases\": [],\n      \"evidence\": \"increase the capacity for the network\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [400, 600, 600, 650]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_v^{(k)} = \\\\text{MLP}^{(k)} \\\\left( (1 + \\\\epsilon^{(k)}) \\\\cdot h_v^{(k-1)} + \\\\sum_{u \\\\in \\\\mathcal{N}(v)} h_u^{(k-1)} \\\\right)\",\n      \"related_concepts\": [\"graph isomorphism network\", \"message passing\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 620, 400, 680],\n      \"label\": \"GIN message update rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"An expressive GNN block architecture with pre-layers, GNN layers, and post-layers.\",\n      \"related_concepts\": [\"graph neural network\", \"pre-layers\", \"post-layers\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 700, 600, 880]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"increase the capacity for the network\",\n      \"reason\": \"Handwriting is somewhat unclear and may be misinterpreted.\",\n      \"bbox\": [400, 600, 600, 650]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "graph coarsening",
+              "hierarchical pooling"
+            ],
+            "evidence": "Handwritten diagram showing a tree-like structure where nodes are grouped (pink highlights) and reduced to fewer nodes, with 'MAX' and 'MEAN' indicating aggregation operations.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              0,
+              150,
+              300
+            ]
+          },
+          {
+            "canonical": "aggregation function",
+            "aliases": [
+              "pooling operator",
+              "readout function"
+            ],
+            "evidence": "Handwritten text 'MAX' and 'MEAN' next to the pooling diagram, indicating specific aggregation methods used in graph neural networks.",
+            "source_type": "handwritten",
+            "confidence": 0.98,
+            "bbox": [
+              50,
+              200,
+              120,
+              280
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A hand-drawn schematic illustrating a hierarchical graph pooling operation. It shows parent nodes branching to child nodes, with groups of child nodes (highlighted in pink) being aggregated into single representations. Arrows indicate the flow of information reduction.",
+            "related_concepts": [
+              "graph pooling",
+              "aggregation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              0,
+              150,
+              300
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"graph coarsening\", \"hierarchical pooling\"],\n      \"evidence\": \"Handwritten diagram showing a tree-like structure where nodes are grouped (pink highlights) and reduced to fewer nodes, with 'MAX' and 'MEAN' indicating aggregation operations.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 0, 150, 300]\n    },\n    {\n      \"canonical\": \"aggregation function\",\n      \"aliases\": [\"pooling operator\", \"readout function\"],\n      \"evidence\": \"Handwritten text 'MAX' and 'MEAN' next to the pooling diagram, indicating specific aggregation methods used in graph neural networks.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.98,\n      \"bbox\": [50, 200, 120, 280]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A hand-drawn schematic illustrating a hierarchical graph pooling operation. It shows parent nodes branching to child nodes, with groups of child nodes (highlighted in pink) being aggregated into single representations. Arrows indicate the flow of information reduction.\",\n      \"related_concepts\": [\"graph pooling\", \"aggregation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 0, 150, 300]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Isomorphism Network (GIN) and Expressiveness",
+        "summary": "This page details the Graph Isomorphism Network (GIN), a maximally expressive GNN architecture that matches the power of the Weisfeiler-Lehman (WL) test. It presents the theoretical conditions for GNN expressiveness, specifically requiring injective aggregation functions, and contrasts GIN with less expressive models like GCN and GraphSAGE. The page includes the specific GIN message update rule and architectural diagrams illustrating pre-layers, GNN layers, and post-layers for node and graph classification tasks.",
+        "key_topics": [
+          "graph isomorphism network",
+          "weisfeiler-lehman test",
+          "gnn expressiveness",
+          "injective aggregation",
+          "message passing"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph isomorphism network",
+            "aliases": [
+              "gin"
+            ],
+            "evidence": "Graph Isomorphism Network (GIN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              240,
+              250,
+              260
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman test",
+            "aliases": [
+              "wl test"
+            ],
+            "evidence": "GNNs are at most as powerful as the WL test in distinguishing graph structures",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              130,
+              400,
+              150
+            ]
+          },
+          {
+            "canonical": "gnn expressiveness",
+            "aliases": [
+              "expressive power"
+            ],
+            "evidence": "How to maximize the expressiveness of a GNN model?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              680,
+              250,
+              700
+            ]
+          },
+          {
+            "canonical": "injective aggregation",
+            "aliases": [
+              "injective neighbor aggregation"
+            ],
+            "evidence": "functions f, which operates on multisets, and phi are injective",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              350,
+              220
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "propagation rule"
+            ],
+            "evidence": "Its message update rule takes the following form:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              740,
+              250,
+              760
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "GCN (Kipf & Welling, 2017)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              180,
+              150,
+              195
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [],
+            "evidence": "GraphSAGE (Hamilton et al., 2017a)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              180,
+              250,
+              195
+            ]
+          },
+          {
+            "canonical": "multiset",
+            "aliases": [],
+            "evidence": "operates on multisets",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              205,
+              100,
+              220
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "classify node"
+            ],
+            "evidence": "(e.g., node classification tasks)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              880,
+              250,
+              900
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "classify a graph"
+            ],
+            "evidence": "(e.g., graph classification tasks)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              880,
+              450,
+              900
+            ]
+          },
+          {
+            "canonical": "multi-layer perceptron",
+            "aliases": [
+              "mlp"
+            ],
+            "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              700,
+              300,
+              720
+            ]
+          },
+          {
+            "canonical": "universal function approximator",
+            "aliases": [],
+            "evidence": "Multi-layer perceptrons (MLPs) are universal function approximators",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              700,
+              300,
+              720
+            ]
+          },
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "pooling layers"
+            ],
+            "evidence": "Handwritten diagram showing aggregation operations like MAX and MEAN",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              450,
+              550,
+              600
+            ]
+          },
+          {
+            "canonical": "aggregation function",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "Handwritten text 'MAX' and 'MEAN' next to the pooling diagram",
+            "source_type": "handwritten",
+            "confidence": 0.98,
+            "bbox": [
+              480,
+              560,
+              520,
+              600
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "output layer"
+            ],
+            "evidence": "Handwritten annotation 'prediction head' pointing to the output of the GNN block",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              100,
+              350,
+              150
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_v^{(k)} = \\phi \\left( h_v^{(k-1)}, f \\left( \\{ h_u^{(k-1)} : u \\in \\mathcal{N}(v) \\} \\right) \\right)",
+            "related_concepts": [
+              "message passing",
+              "injective aggregation",
+              "multiset"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              190,
+              400,
+              230
+            ],
+            "label": "General GNN update rule"
+          },
+          {
+            "latex": "h_v^{(k)} = \\text{MLP}^{(k)} \\left( (1 + \\epsilon^{(k)}) \\cdot h_v^{(k-1)} + \\sum_{u \\in \\mathcal{N}(v)} h_u^{(k-1)} \\right)",
+            "related_concepts": [
+              "graph isomorphism network",
+              "message passing",
+              "multi-layer perceptron"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              760,
+              350,
+              800
+            ],
+            "label": "GIN message update rule"
+          },
+          {
+            "latex": "A: \\mathcal{G} \\to \\mathbb{R}^d",
+            "related_concepts": [
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              160,
+              150,
+              180
+            ],
+            "label": "GNN mapping"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Figure 2: Ranking by expressive power for sum, mean, and max aggregators over a multiset, illustrating how different aggregators capture distribution information.",
+            "related_concepts": [
+              "aggregation function",
+              "multiset",
+              "gnn expressiveness"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              400,
+              400,
+              600
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "An expressive GNN block architecture diagram showing Pre-layers (MLPs), GNN layers, and Post-layers (MLPs) for node and graph classification tasks.",
+            "related_concepts": [
+              "graph isomorphism network",
+              "multi-layer perceptron",
+              "node classification",
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              800,
+              450,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two small graphs with node features used to illustrate distinguishability by the WL test and GNNs.",
+            "related_concepts": [
+              "weisfeiler-lehman test",
+              "graph isomorphism network"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              300,
+              550,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn schematic illustrating hierarchical graph pooling with parent nodes branching to child nodes, aggregated via MAX and MEAN operations.",
+            "related_concepts": [
+              "graph pooling",
+              "aggregation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              450,
+              550,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nina too near mean IEEE sv I infra cheating gig smug I 88",
+            "reason": "Handwriting is unclear and appears to be nonsensical or irrelevant scribbles in the margin.",
+            "bbox": [
+              10,
+              110,
+              200,
+              130
+            ]
+          },
+          {
+            "transcription": "increase the capacity for the network",
+            "reason": "Handwriting is somewhat slanted and partially obscured, though context suggests meaning.",
+            "bbox": [
+              350,
+              750,
+              450,
+              780
+            ]
+          },
+          {
+            "transcription": "fixed aggregation function",
+            "reason": "Handwritten annotation near the GIN formula, slightly difficult to read due to ink density.",
+            "bbox": [
+              10,
+              810,
+              150,
+              830
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Isomorphism Network (GIN) and Expressiveness\",\n  \"summary\": \"This page details the Graph Isomorphism Network (GIN), a maximally expressive GNN architecture that matches the power of the Weisfeiler-Lehman (WL) test. It presents the theoretical conditions for GNN expressiveness, specifically requiring injective aggregation functions, and contrasts GIN with less expressive models like GCN and GraphSAGE. The page includes the specific GIN message update rule and architectural diagrams illustrating pre-layers, GNN layers, and post-layers for node and graph classification tasks.\",\n  \"key_topics\": [\n    \"graph isomorphism network\",\n    \"weisfeiler-lehman test\",\n    \"gnn expressiveness\",\n    \"injective aggregation\",\n    \"message passing\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph isomorphism network\",\n      \"aliases\": [\"gin\"],\n      \"evidence\": \"Graph Isomorphism Network (GIN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 240, 250, 260]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman test\",\n      \"aliases\": [\"wl test\"],\n      \"evidence\": \"GNNs are at most as powerful as the WL test in distinguishing graph structures\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 130, 400, 150]\n    },\n    {\n      \"canonical\": \"gnn expressiveness\",\n      \"aliases\": [\"expressive power\"],\n      \"evidence\": \"How to maximize the expressiveness of a GNN model?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 680, 250, 700]\n    },\n    {\n      \"canonical\": \"injective aggregation\",\n      \"aliases\": [\"injective neighbor aggregation\"],\n      \"evidence\": \"functions f, which operates on multisets, and phi are injective\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 350, 220]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"propagation rule\"],\n      \"evidence\": \"Its message update rule takes the following form:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 740, 250, 760]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"GCN (Kipf & Welling, 2017)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 180, 150, 195]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [],\n      \"evidence\": \"GraphSAGE (Hamilton et al., 2017a)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 180, 250, 195]\n    },\n    {\n      \"canonical\": \"multiset\",\n      \"aliases\": [],\n      \"evidence\": \"operates on multisets\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 205, 100, 220]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"classify node\"],\n      \"evidence\": \"(e.g., node classification tasks)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 880, 250, 900]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"classify a graph\"],\n      \"evidence\": \"(e.g., graph classification tasks)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 880, 450, 900]\n    },\n    {\n      \"canonical\": \"multi-layer perceptron\",\n      \"aliases\": [\"mlp\"],\n      \"evidence\": \"Multi-layer perceptrons (MLPs) are universal function approximators\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 700, 300, 720]\n    },\n    {\n      \"canonical\": \"universal function approximator\",\n      \"aliases\": [],\n      \"evidence\": \"Multi-layer perceptrons (MLPs) are universal function approximators\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 700, 300, 720]\n    },\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"pooling layers\"],\n      \"evidence\": \"Handwritten diagram showing aggregation operations like MAX and MEAN\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 450, 550, 600]\n    },\n    {\n      \"canonical\": \"aggregation function\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"Handwritten text 'MAX' and 'MEAN' next to the pooling diagram\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.98,\n      \"bbox\": [480, 560, 520, 600]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"output layer\"],\n      \"evidence\": \"Handwritten annotation 'prediction head' pointing to the output of the GNN block\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 100, 350, 150]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_v^{(k)} = \\\\phi \\\\left( h_v^{(k-1)}, f \\\\left( \\\\{ h_u^{(k-1)} : u \\\\in \\\\mathcal{N}(v) \\\\} \\\\right) \\\\right)\",\n      \"related_concepts\": [\"message passing\", \"injective aggregation\", \"multiset\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 190, 400, 230],\n      \"label\": \"General GNN update rule\"\n    },\n    {\n      \"latex\": \"h_v^{(k)} = \\\\text{MLP}^{(k)} \\\\left( (1 + \\\\epsilon^{(k)}) \\\\cdot h_v^{(k-1)} + \\\\sum_{u \\\\in \\\\mathcal{N}(v)} h_u^{(k-1)} \\\\right)\",\n      \"related_concepts\": [\"graph isomorphism network\", \"message passing\", \"multi-layer perceptron\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 760, 350, 800],\n      \"label\": \"GIN message update rule\"\n    },\n    {\n      \"latex\": \"A: \\\\mathcal{G} \\\\to \\\\mathbb{R}^d\",\n      \"related_concepts\": [\"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 160, 150, 180],\n      \"label\": \"GNN mapping\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Figure 2: Ranking by expressive power for sum, mean, and max aggregators over a multiset, illustrating how different aggregators capture distribution information.\",\n      \"related_concepts\": [\"aggregation function\", \"multiset\", \"gnn expressiveness\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 400, 400, 600]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"An expressive GNN block architecture diagram showing Pre-layers (MLPs), GNN layers, and Post-layers (MLPs) for node and graph classification tasks.\",\n      \"related_concepts\": [\"graph isomorphism network\", \"multi-layer perceptron\", \"node classification\", \"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 800, 450, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two small graphs with node features used to illustrate distinguishability by the WL test and GNNs.\",\n      \"related_concepts\": [\"weisfeiler-lehman test\", \"graph isomorphism network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 300, 550, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn schematic illustrating hierarchical graph pooling with parent nodes branching to child nodes, aggregated via MAX and MEAN operations.\",\n      \"related_concepts\": [\"graph pooling\", \"aggregation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 450, 550, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nina too near mean IEEE sv I infra cheating gig smug I 88\",\n      \"reason\": \"Handwriting is unclear and appears to be nonsensical or irrelevant scribbles in the margin.\",\n      \"bbox\": [10, 110, 200, 130]\n    },\n    {\n      \"transcription\": \"increase the capacity for the network\",\n      \"reason\": \"Handwriting is somewhat slanted and partially obscured, though context suggests meaning.\",\n      \"bbox\": [350, 750, 450, 780]\n    },\n    {\n      \"transcription\": \"fixed aggregation function\",\n      \"reason\": \"Handwritten annotation near the GIN formula, slightly difficult to read due to ink density.\",\n      \"bbox\": [10, 810, 150, 830]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph isomorphism network",
+      "into": "graph isomorphism network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "aggregation functions",
+      "into": "aggregation function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "aggregation function",
+      "into": "aggregation function"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "99b9195b89494d25abe0b2a8e6a476b6ccb0848f29805cda29311d90c3d2bc72",
+  "concept_id": 391,
+  "concept_name": "graph distribution",
+  "aliases": [
+    "graph distribution",
+    "p_data(g",
+    "p_model(g; theta"
+  ],
+  "profile": "graph distribution: In graph generation, the distribution over graphs is represented by the data distribution p_data(g) and the model distribution p_model(g; theta). The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution approximates the data distribution.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph distribution: In graph generation, the distribution over graphs is characterized by p_data(g), the true data distribution, and p_model(g; theta), the model distribution parameterized by theta. The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution is trained to approximate the data distribution, forming the basis for training generative models on graphs.",
+    "claims": [
+      {
+        "claim": "Graph distribution is characterized by p_data(g) and p_model(g; theta).",
+        "evidence_ids": [
+          "DGL-E0555"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The model distribution is trained to approximate the data distribution.",
+        "evidence_ids": [
+          "DGL-E0555"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph distribution: In graph generation, the distribution over graphs is represented by the data distribution p_data(g) and the model distribution p_model(g; theta). The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution approximates the data distribution.",
+    "sentence_reviews": [
+      {
+        "sentence": "In graph generation, the distribution over graphs is represented by the data distribution p_data(g) and the model distribution p_model(g; theta).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0555"
+        ],
+        "reason": "The evidence directly presents p_data(g) and p_model(g; theta) in the graph generation lecture context."
+      },
+      {
+        "sentence": "The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution approximates the data distribution.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0555"
+        ],
+        "reason": "The tilde notation in the evidence expresses the relationship between the data distribution and the model distribution."
+      }
+    ],
+    "warnings": [
+      "Only a single notation-based evidence item is available; training-specific details were removed as unsupported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph distribution: In graph generation, the distribution over graphs is characterized by p_data(g), the true data distribution, and p_model(g; theta), the model distribution parameterized by theta. The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution is trained to approximate the data distribution, forming the basis for training generative models on graphs.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph distribution is characterized by p_data(g) and p_model(g; theta).\",\n      \"evidence_ids\": [\"DGL-E0555\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The model distribution is trained to approximate the data distribution.\",\n      \"evidence_ids\": [\"DGL-E0555\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph distribution: In graph generation, the distribution over graphs is represented by the data distribution p_data(g) and the model distribution p_model(g; theta). The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution approximates the data distribution.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In graph generation, the distribution over graphs is represented by the data distribution p_data(g) and the model distribution p_model(g; theta).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0555\"],\n      \"reason\": \"The evidence directly presents p_data(g) and p_model(g; theta) in the graph generation lecture context.\"\n    },\n    {\n      \"sentence\": \"The notation p_data(g) ~ p_model(g; theta) indicates that the model distribution approximates the data distribution.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0555\"],\n      \"reason\": \"The tilde notation in the evidence expresses the relationship between the data distribution and the model distribution.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single notation-based evidence item is available; training-specific details were removed as unsupported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:15:57.096395+00:00"
+}

@@ -1,0 +1,1919 @@
+{
+  "version": "1.0.0",
+  "chapter": 4,
+  "chapter_title": "Second order optimization techniques",
+  "pdf_start": 102,
+  "pdf_end": 124,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T16:07:11+00:00",
+  "concepts": [
+    {
+      "canonical": "second order optimality condition",
+      "aliases": [
+        "second order condition for optimality"
+      ],
+      "evidence_page": 102,
+      "evidence": "the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method",
+      "relevance": 0.9,
+      "anchor_page": 102
+    },
+    {
+      "canonical": "second order taylor series approximation",
+      "aliases": [
+        "second order taylor series",
+        "second order taylor series expansion",
+        "quadratic approximation",
+        "second order approximation"
+      ],
+      "evidence_page": 102,
+      "evidence": "the second order Taylor series expansion, and the second order optimality condition",
+      "relevance": 0.9,
+      "anchor_page": 102
+    },
+    {
+      "canonical": "convexity",
+      "aliases": [
+        "convex",
+        "convex function"
+      ],
+      "evidence_page": 102,
+      "evidence": "if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v",
+      "relevance": 0.85,
+      "anchor_page": 102
+    },
+    {
+      "canonical": "curvature",
+      "aliases": [
+        "local curvature",
+        "function curvature",
+        "second derivative information"
+      ],
+      "evidence_page": 102,
+      "evidence": "the notion of curvature defined by second derivatives",
+      "relevance": 0.8,
+      "anchor_page": 102
+    },
+    {
+      "canonical": "positive semi-definite matrix",
+      "aliases": [
+        "positive semi-definite",
+        "negative semi-definite"
+      ],
+      "evidence_page": 102,
+      "evidence": "the Hessian matrix itself is called positive (or negative) semi-definite",
+      "relevance": 0.8,
+      "anchor_page": 102
+    },
+    {
+      "canonical": "quadratic function",
+      "aliases": [
+        "multi-input quadratic function",
+        "single-input quadratic function"
+      ],
+      "evidence_page": 103,
+      "evidence": "The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C",
+      "relevance": 0.8,
+      "anchor_page": 103
+    },
+    {
+      "canonical": "saddle points",
+      "aliases": [],
+      "evidence_page": 104,
+      "evidence": "a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v",
+      "relevance": 0.85,
+      "anchor_page": 104
+    },
+    {
+      "canonical": "stationary points",
+      "aliases": [
+        "critical points"
+      ],
+      "evidence_page": 104,
+      "evidence": "how the second derivative helps unveil the identity of stationary points",
+      "relevance": 0.85,
+      "anchor_page": 104
+    },
+    {
+      "canonical": "local minimum",
+      "aliases": [
+        "local minimizer",
+        "local minima",
+        "local or global minimum"
+      ],
+      "evidence_page": 104,
+      "evidence": "a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)",
+      "relevance": 0.8,
+      "anchor_page": 104
+    },
+    {
+      "canonical": "eigenvalues of the hessian",
+      "aliases": [
+        "eigenvalues of ∇2g(v"
+      ],
+      "evidence_page": 105,
+      "evidence": "a local minimum if all eigenvalues of ∇2g(v) are positive",
+      "relevance": 0.85,
+      "anchor_page": 105
+    },
+    {
+      "canonical": "gradient descent",
+      "aliases": [
+        "first order methods"
+      ],
+      "evidence_page": 108,
+      "evidence": "the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent",
+      "relevance": 0.75,
+      "anchor_page": 108
+    },
+    {
+      "canonical": "descent direction",
+      "aliases": [],
+      "evidence_page": 109,
+      "evidence": "we move from v in the direction given by −(∇2g(v))−1 ∇g(v)",
+      "relevance": 0.85,
+      "anchor_page": 109
+    },
+    {
+      "canonical": "first order condition for optimality",
+      "aliases": [
+        "first order condition"
+      ],
+      "evidence_page": 109,
+      "evidence": "We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality",
+      "relevance": 0.7,
+      "anchor_page": 109
+    },
+    {
+      "canonical": "newton's method",
+      "aliases": [
+        "newtons method"
+      ],
+      "evidence_page": 118,
+      "evidence": "Below we provide a simple implementation of Newton's method in Python",
+      "relevance": 1.0,
+      "anchor_page": 118
+    },
+    {
+      "canonical": "automatic differentiation",
+      "aliases": [
+        "autograd",
+        "automatic differentiator",
+        "gradient calculator"
+      ],
+      "evidence_page": 118,
+      "evidence": "leveraging the excellent autograd Automatic Differentiation and numpy libraries",
+      "relevance": 0.9,
+      "anchor_page": 118
+    },
+    {
+      "canonical": "regularized newton's method",
+      "aliases": [
+        "regularized newtons method"
+      ],
+      "evidence_page": 118,
+      "evidence": "set numerical stability parameter / regularization parameter ... epsilon = 10**(-7)",
+      "relevance": 0.9,
+      "anchor_page": 118
+    },
+    {
+      "canonical": "convergence criterion",
+      "aliases": [
+        "convergence criteria",
+        "maximum iterations convergence criterion"
+      ],
+      "evidence_page": 118,
+      "evidence": "while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion",
+      "relevance": 0.8,
+      "anchor_page": 118
+    },
+    {
+      "canonical": "hessian matrix",
+      "aliases": [
+        "hessian",
+        "matrix of second derivatives",
+        "second derivative matrix"
+      ],
+      "evidence_page": 119,
+      "evidence": "requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information",
+      "relevance": 1.0,
+      "anchor_page": 119
+    },
+    {
+      "canonical": "non-convex minimization",
+      "aliases": [
+        "minimizing non-convex functions",
+        "non-convexity"
+      ],
+      "evidence_page": 119,
+      "evidence": "Newton's method can behave very badly when applied to minimizing non-convex functions",
+      "relevance": 0.9,
+      "anchor_page": 119
+    },
+    {
+      "canonical": "second order optimization",
+      "aliases": [
+        "second order optimization techniques",
+        "second order methods",
+        "second order optimization methods"
+      ],
+      "evidence_page": 120,
+      "evidence": "second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions",
+      "relevance": 1.0,
+      "anchor_page": 120
+    },
+    {
+      "canonical": "hessian-free optimization",
+      "aliases": [],
+      "evidence_page": 120,
+      "evidence": "the latter set of adjustments referred to as Hessian-free optimization",
+      "relevance": 0.9,
+      "anchor_page": 120
+    },
+    {
+      "canonical": "eigenvalue decomposition",
+      "aliases": [
+        "eigenvalues of a symmetric matrix"
+      ],
+      "evidence_page": 120,
+      "evidence": "an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C (e.g., like a Hessian matrix) are all non-negative",
+      "relevance": 0.7,
+      "anchor_page": 120
+    },
+    {
+      "canonical": "second order definition of convexity",
+      "aliases": [
+        "second order convexity"
+      ],
+      "evidence_page": 121,
+      "evidence": "the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w",
+      "relevance": 0.8,
+      "anchor_page": 121
+    },
+    {
+      "canonical": "sub-sampled newton's step",
+      "aliases": [
+        "sub-sampled newton step"
+      ],
+      "evidence_page": 123,
+      "evidence": "Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian",
+      "relevance": 0.8,
+      "anchor_page": 123
+    },
+    {
+      "canonical": "bfgs method",
+      "aliases": [
+        "broyden-fletcher-goldfarb-shanno method",
+        "broyden fletcher goldfarb shanno"
+      ],
+      "evidence_page": 124,
+      "evidence": "The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method",
+      "relevance": 0.9,
+      "anchor_page": 124
+    },
+    {
+      "canonical": "quasi-newton method",
+      "aliases": [
+        "quasi-newton descent step"
+      ],
+      "evidence_page": 124,
+      "evidence": "in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse",
+      "relevance": 0.9,
+      "anchor_page": 124
+    },
+    {
+      "canonical": "secant method",
+      "aliases": [
+        "secant's method",
+        "secant condition"
+      ],
+      "evidence_page": 124,
+      "evidence": "Secant's method ... employ the secant condition to derive a recursive update",
+      "relevance": 0.8,
+      "anchor_page": 124
+    },
+    {
+      "canonical": "sherman-morrison identity",
+      "aliases": [],
+      "evidence_page": 124,
+      "evidence": "Use the Sherman-Morrison identity to re-write your update in terms of Fk",
+      "relevance": 0.7,
+      "anchor_page": 124
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "convexity",
+      "latex": "g''(v) \\geq 0",
+      "pdf_page": 102,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "positive semi-definite matrix",
+      "latex": "\\nabla^2 g(v) \\text{ has all non-negative eigenvalues}",
+      "pdf_page": 102,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "convexity",
+      "latex": "g(w) = a + b^T w + w^T C w",
+      "pdf_page": 103,
+      "equation_label": "4.1",
+      "confidence": 0.95
+    },
+    {
+      "concept": "curvature",
+      "latex": "\\nabla^2 g(w) = 2C",
+      "pdf_page": 103,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "quadratic function",
+      "latex": "g(w) = a + b^T w + w^T C w",
+      "pdf_page": 103,
+      "equation_label": "4.1",
+      "confidence": 1.0
+    },
+    {
+      "concept": "local minimum",
+      "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) > 0",
+      "pdf_page": 104,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "saddle points",
+      "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) = 0 \\text{ and } \\frac{\\partial^2}{\\partial w^2} g(v) \\text{ changes sign at } v",
+      "pdf_page": 104,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "stationary points",
+      "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) > 0",
+      "pdf_page": 104,
+      "equation_label": "",
+      "confidence": 0.85
+    },
+    {
+      "concept": "local minimum",
+      "latex": "\\text{all eigenvalues of } \\nabla^2 g(v) \\text{ are positive}",
+      "pdf_page": 105,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "saddle points",
+      "latex": "\\text{eigenvalues of } \\nabla^2 g(v) \\text{ are of mixed values, i.e., some negative and some positive}",
+      "pdf_page": 105,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "eigenvalues of the hessian",
+      "latex": "\\nabla^2 g(v)",
+      "pdf_page": 105,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "gradient descent",
+      "latex": "w^{\\star} = v - \\frac{\\frac{d}{dw}g(v)}{\\frac{d^2}{dw^2}g(v)}",
+      "pdf_page": 109,
+      "equation_label": "4.7",
+      "confidence": 0.9
+    },
+    {
+      "concept": "gradient descent",
+      "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+      "pdf_page": 109,
+      "equation_label": "4.8",
+      "confidence": 0.9
+    },
+    {
+      "concept": "descent direction",
+      "latex": "w^{\\star} = v - \\frac{\\frac{d g(v)}{dw}}{\\frac{d^2 g(v)}{dw^2}}",
+      "pdf_page": 109,
+      "equation_label": "4.7",
+      "confidence": 0.95
+    },
+    {
+      "concept": "descent direction",
+      "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+      "pdf_page": 109,
+      "equation_label": "4.8",
+      "confidence": 0.95
+    },
+    {
+      "concept": "first order condition for optimality",
+      "latex": "w^{\\star} = v - \\frac{\\frac{d g(v)}{dw}}{\\frac{d^2 g(v)}{dw^2}}",
+      "pdf_page": 109,
+      "equation_label": "4.7",
+      "confidence": 0.9
+    },
+    {
+      "concept": "first order condition for optimality",
+      "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+      "pdf_page": 109,
+      "equation_label": "4.8",
+      "confidence": 0.9
+    },
+    {
+      "concept": "newton's method",
+      "latex": "w_k = w_{k-1} - \\frac{\\frac{d g(w_{k-1})}{dw}}{\\frac{d^2 g(w_{k-1})}{dw^2}}",
+      "pdf_page": 117,
+      "equation_label": "4.25",
+      "confidence": 0.95
+    },
+    {
+      "concept": "regularized newton's method",
+      "latex": "A = H + \\epsilon I",
+      "pdf_page": 118,
+      "equation_label": "",
+      "confidence": 0.85
+    },
+    {
+      "concept": "hessian matrix",
+      "latex": "A = H + \\epsilon I",
+      "pdf_page": 118,
+      "equation_label": "",
+      "confidence": 0.85
+    },
+    {
+      "concept": "eigenvalue decomposition",
+      "latex": "z^T C z \\geq 0",
+      "pdf_page": 120,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "second order optimization",
+      "latex": "z^T \\nabla^2 g(w) z \\geq 0",
+      "pdf_page": 121,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "second order definition of convexity",
+      "latex": "z^T \\nabla^2 g(w) z \\geq 0",
+      "pdf_page": 121,
+      "equation_label": "",
+      "confidence": 0.95
+    }
+  ],
+  "figures": [
+    {
+      "concept": "convexity",
+      "pdf_page": 103,
+      "figure_label": "Figure 4.1",
+      "caption": "Figure associated with Example 4.1. From left to right, plots of functions g (w) = w3, g (w) = ew, g (w) = sin (w), and g (w) = w2.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "stationary points",
+      "pdf_page": 104,
+      "figure_label": "Figure 4.2",
+      "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "local minimum",
+      "pdf_page": 104,
+      "figure_label": "Figure 4.2",
+      "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "saddle points",
+      "pdf_page": 104,
+      "figure_label": "Figure 4.2",
+      "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "newton's method",
+      "pdf_page": 117,
+      "figure_label": "Figure 4.9",
+      "caption": "Figure associated with Example 4.8. See text for details.",
+      "confidence": 0.9
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second order optimization methods",
+              "second order optimization techniques"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "These techniques, collectively called second order optimization methods, are some of very popular in particular applications of machine learning today.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "hessian matrix",
+            "aliases": [
+              "hessian",
+              "second derivative matrix"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "if the Hessian matrix evaluated at a point v, denoted ∇2g (v), has all non-negative (or non-positive) eigenvalues then g is said to be convex (or concave) at v",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "second order optimality condition",
+            "aliases": [
+              "second order condition for optimality"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "curvature",
+            "aliases": [
+              "local curvature"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "the notion of curvature defined by second derivatives",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "second order taylor series approximation",
+            "aliases": [
+              "second order taylor series",
+              "second order taylor series expansion"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "the second order Taylor series expansion, and the second order optimality condition",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newton method"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "including the popular Newton's method and its extensions (commonly referred to as Hessian-free optimization)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "hessian-free optimization",
+            "aliases": [],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "Newton's method and its extensions (commonly referred to as Hessian-free optimization)",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex",
+              "convex function"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "positive semi-definite matrix",
+            "aliases": [
+              "positive semi-definite",
+              "negative semi-definite"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "the Hessian matrix itself is called positive (or negative) semi-definite",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "second order definition of convexity",
+            "aliases": [],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "This is generally referred to as the second order definition of convexity.",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "quadratic function",
+            "aliases": [
+              "multi-input quadratic function",
+              "single-input quadratic function"
+            ],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "stationary point",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "how the second derivative helps unveil the identity of stationary points",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local or global minimum"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "saddle point",
+            "aliases": [],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "eigenvalues of the hessian",
+            "aliases": [
+              "eigenvalues of ∇2g(v)"
+            ],
+            "evidence_page": 105,
+            "anchor_page": 105,
+            "evidence": "a local minimum if all eigenvalues of ∇2g(v) are positive",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [],
+            "evidence_page": 109,
+            "anchor_page": 109,
+            "evidence": "we move from v in the direction given by −(∇2g(v))−1 ∇g(v)",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 108,
+            "anchor_page": 108,
+            "evidence": "the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "first order condition for optimality",
+            "aliases": [
+              "first order condition"
+            ],
+            "evidence_page": 109,
+            "anchor_page": 109,
+            "evidence": "We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "inflection point",
+            "aliases": [],
+            "evidence_page": 105,
+            "anchor_page": 105,
+            "evidence": "since it occurs at an inflection point of a function, i.e., where a function goes from concave to convex or vice versa",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\"second order optimization methods\", \"second order optimization techniques\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"These techniques, collectively called second order optimization methods, are some of very popular in particular applications of machine learning today.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"hessian matrix\",\n      \"aliases\": [\"hessian\", \"second derivative matrix\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"if the Hessian matrix evaluated at a point v, denoted ∇2g (v), has all non-negative (or non-positive) eigenvalues then g is said to be convex (or concave) at v\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"second order optimality condition\",\n      \"aliases\": [\"second order condition for optimality\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"curvature\",\n      \"aliases\": [\"local curvature\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"the notion of curvature defined by second derivatives\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"second order taylor series approximation\",\n      \"aliases\": [\"second order taylor series\", \"second order taylor series expansion\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"the second order Taylor series expansion, and the second order optimality condition\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newton method\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"including the popular Newton's method and its extensions (commonly referred to as Hessian-free optimization)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"hessian-free optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"Newton's method and its extensions (commonly referred to as Hessian-free optimization)\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\"convex\", \"convex function\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"positive semi-definite matrix\",\n      \"aliases\": [\"positive semi-definite\", \"negative semi-definite\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"the Hessian matrix itself is called positive (or negative) semi-definite\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"second order definition of convexity\",\n      \"aliases\": [],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"This is generally referred to as the second order definition of convexity.\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"quadratic function\",\n      \"aliases\": [\"multi-input quadratic function\", \"single-input quadratic function\"],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"stationary point\",\n      \"aliases\": [\"stationary points\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"how the second derivative helps unveil the identity of stationary points\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\"local or global minimum\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"saddle point\",\n      \"aliases\": [],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"eigenvalues of the hessian\",\n      \"aliases\": [\"eigenvalues of ∇2g(v)\"],\n      \"evidence_page\": 105,\n      \"anchor_page\": 105,\n      \"evidence\": \"a local minimum if all eigenvalues of ∇2g(v) are positive\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [],\n      \"evidence_page\": 109,\n      \"anchor_page\": 109,\n      \"evidence\": \"we move from v in the direction given by −(∇2g(v))−1 ∇g(v)\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 108,\n      \"anchor_page\": 108,\n      \"evidence\": \"the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"first order condition for optimality\",\n      \"aliases\": [\"first order condition\"],\n      \"evidence_page\": 109,\n      \"anchor_page\": 109,\n      \"evidence\": \"We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"inflection point\",\n      \"aliases\": [],\n      \"evidence_page\": 105,\n      \"anchor_page\": 105,\n      \"evidence\": \"since it occurs at an inflection point of a function, i.e., where a function goes from concave to convex or vice versa\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second-order optimization",
+              "second order optimization techniques"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "Second order optimization techniques",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "second order taylor series approximation",
+            "aliases": [
+              "second order taylor series",
+              "quadratic approximation",
+              "second order taylor series quadratic approximation"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "three second order Taylor series approximations shown in light blue (one per panel), each centered at a distinct input point",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newtons method",
+              "newton method"
+            ],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "Newton's method is a local optimization algorithm produced by repeatedly taking steps to stationary points of the second order Taylor series approximations of a function.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "hessian matrix",
+            "aliases": [
+              "hessian",
+              "∇2g"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "the Newton's update formula in Equation (4.14) requires we invert an N × N Hessian matrix (where N is the input dimension)",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "newton update rule",
+            "aliases": [
+              "newton step",
+              "newton's update formula",
+              "newton's step"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "wk = wk−1 − (∇2g(wk−1))−1 ∇g(wk−1)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "steplength parameter",
+            "aliases": [
+              "steplength",
+              "step length",
+              "learning rate",
+              "α"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "where, in the case of Newton's method, dk = −(∇2g(wk−1))−1 ∇g(wk−1) and α = 1",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "it is often much more effective than gradient descent in the sense that it requires far fewer steps for convergence",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convexity",
+              "convex"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "Since the function g itself is convex everywhere, the quadratic approximation not only matches the curvature at each point but is always convex and facing upwards.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "non-convex function",
+            "aliases": [
+              "non-convexity",
+              "non-convex"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "this time with the non-convex function g(w) = sin(3w) + 0.1w2 + 1.5",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "stationary point",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 102,
+            "anchor_page": 102,
+            "evidence": "the stationary point w⋆ of the second order Taylor series as a green circle",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "regularized newton's method",
+            "aliases": [
+              "regularized newton step",
+              "regularized newton's step"
+            ],
+            "evidence_page": 106,
+            "anchor_page": 106,
+            "evidence": "This regularized Newton's step then takes the form wk = wk−1 − d/dw g(wk−1) / (d2/dw2 g(wk−1) + ϵ)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "numerical stability",
+            "aliases": [
+              "numerical stability"
+            ],
+            "evidence_page": 106,
+            "anchor_page": 106,
+            "evidence": "Ensuring numerical stability. Near flat portions of a function the numerator and denominator of the single-input Newton update both have small, near-zero values. This can cause serious numerical problems",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "regularization parameter",
+            "aliases": [
+              "epsilon",
+              "ϵ"
+            ],
+            "evidence_page": 107,
+            "anchor_page": 107,
+            "evidence": "The value of the regularization parameter ϵ is typically set to a small positive value (e.g., 10−7).",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "backtracking line search",
+            "aliases": [
+              "backtracking line search"
+            ],
+            "evidence_page": 107,
+            "anchor_page": 107,
+            "evidence": "use adjustable methods (e.g., backtracking line search as introduced in Section A.4) to tune it",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "zero-finding algorithm",
+            "aliases": [
+              "zero-finding",
+              "finding zeros"
+            ],
+            "evidence_page": 108,
+            "anchor_page": 108,
+            "evidence": "Newton's method was first invented not as a local optimization algorithm, but as a zero-finding algorithm.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "first order system",
+            "aliases": [
+              "first order equation",
+              "first order optimality condition"
+            ],
+            "evidence_page": 108,
+            "anchor_page": 108,
+            "evidence": "we can think of Newton's method as an approach for iteratively solving the first order system ∇g(v) = 0N×1",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "automatic differentiator"
+            ],
+            "evidence_page": 110,
+            "anchor_page": 110,
+            "evidence": "leveraging the excellent autograd Automatic Differentiation and numpy libraries",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "convergence criterion",
+            "aliases": [
+              "convergence criteria",
+              "maximum iterations convergence criterion"
+            ],
+            "evidence_page": 110,
+            "anchor_page": 110,
+            "evidence": "while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "pseudo-inverse",
+            "aliases": [
+              "pseudo-inverse"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "This is also referred to as the pseudo-inverse of ∇2g(w).",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization algorithm",
+              "local optimization scheme"
+            ],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "we can intuit an idea for a local optimization scheme: repeatedly traveling to points defined by the stationary point of the second order Taylor series approximation",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cost function",
+            "aliases": [
+              "cost function",
+              "objective function"
+            ],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "this idea could provide an efficient algorithm to minimize a cost function",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "gradient",
+            "aliases": [
+              "gradient",
+              "∇g"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "h(w) = g(wk−1) + ∇g(wk−1)T(w − wk−1) + 1/2(w − wk−1)T ∇2g(wk−1)(w − wk−1)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate descent"
+            ],
+            "evidence_page": 104,
+            "anchor_page": 104,
+            "evidence": "One can solve this system using coordinate descent as outlined in Section 3.3.2.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "normalized gradient",
+            "aliases": [
+              "normalized gradient steps"
+            ],
+            "evidence_page": 103,
+            "anchor_page": 103,
+            "evidence": "akin to the self-adjusting steplength perspective of normalized gradient steps discussed in Section A.3",
+            "relevance": 0.55
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\"second-order optimization\", \"second order optimization techniques\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"Second order optimization techniques\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"second order taylor series approximation\",\n      \"aliases\": [\"second order taylor series\", \"quadratic approximation\", \"second order taylor series quadratic approximation\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"three second order Taylor series approximations shown in light blue (one per panel), each centered at a distinct input point\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newtons method\", \"newton method\"],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"Newton's method is a local optimization algorithm produced by repeatedly taking steps to stationary points of the second order Taylor series approximations of a function.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"hessian matrix\",\n      \"aliases\": [\"hessian\", \"∇2g\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"the Newton's update formula in Equation (4.14) requires we invert an N × N Hessian matrix (where N is the input dimension)\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"newton update rule\",\n      \"aliases\": [\"newton step\", \"newton's update formula\", \"newton's step\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"wk = wk−1 − (∇2g(wk−1))−1 ∇g(wk−1)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"steplength parameter\",\n      \"aliases\": [\"steplength\", \"step length\", \"learning rate\", \"α\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"where, in the case of Newton's method, dk = −(∇2g(wk−1))−1 ∇g(wk−1) and α = 1\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient descent\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"it is often much more effective than gradient descent in the sense that it requires far fewer steps for convergence\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\"convexity\", \"convex\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"Since the function g itself is convex everywhere, the quadratic approximation not only matches the curvature at each point but is always convex and facing upwards.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"non-convex function\",\n      \"aliases\": [\"non-convexity\", \"non-convex\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"this time with the non-convex function g(w) = sin(3w) + 0.1w2 + 1.5\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"stationary point\",\n      \"aliases\": [\"stationary points\"],\n      \"evidence_page\": 102,\n      \"anchor_page\": 102,\n      \"evidence\": \"the stationary point w⋆ of the second order Taylor series as a green circle\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"regularized newton's method\",\n      \"aliases\": [\"regularized newton step\", \"regularized newton's step\"],\n      \"evidence_page\": 106,\n      \"anchor_page\": 106,\n      \"evidence\": \"This regularized Newton's step then takes the form wk = wk−1 − d/dw g(wk−1) / (d2/dw2 g(wk−1) + ϵ)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"numerical stability\",\n      \"aliases\": [\"numerical stability\"],\n      \"evidence_page\": 106,\n      \"anchor_page\": 106,\n      \"evidence\": \"Ensuring numerical stability. Near flat portions of a function the numerator and denominator of the single-input Newton update both have small, near-zero values. This can cause serious numerical problems\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"regularization parameter\",\n      \"aliases\": [\"epsilon\", \"ϵ\"],\n      \"evidence_page\": 107,\n      \"anchor_page\": 107,\n      \"evidence\": \"The value of the regularization parameter ϵ is typically set to a small positive value (e.g., 10−7).\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"backtracking line search\",\n      \"aliases\": [\"backtracking line search\"],\n      \"evidence_page\": 107,\n      \"anchor_page\": 107,\n      \"evidence\": \"use adjustable methods (e.g., backtracking line search as introduced in Section A.4) to tune it\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"zero-finding algorithm\",\n      \"aliases\": [\"zero-finding\", \"finding zeros\"],\n      \"evidence_page\": 108,\n      \"anchor_page\": 108,\n      \"evidence\": \"Newton's method was first invented not as a local optimization algorithm, but as a zero-finding algorithm.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"first order system\",\n      \"aliases\": [\"first order equation\", \"first order optimality condition\"],\n      \"evidence_page\": 108,\n      \"anchor_page\": 108,\n      \"evidence\": \"we can think of Newton's method as an approach for iteratively solving the first order system ∇g(v) = 0N×1\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autograd\", \"automatic differentiator\"],\n      \"evidence_page\": 110,\n      \"anchor_page\": 110,\n      \"evidence\": \"leveraging the excellent autograd Automatic Differentiation and numpy libraries\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"convergence criterion\",\n      \"aliases\": [\"convergence criteria\", \"maximum iterations convergence criterion\"],\n      \"evidence_page\": 110,\n      \"anchor_page\": 110,\n      \"evidence\": \"while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"pseudo-inverse\",\n      \"aliases\": [\"pseudo-inverse\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"This is also referred to as the pseudo-inverse of ∇2g(w).\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local optimization algorithm\", \"local optimization scheme\"],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"we can intuit an idea for a local optimization scheme: repeatedly traveling to points defined by the stationary point of the second order Taylor series approximation\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cost function\",\n      \"aliases\": [\"cost function\", \"objective function\"],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"this idea could provide an efficient algorithm to minimize a cost function\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"gradient\",\n      \"aliases\": [\"gradient\", \"∇g\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"h(w) = g(wk−1) + ∇g(wk−1)T(w − wk−1) + 1/2(w − wk−1)T ∇2g(wk−1)(w − wk−1)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\"coordinate descent\"],\n      \"evidence_page\": 104,\n      \"anchor_page\": 104,\n      \"evidence\": \"One can solve this system using coordinate descent as outlined in Section 3.3.2.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"normalized gradient\",\n      \"aliases\": [\"normalized gradient steps\"],\n      \"evidence_page\": 103,\n      \"anchor_page\": 103,\n      \"evidence\": \"akin to the self-adjusting steplength perspective of normalized gradient steps discussed in Section A.3\",\n      \"relevance\": 0.55\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newtons method",
+              "newton method"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "Below we provide a simple implementation of Newton's method in Python",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "automatic differentiator"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "leveraging the excellent autograd Automatic Differentiation and numpy libraries",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "hessian matrix",
+            "aliases": [
+              "hessian",
+              "matrix of second derivatives"
+            ],
+            "evidence_page": 119,
+            "anchor_page": 119,
+            "evidence": "requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second order optimization techniques",
+              "second order methods"
+            ],
+            "evidence_page": 120,
+            "anchor_page": 120,
+            "evidence": "second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "second order taylor series approximation",
+            "aliases": [
+              "quadratic approximation",
+              "second order approximation"
+            ],
+            "evidence_page": 120,
+            "anchor_page": 120,
+            "evidence": "the second order Taylor series approximation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "function curvature",
+            "aliases": [
+              "curvature",
+              "second derivative information"
+            ],
+            "evidence_page": 120,
+            "anchor_page": 120,
+            "evidence": "function curvature as defined by its second derivative(s)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "non-convex minimization",
+            "aliases": [
+              "minimizing non-convex functions",
+              "non-convexity"
+            ],
+            "evidence_page": 119,
+            "anchor_page": 119,
+            "evidence": "Newton's method can behave very badly when applied to minimizing non-convex functions",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "hessian-free optimization",
+            "aliases": [
+              "hessian free optimization"
+            ],
+            "evidence_page": 120,
+            "anchor_page": 120,
+            "evidence": "the latter set of adjustments referred to as Hessian-free optimization",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "regularized newton's method",
+            "aliases": [
+              "regularized newtons method"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "set numerical stability parameter / regularization parameter ... epsilon = 10**(-7)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "convergence criterion",
+            "aliases": [
+              "convergence criteria",
+              "maximum iterations convergence criterion"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "second order definition of convexity",
+            "aliases": [
+              "second order convexity"
+            ],
+            "evidence_page": 121,
+            "anchor_page": 121,
+            "evidence": "the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "eigenvalue decomposition",
+            "aliases": [
+              "eigenvalues of a symmetric matrix"
+            ],
+            "evidence_page": 120,
+            "anchor_page": 120,
+            "evidence": "an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C (e.g., like a Hessian matrix) are all non-negative",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "outer product matrix",
+            "aliases": [
+              "outer product matrices"
+            ],
+            "evidence_page": 121,
+            "anchor_page": 121,
+            "evidence": "for any N length vector x the N × N outer product matrix xxT has all non-negative eigenvalues",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "quasi-newton method",
+            "aliases": [
+              "quasi-newton descent step",
+              "quasi-newton methods"
+            ],
+            "evidence_page": 124,
+            "anchor_page": 124,
+            "evidence": "in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bfgs method",
+            "aliases": [
+              "broyden–fletcher–goldfarb–shanno method",
+              "broyden fletcher goldfarb shanno"
+            ],
+            "evidence_page": 124,
+            "anchor_page": 124,
+            "evidence": "The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "secant method",
+            "aliases": [
+              "secant's method",
+              "secant condition"
+            ],
+            "evidence_page": 124,
+            "anchor_page": 124,
+            "evidence": "Secant's method ... employ the secant condition to derive a recursive update",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "sherman-morrison identity",
+            "aliases": [
+              "sherman morrison identity"
+            ],
+            "evidence_page": 124,
+            "anchor_page": 124,
+            "evidence": "Use the Sherman-Morrison identity to re-write your update in terms of Fk",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "sub-sampled newton's step",
+            "aliases": [
+              "sub-sampled newton step"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [
+              "descent directions"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "the corresponding Newton step is indeed a descent direction",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "stationary point",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 122,
+            "anchor_page": 122,
+            "evidence": "Use the first order condition to determine the unique stationary point of the function",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "first order methods"
+            ],
+            "evidence_page": 119,
+            "anchor_page": 119,
+            "evidence": "compared to zero and first order methods that can require a large number of steps to make equivalent progress",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cost function history",
+            "aliases": [
+              "cost history"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "cost_history = [g(w)]# container for cost function history",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "weight history",
+            "aliases": [
+              "weight_history"
+            ],
+            "evidence_page": 118,
+            "anchor_page": 118,
+            "evidence": "weight_history = [w] # container for weight history",
+            "relevance": 0.4
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newtons method\", \"newton method\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"Below we provide a simple implementation of Newton's method in Python\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autograd\", \"automatic differentiator\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"leveraging the excellent autograd Automatic Differentiation and numpy libraries\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"hessian matrix\",\n      \"aliases\": [\"hessian\", \"matrix of second derivatives\"],\n      \"evidence_page\": 119,\n      \"anchor_page\": 119,\n      \"evidence\": \"requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\"second order optimization techniques\", \"second order methods\"],\n      \"evidence_page\": 120,\n      \"anchor_page\": 120,\n      \"evidence\": \"second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"second order taylor series approximation\",\n      \"aliases\": [\"quadratic approximation\", \"second order approximation\"],\n      \"evidence_page\": 120,\n      \"anchor_page\": 120,\n      \"evidence\": \"the second order Taylor series approximation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"function curvature\",\n      \"aliases\": [\"curvature\", \"second derivative information\"],\n      \"evidence_page\": 120,\n      \"anchor_page\": 120,\n      \"evidence\": \"function curvature as defined by its second derivative(s)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"non-convex minimization\",\n      \"aliases\": [\"minimizing non-convex functions\", \"non-convexity\"],\n      \"evidence_page\": 119,\n      \"anchor_page\": 119,\n      \"evidence\": \"Newton's method can behave very badly when applied to minimizing non-convex functions\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"hessian-free optimization\",\n      \"aliases\": [\"hessian free optimization\"],\n      \"evidence_page\": 120,\n      \"anchor_page\": 120,\n      \"evidence\": \"the latter set of adjustments referred to as Hessian-free optimization\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"regularized newton's method\",\n      \"aliases\": [\"regularized newtons method\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"set numerical stability parameter / regularization parameter ... epsilon = 10**(-7)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"convergence criterion\",\n      \"aliases\": [\"convergence criteria\", \"maximum iterations convergence criterion\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"second order definition of convexity\",\n      \"aliases\": [\"second order convexity\"],\n      \"evidence_page\": 121,\n      \"anchor_page\": 121,\n      \"evidence\": \"the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"eigenvalue decomposition\",\n      \"aliases\": [\"eigenvalues of a symmetric matrix\"],\n      \"evidence_page\": 120,\n      \"anchor_page\": 120,\n      \"evidence\": \"an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C (e.g., like a Hessian matrix) are all non-negative\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"outer product matrix\",\n      \"aliases\": [\"outer product matrices\"],\n      \"evidence_page\": 121,\n      \"anchor_page\": 121,\n      \"evidence\": \"for any N length vector x the N × N outer product matrix xxT has all non-negative eigenvalues\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"quasi-newton method\",\n      \"aliases\": [\"quasi-newton descent step\", \"quasi-newton methods\"],\n      \"evidence_page\": 124,\n      \"anchor_page\": 124,\n      \"evidence\": \"in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bfgs method\",\n      \"aliases\": [\"broyden–fletcher–goldfarb–shanno method\", \"broyden fletcher goldfarb shanno\"],\n      \"evidence_page\": 124,\n      \"anchor_page\": 124,\n      \"evidence\": \"The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"secant method\",\n      \"aliases\": [\"secant's method\", \"secant condition\"],\n      \"evidence_page\": 124,\n      \"anchor_page\": 124,\n      \"evidence\": \"Secant's method ... employ the secant condition to derive a recursive update\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"sherman-morrison identity\",\n      \"aliases\": [\"sherman morrison identity\"],\n      \"evidence_page\": 124,\n      \"anchor_page\": 124,\n      \"evidence\": \"Use the Sherman-Morrison identity to re-write your update in terms of Fk\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"sub-sampled newton's step\",\n      \"aliases\": [\"sub-sampled newton step\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [\"descent directions\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"the corresponding Newton step is indeed a descent direction\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"stationary point\",\n      \"aliases\": [\"stationary points\"],\n      \"evidence_page\": 122,\n      \"anchor_page\": 122,\n      \"evidence\": \"Use the first order condition to determine the unique stationary point of the function\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"first order methods\"],\n      \"evidence_page\": 119,\n      \"anchor_page\": 119,\n      \"evidence\": \"compared to zero and first order methods that can require a large number of steps to make equivalent progress\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cost function history\",\n      \"aliases\": [\"cost history\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"cost_history = [g(w)]# container for cost function history\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"weight history\",\n      \"aliases\": [\"weight_history\"],\n      \"evidence_page\": 118,\n      \"anchor_page\": 118,\n      \"evidence\": \"weight_history = [w] # container for weight history\",\n      \"relevance\": 0.4\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "second order optimality condition",
+            "aliases": [
+              "second order condition for optimality"
+            ],
+            "evidence_page": 102,
+            "evidence": "the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method",
+            "relevance": 0.9,
+            "anchor_page": 102
+          },
+          {
+            "canonical": "second order taylor series approximation",
+            "aliases": [
+              "second order taylor series",
+              "second order taylor series expansion",
+              "quadratic approximation",
+              "second order approximation"
+            ],
+            "evidence_page": 102,
+            "evidence": "the second order Taylor series expansion, and the second order optimality condition",
+            "relevance": 0.9,
+            "anchor_page": 102
+          },
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex",
+              "convex function"
+            ],
+            "evidence_page": 102,
+            "evidence": "if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v",
+            "relevance": 0.85,
+            "anchor_page": 102
+          },
+          {
+            "canonical": "curvature",
+            "aliases": [
+              "local curvature",
+              "function curvature",
+              "second derivative information"
+            ],
+            "evidence_page": 102,
+            "evidence": "the notion of curvature defined by second derivatives",
+            "relevance": 0.8,
+            "anchor_page": 102
+          },
+          {
+            "canonical": "positive semi-definite matrix",
+            "aliases": [
+              "positive semi-definite",
+              "negative semi-definite"
+            ],
+            "evidence_page": 102,
+            "evidence": "the Hessian matrix itself is called positive (or negative) semi-definite",
+            "relevance": 0.8,
+            "anchor_page": 102
+          },
+          {
+            "canonical": "quadratic function",
+            "aliases": [
+              "multi-input quadratic function",
+              "single-input quadratic function"
+            ],
+            "evidence_page": 103,
+            "evidence": "The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C",
+            "relevance": 0.8,
+            "anchor_page": 103
+          },
+          {
+            "canonical": "saddle points",
+            "aliases": [
+              "saddle point"
+            ],
+            "evidence_page": 104,
+            "evidence": "a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v",
+            "relevance": 0.85,
+            "anchor_page": 104
+          },
+          {
+            "canonical": "stationary points",
+            "aliases": [
+              "stationary point",
+              "critical points"
+            ],
+            "evidence_page": 104,
+            "evidence": "how the second derivative helps unveil the identity of stationary points",
+            "relevance": 0.85,
+            "anchor_page": 104
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minimizer",
+              "local minima",
+              "local or global minimum"
+            ],
+            "evidence_page": 104,
+            "evidence": "a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)",
+            "relevance": 0.8,
+            "anchor_page": 104
+          },
+          {
+            "canonical": "eigenvalues of the hessian",
+            "aliases": [
+              "eigenvalues of ∇2g(v"
+            ],
+            "evidence_page": 105,
+            "evidence": "a local minimum if all eigenvalues of ∇2g(v) are positive",
+            "relevance": 0.85,
+            "anchor_page": 105
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "first order methods"
+            ],
+            "evidence_page": 108,
+            "evidence": "the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent",
+            "relevance": 0.75,
+            "anchor_page": 108
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [],
+            "evidence_page": 109,
+            "evidence": "we move from v in the direction given by −(∇2g(v))−1 ∇g(v)",
+            "relevance": 0.85,
+            "anchor_page": 109
+          },
+          {
+            "canonical": "first order condition for optimality",
+            "aliases": [
+              "first order condition"
+            ],
+            "evidence_page": 109,
+            "evidence": "We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality",
+            "relevance": 0.7,
+            "anchor_page": 109
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newtons method"
+            ],
+            "evidence_page": 118,
+            "evidence": "Below we provide a simple implementation of Newton's method in Python",
+            "relevance": 1.0,
+            "anchor_page": 118
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "automatic differentiator",
+              "gradient calculator"
+            ],
+            "evidence_page": 118,
+            "evidence": "leveraging the excellent autograd Automatic Differentiation and numpy libraries",
+            "relevance": 0.9,
+            "anchor_page": 118
+          },
+          {
+            "canonical": "regularized newton's method",
+            "aliases": [
+              "regularized newtons method"
+            ],
+            "evidence_page": 118,
+            "evidence": "set numerical stability parameter / regularization parameter ... epsilon = 10**(-7)",
+            "relevance": 0.9,
+            "anchor_page": 118
+          },
+          {
+            "canonical": "convergence criterion",
+            "aliases": [
+              "convergence criteria",
+              "maximum iterations convergence criterion"
+            ],
+            "evidence_page": 118,
+            "evidence": "while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion",
+            "relevance": 0.8,
+            "anchor_page": 118
+          },
+          {
+            "canonical": "hessian matrix",
+            "aliases": [
+              "hessian",
+              "matrix of second derivatives",
+              "second derivative matrix"
+            ],
+            "evidence_page": 119,
+            "evidence": "requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information",
+            "relevance": 1.0,
+            "anchor_page": 119
+          },
+          {
+            "canonical": "non-convex minimization",
+            "aliases": [
+              "minimizing non-convex functions",
+              "non-convexity"
+            ],
+            "evidence_page": 119,
+            "evidence": "Newton's method can behave very badly when applied to minimizing non-convex functions",
+            "relevance": 0.9,
+            "anchor_page": 119
+          },
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second order optimization techniques",
+              "second order methods",
+              "second order optimization methods"
+            ],
+            "evidence_page": 120,
+            "evidence": "second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions",
+            "relevance": 1.0,
+            "anchor_page": 120
+          },
+          {
+            "canonical": "hessian-free optimization",
+            "aliases": [],
+            "evidence_page": 120,
+            "evidence": "the latter set of adjustments referred to as Hessian-free optimization",
+            "relevance": 0.9,
+            "anchor_page": 120
+          },
+          {
+            "canonical": "eigenvalue decomposition",
+            "aliases": [
+              "eigenvalues of a symmetric matrix"
+            ],
+            "evidence_page": 120,
+            "evidence": "an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C (e.g., like a Hessian matrix) are all non-negative",
+            "relevance": 0.7,
+            "anchor_page": 120
+          },
+          {
+            "canonical": "second order definition of convexity",
+            "aliases": [
+              "second order convexity"
+            ],
+            "evidence_page": 121,
+            "evidence": "the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w",
+            "relevance": 0.8,
+            "anchor_page": 121
+          },
+          {
+            "canonical": "sub-sampled newton's step",
+            "aliases": [
+              "sub-sampled newton step"
+            ],
+            "evidence_page": 123,
+            "evidence": "Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian",
+            "relevance": 0.8,
+            "anchor_page": 123
+          },
+          {
+            "canonical": "bfgs method",
+            "aliases": [
+              "broyden-fletcher-goldfarb-shanno method",
+              "broyden fletcher goldfarb shanno"
+            ],
+            "evidence_page": 124,
+            "evidence": "The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method",
+            "relevance": 0.9,
+            "anchor_page": 124
+          },
+          {
+            "canonical": "quasi-newton method",
+            "aliases": [
+              "quasi-newton descent step"
+            ],
+            "evidence_page": 124,
+            "evidence": "in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse",
+            "relevance": 0.9,
+            "anchor_page": 124
+          },
+          {
+            "canonical": "secant method",
+            "aliases": [
+              "secant's method",
+              "secant condition"
+            ],
+            "evidence_page": 124,
+            "evidence": "Secant's method ... employ the secant condition to derive a recursive update",
+            "relevance": 0.8,
+            "anchor_page": 124
+          },
+          {
+            "canonical": "sherman-morrison identity",
+            "aliases": [],
+            "evidence_page": 124,
+            "evidence": "Use the Sherman-Morrison identity to re-write your update in terms of Fk",
+            "relevance": 0.7,
+            "anchor_page": 124
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"second order optimality condition\",\n      \"aliases\": [\n        \"second order condition for optimality\"\n      ],\n      \"evidence_page\": 102,\n      \"evidence\": \"the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 102\n    },\n    {\n      \"canonical\": \"second order taylor series approximation\",\n      \"aliases\": [\n        \"second order taylor series\",\n        \"second order taylor series expansion\",\n        \"quadratic approximation\",\n        \"second order approximation\"\n      ],\n      \"evidence_page\": 102,\n      \"evidence\": \"the second order Taylor series expansion, and the second order optimality condition\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 102\n    },\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\n        \"convex\",\n        \"convex function\"\n      ],\n      \"evidence_page\": 102,\n      \"evidence\": \"if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 102\n    },\n    {\n      \"canonical\": \"curvature\",\n      \"aliases\": [\n        \"local curvature\",\n        \"function curvature\",\n        \"second derivative information\"\n      ],\n      \"evidence_page\": 102,\n      \"evidence\": \"the notion of curvature defined by second derivatives\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 102\n    },\n    {\n      \"canonical\": \"positive semi-definite matrix\",\n      \"aliases\": [\n        \"positive semi-definite\",\n        \"negative semi-definite\"\n      ],\n      \"evidence_page\": 102,\n      \"evidence\": \"the Hessian matrix itself is called positive (or negative) semi-definite\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 102\n    },\n    {\n      \"canonical\": \"quadratic function\",\n      \"aliases\": [\n        \"multi-input quadratic function\",\n        \"single-input quadratic function\"\n      ],\n      \"evidence_page\": 103,\n      \"evidence\": \"The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 103\n    },\n    {\n      \"canonical\": \"saddle points\",\n      \"aliases\": [\n        \"saddle point\"\n      ],\n      \"evidence_page\": 104,\n      \"evidence\": \"a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 104\n    },\n    {\n      \"canonical\": \"stationary points\",\n      \"aliases\": [\n        \"stationary point\",\n        \"critical points\"\n      ],\n      \"evidence_page\": 104,\n      \"evidence\": \"how the second derivative helps unveil the identity of stationary points\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 104\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\n        \"local minimizer\",\n        \"local minima\",\n        \"local or global minimum\"\n      ],\n      \"evidence_page\": 104,\n      \"evidence\": \"a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 104\n    },\n    {\n      \"canonical\": \"eigenvalues of the hessian\",\n      \"aliases\": [\n        \"eigenvalues of ∇2g(v\"\n      ],\n      \"evidence_page\": 105,\n      \"evidence\": \"a local minimum if all eigenvalues of ∇2g(v) are positive\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 105\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\n        \"first order methods\"\n      ],\n      \"evidence_page\": 108,\n      \"evidence\": \"the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 108\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [],\n      \"evidence_page\": 109,\n      \"evidence\": \"we move from v in the direction given by −(∇2g(v))−1 ∇g(v)\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 109\n    },\n    {\n      \"canonical\": \"first order condition for optimality\",\n      \"aliases\": [\n        \"first order condition\"\n      ],\n      \"evidence_page\": 109,\n      \"evidence\": \"We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 109\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\n        \"newtons method\"\n      ],\n      \"evidence_page\": 118,\n      \"evidence\": \"Below we provide a simple implementation of Newton's method in Python\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 118\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\n        \"autograd\",\n        \"automatic differentiator\",\n        \"gradient calculator\"\n      ],\n      \"evidence_page\": 118,\n      \"evidence\": \"leveraging the excellent autograd Automatic Differentiation and numpy libraries\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 118\n    },\n    {\n      \"canonical\": \"regularized newton's method\",\n      \"aliases\": [\n        \"regularized newtons method\"\n      ],\n      \"evidence_page\": 118,\n      \"evidence\": \"set numerical stability parameter / regularization parameter ... epsilon = 10**(-7)\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 118\n    },\n    {\n      \"canonical\": \"convergence criterion\",\n      \"aliases\": [\n        \"convergence criteria\",\n        \"maximum iterations convergence criterion\"\n      ],\n      \"evidence_page\": 118,\n      \"evidence\": \"while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 118\n    },\n    {\n      \"canonical\": \"hessian matrix\",\n      \"aliases\": [\n        \"hessian\",\n        \"matrix of second derivatives\",\n        \"second derivative matrix\"\n      ],\n      \"evidence_page\": 119,\n      \"evidence\": \"requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 119\n    },\n    {\n      \"canonical\": \"non-convex minimization\",\n      \"aliases\": [\n        \"minimizing non-convex functions\",\n        \"non-convexity\"\n      ],\n      \"evidence_page\": 119,\n      \"evidence\": \"Newton's method can behave very badly when applied to minimizing non-convex functions\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 119\n    },\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\n        \"second order optimization techniques\",\n        \"second order methods\",\n        \"second order optimization methods\"\n      ],\n      \"evidence_page\": 120,\n      \"evidence\": \"second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 120\n    },\n    {\n      \"canonical\": \"hessian-free optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 120,\n      \"evidence\": \"the latter set of adjustments referred to as Hessian-free optimization\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 120\n    },\n    {\n      \"canonical\": \"eigenvalue decomposition\",\n      \"aliases\": [\n        \"eigenvalues of a symmetric matrix\"\n      ],\n      \"evidence_page\": 120,\n      \"evidence\": \"an alternative approach to checking that the eigenvalues of an N × N square symmetric matrix C (e.g., like a Hessian matrix) are all non-negative\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 120\n    },\n    {\n      \"canonical\": \"second order definition of convexity\",\n      \"aliases\": [\n        \"second order convexity\"\n      ],\n      \"evidence_page\": 121,\n      \"evidence\": \"the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 121\n    },\n    {\n      \"canonical\": \"sub-sampled newton's step\",\n      \"aliases\": [\n        \"sub-sampled newton step\"\n      ],\n      \"evidence_page\": 123,\n      \"evidence\": \"Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 123\n    },\n    {\n      \"canonical\": \"bfgs method\",\n      \"aliases\": [\n        \"broyden-fletcher-goldfarb-shanno method\",\n        \"broyden fletcher goldfarb shanno\"\n      ],\n      \"evidence_page\": 124,\n      \"evidence\": \"The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 124\n    },\n    {\n      \"canonical\": \"quasi-newton method\",\n      \"aliases\": [\n        \"quasi-newton descent step\"\n      ],\n      \"evidence_page\": 124,\n      \"evidence\": \"in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 124\n    },\n    {\n      \"canonical\": \"secant method\",\n      \"aliases\": [\n        \"secant's method\",\n        \"secant condition\"\n      ],\n      \"evidence_page\": 124,\n      \"evidence\": \"Secant's method ... employ the secant condition to derive a recursive update\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 124\n    },\n    {\n      \"canonical\": \"sherman-morrison identity\",\n      \"aliases\": [],\n      \"evidence_page\": 124,\n      \"evidence\": \"Use the Sherman-Morrison identity to re-write your update in terms of Fk\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 124\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 102,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "convexity",
+            "latex": "g''(v) \\geq 0",
+            "pdf_page": 102,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "positive semi-definite matrix",
+            "latex": "\\nabla^2 g(v) \\text{ has all non-negative eigenvalues}",
+            "pdf_page": 102,
+            "equation_label": "",
+            "confidence": 0.9
+          },
+          {
+            "concept": "convexity",
+            "latex": "g(w) = a + b^T w + w^T C w",
+            "pdf_page": 103,
+            "equation_label": "4.1",
+            "confidence": 0.95
+          },
+          {
+            "concept": "curvature",
+            "latex": "\\nabla^2 g(w) = 2C",
+            "pdf_page": 103,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "convexity",
+            "pdf_page": 103,
+            "figure_label": "Figure 4.1",
+            "caption": "Figure associated with Example 4.1. From left to right, plots of functions g (w) = w3, g (w) = ew, g (w) = sin (w), and g (w) = w2.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"convexity\",\n      \"latex\": \"g''(v) \\\\geq 0\",\n      \"pdf_page\": 102,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"positive semi-definite matrix\",\n      \"latex\": \"\\\\nabla^2 g(v) \\\\text{ has all non-negative eigenvalues}\",\n      \"pdf_page\": 102,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"convexity\",\n      \"latex\": \"g(w) = a + b^T w + w^T C w\",\n      \"pdf_page\": 103,\n      \"equation_label\": \"4.1\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"curvature\",\n      \"latex\": \"\\\\nabla^2 g(w) = 2C\",\n      \"pdf_page\": 103,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"convexity\",\n      \"pdf_page\": 103,\n      \"figure_label\": \"Figure 4.1\",\n      \"caption\": \"Figure associated with Example 4.1. From left to right, plots of functions g (w) = w3, g (w) = ew, g (w) = sin (w), and g (w) = w2.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 103,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "quadratic function",
+            "latex": "g(w) = a + b^T w + w^T C w",
+            "pdf_page": 103,
+            "equation_label": "4.1",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"quadratic function\",\n      \"latex\": \"g(w) = a + b^T w + w^T C w\",\n      \"pdf_page\": 103,\n      \"equation_label\": \"4.1\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 104,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "local minimum",
+            "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) > 0",
+            "pdf_page": 104,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "saddle points",
+            "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) = 0 \\text{ and } \\frac{\\partial^2}{\\partial w^2} g(v) \\text{ changes sign at } v",
+            "pdf_page": 104,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "stationary points",
+            "latex": "\\frac{\\partial^2}{\\partial w^2} g(v) > 0",
+            "pdf_page": 104,
+            "equation_label": "",
+            "confidence": 0.85
+          },
+          {
+            "concept": "local minimum",
+            "latex": "\\text{all eigenvalues of } \\nabla^2 g(v) \\text{ are positive}",
+            "pdf_page": 105,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "saddle points",
+            "latex": "\\text{eigenvalues of } \\nabla^2 g(v) \\text{ are of mixed values, i.e., some negative and some positive}",
+            "pdf_page": 105,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "stationary points",
+            "pdf_page": 104,
+            "figure_label": "Figure 4.2",
+            "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "local minimum",
+            "pdf_page": 104,
+            "figure_label": "Figure 4.2",
+            "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "saddle points",
+            "pdf_page": 104,
+            "figure_label": "Figure 4.2",
+            "caption": "Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"local minimum\",\n      \"latex\": \"\\\\frac{\\\\partial^2}{\\\\partial w^2} g(v) > 0\",\n      \"pdf_page\": 104,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"latex\": \"\\\\frac{\\\\partial^2}{\\\\partial w^2} g(v) = 0 \\\\text{ and } \\\\frac{\\\\partial^2}{\\\\partial w^2} g(v) \\\\text{ changes sign at } v\",\n      \"pdf_page\": 104,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"stationary points\",\n      \"latex\": \"\\\\frac{\\\\partial^2}{\\\\partial w^2} g(v) > 0\",\n      \"pdf_page\": 104,\n      \"equation_label\": \"\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"local minimum\",\n      \"latex\": \"\\\\text{all eigenvalues of } \\\\nabla^2 g(v) \\\\text{ are positive}\",\n      \"pdf_page\": 105,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"latex\": \"\\\\text{eigenvalues of } \\\\nabla^2 g(v) \\\\text{ are of mixed values, i.e., some negative and some positive}\",\n      \"pdf_page\": 105,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"stationary points\",\n      \"pdf_page\": 104,\n      \"figure_label\": \"Figure 4.2\",\n      \"caption\": \"Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"local minimum\",\n      \"pdf_page\": 104,\n      \"figure_label\": \"Figure 4.2\",\n      \"caption\": \"Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"pdf_page\": 104,\n      \"figure_label\": \"Figure 4.2\",\n      \"caption\": \"Three single-input functions along with their first and second order derivatives shown in the top, middle, and bottom panels, respectively. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 105,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "eigenvalues of the hessian",
+            "latex": "\\nabla^2 g(v)",
+            "pdf_page": 105,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"eigenvalues of the hessian\",\n      \"latex\": \"\\\\nabla^2 g(v)\",\n      \"pdf_page\": 105,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 108,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "gradient descent",
+            "latex": "w^{\\star} = v - \\frac{\\frac{d}{dw}g(v)}{\\frac{d^2}{dw^2}g(v)}",
+            "pdf_page": 109,
+            "equation_label": "4.7",
+            "confidence": 0.9
+          },
+          {
+            "concept": "gradient descent",
+            "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+            "pdf_page": 109,
+            "equation_label": "4.8",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"gradient descent\",\n      \"latex\": \"w^{\\\\star} = v - \\\\frac{\\\\frac{d}{dw}g(v)}{\\\\frac{d^2}{dw^2}g(v)}\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.7\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"gradient descent\",\n      \"latex\": \"w^{\\\\star} = v - \\\\left(\\\\nabla^2 g(v)\\\\right)^{-1} \\\\nabla g(v)\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.8\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 109,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "descent direction",
+            "latex": "w^{\\star} = v - \\frac{\\frac{d g(v)}{dw}}{\\frac{d^2 g(v)}{dw^2}}",
+            "pdf_page": 109,
+            "equation_label": "4.7",
+            "confidence": 0.95
+          },
+          {
+            "concept": "descent direction",
+            "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+            "pdf_page": 109,
+            "equation_label": "4.8",
+            "confidence": 0.95
+          },
+          {
+            "concept": "first order condition for optimality",
+            "latex": "w^{\\star} = v - \\frac{\\frac{d g(v)}{dw}}{\\frac{d^2 g(v)}{dw^2}}",
+            "pdf_page": 109,
+            "equation_label": "4.7",
+            "confidence": 0.9
+          },
+          {
+            "concept": "first order condition for optimality",
+            "latex": "w^{\\star} = v - \\left(\\nabla^2 g(v)\\right)^{-1} \\nabla g(v)",
+            "pdf_page": 109,
+            "equation_label": "4.8",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"descent direction\",\n      \"latex\": \"w^{\\\\star} = v - \\\\frac{\\\\frac{d g(v)}{dw}}{\\\\frac{d^2 g(v)}{dw^2}}\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.7\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"descent direction\",\n      \"latex\": \"w^{\\\\star} = v - \\\\left(\\\\nabla^2 g(v)\\\\right)^{-1} \\\\nabla g(v)\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.8\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"first order condition for optimality\",\n      \"latex\": \"w^{\\\\star} = v - \\\\frac{\\\\frac{d g(v)}{dw}}{\\\\frac{d^2 g(v)}{dw^2}}\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.7\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"first order condition for optimality\",\n      \"latex\": \"w^{\\\\star} = v - \\\\left(\\\\nabla^2 g(v)\\\\right)^{-1} \\\\nabla g(v)\",\n      \"pdf_page\": 109,\n      \"equation_label\": \"4.8\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 118,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "newton's method",
+            "latex": "w_k = w_{k-1} - \\frac{\\frac{d g(w_{k-1})}{dw}}{\\frac{d^2 g(w_{k-1})}{dw^2}}",
+            "pdf_page": 117,
+            "equation_label": "4.25",
+            "confidence": 0.95
+          },
+          {
+            "concept": "regularized newton's method",
+            "latex": "A = H + \\epsilon I",
+            "pdf_page": 118,
+            "equation_label": "",
+            "confidence": 0.85
+          }
+        ],
+        "figures": [
+          {
+            "concept": "newton's method",
+            "pdf_page": 117,
+            "figure_label": "Figure 4.9",
+            "caption": "Figure associated with Example 4.8. See text for details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"newton's method\",\n      \"latex\": \"w_k = w_{k-1} - \\\\frac{\\\\frac{d g(w_{k-1})}{dw}}{\\\\frac{d^2 g(w_{k-1})}{dw^2}}\",\n      \"pdf_page\": 117,\n      \"equation_label\": \"4.25\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"regularized newton's method\",\n      \"latex\": \"A = H + \\\\epsilon I\",\n      \"pdf_page\": 118,\n      \"equation_label\": \"\",\n      \"confidence\": 0.85\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"newton's method\",\n      \"pdf_page\": 117,\n      \"figure_label\": \"Figure 4.9\",\n      \"caption\": \"Figure associated with Example 4.8. See text for details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 119,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "hessian matrix",
+            "latex": "A = H + \\epsilon I",
+            "pdf_page": 118,
+            "equation_label": "",
+            "confidence": 0.85
+          }
+        ],
+        "figures": [
+          {
+            "concept": "non-convex minimization",
+            "pdf_page": 119,
+            "figure_label": "Figure 4.6",
+            "caption": "This fact is illustrated for a prototypical non-convex function in the bottom row of Figure 4.6.",
+            "confidence": 0.75
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"hessian matrix\",\n      \"latex\": \"A = H + \\\\epsilon I\",\n      \"pdf_page\": 118,\n      \"equation_label\": \"\",\n      \"confidence\": 0.85\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"non-convex minimization\",\n      \"pdf_page\": 119,\n      \"figure_label\": \"Figure 4.6\",\n      \"caption\": \"This fact is illustrated for a prototypical non-convex function in the bottom row of Figure 4.6.\",\n      \"confidence\": 0.75\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 120,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "eigenvalue decomposition",
+            "latex": "z^T C z \\geq 0",
+            "pdf_page": 120,
+            "equation_label": "",
+            "confidence": 0.9
+          },
+          {
+            "concept": "second order optimization",
+            "latex": "z^T \\nabla^2 g(w) z \\geq 0",
+            "pdf_page": 121,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"eigenvalue decomposition\",\n      \"latex\": \"z^T C z \\\\geq 0\",\n      \"pdf_page\": 120,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"second order optimization\",\n      \"latex\": \"z^T \\\\nabla^2 g(w) z \\\\geq 0\",\n      \"pdf_page\": 121,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 121,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "second order definition of convexity",
+            "latex": "z^T \\nabla^2 g(w) z \\geq 0",
+            "pdf_page": 121,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"second order definition of convexity\",\n      \"latex\": \"z^T \\\\nabla^2 g(w) z \\\\geq 0\",\n      \"pdf_page\": 121,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 123,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "sub-sampled newton's step",
+            "latex": "g(w) = a + b^T w + w^T C w",
+            "pdf_page": 123,
+            "equation_label": "",
+            "confidence": 0.7
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"sub-sampled newton's step\",\n      \"latex\": \"g(w) = a + b^T w + w^T C w\",\n      \"pdf_page\": 123,\n      \"equation_label\": \"\",\n      \"confidence\": 0.7\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 124,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "hessian matrix",
+      "into": "hessian matrix"
+    },
+    {
+      "action": "local_merge",
+      "from": "newton's method",
+      "into": "newton's method"
+    },
+    {
+      "action": "local_merge",
+      "from": "second order optimization",
+      "into": "second order optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "second order taylor series approximation",
+      "into": "second order taylor series approximation"
+    },
+    {
+      "action": "local_merge",
+      "from": "hessian-free optimization",
+      "into": "hessian-free optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "function curvature",
+      "into": "curvature"
+    },
+    {
+      "action": "local_merge",
+      "from": "second order definition of convexity",
+      "into": "second order definition of convexity"
+    },
+    {
+      "action": "local_merge",
+      "from": "automatic differentiation",
+      "into": "automatic differentiation"
+    },
+    {
+      "action": "local_merge",
+      "from": "convergence criterion",
+      "into": "convergence criterion"
+    },
+    {
+      "action": "local_merge",
+      "from": "gradient descent",
+      "into": "gradient descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "stationary point",
+      "into": "stationary point"
+    },
+    {
+      "action": "local_merge",
+      "from": "descent direction",
+      "into": "descent direction"
+    }
+  ],
+  "warnings": [
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

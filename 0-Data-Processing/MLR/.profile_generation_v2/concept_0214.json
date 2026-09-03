@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "f2dc6679338bdc0b2718a7c49be767579809d533097968fd00abece5a6c6af04",
+  "concept_id": 214,
+  "concept_name": "optimization dial",
+  "aliases": [
+    "optimization dial",
+    "parameter optimization"
+  ],
+  "profile": "optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model. Complexity roughly corresponds to how 'wiggly' the model fit is.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model. Complexity roughly corresponds to how 'wiggly' the model fit is.",
+    "claims": [
+      {
+        "claim": "The optimization dial, together with the capacity dial, indirectly sets the complexity of a tuned model.",
+        "evidence_ids": [
+          "MLR-E0265"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Complexity roughly corresponds to how 'wiggly' the model fit is.",
+        "evidence_ids": [
+          "MLR-E0265"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence source supports the profile.",
+      "The exact mechanism of the optimization dial is not described in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model. Complexity roughly corresponds to how 'wiggly' the model fit is.",
+    "sentence_reviews": [
+      {
+        "sentence": "optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0265"
+        ],
+        "reason": "The source states that complexity is controlled indirectly by setting both the capacity and optimization dials."
+      },
+      {
+        "sentence": "Complexity roughly corresponds to how 'wiggly' the model fit is.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0265"
+        ],
+        "reason": "The source parenthetically defines complexity as roughly how wiggly the tuned model fit is."
+      }
+    ],
+    "warnings": [
+      "Only one evidence source supports the profile.",
+      "The exact mechanism of the optimization dial is not described in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model. Complexity roughly corresponds to how 'wiggly' the model fit is.\",\n  \"claims\": [\n    {\n      \"claim\": \"The optimization dial, together with the capacity dial, indirectly sets the complexity of a tuned model.\",\n      \"evidence_ids\": [\"MLR-E0265\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Complexity roughly corresponds to how 'wiggly' the model fit is.\",\n      \"evidence_ids\": [\"MLR-E0265\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence source supports the profile.\",\n    \"The exact mechanism of the optimization dial is not described in the metadata.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model. Complexity roughly corresponds to how 'wiggly' the model fit is.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"optimization dial: a control that, together with the capacity dial, indirectly sets the complexity of a tuned model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0265\"],\n      \"reason\": \"The source states that complexity is controlled indirectly by setting both the capacity and optimization dials.\"\n    },\n    {\n      \"sentence\": \"Complexity roughly corresponds to how 'wiggly' the model fit is.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0265\"],\n      \"reason\": \"The source parenthetically defines complexity as roughly how wiggly the tuned model fit is.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence source supports the profile.\",\n    \"The exact mechanism of the optimization dial is not described in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:47:27.546683+00:00"
+}

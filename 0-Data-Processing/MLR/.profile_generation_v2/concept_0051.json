@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "bee4c9457147ce457f984055a7e9a38ac1b508c1b08a139ca528e7fb22d014bc",
+  "concept_id": 51,
+  "concept_name": "first order system of equations",
+  "aliases": [
+    "first order system of equations",
+    "first order system"
+  ],
+  "profile": "first order system of equations: a system of N equations. It can be written compactly using gradient notation as ∇g(v) = 0.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "first order system of equations: a system of N equations naturally referred to as the first order system. It can be written compactly using gradient notation as ∇g(v) = 0.",
+    "claims": [
+      {
+        "claim": "The first order system of equations is a system of N equations.",
+        "evidence_ids": [
+          "MLR-E0054"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It can be written compactly using gradient notation as ∇g(v) = 0.",
+        "evidence_ids": [
+          "MLR-E0054"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "first order system of equations: a system of N equations. It can be written compactly using gradient notation as ∇g(v) = 0.",
+    "sentence_reviews": [
+      {
+        "sentence": "first order system of equations: a system of N equations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0054"
+        ],
+        "reason": "The source describes the first order system as a system of N equations."
+      },
+      {
+        "sentence": "It can be written compactly using gradient notation as ∇g(v) = 0.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0054"
+        ],
+        "reason": "The source states the first order system can be written compactly using gradient notation as ∇g(v) = 0."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"first order system of equations: a system of N equations naturally referred to as the first order system. It can be written compactly using gradient notation as ∇g(v) = 0.\",\n  \"claims\": [\n    {\n      \"claim\": \"The first order system of equations is a system of N equations.\",\n      \"evidence_ids\": [\"MLR-E0054\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It can be written compactly using gradient notation as ∇g(v) = 0.\",\n      \"evidence_ids\": [\"MLR-E0054\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"first order system of equations: a system of N equations. It can be written compactly using gradient notation as ∇g(v) = 0.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"first order system of equations: a system of N equations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0054\"],\n      \"reason\": \"The source describes the first order system as a system of N equations.\"\n    },\n    {\n      \"sentence\": \"It can be written compactly using gradient notation as ∇g(v) = 0.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0054\"],\n      \"reason\": \"The source states the first order system can be written compactly using gradient notation as ∇g(v) = 0.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:39:37.855009+00:00"
+}

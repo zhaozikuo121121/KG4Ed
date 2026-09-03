@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "55ea3c94eec51bd0183121d50e807713a8a911c00a5a73c28c53256c44e650d7",
+  "concept_id": 256,
+  "concept_name": "random neighborhood sampling",
+  "aliases": [
+    "random neighborhood sampling",
+    "neighborhood sampling"
+  ],
+  "profile": "random neighborhood sampling: a term mentioned in the context of graph neural network training strategies and batching.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "random neighborhood sampling: a strategy associated with graph neural network training and batching, referenced within the context of GNN training strategies.",
+    "claims": [
+      {
+        "claim": "Random neighborhood sampling is a strategy associated with graph neural network training and batching.",
+        "evidence_ids": [
+          "DGL-E0320"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence token was available; no definition or mechanism could be derived from the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "random neighborhood sampling: a term mentioned in the context of graph neural network training strategies and batching.",
+    "sentence_reviews": [
+      {
+        "sentence": "random neighborhood sampling: a term mentioned in the context of graph neural network training strategies and batching.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0320"
+        ],
+        "reason": "The evidence token is the term itself, and the page title places it under GNN training strategies and batching."
+      }
+    ],
+    "warnings": [
+      "Only one evidence token was available; no definition or mechanism could be derived from the available material."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"random neighborhood sampling: a strategy associated with graph neural network training and batching, referenced within the context of GNN training strategies.\",\n  \"claims\": [\n    {\n      \"claim\": \"Random neighborhood sampling is a strategy associated with graph neural network training and batching.\",\n      \"evidence_ids\": [\"DGL-E0320\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence token was available; no definition or mechanism could be derived from the metadata.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"random neighborhood sampling: a term mentioned in the context of graph neural network training strategies and batching.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"random neighborhood sampling: a term mentioned in the context of graph neural network training strategies and batching.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0320\"],\n      \"reason\": \"The evidence token is the term itself, and the page title places it under GNN training strategies and batching.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence token was available; no definition or mechanism could be derived from the available material.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:31:41.410745+00:00"
+}

@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "bfb5d79b7e0433f036ca18cbe9e8b30f4b9e4e8dd34d4cc59a7071f8f73563f6",
+  "concept_id": 148,
+  "concept_name": "number of nodes",
+  "aliases": [
+    "number of nodes",
+    "# nodes"
+  ],
+  "profile": "number of nodes: A count of nodes in a graph. In graph neural networks and node embedding, it is represented by the shorthand '# nodes'.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "number of nodes: A concept encountered in graph neural networks and node embedding, noted with the shorthand '# nodes'. It refers to the count of nodes within a graph.",
+    "claims": [
+      {
+        "claim": "The concept appears in the context of graph neural networks and node embedding.",
+        "evidence_ids": [
+          "DGL-E0158"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is represented by the notation '# nodes'.",
+        "evidence_ids": [
+          "DGL-E0158"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It refers to the count of nodes in a graph.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Only one evidence item was available; the definition is provided as general background."
+    ]
+  },
+  "review": {
+    "final_profile": "number of nodes: A count of nodes in a graph. In graph neural networks and node embedding, it is represented by the shorthand '# nodes'.",
+    "sentence_reviews": [
+      {
+        "sentence": "A count of nodes in a graph.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional statement not directly present in the source, but needed to explain the concept."
+      },
+      {
+        "sentence": "In graph neural networks and node embedding, it is represented by the shorthand '# nodes'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0158"
+        ],
+        "reason": "The source page title associates the concept with graph neural networks and node embedding, and the handwritten annotation provides '# nodes'."
+      }
+    ],
+    "warnings": [
+      "Only one evidence item was available; the definitional portion is general background."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"number of nodes: A concept encountered in graph neural networks and node embedding, noted with the shorthand '# nodes'. It refers to the count of nodes within a graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept appears in the context of graph neural networks and node embedding.\",\n      \"evidence_ids\": [\"DGL-E0158\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is represented by the notation '# nodes'.\",\n      \"evidence_ids\": [\"DGL-E0158\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It refers to the count of nodes in a graph.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"Only one evidence item was available; the definition is provided as general background.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"number of nodes: A count of nodes in a graph. In graph neural networks and node embedding, it is represented by the shorthand '# nodes'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A count of nodes in a graph.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional statement not directly present in the source, but needed to explain the concept.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks and node embedding, it is represented by the shorthand '# nodes'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0158\"],\n      \"reason\": \"The source page title associates the concept with graph neural networks and node embedding, and the handwritten annotation provides '# nodes'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence item was available; the definitional portion is general background.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:52:00.258820+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4d35dac946f85746855bed1e827db0794808544aa4470b2c49c6c6e084a4ed27",
+  "concept_id": 74,
+  "concept_name": "hessian-free optimization",
+  "aliases": [
+    "hessian-free optimization"
+  ],
+  "profile": "hessian-free optimization: in second-order optimization techniques, the latter set of adjustments is referred to as Hessian-free optimization.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hessian-free optimization: the latter set of adjustments referred to as Hessian-free optimization within second-order optimization techniques.",
+    "claims": [
+      {
+        "claim": "Hessian-free optimization is the latter set of adjustments referred to within second-order optimization techniques.",
+        "evidence_ids": [
+          "MLR-E0086"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "hessian-free optimization: in second-order optimization techniques, the latter set of adjustments is referred to as Hessian-free optimization.",
+    "sentence_reviews": [
+      {
+        "sentence": "hessian-free optimization: in second-order optimization techniques, the latter set of adjustments is referred to as Hessian-free optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0086"
+        ],
+        "reason": "The sentence directly reflects the source phrase that the latter set of adjustments is referred to as Hessian-free optimization, with the second-order optimization context supplied by the chapter title."
+      }
+    ],
+    "warnings": [
+      "The phrase 'latter set of adjustments' has no explicit antecedent in the available evidence, so the specific adjustments being referenced are not identified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hessian-free optimization: the latter set of adjustments referred to as Hessian-free optimization within second-order optimization techniques.\",\n  \"claims\": [\n    {\n      \"claim\": \"Hessian-free optimization is the latter set of adjustments referred to within second-order optimization techniques.\",\n      \"evidence_ids\": [\"MLR-E0086\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hessian-free optimization: in second-order optimization techniques, the latter set of adjustments is referred to as Hessian-free optimization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"hessian-free optimization: in second-order optimization techniques, the latter set of adjustments is referred to as Hessian-free optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0086\"\n      ],\n      \"reason\": \"The sentence directly reflects the source phrase that the latter set of adjustments is referred to as Hessian-free optimization, with the second-order optimization context supplied by the chapter title.\"\n    }\n  ],\n  \"warnings\": [\n    \"The phrase 'latter set of adjustments' has no explicit antecedent in the available evidence, so the specific adjustments being referenced are not identified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:48:37.962676+00:00"
+}

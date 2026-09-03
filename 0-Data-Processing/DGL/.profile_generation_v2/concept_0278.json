@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4aab6b00acf6a6283fb14b3f8e0f6852cf7974e3fa77300e2213b39940d61baa",
+  "concept_id": 278,
+  "concept_name": "test set inference",
+  "aliases": [
+    "test set inference",
+    "prediction"
+  ],
+  "profile": "test set inference: In graph classification, the notation h_K^(test) indicates the output representation for test data.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "test set inference: In graph-level prediction, test set inference is the process of computing the output representation for test data. The notation h_K^(test) indicates the final-layer representation assigned to a test example during inference, where K denotes the last layer. This representation is used to make predictions on unseen graphs.",
+    "claims": [
+      {
+        "claim": "Test set inference is associated with computing the output representation for test data in graph classification.",
+        "evidence_ids": [
+          "DGL-E0387"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The output representation for test data is denoted h_K^(test), where K indicates the final layer.",
+        "evidence_ids": [
+          "DGL-E0387"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one handwritten evidence item was available; confidence is 0.900."
+    ]
+  },
+  "review": {
+    "final_profile": "test set inference: In graph classification, the notation h_K^(test) indicates the output representation for test data.",
+    "sentence_reviews": [
+      {
+        "sentence": "test set inference: In graph classification, the notation h_K^(test) indicates the output representation for test data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0387"
+        ],
+        "reason": "The evidence describes the handwritten notation h_K^(test) as indicating the output representation for test data, within a graph classification context."
+      }
+    ],
+    "warnings": [
+      "Only one handwritten evidence item was available; details about a final layer or layer index K are not supported by the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"test set inference: In graph-level prediction, test set inference is the process of computing the output representation for test data. The notation h_K^(test) indicates the final-layer representation assigned to a test example during inference, where K denotes the last layer. This representation is used to make predictions on unseen graphs.\",\n  \"claims\": [\n    {\n      \"claim\": \"Test set inference is associated with computing the output representation for test data in graph classification.\",\n      \"evidence_ids\": [\"DGL-E0387\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The output representation for test data is denoted h_K^(test), where K indicates the final layer.\",\n      \"evidence_ids\": [\"DGL-E0387\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only one handwritten evidence item was available; confidence is 0.900.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"test set inference: In graph classification, the notation h_K^(test) indicates the output representation for test data.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"test set inference: In graph classification, the notation h_K^(test) indicates the output representation for test data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0387\"],\n      \"reason\": \"The evidence describes the handwritten notation h_K^(test) as indicating the output representation for test data, within a graph classification context.\"\n    }\n  ],\n  \"warnings\": [\"Only one handwritten evidence item was available; details about a final layer or layer index K are not supported by the source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:40:38.515346+00:00"
+}

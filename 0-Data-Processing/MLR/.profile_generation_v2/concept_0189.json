@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "765529cbcc210043aab111aee6a2de5e74b18d8db6df32eb2e8d8f36e759efb6",
+  "concept_id": 189,
+  "concept_name": "stop words",
+  "aliases": [
+    "stop words"
+  ],
+  "profile": "stop words: uninformative words such as 'are' and 'the'.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "stop words: words such as 'are' and 'the' that are uninformative, typically referred to as stop words.",
+    "claims": [
+      {
+        "claim": "Stop words are uninformative words such as 'are' and 'the'.",
+        "evidence_ids": [
+          "MLR-E0222"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "stop words: uninformative words such as 'are' and 'the'.",
+    "sentence_reviews": [
+      {
+        "sentence": "stop words: uninformative words such as 'are' and 'the'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0222"
+        ],
+        "reason": "The metadata states that stop words are uninformative words such as 'are' and 'the'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"stop words: words such as 'are' and 'the' that are uninformative, typically referred to as stop words.\",\n  \"claims\": [\n    {\n      \"claim\": \"Stop words are uninformative words such as 'are' and 'the'.\",\n      \"evidence_ids\": [\"MLR-E0222\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"stop words: uninformative words such as 'are' and 'the'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"stop words: uninformative words such as 'are' and 'the'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0222\"],\n      \"reason\": \"The metadata states that stop words are uninformative words such as 'are' and 'the'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:38:20.667207+00:00"
+}

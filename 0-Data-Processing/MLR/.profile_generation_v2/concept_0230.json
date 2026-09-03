@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0c6223de4f65be371c87ffa631ee262326ebb0c9cfbed0acf408d4041ec10c09",
+  "concept_id": 230,
+  "concept_name": "orthogonal component r",
+  "aliases": [
+    "orthogonal component r",
+    "orthogonal residual"
+  ],
+  "profile": "orthogonal component r: In the context of kernel methods, r is orthogonal to a subspace. Its key property is being perpendicular to that subspace.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "orthogonal component r: In the context of kernel methods, r is a component orthogonal to a subspace. The essential property is that r is perpendicular to that subspace.",
+    "claims": [
+      {
+        "claim": "r is orthogonal to the subspace",
+        "evidence_ids": [
+          "MLR-E0289"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "r appears in the context of kernel methods",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "orthogonal component r: In the context of kernel methods, r is orthogonal to a subspace. Its key property is being perpendicular to that subspace.",
+    "sentence_reviews": [
+      {
+        "sentence": "In the context of kernel methods, r is orthogonal to a subspace.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0289"
+        ],
+        "reason": "The evidence states r is orthogonal to the subspace; chapter title indicates kernel methods context."
+      },
+      {
+        "sentence": "Its key property is being perpendicular to that subspace.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0289"
+        ],
+        "reason": "Perpendicular is a restatement of orthogonal, matching the source assertion."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"orthogonal component r: In the context of kernel methods, r is a component orthogonal to a subspace. The essential property is that r is perpendicular to that subspace.\",\n  \"claims\": [\n    {\n      \"claim\": \"r is orthogonal to the subspace\",\n      \"evidence_ids\": [\"MLR-E0289\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"r appears in the context of kernel methods\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"orthogonal component r: In the context of kernel methods, r is orthogonal to a subspace. Its key property is being perpendicular to that subspace.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In the context of kernel methods, r is orthogonal to a subspace.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0289\"],\n      \"reason\": \"The evidence states r is orthogonal to the subspace; chapter title indicates kernel methods context.\"\n    },\n    {\n      \"sentence\": \"Its key property is being perpendicular to that subspace.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0289\"],\n      \"reason\": \"Perpendicular is a restatement of orthogonal, matching the source assertion.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:52:55.648638+00:00"
+}

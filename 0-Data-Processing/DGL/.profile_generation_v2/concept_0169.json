@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8e9a0fde90a2fb1c35ca2fe841b883054b8c7726407727ef81dbb1905f6c6bde",
+  "concept_id": 169,
+  "concept_name": "graph neural architecture",
+  "aliases": [
+    "graph neural architecture",
+    "gnn architecture"
+  ],
+  "profile": "graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1]. The function F transforms the previous representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers. Each recurrence step corresponds to one layer, so successive representations are generated from input X.",
+  "word_count": 70,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1]. The parameterized function F transforms the current representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers. This recurrence defines how successive representations are generated from input X.",
+    "claims": [
+      {
+        "claim": "The architecture is expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], ..., HK = F[HK-1,A,φK-1].",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The parameterized function F transforms the current representation together with A and a layer-specific parameter φ.",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The same A appears in every step while φ changes across layers.",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The symbols X, A, and φ are not explicitly defined in the extracted equation; their roles are inferred from the graph-neural-network context."
+    ]
+  },
+  "review": {
+    "final_profile": "graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1]. The function F transforms the previous representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers. Each recurrence step corresponds to one layer, so successive representations are generated from input X.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1].",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "reason": "The recurrence is directly quoted from the source equation."
+      },
+      {
+        "sentence": "The function F transforms the previous representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "reason": "The equation shows F taking the previous H, A, and a φ indexed by layer, with A repeated and φ changing."
+      },
+      {
+        "sentence": "Each recurrence step corresponds to one layer, so successive representations are generated from input X.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0175"
+        ],
+        "reason": "The indexed sequence from H1 through HK indicates layer-wise steps generated from the input X."
+      }
+    ],
+    "warnings": [
+      "The equation does not explicitly define X, A, φ, or F; their roles are inferred from graph-neural-network context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1]. The parameterized function F transforms the current representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers. This recurrence defines how successive representations are generated from input X.\",\n  \"claims\": [\n    {\n      \"claim\": \"The architecture is expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], ..., HK = F[HK-1,A,φK-1].\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The parameterized function F transforms the current representation together with A and a layer-specific parameter φ.\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The same A appears in every step while φ changes across layers.\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The symbols X, A, and φ are not explicitly defined in the extracted equation; their roles are inferred from the graph-neural-network context.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1]. The function F transforms the previous representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers. Each recurrence step corresponds to one layer, so successive representations are generated from input X.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph neural architecture: A layered design expressed by the recurrence H1 = F[X,A,φ0], H2 = F[H1,A,φ1], H3 = F[H2,A,φ2], ..., HK = F[HK-1,A,φK-1].\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"reason\": \"The recurrence is directly quoted from the source equation.\"\n    },\n    {\n      \"sentence\": \"The function F transforms the previous representation together with A and a layer-specific parameter φ; the same A appears in every step while φ changes across layers.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"reason\": \"The equation shows F taking the previous H, A, and a φ indexed by layer, with A repeated and φ changing.\"\n    },\n    {\n      \"sentence\": \"Each recurrence step corresponds to one layer, so successive representations are generated from input X.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0175\"],\n      \"reason\": \"The indexed sequence from H1 through HK indicates layer-wise steps generated from the input X.\"\n    }\n  ],\n  \"warnings\": [\n    \"The equation does not explicitly define X, A, φ, or F; their roles are inferred from graph-neural-network context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:00:57.171191+00:00"
+}

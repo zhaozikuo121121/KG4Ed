@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "12a7b3d478a71a149daf6d38cde541855c4916fe476093bae36a457ca2daaf54",
+  "concept_id": 226,
+  "concept_name": "exponential scaling of fixed-shape units",
+  "aliases": [
+    "exponential scaling of fixed-shape units",
+    "scaling challenge",
+    "exponential growth of fixed-shape features"
+  ],
+  "profile": "exponential scaling of fixed-shape units: In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+  "word_count": 34,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "exponential scaling of fixed-shape units: In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input. This exponential growth is a key scaling consideration for high-dimensional data.",
+    "claims": [
+      {
+        "claim": "In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+        "evidence_ids": [
+          "MLR-E0285"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "exponential scaling of fixed-shape units: In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+    "sentence_reviews": [
+      {
+        "sentence": "In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0285"
+        ],
+        "reason": "Directly restates the source evidence; 'kernel methods' is taken from the chapter context."
+      }
+    ],
+    "warnings": [
+      "The source does not explicitly elaborate on practical implications of the exponential growth."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"exponential scaling of fixed-shape units: In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input. This exponential growth is a key scaling consideration for high-dimensional data.\",\n  \"claims\": [\n    {\n      \"claim\": \"In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.\",\n      \"evidence_ids\": [\"MLR-E0285\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"exponential scaling of fixed-shape units: In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In kernel methods, the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0285\"\n      ],\n      \"reason\": \"Directly restates the source evidence; 'kernel methods' is taken from the chapter context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not explicitly elaborate on practical implications of the exponential growth.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:51:19.557995+00:00"
+}

@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "61297676d627e56edef911864259c8c1ab93c2a87bb44a5682108de2cad3eb85",
+  "concept_id": 249,
+  "concept_name": "subgraph sampling",
+  "aliases": [
+    "subgraph sampling",
+    "mini-batch subgraph"
+  ],
+  "profile": "subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks. Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks. In this approach, each mini-batch operates on a subgraph that forms the union of the k-hop neighbors of the selected nodes. This subgraph, called a mini-batch subgraph, provides a localized computation structure for the update.",
+    "claims": [
+      {
+        "claim": "Subgraph sampling is used in mini-batch SGD.",
+        "evidence_ids": [
+          "DGL-E0341"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The sampled subgraph forms the union of the k-hop neighbors of the selected nodes.",
+        "evidence_ids": [
+          "DGL-E0341"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used for training graph neural networks.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks. Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors.",
+    "sentence_reviews": [
+      {
+        "sentence": "subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0341",
+          "DGL-E0342"
+        ],
+        "reason": "The source title connects subgraph sampling to GNN training, and the evidence describes mini-batch SGD using a subgraph."
+      },
+      {
+        "sentence": "Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0341"
+        ],
+        "reason": "This directly paraphrases the provided evidence text."
+      }
+    ],
+    "warnings": [
+      "The alias 'mini-batch subgraph' is not explicitly mentioned in the provided source evidence and was omitted from the profile."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks. In this approach, each mini-batch operates on a subgraph that forms the union of the k-hop neighbors of the selected nodes. This subgraph, called a mini-batch subgraph, provides a localized computation structure for the update.\",\n  \"claims\": [\n    {\n      \"claim\": \"Subgraph sampling is used in mini-batch SGD.\",\n      \"evidence_ids\": [\"DGL-E0341\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The sampled subgraph forms the union of the k-hop neighbors of the selected nodes.\",\n      \"evidence_ids\": [\"DGL-E0341\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used for training graph neural networks.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks. Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"subgraph sampling: a technique used in mini-batch stochastic gradient descent for training graph neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0341\", \"DGL-E0342\"],\n      \"reason\": \"The source title connects subgraph sampling to GNN training, and the evidence describes mini-batch SGD using a subgraph.\"\n    },\n    {\n      \"sentence\": \"Mini-batch SGD uses the subgraph that forms the union of the k-hop neighbors.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0341\"],\n      \"reason\": \"This directly paraphrases the provided evidence text.\"\n    }\n  ],\n  \"warnings\": [\n    \"The alias 'mini-batch subgraph' is not explicitly mentioned in the provided source evidence and was omitted from the profile.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:28:39.139440+00:00"
+}

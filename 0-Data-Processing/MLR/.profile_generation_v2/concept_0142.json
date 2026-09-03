@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "14ad0d0e47f45ddbea17a7645f1ed4d9f2cdfb0677d5c06320683fce5b1250ea",
+  "concept_id": 142,
+  "concept_name": "inverse class frequency weighting",
+  "aliases": [
+    "inverse class frequency weighting"
+  ],
+  "profile": "inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class. It is common to assign such weights in linear two-class classification.",
+  "word_count": 34,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class; it is common to assign such weights in linear two-class classification.",
+    "claims": [
+      {
+        "claim": "Inverse class frequency weighting assigns class weights inversely proportional to the number of members of each class.",
+        "evidence_ids": [
+          "MLR-E0158"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is common to assign inverse class frequency weights in linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0158"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class. It is common to assign such weights in linear two-class classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0158"
+        ],
+        "reason": "The source states that it is common to assign weights inversely proportional to the number of members of each class."
+      },
+      {
+        "sentence": "It is common to assign such weights in linear two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0158"
+        ],
+        "reason": "The source evidence appears in the context of linear two-class classification."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class; it is common to assign such weights in linear two-class classification.\",\n  \"claims\": [\n    {\n      \"claim\": \"Inverse class frequency weighting assigns class weights inversely proportional to the number of members of each class.\",\n      \"evidence_ids\": [\"MLR-E0158\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is common to assign inverse class frequency weights in linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0158\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class. It is common to assign such weights in linear two-class classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"inverse class frequency weighting: a technique in classification where class weights are set inversely proportional to the number of members of each class.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0158\"],\n      \"reason\": \"The source states that it is common to assign weights inversely proportional to the number of members of each class.\"\n    },\n    {\n      \"sentence\": \"It is common to assign such weights in linear two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0158\"],\n      \"reason\": \"The source evidence appears in the context of linear two-class classification.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:21:08.678263+00:00"
+}

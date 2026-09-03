@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "277bbd87632b044952e0f8a825fae390d0ba83bad9417313f4efb6e99cef0ac3",
+  "concept_id": 7,
+  "concept_name": "geometric graph",
+  "aliases": [
+    "geometric graph",
+    "point cloud graph"
+  ],
+  "profile": "geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.",
+    "claims": [
+      {
+        "claim": "A geometric graph represents a geometric point cloud, with each point as a node and edges to nearby points.",
+        "evidence_ids": [
+          "DGL-E0017"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.",
+    "sentence_reviews": [
+      {
+        "sentence": "geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0017"
+        ],
+        "reason": "Matches the source statement that a geometric point cloud can be represented as a graph with points as nodes and edges to nearby points."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.\",\n  \"claims\": [\n    {\n      \"claim\": \"A geometric graph represents a geometric point cloud, with each point as a node and edges to nearby points.\",\n      \"evidence_ids\": [\"DGL-E0017\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"geometric graph: a graph representation of a geometric point cloud, where each point is a node and edges connect to other nearby points.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0017\"],\n      \"reason\": \"Matches the source statement that a geometric point cloud can be represented as a graph with points as nodes and edges to nearby points.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:52:15.447915+00:00"
+}

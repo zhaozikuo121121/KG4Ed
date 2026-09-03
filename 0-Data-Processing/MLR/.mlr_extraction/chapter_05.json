@@ -1,0 +1,2083 @@
+{
+  "version": "1.0.0",
+  "chapter": 5,
+  "chapter_title": "Linear regression",
+  "pdf_start": 127,
+  "pdf_end": 153,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T16:46:45+00:00",
+  "concepts": [
+    {
+      "canonical": "linear regression",
+      "aliases": [
+        "regression",
+        "fitting a representative line",
+        "fitting a hyperplane"
+      ],
+      "evidence_page": 127,
+      "evidence": "the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points",
+      "relevance": 1.0,
+      "anchor_page": 127
+    },
+    {
+      "canonical": "least absolute deviations",
+      "aliases": [
+        "least absolute deviations cost"
+      ],
+      "evidence_page": 127,
+      "evidence": "including a discussion of the Least Squares and Least Absolute Deviations costs",
+      "relevance": 0.7,
+      "anchor_page": 127
+    },
+    {
+      "canonical": "bias",
+      "aliases": [
+        "bias weight",
+        "vertical intercept",
+        "w0",
+        "bias term"
+      ],
+      "evidence_page": 128,
+      "evidence": "A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope",
+      "relevance": 0.9,
+      "anchor_page": 128
+    },
+    {
+      "canonical": "hyperplane",
+      "aliases": [],
+      "evidence_page": 128,
+      "evidence": "A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y",
+      "relevance": 0.8,
+      "anchor_page": 128
+    },
+    {
+      "canonical": "least squares cost function",
+      "aliases": [
+        "least squares",
+        "least squares cost",
+        "sum of squared errors"
+      ],
+      "evidence_page": 129,
+      "evidence": "One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data",
+      "relevance": 1.0,
+      "anchor_page": 130
+    },
+    {
+      "canonical": "feature",
+      "aliases": [
+        "input feature"
+      ],
+      "evidence_page": 129,
+      "evidence": "Each dimension of the input is referred to as a feature or input feature in machine learning parlance.",
+      "relevance": 0.9,
+      "anchor_page": 129
+    },
+    {
+      "canonical": "feature-touching weights",
+      "aliases": [
+        "slope weights",
+        "coordinate-wise slopes"
+      ],
+      "evidence_page": 129,
+      "evidence": "we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0",
+      "relevance": 0.7,
+      "anchor_page": 129
+    },
+    {
+      "canonical": "unconstrained optimization",
+      "aliases": [],
+      "evidence_page": 130,
+      "evidence": "we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2",
+      "relevance": 0.7,
+      "anchor_page": 130
+    },
+    {
+      "canonical": "normal equations",
+      "aliases": [],
+      "evidence_page": 131,
+      "evidence": "This is sometimes referred to as minimizing the Least Squares via solving its normal equations",
+      "relevance": 0.8,
+      "anchor_page": 131
+    },
+    {
+      "canonical": "backtracking line search",
+      "aliases": [],
+      "evidence_page": 131,
+      "evidence": "an adjustable method like backtracking line search (as detailed in Chapter 3)",
+      "relevance": 0.7,
+      "anchor_page": 131
+    },
+    {
+      "canonical": "vectorized implementation",
+      "aliases": [
+        "numpy vectorization"
+      ],
+      "evidence_page": 135,
+      "evidence": "It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library",
+      "relevance": 0.7,
+      "anchor_page": 135
+    },
+    {
+      "canonical": "convex function",
+      "aliases": [
+        "convexity"
+      ],
+      "evidence_page": 152,
+      "evidence": "The line segment connecting two points on the graph of a convex function f always lies above the graph of f.",
+      "relevance": 0.9,
+      "anchor_page": 152
+    },
+    {
+      "canonical": "convex quadratic",
+      "aliases": [
+        "convex quadratic function"
+      ],
+      "evidence_page": 152,
+      "evidence": "the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+      "relevance": 0.85,
+      "anchor_page": 153
+    },
+    {
+      "canonical": "standard normalization",
+      "aliases": [
+        "standardize",
+        "standard normalize",
+        "standardize input features"
+      ],
+      "evidence_page": 152,
+      "evidence": "you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.",
+      "relevance": 0.85,
+      "anchor_page": 152
+    },
+    {
+      "canonical": "multi-output regression",
+      "aliases": [],
+      "evidence_page": 152,
+      "evidence": "5.11 Multi-output regression",
+      "relevance": 0.8,
+      "anchor_page": 152
+    },
+    {
+      "canonical": "convex combination",
+      "aliases": [
+        "lambda interpolation"
+      ],
+      "evidence_page": 152,
+      "evidence": "any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)",
+      "relevance": 0.7,
+      "anchor_page": 152
+    },
+    {
+      "canonical": "non-negative eigenvalues",
+      "aliases": [
+        "positive semi-definite eigenvalues"
+      ],
+      "evidence_page": 153,
+      "evidence": "the eigenvalues of such a matrix are always non-negative",
+      "relevance": 0.8,
+      "anchor_page": 153
+    },
+    {
+      "canonical": "quadratic cost function",
+      "aliases": [
+        "general quadratic"
+      ],
+      "evidence_page": 153,
+      "evidence": "g (w) = a + bTw + wTC w which is of course a general quadratic.",
+      "relevance": 0.8,
+      "anchor_page": 153
+    },
+    {
+      "canonical": "inner product",
+      "aliases": [
+        "dot product"
+      ],
+      "evidence_page": 153,
+      "evidence": "since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product",
+      "relevance": 0.75,
+      "anchor_page": 153
+    },
+    {
+      "canonical": "outer product",
+      "aliases": [
+        "outer product matrix"
+      ],
+      "evidence_page": 153,
+      "evidence": "the matrix C is constructed from a sum of outer product matrices",
+      "relevance": 0.7,
+      "anchor_page": 153
+    },
+    {
+      "canonical": "eigenvalues",
+      "aliases": [],
+      "evidence_page": 153,
+      "evidence": "the eigenvalues of such a matrix are always non-negative",
+      "relevance": 0.65,
+      "anchor_page": 153
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "linear regression",
+      "latex": "w_0 + x_p w_1 \\approx y_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 128,
+      "equation_label": "5.3",
+      "confidence": 0.95
+    },
+    {
+      "concept": "linear regression",
+      "latex": "w_0 + x_{1,p} w_1 + x_{2,p} w_2 + \\cdots + x_{N,p} w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 128,
+      "equation_label": "5.4",
+      "confidence": 0.95
+    },
+    {
+      "concept": "bias",
+      "latex": "w_0 + x_p w_1 \\approx y_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 128,
+      "equation_label": "5.3",
+      "confidence": 0.95
+    },
+    {
+      "concept": "hyperplane",
+      "latex": "w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\cdots + x_{N,p}w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 128,
+      "equation_label": "5.4",
+      "confidence": 0.95
+    },
+    {
+      "concept": "bias",
+      "latex": "w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\cdots + x_{N,p}w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 128,
+      "equation_label": "5.4",
+      "confidence": 0.9
+    },
+    {
+      "concept": "feature",
+      "latex": "\\mathring{x}_p = \\begin{bmatrix} 1 \\\\ x_{1,p} \\\\ x_{2,p} \\\\ \\vdots \\\\ x_{N,p} \\end{bmatrix}",
+      "pdf_page": 129,
+      "equation_label": "5.5",
+      "confidence": 0.95
+    },
+    {
+      "concept": "feature-touching weights",
+      "latex": "w = \\begin{bmatrix} w_0 \\\\ w_1 \\\\ w_2 \\\\ \\vdots \\\\ w_N \\end{bmatrix}",
+      "pdf_page": 129,
+      "equation_label": "5.6",
+      "confidence": 0.95
+    },
+    {
+      "concept": "least squares cost function",
+      "latex": "g(w) = \\frac{1}{P} \\sum_{p=1}^{P} g_p(w) = \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathring{x}_p^T w - y_p \\right)^2",
+      "pdf_page": 130,
+      "equation_label": "5.9",
+      "confidence": 1.0
+    },
+    {
+      "concept": "unconstrained optimization",
+      "latex": "\\minimize_{w} \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathring{x}_p^T w - y_p \\right)^2",
+      "pdf_page": 131,
+      "equation_label": "5.10",
+      "confidence": 1.0
+    },
+    {
+      "concept": "normal equations",
+      "latex": "\\minimize_{w} \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathbf{x}_p^T w - y_p \\right)^2",
+      "pdf_page": 131,
+      "equation_label": "5.10",
+      "confidence": 0.9
+    },
+    {
+      "concept": "vectorized implementation",
+      "latex": "\\nabla g(\\mathbf{w}) = \\frac{2}{P} \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p \\left( \\mathring{\\mathbf{x}}_p^T \\mathbf{w} - y_p \\right)",
+      "pdf_page": 136,
+      "equation_label": "5.16",
+      "confidence": 0.9
+    },
+    {
+      "concept": "vectorized implementation",
+      "latex": "\\left( \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p \\mathring{\\mathbf{x}}_p^T \\right) \\mathbf{w} = \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p y_p",
+      "pdf_page": 136,
+      "equation_label": "5.17",
+      "confidence": 0.9
+    },
+    {
+      "concept": "convex function",
+      "latex": "g(\\lambda w_1 + (1 - \\lambda) w_2) \\leq \\lambda g(w_1) + (1 - \\lambda) g(w_2)",
+      "pdf_page": 151,
+      "equation_label": "5.42",
+      "confidence": 0.95
+    },
+    {
+      "concept": "convex function",
+      "latex": "g(w) = a + b^T w + w^T C w",
+      "pdf_page": 153,
+      "equation_label": "5.47",
+      "confidence": 0.9
+    },
+    {
+      "concept": "convex quadratic",
+      "latex": "g(\\mathbf{w}) = a + \\mathbf{b}^T\\mathbf{w} + \\mathbf{w}^T C \\mathbf{w}",
+      "pdf_page": 153,
+      "equation_label": "5.47",
+      "confidence": 0.95
+    },
+    {
+      "concept": "quadratic cost function",
+      "latex": "g(\\mathbf{w}) = a + \\mathbf{b}^T\\mathbf{w} + \\mathbf{w}^T C \\mathbf{w}",
+      "pdf_page": 153,
+      "equation_label": "5.47",
+      "confidence": 0.95
+    },
+    {
+      "concept": "inner product",
+      "latex": "\\mathbf{x}_p^T \\mathbf{w} = \\mathbf{w}^T \\mathbf{x}_p",
+      "pdf_page": 153,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "outer product",
+      "latex": "C = \\frac{1}{P} \\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T",
+      "pdf_page": 153,
+      "equation_label": "5.46",
+      "confidence": 0.95
+    },
+    {
+      "concept": "non-negative eigenvalues",
+      "latex": "C = \\frac{1}{P} \\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T",
+      "pdf_page": 153,
+      "equation_label": "5.46",
+      "confidence": 0.9
+    },
+    {
+      "concept": "quadratic cost function",
+      "latex": "\\left(\\mathbf{x}_p^T \\mathbf{w} - y_p\\right)^2 = y_p^2 - 2\\mathbf{x}_p^T \\mathbf{w} y_p + \\mathbf{x}_p^T \\mathbf{w} \\mathbf{x}_p^T \\mathbf{w}",
+      "pdf_page": 153,
+      "equation_label": "5.43",
+      "confidence": 0.9
+    },
+    {
+      "concept": "quadratic cost function",
+      "latex": "g(\\mathbf{w}) = \\frac{1}{P}\\sum_{p=1}^{P} y_p^2 - 2\\left(\\frac{1}{P}\\sum_{p=1}^{P} y_p \\mathbf{x}_p^T\\right)\\mathbf{w} + \\mathbf{w}^T\\left(\\frac{1}{P}\\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T\\right)\\mathbf{w}",
+      "pdf_page": 153,
+      "equation_label": "5.45",
+      "confidence": 0.9
+    }
+  ],
+  "figures": [
+    {
+      "concept": "linear regression",
+      "pdf_page": 128,
+      "figure_label": "Figure 5.1",
+      "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "bias",
+      "pdf_page": 128,
+      "figure_label": "Figure 5.1",
+      "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "hyperplane",
+      "pdf_page": 128,
+      "figure_label": "Figure 5.1",
+      "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "least squares cost function",
+      "pdf_page": 130,
+      "figure_label": "Figure 5.2",
+      "caption": "(left panel) A prototypical two dimensional dataset along with a line fit to the data using the Least Squares framework, which aims at recovering the linear model that minimizes the total squared length of the solid error bars. (right panel) The Least Squares error can be thought of as the total area of the blue squares, having solid black error bars as sides. The cost function is called Least Squares because it allows us to determine a set of parameters whose corresponding line minimizes the sum of these square errors.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "convex function",
+      "pdf_page": 152,
+      "figure_label": "Figure 5.13",
+      "caption": "The line segment (shown in orange) connecting two points on the graph of a convex function f always lies above the graph of f. This means that for any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1), λf (x) + (1 −λ) f y is always greater than (or equal to) f λx + (1 −λ) y .",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "linear regression",
+            "aliases": [
+              "regression",
+              "fitting a representative line",
+              "fitting a hyperplane"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares cost",
+              "sum of squared errors"
+            ],
+            "evidence_page": 129,
+            "anchor_page": 130,
+            "evidence": "One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "least absolute deviations",
+            "aliases": [
+              "least absolute deviations cost"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "including a discussion of the Least Squares and Least Absolute Deviations costs",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "weighted regression",
+            "aliases": [],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "various common extensions of the basic regression concept (including weighted and multi-output regression)",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [
+              "vector-valued outputs"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "various common extensions of the basic regression concept (including weighted and multi-output regression)",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "bias weight",
+              "vertical intercept",
+              "w0"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature",
+            "aliases": [
+              "input feature"
+            ],
+            "evidence_page": 129,
+            "anchor_page": 129,
+            "evidence": "Each dimension of the input is referred to as a feature or input feature in machine learning parlance.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature-touching weights",
+            "aliases": [
+              "slope weights",
+              "coordinate-wise slopes"
+            ],
+            "evidence_page": 129,
+            "anchor_page": 129,
+            "evidence": "we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "hyperplane",
+            "aliases": [],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex",
+              "convex function"
+            ],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "The Least Squares cost function for linear regression in Equation (5.9) can be proven to be convex for any dataset",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newton step"
+            ],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "Because the Least Squares cost is a convex quadratic function, a single Newton step can perfectly minimize it.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "normal equations",
+            "aliases": [],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "This is sometimes referred to as minimizing the Least Squares via solving its normal equations",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "learning rate",
+            "aliases": [
+              "steplength",
+              "steplength parameter"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "the steplength parameter is often referred to as the learning rate, since this value does indeed determine how quickly the proper parameters of our linear regression model are learned",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "backtracking line search",
+            "aliases": [],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "an adjustable method like backtracking line search (as detailed in Chapter 3)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "point-wise cost function",
+            "aliases": [],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "gp (w) = (˚xT pw − yp)^2 as a point-wise cost function that measures the error of a model on the individual point",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "unconstrained optimization",
+            "aliases": [],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "vectorized implementation",
+            "aliases": [
+              "numpy vectorization"
+            ],
+            "evidence_page": 135,
+            "anchor_page": 135,
+            "evidence": "It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [\"regression\", \"fitting a representative line\", \"fitting a hyperplane\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares\", \"least squares cost\", \"sum of squared errors\"],\n      \"evidence_page\": 129,\n      \"anchor_page\": 130,\n      \"evidence\": \"One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"least absolute deviations\",\n      \"aliases\": [\"least absolute deviations cost\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"including a discussion of the Least Squares and Least Absolute Deviations costs\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"weighted regression\",\n      \"aliases\": [],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"various common extensions of the basic regression concept (including weighted and multi-output regression)\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [\"vector-valued outputs\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"various common extensions of the basic regression concept (including weighted and multi-output regression)\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"bias weight\", \"vertical intercept\", \"w0\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature\",\n      \"aliases\": [\"input feature\"],\n      \"evidence_page\": 129,\n      \"anchor_page\": 129,\n      \"evidence\": \"Each dimension of the input is referred to as a feature or input feature in machine learning parlance.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature-touching weights\",\n      \"aliases\": [\"slope weights\", \"coordinate-wise slopes\"],\n      \"evidence_page\": 129,\n      \"anchor_page\": 129,\n      \"evidence\": \"we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"hyperplane\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\"convex\", \"convex function\"],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"The Least Squares cost function for linear regression in Equation (5.9) can be proven to be convex for any dataset\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newton step\"],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"Because the Least Squares cost is a convex quadratic function, a single Newton step can perfectly minimize it.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"normal equations\",\n      \"aliases\": [],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"This is sometimes referred to as minimizing the Least Squares via solving its normal equations\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"learning rate\",\n      \"aliases\": [\"steplength\", \"steplength parameter\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"the steplength parameter is often referred to as the learning rate, since this value does indeed determine how quickly the proper parameters of our linear regression model are learned\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"backtracking line search\",\n      \"aliases\": [],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"an adjustable method like backtracking line search (as detailed in Chapter 3)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"point-wise cost function\",\n      \"aliases\": [],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"gp (w) = (˚xT pw − yp)^2 as a point-wise cost function that measures the error of a model on the individual point\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"unconstrained optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"vectorized implementation\",\n      \"aliases\": [\"numpy vectorization\"],\n      \"evidence_page\": 135,\n      \"anchor_page\": 135,\n      \"evidence\": \"It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "least squares linear regression",
+            "aliases": [
+              "least squares regression",
+              "least squares cost function"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "Least squares linear regression ... the cost as the sum of squared errors of a linear model of input against its corresponding output.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares cost",
+              "sum of squared errors"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "The Least Squares cost also takes in all inputs ... as well as the entire set of corresponding outputs",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "vectorized computation",
+            "aliases": [
+              "numpy vectorization",
+              "vectorized operations"
+            ],
+            "evidence_page": 127,
+            "anchor_page": 127,
+            "evidence": "It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient of least squares cost",
+            "aliases": [
+              "least squares gradient"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "one can compute the gradient of the Least Squares cost in closed form as ∇g(w) = 2 Σ x_p (x_p^T w - y_p)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "normal equations",
+            "aliases": [
+              "closed-form least squares solution"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "This single Newton step solution is often referred to as minimizing the Least Squares cost via its normal equations.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "newton's method for least squares",
+            "aliases": [
+              "newton step least squares"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "since the cost is a convex quadratic only a single Newton step can completely minimize it.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "hessian of least squares cost",
+            "aliases": [
+              "least squares hessian"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "in performing Newton's method one can also compute the Hessian of the Least Squares cost by hand.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "least absolute deviations",
+            "aliases": [
+              "lad cost function",
+              "least absolute deviations cost"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "an alternative cost for linear regression called Least Absolute Deviations. This alternative cost function is much more robust to outliers in a dataset than the original Least Squares.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "outlier sensitivity of least squares",
+            "aliases": [
+              "least squares overfitting to outliers"
+            ],
+            "evidence_page": 129,
+            "anchor_page": 129,
+            "evidence": "squaring the error increases the importance of larger errors ... the Least Squares cost produces linear models that tend to overfit to outliers in a dataset.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "absolute error",
+            "aliases": [
+              "absolute error cost",
+              "point-wise absolute error"
+            ],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "we can instead measure the absolute error for each desired approximation g_p(w) = |x_p^T w - y_p|",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "squared error",
+            "aliases": [
+              "point-wise squared error"
+            ],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "We then squared the difference between both sides of each desired approximation g_p(w) = (x_p^T w - y_p)^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convexity of least absolute deviations",
+            "aliases": [
+              "lad convexity"
+            ],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "this cost function is also always convex regardless of the input dataset, since its second derivative is zero (almost everywhere) we can only use zero and first order methods to properly minimize it",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "linear model prediction",
+            "aliases": [
+              "making predictions with linear regression"
+            ],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "given an input x0 ... we predict its output y0 by simply passing it along with our trained weights into our model as model(x0, w*) = y0",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "mean squared error",
+            "aliases": [
+              "mse"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "giving the so-called Mean Squared Error (or MSE for short) ... the average (or mean) squared error.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "root mean squared error",
+            "aliases": [
+              "rmse"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "To reduce the affect of outliers and other large values, often the square root of this value is taken as a regression quality metric. This is referred to as the Root Mean Squared Error or RMSE for short.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "mean absolute deviation",
+            "aliases": [
+              "mad"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "Plugging in our learned model parameters along with the data into this cost computes the Mean Absolute Deviations (or MAD for short)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "regression quality metrics",
+            "aliases": [
+              "regression evaluation metrics"
+            ],
+            "evidence_page": 131,
+            "anchor_page": 131,
+            "evidence": "simple metrics for judging the quality of such a model",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weighted regression",
+            "aliases": [
+              "weighted least squares"
+            ],
+            "evidence_page": 134,
+            "anchor_page": 134,
+            "evidence": "it is possible to weight these points in order to emphasize or de-emphasize their importance to a regression model. This practice is called weighted regression.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "duplicate datapoints in regression",
+            "aliases": [
+              "handling duplicates in regression"
+            ],
+            "evidence_page": 134,
+            "anchor_page": 134,
+            "evidence": "Imagine we have a linear regression dataset that contains multiple copies of the same point ... 'duplicate' datapoints should not be thrown away",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "quantization of input features",
+            "aliases": [
+              "feature quantization",
+              "binning"
+            ],
+            "evidence_page": 134,
+            "anchor_page": 134,
+            "evidence": "necessary quantization (or binning) of input features in order to make human-in-the-loop analysis or modeling of the data easier",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "autograd for cost function differentiation",
+            "aliases": [
+              "automatic differentiation"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "we recommend most users employ the automatic differentiator autograd to perform both gradient descent and Newton's method on our machine learning cost functions",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient descent for regression",
+            "aliases": [
+              "gradient descent optimization"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "We tune the parameters of a linear regressor to this dataset by minimizing the Least squares cost via gradient descent",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convex quadratic cost",
+            "aliases": [
+              "quadratic convexity"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "since the cost is a convex quadratic only a single Newton step can completely minimize it",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"least squares linear regression\",\n      \"aliases\": [\"least squares regression\", \"least squares cost function\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"Least squares linear regression ... the cost as the sum of squared errors of a linear model of input against its corresponding output.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares cost\", \"sum of squared errors\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"The Least Squares cost also takes in all inputs ... as well as the entire set of corresponding outputs\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"vectorized computation\",\n      \"aliases\": [\"numpy vectorization\", \"vectorized operations\"],\n      \"evidence_page\": 127,\n      \"anchor_page\": 127,\n      \"evidence\": \"It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient of least squares cost\",\n      \"aliases\": [\"least squares gradient\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"one can compute the gradient of the Least Squares cost in closed form as ∇g(w) = 2 Σ x_p (x_p^T w - y_p)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"normal equations\",\n      \"aliases\": [\"closed-form least squares solution\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"This single Newton step solution is often referred to as minimizing the Least Squares cost via its normal equations.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"newton's method for least squares\",\n      \"aliases\": [\"newton step least squares\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"since the cost is a convex quadratic only a single Newton step can completely minimize it.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"hessian of least squares cost\",\n      \"aliases\": [\"least squares hessian\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"in performing Newton's method one can also compute the Hessian of the Least Squares cost by hand.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"least absolute deviations\",\n      \"aliases\": [\"lad cost function\", \"least absolute deviations cost\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"an alternative cost for linear regression called Least Absolute Deviations. This alternative cost function is much more robust to outliers in a dataset than the original Least Squares.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"outlier sensitivity of least squares\",\n      \"aliases\": [\"least squares overfitting to outliers\"],\n      \"evidence_page\": 129,\n      \"anchor_page\": 129,\n      \"evidence\": \"squaring the error increases the importance of larger errors ... the Least Squares cost produces linear models that tend to overfit to outliers in a dataset.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"absolute error\",\n      \"aliases\": [\"absolute error cost\", \"point-wise absolute error\"],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"we can instead measure the absolute error for each desired approximation g_p(w) = |x_p^T w - y_p|\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"squared error\",\n      \"aliases\": [\"point-wise squared error\"],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"We then squared the difference between both sides of each desired approximation g_p(w) = (x_p^T w - y_p)^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convexity of least absolute deviations\",\n      \"aliases\": [\"lad convexity\"],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"this cost function is also always convex regardless of the input dataset, since its second derivative is zero (almost everywhere) we can only use zero and first order methods to properly minimize it\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"linear model prediction\",\n      \"aliases\": [\"making predictions with linear regression\"],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"given an input x0 ... we predict its output y0 by simply passing it along with our trained weights into our model as model(x0, w*) = y0\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"mean squared error\",\n      \"aliases\": [\"mse\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"giving the so-called Mean Squared Error (or MSE for short) ... the average (or mean) squared error.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"root mean squared error\",\n      \"aliases\": [\"rmse\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"To reduce the affect of outliers and other large values, often the square root of this value is taken as a regression quality metric. This is referred to as the Root Mean Squared Error or RMSE for short.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"mean absolute deviation\",\n      \"aliases\": [\"mad\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"Plugging in our learned model parameters along with the data into this cost computes the Mean Absolute Deviations (or MAD for short)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"regression quality metrics\",\n      \"aliases\": [\"regression evaluation metrics\"],\n      \"evidence_page\": 131,\n      \"anchor_page\": 131,\n      \"evidence\": \"simple metrics for judging the quality of such a model\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weighted regression\",\n      \"aliases\": [\"weighted least squares\"],\n      \"evidence_page\": 134,\n      \"anchor_page\": 134,\n      \"evidence\": \"it is possible to weight these points in order to emphasize or de-emphasize their importance to a regression model. This practice is called weighted regression.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"duplicate datapoints in regression\",\n      \"aliases\": [\"handling duplicates in regression\"],\n      \"evidence_page\": 134,\n      \"anchor_page\": 134,\n      \"evidence\": \"Imagine we have a linear regression dataset that contains multiple copies of the same point ... 'duplicate' datapoints should not be thrown away\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"quantization of input features\",\n      \"aliases\": [\"feature quantization\", \"binning\"],\n      \"evidence_page\": 134,\n      \"anchor_page\": 134,\n      \"evidence\": \"necessary quantization (or binning) of input features in order to make human-in-the-loop analysis or modeling of the data easier\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"autograd for cost function differentiation\",\n      \"aliases\": [\"automatic differentiation\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"we recommend most users employ the automatic differentiator autograd to perform both gradient descent and Newton's method on our machine learning cost functions\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient descent for regression\",\n      \"aliases\": [\"gradient descent optimization\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"We tune the parameters of a linear regressor to this dataset by minimizing the Least squares cost via gradient descent\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convex quadratic cost\",\n      \"aliases\": [\"quadratic convexity\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"since the cost is a convex quadratic only a single Newton step can completely minimize it\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "weighted regression",
+            "aliases": [
+              "weighted linear regression"
+            ],
+            "evidence_page": 143,
+            "anchor_page": 135,
+            "evidence": "The natural grouping in Equation (5.26) then helps us write the overall Least Squares cost function as... a weighted version of itself",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "weighted least squares cost function",
+            "aliases": [
+              "weighted regression cost"
+            ],
+            "evidence_page": 143,
+            "anchor_page": 135,
+            "evidence": "g (w) = 1/(β1 + β2 + · · · + βP) Σ βp (model(xp, w) − yp)^2",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "weighting by confidence",
+            "aliases": [
+              "confidence weighting",
+              "trust-based weighting"
+            ],
+            "evidence_page": 144,
+            "anchor_page": 136,
+            "evidence": "Weighted regression can also be employed when we wish to weight each point based on our confidence in the trustworthiness of each datapoint.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [
+              "vector-valued output regression",
+              "multi-target regression"
+            ],
+            "evidence_page": 145,
+            "anchor_page": 137,
+            "evidence": "it is possible to perform (linear) regression where both input and output are vector-valued. This is often called multi-output regression",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [
+              "parameter matrix W"
+            ],
+            "evidence_page": 146,
+            "anchor_page": 138,
+            "evidence": "we can place each weight vector wc into the cth column of an (N + 1) × C weight matrix W",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "squared l2 norm",
+            "aliases": [
+              "squared L2 vector norm"
+            ],
+            "evidence_page": 146,
+            "anchor_page": 138,
+            "evidence": "To square this error we must therefore employ the squared ℓ2 vector norm",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares cost",
+              "least squares"
+            ],
+            "evidence_page": 146,
+            "anchor_page": 138,
+            "evidence": "The Least Squares cost function in this case is then the average squared ℓ2 norm of each point's error",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "least absolute deviations cost",
+            "aliases": [
+              "LAD cost",
+              "least absolute deviations"
+            ],
+            "evidence_page": 146,
+            "anchor_page": 138,
+            "evidence": "the Least Absolute Deviations cost (which measures the absolute value of each error as opposed to its square)... where ∥·∥1 is the ℓ1 vector norm",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "l1 vector norm",
+            "aliases": [
+              "L1 norm",
+              "l1 norm"
+            ],
+            "evidence_page": 146,
+            "anchor_page": 138,
+            "evidence": "where ∥·∥1 is the ℓ1 vector norm, the generalization of the absolute value function for vectors",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "convexity of cost functions",
+            "aliases": [
+              "convex cost function"
+            ],
+            "evidence_page": 147,
+            "anchor_page": 139,
+            "evidence": "Just like their scalar-valued versions, these cost functions are always convex regardless of the dataset used.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cost function decomposition",
+            "aliases": [
+              "decomposable cost function"
+            ],
+            "evidence_page": 147,
+            "anchor_page": 139,
+            "evidence": "They also decompose over the weights wc associated with each output dimension... we can minimize each gc for an optimal setting of wc independently",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 147,
+            "anchor_page": 139,
+            "evidence": "We tune the parameters of an appropriate linear model via minimizing the Least Squares cost using gradient descent",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "bias term",
+            "aliases": [
+              "bias b",
+              "intercept"
+            ],
+            "evidence_page": 148,
+            "anchor_page": 140,
+            "evidence": "we denote the bias b and the feature-touching weights W... b = w[0] denotes the bias",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "normal equations",
+            "aliases": [
+              "single Newton step for least squares"
+            ],
+            "evidence_page": 150,
+            "anchor_page": 142,
+            "evidence": "the Least Squares cost function for linear regression can be perfectly minimized using a single Newton's method step... also referred to as the normal equations",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "Newton step",
+              "second order method"
+            ],
+            "evidence_page": 148,
+            "anchor_page": 140,
+            "evidence": "directly employ the basic Python implementations of e.g., gradient descent (see Section 3.6.4) and Newton's method (see Section 4.4.6)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "lipschitz constant",
+            "aliases": [],
+            "evidence_page": 151,
+            "anchor_page": 143,
+            "evidence": "Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "zero order definition of convexity",
+            "aliases": [
+              "convexity definition"
+            ],
+            "evidence_page": 151,
+            "anchor_page": 143,
+            "evidence": "An unconstrained function g is convex if and only if any line segment connecting two points on the graph of g lies above its graph.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standardize input features"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 144,
+            "evidence": "you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "linear model",
+            "aliases": [
+              "linear regression model"
+            ],
+            "evidence_page": 148,
+            "anchor_page": 140,
+            "evidence": "model (x, W) = ˚xTW",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "autograd",
+            "aliases": [
+              "automatic differentiation"
+            ],
+            "evidence_page": 148,
+            "anchor_page": 140,
+            "evidence": "when using autograd as part of your optimization process it can be very convenient to first flatten your chosen cost",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"weighted regression\",\n      \"aliases\": [\"weighted linear regression\"],\n      \"evidence_page\": 143,\n      \"anchor_page\": 135,\n      \"evidence\": \"The natural grouping in Equation (5.26) then helps us write the overall Least Squares cost function as... a weighted version of itself\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"weighted least squares cost function\",\n      \"aliases\": [\"weighted regression cost\"],\n      \"evidence_page\": 143,\n      \"anchor_page\": 135,\n      \"evidence\": \"g (w) = 1/(β1 + β2 + · · · + βP) Σ βp (model(xp, w) − yp)^2\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"weighting by confidence\",\n      \"aliases\": [\"confidence weighting\", \"trust-based weighting\"],\n      \"evidence_page\": 144,\n      \"anchor_page\": 136,\n      \"evidence\": \"Weighted regression can also be employed when we wish to weight each point based on our confidence in the trustworthiness of each datapoint.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [\"vector-valued output regression\", \"multi-target regression\"],\n      \"evidence_page\": 145,\n      \"anchor_page\": 137,\n      \"evidence\": \"it is possible to perform (linear) regression where both input and output are vector-valued. This is often called multi-output regression\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [\"parameter matrix W\"],\n      \"evidence_page\": 146,\n      \"anchor_page\": 138,\n      \"evidence\": \"we can place each weight vector wc into the cth column of an (N + 1) × C weight matrix W\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"squared l2 norm\",\n      \"aliases\": [\"squared L2 vector norm\"],\n      \"evidence_page\": 146,\n      \"anchor_page\": 138,\n      \"evidence\": \"To square this error we must therefore employ the squared ℓ2 vector norm\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares cost\", \"least squares\"],\n      \"evidence_page\": 146,\n      \"anchor_page\": 138,\n      \"evidence\": \"The Least Squares cost function in this case is then the average squared ℓ2 norm of each point's error\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"least absolute deviations cost\",\n      \"aliases\": [\"LAD cost\", \"least absolute deviations\"],\n      \"evidence_page\": 146,\n      \"anchor_page\": 138,\n      \"evidence\": \"the Least Absolute Deviations cost (which measures the absolute value of each error as opposed to its square)... where ∥·∥1 is the ℓ1 vector norm\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"l1 vector norm\",\n      \"aliases\": [\"L1 norm\", \"l1 norm\"],\n      \"evidence_page\": 146,\n      \"anchor_page\": 138,\n      \"evidence\": \"where ∥·∥1 is the ℓ1 vector norm, the generalization of the absolute value function for vectors\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"convexity of cost functions\",\n      \"aliases\": [\"convex cost function\"],\n      \"evidence_page\": 147,\n      \"anchor_page\": 139,\n      \"evidence\": \"Just like their scalar-valued versions, these cost functions are always convex regardless of the dataset used.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cost function decomposition\",\n      \"aliases\": [\"decomposable cost function\"],\n      \"evidence_page\": 147,\n      \"anchor_page\": 139,\n      \"evidence\": \"They also decompose over the weights wc associated with each output dimension... we can minimize each gc for an optimal setting of wc independently\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 147,\n      \"anchor_page\": 139,\n      \"evidence\": \"We tune the parameters of an appropriate linear model via minimizing the Least Squares cost using gradient descent\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"bias term\",\n      \"aliases\": [\"bias b\", \"intercept\"],\n      \"evidence_page\": 148,\n      \"anchor_page\": 140,\n      \"evidence\": \"we denote the bias b and the feature-touching weights W... b = w[0] denotes the bias\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"normal equations\",\n      \"aliases\": [\"single Newton step for least squares\"],\n      \"evidence_page\": 150,\n      \"anchor_page\": 142,\n      \"evidence\": \"the Least Squares cost function for linear regression can be perfectly minimized using a single Newton's method step... also referred to as the normal equations\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"Newton step\", \"second order method\"],\n      \"evidence_page\": 148,\n      \"anchor_page\": 140,\n      \"evidence\": \"directly employ the basic Python implementations of e.g., gradient descent (see Section 3.6.4) and Newton's method (see Section 4.4.6)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"lipschitz constant\",\n      \"aliases\": [],\n      \"evidence_page\": 151,\n      \"anchor_page\": 143,\n      \"evidence\": \"Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"zero order definition of convexity\",\n      \"aliases\": [\"convexity definition\"],\n      \"evidence_page\": 151,\n      \"anchor_page\": 143,\n      \"evidence\": \"An unconstrained function g is convex if and only if any line segment connecting two points on the graph of g lies above its graph.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standardize input features\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 144,\n      \"evidence\": \"you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"linear model\",\n      \"aliases\": [\"linear regression model\"],\n      \"evidence_page\": 148,\n      \"anchor_page\": 140,\n      \"evidence\": \"model (x, W) = ˚xTW\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"autograd\",\n      \"aliases\": [\"automatic differentiation\"],\n      \"evidence_page\": 148,\n      \"anchor_page\": 140,\n      \"evidence\": \"when using autograd as part of your optimization process it can be very convenient to first flatten your chosen cost\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convexity"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "The line segment connecting two points on the graph of a convex function f always lies above the graph of f.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standardize",
+              "standard normalize"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [
+              "multi-output regression"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "5.11 Multi-output regression",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares cost"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "Proof that the Least Squares cost function is always convex",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "convex quadratic",
+            "aliases": [
+              "convex quadratic function"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "outer product",
+            "aliases": [
+              "outer product matrix"
+            ],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "the matrix C is constructed from a sum of outer product matrices",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "linear regression",
+            "aliases": [],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "Linear regression",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "bias term",
+            "aliases": [
+              "bias"
+            ],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "we will briefly ignore the bias term w0 for notational simplicity",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "eigenvalues",
+            "aliases": [],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "the eigenvalues of such a matrix are always non-negative",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "inner product",
+            "aliases": [],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "since the inner product xᵀpw = wᵀxp",
+            "relevance": 0.6
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\"convexity\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"The line segment connecting two points on the graph of a convex function f always lies above the graph of f.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\"standardize\", \"standard normalize\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [\"multi-output regression\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"5.11 Multi-output regression\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares\", \"least squares cost\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"Proof that the Least Squares cost function is always convex\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"convex quadratic\",\n      \"aliases\": [\"convex quadratic function\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"outer product\",\n      \"aliases\": [\"outer product matrix\"],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"the matrix C is constructed from a sum of outer product matrices\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"Linear regression\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"bias term\",\n      \"aliases\": [\"bias\"],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"we will briefly ignore the bias term w0 for notational simplicity\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"eigenvalues\",\n      \"aliases\": [],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"the eigenvalues of such a matrix are always non-negative\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"inner product\",\n      \"aliases\": [],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"since the inner product xᵀpw = wᵀxp\",\n      \"relevance\": 0.6\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "linear regression",
+            "aliases": [
+              "regression",
+              "fitting a representative line",
+              "fitting a hyperplane"
+            ],
+            "evidence_page": 127,
+            "evidence": "the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points",
+            "relevance": 1.0,
+            "anchor_page": 127
+          },
+          {
+            "canonical": "least absolute deviations",
+            "aliases": [
+              "least absolute deviations cost"
+            ],
+            "evidence_page": 127,
+            "evidence": "including a discussion of the Least Squares and Least Absolute Deviations costs",
+            "relevance": 0.7,
+            "anchor_page": 127
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "bias weight",
+              "vertical intercept",
+              "w0",
+              "bias term"
+            ],
+            "evidence_page": 128,
+            "evidence": "A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope",
+            "relevance": 0.9,
+            "anchor_page": 128
+          },
+          {
+            "canonical": "hyperplane",
+            "aliases": [],
+            "evidence_page": 128,
+            "evidence": "A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y",
+            "relevance": 0.8,
+            "anchor_page": 128
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares cost",
+              "sum of squared errors"
+            ],
+            "evidence_page": 129,
+            "evidence": "One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data",
+            "relevance": 1.0,
+            "anchor_page": 130
+          },
+          {
+            "canonical": "feature",
+            "aliases": [
+              "input feature"
+            ],
+            "evidence_page": 129,
+            "evidence": "Each dimension of the input is referred to as a feature or input feature in machine learning parlance.",
+            "relevance": 0.9,
+            "anchor_page": 129
+          },
+          {
+            "canonical": "feature-touching weights",
+            "aliases": [
+              "slope weights",
+              "coordinate-wise slopes"
+            ],
+            "evidence_page": 129,
+            "evidence": "we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0",
+            "relevance": 0.7,
+            "anchor_page": 129
+          },
+          {
+            "canonical": "unconstrained optimization",
+            "aliases": [],
+            "evidence_page": 130,
+            "evidence": "we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2",
+            "relevance": 0.7,
+            "anchor_page": 130
+          },
+          {
+            "canonical": "normal equations",
+            "aliases": [],
+            "evidence_page": 131,
+            "evidence": "This is sometimes referred to as minimizing the Least Squares via solving its normal equations",
+            "relevance": 0.8,
+            "anchor_page": 131
+          },
+          {
+            "canonical": "backtracking line search",
+            "aliases": [],
+            "evidence_page": 131,
+            "evidence": "an adjustable method like backtracking line search (as detailed in Chapter 3)",
+            "relevance": 0.7,
+            "anchor_page": 131
+          },
+          {
+            "canonical": "vectorized implementation",
+            "aliases": [
+              "numpy vectorization"
+            ],
+            "evidence_page": 135,
+            "evidence": "It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library",
+            "relevance": 0.7,
+            "anchor_page": 135
+          },
+          {
+            "canonical": "standard normalization",
+            "aliases": [
+              "standardize",
+              "standard normalize",
+              "standardize input features"
+            ],
+            "evidence_page": 152,
+            "evidence": "you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.",
+            "relevance": 0.85,
+            "anchor_page": 152
+          },
+          {
+            "canonical": "multi-output regression",
+            "aliases": [],
+            "evidence_page": 152,
+            "evidence": "5.11 Multi-output regression",
+            "relevance": 0.8,
+            "anchor_page": 152
+          },
+          {
+            "canonical": "outer product",
+            "aliases": [
+              "outer product matrix"
+            ],
+            "evidence_page": 153,
+            "evidence": "the matrix C is constructed from a sum of outer product matrices",
+            "relevance": 0.7,
+            "anchor_page": 153
+          },
+          {
+            "canonical": "eigenvalues",
+            "aliases": [],
+            "evidence_page": 153,
+            "evidence": "the eigenvalues of such a matrix are always non-negative",
+            "relevance": 0.65,
+            "anchor_page": 153
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [\n        \"regression\",\n        \"fitting a representative line\",\n        \"fitting a hyperplane\"\n      ],\n      \"evidence_page\": 127,\n      \"evidence\": \"the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 127\n    },\n    {\n      \"canonical\": \"least absolute deviations\",\n      \"aliases\": [\n        \"least absolute deviations cost\"\n      ],\n      \"evidence_page\": 127,\n      \"evidence\": \"including a discussion of the Least Squares and Least Absolute Deviations costs\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 127\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\n        \"bias weight\",\n        \"vertical intercept\",\n        \"w0\",\n        \"bias term\"\n      ],\n      \"evidence_page\": 128,\n      \"evidence\": \"A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 128\n    },\n    {\n      \"canonical\": \"hyperplane\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"evidence\": \"A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 128\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\n        \"least squares\",\n        \"least squares cost\",\n        \"sum of squared errors\"\n      ],\n      \"evidence_page\": 129,\n      \"evidence\": \"One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 130\n    },\n    {\n      \"canonical\": \"feature\",\n      \"aliases\": [\n        \"input feature\"\n      ],\n      \"evidence_page\": 129,\n      \"evidence\": \"Each dimension of the input is referred to as a feature or input feature in machine learning parlance.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 129\n    },\n    {\n      \"canonical\": \"feature-touching weights\",\n      \"aliases\": [\n        \"slope weights\",\n        \"coordinate-wise slopes\"\n      ],\n      \"evidence_page\": 129,\n      \"evidence\": \"we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 129\n    },\n    {\n      \"canonical\": \"unconstrained optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 130,\n      \"evidence\": \"we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 130\n    },\n    {\n      \"canonical\": \"normal equations\",\n      \"aliases\": [],\n      \"evidence_page\": 131,\n      \"evidence\": \"This is sometimes referred to as minimizing the Least Squares via solving its normal equations\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 131\n    },\n    {\n      \"canonical\": \"backtracking line search\",\n      \"aliases\": [],\n      \"evidence_page\": 131,\n      \"evidence\": \"an adjustable method like backtracking line search (as detailed in Chapter 3)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 131\n    },\n    {\n      \"canonical\": \"vectorized implementation\",\n      \"aliases\": [\n        \"numpy vectorization\"\n      ],\n      \"evidence_page\": 135,\n      \"evidence\": \"It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 135\n    },\n    {\n      \"canonical\": \"standard normalization\",\n      \"aliases\": [\n        \"standardize\",\n        \"standard normalize\",\n        \"standardize input features\"\n      ],\n      \"evidence_page\": 152,\n      \"evidence\": \"you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 152\n    },\n    {\n      \"canonical\": \"multi-output regression\",\n      \"aliases\": [],\n      \"evidence_page\": 152,\n      \"evidence\": \"5.11 Multi-output regression\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 152\n    },\n    {\n      \"canonical\": \"outer product\",\n      \"aliases\": [\n        \"outer product matrix\"\n      ],\n      \"evidence_page\": 153,\n      \"evidence\": \"the matrix C is constructed from a sum of outer product matrices\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 153\n    },\n    {\n      \"canonical\": \"eigenvalues\",\n      \"aliases\": [],\n      \"evidence_page\": 153,\n      \"evidence\": \"the eigenvalues of such a matrix are always non-negative\",\n      \"relevance\": 0.65,\n      \"anchor_page\": 153\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex function",
+              "convex cost function"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "The Least Squares cost function for linear regression in Equation (5.9) can be proven to be convex for any dataset",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "learning rate",
+            "aliases": [
+              "steplength",
+              "steplength parameter"
+            ],
+            "evidence_page": 124,
+            "anchor_page": 124,
+            "evidence": "the steplength parameter is often referred to as the learning rate, since this value does indeed determine how quickly the proper parameters of our linear regression model (or any machine learning model in general) are learned",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "newton step",
+            "aliases": [
+              "newton's method"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "Because the Least Squares cost is a convex quadratic function, a single Newton step can perfectly minimize it",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "point-wise cost function",
+            "aliases": [
+              "pointwise cost"
+            ],
+            "evidence_page": 122,
+            "anchor_page": 122,
+            "evidence": "gp (w) = (˚xTpw −yp)^2 as a point-wise cost function that measures the error of a model (here a linear one) on the individual point",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "squared error",
+            "aliases": [
+              "sum of squared errors",
+              "total squared error"
+            ],
+            "evidence_page": 121,
+            "anchor_page": 121,
+            "evidence": "this cost function computes the total squared error between the associated hyperplane and the data",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "diminishing steplength scheme",
+            "aliases": [
+              "diminishing steplength"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "contour plot",
+            "aliases": [
+              "contour lines"
+            ],
+            "evidence_page": 123,
+            "anchor_page": 123,
+            "evidence": "by the elliptical shape of its contour lines on the right, that the Least Squares cost function is indeed convex for this particular dataset",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\"convex function\", \"convex cost function\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"The Least Squares cost function for linear regression in Equation (5.9) can be proven to be convex for any dataset\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"learning rate\",\n      \"aliases\": [\"steplength\", \"steplength parameter\"],\n      \"evidence_page\": 124,\n      \"anchor_page\": 124,\n      \"evidence\": \"the steplength parameter is often referred to as the learning rate, since this value does indeed determine how quickly the proper parameters of our linear regression model (or any machine learning model in general) are learned\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"newton step\",\n      \"aliases\": [\"newton's method\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"Because the Least Squares cost is a convex quadratic function, a single Newton step can perfectly minimize it\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"point-wise cost function\",\n      \"aliases\": [\"pointwise cost\"],\n      \"evidence_page\": 122,\n      \"anchor_page\": 122,\n      \"evidence\": \"gp (w) = (˚xTpw −yp)^2 as a point-wise cost function that measures the error of a model (here a linear one) on the individual point\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"squared error\",\n      \"aliases\": [\"sum of squared errors\", \"total squared error\"],\n      \"evidence_page\": 121,\n      \"anchor_page\": 121,\n      \"evidence\": \"this cost function computes the total squared error between the associated hyperplane and the data\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"diminishing steplength scheme\",\n      \"aliases\": [\"diminishing steplength\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"with gradient descent we must choose a fixed steplength value, a diminishing steplength scheme, or an adjustable method like backtracking line search\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"contour plot\",\n      \"aliases\": [\"contour lines\"],\n      \"evidence_page\": 123,\n      \"anchor_page\": 123,\n      \"evidence\": \"by the elliptical shape of its contour lines on the right, that the Least Squares cost function is indeed convex for this particular dataset\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "mean squared error",
+            "aliases": [
+              "mse"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "giving the so-called Mean Squared Error (or MSE for short)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "root mean squared error",
+            "aliases": [
+              "rmse"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "This is referred to as the Root Mean Squared Error or RMSE for short.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "mean absolute deviation",
+            "aliases": [
+              "mad"
+            ],
+            "evidence_page": 132,
+            "anchor_page": 132,
+            "evidence": "Plugging in our learned model parameters along with the data into this cost computes the Mean Absolute Deviations (or MAD for short)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "weighted regression",
+            "aliases": [],
+            "evidence_page": 134,
+            "anchor_page": 134,
+            "evidence": "This practice is called weighted regression.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "we recommend most users employ the automatic differentiator autograd (see Section 3.2) to perform both gradient descent and Newton's method",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "hessian",
+            "aliases": [],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "in performing Newton's method one can also compute the Hessian of the Least Squares cost by hand",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "convex quadratic",
+            "aliases": [],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "since the cost is a convex quadratic only a single Newton step can completely minimize it",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "absolute error",
+            "aliases": [],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "we can instead measure the absolute error for each desired approximation",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "squared error",
+            "aliases": [],
+            "evidence_page": 129,
+            "anchor_page": 129,
+            "evidence": "squaring the error increases the importance of larger errors",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "outlier robustness",
+            "aliases": [
+              "robust to outliers"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "This alternative cost function is much more robust to outliers in a dataset than the original Least Squares.",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "first order methods",
+            "aliases": [
+              "zero and first order methods"
+            ],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "we can only use zero and first order methods to properly minimize it (and not second order methods)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "newton step"
+            ],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "perform both gradient descent and Newton's method on our machine learning cost functions",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "perform both gradient descent and Newton's method on our machine learning cost functions",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "closed form gradient",
+            "aliases": [],
+            "evidence_page": 128,
+            "anchor_page": 128,
+            "evidence": "compute the gradient of the Least Squares cost in closed form",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "steplength parameter",
+            "aliases": [],
+            "evidence_page": 130,
+            "anchor_page": 130,
+            "evidence": "using the same choice of steplength parameter",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"mean squared error\",\n      \"aliases\": [\"mse\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"giving the so-called Mean Squared Error (or MSE for short)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"root mean squared error\",\n      \"aliases\": [\"rmse\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"This is referred to as the Root Mean Squared Error or RMSE for short.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"mean absolute deviation\",\n      \"aliases\": [\"mad\"],\n      \"evidence_page\": 132,\n      \"anchor_page\": 132,\n      \"evidence\": \"Plugging in our learned model parameters along with the data into this cost computes the Mean Absolute Deviations (or MAD for short)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"weighted regression\",\n      \"aliases\": [],\n      \"evidence_page\": 134,\n      \"anchor_page\": 134,\n      \"evidence\": \"This practice is called weighted regression.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autograd\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"we recommend most users employ the automatic differentiator autograd (see Section 3.2) to perform both gradient descent and Newton's method\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"hessian\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"in performing Newton's method one can also compute the Hessian of the Least Squares cost by hand\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"convex quadratic\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"since the cost is a convex quadratic only a single Newton step can completely minimize it\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"absolute error\",\n      \"aliases\": [],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"we can instead measure the absolute error for each desired approximation\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"squared error\",\n      \"aliases\": [],\n      \"evidence_page\": 129,\n      \"anchor_page\": 129,\n      \"evidence\": \"squaring the error increases the importance of larger errors\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"outlier robustness\",\n      \"aliases\": [\"robust to outliers\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"This alternative cost function is much more robust to outliers in a dataset than the original Least Squares.\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"first order methods\",\n      \"aliases\": [\"zero and first order methods\"],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"we can only use zero and first order methods to properly minimize it (and not second order methods)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"newton step\"],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"perform both gradient descent and Newton's method on our machine learning cost functions\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"perform both gradient descent and Newton's method on our machine learning cost functions\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"closed form gradient\",\n      \"aliases\": [],\n      \"evidence_page\": 128,\n      \"anchor_page\": 128,\n      \"evidence\": \"compute the gradient of the Least Squares cost in closed form\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"steplength parameter\",\n      \"aliases\": [],\n      \"evidence_page\": 130,\n      \"anchor_page\": 130,\n      \"evidence\": \"using the same choice of steplength parameter\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "weighted regression",
+            "aliases": [
+              "weighted least squares"
+            ],
+            "evidence_page": 135,
+            "anchor_page": 135,
+            "evidence": "the Least Squares cost function naturally collapses into a weighted version of itself in the sense that we can combine summands so that a repeated point in the dataset is represented in the cost function by a single weighted summand",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "squared l2 norm",
+            "aliases": [
+              "squared l2 vector norm"
+            ],
+            "evidence_page": 138,
+            "anchor_page": 138,
+            "evidence": "To square this error we must therefore employ the squared ℓ2 vector norm",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "l1 norm",
+            "aliases": [
+              "l1 vector norm"
+            ],
+            "evidence_page": 138,
+            "anchor_page": 138,
+            "evidence": "where ∥·∥1 is the ℓ1 vector norm, the generalization of the absolute value function for vectors",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convexity",
+            "aliases": [
+              "convex function",
+              "convex cost"
+            ],
+            "evidence_page": 139,
+            "anchor_page": 139,
+            "evidence": "Just like their scalar-valued versions, these cost functions are always convex regardless of the dataset used",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "weight matrix",
+            "aliases": [
+              "multi-output weight matrix"
+            ],
+            "evidence_page": 138,
+            "anchor_page": 138,
+            "evidence": "we can place each weight vector wc into the cth column of an (N + 1) × C weight matrix W",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "confidence weighting",
+            "aliases": [
+              "weighting points by confidence"
+            ],
+            "evidence_page": 136,
+            "anchor_page": 136,
+            "evidence": "Weighted regression can also be employed when we wish to weight each point based on our confidence in the trustworthiness of each datapoint",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "lipschitz constant",
+            "aliases": [],
+            "evidence_page": 143,
+            "anchor_page": 143,
+            "evidence": "Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "zero order definition of convexity",
+            "aliases": [],
+            "evidence_page": 143,
+            "anchor_page": 143,
+            "evidence": "Prove that the Least Absolute Deviations cost is convex using the zero order definition of convexity given below",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"weighted regression\",\n      \"aliases\": [\"weighted least squares\"],\n      \"evidence_page\": 135,\n      \"anchor_page\": 135,\n      \"evidence\": \"the Least Squares cost function naturally collapses into a weighted version of itself in the sense that we can combine summands so that a repeated point in the dataset is represented in the cost function by a single weighted summand\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"squared l2 norm\",\n      \"aliases\": [\"squared l2 vector norm\"],\n      \"evidence_page\": 138,\n      \"anchor_page\": 138,\n      \"evidence\": \"To square this error we must therefore employ the squared ℓ2 vector norm\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"l1 norm\",\n      \"aliases\": [\"l1 vector norm\"],\n      \"evidence_page\": 138,\n      \"anchor_page\": 138,\n      \"evidence\": \"where ∥·∥1 is the ℓ1 vector norm, the generalization of the absolute value function for vectors\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convexity\",\n      \"aliases\": [\"convex function\", \"convex cost\"],\n      \"evidence_page\": 139,\n      \"anchor_page\": 139,\n      \"evidence\": \"Just like their scalar-valued versions, these cost functions are always convex regardless of the dataset used\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"weight matrix\",\n      \"aliases\": [\"multi-output weight matrix\"],\n      \"evidence_page\": 138,\n      \"anchor_page\": 138,\n      \"evidence\": \"we can place each weight vector wc into the cth column of an (N + 1) × C weight matrix W\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"confidence weighting\",\n      \"aliases\": [\"weighting points by confidence\"],\n      \"evidence_page\": 136,\n      \"anchor_page\": 136,\n      \"evidence\": \"Weighted regression can also be employed when we wish to weight each point based on our confidence in the trustworthiness of each datapoint\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"lipschitz constant\",\n      \"aliases\": [],\n      \"evidence_page\": 143,\n      \"anchor_page\": 143,\n      \"evidence\": \"Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"zero order definition of convexity\",\n      \"aliases\": [],\n      \"evidence_page\": 143,\n      \"anchor_page\": 143,\n      \"evidence\": \"Prove that the Least Absolute Deviations cost is convex using the zero order definition of convexity given below\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convexity"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "The line segment connecting two points on the graph of a convex function f always lies above the graph of f.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "convex quadratic",
+            "aliases": [
+              "convex quadratic function"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 153,
+            "evidence": "the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "quadratic cost function",
+            "aliases": [
+              "general quadratic"
+            ],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "g (w) = a + bTw + wTC w which is of course a general quadratic.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "inner product",
+            "aliases": [
+              "dot product"
+            ],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "non-negative eigenvalues",
+            "aliases": [
+              "positive semi-definite eigenvalues"
+            ],
+            "evidence_page": 153,
+            "anchor_page": 153,
+            "evidence": "the eigenvalues of such a matrix are always non-negative",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convex combination",
+            "aliases": [
+              "lambda interpolation"
+            ],
+            "evidence_page": 152,
+            "anchor_page": 152,
+            "evidence": "any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\"convexity\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"The line segment connecting two points on the graph of a convex function f always lies above the graph of f.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"convex quadratic\",\n      \"aliases\": [\"convex quadratic function\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 153,\n      \"evidence\": \"the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"quadratic cost function\",\n      \"aliases\": [\"general quadratic\"],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"g (w) = a + bTw + wTC w which is of course a general quadratic.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"inner product\",\n      \"aliases\": [\"dot product\"],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"non-negative eigenvalues\",\n      \"aliases\": [\"positive semi-definite eigenvalues\"],\n      \"evidence_page\": 153,\n      \"anchor_page\": 153,\n      \"evidence\": \"the eigenvalues of such a matrix are always non-negative\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convex combination\",\n      \"aliases\": [\"lambda interpolation\"],\n      \"evidence_page\": 152,\n      \"anchor_page\": 152,\n      \"evidence\": \"any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill_consolidation",
+      "round": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "lipschitz constant",
+            "aliases": [],
+            "evidence_page": 143,
+            "evidence": "Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function",
+            "relevance": 0.7,
+            "anchor_page": 143
+          },
+          {
+            "canonical": "zero order definition of convexity",
+            "aliases": [],
+            "evidence_page": 143,
+            "evidence": "Prove that the Least Absolute Deviations cost is convex using the zero order definition of convexity given below",
+            "relevance": 0.65,
+            "anchor_page": 143
+          },
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convexity"
+            ],
+            "evidence_page": 152,
+            "evidence": "The line segment connecting two points on the graph of a convex function f always lies above the graph of f.",
+            "relevance": 0.9,
+            "anchor_page": 152
+          },
+          {
+            "canonical": "convex quadratic",
+            "aliases": [
+              "convex quadratic function"
+            ],
+            "evidence_page": 152,
+            "evidence": "the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+            "relevance": 0.85,
+            "anchor_page": 153
+          },
+          {
+            "canonical": "convex combination",
+            "aliases": [
+              "lambda interpolation"
+            ],
+            "evidence_page": 152,
+            "evidence": "any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)",
+            "relevance": 0.7,
+            "anchor_page": 152
+          },
+          {
+            "canonical": "non-negative eigenvalues",
+            "aliases": [
+              "positive semi-definite eigenvalues"
+            ],
+            "evidence_page": 153,
+            "evidence": "the eigenvalues of such a matrix are always non-negative",
+            "relevance": 0.8,
+            "anchor_page": 153
+          },
+          {
+            "canonical": "quadratic cost function",
+            "aliases": [
+              "general quadratic"
+            ],
+            "evidence_page": 153,
+            "evidence": "g (w) = a + bTw + wTC w which is of course a general quadratic.",
+            "relevance": 0.8,
+            "anchor_page": 153
+          },
+          {
+            "canonical": "inner product",
+            "aliases": [
+              "dot product"
+            ],
+            "evidence_page": 153,
+            "evidence": "since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product",
+            "relevance": 0.75,
+            "anchor_page": 153
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"lipschitz constant\",\n      \"aliases\": [],\n      \"evidence_page\": 143,\n      \"evidence\": \"Compute the Lipschitz constant (see Section A.6.4) of the Least Squares cost function\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 143\n    },\n    {\n      \"canonical\": \"zero order definition of convexity\",\n      \"aliases\": [],\n      \"evidence_page\": 143,\n      \"evidence\": \"Prove that the Least Absolute Deviations cost is convex using the zero order definition of convexity given below\",\n      \"relevance\": 0.65,\n      \"anchor_page\": 143\n    },\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\n        \"convexity\"\n      ],\n      \"evidence_page\": 152,\n      \"evidence\": \"The line segment connecting two points on the graph of a convex function f always lies above the graph of f.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 152\n    },\n    {\n      \"canonical\": \"convex quadratic\",\n      \"aliases\": [\n        \"convex quadratic function\"\n      ],\n      \"evidence_page\": 152,\n      \"evidence\": \"the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 153\n    },\n    {\n      \"canonical\": \"convex combination\",\n      \"aliases\": [\n        \"lambda interpolation\"\n      ],\n      \"evidence_page\": 152,\n      \"evidence\": \"any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 152\n    },\n    {\n      \"canonical\": \"non-negative eigenvalues\",\n      \"aliases\": [\n        \"positive semi-definite eigenvalues\"\n      ],\n      \"evidence_page\": 153,\n      \"evidence\": \"the eigenvalues of such a matrix are always non-negative\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 153\n    },\n    {\n      \"canonical\": \"quadratic cost function\",\n      \"aliases\": [\n        \"general quadratic\"\n      ],\n      \"evidence_page\": 153,\n      \"evidence\": \"g (w) = a + bTw + wTC w which is of course a general quadratic.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 153\n    },\n    {\n      \"canonical\": \"inner product\",\n      \"aliases\": [\n        \"dot product\"\n      ],\n      \"evidence_page\": 153,\n      \"evidence\": \"since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 153\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 127,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "linear regression",
+            "latex": "w_0 + x_p w_1 \\approx y_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 128,
+            "equation_label": "5.3",
+            "confidence": 0.95
+          },
+          {
+            "concept": "linear regression",
+            "latex": "w_0 + x_{1,p} w_1 + x_{2,p} w_2 + \\cdots + x_{N,p} w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 128,
+            "equation_label": "5.4",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "linear regression",
+            "pdf_page": 128,
+            "figure_label": "Figure 5.1",
+            "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"linear regression\",\n      \"latex\": \"w_0 + x_p w_1 \\\\approx y_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 128,\n      \"equation_label\": \"5.3\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"linear regression\",\n      \"latex\": \"w_0 + x_{1,p} w_1 + x_{2,p} w_2 + \\\\cdots + x_{N,p} w_N \\\\approx y_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 128,\n      \"equation_label\": \"5.4\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"linear regression\",\n      \"pdf_page\": 128,\n      \"figure_label\": \"Figure 5.1\",\n      \"caption\": \"(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 128,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "bias",
+            "latex": "w_0 + x_p w_1 \\approx y_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 128,
+            "equation_label": "5.3",
+            "confidence": 0.95
+          },
+          {
+            "concept": "hyperplane",
+            "latex": "w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\cdots + x_{N,p}w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 128,
+            "equation_label": "5.4",
+            "confidence": 0.95
+          },
+          {
+            "concept": "bias",
+            "latex": "w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\cdots + x_{N,p}w_N \\approx y_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 128,
+            "equation_label": "5.4",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "bias",
+            "pdf_page": 128,
+            "figure_label": "Figure 5.1",
+            "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "hyperplane",
+            "pdf_page": 128,
+            "figure_label": "Figure 5.1",
+            "caption": "(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"bias\",\n      \"latex\": \"w_0 + x_p w_1 \\\\approx y_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 128,\n      \"equation_label\": \"5.3\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"hyperplane\",\n      \"latex\": \"w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\\\cdots + x_{N,p}w_N \\\\approx y_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 128,\n      \"equation_label\": \"5.4\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"bias\",\n      \"latex\": \"w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \\\\cdots + x_{N,p}w_N \\\\approx y_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 128,\n      \"equation_label\": \"5.4\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"bias\",\n      \"pdf_page\": 128,\n      \"figure_label\": \"Figure 5.1\",\n      \"caption\": \"(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"hyperplane\",\n      \"pdf_page\": 128,\n      \"figure_label\": \"Figure 5.1\",\n      \"caption\": \"(left panel) A simulated dataset in two dimensions along with a well-fitting line. A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope, and a point xp, yp lies close to it if w0 + xpw1 ≈yp. (right panel) A simulated three dimensional dataset along with a well-fitting hyperplane. A hyperplane in general is defined as w0 + x1w1 + x2w2 + · · · + xNwN = y, where again w0 is the bias and w1, w2, . . . , wN the hyperplane's coordinate-wise slopes, and a point xp, yp lies close to it if w0 + x1,pw1 + x2,pw2 + · · · + xN,pwN ≈yp. Here N = 2.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 129,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "feature",
+            "latex": "\\mathring{x}_p = \\begin{bmatrix} 1 \\\\ x_{1,p} \\\\ x_{2,p} \\\\ \\vdots \\\\ x_{N,p} \\end{bmatrix}",
+            "pdf_page": 129,
+            "equation_label": "5.5",
+            "confidence": 0.95
+          },
+          {
+            "concept": "feature-touching weights",
+            "latex": "w = \\begin{bmatrix} w_0 \\\\ w_1 \\\\ w_2 \\\\ \\vdots \\\\ w_N \\end{bmatrix}",
+            "pdf_page": 129,
+            "equation_label": "5.6",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"feature\",\n      \"latex\": \"\\\\mathring{x}_p = \\\\begin{bmatrix} 1 \\\\\\\\ x_{1,p} \\\\\\\\ x_{2,p} \\\\\\\\ \\\\vdots \\\\\\\\ x_{N,p} \\\\end{bmatrix}\",\n      \"pdf_page\": 129,\n      \"equation_label\": \"5.5\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"feature-touching weights\",\n      \"latex\": \"w = \\\\begin{bmatrix} w_0 \\\\\\\\ w_1 \\\\\\\\ w_2 \\\\\\\\ \\\\vdots \\\\\\\\ w_N \\\\end{bmatrix}\",\n      \"pdf_page\": 129,\n      \"equation_label\": \"5.6\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 130,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "least squares cost function",
+            "latex": "g(w) = \\frac{1}{P} \\sum_{p=1}^{P} g_p(w) = \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathring{x}_p^T w - y_p \\right)^2",
+            "pdf_page": 130,
+            "equation_label": "5.9",
+            "confidence": 1.0
+          },
+          {
+            "concept": "unconstrained optimization",
+            "latex": "\\minimize_{w} \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathring{x}_p^T w - y_p \\right)^2",
+            "pdf_page": 131,
+            "equation_label": "5.10",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "least squares cost function",
+            "pdf_page": 130,
+            "figure_label": "Figure 5.2",
+            "caption": "(left panel) A prototypical two dimensional dataset along with a line fit to the data using the Least Squares framework, which aims at recovering the linear model that minimizes the total squared length of the solid error bars. (right panel) The Least Squares error can be thought of as the total area of the blue squares, having solid black error bars as sides. The cost function is called Least Squares because it allows us to determine a set of parameters whose corresponding line minimizes the sum of these square errors.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"least squares cost function\",\n      \"latex\": \"g(w) = \\\\frac{1}{P} \\\\sum_{p=1}^{P} g_p(w) = \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left( \\\\mathring{x}_p^T w - y_p \\\\right)^2\",\n      \"pdf_page\": 130,\n      \"equation_label\": \"5.9\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"unconstrained optimization\",\n      \"latex\": \"\\\\minimize_{w} \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left( \\\\mathring{x}_p^T w - y_p \\\\right)^2\",\n      \"pdf_page\": 131,\n      \"equation_label\": \"5.10\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"least squares cost function\",\n      \"pdf_page\": 130,\n      \"figure_label\": \"Figure 5.2\",\n      \"caption\": \"(left panel) A prototypical two dimensional dataset along with a line fit to the data using the Least Squares framework, which aims at recovering the linear model that minimizes the total squared length of the solid error bars. (right panel) The Least Squares error can be thought of as the total area of the blue squares, having solid black error bars as sides. The cost function is called Least Squares because it allows us to determine a set of parameters whose corresponding line minimizes the sum of these square errors.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 131,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "normal equations",
+            "latex": "\\minimize_{w} \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathbf{x}_p^T w - y_p \\right)^2",
+            "pdf_page": 131,
+            "equation_label": "5.10",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"normal equations\",\n      \"latex\": \"\\\\minimize_{w} \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left( \\\\mathbf{x}_p^T w - y_p \\\\right)^2\",\n      \"pdf_page\": 131,\n      \"equation_label\": \"5.10\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 135,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "vectorized implementation",
+            "latex": "\\nabla g(\\mathbf{w}) = \\frac{2}{P} \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p \\left( \\mathring{\\mathbf{x}}_p^T \\mathbf{w} - y_p \\right)",
+            "pdf_page": 136,
+            "equation_label": "5.16",
+            "confidence": 0.9
+          },
+          {
+            "concept": "vectorized implementation",
+            "latex": "\\left( \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p \\mathring{\\mathbf{x}}_p^T \\right) \\mathbf{w} = \\sum_{p=1}^{P} \\mathring{\\mathbf{x}}_p y_p",
+            "pdf_page": 136,
+            "equation_label": "5.17",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"vectorized implementation\",\n      \"latex\": \"\\\\nabla g(\\\\mathbf{w}) = \\\\frac{2}{P} \\\\sum_{p=1}^{P} \\\\mathring{\\\\mathbf{x}}_p \\\\left( \\\\mathring{\\\\mathbf{x}}_p^T \\\\mathbf{w} - y_p \\\\right)\",\n      \"pdf_page\": 136,\n      \"equation_label\": \"5.16\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"vectorized implementation\",\n      \"latex\": \"\\\\left( \\\\sum_{p=1}^{P} \\\\mathring{\\\\mathbf{x}}_p \\\\mathring{\\\\mathbf{x}}_p^T \\\\right) \\\\mathbf{w} = \\\\sum_{p=1}^{P} \\\\mathring{\\\\mathbf{x}}_p y_p\",\n      \"pdf_page\": 136,\n      \"equation_label\": \"5.17\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 152,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "convex function",
+            "latex": "g(\\lambda w_1 + (1 - \\lambda) w_2) \\leq \\lambda g(w_1) + (1 - \\lambda) g(w_2)",
+            "pdf_page": 151,
+            "equation_label": "5.42",
+            "confidence": 0.95
+          },
+          {
+            "concept": "convex function",
+            "latex": "g(w) = a + b^T w + w^T C w",
+            "pdf_page": 153,
+            "equation_label": "5.47",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "convex function",
+            "pdf_page": 152,
+            "figure_label": "Figure 5.13",
+            "caption": "The line segment (shown in orange) connecting two points on the graph of a convex function f always lies above the graph of f. This means that for any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1), λf (x) + (1 −λ) f y is always greater than (or equal to) f λx + (1 −λ) y .",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"convex function\",\n      \"latex\": \"g(\\\\lambda w_1 + (1 - \\\\lambda) w_2) \\\\leq \\\\lambda g(w_1) + (1 - \\\\lambda) g(w_2)\",\n      \"pdf_page\": 151,\n      \"equation_label\": \"5.42\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"convex function\",\n      \"latex\": \"g(w) = a + b^T w + w^T C w\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.47\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"convex function\",\n      \"pdf_page\": 152,\n      \"figure_label\": \"Figure 5.13\",\n      \"caption\": \"The line segment (shown in orange) connecting two points on the graph of a convex function f always lies above the graph of f. This means that for any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1), λf (x) + (1 −λ) f y is always greater than (or equal to) f λx + (1 −λ) y .\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 153,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "convex quadratic",
+            "latex": "g(\\mathbf{w}) = a + \\mathbf{b}^T\\mathbf{w} + \\mathbf{w}^T C \\mathbf{w}",
+            "pdf_page": 153,
+            "equation_label": "5.47",
+            "confidence": 0.95
+          },
+          {
+            "concept": "quadratic cost function",
+            "latex": "g(\\mathbf{w}) = a + \\mathbf{b}^T\\mathbf{w} + \\mathbf{w}^T C \\mathbf{w}",
+            "pdf_page": 153,
+            "equation_label": "5.47",
+            "confidence": 0.95
+          },
+          {
+            "concept": "inner product",
+            "latex": "\\mathbf{x}_p^T \\mathbf{w} = \\mathbf{w}^T \\mathbf{x}_p",
+            "pdf_page": 153,
+            "equation_label": "",
+            "confidence": 0.9
+          },
+          {
+            "concept": "outer product",
+            "latex": "C = \\frac{1}{P} \\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T",
+            "pdf_page": 153,
+            "equation_label": "5.46",
+            "confidence": 0.95
+          },
+          {
+            "concept": "non-negative eigenvalues",
+            "latex": "C = \\frac{1}{P} \\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T",
+            "pdf_page": 153,
+            "equation_label": "5.46",
+            "confidence": 0.9
+          },
+          {
+            "concept": "quadratic cost function",
+            "latex": "\\left(\\mathbf{x}_p^T \\mathbf{w} - y_p\\right)^2 = y_p^2 - 2\\mathbf{x}_p^T \\mathbf{w} y_p + \\mathbf{x}_p^T \\mathbf{w} \\mathbf{x}_p^T \\mathbf{w}",
+            "pdf_page": 153,
+            "equation_label": "5.43",
+            "confidence": 0.9
+          },
+          {
+            "concept": "quadratic cost function",
+            "latex": "g(\\mathbf{w}) = \\frac{1}{P}\\sum_{p=1}^{P} y_p^2 - 2\\left(\\frac{1}{P}\\sum_{p=1}^{P} y_p \\mathbf{x}_p^T\\right)\\mathbf{w} + \\mathbf{w}^T\\left(\\frac{1}{P}\\sum_{p=1}^{P} \\mathbf{x}_p \\mathbf{x}_p^T\\right)\\mathbf{w}",
+            "pdf_page": 153,
+            "equation_label": "5.45",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"convex quadratic\",\n      \"latex\": \"g(\\\\mathbf{w}) = a + \\\\mathbf{b}^T\\\\mathbf{w} + \\\\mathbf{w}^T C \\\\mathbf{w}\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.47\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"quadratic cost function\",\n      \"latex\": \"g(\\\\mathbf{w}) = a + \\\\mathbf{b}^T\\\\mathbf{w} + \\\\mathbf{w}^T C \\\\mathbf{w}\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.47\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"inner product\",\n      \"latex\": \"\\\\mathbf{x}_p^T \\\\mathbf{w} = \\\\mathbf{w}^T \\\\mathbf{x}_p\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"outer product\",\n      \"latex\": \"C = \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\mathbf{x}_p \\\\mathbf{x}_p^T\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.46\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"non-negative eigenvalues\",\n      \"latex\": \"C = \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\mathbf{x}_p \\\\mathbf{x}_p^T\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.46\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"quadratic cost function\",\n      \"latex\": \"\\\\left(\\\\mathbf{x}_p^T \\\\mathbf{w} - y_p\\\\right)^2 = y_p^2 - 2\\\\mathbf{x}_p^T \\\\mathbf{w} y_p + \\\\mathbf{x}_p^T \\\\mathbf{w} \\\\mathbf{x}_p^T \\\\mathbf{w}\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.43\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"quadratic cost function\",\n      \"latex\": \"g(\\\\mathbf{w}) = \\\\frac{1}{P}\\\\sum_{p=1}^{P} y_p^2 - 2\\\\left(\\\\frac{1}{P}\\\\sum_{p=1}^{P} y_p \\\\mathbf{x}_p^T\\\\right)\\\\mathbf{w} + \\\\mathbf{w}^T\\\\left(\\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\mathbf{x}_p \\\\mathbf{x}_p^T\\\\right)\\\\mathbf{w}\",\n      \"pdf_page\": 153,\n      \"equation_label\": \"5.45\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "least squares cost function",
+      "into": "least squares cost function"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear regression",
+      "into": "linear regression"
+    },
+    {
+      "action": "local_merge",
+      "from": "convex function",
+      "into": "convexity"
+    },
+    {
+      "action": "local_merge",
+      "from": "standard normalization",
+      "into": "standard normalization"
+    },
+    {
+      "action": "local_merge",
+      "from": "bias term",
+      "into": "bias"
+    }
+  ],
+  "warnings": [
+    "Refill round 1 rejected 2 concepts whose evidence was not found.",
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

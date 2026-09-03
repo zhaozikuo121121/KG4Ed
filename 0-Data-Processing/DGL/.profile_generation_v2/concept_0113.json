@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "05c3b2b748f16c6477e43bd627e1e3a3fafc97811518f4e7994039fd4a7c3338",
+  "concept_id": 113,
+  "concept_name": "geodesic distance",
+  "aliases": [
+    "geodesic distance",
+    "shortest path"
+  ],
+  "profile": "geodesic distance: the shortest path between points xi and xj on M; also called shortest path.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "geodesic distance: the shortest path between points xi and xj on M, also called shortest path.",
+    "claims": [
+      {
+        "claim": "geodesic distance is the shortest path between points xi and xj on M",
+        "evidence_ids": [
+          "DGL-E0133"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "geodesic distance is also called shortest path",
+        "evidence_ids": [
+          "DGL-E0133"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source includes the word 'concavity' whose meaning is ambiguous in this context; the profile relies on the explicit shortest-path definition."
+    ]
+  },
+  "review": {
+    "final_profile": "geodesic distance: the shortest path between points xi and xj on M; also called shortest path.",
+    "sentence_reviews": [
+      {
+        "sentence": "geodesic distance: the shortest path between points xi and xj on M; also called shortest path.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0133"
+        ],
+        "reason": "The source states 'geodesic = shortest path' for xi to xj on M, supporting both the definition and the alias."
+      }
+    ],
+    "warnings": [
+      "The source includes the word 'concavity' whose meaning is ambiguous in this context; the profile relies on the explicit shortest-path definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"geodesic distance: the shortest path between points xi and xj on M, also called shortest path.\",\n  \"claims\": [\n    {\n      \"claim\": \"geodesic distance is the shortest path between points xi and xj on M\",\n      \"evidence_ids\": [\"DGL-E0133\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"geodesic distance is also called shortest path\",\n      \"evidence_ids\": [\"DGL-E0133\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The source includes the word 'concavity' whose meaning is ambiguous in this context; the profile relies on the explicit shortest-path definition.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"geodesic distance: the shortest path between points xi and xj on M; also called shortest path.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"geodesic distance: the shortest path between points xi and xj on M; also called shortest path.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0133\"],\n      \"reason\": \"The source states 'geodesic = shortest path' for xi to xj on M, supporting both the definition and the alias.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source includes the word 'concavity' whose meaning is ambiguous in this context; the profile relies on the explicit shortest-path definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:37:25.247624+00:00"
+}

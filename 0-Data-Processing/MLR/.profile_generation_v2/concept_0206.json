@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "82107e0742f00a1e686137195035adfe7526f358a33b1c85d8d9c3eaecdb5c82",
+  "concept_id": 206,
+  "concept_name": "standard basis vector constraint",
+  "aliases": [
+    "standard basis vector constraint",
+    "one‐hot constraint",
+    "basis vector assignment"
+  ],
+  "profile": "standard basis vector constraint: a constraint that each weight vector wp is a standard basis vector from the set {e_k} for k=1..K. A standard basis vector has exactly one entry equal to 1 and all other entries 0.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "standard basis vector constraint: a constraint that each weight vector wp is a standard basis vector, belonging to the set {e_k} for k=1..K. A standard basis vector has exactly one entry equal to 1 and all other entries 0.",
+    "claims": [
+      {
+        "claim": "The standard basis vector constraint restricts each weight vector wp to be a standard basis vector from the set {e_k} for k=1..K.",
+        "evidence_ids": [
+          "MLR-E0254"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A standard basis vector has exactly one entry equal to 1 and all other entries 0.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The metadata provides no additional information about the purpose, role, or application of this constraint."
+    ]
+  },
+  "review": {
+    "final_profile": "standard basis vector constraint: a constraint that each weight vector wp is a standard basis vector from the set {e_k} for k=1..K. A standard basis vector has exactly one entry equal to 1 and all other entries 0.",
+    "sentence_reviews": [
+      {
+        "sentence": "a constraint that each weight vector wp is a standard basis vector from the set {e_k} for k=1..K.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0254"
+        ],
+        "reason": "The source states that each weight vector wp is in {e_k} for k=1..K and is a standard basis vector."
+      },
+      {
+        "sentence": "A standard basis vector has exactly one entry equal to 1 and all other entries 0.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General definition of a standard basis vector, used only to clarify the source-backed statement."
+      }
+    ],
+    "warnings": [
+      "Metadata provides no additional information about the purpose, role, or application of this constraint."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"standard basis vector constraint: a constraint that each weight vector wp is a standard basis vector, belonging to the set {e_k} for k=1..K. A standard basis vector has exactly one entry equal to 1 and all other entries 0.\",\n  \"claims\": [\n    {\n      \"claim\": \"The standard basis vector constraint restricts each weight vector wp to be a standard basis vector from the set {e_k} for k=1..K.\",\n      \"evidence_ids\": [\"MLR-E0254\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A standard basis vector has exactly one entry equal to 1 and all other entries 0.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"The metadata provides no additional information about the purpose, role, or application of this constraint.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"standard basis vector constraint: a constraint that each weight vector wp is a standard basis vector from the set {e_k} for k=1..K. A standard basis vector has exactly one entry equal to 1 and all other entries 0.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"a constraint that each weight vector wp is a standard basis vector from the set {e_k} for k=1..K.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0254\"],\n      \"reason\": \"The source states that each weight vector wp is in {e_k} for k=1..K and is a standard basis vector.\"\n    },\n    {\n      \"sentence\": \"A standard basis vector has exactly one entry equal to 1 and all other entries 0.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General definition of a standard basis vector, used only to clarify the source-backed statement.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata provides no additional information about the purpose, role, or application of this constraint.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:44:20.632108+00:00"
+}

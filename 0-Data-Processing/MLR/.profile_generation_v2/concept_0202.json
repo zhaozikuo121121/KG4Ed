@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "921387d1c83cf750fe4b9225b6cfa5f0f0dc64a4fe7ed217b38749f1d4a763e8",
+  "concept_id": 202,
+  "concept_name": "output transformation",
+  "aliases": [
+    "output transformation",
+    "response transformation",
+    "output linearization"
+  ],
+  "profile": "output transformation: To produce a linear relationship, one will have to transform the output (response) variable rather than the input. This approach is also called response transformation or output linearization.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "output transformation: In nonlinear feature engineering, when a linear relationship is desired, the necessary modification may involve transforming the output (response) variable rather than the input. This is also called response transformation or output linearization.",
+    "claims": [
+      {
+        "claim": "To produce a linear relationship, one may need to transform the output, not the input.",
+        "evidence_ids": [
+          "MLR-E0250"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "output transformation: To produce a linear relationship, one will have to transform the output (response) variable rather than the input. This approach is also called response transformation or output linearization.",
+    "sentence_reviews": [
+      {
+        "sentence": "output transformation: To produce a linear relationship, one will have to transform the output (response) variable rather than the input.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0250"
+        ],
+        "reason": "Directly rephrases the evidence that to produce a linear relationship the output, not the input, must be transformed."
+      },
+      {
+        "sentence": "This approach is also called response transformation or output linearization.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The synonyms are supplied as concept aliases but are not explicitly stated in the cited evidence."
+      }
+    ],
+    "warnings": [
+      "The aliases 'response transformation' and 'output linearization' are not directly supported by MLR-E0250; they are drawn from the concept metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"output transformation: In nonlinear feature engineering, when a linear relationship is desired, the necessary modification may involve transforming the output (response) variable rather than the input. This is also called response transformation or output linearization.\",\n  \"claims\": [\n    {\n      \"claim\": \"To produce a linear relationship, one may need to transform the output, not the input.\",\n      \"evidence_ids\": [\"MLR-E0250\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"output transformation: To produce a linear relationship, one will have to transform the output (response) variable rather than the input. This approach is also called response transformation or output linearization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"output transformation: To produce a linear relationship, one will have to transform the output (response) variable rather than the input.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0250\"],\n      \"reason\": \"Directly rephrases the evidence that to produce a linear relationship the output, not the input, must be transformed.\"\n    },\n    {\n      \"sentence\": \"This approach is also called response transformation or output linearization.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The synonyms are supplied as concept aliases but are not explicitly stated in the cited evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The aliases 'response transformation' and 'output linearization' are not directly supported by MLR-E0250; they are drawn from the concept metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:42:54.722266+00:00"
+}

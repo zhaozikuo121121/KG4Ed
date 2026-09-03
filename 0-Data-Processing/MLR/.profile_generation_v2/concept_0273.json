@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b4714b6b956c916a8f585951ab7f36e589be905e9a269de7932ed9612c5dfa3a",
+  "concept_id": 273,
+  "concept_name": "optimal leaf values",
+  "aliases": [
+    "optimal leaf values"
+  ],
+  "profile": "optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are assigned to the left and right leaves, respectively, and equal the mean of the output.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are the values assigned to the left and right leaves. They are equal to the mean of the output in each leaf.",
+    "claims": [
+      {
+        "claim": "In tree-based learners, the optimal leaf values v⋆_L and v⋆_R equal the mean of the output in their respective leaves.",
+        "evidence_ids": [
+          "MLR-E0337"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are assigned to the left and right leaves, respectively, and equal the mean of the output.",
+    "sentence_reviews": [
+      {
+        "sentence": "optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are assigned to the left and right leaves, respectively, and equal the mean of the output.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0337"
+        ],
+        "reason": "Directly reflects the evidence that optimal leaf values v⋆_L and v⋆_R equal the mean of the output; tree-based context comes from the chapter title and left/right assignment is implied by the notation."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are the values assigned to the left and right leaves. They are equal to the mean of the output in each leaf.\",\n  \"claims\": [\n    {\n      \"claim\": \"In tree-based learners, the optimal leaf values v⋆_L and v⋆_R equal the mean of the output in their respective leaves.\",\n      \"evidence_ids\": [\"MLR-E0337\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are assigned to the left and right leaves, respectively, and equal the mean of the output.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"optimal leaf values: In tree-based learners, the optimal leaf values v⋆_L and v⋆_R are assigned to the left and right leaves, respectively, and equal the mean of the output.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0337\"],\n      \"reason\": \"Directly reflects the evidence that optimal leaf values v⋆_L and v⋆_R equal the mean of the output; tree-based context comes from the chapter title and left/right assignment is implied by the notation.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:09:51.927796+00:00"
+}

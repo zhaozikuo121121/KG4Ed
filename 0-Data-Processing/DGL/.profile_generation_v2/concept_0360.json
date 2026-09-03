@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4464582a6606a72a25542afcd2bed2a59d469d53a08f0ea3177dbba6ffb408dd",
+  "concept_id": 360,
+  "concept_name": "kl divergence",
+  "aliases": [
+    "kl divergence",
+    "kullback-leibler divergence",
+    "kld",
+    "kl"
+  ],
+  "profile": "kl divergence: a divergence between distributions. KLD is an abbreviation for KL divergence between distributions. The abbreviation KL is also used for this concept.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "kl divergence: a divergence between distributions. KLD is an abbreviation for KL divergence between distributions. The notation KL also refers to this concept. Thus, KL divergence is understood as a measure comparing two distributions.",
+    "claims": [
+      {
+        "claim": "KLD is an abbreviation for KL divergence between distributions.",
+        "evidence_ids": [
+          "DGL-E0567"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "KL divergence is a divergence between distributions.",
+        "evidence_ids": [
+          "DGL-E0567"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The notation KL is used to represent the concept.",
+        "evidence_ids": [
+          "DGL-E0518"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Evidence is limited; DGL-E0518 only shows 'KL', and DGL-E0567 is handwritten with confidence 0.95."
+    ]
+  },
+  "review": {
+    "final_profile": "kl divergence: a divergence between distributions. KLD is an abbreviation for KL divergence between distributions. The abbreviation KL is also used for this concept.",
+    "sentence_reviews": [
+      {
+        "sentence": "kl divergence: a divergence between distributions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0567"
+        ],
+        "reason": "The handwritten evidence states 'KLD: KL divergence between distributions', directly supporting that KL divergence is a divergence between distributions."
+      },
+      {
+        "sentence": "KLD is an abbreviation for KL divergence between distributions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0567"
+        ],
+        "reason": "The evidence explicitly defines 'KLD' as 'KL divergence between distributions'."
+      },
+      {
+        "sentence": "The abbreviation KL is also used for this concept.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0518"
+        ],
+        "reason": "The source shows the standalone token 'KL', which reasonably represents the concept as an abbreviation."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited; DGL-E0518 only shows 'KL' in isolation, and DGL-E0567 is handwritten with confidence 0.95."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"kl divergence: a divergence between distributions. KLD is an abbreviation for KL divergence between distributions. The notation KL also refers to this concept. Thus, KL divergence is understood as a measure comparing two distributions.\",\n  \"claims\": [\n    {\n      \"claim\": \"KLD is an abbreviation for KL divergence between distributions.\",\n      \"evidence_ids\": [\"DGL-E0567\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"KL divergence is a divergence between distributions.\",\n      \"evidence_ids\": [\"DGL-E0567\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The notation KL is used to represent the concept.\",\n      \"evidence_ids\": [\"DGL-E0518\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited; DGL-E0518 only shows 'KL', and DGL-E0567 is handwritten with confidence 0.95.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"kl divergence: a divergence between distributions. KLD is an abbreviation for KL divergence between distributions. The abbreviation KL is also used for this concept.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"kl divergence: a divergence between distributions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0567\"],\n      \"reason\": \"The handwritten evidence states 'KLD: KL divergence between distributions', directly supporting that KL divergence is a divergence between distributions.\"\n    },\n    {\n      \"sentence\": \"KLD is an abbreviation for KL divergence between distributions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0567\"],\n      \"reason\": \"The evidence explicitly defines 'KLD' as 'KL divergence between distributions'.\"\n    },\n    {\n      \"sentence\": \"The abbreviation KL is also used for this concept.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0518\"],\n      \"reason\": \"The source shows the standalone token 'KL', which reasonably represents the concept as an abbreviation.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited; DGL-E0518 only shows 'KL' in isolation, and DGL-E0567 is handwritten with confidence 0.95.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:06:19.752784+00:00"
+}

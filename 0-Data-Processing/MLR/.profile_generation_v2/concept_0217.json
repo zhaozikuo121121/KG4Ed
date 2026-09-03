@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "8cdf0770bbc47abf9f678dd2f1c5001c60251fa4345cd52f9bf0f1d763e43c1a",
+  "concept_id": 217,
+  "concept_name": "regularizer",
+  "aliases": [
+    "regularizer",
+    "regularizer function"
+  ],
+  "profile": "regularizer: A regularizer is a simple function that can be added to a machine learning cost.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularizer: A simple function that can be added to a machine learning cost.",
+    "claims": [
+      {
+        "claim": "A regularizer is a simple function that can be added to a machine learning cost.",
+        "evidence_ids": [
+          "MLR-E0272"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularizer: A regularizer is a simple function that can be added to a machine learning cost.",
+    "sentence_reviews": [
+      {
+        "sentence": "A regularizer is a simple function that can be added to a machine learning cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0272"
+        ],
+        "reason": "Directly restates the evidence fragment."
+      }
+    ],
+    "warnings": [
+      "Source support is limited to one fragment; no additional properties of regularizers are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularizer: A simple function that can be added to a machine learning cost.\",\n  \"claims\": [\n    {\n      \"claim\": \"A regularizer is a simple function that can be added to a machine learning cost.\",\n      \"evidence_ids\": [\"MLR-E0272\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularizer: A regularizer is a simple function that can be added to a machine learning cost.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A regularizer is a simple function that can be added to a machine learning cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0272\"],\n      \"reason\": \"Directly restates the evidence fragment.\"\n    }\n  ],\n  \"warnings\": [\"Source support is limited to one fragment; no additional properties of regularizers are asserted.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:48:44.529739+00:00"
+}

@@ -1,0 +1,101 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5f5f868dbd70546b8533e34238cc668b3e5414d117bcf82e3f92e6c014a8cc80",
+  "concept_id": 65,
+  "concept_name": "quadratic function",
+  "aliases": [
+    "quadratic function",
+    "multi-input quadratic function",
+    "single-input quadratic function"
+  ],
+  "profile": "quadratic function: A quadratic function can be multi-input. In the multi-input case, it is g(w) = a + b^T w + w^T C w. Its Hessian matrix is ∇2g(w) = 2C. This Hessian does not depend on w, so it is constant.",
+  "word_count": 42,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "quadratic function: A quadratic function can be multi-input. In the multi-input case, it is g(w) = a + b^T w + w^T C w. Its Hessian matrix is ∇2g(w) = 2C. This Hessian does not depend on w, so it is constant.",
+    "claims": [
+      {
+        "claim": "A quadratic function can be multi-input.",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In the multi-input case, it is g(w) = a + b^T w + w^T C w.",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Its Hessian matrix is ∇2g(w) = 2C.",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This Hessian is constant with respect to w.",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "quadratic function: A quadratic function can be multi-input. In the multi-input case, it is g(w) = a + b^T w + w^T C w. Its Hessian matrix is ∇2g(w) = 2C. This Hessian does not depend on w, so it is constant.",
+    "sentence_reviews": [
+      {
+        "sentence": "A quadratic function can be multi-input.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "reason": "The evidence describes a multi-input quadratic function."
+      },
+      {
+        "sentence": "In the multi-input case, it is g(w) = a + b^T w + w^T C w.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "reason": "The evidence gives this exact functional form."
+      },
+      {
+        "sentence": "Its Hessian matrix is ∇2g(w) = 2C.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "reason": "The evidence states the Hessian matrix of g is 2C."
+      },
+      {
+        "sentence": "This Hessian does not depend on w, so it is constant.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0071"
+        ],
+        "reason": "The Hessian is written as 2C, which contains no w term."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"quadratic function: A quadratic function can be multi-input. In the multi-input case, it is g(w) = a + b^T w + w^T C w. Its Hessian matrix is ∇²g(w) = 2C. This Hessian does not depend on w, so it is constant.\",\n  \"claims\": [\n    {\n      \"claim\": \"A quadratic function can be multi-input.\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In the multi-input case, it is g(w) = a + b^T w + w^T C w.\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Its Hessian matrix is ∇²g(w) = 2C.\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This Hessian is constant with respect to w.\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"quadratic function: A quadratic function can be multi-input. In the multi-input case, it is g(w) = a + b^T w + w^T C w. Its Hessian matrix is ∇2g(w) = 2C. This Hessian does not depend on w, so it is constant.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A quadratic function can be multi-input.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"reason\": \"The evidence describes a multi-input quadratic function.\"\n    },\n    {\n      \"sentence\": \"In the multi-input case, it is g(w) = a + b^T w + w^T C w.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"reason\": \"The evidence gives this exact functional form.\"\n    },\n    {\n      \"sentence\": \"Its Hessian matrix is ∇2g(w) = 2C.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"reason\": \"The evidence states the Hessian matrix of g is 2C.\"\n    },\n    {\n      \"sentence\": \"This Hessian does not depend on w, so it is constant.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0071\"],\n      \"reason\": \"The Hessian is written as 2C, which contains no w term.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:45:30.992812+00:00"
+}

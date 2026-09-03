@@ -1,0 +1,1515 @@
+{
+  "version": "1.0.0",
+  "chapter": 2,
+  "chapter_title": "Zero order optimization techniques",
+  "pdf_start": 41,
+  "pdf_end": 64,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T15:12:06+00:00",
+  "concepts": [
+    {
+      "canonical": "zero order optimization",
+      "aliases": [
+        "derivative free optimization",
+        "zero order local optimization",
+        "zero order methods",
+        "zero order optimization techniques"
+      ],
+      "evidence_page": 41,
+      "evidence": "zero order optimization techniques - are also referred to as derivative free optimization techniques",
+      "relevance": 0.9,
+      "anchor_page": 41
+    },
+    {
+      "canonical": "global minimum",
+      "aliases": [
+        "global minimizer"
+      ],
+      "evidence_page": 43,
+      "evidence": "find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.",
+      "relevance": 0.9,
+      "anchor_page": 43
+    },
+    {
+      "canonical": "global maximum",
+      "aliases": [
+        "global maximizer"
+      ],
+      "evidence_page": 43,
+      "evidence": "g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.",
+      "relevance": 0.8,
+      "anchor_page": 43
+    },
+    {
+      "canonical": "local minimum",
+      "aliases": [
+        "local minimizer"
+      ],
+      "evidence_page": 44,
+      "evidence": "a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆",
+      "relevance": 0.9,
+      "anchor_page": 44
+    },
+    {
+      "canonical": "global optimization",
+      "aliases": [
+        "global optimization method"
+      ],
+      "evidence_page": 44,
+      "evidence": "evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer",
+      "relevance": 0.8,
+      "anchor_page": 44
+    },
+    {
+      "canonical": "zero order optimality condition",
+      "aliases": [
+        "zero order condition for optimality",
+        "zero order definitions for minima and maxima"
+      ],
+      "evidence_page": 44,
+      "evidence": "Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality",
+      "relevance": 0.8,
+      "anchor_page": 44
+    },
+    {
+      "canonical": "local maximum",
+      "aliases": [
+        "local maximizer"
+      ],
+      "evidence_page": 44,
+      "evidence": "The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥",
+      "relevance": 0.7,
+      "anchor_page": 44
+    },
+    {
+      "canonical": "random sampling",
+      "aliases": [],
+      "evidence_page": 45,
+      "evidence": "pick the same number of input points at random (random sampling)",
+      "relevance": 0.7,
+      "anchor_page": 45
+    },
+    {
+      "canonical": "uniform sampling",
+      "aliases": [
+        "even sampling"
+      ],
+      "evidence_page": 45,
+      "evidence": "sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)",
+      "relevance": 0.7,
+      "anchor_page": 45
+    },
+    {
+      "canonical": "curse of dimensionality",
+      "aliases": [],
+      "evidence_page": 47,
+      "evidence": "the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension",
+      "relevance": 0.9,
+      "anchor_page": 47
+    },
+    {
+      "canonical": "descent direction",
+      "aliases": [],
+      "evidence_page": 48,
+      "evidence": "what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation",
+      "relevance": 0.9,
+      "anchor_page": 48
+    },
+    {
+      "canonical": "local optimization",
+      "aliases": [
+        "local optimization method",
+        "local algorithm"
+      ],
+      "evidence_page": 48,
+      "evidence": "local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer",
+      "relevance": 0.9,
+      "anchor_page": 48
+    },
+    {
+      "canonical": "sequential refinement",
+      "aliases": [
+        "iterative update"
+      ],
+      "evidence_page": 48,
+      "evidence": "local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function",
+      "relevance": 0.8,
+      "anchor_page": 48
+    },
+    {
+      "canonical": "initial point",
+      "aliases": [
+        "starting point"
+      ],
+      "evidence_page": 48,
+      "evidence": "Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0",
+      "relevance": 0.7,
+      "anchor_page": 48
+    },
+    {
+      "canonical": "diminishing steplength rules",
+      "aliases": [
+        "diminishing step length",
+        "diminishing steplength",
+        "diminishing steplength schemes"
+      ],
+      "evidence_page": 57,
+      "evidence": "A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.",
+      "relevance": 0.9,
+      "anchor_page": 57
+    },
+    {
+      "canonical": "random search",
+      "aliases": [
+        "random local search"
+      ],
+      "evidence_page": 57,
+      "evidence": "2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.",
+      "relevance": 0.9,
+      "anchor_page": 57
+    },
+    {
+      "canonical": "convergence",
+      "aliases": [],
+      "evidence_page": 57,
+      "evidence": "a small steplength combined with a large number of steps can guarantee convergence to a local minimizer",
+      "relevance": 0.8,
+      "anchor_page": 57
+    },
+    {
+      "canonical": "coordinate descent",
+      "aliases": [],
+      "evidence_page": 59,
+      "evidence": "With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+      "relevance": 0.9,
+      "anchor_page": 59
+    },
+    {
+      "canonical": "coordinate search",
+      "aliases": [],
+      "evidence_page": 59,
+      "evidence": "with coordinate search we seek out a descent direction by searching randomly among only the coordinate axes of the input space.",
+      "relevance": 0.9,
+      "anchor_page": 59
+    },
+    {
+      "canonical": "steplength",
+      "aliases": [
+        "learning rate",
+        "step length"
+      ],
+      "evidence_page": 62,
+      "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+      "relevance": 0.9,
+      "anchor_page": 62
+    },
+    {
+      "canonical": "cost function history plot",
+      "aliases": [],
+      "evidence_page": 62,
+      "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+      "relevance": 0.7,
+      "anchor_page": 62
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "zero order optimization",
+      "latex": "g(w) = w^2",
+      "pdf_page": 41,
+      "equation_label": "2.1",
+      "confidence": 0.9
+    },
+    {
+      "concept": "zero order optimization",
+      "latex": "g(w) = -w^2",
+      "pdf_page": 42,
+      "equation_label": "2.2",
+      "confidence": 0.9
+    },
+    {
+      "concept": "zero order optimization",
+      "latex": "g(w) = \\sin(2w)",
+      "pdf_page": 42,
+      "equation_label": "2.3",
+      "confidence": 0.9
+    },
+    {
+      "concept": "global minimum",
+      "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w",
+      "pdf_page": 43,
+      "equation_label": "2.7",
+      "confidence": 1.0
+    },
+    {
+      "concept": "global maximum",
+      "latex": "g(w^\\star) \\geq g(w) \\quad \\text{for all } w",
+      "pdf_page": 43,
+      "equation_label": "2.8",
+      "confidence": 1.0
+    },
+    {
+      "concept": "global optimization",
+      "latex": "\\minimize_{w_1, w_2, \\ldots, w_N} g(w_1, w_2, \\ldots, w_N)",
+      "pdf_page": 43,
+      "equation_label": "2.5",
+      "confidence": 0.95
+    },
+    {
+      "concept": "global optimization",
+      "latex": "\\minimize_{w} g(w)",
+      "pdf_page": 43,
+      "equation_label": "2.6",
+      "confidence": 0.95
+    },
+    {
+      "concept": "zero order optimality condition",
+      "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w",
+      "pdf_page": 43,
+      "equation_label": "2.7",
+      "confidence": 0.95
+    },
+    {
+      "concept": "zero order optimality condition",
+      "latex": "g(w^\\star) \\geq g(w) \\quad \\text{for all } w",
+      "pdf_page": 43,
+      "equation_label": "2.8",
+      "confidence": 0.95
+    },
+    {
+      "concept": "global optimization",
+      "latex": "\\maximize_{w} g(w)",
+      "pdf_page": 44,
+      "equation_label": "2.9",
+      "confidence": 0.95
+    },
+    {
+      "concept": "global optimization",
+      "latex": "\\minimize_{w} -g(w)",
+      "pdf_page": 44,
+      "equation_label": "2.10",
+      "confidence": 0.95
+    },
+    {
+      "concept": "local minimum",
+      "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w \\text{ near } w^\\star",
+      "pdf_page": 44,
+      "equation_label": "2.11",
+      "confidence": 0.95
+    },
+    {
+      "concept": "zero order optimality condition",
+      "latex": "g(w_j) \\leq g(w_k) \\quad k = 1, \\ldots, K",
+      "pdf_page": 45,
+      "equation_label": "2.13",
+      "confidence": 0.95
+    },
+    {
+      "concept": "curse of dimensionality",
+      "latex": "3^N",
+      "pdf_page": 47,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "sequential refinement",
+      "latex": "w_0, w_1, \\ldots, w_K",
+      "pdf_page": 48,
+      "equation_label": "2.14",
+      "confidence": 0.95
+    },
+    {
+      "concept": "sequential refinement",
+      "latex": "g(w_0) > g(w_1) > \\cdots > g(w_K)",
+      "pdf_page": 48,
+      "equation_label": "2.15",
+      "confidence": 0.95
+    },
+    {
+      "concept": "descent direction",
+      "latex": "w_1 = w_0 + d_0",
+      "pdf_page": 48,
+      "equation_label": "2.16",
+      "confidence": 0.95
+    },
+    {
+      "concept": "descent direction",
+      "latex": "w_2 = w_1 + d_1",
+      "pdf_page": 49,
+      "equation_label": "2.17",
+      "confidence": 0.95
+    },
+    {
+      "concept": "descent direction",
+      "latex": "w_k = w_{k-1} + d_{k-1}",
+      "pdf_page": 49,
+      "equation_label": "2.18",
+      "confidence": 0.95
+    },
+    {
+      "concept": "initial point",
+      "latex": "w_0, w_1, \\ldots, w_K",
+      "pdf_page": 48,
+      "equation_label": "2.14",
+      "confidence": 0.9
+    },
+    {
+      "concept": "diminishing steplength rules",
+      "latex": "\\|w_k - w_{k-1}\\|_2 = \\|w_{k-1} + \\alpha d - w_{k-1}\\|_2 = \\alpha \\|d\\|_2 = \\frac{1}{k}",
+      "pdf_page": 57,
+      "equation_label": "2.28",
+      "confidence": 0.95
+    },
+    {
+      "concept": "diminishing steplength rules",
+      "latex": "\\sum_{k=1}^{K} \\|w_k - w_{k-1}\\|_2 = \\sum_{k=1}^{K} \\frac{1}{k}",
+      "pdf_page": 57,
+      "equation_label": "2.29",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate search",
+      "latex": "g(w_1, w_2) = 0.26 w_1^2 + w_2^2 - 0.48 w_1 w_2",
+      "pdf_page": 60,
+      "equation_label": "2.30",
+      "confidence": 0.9
+    }
+  ],
+  "figures": [
+    {
+      "concept": "zero order optimization",
+      "pdf_page": 42,
+      "figure_label": "Figure 2.1",
+      "caption": "Figure 2.1 Figure associated with Example 2.1. Four example functions with the evaluation of their minima and maxima highlighted by green dots. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "uniform sampling",
+      "pdf_page": 46,
+      "figure_label": "Figure 2.2",
+      "caption": "Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "random sampling",
+      "pdf_page": 46,
+      "figure_label": "Figure 2.2",
+      "caption": "Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "curse of dimensionality",
+      "pdf_page": 47,
+      "figure_label": "Figure 2.3",
+      "caption": "(top row) The number of input points we must sample uniformly if we wish each to be a distance of d from its neighbors grows exponentially as the input dimension of a function increases. If 3 points are used to cover a single-input space in this way (left panel), 32 = 9 points are required in two dimensions, and 33 = 27 points in three dimensions (and this trend continues). Sampling randomly (bottom row) does not solve the problem. See text for further details.",
+      "confidence": 0.97
+    },
+    {
+      "concept": "local optimization",
+      "pdf_page": 49,
+      "figure_label": "Figure 2.4",
+      "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "initial point",
+      "pdf_page": 49,
+      "figure_label": "Figure 2.4",
+      "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "sequential refinement",
+      "pdf_page": 49,
+      "figure_label": "Figure 2.4",
+      "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "coordinate search",
+      "pdf_page": 59,
+      "figure_label": "Figure 2.11",
+      "caption": "(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate descent",
+      "pdf_page": 59,
+      "figure_label": "Figure 2.11",
+      "caption": "(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "zero order optimization",
+            "aliases": [
+              "derivative free optimization"
+            ],
+            "evidence_page": 41,
+            "anchor_page": 41,
+            "evidence": "zero order optimization techniques - are also referred to as derivative free optimization techniques",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minimizer"
+            ],
+            "evidence_page": 43,
+            "anchor_page": 43,
+            "evidence": "find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "global maximum",
+            "aliases": [
+              "global maximizer"
+            ],
+            "evidence_page": 43,
+            "anchor_page": 43,
+            "evidence": "g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minimizer"
+            ],
+            "evidence_page": 44,
+            "anchor_page": 44,
+            "evidence": "a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "local maximum",
+            "aliases": [
+              "local maximizer"
+            ],
+            "evidence_page": 44,
+            "anchor_page": 44,
+            "evidence": "The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "zero order optimality condition",
+            "aliases": [],
+            "evidence_page": 44,
+            "anchor_page": 44,
+            "evidence": "Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "global optimization method",
+            "aliases": [],
+            "evidence_page": 44,
+            "anchor_page": 44,
+            "evidence": "evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "uniform sampling",
+            "aliases": [
+              "even sampling"
+            ],
+            "evidence_page": 45,
+            "anchor_page": 45,
+            "evidence": "sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "random sampling",
+            "aliases": [],
+            "evidence_page": 45,
+            "anchor_page": 45,
+            "evidence": "pick the same number of input points at random (random sampling)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "curse of dimensionality",
+            "aliases": [],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "local optimization method",
+            "aliases": [],
+            "evidence_page": 48,
+            "anchor_page": 48,
+            "evidence": "local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "initial point",
+            "aliases": [
+              "starting point"
+            ],
+            "evidence_page": 48,
+            "anchor_page": 48,
+            "evidence": "Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [],
+            "evidence_page": 48,
+            "anchor_page": 48,
+            "evidence": "what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "sequential refinement",
+            "aliases": [
+              "iterative update"
+            ],
+            "evidence_page": 48,
+            "anchor_page": 48,
+            "evidence": "local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "contour plot",
+            "aliases": [],
+            "evidence_page": 49,
+            "anchor_page": 49,
+            "evidence": "a contour plot, a common visualization tool that allows us to project a function down onto its input space",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"zero order optimization\",\n      \"aliases\": [\"derivative free optimization\"],\n      \"evidence_page\": 41,\n      \"anchor_page\": 41,\n      \"evidence\": \"zero order optimization techniques - are also referred to as derivative free optimization techniques\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\"global minimizer\"],\n      \"evidence_page\": 43,\n      \"anchor_page\": 43,\n      \"evidence\": \"find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"global maximum\",\n      \"aliases\": [\"global maximizer\"],\n      \"evidence_page\": 43,\n      \"anchor_page\": 43,\n      \"evidence\": \"g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\"local minimizer\"],\n      \"evidence_page\": 44,\n      \"anchor_page\": 44,\n      \"evidence\": \"a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"local maximum\",\n      \"aliases\": [\"local maximizer\"],\n      \"evidence_page\": 44,\n      \"anchor_page\": 44,\n      \"evidence\": \"The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"zero order optimality condition\",\n      \"aliases\": [],\n      \"evidence_page\": 44,\n      \"anchor_page\": 44,\n      \"evidence\": \"Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"global optimization method\",\n      \"aliases\": [],\n      \"evidence_page\": 44,\n      \"anchor_page\": 44,\n      \"evidence\": \"evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"uniform sampling\",\n      \"aliases\": [\"even sampling\"],\n      \"evidence_page\": 45,\n      \"anchor_page\": 45,\n      \"evidence\": \"sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"random sampling\",\n      \"aliases\": [],\n      \"evidence_page\": 45,\n      \"anchor_page\": 45,\n      \"evidence\": \"pick the same number of input points at random (random sampling)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"curse of dimensionality\",\n      \"aliases\": [],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"local optimization method\",\n      \"aliases\": [],\n      \"evidence_page\": 48,\n      \"anchor_page\": 48,\n      \"evidence\": \"local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"initial point\",\n      \"aliases\": [\"starting point\"],\n      \"evidence_page\": 48,\n      \"anchor_page\": 48,\n      \"evidence\": \"Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [],\n      \"evidence_page\": 48,\n      \"anchor_page\": 48,\n      \"evidence\": \"what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"sequential refinement\",\n      \"aliases\": [\"iterative update\"],\n      \"evidence_page\": 48,\n      \"anchor_page\": 48,\n      \"evidence\": \"local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"contour plot\",\n      \"aliases\": [],\n      \"evidence_page\": 49,\n      \"anchor_page\": 49,\n      \"evidence\": \"a contour plot, a common visualization tool that allows us to project a function down onto its input space\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization methods",
+              "local optimization scheme"
+            ],
+            "evidence_page": 41,
+            "anchor_page": 41,
+            "evidence": "Local optimization methods work by minimizing a target function in a sequence of steps.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [
+              "descent directions",
+              "descent vector"
+            ],
+            "evidence_page": 41,
+            "anchor_page": 41,
+            "evidence": "where dk−1 is the descent direction determined at the kth step of the process",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "contour plot",
+            "aliases": [
+              "contour plots"
+            ],
+            "evidence_page": 41,
+            "anchor_page": 41,
+            "evidence": "a contour plot, a common visualization tool that allows us to project a function down onto its input space",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "zero order optimization",
+            "aliases": [
+              "zero order approaches",
+              "zero order optimization techniques"
+            ],
+            "evidence_page": 42,
+            "anchor_page": 42,
+            "evidence": "we discuss zero order approaches for doing so, and in the following Chapters we describe the so-called first and second order approaches",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "first order optimization",
+            "aliases": [
+              "first order approaches"
+            ],
+            "evidence_page": 42,
+            "anchor_page": 42,
+            "evidence": "approaches that leverage the first and/or second order derivative of a function to determine descent directions",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "second order optimization",
+            "aliases": [
+              "second order approaches"
+            ],
+            "evidence_page": 42,
+            "anchor_page": 42,
+            "evidence": "approaches that leverage the first and/or second order derivative of a function to determine descent directions",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "steplength parameter",
+            "aliases": [
+              "steplength",
+              "learning rate",
+              "alpha"
+            ],
+            "evidence_page": 42,
+            "anchor_page": 42,
+            "evidence": "many local optimization schemes come equipped with what is referred to as a steplength parameter, also called a learning rate in the jargon of machine learning",
+            "relevance": 0.98
+          },
+          {
+            "canonical": "random search",
+            "aliases": [
+              "random local search",
+              "simulated annealing algorithm"
+            ],
+            "evidence_page": 44,
+            "anchor_page": 44,
+            "evidence": "our first local optimization algorithm: random local search which is sometimes referred to as a simulated annealing algorithm",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "cost function history",
+              "cost function histories"
+            ],
+            "evidence_page": 46,
+            "anchor_page": 46,
+            "evidence": "This visualization is called a cost function history plot since mathematical functions we are interested in minimizing in machine learning are often referred to as cost or loss functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cost function",
+            "aliases": [
+              "cost functions",
+              "loss functions",
+              "loss function",
+              "target function"
+            ],
+            "evidence_page": 46,
+            "anchor_page": 46,
+            "evidence": "mathematical functions we are interested in minimizing in machine learning are often referred to as cost or loss functions",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "local minimizer",
+            "aliases": [
+              "local minima",
+              "local minimum",
+              "local minimizers"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "depending on where we initialize, we may end up near a local or global minimizer",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "global minimizer",
+            "aliases": [
+              "global minimum",
+              "global minima"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "what one may need to do in order to find the global minimum of a function using a local optimization scheme",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "fixed steplength rule",
+            "aliases": [
+              "fixed steplength"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "Known as a fixed steplength rule, this is a very common choice of steplength parameter for local optimization methods in general",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "adjustable steplength rule",
+            "aliases": [
+              "adjustable steplength"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "It is also possible to change the value of α from one step to another with what is often referred to as an adjustable steplength rule",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "diminishing steplength rule",
+            "aliases": [
+              "diminishing steplength",
+              "diminishing steplength rules"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 49,
+            "evidence": "A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "curse of dimensionality",
+            "aliases": [],
+            "evidence_page": 49,
+            "anchor_page": 49,
+            "evidence": "the curse of dimensionality also poses a major obstacle to the practical application of the random search algorithm as the dimension of a function's input increases",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "convergence",
+            "aliases": [
+              "converge",
+              "converges"
+            ],
+            "evidence_page": 48,
+            "anchor_page": 48,
+            "evidence": "a small steplength combined with a large number of steps can guarantee convergence to a local minimizer",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "non-convex function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 47,
+            "anchor_page": 47,
+            "evidence": "Properly minimizing such a non-convex function like the one shown in the left panel requires multiple runs of local optimization",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local optimization methods\", \"local optimization scheme\"],\n      \"evidence_page\": 41,\n      \"anchor_page\": 41,\n      \"evidence\": \"Local optimization methods work by minimizing a target function in a sequence of steps.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [\"descent directions\", \"descent vector\"],\n      \"evidence_page\": 41,\n      \"anchor_page\": 41,\n      \"evidence\": \"where dk−1 is the descent direction determined at the kth step of the process\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"contour plot\",\n      \"aliases\": [\"contour plots\"],\n      \"evidence_page\": 41,\n      \"anchor_page\": 41,\n      \"evidence\": \"a contour plot, a common visualization tool that allows us to project a function down onto its input space\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"zero order optimization\",\n      \"aliases\": [\"zero order approaches\", \"zero order optimization techniques\"],\n      \"evidence_page\": 42,\n      \"anchor_page\": 42,\n      \"evidence\": \"we discuss zero order approaches for doing so, and in the following Chapters we describe the so-called first and second order approaches\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"first order optimization\",\n      \"aliases\": [\"first order approaches\"],\n      \"evidence_page\": 42,\n      \"anchor_page\": 42,\n      \"evidence\": \"approaches that leverage the first and/or second order derivative of a function to determine descent directions\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"second order optimization\",\n      \"aliases\": [\"second order approaches\"],\n      \"evidence_page\": 42,\n      \"anchor_page\": 42,\n      \"evidence\": \"approaches that leverage the first and/or second order derivative of a function to determine descent directions\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"steplength parameter\",\n      \"aliases\": [\"steplength\", \"learning rate\", \"alpha\"],\n      \"evidence_page\": 42,\n      \"anchor_page\": 42,\n      \"evidence\": \"many local optimization schemes come equipped with what is referred to as a steplength parameter, also called a learning rate in the jargon of machine learning\",\n      \"relevance\": 0.98\n    },\n    {\n      \"canonical\": \"random search\",\n      \"aliases\": [\"random local search\", \"simulated annealing algorithm\"],\n      \"evidence_page\": 44,\n      \"anchor_page\": 44,\n      \"evidence\": \"our first local optimization algorithm: random local search which is sometimes referred to as a simulated annealing algorithm\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"cost function history\", \"cost function histories\"],\n      \"evidence_page\": 46,\n      \"anchor_page\": 46,\n      \"evidence\": \"This visualization is called a cost function history plot since mathematical functions we are interested in minimizing in machine learning are often referred to as cost or loss functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cost function\",\n      \"aliases\": [\"cost functions\", \"loss functions\", \"loss function\", \"target function\"],\n      \"evidence_page\": 46,\n      \"anchor_page\": 46,\n      \"evidence\": \"mathematical functions we are interested in minimizing in machine learning are often referred to as cost or loss functions\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"local minimizer\",\n      \"aliases\": [\"local minima\", \"local minimum\", \"local minimizers\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"depending on where we initialize, we may end up near a local or global minimizer\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"global minimizer\",\n      \"aliases\": [\"global minimum\", \"global minima\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"what one may need to do in order to find the global minimum of a function using a local optimization scheme\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"fixed steplength rule\",\n      \"aliases\": [\"fixed steplength\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"Known as a fixed steplength rule, this is a very common choice of steplength parameter for local optimization methods in general\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"adjustable steplength rule\",\n      \"aliases\": [\"adjustable steplength\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"It is also possible to change the value of α from one step to another with what is often referred to as an adjustable steplength rule\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"diminishing steplength rule\",\n      \"aliases\": [\"diminishing steplength\", \"diminishing steplength rules\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 49,\n      \"evidence\": \"A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"curse of dimensionality\",\n      \"aliases\": [],\n      \"evidence_page\": 49,\n      \"anchor_page\": 49,\n      \"evidence\": \"the curse of dimensionality also poses a major obstacle to the practical application of the random search algorithm as the dimension of a function's input increases\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"convergence\",\n      \"aliases\": [\"converge\", \"converges\"],\n      \"evidence_page\": 48,\n      \"anchor_page\": 48,\n      \"evidence\": \"a small steplength combined with a large number of steps can guarantee convergence to a local minimizer\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"non-convex function\",\n      \"aliases\": [\"non-convex\"],\n      \"evidence_page\": 47,\n      \"anchor_page\": 47,\n      \"evidence\": \"Properly minimizing such a non-convex function like the one shown in the left panel requires multiple runs of local optimization\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "random search",
+            "aliases": [
+              "random local search"
+            ],
+            "evidence_page": 57,
+            "anchor_page": 57,
+            "evidence": "2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "diminishing steplength rules",
+            "aliases": [
+              "diminishing step length",
+              "diminishing steplength"
+            ],
+            "evidence_page": 57,
+            "anchor_page": 57,
+            "evidence": "A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "curse of dimensionality",
+            "aliases": [],
+            "evidence_page": 57,
+            "anchor_page": 57,
+            "evidence": "the curse of dimensionality also poses a major obstacle to the practical application of the random search algorithm as the dimension of a function's input increases.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [
+              "descent directions"
+            ],
+            "evidence_page": 58,
+            "anchor_page": 58,
+            "evidence": "there are infinitely many unit directions to choose from, only a fraction of which whose endpoint lie inside the unit circle are descent directions.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "coordinate search",
+            "aliases": [],
+            "evidence_page": 59,
+            "anchor_page": 59,
+            "evidence": "with coordinate search we seek out a descent direction by searching randomly among only the coordinate axes of the input space.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [],
+            "evidence_page": 59,
+            "anchor_page": 59,
+            "evidence": "With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "zero order optimization",
+            "aliases": [
+              "zero order local optimization",
+              "zero order methods"
+            ],
+            "evidence_page": 61,
+            "anchor_page": 61,
+            "evidence": "we described a number of examples of zero order local optimization algorithms - including random search and coordinate search / descent.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local algorithm"
+            ],
+            "evidence_page": 61,
+            "anchor_page": 61,
+            "evidence": "local optimization - which encompasses an enormous family of algorithms we discuss in the remainder of this Chapter",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "global optimization",
+            "aliases": [],
+            "evidence_page": 61,
+            "anchor_page": 61,
+            "evidence": "global optimization methods (essentially the raw evaluation of a function over a fine grid of input points) ... scales very poorly in terms of input dimension",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step length"
+            ],
+            "evidence_page": 62,
+            "anchor_page": 62,
+            "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "cost function history plots"
+            ],
+            "evidence_page": 62,
+            "anchor_page": 62,
+            "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "convergence",
+            "aliases": [],
+            "evidence_page": 57,
+            "anchor_page": 57,
+            "evidence": "a small steplength combined with a large number of steps can guarantee convergence to a local minimizer",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "zero order condition for optimality",
+            "aliases": [],
+            "evidence_page": 61,
+            "anchor_page": 61,
+            "evidence": "this formal translation referred to as the zero order condition for optimality.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "harmonic series",
+            "aliases": [],
+            "evidence_page": 57,
+            "anchor_page": 57,
+            "evidence": "The sum P∞ k=1 1/k is often called the harmonic series, and one way to see that it diverges to infinity",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"random search\",\n      \"aliases\": [\"random local search\"],\n      \"evidence_page\": 57,\n      \"anchor_page\": 57,\n      \"evidence\": \"2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"diminishing steplength rules\",\n      \"aliases\": [\"diminishing step length\", \"diminishing steplength\"],\n      \"evidence_page\": 57,\n      \"anchor_page\": 57,\n      \"evidence\": \"A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"curse of dimensionality\",\n      \"aliases\": [],\n      \"evidence_page\": 57,\n      \"anchor_page\": 57,\n      \"evidence\": \"the curse of dimensionality also poses a major obstacle to the practical application of the random search algorithm as the dimension of a function's input increases.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [\"descent directions\"],\n      \"evidence_page\": 58,\n      \"anchor_page\": 58,\n      \"evidence\": \"there are infinitely many unit directions to choose from, only a fraction of which whose endpoint lie inside the unit circle are descent directions.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"coordinate search\",\n      \"aliases\": [],\n      \"evidence_page\": 59,\n      \"anchor_page\": 59,\n      \"evidence\": \"with coordinate search we seek out a descent direction by searching randomly among only the coordinate axes of the input space.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 59,\n      \"anchor_page\": 59,\n      \"evidence\": \"With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"zero order optimization\",\n      \"aliases\": [\"zero order local optimization\", \"zero order methods\"],\n      \"evidence_page\": 61,\n      \"anchor_page\": 61,\n      \"evidence\": \"we described a number of examples of zero order local optimization algorithms - including random search and coordinate search / descent.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local algorithm\"],\n      \"evidence_page\": 61,\n      \"anchor_page\": 61,\n      \"evidence\": \"local optimization - which encompasses an enormous family of algorithms we discuss in the remainder of this Chapter\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"global optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 61,\n      \"anchor_page\": 61,\n      \"evidence\": \"global optimization methods (essentially the raw evaluation of a function over a fine grid of input points) ... scales very poorly in terms of input dimension\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"learning rate\", \"step length\"],\n      \"evidence_page\": 62,\n      \"anchor_page\": 62,\n      \"evidence\": \"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"cost function history plots\"],\n      \"evidence_page\": 62,\n      \"anchor_page\": 62,\n      \"evidence\": \"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"convergence\",\n      \"aliases\": [],\n      \"evidence_page\": 57,\n      \"anchor_page\": 57,\n      \"evidence\": \"a small steplength combined with a large number of steps can guarantee convergence to a local minimizer\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"zero order condition for optimality\",\n      \"aliases\": [],\n      \"evidence_page\": 61,\n      \"anchor_page\": 61,\n      \"evidence\": \"this formal translation referred to as the zero order condition for optimality.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"harmonic series\",\n      \"aliases\": [],\n      \"evidence_page\": 57,\n      \"anchor_page\": 57,\n      \"evidence\": \"The sum P∞ k=1 1/k is often called the harmonic series, and one way to see that it diverges to infinity\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "zero order optimization",
+            "aliases": [
+              "derivative free optimization",
+              "zero order local optimization",
+              "zero order methods",
+              "zero order optimization techniques"
+            ],
+            "evidence_page": 41,
+            "evidence": "zero order optimization techniques - are also referred to as derivative free optimization techniques",
+            "relevance": 0.9,
+            "anchor_page": 41
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minimizer"
+            ],
+            "evidence_page": 43,
+            "evidence": "find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.",
+            "relevance": 0.9,
+            "anchor_page": 43
+          },
+          {
+            "canonical": "global maximum",
+            "aliases": [
+              "global maximizer"
+            ],
+            "evidence_page": 43,
+            "evidence": "g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.",
+            "relevance": 0.8,
+            "anchor_page": 43
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minimizer"
+            ],
+            "evidence_page": 44,
+            "evidence": "a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆",
+            "relevance": 0.9,
+            "anchor_page": 44
+          },
+          {
+            "canonical": "local maximum",
+            "aliases": [
+              "local maximizer"
+            ],
+            "evidence_page": 44,
+            "evidence": "The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥",
+            "relevance": 0.7,
+            "anchor_page": 44
+          },
+          {
+            "canonical": "zero order optimality condition",
+            "aliases": [
+              "zero order condition for optimality",
+              "zero order definitions for minima and maxima"
+            ],
+            "evidence_page": 44,
+            "evidence": "Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality",
+            "relevance": 0.8,
+            "anchor_page": 44
+          },
+          {
+            "canonical": "global optimization",
+            "aliases": [
+              "global optimization method",
+              "global optimization methods"
+            ],
+            "evidence_page": 44,
+            "evidence": "evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer",
+            "relevance": 0.8,
+            "anchor_page": 44
+          },
+          {
+            "canonical": "random sampling",
+            "aliases": [],
+            "evidence_page": 45,
+            "evidence": "pick the same number of input points at random (random sampling)",
+            "relevance": 0.7,
+            "anchor_page": 45
+          },
+          {
+            "canonical": "uniform sampling",
+            "aliases": [
+              "even sampling"
+            ],
+            "evidence_page": 45,
+            "evidence": "sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)",
+            "relevance": 0.7,
+            "anchor_page": 45
+          },
+          {
+            "canonical": "curse of dimensionality",
+            "aliases": [],
+            "evidence_page": 47,
+            "evidence": "the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension",
+            "relevance": 0.9,
+            "anchor_page": 47
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [],
+            "evidence_page": 48,
+            "evidence": "what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation",
+            "relevance": 0.9,
+            "anchor_page": 48
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization method",
+              "local optimization methods",
+              "local algorithm"
+            ],
+            "evidence_page": 48,
+            "evidence": "local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer",
+            "relevance": 0.9,
+            "anchor_page": 48
+          },
+          {
+            "canonical": "sequential refinement",
+            "aliases": [
+              "iterative update"
+            ],
+            "evidence_page": 48,
+            "evidence": "local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function",
+            "relevance": 0.8,
+            "anchor_page": 48
+          },
+          {
+            "canonical": "initial point",
+            "aliases": [
+              "starting point"
+            ],
+            "evidence_page": 48,
+            "evidence": "Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0",
+            "relevance": 0.7,
+            "anchor_page": 48
+          },
+          {
+            "canonical": "diminishing steplength rules",
+            "aliases": [
+              "diminishing step length",
+              "diminishing steplength",
+              "diminishing steplength schemes"
+            ],
+            "evidence_page": 57,
+            "evidence": "A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.",
+            "relevance": 0.9,
+            "anchor_page": 57
+          },
+          {
+            "canonical": "random search",
+            "aliases": [
+              "random local search"
+            ],
+            "evidence_page": 57,
+            "evidence": "2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.",
+            "relevance": 0.9,
+            "anchor_page": 57
+          },
+          {
+            "canonical": "convergence",
+            "aliases": [],
+            "evidence_page": 57,
+            "evidence": "a small steplength combined with a large number of steps can guarantee convergence to a local minimizer",
+            "relevance": 0.8,
+            "anchor_page": 57
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [],
+            "evidence_page": 59,
+            "evidence": "With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+            "relevance": 0.9,
+            "anchor_page": 59
+          },
+          {
+            "canonical": "coordinate search",
+            "aliases": [],
+            "evidence_page": 59,
+            "evidence": "with coordinate search we seek out a descent direction by searching randomly among only the coordinate axes of the input space.",
+            "relevance": 0.9,
+            "anchor_page": 59
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step length"
+            ],
+            "evidence_page": 62,
+            "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+            "relevance": 0.9,
+            "anchor_page": 62
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [],
+            "evidence_page": 62,
+            "evidence": "the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.",
+            "relevance": 0.7,
+            "anchor_page": 62
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"zero order optimization\",\n      \"aliases\": [\n        \"derivative free optimization\",\n        \"zero order local optimization\",\n        \"zero order methods\",\n        \"zero order optimization techniques\"\n      ],\n      \"evidence_page\": 41,\n      \"evidence\": \"zero order optimization techniques - are also referred to as derivative free optimization techniques\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 41\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\n        \"global minimizer\"\n      ],\n      \"evidence_page\": 43,\n      \"evidence\": \"find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 43\n    },\n    {\n      \"canonical\": \"global maximum\",\n      \"aliases\": [\n        \"global maximizer\"\n      ],\n      \"evidence_page\": 43,\n      \"evidence\": \"g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 43\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\n        \"local minimizer\"\n      ],\n      \"evidence_page\": 44,\n      \"evidence\": \"a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 44\n    },\n    {\n      \"canonical\": \"local maximum\",\n      \"aliases\": [\n        \"local maximizer\"\n      ],\n      \"evidence_page\": 44,\n      \"evidence\": \"The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 44\n    },\n    {\n      \"canonical\": \"zero order optimality condition\",\n      \"aliases\": [\n        \"zero order condition for optimality\",\n        \"zero order definitions for minima and maxima\"\n      ],\n      \"evidence_page\": 44,\n      \"evidence\": \"Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 44\n    },\n    {\n      \"canonical\": \"global optimization\",\n      \"aliases\": [\n        \"global optimization method\",\n        \"global optimization methods\"\n      ],\n      \"evidence_page\": 44,\n      \"evidence\": \"evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 44\n    },\n    {\n      \"canonical\": \"random sampling\",\n      \"aliases\": [],\n      \"evidence_page\": 45,\n      \"evidence\": \"pick the same number of input points at random (random sampling)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 45\n    },\n    {\n      \"canonical\": \"uniform sampling\",\n      \"aliases\": [\n        \"even sampling\"\n      ],\n      \"evidence_page\": 45,\n      \"evidence\": \"sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 45\n    },\n    {\n      \"canonical\": \"curse of dimensionality\",\n      \"aliases\": [],\n      \"evidence_page\": 47,\n      \"evidence\": \"the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 47\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [],\n      \"evidence_page\": 48,\n      \"evidence\": \"what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 48\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\n        \"local optimization method\",\n        \"local optimization methods\",\n        \"local algorithm\"\n      ],\n      \"evidence_page\": 48,\n      \"evidence\": \"local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 48\n    },\n    {\n      \"canonical\": \"sequential refinement\",\n      \"aliases\": [\n        \"iterative update\"\n      ],\n      \"evidence_page\": 48,\n      \"evidence\": \"local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 48\n    },\n    {\n      \"canonical\": \"initial point\",\n      \"aliases\": [\n        \"starting point\"\n      ],\n      \"evidence_page\": 48,\n      \"evidence\": \"Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 48\n    },\n    {\n      \"canonical\": \"diminishing steplength rules\",\n      \"aliases\": [\n        \"diminishing step length\",\n        \"diminishing steplength\",\n        \"diminishing steplength schemes\"\n      ],\n      \"evidence_page\": 57,\n      \"evidence\": \"A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 57\n    },\n    {\n      \"canonical\": \"random search\",\n      \"aliases\": [\n        \"random local search\"\n      ],\n      \"evidence_page\": 57,\n      \"evidence\": \"2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 57\n    },\n    {\n      \"canonical\": \"convergence\",\n      \"aliases\": [],\n      \"evidence_page\": 57,\n      \"evidence\": \"a small steplength combined with a large number of steps can guarantee convergence to a local minimizer\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 57\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 59,\n      \"evidence\": \"With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 59\n    },\n    {\n      \"canonical\": \"coordinate search\",\n      \"aliases\": [],\n      \"evidence_page\": 59,\n      \"evidence\": \"with coordinate search we seek out a descent direction by searching randomly among only the coordinate axes of the input space.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 59\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\n        \"learning rate\",\n        \"step length\"\n      ],\n      \"evidence_page\": 62,\n      \"evidence\": \"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 62\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [],\n      \"evidence_page\": 62,\n      \"evidence\": \"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 62\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 41,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "zero order optimization",
+            "latex": "g(w) = w^2",
+            "pdf_page": 41,
+            "equation_label": "2.1",
+            "confidence": 0.9
+          },
+          {
+            "concept": "zero order optimization",
+            "latex": "g(w) = -w^2",
+            "pdf_page": 42,
+            "equation_label": "2.2",
+            "confidence": 0.9
+          },
+          {
+            "concept": "zero order optimization",
+            "latex": "g(w) = \\sin(2w)",
+            "pdf_page": 42,
+            "equation_label": "2.3",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "zero order optimization",
+            "pdf_page": 42,
+            "figure_label": "Figure 2.1",
+            "caption": "Figure 2.1 Figure associated with Example 2.1. Four example functions with the evaluation of their minima and maxima highlighted by green dots. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"zero order optimization\",\n      \"latex\": \"g(w) = w^2\",\n      \"pdf_page\": 41,\n      \"equation_label\": \"2.1\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"zero order optimization\",\n      \"latex\": \"g(w) = -w^2\",\n      \"pdf_page\": 42,\n      \"equation_label\": \"2.2\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"zero order optimization\",\n      \"latex\": \"g(w) = \\\\sin(2w)\",\n      \"pdf_page\": 42,\n      \"equation_label\": \"2.3\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"zero order optimization\",\n      \"pdf_page\": 42,\n      \"figure_label\": \"Figure 2.1\",\n      \"caption\": \"Figure 2.1 Figure associated with Example 2.1. Four example functions with the evaluation of their minima and maxima highlighted by green dots. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 43,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "global minimum",
+            "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w",
+            "pdf_page": 43,
+            "equation_label": "2.7",
+            "confidence": 1.0
+          },
+          {
+            "concept": "global maximum",
+            "latex": "g(w^\\star) \\geq g(w) \\quad \\text{for all } w",
+            "pdf_page": 43,
+            "equation_label": "2.8",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"global minimum\",\n      \"latex\": \"g(w^\\\\star) \\\\leq g(w) \\\\quad \\\\text{for all } w\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.7\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"global maximum\",\n      \"latex\": \"g(w^\\\\star) \\\\geq g(w) \\\\quad \\\\text{for all } w\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.8\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 44,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "global optimization",
+            "latex": "\\minimize_{w_1, w_2, \\ldots, w_N} g(w_1, w_2, \\ldots, w_N)",
+            "pdf_page": 43,
+            "equation_label": "2.5",
+            "confidence": 0.95
+          },
+          {
+            "concept": "global optimization",
+            "latex": "\\minimize_{w} g(w)",
+            "pdf_page": 43,
+            "equation_label": "2.6",
+            "confidence": 0.95
+          },
+          {
+            "concept": "zero order optimality condition",
+            "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w",
+            "pdf_page": 43,
+            "equation_label": "2.7",
+            "confidence": 0.95
+          },
+          {
+            "concept": "zero order optimality condition",
+            "latex": "g(w^\\star) \\geq g(w) \\quad \\text{for all } w",
+            "pdf_page": 43,
+            "equation_label": "2.8",
+            "confidence": 0.95
+          },
+          {
+            "concept": "global optimization",
+            "latex": "\\maximize_{w} g(w)",
+            "pdf_page": 44,
+            "equation_label": "2.9",
+            "confidence": 0.95
+          },
+          {
+            "concept": "global optimization",
+            "latex": "\\minimize_{w} -g(w)",
+            "pdf_page": 44,
+            "equation_label": "2.10",
+            "confidence": 0.95
+          },
+          {
+            "concept": "local minimum",
+            "latex": "g(w^\\star) \\leq g(w) \\quad \\text{for all } w \\text{ near } w^\\star",
+            "pdf_page": 44,
+            "equation_label": "2.11",
+            "confidence": 0.95
+          },
+          {
+            "concept": "zero order optimality condition",
+            "latex": "g(w_j) \\leq g(w_k) \\quad k = 1, \\ldots, K",
+            "pdf_page": 45,
+            "equation_label": "2.13",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"global optimization\",\n      \"latex\": \"\\\\minimize_{w_1, w_2, \\\\ldots, w_N} g(w_1, w_2, \\\\ldots, w_N)\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.5\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"global optimization\",\n      \"latex\": \"\\\\minimize_{w} g(w)\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.6\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"zero order optimality condition\",\n      \"latex\": \"g(w^\\\\star) \\\\leq g(w) \\\\quad \\\\text{for all } w\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.7\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"zero order optimality condition\",\n      \"latex\": \"g(w^\\\\star) \\\\geq g(w) \\\\quad \\\\text{for all } w\",\n      \"pdf_page\": 43,\n      \"equation_label\": \"2.8\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"global optimization\",\n      \"latex\": \"\\\\maximize_{w} g(w)\",\n      \"pdf_page\": 44,\n      \"equation_label\": \"2.9\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"global optimization\",\n      \"latex\": \"\\\\minimize_{w} -g(w)\",\n      \"pdf_page\": 44,\n      \"equation_label\": \"2.10\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"local minimum\",\n      \"latex\": \"g(w^\\\\star) \\\\leq g(w) \\\\quad \\\\text{for all } w \\\\text{ near } w^\\\\star\",\n      \"pdf_page\": 44,\n      \"equation_label\": \"2.11\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"zero order optimality condition\",\n      \"latex\": \"g(w_j) \\\\leq g(w_k) \\\\quad k = 1, \\\\ldots, K\",\n      \"pdf_page\": 45,\n      \"equation_label\": \"2.13\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 45,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "uniform sampling",
+            "latex": "g(w) = w^2 + 0.2",
+            "pdf_page": 45,
+            "equation_label": "2.12",
+            "confidence": 0.7
+          },
+          {
+            "concept": "random sampling",
+            "latex": "g(w) = w^2 + 0.2",
+            "pdf_page": 45,
+            "equation_label": "2.12",
+            "confidence": 0.7
+          },
+          {
+            "concept": "uniform sampling",
+            "latex": "g(w_j) \\leq g(w_k) \\quad k = 1, \\ldots, K",
+            "pdf_page": 45,
+            "equation_label": "2.13",
+            "confidence": 0.7
+          },
+          {
+            "concept": "random sampling",
+            "latex": "g(w_j) \\leq g(w_k) \\quad k = 1, \\ldots, K",
+            "pdf_page": 45,
+            "equation_label": "2.13",
+            "confidence": 0.7
+          }
+        ],
+        "figures": [
+          {
+            "concept": "uniform sampling",
+            "pdf_page": 46,
+            "figure_label": "Figure 2.2",
+            "caption": "Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "random sampling",
+            "pdf_page": 46,
+            "figure_label": "Figure 2.2",
+            "caption": "Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"uniform sampling\",\n      \"latex\": \"g(w) = w^2 + 0.2\",\n      \"pdf_page\": 45,\n      \"equation_label\": \"2.12\",\n      \"confidence\": 0.7\n    },\n    {\n      \"concept\": \"random sampling\",\n      \"latex\": \"g(w) = w^2 + 0.2\",\n      \"pdf_page\": 45,\n      \"equation_label\": \"2.12\",\n      \"confidence\": 0.7\n    },\n    {\n      \"concept\": \"uniform sampling\",\n      \"latex\": \"g(w_j) \\\\leq g(w_k) \\\\quad k = 1, \\\\ldots, K\",\n      \"pdf_page\": 45,\n      \"equation_label\": \"2.13\",\n      \"confidence\": 0.7\n    },\n    {\n      \"concept\": \"random sampling\",\n      \"latex\": \"g(w_j) \\\\leq g(w_k) \\\\quad k = 1, \\\\ldots, K\",\n      \"pdf_page\": 45,\n      \"equation_label\": \"2.13\",\n      \"confidence\": 0.7\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"uniform sampling\",\n      \"pdf_page\": 46,\n      \"figure_label\": \"Figure 2.2\",\n      \"caption\": \"Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"random sampling\",\n      \"pdf_page\": 46,\n      \"figure_label\": \"Figure 2.2\",\n      \"caption\": \"Figures associated with Example 2.2. Minimizing a simple function via sampling - or 'guessing'. (top row) Sampling the input of a function 4 times evenly (left panel) and at random (right panel). Here the inputs chosen are shown as blue dots, and their evaluations by the function are shown as green dots. (bottom row) Sampling evenly (left panel) and randomly (right panel) 20 times. The more samples we take, the more likely we are to find a point close to the global minimum using either sampling approach. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 47,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "curse of dimensionality",
+            "latex": "3^N",
+            "pdf_page": 47,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "curse of dimensionality",
+            "pdf_page": 47,
+            "figure_label": "Figure 2.3",
+            "caption": "(top row) The number of input points we must sample uniformly if we wish each to be a distance of d from its neighbors grows exponentially as the input dimension of a function increases. If 3 points are used to cover a single-input space in this way (left panel), 32 = 9 points are required in two dimensions, and 33 = 27 points in three dimensions (and this trend continues). Sampling randomly (bottom row) does not solve the problem. See text for further details.",
+            "confidence": 0.97
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"curse of dimensionality\",\n      \"latex\": \"3^N\",\n      \"pdf_page\": 47,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"curse of dimensionality\",\n      \"pdf_page\": 47,\n      \"figure_label\": \"Figure 2.3\",\n      \"caption\": \"(top row) The number of input points we must sample uniformly if we wish each to be a distance of d from its neighbors grows exponentially as the input dimension of a function increases. If 3 points are used to cover a single-input space in this way (left panel), 32 = 9 points are required in two dimensions, and 33 = 27 points in three dimensions (and this trend continues). Sampling randomly (bottom row) does not solve the problem. See text for further details.\",\n      \"confidence\": 0.97\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 48,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "sequential refinement",
+            "latex": "w_0, w_1, \\ldots, w_K",
+            "pdf_page": 48,
+            "equation_label": "2.14",
+            "confidence": 0.95
+          },
+          {
+            "concept": "sequential refinement",
+            "latex": "g(w_0) > g(w_1) > \\cdots > g(w_K)",
+            "pdf_page": 48,
+            "equation_label": "2.15",
+            "confidence": 0.95
+          },
+          {
+            "concept": "descent direction",
+            "latex": "w_1 = w_0 + d_0",
+            "pdf_page": 48,
+            "equation_label": "2.16",
+            "confidence": 0.95
+          },
+          {
+            "concept": "descent direction",
+            "latex": "w_2 = w_1 + d_1",
+            "pdf_page": 49,
+            "equation_label": "2.17",
+            "confidence": 0.95
+          },
+          {
+            "concept": "descent direction",
+            "latex": "w_k = w_{k-1} + d_{k-1}",
+            "pdf_page": 49,
+            "equation_label": "2.18",
+            "confidence": 0.95
+          },
+          {
+            "concept": "initial point",
+            "latex": "w_0, w_1, \\ldots, w_K",
+            "pdf_page": 48,
+            "equation_label": "2.14",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "local optimization",
+            "pdf_page": 49,
+            "figure_label": "Figure 2.4",
+            "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "initial point",
+            "pdf_page": 49,
+            "figure_label": "Figure 2.4",
+            "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "sequential refinement",
+            "pdf_page": 49,
+            "figure_label": "Figure 2.4",
+            "caption": "Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"sequential refinement\",\n      \"latex\": \"w_0, w_1, \\\\ldots, w_K\",\n      \"pdf_page\": 48,\n      \"equation_label\": \"2.14\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"sequential refinement\",\n      \"latex\": \"g(w_0) > g(w_1) > \\\\cdots > g(w_K)\",\n      \"pdf_page\": 48,\n      \"equation_label\": \"2.15\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"descent direction\",\n      \"latex\": \"w_1 = w_0 + d_0\",\n      \"pdf_page\": 48,\n      \"equation_label\": \"2.16\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"descent direction\",\n      \"latex\": \"w_2 = w_1 + d_1\",\n      \"pdf_page\": 49,\n      \"equation_label\": \"2.17\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"descent direction\",\n      \"latex\": \"w_k = w_{k-1} + d_{k-1}\",\n      \"pdf_page\": 49,\n      \"equation_label\": \"2.18\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"initial point\",\n      \"latex\": \"w_0, w_1, \\\\ldots, w_K\",\n      \"pdf_page\": 48,\n      \"equation_label\": \"2.14\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"local optimization\",\n      \"pdf_page\": 49,\n      \"figure_label\": \"Figure 2.4\",\n      \"caption\": \"Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"initial point\",\n      \"pdf_page\": 49,\n      \"figure_label\": \"Figure 2.4\",\n      \"caption\": \"Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"sequential refinement\",\n      \"pdf_page\": 49,\n      \"figure_label\": \"Figure 2.4\",\n      \"caption\": \"Local optimization methods work by minimizing a target function in a sequence of steps. Shown here is a generic local optimization method applied to minimize a single-input function. Starting with the initial point w0, we move towards lower points on the cost function like a ball rolling downhill.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 57,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "diminishing steplength rules",
+            "latex": "\\|w_k - w_{k-1}\\|_2 = \\|w_{k-1} + \\alpha d - w_{k-1}\\|_2 = \\alpha \\|d\\|_2 = \\frac{1}{k}",
+            "pdf_page": 57,
+            "equation_label": "2.28",
+            "confidence": 0.95
+          },
+          {
+            "concept": "diminishing steplength rules",
+            "latex": "\\sum_{k=1}^{K} \\|w_k - w_{k-1}\\|_2 = \\sum_{k=1}^{K} \\frac{1}{k}",
+            "pdf_page": 57,
+            "equation_label": "2.29",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"diminishing steplength rules\",\n      \"latex\": \"\\\\|w_k - w_{k-1}\\\\|_2 = \\\\|w_{k-1} + \\\\alpha d - w_{k-1}\\\\|_2 = \\\\alpha \\\\|d\\\\|_2 = \\\\frac{1}{k}\",\n      \"pdf_page\": 57,\n      \"equation_label\": \"2.28\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"diminishing steplength rules\",\n      \"latex\": \"\\\\sum_{k=1}^{K} \\\\|w_k - w_{k-1}\\\\|_2 = \\\\sum_{k=1}^{K} \\\\frac{1}{k}\",\n      \"pdf_page\": 57,\n      \"equation_label\": \"2.29\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 59,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "coordinate search",
+            "latex": "g(w_1, w_2) = 0.26 w_1^2 + w_2^2 - 0.48 w_1 w_2",
+            "pdf_page": 60,
+            "equation_label": "2.30",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "coordinate search",
+            "pdf_page": 59,
+            "figure_label": "Figure 2.11",
+            "caption": "(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "coordinate descent",
+            "pdf_page": 59,
+            "figure_label": "Figure 2.11",
+            "caption": "(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"coordinate search\",\n      \"latex\": \"g(w_1, w_2) = 0.26 w_1^2 + w_2^2 - 0.48 w_1 w_2\",\n      \"pdf_page\": 60,\n      \"equation_label\": \"2.30\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"coordinate search\",\n      \"pdf_page\": 59,\n      \"figure_label\": \"Figure 2.11\",\n      \"caption\": \"(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"coordinate descent\",\n      \"pdf_page\": 59,\n      \"figure_label\": \"Figure 2.11\",\n      \"caption\": \"(left panel) With coordinate search we seek out descent directions only among the coordinates axes: at each step, colored alternately blue and red for better visualization, we try 2N = 4 directions along the N = 2 coordinate axes, and pick the one resulting the largest decrease in the function's evaluation. (right panel) With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 62,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "curse of dimensionality",
+      "into": "curse of dimensionality"
+    },
+    {
+      "action": "local_merge",
+      "from": "descent direction",
+      "into": "descent direction"
+    },
+    {
+      "action": "local_merge",
+      "from": "zero order optimization",
+      "into": "zero order optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "curse of dimensionality",
+      "into": "curse of dimensionality"
+    }
+  ],
+  "warnings": [
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

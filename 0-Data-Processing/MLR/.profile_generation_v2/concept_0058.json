@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "3fac59ad75bd4d8d0e722e85e9412ef7b039dc3d32dfe6d63b3f0c6fdce3df8c",
+  "concept_id": 58,
+  "concept_name": "normalized gradient descent",
+  "aliases": [
+    "normalized gradient descent",
+    "fully normalized gradient descent",
+    "component-wise normalized gradient descent"
+  ],
+  "profile": "normalized gradient descent: an optimization scheme. It has a fully normalized form, and the standard and fully normalized schemes can be compared in the context of minimizing a function.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "normalized gradient descent: a first-order optimization technique. It has a fully normalized variant, and the standard and fully normalized forms can be compared in the context of minimizing a function.",
+    "claims": [
+      {
+        "claim": "Normalized gradient descent is a first-order optimization technique.",
+        "evidence_ids": [
+          "MLR-E0064"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A fully normalized version of normalized gradient descent exists, and it can be compared with the standard version when minimizing a function.",
+        "evidence_ids": [
+          "MLR-E0064"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "normalized gradient descent: an optimization scheme. It has a fully normalized form, and the standard and fully normalized schemes can be compared in the context of minimizing a function.",
+    "sentence_reviews": [
+      {
+        "sentence": "normalized gradient descent: an optimization scheme.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The source context concerns optimization, so this minimal category is a generic connection; the direct evidence begins with the schemes comparison."
+      },
+      {
+        "sentence": "It has a fully normalized form, and the standard and fully normalized schemes can be compared in the context of minimizing a function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0064"
+        ],
+        "reason": "Directly restates the source comparison of standard and fully normalized gradient descent schemes in minimizing a function."
+      }
+    ],
+    "warnings": [
+      "The source excerpt does not explicitly define normalized gradient descent beyond the comparison of standard and fully normalized schemes."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"normalized gradient descent: a first-order optimization technique. It has a fully normalized variant, and the standard and fully normalized forms can be compared in the context of minimizing a function.\",\n  \"claims\": [\n    {\n      \"claim\": \"Normalized gradient descent is a first-order optimization technique.\",\n      \"evidence_ids\": [\"MLR-E0064\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A fully normalized version of normalized gradient descent exists, and it can be compared with the standard version when minimizing a function.\",\n      \"evidence_ids\": [\"MLR-E0064\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"normalized gradient descent: an optimization scheme. It has a fully normalized form, and the standard and fully normalized schemes can be compared in the context of minimizing a function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"normalized gradient descent: an optimization scheme.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The source context concerns optimization, so this minimal category is a generic connection; the direct evidence begins with the schemes comparison.\"\n    },\n    {\n      \"sentence\": \"It has a fully normalized form, and the standard and fully normalized schemes can be compared in the context of minimizing a function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0064\"],\n      \"reason\": \"Directly restates the source comparison of standard and fully normalized gradient descent schemes in minimizing a function.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source excerpt does not explicitly define normalized gradient descent beyond the comparison of standard and fully normalized schemes.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:43:16.037607+00:00"
+}

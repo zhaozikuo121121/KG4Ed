@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "47a96ca011d16d92d5dd402815e0ae0da5fb70c5134404c5ea65b165a830e477",
+  "concept_id": 97,
+  "concept_name": "weights",
+  "aliases": [
+    "weights",
+    "parameters"
+  ],
+  "profile": "weights: A term in deep learning.",
+  "word_count": 6,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weights: A concept in deep learning. The term is also used interchangeably with parameters.",
+    "claims": [
+      {
+        "claim": "A concept in deep learning.",
+        "evidence_ids": [
+          "DGL-E0094"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term is also used interchangeably with parameters.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Only the concept name and alias are available; no formal definition is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "weights: A term in deep learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "weights: A term in deep learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0094"
+        ],
+        "reason": "The source contains the term 'weights' in the context of deep learning preliminaries."
+      }
+    ],
+    "warnings": [
+      "Only the occurrence of the term is directly attested; no formal definition is provided in the source excerpt. The draft's interchangeable-parameters claim was removed as unsupported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weights: A concept in deep learning. The term is also used interchangeably with parameters.\",\n  \"claims\": [\n    {\n      \"claim\": \"A concept in deep learning.\",\n      \"evidence_ids\": [\"DGL-E0094\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term is also used interchangeably with parameters.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"Only the concept name and alias are available; no formal definition is provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weights: A term in deep learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"weights: A term in deep learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0094\"],\n      \"reason\": \"The source contains the term 'weights' in the context of deep learning preliminaries.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the occurrence of the term is directly attested; no formal definition is provided in the source excerpt. The draft's interchangeable-parameters claim was removed as unsupported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:27:23.285635+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5456a9e107e3425055710ca0912231af6ca7c0be2ee644edc0ad7f63a3a06485",
+  "concept_id": 62,
+  "concept_name": "convexity",
+  "aliases": [
+    "convexity",
+    "convex",
+    "convex function"
+  ],
+  "profile": "convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0. A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0. A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.",
+    "claims": [
+      {
+        "claim": "A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0.",
+        "evidence_ids": [
+          "MLR-E0068"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.",
+        "evidence_ids": [
+          "MLR-E0105"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0. A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0068"
+        ],
+        "reason": "The source directly states that g is convex if g''(v) ≥ 0 and concave if g''(v) ≤ 0."
+      },
+      {
+        "sentence": "A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0105"
+        ],
+        "reason": "The source states that the line segment connecting two points on the graph of a convex function lies above the graph."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0. A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0.\",\n      \"evidence_ids\": [\"MLR-E0068\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.\",\n      \"evidence_ids\": [\"MLR-E0105\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0. A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"convexity: A function g is said to be convex at v when its second derivative at v is nonnegative, i.e., g''(v) ≥ 0; it is concave when g''(v) ≤ 0.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0068\"],\n      \"reason\": \"The source directly states that g is convex if g''(v) ≥ 0 and concave if g''(v) ≤ 0.\"\n    },\n    {\n      \"sentence\": \"A convex function f has the property that the line segment connecting any two points on its graph always lies above the graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0105\"],\n      \"reason\": \"The source states that the line segment connecting two points on the graph of a convex function lies above the graph.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:44:32.191524+00:00"
+}

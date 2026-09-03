@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f2a600d0747b72922a718063ca4a73fc007da02feac3b7d02730da57c4c4be5f",
+  "concept_id": 16,
+  "concept_name": "hyperedge",
+  "aliases": [
+    "hyperedge"
+  ],
+  "profile": "hyperedge: A hyperedge is an element of a set of non-empty subsets. In this characterization, the set comprises non-empty subsets, and each hyperedge is itself one of these non-empty subsets.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hyperedge: A hyperedge is an element of a set of non-empty subsets. In this characterization, each hyperedge is itself a non-empty subset. The metadata does not elaborate on what the subsets contain or how hyperedges are used.",
+    "claims": [
+      {
+        "claim": "A hyperedge is an element of a set of non-empty subsets.",
+        "evidence_ids": [
+          "DGL-E0024"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Each hyperedge is itself a non-empty subset.",
+        "evidence_ids": [
+          "DGL-E0024"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No additional properties, examples, or applications are provided in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "hyperedge: A hyperedge is an element of a set of non-empty subsets. In this characterization, the set comprises non-empty subsets, and each hyperedge is itself one of these non-empty subsets.",
+    "sentence_reviews": [
+      {
+        "sentence": "A hyperedge is an element of a set of non-empty subsets.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0024"
+        ],
+        "reason": "The source explicitly describes a set of non-empty subsets (or hyperedges)."
+      },
+      {
+        "sentence": "In this characterization, the set comprises non-empty subsets, and each hyperedge is itself one of these non-empty subsets.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0024"
+        ],
+        "reason": "This restates the source characterization that hyperedges are the non-empty subsets."
+      }
+    ],
+    "warnings": [
+      "The source does not specify what the subsets contain or how hyperedges are used."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hyperedge: A hyperedge is an element of a set of non-empty subsets. In this characterization, each hyperedge is itself a non-empty subset. The metadata does not elaborate on what the subsets contain or how hyperedges are used.\",\n  \"claims\": [\n    {\n      \"claim\": \"A hyperedge is an element of a set of non-empty subsets.\",\n      \"evidence_ids\": [\"DGL-E0024\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Each hyperedge is itself a non-empty subset.\",\n      \"evidence_ids\": [\"DGL-E0024\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No additional properties, examples, or applications are provided in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hyperedge: A hyperedge is an element of a set of non-empty subsets. In this characterization, the set comprises non-empty subsets, and each hyperedge is itself one of these non-empty subsets.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A hyperedge is an element of a set of non-empty subsets.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0024\"],\n      \"reason\": \"The source explicitly describes a set of non-empty subsets (or hyperedges).\"\n    },\n    {\n      \"sentence\": \"In this characterization, the set comprises non-empty subsets, and each hyperedge is itself one of these non-empty subsets.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0024\"],\n      \"reason\": \"This restates the source characterization that hyperedges are the non-empty subsets.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not specify what the subsets contain or how hyperedges are used.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:55:37.542299+00:00"
+}

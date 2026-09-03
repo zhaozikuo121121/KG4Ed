@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "49e2a71640c5be7696c78804961ff916b3f26715349488b7a880f510a353be96",
+  "concept_id": 6,
+  "concept_name": "program flow graph",
+  "aliases": [
+    "program flow graph",
+    "control flow graph"
+  ],
+  "profile": "program flow graph: a graph-based representation of a computer program. In this representation, nodes are syntax tokens, and edges represent computations involving these variables.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "program flow graph: a graph-based representation of a computer program. In a program flow graph, nodes are syntax tokens, and edges represent computations involving variables. This graph-based form allows the program's structure and data operations to be captured together.",
+    "claims": [
+      {
+        "claim": "A program flow graph is a graph-based representation of a computer program.",
+        "evidence_ids": [
+          "DGL-E0016"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a program flow graph, nodes are syntax tokens.",
+        "evidence_ids": [
+          "DGL-E0016"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Edges in a program flow graph represent computations involving variables.",
+        "evidence_ids": [
+          "DGL-E0016"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The provided evidence describes a general graph representation for programs and does not explicitly use the term 'program flow graph' or describe control-flow semantics."
+    ]
+  },
+  "review": {
+    "final_profile": "program flow graph: a graph-based representation of a computer program. In this representation, nodes are syntax tokens, and edges represent computations involving these variables.",
+    "sentence_reviews": [
+      {
+        "sentence": "program flow graph: a graph-based representation of a computer program.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0016"
+        ],
+        "reason": "The evidence states that computer programs can be represented as graphs."
+      },
+      {
+        "sentence": "In this representation, nodes are syntax tokens, and edges represent computations involving these variables.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0016"
+        ],
+        "reason": "The evidence directly describes nodes as syntax tokens and edges as representing computations involving variables."
+      }
+    ],
+    "warnings": [
+      "The source does not use the exact term 'program flow graph' or describe control-flow semantics; it describes a general graph representation for programs."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"program flow graph: a graph-based representation of a computer program. In a program flow graph, nodes are syntax tokens, and edges represent computations involving variables. This graph-based form allows the program's structure and data operations to be captured together.\",\n  \"claims\": [\n    {\n      \"claim\": \"A program flow graph is a graph-based representation of a computer program.\",\n      \"evidence_ids\": [\"DGL-E0016\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a program flow graph, nodes are syntax tokens.\",\n      \"evidence_ids\": [\"DGL-E0016\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Edges in a program flow graph represent computations involving variables.\",\n      \"evidence_ids\": [\"DGL-E0016\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The provided evidence describes a general graph representation for programs and does not explicitly use the term 'program flow graph' or describe control-flow semantics.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"program flow graph: a graph-based representation of a computer program. In this representation, nodes are syntax tokens, and edges represent computations involving these variables.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"program flow graph: a graph-based representation of a computer program.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0016\"],\n      \"reason\": \"The evidence states that computer programs can be represented as graphs.\"\n    },\n    {\n      \"sentence\": \"In this representation, nodes are syntax tokens, and edges represent computations involving these variables.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0016\"],\n      \"reason\": \"The evidence directly describes nodes as syntax tokens and edges as representing computations involving variables.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not use the exact term 'program flow graph' or describe control-flow semantics; it describes a general graph representation for programs.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:51:59.221964+00:00"
+}

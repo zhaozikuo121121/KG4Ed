@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b58c62b22f1c57edaf2ad8c5c3070414374513db8eba96a49cb9518147aae447",
+  "concept_id": 300,
+  "concept_name": "wl color refinement algorithm",
+  "aliases": [
+    "wl color refinement algorithm",
+    "wl color refinement",
+    "color refinement"
+  ],
+  "profile": "wl color refinement algorithm: It begins by assigning an initial color. It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "wl color refinement algorithm: It begins by assigning an initial color. It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.",
+    "claims": [
+      {
+        "claim": "The WL color refinement algorithm begins by assigning an initial color.",
+        "evidence_ids": [
+          "DGL-E0435"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The WL color refinement algorithm is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.",
+        "evidence_ids": [
+          "DGL-E0435"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata only describes the first step and the page title; no later steps or formal definition are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "wl color refinement algorithm: It begins by assigning an initial color. It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.",
+    "sentence_reviews": [
+      {
+        "sentence": "It begins by assigning an initial color.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0435"
+        ],
+        "reason": "The source explicitly states the first step: assign an initial color."
+      },
+      {
+        "sentence": "It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0435"
+        ],
+        "reason": "The supplied context links the algorithm to these topics."
+      }
+    ],
+    "warnings": [
+      "The metadata only describes the first step and the context; no later steps or formal definition are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"wl color refinement algorithm: It begins by assigning an initial color. It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.\",\n  \"claims\": [\n    {\n      \"claim\": \"The WL color refinement algorithm begins by assigning an initial color.\",\n      \"evidence_ids\": [\"DGL-E0435\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The WL color refinement algorithm is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.\",\n      \"evidence_ids\": [\"DGL-E0435\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata only describes the first step and the page title; no later steps or formal definition are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"wl color refinement algorithm: It begins by assigning an initial color. It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"It begins by assigning an initial color.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0435\"],\n      \"reason\": \"The source explicitly states the first step: assign an initial color.\"\n    },\n    {\n      \"sentence\": \"It is associated with the expressive power of graph neural networks and the Weisfeiler-Lehman test.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0435\"],\n      \"reason\": \"The supplied context links the algorithm to these topics.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata only describes the first step and the context; no later steps or formal definition are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:47:30.784776+00:00"
+}

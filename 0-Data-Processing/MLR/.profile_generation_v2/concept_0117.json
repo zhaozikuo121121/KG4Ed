@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "92c115aa19186a197bc191880fdfe1eaecfccf479a67b86e72c54239ddaadfdd",
+  "concept_id": 117,
+  "concept_name": "margin of separating hyperplane",
+  "aliases": [
+    "margin of separating hyperplane",
+    "classifier margin",
+    "margin length"
+  ],
+  "profile": "margin of separating hyperplane: For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class. The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.",
+  "word_count": 57,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "margin of separating hyperplane: For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class. The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.",
+    "claims": [
+      {
+        "claim": "For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class.",
+        "evidence_ids": [
+          "MLR-E0133"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The margin length is the distance between those evenly spaced translates.",
+        "evidence_ids": [
+          "MLR-E0360"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Margin length serves as a reasonable standard for judging the quality of such hyperplanes.",
+        "evidence_ids": [
+          "MLR-E0360"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "margin of separating hyperplane: For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class. The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.",
+    "sentence_reviews": [
+      {
+        "sentence": "For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0133"
+        ],
+        "reason": "Matches the definition of margin as the buffer zone width between evenly spaced translates touching each class."
+      },
+      {
+        "sentence": "The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0360"
+        ],
+        "reason": "Source states margin length is the distance between translates and a reasonable standard for judging hyperplane quality."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"margin of separating hyperplane: For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class. The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.\",\n  \"claims\": [\n    {\n      \"claim\": \"For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class.\",\n      \"evidence_ids\": [\"MLR-E0133\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The margin length is the distance between those evenly spaced translates.\",\n      \"evidence_ids\": [\"MLR-E0360\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Margin length serves as a reasonable standard for judging the quality of such hyperplanes.\",\n      \"evidence_ids\": [\"MLR-E0360\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"margin of separating hyperplane: For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class. The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"For a separating hyperplane, the margin is the width of the buffer zone confined between two evenly spaced translates of the hyperplane that just touch each respective class.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0133\"],\n      \"reason\": \"Matches the definition of margin as the buffer zone width between evenly spaced translates touching each class.\"\n    },\n    {\n      \"sentence\": \"The margin length is the distance between those evenly spaced translates, and it serves as a reasonable standard for judging the quality of such hyperplanes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0360\"],\n      \"reason\": \"Source states margin length is the distance between translates and a reasonable standard for judging hyperplane quality.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:11:42.082346+00:00"
+}

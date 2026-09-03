@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b6fcd252993adc410558cd770bfbbfc546bd9764f743cf90f90666aed9c9503a",
+  "concept_id": 269,
+  "concept_name": "staircase-like cost",
+  "aliases": [
+    "staircase-like cost",
+    "staircase cost function"
+  ],
+  "profile": "staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions.",
+  "word_count": 14,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions, giving a non-convex, staircase-shaped cost surface.",
+    "claims": [
+      {
+        "claim": "In tree-based learners, the cost function can create highly non-convex, staircase-like functions.",
+        "evidence_ids": [
+          "MLR-E0333"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The cost surface is non-convex and staircase-shaped.",
+        "evidence_ids": [
+          "MLR-E0333"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The available evidence does not specify the exact mechanism or additional properties beyond non-convexity and staircase-like shape."
+    ]
+  },
+  "review": {
+    "final_profile": "staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions.",
+    "sentence_reviews": [
+      {
+        "sentence": "staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0333"
+        ],
+        "reason": "Directly reflects the evidence that tree-based learners can create highly non-convex, staircase-like functions."
+      }
+    ],
+    "warnings": [
+      "The available evidence does not specify the exact mechanism or additional properties beyond non-convexity and staircase-like shape."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions, giving a non-convex, staircase-shaped cost surface.\",\n  \"claims\": [\n    {\n      \"claim\": \"In tree-based learners, the cost function can create highly non-convex, staircase-like functions.\",\n      \"evidence_ids\": [\"MLR-E0333\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The cost surface is non-convex and staircase-shaped.\",\n      \"evidence_ids\": [\"MLR-E0333\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The available evidence does not specify the exact mechanism or additional properties beyond non-convexity and staircase-like shape.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"staircase-like cost: In tree-based learners, the cost function can create highly non-convex, staircase-like functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0333\"],\n      \"reason\": \"Directly reflects the evidence that tree-based learners can create highly non-convex, staircase-like functions.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available evidence does not specify the exact mechanism or additional properties beyond non-convexity and staircase-like shape.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:08:54.036485+00:00"
+}

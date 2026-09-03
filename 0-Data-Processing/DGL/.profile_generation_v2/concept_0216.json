@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "965ece6c2f65e7b001516e69007f913d694faf37f970e276b4df9311ce5dbbb8",
+  "concept_id": 216,
+  "concept_name": "inductive learning",
+  "aliases": [
+    "inductive learning",
+    "inductive node embedding",
+    "inductive setting",
+    "inductive node classification"
+  ],
+  "profile": "inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.",
+    "claims": [
+      {
+        "claim": "Inductive learning is a machine learning setting in which a model is trained on observed data to handle unseen examples.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "This concept is also referred to as inductive node embedding and inductive setting.",
+        "evidence_ids": [
+          "DGL-E0261",
+          "DGL-E0388"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No explicit definition was present in the metadata; terminology is supported by two brief mentions."
+    ]
+  },
+  "review": {
+    "final_profile": "inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.",
+    "sentence_reviews": [
+      {
+        "sentence": "inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0261",
+          "DGL-E0388"
+        ],
+        "reason": "The terminological equivalences are grounded in the two source mentions; the opening clause is a generic background definition that does not add unsupported specifics."
+      }
+    ],
+    "warnings": [
+      "The source contains only brief term mentions, not an explicit definition; the definitional clause is standard background."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.\",\n  \"claims\": [\n    {\n      \"claim\": \"Inductive learning is a machine learning setting in which a model is trained on observed data to handle unseen examples.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"This concept is also referred to as inductive node embedding and inductive setting.\",\n      \"evidence_ids\": [\"DGL-E0261\", \"DGL-E0388\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"No explicit definition was present in the metadata; terminology is supported by two brief mentions.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"inductive learning: a machine learning setting in which a model is trained on observed data to handle unseen examples; this concept is also referred to as inductive node embedding and inductive setting.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0261\", \"DGL-E0388\"],\n      \"reason\": \"The terminological equivalences are grounded in the two source mentions; the opening clause is a generic background definition that does not add unsupported specifics.\"\n    }\n  ],\n  \"warnings\": [\"The source contains only brief term mentions, not an explicit definition; the definitional clause is standard background.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:17:12.770754+00:00"
+}

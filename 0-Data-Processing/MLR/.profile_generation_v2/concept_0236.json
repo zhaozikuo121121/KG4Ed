@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "83f55f0598e153afc5d58fbbdff8ea4fb81cf2a7ea6610d3f20a933efb478cdb",
+  "concept_id": 236,
+  "concept_name": "polynomial kernel",
+  "aliases": [
+    "polynomial kernel"
+  ],
+  "profile": "polynomial kernel: A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D. It appears in the context of kernel methods.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "polynomial kernel: A kernel function that can be defined entry-wise, in a similar manner, for general N and D. It appears in the context of kernel methods.",
+    "claims": [
+      {
+        "claim": "A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D.",
+        "evidence_ids": [
+          "MLR-E0366"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The polynomial kernel appears in the context of kernel methods.",
+        "evidence_ids": [
+          "MLR-E0296"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "polynomial kernel: A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D. It appears in the context of kernel methods.",
+    "sentence_reviews": [
+      {
+        "sentence": "A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0366"
+        ],
+        "reason": "Directly restates the source evidence about defining a polynomial kernel entry-wise for general N and D."
+      },
+      {
+        "sentence": "It appears in the context of kernel methods.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0296"
+        ],
+        "reason": "The source example is located in the kernel methods chapter."
+      }
+    ],
+    "warnings": [
+      "No explicit formula or further properties are provided in the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"polynomial kernel: A kernel function that can be defined entry-wise, in a similar manner, for general N and D. It appears in the context of kernel methods.\",\n  \"claims\": [\n    {\n      \"claim\": \"A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D.\",\n      \"evidence_ids\": [\"MLR-E0366\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The polynomial kernel appears in the context of kernel methods.\",\n      \"evidence_ids\": [\"MLR-E0296\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"polynomial kernel: A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D. It appears in the context of kernel methods.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A polynomial kernel can be defined entry-wise, in a similar manner, for general N and D.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0366\"],\n      \"reason\": \"Directly restates the source evidence about defining a polynomial kernel entry-wise for general N and D.\"\n    },\n    {\n      \"sentence\": \"It appears in the context of kernel methods.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0296\"],\n      \"reason\": \"The source example is located in the kernel methods chapter.\"\n    }\n  ],\n  \"warnings\": [\"No explicit formula or further properties are provided in the source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:55:00.030603+00:00"
+}

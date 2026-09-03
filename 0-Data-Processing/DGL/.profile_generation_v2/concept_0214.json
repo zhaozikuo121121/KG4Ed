@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "19572457b7e6707f060793e960da296cbcea0c792284c1ed3f0fb2bcdf067cd4",
+  "concept_id": 214,
+  "concept_name": "transductive learning",
+  "aliases": [
+    "transductive learning",
+    "transductive",
+    "transductive setting",
+    "transductive node classification"
+  ],
+  "profile": "transductive learning: A learning setting in which the model is tested on unseen nodes. This setting is referred to as the transductive setting.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "transductive learning: A learning setting in which the model is tested on unseen nodes. This approach is referred to as the transductive setting.",
+    "claims": [
+      {
+        "claim": "Transductive learning is a learning setting.",
+        "evidence_ids": [
+          "DGL-E0389"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In transductive learning, the model is tested on unseen nodes.",
+        "evidence_ids": [
+          "DGL-E0259"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "transductive learning: A learning setting in which the model is tested on unseen nodes. This setting is referred to as the transductive setting.",
+    "sentence_reviews": [
+      {
+        "sentence": "transductive learning: A learning setting in which the model is tested on unseen nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0259"
+        ],
+        "reason": "The source material contains 'Test on unseen nodes' in the context of transductive learning."
+      },
+      {
+        "sentence": "This setting is referred to as the transductive setting.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0389"
+        ],
+        "reason": "The source material explicitly uses the term 'Transductive setting'."
+      }
+    ],
+    "warnings": [
+      "Available evidence is minimal and does not provide further technical detail about the transductive learning process."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"transductive learning: A learning setting in which the model is tested on unseen nodes. This approach is referred to as the transductive setting.\",\n  \"claims\": [\n    {\n      \"claim\": \"Transductive learning is a learning setting.\",\n      \"evidence_ids\": [\"DGL-E0389\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In transductive learning, the model is tested on unseen nodes.\",\n      \"evidence_ids\": [\"DGL-E0259\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"transductive learning: A learning setting in which the model is tested on unseen nodes. This setting is referred to as the transductive setting.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"transductive learning: A learning setting in which the model is tested on unseen nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0259\"],\n      \"reason\": \"The source material contains 'Test on unseen nodes' in the context of transductive learning.\"\n    },\n    {\n      \"sentence\": \"This setting is referred to as the transductive setting.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0389\"],\n      \"reason\": \"The source material explicitly uses the term 'Transductive setting'.\"\n    }\n  ],\n  \"warnings\": [\"Available evidence is minimal and does not provide further technical detail about the transductive learning process.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:16:37.254318+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ee77ed736ca3bfa05830b28f4011451bba93327229b71b7f0da445778abcbc2d",
+  "concept_id": 103,
+  "concept_name": "point-wise cost",
+  "aliases": [
+    "point-wise cost",
+    "pointwise cost"
+  ],
+  "profile": "point-wise cost: a per-sample cost in linear two-class classification, defined for sample p as gp(w) = max(0, -yp x_p^T w). It is zero when yp x_p^T w >= 0 and positive otherwise.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "point-wise cost: a per-sample cost expressed as gp(w) = max(0, -yp x_p^T w). The cost is zero when -yp x_p^T w <= 0, i.e. when yp x_p^T w >= 0, and positive otherwise.",
+    "claims": [
+      {
+        "claim": "The point-wise cost is expressed as gp(w) = max(0, -yp x_p^T w).",
+        "evidence_ids": [
+          "MLR-E0119"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The cost is zero when -yp x_p^T w <= 0, i.e. when yp x_p^T w >= 0, and positive otherwise.",
+        "evidence_ids": [
+          "MLR-E0119"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source string ends with '=0', which may indicate a specific condition rather than a general equality; the profile does not assert an unconditional zero."
+    ]
+  },
+  "review": {
+    "final_profile": "point-wise cost: a per-sample cost in linear two-class classification, defined for sample p as gp(w) = max(0, -yp x_p^T w). It is zero when yp x_p^T w >= 0 and positive otherwise.",
+    "sentence_reviews": [
+      {
+        "sentence": "point-wise cost: a per-sample cost in linear two-class classification, defined for sample p as gp(w) = max(0, -yp x_p^T w).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0119"
+        ],
+        "reason": "The formula and the sample index p match the source; the linear two-class classification context comes from the chapter title, and 'per-sample' is implied by 'point-wise' and the subscript p."
+      },
+      {
+        "sentence": "It is zero when yp x_p^T w >= 0 and positive otherwise.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0119"
+        ],
+        "reason": "This follows directly from max(0, -yp x_p^T w): the maximum is zero exactly when -yp x_p^T w <= 0, equivalently yp x_p^T w >= 0, and positive otherwise."
+      }
+    ],
+    "warnings": [
+      "The source string includes '=0', which may express a condition rather than a general identity; the profile avoids claiming the cost is unconditionally zero."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"point-wise cost: a per-sample cost expressed as gp(w) = max(0, -yp x_p^T w). The cost is zero when -yp x_p^T w <= 0, i.e. when yp x_p^T w >= 0, and positive otherwise.\",\n  \"claims\": [\n    {\n      \"claim\": \"The point-wise cost is expressed as gp(w) = max(0, -yp x_p^T w).\",\n      \"evidence_ids\": [\"MLR-E0119\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The cost is zero when -yp x_p^T w <= 0, i.e. when yp x_p^T w >= 0, and positive otherwise.\",\n      \"evidence_ids\": [\"MLR-E0119\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The source string ends with '=0', which may indicate a specific condition rather than a general equality; the profile does not assert an unconditional zero.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"point-wise cost: a per-sample cost in linear two-class classification, defined for sample p as gp(w) = max(0, -yp x_p^T w). It is zero when yp x_p^T w >= 0 and positive otherwise.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"point-wise cost: a per-sample cost in linear two-class classification, defined for sample p as gp(w) = max(0, -yp x_p^T w).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0119\"],\n      \"reason\": \"The formula and the sample index p match the source; the linear two-class classification context comes from the chapter title, and 'per-sample' is implied by 'point-wise' and the subscript p.\"\n    },\n    {\n      \"sentence\": \"It is zero when yp x_p^T w >= 0 and positive otherwise.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0119\"],\n      \"reason\": \"This follows directly from max(0, -yp x_p^T w): the maximum is zero exactly when -yp x_p^T w <= 0, equivalently yp x_p^T w >= 0, and positive otherwise.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source string includes '=0', which may express a condition rather than a general identity; the profile avoids claiming the cost is unconditionally zero.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:02:05.026082+00:00"
+}

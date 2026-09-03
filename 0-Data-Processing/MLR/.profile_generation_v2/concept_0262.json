@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4537e36ec3d05ed021a0b252193effd220fd391f3560bf14d473e76aa281959e",
+  "concept_id": 262,
+  "concept_name": "stump",
+  "aliases": [
+    "stump",
+    "tree stump",
+    "decision stump"
+  ],
+  "profile": "stump: The stump is the most basic tree-based universal approximator. It is a simple step function.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "stump: The stump is the most basic tree-based universal approximator. It is a simple step function. It is also known as a decision stump.",
+    "claims": [
+      {
+        "claim": "The stump is the most basic tree-based universal approximator.",
+        "evidence_ids": [
+          "MLR-E0326"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The stump is a simple step function.",
+        "evidence_ids": [
+          "MLR-E0326"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is also known as a decision stump.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "stump: The stump is the most basic tree-based universal approximator. It is a simple step function.",
+    "sentence_reviews": [
+      {
+        "sentence": "The stump is the most basic tree-based universal approximator.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0326"
+        ],
+        "reason": "The evidence directly states that the stump is the most basic tree-based universal approximator."
+      },
+      {
+        "sentence": "It is a simple step function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0326"
+        ],
+        "reason": "The evidence describes the stump as a simple step function."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"stump: The stump is the most basic tree-based universal approximator. It is a simple step function. It is also known as a decision stump.\",\n  \"claims\": [\n    {\n      \"claim\": \"The stump is the most basic tree-based universal approximator.\",\n      \"evidence_ids\": [\"MLR-E0326\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The stump is a simple step function.\",\n      \"evidence_ids\": [\"MLR-E0326\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is also known as a decision stump.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"stump: The stump is the most basic tree-based universal approximator. It is a simple step function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The stump is the most basic tree-based universal approximator.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0326\"],\n      \"reason\": \"The evidence directly states that the stump is the most basic tree-based universal approximator.\"\n    },\n    {\n      \"sentence\": \"It is a simple step function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0326\"],\n      \"reason\": \"The evidence describes the stump as a simple step function.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:05:12.433510+00:00"
+}

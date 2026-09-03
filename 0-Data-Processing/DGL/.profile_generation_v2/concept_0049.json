@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ebfe82b9c23397734cce0b68e62c1cbeab1871c4262a175bdb076c99fef2aaae",
+  "concept_id": 49,
+  "concept_name": "graph density",
+  "aliases": [
+    "graph density",
+    "density"
+  ],
+  "profile": "graph density: a graph property related to scale and size, indicating the degree of density or sparsity.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph density: a graph property related to scale and size, indicating the degree of density or sparsity of connections. It is often quantified as the ratio of edges to possible edges.",
+    "claims": [
+      {
+        "claim": "Graph density is a graph property related to scale and size, indicating the degree of density or sparsity of connections.",
+        "evidence_ids": [
+          "DGL-E0044"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is often quantified as the ratio of edges to possible edges.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Metadata contains only a single reference to graph density, so the profile is minimal."
+    ]
+  },
+  "review": {
+    "final_profile": "graph density: a graph property related to scale and size, indicating the degree of density or sparsity.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph density: a graph property related to scale and size, indicating the degree of density or sparsity.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0044"
+        ],
+        "reason": "The source lists 'Scale/size (density, sparsity)' as graph properties, which directly supports this characterization."
+      }
+    ],
+    "warnings": [
+      "Metadata contains only a single mention, so the profile is minimal; the ratio-based definition was removed as unsupported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph density: a graph property related to scale and size, indicating the degree of density or sparsity of connections. It is often quantified as the ratio of edges to possible edges.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph density is a graph property related to scale and size, indicating the degree of density or sparsity of connections.\",\n      \"evidence_ids\": [\"DGL-E0044\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is often quantified as the ratio of edges to possible edges.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"Metadata contains only a single reference to graph density, so the profile is minimal.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph density: a graph property related to scale and size, indicating the degree of density or sparsity.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph density: a graph property related to scale and size, indicating the degree of density or sparsity.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0044\"],\n      \"reason\": \"The source lists 'Scale/size (density, sparsity)' as graph properties, which directly supports this characterization.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata contains only a single mention, so the profile is minimal; the ratio-based definition was removed as unsupported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:05:16.108935+00:00"
+}

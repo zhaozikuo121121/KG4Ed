@@ -1,0 +1,80 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0bfefc845f6124b2cbfe69d58fc3222ad537093fccca6f56326e75947af1bc26",
+  "concept_id": 33,
+  "concept_name": "sequential refinement",
+  "aliases": [
+    "sequential refinement",
+    "iterative update",
+    "iterative optimization",
+    "iterative refinement"
+  ],
+  "profile": "sequential refinement: an iterative approach that improves an initial estimate step by step. Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values. In clustering, the two-step process is repeated to refine centroids and clusters.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sequential refinement: an iterative approach that improves an initial estimate step by step. Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values. In clustering, the same idea reappears: the two-step process is repeated to refine centroids and clusters.",
+    "claims": [
+      {
+        "claim": "Local optimization methods refine an initial point sequentially, pulling it downhill toward lower points on the function.",
+        "evidence_ids": [
+          "MLR-E0034"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Sequential refinement in clustering repeats a two-step process to refine centroids and clusters.",
+        "evidence_ids": [
+          "MLR-E0198"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "sequential refinement: an iterative approach that improves an initial estimate step by step. Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values. In clustering, the two-step process is repeated to refine centroids and clusters.",
+    "sentence_reviews": [
+      {
+        "sentence": "sequential refinement: an iterative approach that improves an initial estimate step by step.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General definitional framing that connects the two source-backed applications without introducing new specifics."
+      },
+      {
+        "sentence": "Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0034"
+        ],
+        "reason": "Directly paraphrases the evidence about local optimization methods refining the initial point sequentially and pulling it downhill."
+      },
+      {
+        "sentence": "In clustering, the two-step process is repeated to refine centroids and clusters.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0198"
+        ],
+        "reason": "Matches the evidence about repeating the two-step process to refine centroids and clusters."
+      }
+    ],
+    "warnings": [
+      "The two sources describe different application contexts; the profile links them only through the shared general notion of iterative refinement."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sequential refinement: an iterative approach that improves an initial estimate step by step. Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values. In clustering, the same idea reappears: the two-step process is repeated to refine centroids and clusters.\",\n  \"claims\": [\n    {\n      \"claim\": \"Local optimization methods refine an initial point sequentially, pulling it downhill toward lower points on the function.\",\n      \"evidence_ids\": [\"MLR-E0034\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Sequential refinement in clustering repeats a two-step process to refine centroids and clusters.\",\n      \"evidence_ids\": [\"MLR-E0198\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sequential refinement: an iterative approach that improves an initial estimate step by step. Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values. In clustering, the two-step process is repeated to refine centroids and clusters.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sequential refinement: an iterative approach that improves an initial estimate step by step.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General definitional framing that connects the two source-backed applications without introducing new specifics.\"\n    },\n    {\n      \"sentence\": \"Local optimization methods refine the initial point sequentially, pulling it downhill to progressively lower function values.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0034\"],\n      \"reason\": \"Directly paraphrases the evidence about local optimization methods refining the initial point sequentially and pulling it downhill.\"\n    },\n    {\n      \"sentence\": \"In clustering, the two-step process is repeated to refine centroids and clusters.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0198\"],\n      \"reason\": \"Matches the evidence about repeating the two-step process to refine centroids and clusters.\"\n    }\n  ],\n  \"warnings\": [\n    \"The two sources describe different application contexts; the profile links them only through the shared general notion of iterative refinement.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:32:47.241437+00:00"
+}

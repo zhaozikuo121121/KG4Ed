@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "e453a6df0aa7f5af3d2e963631e1a03ecbfa9260c8044b2577fc8f60a42bf5ae",
+  "concept_id": 116,
+  "concept_name": "constrained softmax cost",
+  "aliases": [
+    "constrained softmax cost",
+    "constrained cross-entropy cost"
+  ],
+  "profile": "constrained softmax cost: a cost for linear two-class classification, defined by minimizing (1/P) Σ log(1 + e^{-y_p(b + x_p^T ω)}) subject to ∥ω∥_2^2 = 1.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "constrained softmax cost: a cost for linear two-class classification, given by minimizing (1/P) Σ log(1 + e^{-yp(b+xTpω)}) subject to ∥ω∥2^2 = 1. It is a constrained variant of the softmax/cross-entropy loss, where the weight vector is forced to have unit norm.",
+    "claims": [
+      {
+        "claim": "The constrained softmax cost is used for linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0132"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is defined as minimizing (1/P) Σ log(1 + e^{-yp(b+xTpω)}).",
+        "evidence_ids": [
+          "MLR-E0132"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The minimization is subject to the constraint ∥ω∥2^2 = 1.",
+        "evidence_ids": [
+          "MLR-E0132"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "constrained softmax cost: a cost for linear two-class classification, defined by minimizing (1/P) Σ log(1 + e^{-y_p(b + x_p^T ω)}) subject to ∥ω∥_2^2 = 1.",
+    "sentence_reviews": [
+      {
+        "sentence": "constrained softmax cost: a cost for linear two-class classification, defined by minimizing (1/P) Σ log(1 + e^{-y_p(b + x_p^T ω)}) subject to ∥ω∥_2^2 = 1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0132"
+        ],
+        "reason": "The cited evidence gives exactly this minimization and unit-norm constraint in the chapter on linear two-class classification."
+      }
+    ],
+    "warnings": [
+      "The draft's description as a constrained variant of softmax/cross-entropy loss is not explicitly in the cited evidence and was removed."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"constrained softmax cost: a cost for linear two-class classification, given by minimizing (1/P) Σ log(1 + e^{-yp(b+xTpω)}) subject to ∥ω∥2^2 = 1. It is a constrained variant of the softmax/cross-entropy loss, where the weight vector is forced to have unit norm.\",\n  \"claims\": [\n    {\n      \"claim\": \"The constrained softmax cost is used for linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0132\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is defined as minimizing (1/P) Σ log(1 + e^{-yp(b+xTpω)}).\",\n      \"evidence_ids\": [\"MLR-E0132\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The minimization is subject to the constraint ∥ω∥2^2 = 1.\",\n      \"evidence_ids\": [\"MLR-E0132\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"constrained softmax cost: a cost for linear two-class classification, defined by minimizing (1/P) Σ log(1 + e^{-y_p(b + x_p^T ω)}) subject to ∥ω∥_2^2 = 1.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"constrained softmax cost: a cost for linear two-class classification, defined by minimizing (1/P) Σ log(1 + e^{-y_p(b + x_p^T ω)}) subject to ∥ω∥_2^2 = 1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0132\"],\n      \"reason\": \"The cited evidence gives exactly this minimization and unit-norm constraint in the chapter on linear two-class classification.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's description as a constrained variant of softmax/cross-entropy loss is not explicitly in the cited evidence and was removed.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:11:21.496015+00:00"
+}

@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7062fb53d1cd1f2ef0dec07fd4a002bab9a6e3acede5b233795362df4fa4f9bf",
+  "concept_id": 86,
+  "concept_name": "feature-touching weights",
+  "aliases": [
+    "feature-touching weights",
+    "slope weights",
+    "coordinate-wise slopes"
+  ],
+  "profile": "feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each touches a corresponding input feature. The bias w0 is the only weight that does not touch a feature. Thus, in the linear model, all non-bias weights are associated with an individual input feature.",
+  "word_count": 49,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each directly multiplies a corresponding input feature. The bias w0 is the only weight that does not touch a feature. They are also known as slope weights or coordinate-wise slopes.",
+    "claims": [
+      {
+        "claim": "In linear regression, the parameters w1 through wN are called feature-touching weights, as each directly multiplies a corresponding input feature.",
+        "evidence_ids": [
+          "MLR-E0100"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The bias w0 is the only weight that does not touch a feature.",
+        "evidence_ids": [
+          "MLR-E0100"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "They are also known as slope weights or coordinate-wise slopes.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each touches a corresponding input feature. The bias w0 is the only weight that does not touch a feature. Thus, in the linear model, all non-bias weights are associated with an individual input feature.",
+    "sentence_reviews": [
+      {
+        "sentence": "feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each touches a corresponding input feature.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0100"
+        ],
+        "reason": "The source names w1 through wN as feature-touching weights and indicates they touch features."
+      },
+      {
+        "sentence": "The bias w0 is the only weight that does not touch a feature.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0100"
+        ],
+        "reason": "The source explicitly states that the bias w0 is the only weight not touching a feature."
+      },
+      {
+        "sentence": "Thus, in the linear model, all non-bias weights are associated with an individual input feature.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0100"
+        ],
+        "reason": "This follows directly from the source's distinction between feature-touching weights and the bias."
+      }
+    ],
+    "warnings": [
+      "Alternate names slope weights and coordinate-wise slopes are not supported by the source and were omitted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each directly multiplies a corresponding input feature. The bias w0 is the only weight that does not touch a feature. They are also known as slope weights or coordinate-wise slopes.\",\n  \"claims\": [\n    {\n      \"claim\": \"In linear regression, the parameters w1 through wN are called feature-touching weights, as each directly multiplies a corresponding input feature.\",\n      \"evidence_ids\": [\"MLR-E0100\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The bias w0 is the only weight that does not touch a feature.\",\n      \"evidence_ids\": [\"MLR-E0100\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"They are also known as slope weights or coordinate-wise slopes.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each touches a corresponding input feature. The bias w0 is the only weight that does not touch a feature. Thus, in the linear model, all non-bias weights are associated with an individual input feature.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"feature-touching weights: In linear regression, the parameters w1 through wN are called feature-touching weights, as each touches a corresponding input feature.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0100\"],\n      \"reason\": \"The source names w1 through wN as feature-touching weights and indicates they touch features.\"\n    },\n    {\n      \"sentence\": \"The bias w0 is the only weight that does not touch a feature.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0100\"],\n      \"reason\": \"The source explicitly states that the bias w0 is the only weight not touching a feature.\"\n    },\n    {\n      \"sentence\": \"Thus, in the linear model, all non-bias weights are associated with an individual input feature.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0100\"],\n      \"reason\": \"This follows directly from the source's distinction between feature-touching weights and the bias.\"\n    }\n  ],\n  \"warnings\": [\n    \"Alternate names slope weights and coordinate-wise slopes are not supported by the source and were omitted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:54:12.359864+00:00"
+}

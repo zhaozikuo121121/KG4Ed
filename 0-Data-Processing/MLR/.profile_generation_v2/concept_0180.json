@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "2095f6c3bc0830bee511d264a1c971e42311bb4cf414e20a803e3be1da2931ed",
+  "concept_id": 180,
+  "concept_name": "bi-convex function",
+  "aliases": [
+    "bi-convex function",
+    "bi-convexity"
+  ],
+  "profile": "bi-convex function: A bi-convex function is convex in each matrix of parameters C and W independently. When one parameter matrix is held fixed, the function is convex with respect to the other matrix.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bi-convex function: A bi-convex function is one that is convex in each matrix of parameters C and W independently. This means that when one parameter matrix is held fixed, the function is convex with respect to the other matrix.",
+    "claims": [
+      {
+        "claim": "A bi-convex function is convex in each matrix of parameters C and W independently.",
+        "evidence_ids": [
+          "MLR-E0205"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "bi-convex function: A bi-convex function is convex in each matrix of parameters C and W independently. When one parameter matrix is held fixed, the function is convex with respect to the other matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "A bi-convex function is convex in each matrix of parameters C and W independently.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0205"
+        ],
+        "reason": "Directly restates the source definition that the function is convex in each matrix independently."
+      },
+      {
+        "sentence": "When one parameter matrix is held fixed, the function is convex with respect to the other matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0205"
+        ],
+        "reason": "Clarifies the meaning of independent convexity in C and W without adding new claims."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bi-convex function: A bi-convex function is one that is convex in each matrix of parameters C and W independently. This means that when one parameter matrix is held fixed, the function is convex with respect to the other matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"A bi-convex function is convex in each matrix of parameters C and W independently.\",\n      \"evidence_ids\": [\"MLR-E0205\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bi-convex function: A bi-convex function is convex in each matrix of parameters C and W independently. When one parameter matrix is held fixed, the function is convex with respect to the other matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A bi-convex function is convex in each matrix of parameters C and W independently.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0205\"],\n      \"reason\": \"Directly restates the source definition that the function is convex in each matrix independently.\"\n    },\n    {\n      \"sentence\": \"When one parameter matrix is held fixed, the function is convex with respect to the other matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0205\"],\n      \"reason\": \"Clarifies the meaning of independent convexity in C and W without adding new claims.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:35:46.429619+00:00"
+}

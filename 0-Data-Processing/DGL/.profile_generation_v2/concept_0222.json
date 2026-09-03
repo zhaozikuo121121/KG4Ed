@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2d648847436cf5822b6ef0c995069998ce4699dd1f67a3a399d56571be7e094e",
+  "concept_id": 222,
+  "concept_name": "global max pooling",
+  "aliases": [
+    "global max pooling",
+    "max pooling",
+    "element-wise maximum"
+  ],
+  "profile": "global max pooling: A pooling approach that appears in the context of graph-level prediction. The term max pooling also appears in the context of graph neural network aggregation.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "global max pooling: A pooling approach that appears in the context of graph-level prediction, where it is also referred to as max pooling. It is mentioned in discussions of graph neural network aggregation.",
+    "claims": [
+      {
+        "claim": "Global max pooling appears in the context of graph-level prediction.",
+        "evidence_ids": [
+          "DGL-E0266"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Global max pooling is also referred to as max pooling.",
+        "evidence_ids": [
+          "DGL-E0306"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Global max pooling is mentioned in discussions of graph neural network aggregation.",
+        "evidence_ids": [
+          "DGL-E0306"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only term usage, not a formal definition."
+    ]
+  },
+  "review": {
+    "final_profile": "global max pooling: A pooling approach that appears in the context of graph-level prediction. The term max pooling also appears in the context of graph neural network aggregation.",
+    "sentence_reviews": [
+      {
+        "sentence": "global max pooling: A pooling approach that appears in the context of graph-level prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0266"
+        ],
+        "reason": "The term 'Global max pooling' appears on a page titled 'Graph-Level Prediction and Inductive Capability of GCNs'."
+      },
+      {
+        "sentence": "The term max pooling also appears in the context of graph neural network aggregation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0306"
+        ],
+        "reason": "The term 'Max pooling' appears on a page titled 'Graph Neural Network Aggregation and Attention Mechanisms'."
+      }
+    ],
+    "warnings": [
+      "Metadata provides only term usage, not a formal definition or detailed explanation of the operation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"global max pooling: A pooling approach that appears in the context of graph-level prediction, where it is also referred to as max pooling. It is mentioned in discussions of graph neural network aggregation.\",\n  \"claims\": [\n    {\n      \"claim\": \"Global max pooling appears in the context of graph-level prediction.\",\n      \"evidence_ids\": [\"DGL-E0266\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Global max pooling is also referred to as max pooling.\",\n      \"evidence_ids\": [\"DGL-E0306\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Global max pooling is mentioned in discussions of graph neural network aggregation.\",\n      \"evidence_ids\": [\"DGL-E0306\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only term usage, not a formal definition.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"global max pooling: A pooling approach that appears in the context of graph-level prediction. The term max pooling also appears in the context of graph neural network aggregation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"global max pooling: A pooling approach that appears in the context of graph-level prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0266\"],\n      \"reason\": \"The term 'Global max pooling' appears on a page titled 'Graph-Level Prediction and Inductive Capability of GCNs'.\"\n    },\n    {\n      \"sentence\": \"The term max pooling also appears in the context of graph neural network aggregation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0306\"],\n      \"reason\": \"The term 'Max pooling' appears on a page titled 'Graph Neural Network Aggregation and Attention Mechanisms'.\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only term usage, not a formal definition or detailed explanation of the operation.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:19:19.786027+00:00"
+}

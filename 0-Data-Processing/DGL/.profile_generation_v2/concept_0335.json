@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e5be0e73f9b196e44581bbf2235dbbe7f1582292543c51db2d871b0af6155717",
+  "concept_id": 335,
+  "concept_name": "loss minimization",
+  "aliases": [
+    "loss minimization",
+    "minimize loss"
+  ],
+  "profile": "loss minimization: In the formalization of generative learning tasks, the notation 'min d1' indicates minimizing a quantity named 'd1'.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "loss minimization: A notation in the formalization of generative learning tasks, expressed as 'min d1'. It indicates minimizing a quantity labeled d1.",
+    "claims": [
+      {
+        "claim": "The concept is part of a formalization of generative learning tasks.",
+        "evidence_ids": [
+          "DGL-E0473"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is expressed by the notation 'min d1'.",
+        "evidence_ids": [
+          "DGL-E0473"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The notation indicates minimizing a quantity labeled d1.",
+        "evidence_ids": [
+          "DGL-E0473"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata; only a handwritten notation is available, so the profile is minimal.",
+      "The exact meaning of 'd1' is not specified in the source."
+    ]
+  },
+  "review": {
+    "final_profile": "loss minimization: In the formalization of generative learning tasks, the notation 'min d1' indicates minimizing a quantity named 'd1'.",
+    "sentence_reviews": [
+      {
+        "sentence": "In the formalization of generative learning tasks, the notation 'min d1' indicates minimizing a quantity named 'd1'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0473"
+        ],
+        "reason": "The source provides the notation 'min d1' under the page title 'Generative Learning Tasks Formalization'; 'min' standardly denotes minimization."
+      }
+    ],
+    "warnings": [
+      "The exact meaning or role of 'd1' is not further specified in the available source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"loss minimization: A notation in the formalization of generative learning tasks, expressed as 'min d1'. It indicates minimizing a quantity labeled d1.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept is part of a formalization of generative learning tasks.\",\n      \"evidence_ids\": [\"DGL-E0473\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is expressed by the notation 'min d1'.\",\n      \"evidence_ids\": [\"DGL-E0473\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The notation indicates minimizing a quantity labeled d1.\",\n      \"evidence_ids\": [\"DGL-E0473\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Limited metadata; only a handwritten notation is available, so the profile is minimal.\",\n    \"The exact meaning of 'd1' is not specified in the source.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"loss minimization: In the formalization of generative learning tasks, the notation 'min d1' indicates minimizing a quantity named 'd1'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In the formalization of generative learning tasks, the notation 'min d1' indicates minimizing a quantity named 'd1'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0473\"],\n      \"reason\": \"The source provides the notation 'min d1' under the page title 'Generative Learning Tasks Formalization'; 'min' standardly denotes minimization.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact meaning or role of 'd1' is not further specified in the available source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:59:37.753189+00:00"
+}

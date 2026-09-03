@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0b3eefc87100b74f5f238da2b18d692eb5d4b6f252569587e3ffca3697d141d4",
+  "concept_id": 251,
+  "concept_name": "weight matrix",
+  "aliases": [
+    "weight matrix",
+    "parameter matrix"
+  ],
+  "profile": "weight matrix: A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights. These column vectors become the columns of an (N + 1) × U1 matrix. This internal weight matrix W1 is defined for single-layer units.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weight matrix: A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights. These column vectors become the columns of an (N + 1) × U1 matrix. This internal weight matrix W1 is used for single-layer units.",
+    "claims": [
+      {
+        "claim": "A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights.",
+        "evidence_ids": [
+          "MLR-E0315"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "These column vectors become the columns of an (N + 1) × U1 matrix.",
+        "evidence_ids": [
+          "MLR-E0315"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This internal weight matrix W1 is used for single-layer units.",
+        "evidence_ids": [
+          "MLR-E0367"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "N and U1 are not defined in the source excerpts."
+    ]
+  },
+  "review": {
+    "final_profile": "weight matrix: A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights. These column vectors become the columns of an (N + 1) × U1 matrix. This internal weight matrix W1 is defined for single-layer units.",
+    "sentence_reviews": [
+      {
+        "sentence": "A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0315"
+        ],
+        "reason": "The evidence describes forming a column vector from parameters beginning with the bias and then input-touching weights."
+      },
+      {
+        "sentence": "These column vectors become the columns of an (N + 1) × U1 matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0315"
+        ],
+        "reason": "The evidence states that the column vectors are placed into the columns of an (N + 1) × U1 matrix W1."
+      },
+      {
+        "sentence": "This internal weight matrix W1 is defined for single-layer units.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0367"
+        ],
+        "reason": "The second evidence refers to the internal weight matrix W1 defined for single-layer units."
+      }
+    ],
+    "warnings": [
+      "N and U1 are not defined in the source excerpts, but they are used exactly as in the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weight matrix: A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights. These column vectors become the columns of an (N + 1) × U1 matrix. This internal weight matrix W1 is used for single-layer units.\",\n  \"claims\": [\n    {\n      \"claim\": \"A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights.\",\n      \"evidence_ids\": [\"MLR-E0315\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"These column vectors become the columns of an (N + 1) × U1 matrix.\",\n      \"evidence_ids\": [\"MLR-E0315\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This internal weight matrix W1 is used for single-layer units.\",\n      \"evidence_ids\": [\"MLR-E0367\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"N and U1 are not defined in the source excerpts.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weight matrix: A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights. These column vectors become the columns of an (N + 1) × U1 matrix. This internal weight matrix W1 is defined for single-layer units.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A weight matrix is a parameter matrix formed by arranging each unit's parameters into a column vector, starting with the bias and then the input-touching weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0315\"],\n      \"reason\": \"The evidence describes forming a column vector from parameters beginning with the bias and then input-touching weights.\"\n    },\n    {\n      \"sentence\": \"These column vectors become the columns of an (N + 1) × U1 matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0315\"],\n      \"reason\": \"The evidence states that the column vectors are placed into the columns of an (N + 1) × U1 matrix W1.\"\n    },\n    {\n      \"sentence\": \"This internal weight matrix W1 is defined for single-layer units.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0367\"],\n      \"reason\": \"The second evidence refers to the internal weight matrix W1 defined for single-layer units.\"\n    }\n  ],\n  \"warnings\": [\"N and U1 are not defined in the source excerpts, but they are used exactly as in the evidence.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:01:16.249805+00:00"
+}

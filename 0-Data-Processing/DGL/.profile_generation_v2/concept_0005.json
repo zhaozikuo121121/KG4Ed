@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8b4c94142e834ce329ac10dc8f2af018495466b5f2d3ea842744e0985814a053",
+  "concept_id": 5,
+  "concept_name": "knowledge graph",
+  "aliases": [
+    "knowledge graph",
+    "wikipedia graph",
+    "kg"
+  ],
+  "profile": "knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.",
+    "claims": [
+      {
+        "claim": "A knowledge graph can represent nodes as articles and edges as hyperlinks, as in Wikipedia.",
+        "evidence_ids": [
+          "DGL-E0015"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.",
+    "sentence_reviews": [
+      {
+        "sentence": "knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0015"
+        ],
+        "reason": "The evidence states that Wikipedia can be thought of as a graph with articles as nodes and hyperlinks as edges."
+      }
+    ],
+    "warnings": [
+      "The source only provides a Wikipedia graph analogy; no broader properties of knowledge graphs are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.\",\n  \"claims\": [\n    {\n      \"claim\": \"A knowledge graph can represent nodes as articles and edges as hyperlinks, as in Wikipedia.\",\n      \"evidence_ids\": [\"DGL-E0015\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"knowledge graph: A graph where nodes are articles and edges are hyperlinks, as exemplified by Wikipedia.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0015\"],\n      \"reason\": \"The evidence states that Wikipedia can be thought of as a graph with articles as nodes and hyperlinks as edges.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source only provides a Wikipedia graph analogy; no broader properties of knowledge graphs are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:51:39.270190+00:00"
+}

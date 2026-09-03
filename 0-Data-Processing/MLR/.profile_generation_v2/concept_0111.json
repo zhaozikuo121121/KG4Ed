@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "8eb5b306a357dda5fa6af0b5b6ef2bd4feace96a1747359518ca85e7fb11278b",
+  "concept_id": 111,
+  "concept_name": "signed distance to decision boundary",
+  "aliases": [
+    "signed distance to decision boundary",
+    "point-to-hyperplane distance",
+    "geometric margin",
+    "point-to-decision-boundary distance",
+    "distance to hyperplane",
+    "signed distance",
+    "distance to decision boundary"
+  ],
+  "profile": "signed distance to decision boundary: For a point x_p, the signed distance d to the decision boundary is d = (b + x_p^T ω) / ||ω||_2. This value is a measure of confidence in how the point should be labeled in two-class classification.",
+  "word_count": 42,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "signed distance to decision boundary: For a point x_p, the signed distance d to the decision boundary is given by d = (b + x_p^T ω) / ||ω||_2. This value is a measure of confidence in how the point should be labeled in two-class classification.",
+    "claims": [
+      {
+        "claim": "For a point x_p, the signed distance d to the decision boundary is given by d = (b + x_p^T ω) / ||ω||_2.",
+        "evidence_ids": [
+          "MLR-E0127"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This value is a measure of confidence in how the point should be labeled in two-class classification.",
+        "evidence_ids": [
+          "MLR-E0164"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "signed distance to decision boundary: For a point x_p, the signed distance d to the decision boundary is d = (b + x_p^T ω) / ||ω||_2. This value is a measure of confidence in how the point should be labeled in two-class classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "For a point x_p, the signed distance d to the decision boundary is d = (b + x_p^T ω) / ||ω||_2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0127"
+        ],
+        "reason": "The formula matches the evidence exactly."
+      },
+      {
+        "sentence": "This value is a measure of confidence in how the point should be labeled in two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0164"
+        ],
+        "reason": "Evidence states the signed distance to a two-class decision boundary can be considered a measure of confidence in labeling."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"signed distance to decision boundary: For a point x_p, the signed distance d to the decision boundary is given by d = (b + x_p^T ω) / ||ω||_2. This value is a measure of confidence in how the point should be labeled in two-class classification.\",\n  \"claims\": [\n    {\n      \"claim\": \"For a point x_p, the signed distance d to the decision boundary is given by d = (b + x_p^T ω) / ||ω||_2.\",\n      \"evidence_ids\": [\"MLR-E0127\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This value is a measure of confidence in how the point should be labeled in two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0164\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"signed distance to decision boundary: For a point x_p, the signed distance d to the decision boundary is d = (b + x_p^T ω) / ||ω||_2. This value is a measure of confidence in how the point should be labeled in two-class classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"For a point x_p, the signed distance d to the decision boundary is d = (b + x_p^T ω) / ||ω||_2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0127\"],\n      \"reason\": \"The formula matches the evidence exactly.\"\n    },\n    {\n      \"sentence\": \"This value is a measure of confidence in how the point should be labeled in two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0164\"],\n      \"reason\": \"Evidence states the signed distance to a two-class decision boundary can be considered a measure of confidence in labeling.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:08:19.248811+00:00"
+}

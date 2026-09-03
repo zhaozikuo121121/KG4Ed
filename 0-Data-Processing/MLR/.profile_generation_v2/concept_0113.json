@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "22b469b861a87326df82b1d24f60c6d3f2cbdca35e23e373094533bf7a87e196",
+  "concept_id": 113,
+  "concept_name": "regularization parameter",
+  "aliases": [
+    "regularization parameter",
+    "penalty parameter",
+    "lambda"
+  ],
+  "profile": "regularization parameter: The regularization parameter λ is always non-negative (λ ≥ 0). It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other. In linear two-class classification and feature learning, λ is referred to as the regularization parameter.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularization parameter: The regularization parameter λ is always non-negative (λ ≥ 0). It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other. In linear two-class classification and feature learning, λ is referred to as the regularization parameter.",
+    "claims": [
+      {
+        "claim": "The regularization parameter λ is always non-negative (λ ≥ 0).",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other.",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In linear two-class classification and feature learning, λ is referred to as the regularization parameter.",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularization parameter: The regularization parameter λ is always non-negative (λ ≥ 0). It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other. In linear two-class classification and feature learning, λ is referred to as the regularization parameter.",
+    "sentence_reviews": [
+      {
+        "sentence": "The regularization parameter λ is always non-negative (λ ≥ 0).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "reason": "Both evidence passages state that λ ≥ 0 and that λ is the regularization parameter."
+      },
+      {
+        "sentence": "It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "reason": "Sources say λ balances how strongly one term is pressured and controls the mixture of cost and regularizer."
+      },
+      {
+        "sentence": "In linear two-class classification and feature learning, λ is referred to as the regularization parameter.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0129",
+          "MLR-E0273"
+        ],
+        "reason": "E0129 is in a linear two-class classification context and E0273 in a feature learning context, both using that terminology."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularization parameter: The regularization parameter λ is always non-negative (λ ≥ 0). It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other. In linear two-class classification and feature learning, λ is referred to as the regularization parameter.\",\n  \"claims\": [\n    {\n      \"claim\": \"The regularization parameter λ is always non-negative (λ ≥ 0).\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other.\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In linear two-class classification and feature learning, λ is referred to as the regularization parameter.\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularization parameter: The regularization parameter λ is always non-negative (λ ≥ 0). It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other. In linear two-class classification and feature learning, λ is referred to as the regularization parameter.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The regularization parameter λ is always non-negative (λ ≥ 0).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"reason\": \"Both evidence passages state that λ ≥ 0 and that λ is the regularization parameter.\"\n    },\n    {\n      \"sentence\": \"It balances the trade-off between the cost and regularizer, controlling the mixture of the two and determining how strongly one term is pressured relative to the other.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"reason\": \"Sources say λ balances how strongly one term is pressured and controls the mixture of cost and regularizer.\"\n    },\n    {\n      \"sentence\": \"In linear two-class classification and feature learning, λ is referred to as the regularization parameter.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0129\", \"MLR-E0273\"],\n      \"reason\": \"E0129 is in a linear two-class classification context and E0273 in a feature learning context, both using that terminology.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:09:11.881887+00:00"
+}

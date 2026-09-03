@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "3952819f77da05773b4a2fdf0355d601a95147084bfdd8cca550013033b07f93",
+  "concept_id": 7,
+  "concept_name": "validation set",
+  "aliases": [
+    "validation set",
+    "validation data",
+    "validation set of data"
+  ],
+  "profile": "validation set: A random portion of data is removed to validate a model. It can be a batch of previously unseen images of cats and dogs, used to see how well the model identifies the animal in each image. This removed portion is commonly called validation data or validation set.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "validation set: A portion of data set aside to evaluate a trained model. It consists of previously unseen examples, such as images of cats and dogs, used to test how accurately the model identifies each animal. The validation data is commonly a randomly removed subset of the original data, employed to validate one or more models.",
+    "claims": [
+      {
+        "claim": "A validation set is a portion of data set aside to evaluate a trained model.",
+        "evidence_ids": [
+          "MLR-E0008",
+          "MLR-E0268"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It consists of previously unseen examples, such as images of cats and dogs, used to test how accurately the model identifies each animal.",
+        "evidence_ids": [
+          "MLR-E0008"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The validation data is commonly a randomly removed subset of the original data, employed to validate one or more models.",
+        "evidence_ids": [
+          "MLR-E0268"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "validation set: A random portion of data is removed to validate a model. It can be a batch of previously unseen images of cats and dogs, used to see how well the model identifies the animal in each image. This removed portion is commonly called validation data or validation set.",
+    "sentence_reviews": [
+      {
+        "sentence": "validation set: A random portion of data is removed to validate a model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0268"
+        ],
+        "reason": "The source says a random portion of data is removed to validate a model and is called validation data or validation set."
+      },
+      {
+        "sentence": "It can be a batch of previously unseen images of cats and dogs, used to see how well the model identifies the animal in each image.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0008"
+        ],
+        "reason": "The source illustrates a validation set as a batch of previously unseen cat and dog images and checks how well the model identifies each animal."
+      },
+      {
+        "sentence": "This removed portion is commonly called validation data or validation set.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0268"
+        ],
+        "reason": "The source states that the random portion removed to validate models is commonly called validation data (or validation set)."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"validation set: A portion of data set aside to evaluate a trained model. It consists of previously unseen examples, such as images of cats and dogs, used to test how accurately the model identifies each animal. The validation data is commonly a randomly removed subset of the original data, employed to validate one or more models.\",\n  \"claims\": [\n    {\n      \"claim\": \"A validation set is a portion of data set aside to evaluate a trained model.\",\n      \"evidence_ids\": [\"MLR-E0008\", \"MLR-E0268\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It consists of previously unseen examples, such as images of cats and dogs, used to test how accurately the model identifies each animal.\",\n      \"evidence_ids\": [\"MLR-E0008\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The validation data is commonly a randomly removed subset of the original data, employed to validate one or more models.\",\n      \"evidence_ids\": [\"MLR-E0268\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"validation set: A random portion of data is removed to validate a model. It can be a batch of previously unseen images of cats and dogs, used to see how well the model identifies the animal in each image. This removed portion is commonly called validation data or validation set.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"validation set: A random portion of data is removed to validate a model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0268\"],\n      \"reason\": \"The source says a random portion of data is removed to validate a model and is called validation data or validation set.\"\n    },\n    {\n      \"sentence\": \"It can be a batch of previously unseen images of cats and dogs, used to see how well the model identifies the animal in each image.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0008\"],\n      \"reason\": \"The source illustrates a validation set as a batch of previously unseen cat and dog images and checks how well the model identifies each animal.\"\n    },\n    {\n      \"sentence\": \"This removed portion is commonly called validation data or validation set.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0268\"],\n      \"reason\": \"The source states that the random portion removed to validate models is commonly called validation data (or validation set).\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T20:57:05.021496+00:00"
+}

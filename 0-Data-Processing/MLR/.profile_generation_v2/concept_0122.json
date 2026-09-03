@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "78306dd5e456f5cd40fb47ea8e67aa790eaaac3a5dc98e49866acdb9e21b6772",
+  "concept_id": 122,
+  "concept_name": "margin computation via normal vector",
+  "aliases": [
+    "margin computation via normal vector",
+    "margin as 2 over norm of omega"
+  ],
+  "profile": "margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega. Because this distance equals 2 divided by the norm, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.",
+  "word_count": 59,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega. Because this distance equals 2/||omega||_2, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.",
+    "claims": [
+      {
+        "claim": "The margin is equal to 2 divided by the norm of the normal vector omega.",
+        "evidence_ids": [
+          "MLR-E0138"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.",
+        "evidence_ids": [
+          "MLR-E0138"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega. Because this distance equals 2 divided by the norm, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.",
+    "sentence_reviews": [
+      {
+        "sentence": "margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0138"
+        ],
+        "reason": "The evidence gives the L2 distance as 2 divided by the norm of omega."
+      },
+      {
+        "sentence": "Because this distance equals 2 divided by the norm, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0138"
+        ],
+        "reason": "The evidence explicitly states that maximum margin is equivalent to the smallest possible normal vector omega."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega. Because this distance equals 2/||omega||_2, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.\",\n  \"claims\": [\n    {\n      \"claim\": \"The margin is equal to 2 divided by the norm of the normal vector omega.\",\n      \"evidence_ids\": [\"MLR-E0138\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.\",\n      \"evidence_ids\": [\"MLR-E0138\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega. Because this distance equals 2 divided by the norm, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"margin computation via normal vector: the margin is computed as the L2 distance between the two support hyperplanes, expressed as 2 divided by the norm of the normal vector omega.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0138\"\n      ],\n      \"reason\": \"The evidence gives the L2 distance as 2 divided by the norm of omega.\"\n    },\n    {\n      \"sentence\": \"Because this distance equals 2 divided by the norm, finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector omega.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0138\"\n      ],\n      \"reason\": \"The evidence explicitly states that maximum margin is equivalent to the smallest possible normal vector omega.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:14:30.855442+00:00"
+}

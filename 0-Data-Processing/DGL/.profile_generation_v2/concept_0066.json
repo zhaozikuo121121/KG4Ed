@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4735767414baa9b777e6afe49fc98f91ce4563fbdea812592ab3c24a743df983",
+  "concept_id": 66,
+  "concept_name": "predicted class probability",
+  "aliases": [
+    "predicted class probability",
+    "output probability"
+  ],
+  "profile": "predicted class probability: The output y in a graph neural network prediction task, labeled by a handwritten note as the predicted class probability.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "predicted class probability: The output y of a graph neural network prediction task, representing the probability that a given input belongs to the predicted class. This term is used to denote that output value in the context of GNN prediction tasks.",
+    "claims": [
+      {
+        "claim": "The term 'predicted class probability' refers to the output y of a graph neural network prediction task.",
+        "evidence_ids": [
+          "DGL-E0077"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The output y represents the probability of the predicted class.",
+        "evidence_ids": [
+          "DGL-E0077"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten annotation provides evidence for this definition; confidence is 0.900."
+    ]
+  },
+  "review": {
+    "final_profile": "predicted class probability: The output y in a graph neural network prediction task, labeled by a handwritten note as the predicted class probability.",
+    "sentence_reviews": [
+      {
+        "sentence": "predicted class probability: The output y in a graph neural network prediction task, labeled by a handwritten note as the predicted class probability.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0077"
+        ],
+        "reason": "The handwritten annotation labels the output y as the predicted class probability in the context of graph neural network prediction tasks."
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten annotation supports this definition; no additional source independently confirms the probabilistic interpretation of y."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"predicted class probability: The output y of a graph neural network prediction task, representing the probability that a given input belongs to the predicted class. This term is used to denote that output value in the context of GNN prediction tasks.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'predicted class probability' refers to the output y of a graph neural network prediction task.\",\n      \"evidence_ids\": [\"DGL-E0077\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The output y represents the probability of the predicted class.\",\n      \"evidence_ids\": [\"DGL-E0077\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single handwritten annotation provides evidence for this definition; confidence is 0.900.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"predicted class probability: The output y in a graph neural network prediction task, labeled by a handwritten note as the predicted class probability.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"predicted class probability: The output y in a graph neural network prediction task, labeled by a handwritten note as the predicted class probability.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0077\"],\n      \"reason\": \"The handwritten annotation labels the output y as the predicted class probability in the context of graph neural network prediction tasks.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single handwritten annotation supports this definition; no additional source independently confirms the probabilistic interpretation of y.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:11:24.100038+00:00"
+}

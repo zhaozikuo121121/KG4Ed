@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "957f4ebb7e441adc4360247627bedc55fabbce1b8bc0d139debae8e5181c7645",
+  "concept_id": 329,
+  "concept_name": "multigraph prediction",
+  "aliases": [
+    "multigraph prediction",
+    "target graph 1",
+    "target graph n"
+  ],
+  "profile": "multigraph prediction: A generative learning task represented as Source graph -> Target graph 1 ... Target graph n. The notation expresses a mapping from a source graph to target graphs named Target graph 1 through Target graph n. This task is part of the formalization of generative learning tasks.",
+  "word_count": 47,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multigraph prediction: A generative learning task where a source graph is mapped to multiple target graphs, labeled Target graph 1 ... Target graph n. The notation indicates that the output of the prediction is not a single graph, but a numbered sequence of target graphs. This task is part of generative learning formalization and describes a prediction from one input graph to one or more output graphs.",
+    "claims": [
+      {
+        "claim": "Multigraph prediction is a generative learning task.",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It maps a source graph to multiple target graphs, denoted as Target graph 1 through Target graph n.",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The notation indicates a numbered sequence of target graphs rather than a single graph.",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The exact meaning of the ellipsis and whether the target graphs are ordered or distinct are not specified in the available source."
+    ]
+  },
+  "review": {
+    "final_profile": "multigraph prediction: A generative learning task represented as Source graph -> Target graph 1 ... Target graph n. The notation expresses a mapping from a source graph to target graphs named Target graph 1 through Target graph n. This task is part of the formalization of generative learning tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "multigraph prediction: A generative learning task represented as Source graph -> Target graph 1 ... Target graph n.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "reason": "The term and notation are given verbatim in the evidence."
+      },
+      {
+        "sentence": "The notation expresses a mapping from a source graph to target graphs named Target graph 1 through Target graph n.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "reason": "This directly restates the arrow notation in the evidence."
+      },
+      {
+        "sentence": "This task is part of the formalization of generative learning tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0485"
+        ],
+        "reason": "The evidence is titled 'Generative Learning Tasks Formalization'."
+      }
+    ],
+    "warnings": [
+      "The source does not specify how many target graphs are produced or whether they are ordered or distinct.",
+      "No additional properties or applications of multigraph prediction are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multigraph prediction: A generative learning task where a source graph is mapped to multiple target graphs, labeled Target graph 1 ... Target graph n. The notation indicates that the output of the prediction is not a single graph, but a numbered sequence of target graphs. This task is part of generative learning formalization and describes a prediction from one input graph to one or more output graphs.\",\n  \"claims\": [\n    {\n      \"claim\": \"Multigraph prediction is a generative learning task.\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It maps a source graph to multiple target graphs, denoted as Target graph 1 through Target graph n.\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The notation indicates a numbered sequence of target graphs rather than a single graph.\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact meaning of the ellipsis and whether the target graphs are ordered or distinct are not specified in the available source.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multigraph prediction: A generative learning task represented as Source graph -> Target graph 1 ... Target graph n. The notation expresses a mapping from a source graph to target graphs named Target graph 1 through Target graph n. This task is part of the formalization of generative learning tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"multigraph prediction: A generative learning task represented as Source graph -> Target graph 1 ... Target graph n.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"reason\": \"The term and notation are given verbatim in the evidence.\"\n    },\n    {\n      \"sentence\": \"The notation expresses a mapping from a source graph to target graphs named Target graph 1 through Target graph n.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"reason\": \"This directly restates the arrow notation in the evidence.\"\n    },\n    {\n      \"sentence\": \"This task is part of the formalization of generative learning tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0485\"],\n      \"reason\": \"The evidence is titled 'Generative Learning Tasks Formalization'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not specify how many target graphs are produced or whether they are ordered or distinct.\",\n    \"No additional properties or applications of multigraph prediction are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:57:47.276393+00:00"
+}

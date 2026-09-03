@@ -1,0 +1,2463 @@
+{
+  "version": "1.0.0",
+  "lecture": 4,
+  "pdf_file": "DGL_Lecture_4_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "GNN Training: Sampling Strategies and Batch Normalization",
+  "summary": "This lecture page details methods to improve the computational efficiency and stability of training Graph Neural Networks (GNNs) on large graphs. It contrasts three primary sampling strategies—node-wise (GraphSAGE), layer-wise (FastGCN), and subgraph-based (ClusterGCN, GraphSAINT)—highlighting their trade-offs regarding memory usage, redundancy, and structural preservation. Additionally, it explains the role of Batch Normalization (BN) in stabilizing forward propagation, controlling covariate shift, and enabling higher learning rates through regularization.",
+  "key_topics": [
+    "graph neural network training",
+    "sampling strategies",
+    "batch normalization",
+    "computational efficiency",
+    "covariate shift"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T13:56:39+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "subgraph sampling",
+      "aliases": [
+        "mini-batch subgraph"
+      ],
+      "evidence": "Subgraph sampling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        440.0,
+        55.0,
+        522.5,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graph partitioning",
+      "aliases": [],
+      "evidence": "Graph partitioning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        522.5,
+        55.0,
+        550.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "aggregation",
+      "aliases": [
+        "agg"
+      ],
+      "evidence": "AGG",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        137.5,
+        110.0,
+        192.5
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "msg passing"
+      ],
+      "evidence": "MSG passing",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        137.5,
+        357.5,
+        192.5
+      ]
+    },
+    {
+      "canonical": "graph clustering",
+      "aliases": [
+        "clustering algorithm"
+      ],
+      "evidence": "identified by a graph clustering algorithm",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        137.5,
+        697.5,
+        154.0
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn"
+      ],
+      "evidence": "GNN layer operations",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        220.0,
+        247.5,
+        302.5
+      ]
+    },
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn"
+      ],
+      "evidence": "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        264.0,
+        697.5,
+        286.0
+      ]
+    },
+    {
+      "canonical": "batch normalization",
+      "aliases": [
+        "bn"
+      ],
+      "evidence": "BN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        275.0,
+        412.5,
+        357.5
+      ]
+    },
+    {
+      "canonical": "prediction head",
+      "aliases": [
+        "output layer"
+      ],
+      "evidence": "Prediction head",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        302.5,
+        110.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "empirical mean",
+      "aliases": [
+        "mean"
+      ],
+      "evidence": "the empirical mean m_h",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        357.5,
+        807.5,
+        368.5
+      ]
+    },
+    {
+      "canonical": "standard deviation",
+      "aliases": [
+        "variance"
+      ],
+      "evidence": "and standard deviation s_h are computed",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        368.5,
+        862.5,
+        379.5
+      ]
+    },
+    {
+      "canonical": "non-linearity",
+      "aliases": [
+        "activation function"
+      ],
+      "evidence": "Non-linearity",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        385.0,
+        192.5,
+        440.0
+      ]
+    },
+    {
+      "canonical": "dropout",
+      "aliases": [],
+      "evidence": "Dropout",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        385.0,
+        357.5,
+        440.0
+      ]
+    },
+    {
+      "canonical": "layer sampling",
+      "aliases": [
+        "layer-wise sampling"
+      ],
+      "evidence": "Layer sampling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        440.0,
+        385.0,
+        522.5,
+        412.5
+      ]
+    },
+    {
+      "canonical": "fastgcn",
+      "aliases": [],
+      "evidence": "FastGCN (Chen et al., 2018)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        440.0,
+        412.5,
+        522.5,
+        440.0
+      ]
+    },
+    {
+      "canonical": "node sampling",
+      "aliases": [
+        "node-wise sampling"
+      ],
+      "evidence": "Node sampling: Randomly select a subset of target nodes...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        670.0,
+        181.5,
+        945.0
+      ]
+    },
+    {
+      "canonical": "regularization",
+      "aliases": [
+        "regularizer"
+      ],
+      "evidence": "Regularization: BN injects noise to the training process",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        758.0,
+        725.0,
+        945.0,
+        752.5
+      ]
+    },
+    {
+      "canonical": "graphsage",
+      "aliases": [],
+      "evidence": "Examples: GraphSAGE (Hamilton et al., 2017)",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        780.0,
+        181.5,
+        791.0
+      ]
+    },
+    {
+      "canonical": "graphsaint",
+      "aliases": [],
+      "evidence": "Examples: GraphSAINT (Zeng et al., 2019)",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        363.0,
+        780.0,
+        544.5,
+        791.0
+      ]
+    },
+    {
+      "canonical": "ladies",
+      "aliases": [
+        "layer-dependent importance sampling"
+      ],
+      "evidence": "LADIES (Zou et al., 2019): layer-dependent importance sampling",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        181.5,
+        791.0,
+        363.0,
+        802.0
+      ]
+    },
+    {
+      "canonical": "computational efficiency",
+      "aliases": [
+        "efficiency"
+      ],
+      "evidence": "Computational Efficiency: Node sampling reduces the computational cost...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        835.0,
+        181.5,
+        890.0
+      ]
+    },
+    {
+      "canonical": "bipartite graph",
+      "aliases": [],
+      "evidence": "constructs a bipartite graph among the nodes between the two layers",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        862.5,
+        670.0,
+        890.0
+      ]
+    },
+    {
+      "canonical": "covariate shift",
+      "aliases": [],
+      "evidence": "Stable covariate shift with BN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        862.5,
+        945.0,
+        879.0
+      ]
+    },
+    {
+      "canonical": "memory usage",
+      "aliases": [
+        "memory requirements"
+      ],
+      "evidence": "Memory Efficiency: It allows for more efficient memory usage...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        890.0,
+        181.5,
+        917.5
+      ]
+    },
+    {
+      "canonical": "scalability",
+      "aliases": [],
+      "evidence": "Scalability: It allows GNNs to scale to very large graphs...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        363.0,
+        890.0,
+        544.5,
+        917.5
+      ]
+    },
+    {
+      "canonical": "redundancy",
+      "aliases": [],
+      "evidence": "Redundant computations: The recursive nature of node-wise sampling brings in redundancy...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        917.5,
+        181.5,
+        945.0
+      ]
+    },
+    {
+      "canonical": "information loss",
+      "aliases": [],
+      "evidence": "Information Loss: Sampling may result in information loss...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        945.0,
+        544.5,
+        956.0
+      ]
+    },
+    {
+      "canonical": "sampling bias",
+      "aliases": [],
+      "evidence": "Sampling Bias: The sampling process may introduce biases...",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        956.0,
+        544.5,
+        967.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = f(H_k, A)",
+      "related_concepts": [
+        "message passing",
+        "graph neural network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        192.5,
+        357.5,
+        220.0
+      ],
+      "label": "generalized propagation rule"
+    },
+    {
+      "latex": "m_h = \\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} h_{i,k}",
+      "related_concepts": [
+        "empirical mean",
+        "batch normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        385.0,
+        862.5,
+        412.5
+      ],
+      "label": "11.7"
+    },
+    {
+      "latex": "s_h = \\sqrt{\\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} (h_{i,k} - m_h)^2}",
+      "related_concepts": [
+        "standard deviation",
+        "batch normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        412.5,
+        862.5,
+        440.0
+      ],
+      "label": "11.7"
+    },
+    {
+      "latex": "h_{i,k} \\leftarrow \\frac{h_{i,k} - m_h}{s_h + \\epsilon}",
+      "related_concepts": [
+        "batch normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        440.0,
+        862.5,
+        467.5
+      ],
+      "label": "normalization step"
+    },
+    {
+      "latex": "h_{i,k} \\leftarrow \\gamma h_{i,k} + \\delta",
+      "related_concepts": [
+        "batch normalization"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        752.5,
+        467.5,
+        862.5,
+        495.0
+      ],
+      "label": "scale and shift"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, and Prediction head",
+      "related_concepts": [
+        "graph neural network",
+        "message passing",
+        "aggregation",
+        "batch normalization",
+        "dropout",
+        "non-linearity",
+        "prediction head"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        412.5,
+        467.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Comparison of neighborhood expansion between traditional graph convolution and cluster approach across 4 layers",
+      "related_concepts": [
+        "graph convolutional network",
+        "graph clustering",
+        "subgraph sampling"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        291.5,
+        697.5,
+        385.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Three plots showing covariate shift without BN and three corresponding loss curves over iterations",
+      "related_concepts": [
+        "covariate shift",
+        "batch normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        741.5,
+        137.5,
+        917.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of node-wise neighbor sampling (GraphSAGE) showing black nodes in the upper layer and a red frame redundantly sampling a neighboring node twice.",
+      "related_concepts": [
+        "node sampling",
+        "graphsage",
+        "redundancy"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        385.0,
+        670.0,
+        467.5,
+        780.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of layer-wise importance sampling (FastGCN) showing nodes sampled independently in each layer.",
+      "related_concepts": [
+        "layer sampling",
+        "fastgcn"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        670.0,
+        544.5,
+        780.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of LADIES sampling process showing how nodes are selected from upper layer and their neighbors are considered in the current layer via a bipartite graph.",
+      "related_concepts": [
+        "ladies",
+        "bipartite graph",
+        "layer sampling"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        807.5,
+        670.0,
+        917.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Three scatter plots showing stable covariate shift with Batch Normalization, illustrating how BN stabilizes the distribution of activations across layers.",
+      "related_concepts": [
+        "batch normalization",
+        "covariate shift"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        758.0,
+        879.0,
+        945.0,
+        972.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "W^T h",
+      "reason": "Handwritten notation near top right is partially obscured and stylized",
+      "bbox": [
+        934.0,
+        99.0,
+        956.0,
+        115.5
+      ]
+    },
+    {
+      "transcription": "h_k \\rightarrow h_{k+1}",
+      "reason": "Arrow and subscript notation is handwritten and slightly unclear",
+      "bbox": [
+        807.5,
+        330.0,
+        862.5,
+        346.5
+      ]
+    },
+    {
+      "transcription": "avoid division by zero",
+      "reason": "Small handwritten note next to formula is faint",
+      "bbox": [
+        862.5,
+        451.0,
+        917.5,
+        462.0
+      ]
+    },
+    {
+      "transcription": "shattered gradients",
+      "reason": "Handwritten annotation next to printed text is partially obscured and stylized",
+      "bbox": [
+        835.0,
+        670.0,
+        917.5,
+        686.5
+      ]
+    },
+    {
+      "transcription": "learning path",
+      "reason": "Handwritten note under 'effective learning path' is slightly smudged",
+      "bbox": [
+        835.0,
+        846.0,
+        890.0,
+        857.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "GNN layer operations",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              400,
+              450,
+              550
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              250,
+              650,
+              350
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "AGG",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              250,
+              200,
+              350
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              500,
+              750,
+              650
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              700,
+              650,
+              800
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              700,
+              350,
+              800
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              550,
+              200,
+              650
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [],
+            "evidence": "Subgraph sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              100,
+              950,
+              150
+            ]
+          },
+          {
+            "canonical": "graph partitioning",
+            "aliases": [],
+            "evidence": "Graph partitioning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              950,
+              100,
+              1000,
+              150
+            ]
+          },
+          {
+            "canonical": "clustergcn",
+            "aliases": [],
+            "evidence": "ClusterGCN (Chiang et al., 2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              150,
+              1000,
+              200
+            ]
+          },
+          {
+            "canonical": "layer sampling",
+            "aliases": [],
+            "evidence": "Layer sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              700,
+              950,
+              750
+            ]
+          },
+          {
+            "canonical": "fastgcn",
+            "aliases": [],
+            "evidence": "FastGCN (Chen et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              750,
+              950,
+              800
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              350,
+              650,
+              400
+            ],
+            "label": "generalized propagation rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, and Prediction head",
+            "related_concepts": [
+              "graph neural network",
+              "message passing",
+              "aggregation",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              750,
+              850
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Layered graph structure showing neighborhood expansion in traditional graph convolution",
+            "related_concepts": [
+              "graph neural network",
+              "subgraph sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              400,
+              1000,
+              650
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"GNN layer operations\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 400, 450, 550]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 250, 650, 350]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"AGG\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 250, 200, 350]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 500, 750, 650]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 700, 650, 800]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 700, 350, 800]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 550, 200, 650]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [],\n      \"evidence\": \"Subgraph sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 100, 950, 150]\n    },\n    {\n      \"canonical\": \"graph partitioning\",\n      \"aliases\": [],\n      \"evidence\": \"Graph partitioning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [950, 100, 1000, 150]\n    },\n    {\n      \"canonical\": \"clustergcn\",\n      \"aliases\": [],\n      \"evidence\": \"ClusterGCN (Chiang et al., 2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 150, 1000, 200]\n    },\n    {\n      \"canonical\": \"layer sampling\",\n      \"aliases\": [],\n      \"evidence\": \"Layer sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 700, 950, 750]\n    },\n    {\n      \"canonical\": \"fastgcn\",\n      \"aliases\": [],\n      \"evidence\": \"FastGCN (Chen et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 750, 950, 800]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 350, 650, 400],\n      \"label\": \"generalized propagation rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, and Prediction head\",\n      \"related_concepts\": [\"graph neural network\", \"message passing\", \"aggregation\", \"batch normalization\", \"dropout\", \"non-linearity\", \"prediction head\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 750, 850]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Layered graph structure showing neighborhood expansion in traditional graph convolution\",\n      \"related_concepts\": [\"graph neural network\", \"subgraph sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 400, 1000, 650]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN",
+              "BatchNorm"
+            ],
+            "evidence": "Batch normalization (BN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              100,
+              700,
+              130
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              480,
+              450,
+              520
+            ]
+          },
+          {
+            "canonical": "graph clustering",
+            "aliases": [
+              "clustering algorithm"
+            ],
+            "evidence": "identified by a graph clustering algorithm",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              250,
+              450,
+              280
+            ]
+          },
+          {
+            "canonical": "neighborhood expansion",
+            "aliases": [],
+            "evidence": "The neighborhood expansion difference between traditional graph convolution and our proposed cluster approach",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              720,
+              450,
+              750
+            ]
+          },
+          {
+            "canonical": "covariate shift",
+            "aliases": [],
+            "evidence": "Covariate shift (t=1) (MLR B.6) without BN",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              200,
+              800,
+              230
+            ]
+          },
+          {
+            "canonical": "empirical mean",
+            "aliases": [
+              "mean"
+            ],
+            "evidence": "the empirical mean m_h",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              650,
+              650,
+              670
+            ]
+          },
+          {
+            "canonical": "standard deviation",
+            "aliases": [
+              "variance"
+            ],
+            "evidence": "and standard deviation s_h are computed",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              670,
+              750,
+              690
+            ]
+          },
+          {
+            "canonical": "scaling parameter",
+            "aliases": [
+              "gamma",
+              "learnable"
+            ],
+            "evidence": "scaling param",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              880,
+              750,
+              900
+            ]
+          },
+          {
+            "canonical": "shifting parameter",
+            "aliases": [
+              "beta",
+              "learnable"
+            ],
+            "evidence": "shift param",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              860,
+              750,
+              880
+            ]
+          },
+          {
+            "canonical": "mini-batch",
+            "aliases": [
+              "batch"
+            ],
+            "evidence": "subgraph = mini-batch",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              400,
+              450,
+              430
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "m_h = \\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} h_{i,k}",
+            "related_concepts": [
+              "empirical mean",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              700,
+              750,
+              750
+            ],
+            "label": "11.7"
+          },
+          {
+            "latex": "s_h = \\sqrt{\\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} (h_{i,k} - m_h)^2}",
+            "related_concepts": [
+              "standard deviation",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              750,
+              800
+            ],
+            "label": "11.7"
+          },
+          {
+            "latex": "h_{i,k} \\leftarrow \\frac{h_{i,k} - m_h}{s_h + \\epsilon}",
+            "related_concepts": [
+              "normalize the node embeddings",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              800,
+              750,
+              850
+            ],
+            "label": ""
+          },
+          {
+            "latex": "h_{i,k} \\leftarrow \\gamma h_{i,k} + \\delta",
+            "related_concepts": [
+              "scaling parameter",
+              "shifting parameter",
+              "batch normalization"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              850,
+              750,
+              900
+            ],
+            "label": ""
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of neighborhood expansion between traditional graph convolution and cluster approach across 4 layers",
+            "related_concepts": [
+              "neighborhood expansion",
+              "graph convolutional network",
+              "graph clustering"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              530,
+              450,
+              700
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Three plots showing covariate shift without BN and three corresponding loss curves over iterations",
+            "related_concepts": [
+              "covariate shift",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              250,
+              850,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Small graph example illustrating batch B with nodes and edges",
+            "related_concepts": [
+              "batch normalization",
+              "empirical mean",
+              "standard deviation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              760,
+              700,
+              850,
+              750
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Handwritten diagram showing GNN layer transformation with weight matrix W and bias b",
+            "related_concepts": [
+              "graph convolutional network",
+              "scaling parameter",
+              "shifting parameter"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              850,
+              800,
+              950,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "W^T h",
+            "reason": "Handwritten notation near top right is partially obscured and stylized",
+            "bbox": [
+              880,
+              180,
+              920,
+              210
+            ]
+          },
+          {
+            "transcription": "h_k \\rightarrow h_{k+1}",
+            "reason": "Arrow and subscript notation is handwritten and slightly unclear",
+            "bbox": [
+              650,
+              600,
+              750,
+              630
+            ]
+          },
+          {
+            "transcription": "avoid division by zero",
+            "reason": "Small handwritten note next to formula is faint",
+            "bbox": [
+              750,
+              820,
+              850,
+              840
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN\", \"BatchNorm\"],\n      \"evidence\": \"Batch normalization (BN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 100, 700, 130]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 480, 450, 520]\n    },\n    {\n      \"canonical\": \"graph clustering\",\n      \"aliases\": [\"clustering algorithm\"],\n      \"evidence\": \"identified by a graph clustering algorithm\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 250, 450, 280]\n    },\n    {\n      \"canonical\": \"neighborhood expansion\",\n      \"aliases\": [],\n      \"evidence\": \"The neighborhood expansion difference between traditional graph convolution and our proposed cluster approach\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 720, 450, 750]\n    },\n    {\n      \"canonical\": \"covariate shift\",\n      \"aliases\": [],\n      \"evidence\": \"Covariate shift (t=1) (MLR B.6) without BN\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 200, 800, 230]\n    },\n    {\n      \"canonical\": \"empirical mean\",\n      \"aliases\": [\"mean\"],\n      \"evidence\": \"the empirical mean m_h\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 650, 650, 670]\n    },\n    {\n      \"canonical\": \"standard deviation\",\n      \"aliases\": [\"variance\"],\n      \"evidence\": \"and standard deviation s_h are computed\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 670, 750, 690]\n    },\n    {\n      \"canonical\": \"scaling parameter\",\n      \"aliases\": [\"gamma\", \"learnable\"],\n      \"evidence\": \"scaling param\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 880, 750, 900]\n    },\n    {\n      \"canonical\": \"shifting parameter\",\n      \"aliases\": [\"beta\", \"learnable\"],\n      \"evidence\": \"shift param\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 860, 750, 880]\n    },\n    {\n      \"canonical\": \"mini-batch\",\n      \"aliases\": [\"batch\"],\n      \"evidence\": \"subgraph = mini-batch\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 400, 450, 430]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"m_h = \\\\frac{1}{|\\\\mathcal{B}|} \\\\sum_{i \\\\in \\\\mathcal{B}} h_{i,k}\",\n      \"related_concepts\": [\"empirical mean\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 700, 750, 750],\n      \"label\": \"11.7\"\n    },\n    {\n      \"latex\": \"s_h = \\\\sqrt{\\\\frac{1}{|\\\\mathcal{B}|} \\\\sum_{i \\\\in \\\\mathcal{B}} (h_{i,k} - m_h)^2}\",\n      \"related_concepts\": [\"standard deviation\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 750, 800],\n      \"label\": \"11.7\"\n    },\n    {\n      \"latex\": \"h_{i,k} \\\\leftarrow \\\\frac{h_{i,k} - m_h}{s_h + \\\\epsilon}\",\n      \"related_concepts\": [\"normalize the node embeddings\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 800, 750, 850],\n      \"label\": \"\"\n    },\n    {\n      \"latex\": \"h_{i,k} \\\\leftarrow \\\\gamma h_{i,k} + \\\\delta\",\n      \"related_concepts\": [\"scaling parameter\", \"shifting parameter\", \"batch normalization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 850, 750, 900],\n      \"label\": \"\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of neighborhood expansion between traditional graph convolution and cluster approach across 4 layers\",\n      \"related_concepts\": [\"neighborhood expansion\", \"graph convolutional network\", \"graph clustering\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 530, 450, 700]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Three plots showing covariate shift without BN and three corresponding loss curves over iterations\",\n      \"related_concepts\": [\"covariate shift\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 250, 850, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Small graph example illustrating batch B with nodes and edges\",\n      \"related_concepts\": [\"batch normalization\", \"empirical mean\", \"standard deviation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [760, 700, 850, 750]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Handwritten diagram showing GNN layer transformation with weight matrix W and bias b\",\n      \"related_concepts\": [\"graph convolutional network\", \"scaling parameter\", \"shifting parameter\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [850, 800, 950, 900]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"W^T h\",\n      \"reason\": \"Handwritten notation near top right is partially obscured and stylized\",\n      \"bbox\": [880, 180, 920, 210]\n    },\n    {\n      \"transcription\": \"h_k \\\\rightarrow h_{k+1}\",\n      \"reason\": \"Arrow and subscript notation is handwritten and slightly unclear\",\n      \"bbox\": [650, 600, 750, 630]\n    },\n    {\n      \"transcription\": \"avoid division by zero\",\n      \"reason\": \"Small handwritten note next to formula is faint\",\n      \"bbox\": [750, 820, 850, 840]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node sampling",
+            "aliases": [
+              "node-wise sampling"
+            ],
+            "evidence": "Node sampling: Randomly select a subset of target nodes and then work back through the network adding a subset of the nodes in the receptive field at each stage.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              400,
+              330,
+              900
+            ]
+          },
+          {
+            "canonical": "layer sampling",
+            "aliases": [
+              "layer-wise sampling"
+            ],
+            "evidence": "Layer sampling samples the receptive field in each layer independently. This addresses the node increase in node sampling as we pass back through the graph.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              330,
+              400,
+              660,
+              900
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [],
+            "evidence": "Subgraph sampling: Randomly draws subgraphs or divide the original graph into subgraphs. These are trained as independent data samples.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              400,
+              990,
+              900
+            ]
+          },
+          {
+            "canonical": "computational efficiency",
+            "aliases": [],
+            "evidence": "Computational Efficiency: Node sampling reduces the computational cost by training on a subset of nodes rather than the entire graph.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              700,
+              330,
+              800
+            ]
+          },
+          {
+            "canonical": "memory efficiency",
+            "aliases": [],
+            "evidence": "Memory Efficiency: It allows for more efficient memory usage, especially when dealing with graphs with a large number of nodes.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              800,
+              330,
+              850
+            ]
+          },
+          {
+            "canonical": "scalability",
+            "aliases": [],
+            "evidence": "Scalability: It allows GNNs to scale to very large graphs by breaking them down into manageable pieces.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              800,
+              990,
+              850
+            ]
+          },
+          {
+            "canonical": "local structure disruption",
+            "aliases": [],
+            "evidence": "Local structure disruption: It may disrupt the links connecting neighboring nodes between two consecutive layers due to the random independent sampling in each layer.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              330,
+              850,
+              660,
+              900
+            ]
+          },
+          {
+            "canonical": "redundant computations",
+            "aliases": [],
+            "evidence": "Redundant computations: The recursive nature of node-wise sampling brings in redundancy for calculating embeddings.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              850,
+              330,
+              900
+            ]
+          },
+          {
+            "canonical": "information loss",
+            "aliases": [],
+            "evidence": "Information Loss: Sampling may result in information loss, as the model is trained on a subset of the graph instead of the entire structure.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              900,
+              990,
+              920
+            ]
+          },
+          {
+            "canonical": "sampling bias",
+            "aliases": [],
+            "evidence": "Sampling Bias: The sampling process may introduce biases, especially if certain parts of the graph are consistently under-sampled.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              920,
+              990,
+              940
+            ]
+          },
+          {
+            "canonical": "limited global information",
+            "aliases": [],
+            "evidence": "Limited Global Information: Sampling might limit the model's ability to capture global graph properties, which could be crucial for certain tasks.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              940,
+              990,
+              960
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [],
+            "evidence": "Examples: GraphSAGE (Hamilton et al., 2017)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              600,
+              330,
+              620
+            ]
+          },
+          {
+            "canonical": "fastgcn",
+            "aliases": [],
+            "evidence": "Examples: FastGCN (Chen et al., 2018)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              330,
+              600,
+              660,
+              620
+            ]
+          },
+          {
+            "canonical": "ladies",
+            "aliases": [
+              "layer-dependent importance sampling"
+            ],
+            "evidence": "LADIES (Zou et al., 2019): layer-dependent importance sampling",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              330,
+              620,
+              660,
+              640
+            ]
+          },
+          {
+            "canonical": "graphsaint",
+            "aliases": [],
+            "evidence": "Examples: GraphSAINT (Zeng et al., 2019)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              600,
+              990,
+              620
+            ]
+          },
+          {
+            "canonical": "clustergcn",
+            "aliases": [],
+            "evidence": "ClusterGCN (Chiang et al., 2019)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              620,
+              990,
+              640
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of node-wise neighbor sampling (GraphSAGE) showing black nodes in the upper layer and a red frame redundantly sampling a neighboring node twice.",
+            "related_concepts": [
+              "node sampling",
+              "graphsage"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              400,
+              850,
+              600
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of layer-wise importance sampling (FastGCN) showing nodes sampled independently in each layer.",
+            "related_concepts": [
+              "layer sampling",
+              "fastgcn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              400,
+              990,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node sampling\",\n      \"aliases\": [\"node-wise sampling\"],\n      \"evidence\": \"Node sampling: Randomly select a subset of target nodes and then work back through the network adding a subset of the nodes in the receptive field at each stage.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 400, 330, 900]\n    },\n    {\n      \"canonical\": \"layer sampling\",\n      \"aliases\": [\"layer-wise sampling\"],\n      \"evidence\": \"Layer sampling samples the receptive field in each layer independently. This addresses the node increase in node sampling as we pass back through the graph.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330, 400, 660, 900]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [],\n      \"evidence\": \"Subgraph sampling: Randomly draws subgraphs or divide the original graph into subgraphs. These are trained as independent data samples.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 400, 990, 900]\n    },\n    {\n      \"canonical\": \"computational efficiency\",\n      \"aliases\": [],\n      \"evidence\": \"Computational Efficiency: Node sampling reduces the computational cost by training on a subset of nodes rather than the entire graph.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 700, 330, 800]\n    },\n    {\n      \"canonical\": \"memory efficiency\",\n      \"aliases\": [],\n      \"evidence\": \"Memory Efficiency: It allows for more efficient memory usage, especially when dealing with graphs with a large number of nodes.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 800, 330, 850]\n    },\n    {\n      \"canonical\": \"scalability\",\n      \"aliases\": [],\n      \"evidence\": \"Scalability: It allows GNNs to scale to very large graphs by breaking them down into manageable pieces.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 800, 990, 850]\n    },\n    {\n      \"canonical\": \"local structure disruption\",\n      \"aliases\": [],\n      \"evidence\": \"Local structure disruption: It may disrupt the links connecting neighboring nodes between two consecutive layers due to the random independent sampling in each layer.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330, 850, 660, 900]\n    },\n    {\n      \"canonical\": \"redundant computations\",\n      \"aliases\": [],\n      \"evidence\": \"Redundant computations: The recursive nature of node-wise sampling brings in redundancy for calculating embeddings.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 850, 330, 900]\n    },\n    {\n      \"canonical\": \"information loss\",\n      \"aliases\": [],\n      \"evidence\": \"Information Loss: Sampling may result in information loss, as the model is trained on a subset of the graph instead of the entire structure.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 900, 990, 920]\n    },\n    {\n      \"canonical\": \"sampling bias\",\n      \"aliases\": [],\n      \"evidence\": \"Sampling Bias: The sampling process may introduce biases, especially if certain parts of the graph are consistently under-sampled.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 920, 990, 940]\n    },\n    {\n      \"canonical\": \"limited global information\",\n      \"aliases\": [],\n      \"evidence\": \"Limited Global Information: Sampling might limit the model's ability to capture global graph properties, which could be crucial for certain tasks.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 940, 990, 960]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [],\n      \"evidence\": \"Examples: GraphSAGE (Hamilton et al., 2017)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 600, 330, 620]\n    },\n    {\n      \"canonical\": \"fastgcn\",\n      \"aliases\": [],\n      \"evidence\": \"Examples: FastGCN (Chen et al., 2018)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330, 600, 660, 620]\n    },\n    {\n      \"canonical\": \"ladies\",\n      \"aliases\": [\"layer-dependent importance sampling\"],\n      \"evidence\": \"LADIES (Zou et al., 2019): layer-dependent importance sampling\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330, 620, 660, 640]\n    },\n    {\n      \"canonical\": \"graphsaint\",\n      \"aliases\": [],\n      \"evidence\": \"Examples: GraphSAINT (Zeng et al., 2019)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 600, 990, 620]\n    },\n    {\n      \"canonical\": \"clustergcn\",\n      \"aliases\": [],\n      \"evidence\": \"ClusterGCN (Chiang et al., 2019)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 620, 990, 640]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of node-wise neighbor sampling (GraphSAGE) showing black nodes in the upper layer and a red frame redundantly sampling a neighboring node twice.\",\n      \"related_concepts\": [\"node sampling\", \"graphsage\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 400, 850, 600]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of layer-wise importance sampling (FastGCN) showing nodes sampled independently in each layer.\",\n      \"related_concepts\": [\"layer sampling\", \"fastgcn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 400, 990, 600]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node sampling",
+            "aliases": [
+              "sampling nodes",
+              "node-wise neighbor sampling"
+            ],
+            "evidence": "Node sampling (GraphSAGE)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              450,
+              150,
+              600
+            ]
+          },
+          {
+            "canonical": "layer sampling",
+            "aliases": [
+              "layer-wise importance sampling"
+            ],
+            "evidence": "Layer sampling (FastGCN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              160,
+              450,
+              350,
+              600
+            ]
+          },
+          {
+            "canonical": "layer-dependent importance sampling",
+            "aliases": [
+              "LADIES"
+            ],
+            "evidence": "Layer-Dependent Importance Sampling (LADIES)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              360,
+              450,
+              550,
+              600
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN"
+            ],
+            "evidence": "Benefits of batch normalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              300,
+              900,
+              350
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence": "Regularization: BN injects noise to the training process",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              500,
+              900,
+              550
+            ]
+          },
+          {
+            "canonical": "stable forward propagation",
+            "aliases": [],
+            "evidence": "Stable forward propagation: BN allows to control the variance",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              650,
+              900,
+              700
+            ]
+          },
+          {
+            "canonical": "bipartite graph",
+            "aliases": [],
+            "evidence": "constructs a bipartite graph among the nodes between the two layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              750,
+              400,
+              800
+            ]
+          },
+          {
+            "canonical": "sampling probability",
+            "aliases": [],
+            "evidence": "calculates the sampling probability according to the degree of nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              800,
+              400,
+              850
+            ]
+          },
+          {
+            "canonical": "covariate shift",
+            "aliases": [],
+            "evidence": "Stable covariate shift with BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              750,
+              900,
+              780
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_i^{(k)} = \\gamma h_i^{(k)} + \\delta",
+            "related_concepts": [
+              "batch normalization"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ],
+            "label": "BN transformation"
+          },
+          {
+            "latex": "h_i^{(k+1)} = \\sigma(\\sum_{j \\in \\mathcal{N}(i)} h_j^{(k)} W^{(k)}) ",
+            "related_concepts": [
+              "graph convolution",
+              "message passing"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              600,
+              200,
+              800,
+              250
+            ],
+            "label": "GCN layer update"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of Node sampling, Layer sampling, and Layer-Dependent Importance Sampling methods showing different node selection strategies across layers.",
+            "related_concepts": [
+              "node sampling",
+              "layer sampling",
+              "layer-dependent importance sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              450,
+              550,
+              650
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Three scatter plots showing stable covariate shift with Batch Normalization, illustrating how BN stabilizes the distribution of activations across layers.",
+            "related_concepts": [
+              "batch normalization",
+              "covariate shift"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560,
+              780,
+              900,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of LADIES sampling process showing how nodes are selected from upper layer and their neighbors are considered in the current layer.",
+            "related_concepts": [
+              "layer-dependent importance sampling",
+              "bipartite graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              650,
+              400,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "shattered gradients",
+            "reason": "Handwritten annotation next to printed text is partially obscured and stylized",
+            "bbox": [
+              700,
+              400,
+              850,
+              430
+            ]
+          },
+          {
+            "transcription": "learning path",
+            "reason": "Handwritten note under 'effective learning path' is slightly smudged",
+            "bbox": [
+              700,
+              720,
+              800,
+              740
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node sampling\",\n      \"aliases\": [\"sampling nodes\", \"node-wise neighbor sampling\"],\n      \"evidence\": \"Node sampling (GraphSAGE)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 450, 150, 600]\n    },\n    {\n      \"canonical\": \"layer sampling\",\n      \"aliases\": [\"layer-wise importance sampling\"],\n      \"evidence\": \"Layer sampling (FastGCN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [160, 450, 350, 600]\n    },\n    {\n      \"canonical\": \"layer-dependent importance sampling\",\n      \"aliases\": [\"LADIES\"],\n      \"evidence\": \"Layer-Dependent Importance Sampling (LADIES)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [360, 450, 550, 600]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN\"],\n      \"evidence\": \"Benefits of batch normalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 300, 900, 350]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence\": \"Regularization: BN injects noise to the training process\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 500, 900, 550]\n    },\n    {\n      \"canonical\": \"stable forward propagation\",\n      \"aliases\": [],\n      \"evidence\": \"Stable forward propagation: BN allows to control the variance\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 650, 900, 700]\n    },\n    {\n      \"canonical\": \"bipartite graph\",\n      \"aliases\": [],\n      \"evidence\": \"constructs a bipartite graph among the nodes between the two layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 750, 400, 800]\n    },\n    {\n      \"canonical\": \"sampling probability\",\n      \"aliases\": [],\n      \"evidence\": \"calculates the sampling probability according to the degree of nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 800, 400, 850]\n    },\n    {\n      \"canonical\": \"covariate shift\",\n      \"aliases\": [],\n      \"evidence\": \"Stable covariate shift with BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 750, 900, 780]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_i^{(k)} = \\\\gamma h_i^{(k)} + \\\\delta\",\n      \"related_concepts\": [\"batch normalization\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [600, 100, 800, 150],\n      \"label\": \"BN transformation\"\n    },\n    {\n      \"latex\": \"h_i^{(k+1)} = \\\\sigma(\\\\sum_{j \\\\in \\\\mathcal{N}(i)} h_j^{(k)} W^{(k)}) \",\n      \"related_concepts\": [\"graph convolution\", \"message passing\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [600, 200, 800, 250],\n      \"label\": \"GCN layer update\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of Node sampling, Layer sampling, and Layer-Dependent Importance Sampling methods showing different node selection strategies across layers.\",\n      \"related_concepts\": [\"node sampling\", \"layer sampling\", \"layer-dependent importance sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 450, 550, 650]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Three scatter plots showing stable covariate shift with Batch Normalization, illustrating how BN stabilizes the distribution of activations across layers.\",\n      \"related_concepts\": [\"batch normalization\", \"covariate shift\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560, 780, 900, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of LADIES sampling process showing how nodes are selected from upper layer and their neighbors are considered in the current layer.\",\n      \"related_concepts\": [\"layer-dependent importance sampling\", \"bipartite graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 650, 400, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"shattered gradients\",\n      \"reason\": \"Handwritten annotation next to printed text is partially obscured and stylized\",\n      \"bbox\": [700, 400, 850, 430]\n    },\n    {\n      \"transcription\": \"learning path\",\n      \"reason\": \"Handwritten note under 'effective learning path' is slightly smudged\",\n      \"bbox\": [700, 720, 800, 740]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "GNN Training: Sampling Strategies and Batch Normalization",
+        "summary": "This lecture page details methods to improve the computational efficiency and stability of training Graph Neural Networks (GNNs) on large graphs. It contrasts three primary sampling strategies—node-wise (GraphSAGE), layer-wise (FastGCN), and subgraph-based (ClusterGCN, GraphSAINT)—highlighting their trade-offs regarding memory usage, redundancy, and structural preservation. Additionally, it explains the role of Batch Normalization (BN) in stabilizing forward propagation, controlling covariate shift, and enabling higher learning rates through regularization.",
+        "key_topics": [
+          "graph neural network training",
+          "sampling strategies",
+          "batch normalization",
+          "computational efficiency",
+          "covariate shift"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "GNN layer operations",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              220.0,
+              247.5,
+              302.5
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              137.5,
+              357.5,
+              192.5
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "AGG",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              137.5,
+              110.0,
+              192.5
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              275.0,
+              412.5,
+              357.5
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              385.0,
+              357.5,
+              440.0
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [
+              "activation function"
+            ],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              385.0,
+              192.5,
+              440.0
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "output layer"
+            ],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              302.5,
+              110.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "subgraph sampling",
+            "aliases": [
+              "mini-batch subgraph"
+            ],
+            "evidence": "Subgraph sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              440.0,
+              55.0,
+              522.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph partitioning",
+            "aliases": [],
+            "evidence": "Graph partitioning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              522.5,
+              55.0,
+              550.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph clustering",
+            "aliases": [
+              "clustering algorithm"
+            ],
+            "evidence": "identified by a graph clustering algorithm",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              137.5,
+              697.5,
+              154.0
+            ]
+          },
+          {
+            "canonical": "layer sampling",
+            "aliases": [
+              "layer-wise sampling"
+            ],
+            "evidence": "Layer sampling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              440.0,
+              385.0,
+              522.5,
+              412.5
+            ]
+          },
+          {
+            "canonical": "node sampling",
+            "aliases": [
+              "node-wise sampling"
+            ],
+            "evidence": "Node sampling: Randomly select a subset of target nodes...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              670.0,
+              181.5,
+              945.0
+            ]
+          },
+          {
+            "canonical": "computational efficiency",
+            "aliases": [
+              "efficiency"
+            ],
+            "evidence": "Computational Efficiency: Node sampling reduces the computational cost...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              835.0,
+              181.5,
+              890.0
+            ]
+          },
+          {
+            "canonical": "memory usage",
+            "aliases": [
+              "memory requirements"
+            ],
+            "evidence": "Memory Efficiency: It allows for more efficient memory usage...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              890.0,
+              181.5,
+              917.5
+            ]
+          },
+          {
+            "canonical": "scalability",
+            "aliases": [],
+            "evidence": "Scalability: It allows GNNs to scale to very large graphs...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              363.0,
+              890.0,
+              544.5,
+              917.5
+            ]
+          },
+          {
+            "canonical": "redundancy",
+            "aliases": [],
+            "evidence": "Redundant computations: The recursive nature of node-wise sampling brings in redundancy...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              917.5,
+              181.5,
+              945.0
+            ]
+          },
+          {
+            "canonical": "information loss",
+            "aliases": [],
+            "evidence": "Information Loss: Sampling may result in information loss...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              945.0,
+              544.5,
+              956.0
+            ]
+          },
+          {
+            "canonical": "sampling bias",
+            "aliases": [],
+            "evidence": "Sampling Bias: The sampling process may introduce biases...",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              956.0,
+              544.5,
+              967.0
+            ]
+          },
+          {
+            "canonical": "graphsage",
+            "aliases": [],
+            "evidence": "Examples: GraphSAGE (Hamilton et al., 2017)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              780.0,
+              181.5,
+              791.0
+            ]
+          },
+          {
+            "canonical": "fastgcn",
+            "aliases": [],
+            "evidence": "FastGCN (Chen et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              440.0,
+              412.5,
+              522.5,
+              440.0
+            ]
+          },
+          {
+            "canonical": "graphsaint",
+            "aliases": [],
+            "evidence": "Examples: GraphSAINT (Zeng et al., 2019)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              363.0,
+              780.0,
+              544.5,
+              791.0
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularizer"
+            ],
+            "evidence": "Regularization: BN injects noise to the training process",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              758.0,
+              725.0,
+              945.0,
+              752.5
+            ]
+          },
+          {
+            "canonical": "covariate shift",
+            "aliases": [],
+            "evidence": "Stable covariate shift with BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              862.5,
+              945.0,
+              879.0
+            ]
+          },
+          {
+            "canonical": "bipartite graph",
+            "aliases": [],
+            "evidence": "constructs a bipartite graph among the nodes between the two layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              862.5,
+              670.0,
+              890.0
+            ]
+          },
+          {
+            "canonical": "ladies",
+            "aliases": [
+              "layer-dependent importance sampling"
+            ],
+            "evidence": "LADIES (Zou et al., 2019): layer-dependent importance sampling",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              181.5,
+              791.0,
+              363.0,
+              802.0
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              264.0,
+              697.5,
+              286.0
+            ]
+          },
+          {
+            "canonical": "empirical mean",
+            "aliases": [
+              "mean"
+            ],
+            "evidence": "the empirical mean m_h",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              357.5,
+              807.5,
+              368.5
+            ]
+          },
+          {
+            "canonical": "standard deviation",
+            "aliases": [
+              "variance"
+            ],
+            "evidence": "and standard deviation s_h are computed",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              368.5,
+              862.5,
+              379.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              192.5,
+              357.5,
+              220.0
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "m_h = \\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} h_{i,k}",
+            "related_concepts": [
+              "empirical mean",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              385.0,
+              862.5,
+              412.5
+            ],
+            "label": "11.7"
+          },
+          {
+            "latex": "s_h = \\sqrt{\\frac{1}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} (h_{i,k} - m_h)^2}",
+            "related_concepts": [
+              "standard deviation",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              862.5,
+              440.0
+            ],
+            "label": "11.7"
+          },
+          {
+            "latex": "h_{i,k} \\leftarrow \\frac{h_{i,k} - m_h}{s_h + \\epsilon}",
+            "related_concepts": [
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              440.0,
+              862.5,
+              467.5
+            ],
+            "label": "normalization step"
+          },
+          {
+            "latex": "h_{i,k} \\leftarrow \\gamma h_{i,k} + \\delta",
+            "related_concepts": [
+              "batch normalization"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              752.5,
+              467.5,
+              862.5,
+              495.0
+            ],
+            "label": "scale and shift"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, and Prediction head",
+            "related_concepts": [
+              "graph neural network",
+              "message passing",
+              "aggregation",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              412.5,
+              467.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Comparison of neighborhood expansion between traditional graph convolution and cluster approach across 4 layers",
+            "related_concepts": [
+              "graph convolutional network",
+              "graph clustering",
+              "subgraph sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              291.5,
+              697.5,
+              385.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Three plots showing covariate shift without BN and three corresponding loss curves over iterations",
+            "related_concepts": [
+              "covariate shift",
+              "batch normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              741.5,
+              137.5,
+              917.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of node-wise neighbor sampling (GraphSAGE) showing black nodes in the upper layer and a red frame redundantly sampling a neighboring node twice.",
+            "related_concepts": [
+              "node sampling",
+              "graphsage",
+              "redundancy"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              385.0,
+              670.0,
+              467.5,
+              780.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of layer-wise importance sampling (FastGCN) showing nodes sampled independently in each layer.",
+            "related_concepts": [
+              "layer sampling",
+              "fastgcn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              670.0,
+              544.5,
+              780.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of LADIES sampling process showing how nodes are selected from upper layer and their neighbors are considered in the current layer via a bipartite graph.",
+            "related_concepts": [
+              "ladies",
+              "bipartite graph",
+              "layer sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              807.5,
+              670.0,
+              917.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Three scatter plots showing stable covariate shift with Batch Normalization, illustrating how BN stabilizes the distribution of activations across layers.",
+            "related_concepts": [
+              "batch normalization",
+              "covariate shift"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              758.0,
+              879.0,
+              945.0,
+              972.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "W^T h",
+            "reason": "Handwritten notation near top right is partially obscured and stylized",
+            "bbox": [
+              934.0,
+              99.0,
+              956.0,
+              115.5
+            ]
+          },
+          {
+            "transcription": "h_k \\rightarrow h_{k+1}",
+            "reason": "Arrow and subscript notation is handwritten and slightly unclear",
+            "bbox": [
+              807.5,
+              330.0,
+              862.5,
+              346.5
+            ]
+          },
+          {
+            "transcription": "avoid division by zero",
+            "reason": "Small handwritten note next to formula is faint",
+            "bbox": [
+              862.5,
+              451.0,
+              917.5,
+              462.0
+            ]
+          },
+          {
+            "transcription": "shattered gradients",
+            "reason": "Handwritten annotation next to printed text is partially obscured and stylized",
+            "bbox": [
+              835.0,
+              670.0,
+              917.5,
+              686.5
+            ]
+          },
+          {
+            "transcription": "learning path",
+            "reason": "Handwritten note under 'effective learning path' is slightly smudged",
+            "bbox": [
+              835.0,
+              846.0,
+              890.0,
+              857.0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"GNN Training: Sampling Strategies and Batch Normalization\",\n  \"summary\": \"This lecture page details methods to improve the computational efficiency and stability of training Graph Neural Networks (GNNs) on large graphs. It contrasts three primary sampling strategies—node-wise (GraphSAGE), layer-wise (FastGCN), and subgraph-based (ClusterGCN, GraphSAINT)—highlighting their trade-offs regarding memory usage, redundancy, and structural preservation. Additionally, it explains the role of Batch Normalization (BN) in stabilizing forward propagation, controlling covariate shift, and enabling higher learning rates through regularization.\",\n  \"key_topics\": [\n    \"graph neural network training\",\n    \"sampling strategies\",\n    \"batch normalization\",\n    \"computational efficiency\",\n    \"covariate shift\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"GNN layer operations\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [165.0, 220.0, 247.5, 302.5]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 137.5, 357.5, 192.5]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"AGG\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 137.5, 110.0, 192.5]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 275.0, 412.5, 357.5]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 385.0, 357.5, 440.0]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [\"activation function\"],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 385.0, 192.5, 440.0]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"output layer\"],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 302.5, 110.0, 357.5]\n    },\n    {\n      \"canonical\": \"subgraph sampling\",\n      \"aliases\": [\"mini-batch subgraph\"],\n      \"evidence\": \"Subgraph sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [440.0, 55.0, 522.5, 82.5]\n    },\n    {\n      \"canonical\": \"graph partitioning\",\n      \"aliases\": [],\n      \"evidence\": \"Graph partitioning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [522.5, 55.0, 550.0, 82.5]\n    },\n    {\n      \"canonical\": \"graph clustering\",\n      \"aliases\": [\"clustering algorithm\"],\n      \"evidence\": \"identified by a graph clustering algorithm\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 137.5, 697.5, 154.0]\n    },\n    {\n      \"canonical\": \"layer sampling\",\n      \"aliases\": [\"layer-wise sampling\"],\n      \"evidence\": \"Layer sampling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [440.0, 385.0, 522.5, 412.5]\n    },\n    {\n      \"canonical\": \"node sampling\",\n      \"aliases\": [\"node-wise sampling\"],\n      \"evidence\": \"Node sampling: Randomly select a subset of target nodes...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 670.0, 181.5, 945.0]\n    },\n    {\n      \"canonical\": \"computational efficiency\",\n      \"aliases\": [\"efficiency\"],\n      \"evidence\": \"Computational Efficiency: Node sampling reduces the computational cost...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 835.0, 181.5, 890.0]\n    },\n    {\n      \"canonical\": \"memory usage\",\n      \"aliases\": [\"memory requirements\"],\n      \"evidence\": \"Memory Efficiency: It allows for more efficient memory usage...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 890.0, 181.5, 917.5]\n    },\n    {\n      \"canonical\": \"scalability\",\n      \"aliases\": [],\n      \"evidence\": \"Scalability: It allows GNNs to scale to very large graphs...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [363.0, 890.0, 544.5, 917.5]\n    },\n    {\n      \"canonical\": \"redundancy\",\n      \"aliases\": [],\n      \"evidence\": \"Redundant computations: The recursive nature of node-wise sampling brings in redundancy...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 917.5, 181.5, 945.0]\n    },\n    {\n      \"canonical\": \"information loss\",\n      \"aliases\": [],\n      \"evidence\": \"Information Loss: Sampling may result in information loss...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 945.0, 544.5, 956.0]\n    },\n    {\n      \"canonical\": \"sampling bias\",\n      \"aliases\": [],\n      \"evidence\": \"Sampling Bias: The sampling process may introduce biases...\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 956.0, 544.5, 967.0]\n    },\n    {\n      \"canonical\": \"graphsage\",\n      \"aliases\": [],\n      \"evidence\": \"Examples: GraphSAGE (Hamilton et al., 2017)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 780.0, 181.5, 791.0]\n    },\n    {\n      \"canonical\": \"fastgcn\",\n      \"aliases\": [],\n      \"evidence\": \"FastGCN (Chen et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [440.0, 412.5, 522.5, 440.0]\n    },\n    {\n      \"canonical\": \"graphsaint\",\n      \"aliases\": [],\n      \"evidence\": \"Examples: GraphSAINT (Zeng et al., 2019)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [363.0, 780.0, 544.5, 791.0]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularizer\"],\n      \"evidence\": \"Regularization: BN injects noise to the training process\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [758.0, 725.0, 945.0, 752.5]\n    },\n    {\n      \"canonical\": \"covariate shift\",\n      \"aliases\": [],\n      \"evidence\": \"Stable covariate shift with BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 862.5, 945.0, 879.0]\n    },\n    {\n      \"canonical\": \"bipartite graph\",\n      \"aliases\": [],\n      \"evidence\": \"constructs a bipartite graph among the nodes between the two layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 862.5, 670.0, 890.0]\n    },\n    {\n      \"canonical\": \"ladies\",\n      \"aliases\": [\"layer-dependent importance sampling\"],\n      \"evidence\": \"LADIES (Zou et al., 2019): layer-dependent importance sampling\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [181.5, 791.0, 363.0, 802.0]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"Cluster-GCN: An Efficient Algorithm for Training Deep and Large Graph Convolutional Networks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 264.0, 697.5, 286.0]\n    },\n    {\n      \"canonical\": \"empirical mean\",\n      \"aliases\": [\"mean\"],\n      \"evidence\": \"the empirical mean m_h\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [741.5, 357.5, 807.5, 368.5]\n    },\n    {\n      \"canonical\": \"standard deviation\",\n      \"aliases\": [\"variance\"],\n      \"evidence\": \"and standard deviation s_h are computed\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [741.5, 368.5, 862.5, 379.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 192.5, 357.5, 220.0],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"m_h = \\\\frac{1}{|\\\\mathcal{B}|} \\\\sum_{i \\\\in \\\\mathcal{B}} h_{i,k}\",\n      \"related_concepts\": [\"empirical mean\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 385.0, 862.5, 412.5],\n      \"label\": \"11.7\"\n    },\n    {\n      \"latex\": \"s_h = \\\\sqrt{\\\\frac{1}{|\\\\mathcal{B}|} \\\\sum_{i \\\\in \\\\mathcal{B}} (h_{i,k} - m_h)^2}\",\n      \"related_concepts\": [\"standard deviation\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 412.5, 862.5, 440.0],\n      \"label\": \"11.7\"\n    },\n    {\n      \"latex\": \"h_{i,k} \\\\leftarrow \\\\frac{h_{i,k} - m_h}{s_h + \\\\epsilon}\",\n      \"related_concepts\": [\"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 440.0, 862.5, 467.5],\n      \"label\": \"normalization step\"\n    },\n    {\n      \"latex\": \"h_{i,k} \\\\leftarrow \\\\gamma h_{i,k} + \\\\delta\",\n      \"related_concepts\": [\"batch normalization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [752.5, 467.5, 862.5, 495.0],\n      \"label\": \"scale and shift\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, and Prediction head\",\n      \"related_concepts\": [\"graph neural network\", \"message passing\", \"aggregation\", \"batch normalization\", \"dropout\", \"non-linearity\", \"prediction head\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 55.0, 412.5, 467.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of neighborhood expansion between traditional graph convolution and cluster approach across 4 layers\",\n      \"related_concepts\": [\"graph convolutional network\", \"graph clustering\", \"subgraph sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 291.5, 697.5, 385.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Three plots showing covariate shift without BN and three corresponding loss curves over iterations\",\n      \"related_concepts\": [\"covariate shift\", \"batch normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [741.5, 137.5, 917.5, 302.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of node-wise neighbor sampling (GraphSAGE) showing black nodes in the upper layer and a red frame redundantly sampling a neighboring node twice.\",\n      \"related_concepts\": [\"node sampling\", \"graphsage\", \"redundancy\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [385.0, 670.0, 467.5, 780.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of layer-wise importance sampling (FastGCN) showing nodes sampled independently in each layer.\",\n      \"related_concepts\": [\"layer sampling\", \"fastgcn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 670.0, 544.5, 780.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of LADIES sampling process showing how nodes are selected from upper layer and their neighbors are considered in the current layer via a bipartite graph.\",\n      \"related_concepts\": [\"ladies\", \"bipartite graph\", \"layer sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 807.5, 670.0, 917.5]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Three scatter plots showing stable covariate shift with Batch Normalization, illustrating how BN stabilizes the distribution of activations across layers.\",\n      \"related_concepts\": [\"batch normalization\", \"covariate shift\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [758.0, 879.0, 945.0, 972.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"W^T h\",\n      \"reason\": \"Handwritten notation near top right is partially obscured and stylized\",\n      \"bbox\": [934.0, 99.0, 956.0, 115.5]\n    },\n    {\n      \"transcription\": \"h_k \\\\rightarrow h_{k+1}\",\n      \"reason\": \"Arrow and subscript notation is handwritten and slightly unclear\",\n      \"bbox\": [807.5, 330.0, 862.5, 346.5]\n    },\n    {\n      \"transcription\": \"avoid division by zero\",\n      \"reason\": \"Small handwritten note next to formula is faint\",\n      \"bbox\": [862.5, 451.0, 917.5, 462.0]\n    },\n    {\n      \"transcription\": \"shattered gradients\",\n      \"reason\": \"Handwritten annotation next to printed text is partially obscured and stylized\",\n      \"bbox\": [835.0, 670.0, 917.5, 686.5]\n    },\n    {\n      \"transcription\": \"learning path\",\n      \"reason\": \"Handwritten note under 'effective learning path' is slightly smudged\",\n      \"bbox\": [835.0, 846.0, 890.0, 857.0]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "layer sampling",
+      "into": "layer sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "subgraph sampling",
+      "into": "subgraph sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "fastgcn",
+      "into": "fastgcn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "clustergcn",
+      "into": "clustergcn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node sampling",
+      "into": "node sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "layer sampling",
+      "into": "layer sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "layer-dependent importance sampling",
+      "into": "ladies"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "covariate shift",
+      "into": "covariate shift"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "shifting parameter",
+      "into": "scaling parameter"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "941bb672d2f6346b1d03f861477ae471699f8f20067ee3ee817612c2efbcb94c",
+  "concept_id": 352,
+  "concept_name": "gaussian distribution",
+  "aliases": [
+    "gaussian distribution",
+    "normal distribution"
+  ],
+  "profile": "gaussian distribution: A gaussian distribution is represented by the notation N(0, 1).",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "gaussian distribution: The gaussian distribution is represented by the notation N(0, 1).",
+    "claims": [
+      {
+        "claim": "The gaussian distribution is represented by the notation N(0, 1).",
+        "evidence_ids": [
+          "DGL-E0547"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata contains a single evidence ID; no additional properties or examples are included."
+    ]
+  },
+  "review": {
+    "final_profile": "gaussian distribution: A gaussian distribution is represented by the notation N(0, 1).",
+    "sentence_reviews": [
+      {
+        "sentence": "gaussian distribution: A gaussian distribution is represented by the notation N(0, 1).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0547"
+        ],
+        "reason": "The source evidence contains the notation N(0, 1), directly supporting this statement."
+      }
+    ],
+    "warnings": [
+      "Only a single notation token is available in the evidence; no additional properties or context are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"gaussian distribution: The gaussian distribution is represented by the notation N(0, 1).\",\n  \"claims\": [\n    {\n      \"claim\": \"The gaussian distribution is represented by the notation N(0, 1).\",\n      \"evidence_ids\": [\"DGL-E0547\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata contains a single evidence ID; no additional properties or examples are included.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"gaussian distribution: A gaussian distribution is represented by the notation N(0, 1).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"gaussian distribution: A gaussian distribution is represented by the notation N(0, 1).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0547\"],\n      \"reason\": \"The source evidence contains the notation N(0, 1), directly supporting this statement.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single notation token is available in the evidence; no additional properties or context are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:03:48.057655+00:00"
+}

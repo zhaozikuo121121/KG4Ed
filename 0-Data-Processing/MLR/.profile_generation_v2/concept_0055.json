@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d1ecc67f9c254ee2109fff3c2120f6eb4cbb25e45d87a1dfdb88ea433c5ab109",
+  "concept_id": 55,
+  "concept_name": "convex quadratic function",
+  "aliases": [
+    "convex quadratic function",
+    "multi-input quadratic function",
+    "convex quadratic"
+  ],
+  "profile": "convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix. The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix. The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+    "claims": [
+      {
+        "claim": "A multi-input quadratic function has the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix.",
+        "evidence_ids": [
+          "MLR-E0059"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+        "evidence_ids": [
+          "MLR-E0106"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not state that every function of the general multi-input quadratic form is convex; convexity is asserted specifically for the least squares cost function."
+    ]
+  },
+  "review": {
+    "final_profile": "convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix. The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+    "sentence_reviews": [
+      {
+        "sentence": "convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0059"
+        ],
+        "reason": "The evidence gives this form for a general multi-input quadratic function, with C symmetric."
+      },
+      {
+        "sentence": "The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0106"
+        ],
+        "reason": "The evidence explicitly states this property for the least squares cost function."
+      }
+    ],
+    "warnings": [
+      "The general multi-input quadratic form is not itself stated to be convex in the evidence; convexity is only stated for the least squares cost function. The profile avoids claiming all such quadratics are convex."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix. The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n  \"claims\": [\n    {\n      \"claim\": \"A multi-input quadratic function has the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix.\",\n      \"evidence_ids\": [\"MLR-E0059\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n      \"evidence_ids\": [\"MLR-E0106\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not state that every function of the general multi-input quadratic form is convex; convexity is asserted specifically for the least squares cost function.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix. The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"convex quadratic function: A multi-input quadratic function of the form g(w) = a + b^T w + w^T C w, where C is an N x N symmetric matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0059\"],\n      \"reason\": \"The evidence gives this form for a general multi-input quadratic function, with C symmetric.\"\n    },\n    {\n      \"sentence\": \"The least squares cost function for linear regression is always a convex quadratic, and hence is a convex function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0106\"],\n      \"reason\": \"The evidence explicitly states this property for the least squares cost function.\"\n    }\n  ],\n  \"warnings\": [\n    \"The general multi-input quadratic form is not itself stated to be convex in the evidence; convexity is only stated for the least squares cost function. The profile avoids claiming all such quadratics are convex.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:41:59.434183+00:00"
+}

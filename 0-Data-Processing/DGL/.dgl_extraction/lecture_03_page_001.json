@@ -1,0 +1,4108 @@
+{
+  "version": "1.0.0",
+  "lecture": 3,
+  "pdf_file": "DGL_Lecture_3_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "GCN Training and Optimization Pipeline",
+  "summary": "This page details the training process for Graph Convolutional Networks (GCNs), focusing on the message passing mechanism, loss function optimization via gradient descent, and the distinction between transductive and inductive learning. It outlines the mathematical formulation for updating node embeddings through neighborhood aggregation and linear transformation, and defines the prediction heads for node and edge classification tasks.",
+  "key_topics": [
+    "graph convolutional network",
+    "message passing",
+    "gradient descent",
+    "node classification",
+    "edge prediction",
+    "inductive learning"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T10:58:13+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "supervised learning",
+      "aliases": [],
+      "evidence": "we will examine supervised node- and graph-based classification/regression",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        44.0,
+        890.0,
+        60.5
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "graph-level prediction"
+      ],
+      "evidence": "supervised node- and graph-based classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        703.0,
+        44.0,
+        807.5,
+        60.5
+      ]
+    },
+    {
+      "canonical": "regression",
+      "aliases": [],
+      "evidence": "classification/regression",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        44.0,
+        807.5,
+        60.5
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "feature embeddings",
+        "representation"
+      ],
+      "evidence": "Learn feature embeddings",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        55.0,
+        110.0,
+        71.5
+      ]
+    },
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn",
+        "graph neural network",
+        "gnn"
+      ],
+      "evidence": "Design your GCN layer",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        55.0,
+        544.5,
+        71.5
+      ]
+    },
+    {
+      "canonical": "training samples",
+      "aliases": [
+        "training nodes"
+      ],
+      "evidence": "Training nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        82.5,
+        780.0,
+        99.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "propagation rule",
+        "feature aggregation"
+      ],
+      "evidence": "A generalized message propagation rule to update the embeddings in a GCN layer",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        110.0,
+        302.5,
+        132.0
+      ]
+    },
+    {
+      "canonical": "activation function",
+      "aliases": [
+        "nonlinearity"
+      ],
+      "evidence": "activation function",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        121.0,
+        544.5,
+        137.5
+      ]
+    },
+    {
+      "canonical": "neighborhood aggregation",
+      "aliases": [
+        "aggregate information"
+      ],
+      "evidence": "aggregate information from 'myself' (a given node) and 'my neighbors' (its neighbors)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        132.0,
+        302.5,
+        154.0
+      ]
+    },
+    {
+      "canonical": "loss function",
+      "aliases": [
+        "objective function"
+      ],
+      "evidence": "Define your loss function to optimize",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        137.5,
+        544.5,
+        154.0
+      ]
+    },
+    {
+      "canonical": "linear transformation",
+      "aliases": [
+        "matrix multiplication"
+      ],
+      "evidence": "apply a linear transformation",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        154.0,
+        302.5,
+        170.5
+      ]
+    },
+    {
+      "canonical": "cross-entropy",
+      "aliases": [
+        "ce"
+      ],
+      "evidence": "use binary or multiclass cross-entropy (CE) for classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        165.0,
+        544.5,
+        181.5
+      ]
+    },
+    {
+      "canonical": "mean squared error",
+      "aliases": [
+        "mse"
+      ],
+      "evidence": "least squares (or MSE) for regression",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        176.0,
+        697.5,
+        192.5
+      ]
+    },
+    {
+      "canonical": "logistic activation",
+      "aliases": [
+        "sigmoid",
+        "sigmoid function"
+      ],
+      "evidence": "output is passed through a sigmoid or softmax function",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        181.5,
+        544.5,
+        198.0
+      ]
+    },
+    {
+      "canonical": "prediction head",
+      "aliases": [
+        "output layer",
+        "classifier"
+      ],
+      "evidence": "Define the prediction head (node, edge, or graph)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        209.0,
+        544.5,
+        225.5
+      ]
+    },
+    {
+      "canonical": "hyperparameters",
+      "aliases": [],
+      "evidence": "hyperparameters (e.g., β and ω encoding the classifier bias and weight)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        225.5,
+        544.5,
+        242.0
+      ]
+    },
+    {
+      "canonical": "stochastic gradient descent",
+      "aliases": [
+        "sgd"
+      ],
+      "evidence": "using stochastic gradient descent",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        247.5,
+        544.5,
+        264.0
+      ]
+    },
+    {
+      "canonical": "forward pass",
+      "aliases": [],
+      "evidence": "Compute the loss during the forward pass",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        264.0,
+        544.5,
+        280.5
+      ]
+    },
+    {
+      "canonical": "backpropagation",
+      "aliases": [],
+      "evidence": "using the chain rule during the backward pass",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        477.5,
+        275.0,
+        642.5,
+        291.5
+      ]
+    },
+    {
+      "canonical": "backward pass",
+      "aliases": [],
+      "evidence": "Compute the gradient of the loss using the chain rule during the backward pass",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        280.5,
+        544.5,
+        297.0
+      ]
+    },
+    {
+      "canonical": "chain rule",
+      "aliases": [],
+      "evidence": "Compute the gradient of the loss using the chain rule",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        280.5,
+        544.5,
+        297.0
+      ]
+    },
+    {
+      "canonical": "gradient descent",
+      "aliases": [
+        "gd"
+      ],
+      "evidence": "Loss optimization through gradient descent",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        302.5,
+        544.5,
+        319.0
+      ]
+    },
+    {
+      "canonical": "self-loop",
+      "aliases": [
+        "self-connection"
+      ],
+      "evidence": "A_hat = A + I 'self loop'",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        642.5,
+        330.0,
+        697.5,
+        357.5
+      ]
+    },
+    {
+      "canonical": "computation graph",
+      "aliases": [],
+      "evidence": "The node's neighborhood defines a computation graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        357.5,
+        302.5,
+        374.0
+      ]
+    },
+    {
+      "canonical": "node classification",
+      "aliases": [
+        "node-level prediction"
+      ],
+      "evidence": "node classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        467.5,
+        110.0,
+        484.0
+      ]
+    },
+    {
+      "canonical": "learned weights",
+      "aliases": [
+        "parameters"
+      ],
+      "evidence": "Printed label 'learned weights' under the matrix multiplication diagram.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        697.5,
+        110.0,
+        714.0
+      ]
+    },
+    {
+      "canonical": "multilayer perceptron",
+      "aliases": [
+        "mlp"
+      ],
+      "evidence": "Handwritten note '(MLP)' pointing to the learned parameters section.",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        192.5,
+        697.5,
+        220.0,
+        714.0
+      ]
+    },
+    {
+      "canonical": "manifold learning",
+      "aliases": [
+        "dimensionality reduction"
+      ],
+      "evidence": "Printed text 'find an ultimate... much simpler manifold'.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        725.0,
+        522.5,
+        752.5
+      ]
+    },
+    {
+      "canonical": "edge prediction",
+      "aliases": [
+        "link prediction"
+      ],
+      "evidence": "Printed heading 'edge/link prediction' and diagram showing prediction of edge between nodes m and n.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        780.0,
+        82.5,
+        807.5
+      ]
+    },
+    {
+      "canonical": "testing node",
+      "aliases": [
+        "unseen node"
+      ],
+      "evidence": "Printed label 'Testing node' and 'Test on unseen' in the diagrams.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        440.0,
+        807.5,
+        495.0,
+        824.0
+      ]
+    },
+    {
+      "canonical": "transductive learning",
+      "aliases": [
+        "transductive"
+      ],
+      "evidence": "Test on unseen nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        846.0,
+        615.0,
+        862.5
+      ]
+    },
+    {
+      "canonical": "dot product",
+      "aliases": [
+        "inner product"
+      ],
+      "evidence": "Handwritten formula showing transpose and multiplication $h_k^{(m)T} h_k^{(n)}$ for similarity.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        110.0,
+        862.5,
+        192.5,
+        890.0
+      ]
+    },
+    {
+      "canonical": "inductive learning",
+      "aliases": [
+        "inductive node embedding"
+      ],
+      "evidence": "inductive node embedding",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        697.5,
+        972.5,
+        752.5,
+        989.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = f(H_k, A)",
+      "related_concepts": [
+        "graph convolutional network",
+        "message passing"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        55.0,
+        192.5,
+        165.0,
+        220.0
+      ],
+      "label": "generalized propagation rule"
+    },
+    {
+      "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+      "related_concepts": [
+        "neighborhood aggregation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        220.0,
+        220.0,
+        330.0,
+        247.5
+      ],
+      "label": "aggregation function"
+    },
+    {
+      "latex": "h_{k+1}^{(n)} = a\\left[\\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k]\\right]",
+      "related_concepts": [
+        "node embedding",
+        "linear transformation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        165.0,
+        247.5,
+        330.0,
+        275.0
+      ],
+      "label": "node embedding update"
+    },
+    {
+      "latex": "H_{k+1} = a\\left[\\beta_k 1^T + \\Omega_k H_k (A + I)\\right]",
+      "related_concepts": [
+        "graph convolutional network",
+        "linear transformation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        330.0,
+        330.0,
+        357.5
+      ],
+      "label": "update rule for all node embeddings"
+    },
+    {
+      "latex": "\\Theta_t = \\Theta_{t-1} - \\eta \\nabla \\mathcal{L}(\\Theta_{t-1})",
+      "related_concepts": [
+        "gradient descent",
+        "stochastic gradient descent",
+        "loss function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        372.9,
+        330.0,
+        544.5,
+        357.5
+      ],
+      "label": "gradient descent update rule"
+    },
+    {
+      "latex": "\\hat{A} = A + I",
+      "related_concepts": [
+        "self-loop"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        642.5,
+        302.5,
+        697.5,
+        330.0
+      ],
+      "label": "adjacency matrix with self-loops"
+    },
+    {
+      "latex": "H_{k+1} = a(\\hat{A}H_k\\Omega_k)",
+      "related_concepts": [
+        "message passing"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        835.0,
+        275.0,
+        945.0,
+        302.5
+      ],
+      "label": "GCN propagation rule"
+    },
+    {
+      "latex": "\\mathcal{L}(\\Theta) = ||H_K W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (H_K w_c - y_c)^2",
+      "related_concepts": [
+        "loss function",
+        "mean squared error"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        725.0,
+        451.0,
+        945.0,
+        484.0
+      ],
+      "label": "MSE loss function"
+    },
+    {
+      "latex": "\\hat{y}^{(n)} = \\text{sig}(\\beta_k + \\omega_k h_k^{(n)})",
+      "related_concepts": [
+        "node classification",
+        "logistic activation",
+        "learned weights"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        66.0,
+        626.0,
+        209.0,
+        664.5
+      ],
+      "label": "node prediction head"
+    },
+    {
+      "latex": "y^{(mn)} = \\text{sig}[h_k^{(m)T} h_k^{(n)}]",
+      "related_concepts": [
+        "edge prediction",
+        "logistic activation",
+        "dot product"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        66.0,
+        846.0,
+        209.0,
+        884.5
+      ],
+      "label": "edge prediction head"
+    },
+    {
+      "latex": "\\min_{\\Theta} L(\\Theta) = ||\\hat{Y} - Y||_2^2",
+      "related_concepts": [
+        "loss function"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        862.5,
+        780.0,
+        972.5,
+        807.5
+      ],
+      "label": "optimization objective"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Diagram showing a node and its 1-hop and 2-hop neighbors with arrows indicating message passing",
+      "related_concepts": [
+        "message passing",
+        "neighborhood aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        5.5,
+        220.0,
+        165.0,
+        330.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Plot showing the loss function optimization through gradient descent with a curve and annotations",
+      "related_concepts": [
+        "gradient descent",
+        "loss function"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        372.9,
+        357.5,
+        544.5,
+        467.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Sequence of graphs showing node classification: original graph, GNN processing, and classified node.",
+      "related_concepts": [
+        "node classification",
+        "graph convolutional network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        538.0,
+        192.5,
+        615.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Sequence of graphs showing edge prediction: original graph, GNN processing, and predicted edge.",
+      "related_concepts": [
+        "edge prediction",
+        "graph convolutional network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        813.0,
+        192.5,
+        890.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication diagram showing learned weights multiplied by node embedding to produce prediction.",
+      "related_concepts": [
+        "learned weights",
+        "node embedding",
+        "multilayer perceptron"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        55.0,
+        670.0,
+        192.5,
+        752.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "2D scatter plot showing separated classes (purple and green dots) with a decision boundary, representing the simplified manifold.",
+      "related_concepts": [
+        "manifold learning",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        302.5,
+        659.0,
+        412.5,
+        752.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram illustrating the process of testing on unseen nodes, including connecting the testing node to other nodes, forward pass through GCN layers, and evaluation.",
+      "related_concepts": [
+        "inductive learning",
+        "transductive learning"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        477.5,
+        835.0,
+        670.0,
+        972.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "GCN training pipeline from input features through layers to final predictions",
+      "related_concepts": [
+        "graph convolutional network",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        615.0,
+        82.5,
+        972.5,
+        357.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "H_k",
+      "reason": "Handwritten notation may be ambiguous",
+      "bbox": [
+        110.0,
+        385.0,
+        137.5,
+        412.5
+      ]
+    },
+    {
+      "transcription": "learnable",
+      "reason": "Handwritten text may be unclear",
+      "bbox": [
+        372.9,
+        412.5,
+        412.5,
+        429.0
+      ]
+    },
+    {
+      "transcription": "predict the C score",
+      "reason": "Handwritten text is somewhat unclear, particularly the 'C' which might be a class indicator or confidence",
+      "bbox": [
+        862.5,
+        110.0,
+        945.0,
+        126.5
+      ]
+    },
+    {
+      "transcription": "transfo weights",
+      "reason": "Abbreviated handwriting, 'transfo' likely means 'transform' but could be interpreted differently",
+      "bbox": [
+        945.0,
+        247.5,
+        989.0,
+        275.0
+      ]
+    },
+    {
+      "transcription": "embedding in the final layer",
+      "reason": "Handwritten annotation with some words partially obscured",
+      "bbox": [
+        697.5,
+        495.0,
+        752.5,
+        522.5
+      ]
+    },
+    {
+      "transcription": "huge optimization space",
+      "reason": "Handwritten note with cursive writing that may be misinterpreted",
+      "bbox": [
+        917.5,
+        495.0,
+        989.0,
+        522.5
+      ]
+    },
+    {
+      "transcription": "active research area",
+      "reason": "Handwritten annotation in quotes, some letters are unclear",
+      "bbox": [
+        560.0,
+        110.0,
+        615.0,
+        126.5
+      ]
+    },
+    {
+      "transcription": "self loop",
+      "reason": "Handwritten annotation next to formula, 'loop' is somewhat unclear",
+      "bbox": [
+        670.0,
+        341.0,
+        697.5,
+        357.5
+      ]
+    },
+    {
+      "transcription": "learning rate",
+      "reason": "Handwritten annotation under gradient descent formula, 'rate' is slightly unclear",
+      "bbox": [
+        532.5,
+        357.5,
+        571.0,
+        368.5
+      ]
+    },
+    {
+      "transcription": "H_{K, t=0} (input)",
+      "reason": "Subscript 't=0' and surrounding parentheses are slightly ambiguous.",
+      "bbox": [
+        302.5,
+        736.0,
+        385.0,
+        752.5
+      ]
+    },
+    {
+      "transcription": "c scores",
+      "reason": "The letter 'c' is handwritten and could be interpreted as 'class' or another variable.",
+      "bbox": [
+        440.0,
+        901.0,
+        467.5,
+        912.0
+      ]
+    },
+    {
+      "transcription": "update",
+      "reason": "Handwritten note near the node formula is slightly smudged.",
+      "bbox": [
+        220.0,
+        604.0,
+        247.5,
+        615.0
+      ]
+    },
+    {
+      "transcription": "huge optimization space",
+      "reason": "Handwriting is somewhat unclear, especially the word 'huge'.",
+      "bbox": [
+        917.5,
+        532.5,
+        972.5,
+        549.0
+      ]
+    },
+    {
+      "transcription": "evaluate the generalizability of our GNN model to unseen data points (n-nodes)",
+      "reason": "Handwriting is somewhat unclear, especially the phrase 'generalizability'.",
+      "bbox": [
+        587.5,
+        917.5,
+        670.0,
+        945.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "Design your GCN layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              100,
+              990,
+              130
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "message propagation"
+            ],
+            "evidence": "A generalized message propagation rule to update the embeddings in a GCN layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              550,
+              240
+            ]
+          },
+          {
+            "canonical": "neighborhood aggregation",
+            "aliases": [
+              "aggregate information"
+            ],
+            "evidence": "aggregate information from 'myself' (a given node) and 'my neighbors' (its neighbors)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              240,
+              550,
+              280
+            ]
+          },
+          {
+            "canonical": "linear transformation",
+            "aliases": [],
+            "evidence": "apply a linear transformation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              280,
+              550,
+              310
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "feature embeddings"
+            ],
+            "evidence": "Learn feature embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              200,
+              130
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [],
+            "evidence": "Define your loss function to optimize",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              250,
+              990,
+              280
+            ]
+          },
+          {
+            "canonical": "cross-entropy",
+            "aliases": [
+              "ce"
+            ],
+            "evidence": "use binary or multiclass cross-entropy (CE) for classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              300,
+              990,
+              330
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [],
+            "evidence": "output is passed through a sigmoid or softmax function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              330,
+              990,
+              360
+            ]
+          },
+          {
+            "canonical": "softmax function",
+            "aliases": [],
+            "evidence": "output is passed through a sigmoid or softmax function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              330,
+              990,
+              360
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "Define the prediction head (node, edge, or graph)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              380,
+              990,
+              410
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "sgd"
+            ],
+            "evidence": "using stochastic gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              450,
+              990,
+              480
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence": "Loss optimization through gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              550,
+              990,
+              580
+            ]
+          },
+          {
+            "canonical": "computation graph",
+            "aliases": [],
+            "evidence": "The node's neighborhood defines a computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              650,
+              550,
+              680
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [],
+            "evidence": "node classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              850,
+              200,
+              880
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [],
+            "evidence": "activation function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              220,
+              990,
+              250
+            ]
+          },
+          {
+            "canonical": "hyperparameters",
+            "aliases": [],
+            "evidence": "hyperparameters (e.g., β and ω encoding the classifier bias and weight)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              410,
+              990,
+              440
+            ]
+          },
+          {
+            "canonical": "forward pass",
+            "aliases": [],
+            "evidence": "Compute the loss during the forward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              480,
+              990,
+              510
+            ]
+          },
+          {
+            "canonical": "backward pass",
+            "aliases": [],
+            "evidence": "Compute the gradient of the loss using the chain rule during the backward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              510,
+              990,
+              540
+            ]
+          },
+          {
+            "canonical": "chain rule",
+            "aliases": [],
+            "evidence": "Compute the gradient of the loss using the chain rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              510,
+              990,
+              540
+            ]
+          },
+          {
+            "canonical": "self-encoding",
+            "aliases": [],
+            "evidence": "self-encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              480,
+              450,
+              510
+            ]
+          },
+          {
+            "canonical": "neighborhood encoding",
+            "aliases": [],
+            "evidence": "neighborhood encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              480,
+              550,
+              510
+            ]
+          },
+          {
+            "canonical": "1-hop ring",
+            "aliases": [],
+            "evidence": "1-hop ring",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              500,
+              200,
+              530
+            ]
+          },
+          {
+            "canonical": "2-hop ring",
+            "aliases": [],
+            "evidence": "2-hop ring",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              550,
+              200,
+              580
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "graph convolutional network",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              350,
+              300,
+              400
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "neighborhood aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              400,
+              600,
+              450
+            ],
+            "label": "aggregation function"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a\\left[\\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k]\\right]",
+            "related_concepts": [
+              "node embedding",
+              "linear transformation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              450,
+              600,
+              500
+            ],
+            "label": "node embedding update"
+          },
+          {
+            "latex": "H_{k+1} = a\\left[\\beta_k 1^T + \\Omega_k H_k + \\Omega_k H_k A\\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "linear transformation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              550,
+              600,
+              600
+            ],
+            "label": "update rule for all node embeddings"
+          },
+          {
+            "latex": "H_{k+1} = a\\left[\\beta_k 1^T + \\Omega_k H_k (A + I)\\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "linear transformation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              600,
+              600,
+              650
+            ],
+            "label": "update rule for all node embeddings (alternative)"
+          },
+          {
+            "latex": "\\Theta_t = \\Theta_{t-1} - \\eta \\nabla \\mathcal{L}(\\Theta_{t-1})",
+            "related_concepts": [
+              "gradient descent",
+              "stochastic gradient descent"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              678,
+              600,
+              990,
+              650
+            ],
+            "label": "gradient descent update rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing a node and its 1-hop and 2-hop neighbors with arrows indicating message passing",
+            "related_concepts": [
+              "message passing",
+              "neighborhood aggregation",
+              "1-hop ring",
+              "2-hop ring"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              400,
+              300,
+              600
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart of the node embedding update process including activation, bias, self-encoding, and neighborhood encoding",
+            "related_concepts": [
+              "node embedding",
+              "activation function",
+              "self-encoding",
+              "neighborhood encoding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              400,
+              600,
+              550
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot showing the loss function optimization through gradient descent with a curve and annotations",
+            "related_concepts": [
+              "gradient descent",
+              "loss function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              678,
+              650,
+              990,
+              850
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of a graph with nodes and edges, illustrating node classification",
+            "related_concepts": [
+              "node classification",
+              "computation graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              900,
+              300,
+              990
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "H_k",
+            "reason": "Handwritten notation may be ambiguous",
+            "bbox": [
+              200,
+              700,
+              250,
+              750
+            ]
+          },
+          {
+            "transcription": "learnable",
+            "reason": "Handwritten text may be unclear",
+            "bbox": [
+              678,
+              750,
+              750,
+              780
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"Design your GCN layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 100, 990, 130]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"message propagation\"],\n      \"evidence\": \"A generalized message propagation rule to update the embeddings in a GCN layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 550, 240]\n    },\n    {\n      \"canonical\": \"neighborhood aggregation\",\n      \"aliases\": [\"aggregate information\"],\n      \"evidence\": \"aggregate information from 'myself' (a given node) and 'my neighbors' (its neighbors)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 240, 550, 280]\n    },\n    {\n      \"canonical\": \"linear transformation\",\n      \"aliases\": [],\n      \"evidence\": \"apply a linear transformation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 280, 550, 310]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"feature embeddings\"],\n      \"evidence\": \"Learn feature embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 200, 130]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [],\n      \"evidence\": \"Define your loss function to optimize\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 250, 990, 280]\n    },\n    {\n      \"canonical\": \"cross-entropy\",\n      \"aliases\": [\"ce\"],\n      \"evidence\": \"use binary or multiclass cross-entropy (CE) for classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 300, 990, 330]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [],\n      \"evidence\": \"output is passed through a sigmoid or softmax function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 330, 990, 360]\n    },\n    {\n      \"canonical\": \"softmax function\",\n      \"aliases\": [],\n      \"evidence\": \"output is passed through a sigmoid or softmax function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 330, 990, 360]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"Define the prediction head (node, edge, or graph)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 380, 990, 410]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"sgd\"],\n      \"evidence\": \"using stochastic gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 450, 990, 480]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence\": \"Loss optimization through gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 550, 990, 580]\n    },\n    {\n      \"canonical\": \"computation graph\",\n      \"aliases\": [],\n      \"evidence\": \"The node's neighborhood defines a computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 650, 550, 680]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [],\n      \"evidence\": \"node classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 850, 200, 880]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [],\n      \"evidence\": \"activation function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 220, 990, 250]\n    },\n    {\n      \"canonical\": \"hyperparameters\",\n      \"aliases\": [],\n      \"evidence\": \"hyperparameters (e.g., β and ω encoding the classifier bias and weight)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 410, 990, 440]\n    },\n    {\n      \"canonical\": \"forward pass\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the loss during the forward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 480, 990, 510]\n    },\n    {\n      \"canonical\": \"backward pass\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the gradient of the loss using the chain rule during the backward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 510, 990, 540]\n    },\n    {\n      \"canonical\": \"chain rule\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the gradient of the loss using the chain rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 510, 990, 540]\n    },\n    {\n      \"canonical\": \"self-encoding\",\n      \"aliases\": [],\n      \"evidence\": \"self-encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 480, 450, 510]\n    },\n    {\n      \"canonical\": \"neighborhood encoding\",\n      \"aliases\": [],\n      \"evidence\": \"neighborhood encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 480, 550, 510]\n    },\n    {\n      \"canonical\": \"1-hop ring\",\n      \"aliases\": [],\n      \"evidence\": \"1-hop ring\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 500, 200, 530]\n    },\n    {\n      \"canonical\": \"2-hop ring\",\n      \"aliases\": [],\n      \"evidence\": \"2-hop ring\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 550, 200, 580]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"graph convolutional network\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 350, 300, 400],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\"neighborhood aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 400, 600, 450],\n      \"label\": \"aggregation function\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a\\\\left[\\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k]\\\\right]\",\n      \"related_concepts\": [\"node embedding\", \"linear transformation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 450, 600, 500],\n      \"label\": \"node embedding update\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a\\\\left[\\\\beta_k 1^T + \\\\Omega_k H_k + \\\\Omega_k H_k A\\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"linear transformation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 550, 600, 600],\n      \"label\": \"update rule for all node embeddings\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a\\\\left[\\\\beta_k 1^T + \\\\Omega_k H_k (A + I)\\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"linear transformation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 600, 600, 650],\n      \"label\": \"update rule for all node embeddings (alternative)\"\n    },\n    {\n      \"latex\": \"\\\\Theta_t = \\\\Theta_{t-1} - \\\\eta \\\\nabla \\\\mathcal{L}(\\\\Theta_{t-1})\",\n      \"related_concepts\": [\"gradient descent\", \"stochastic gradient descent\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [678, 600, 990, 650],\n      \"label\": \"gradient descent update rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing a node and its 1-hop and 2-hop neighbors with arrows indicating message passing\",\n      \"related_concepts\": [\"message passing\", \"neighborhood aggregation\", \"1-hop ring\", \"2-hop ring\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 400, 300, 600]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart of the node embedding update process including activation, bias, self-encoding, and neighborhood encoding\",\n      \"related_concepts\": [\"node embedding\", \"activation function\", \"self-encoding\", \"neighborhood encoding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 400, 600, 550]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot showing the loss function optimization through gradient descent with a curve and annotations\",\n      \"related_concepts\": [\"gradient descent\", \"loss function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [678, 650, 990, 850]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of a graph with nodes and edges, illustrating node classification\",\n      \"related_concepts\": [\"node classification\", \"computation graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 900, 300, 990]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"H_k\",\n      \"reason\": \"Handwritten notation may be ambiguous\",\n      \"bbox\": [200, 700, 250, 750]\n    },\n    {\n      \"transcription\": \"learnable\",\n      \"reason\": \"Handwritten text may be unclear\",\n      \"bbox\": [678, 750, 750, 780]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "GCN training and its powerful inductive capability at testing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              20,
+              700,
+              60
+            ]
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence": "we will examine supervised node- and graph-based classification/regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              80,
+              800,
+              110
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [],
+            "evidence": "supervised node- and graph-based classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              80,
+              450,
+              110
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [],
+            "evidence": "supervised node- and graph-based classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              460,
+              80,
+              650,
+              110
+            ]
+          },
+          {
+            "canonical": "regression",
+            "aliases": [],
+            "evidence": "classification/regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              80,
+              650,
+              110
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [],
+            "evidence": "layer-wise feature embedding rule (message passing)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              400,
+              750,
+              420
+            ]
+          },
+          {
+            "canonical": "feature embedding",
+            "aliases": [],
+            "evidence": "layer-wise feature embedding rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              380,
+              750,
+              400
+            ]
+          },
+          {
+            "canonical": "linear transformation",
+            "aliases": [],
+            "evidence": "operations of a GCN layer (e.g., linear transformation, nonlinear",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              250,
+              400,
+              280
+            ]
+          },
+          {
+            "canonical": "nonlinear activation",
+            "aliases": [],
+            "evidence": "linear transformation, nonlinear",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              250,
+              400,
+              280
+            ]
+          },
+          {
+            "canonical": "cross-entropy",
+            "aliases": [
+              "CE"
+            ],
+            "evidence": "cross-entropy (CE) for classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              320,
+              250,
+              350
+            ]
+          },
+          {
+            "canonical": "mean squared error",
+            "aliases": [
+              "MSE"
+            ],
+            "evidence": "least squares (or MSE) for regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              320,
+              450,
+              350
+            ]
+          },
+          {
+            "canonical": "sigmoid function",
+            "aliases": [],
+            "evidence": "through a sigmoid or softmax function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              200,
+              380
+            ]
+          },
+          {
+            "canonical": "softmax function",
+            "aliases": [],
+            "evidence": "sigmoid or softmax function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              350,
+              350,
+              380
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "SGD"
+            ],
+            "evidence": "using stochastic gradient descent (SGD)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              450,
+              300,
+              480
+            ]
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [],
+            "evidence": "using the chain rule during the backward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              500,
+              350,
+              530
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence": "optimization through gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              550,
+              250,
+              580
+            ]
+          },
+          {
+            "canonical": "self-loop",
+            "aliases": [],
+            "evidence": "A_hat = A + I 'self loop'",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              600,
+              450,
+              650
+            ]
+          },
+          {
+            "canonical": "training nodes",
+            "aliases": [],
+            "evidence": "Training nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              600,
+              180
+            ]
+          },
+          {
+            "canonical": "prediction score",
+            "aliases": [],
+            "evidence": "predict the C score",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              200,
+              900,
+              230
+            ]
+          },
+          {
+            "canonical": "network parameters",
+            "aliases": [],
+            "evidence": "all network parameters",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              850,
+              750,
+              880
+            ]
+          },
+          {
+            "canonical": "optimizer",
+            "aliases": [],
+            "evidence": "optimizer iterations",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              750,
+              450,
+              780
+            ]
+          },
+          {
+            "canonical": "learning rate",
+            "aliases": [],
+            "evidence": "learning rate",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              650,
+              220,
+              670
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [],
+            "evidence": "optimize your loss function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              150,
+              400,
+              180
+            ]
+          },
+          {
+            "canonical": "classifier",
+            "aliases": [],
+            "evidence": "encoding the classifier bias and weights to learn",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              400,
+              350,
+              430
+            ]
+          },
+          {
+            "canonical": "hyperparameters",
+            "aliases": [],
+            "evidence": "additional hyperparameters (e.g., classifier weights",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              430,
+              350,
+              460
+            ]
+          },
+          {
+            "canonical": "vanilla GCN",
+            "aliases": [],
+            "evidence": "node multi-regression using vanilla GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              300,
+              450,
+              350
+            ]
+          },
+          {
+            "canonical": "multi-regression",
+            "aliases": [],
+            "evidence": "node multi-regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              300,
+              420,
+              320
+            ]
+          },
+          {
+            "canonical": "inductive capability",
+            "aliases": [],
+            "evidence": "powerful inductive capability at testing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              20,
+              700,
+              60
+            ]
+          },
+          {
+            "canonical": "active research area",
+            "aliases": [],
+            "evidence": "aggregation function -> 'active research area'",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              200,
+              300,
+              230
+            ]
+          },
+          {
+            "canonical": "aggregation function",
+            "aliases": [],
+            "evidence": "aggregation function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              200,
+              200,
+              230
+            ]
+          },
+          {
+            "canonical": "propagation rule",
+            "aliases": [],
+            "evidence": "propagation rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              550,
+              900,
+              580
+            ]
+          },
+          {
+            "canonical": "transform weights",
+            "aliases": [],
+            "evidence": "transfo weights",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              900,
+              450,
+              980,
+              500
+            ]
+          },
+          {
+            "canonical": "final layer",
+            "aliases": [],
+            "evidence": "final layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              750,
+              800,
+              770
+            ]
+          },
+          {
+            "canonical": "embedding",
+            "aliases": [],
+            "evidence": "embedding in the final layer",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              900,
+              550,
+              950
+            ]
+          },
+          {
+            "canonical": "huge optimization space",
+            "aliases": [],
+            "evidence": "huge optimization space",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              850,
+              900,
+              980,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\Theta_t = \\Theta_{t-1} - \\eta \\nabla \\mathcal{L}(\\Theta_{t-1})",
+            "related_concepts": [
+              "gradient descent",
+              "learning rate",
+              "loss function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              600,
+              300,
+              650
+            ],
+            "label": "gradient descent update"
+          },
+          {
+            "latex": "\\hat{A} = A + I",
+            "related_concepts": [
+              "self-loop"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              550,
+              450,
+              600
+            ],
+            "label": "adjacency matrix with self-loops"
+          },
+          {
+            "latex": "H_{k+1} = a(\\hat{A}H_k\\Omega_k)",
+            "related_concepts": [
+              "propagation rule",
+              "message passing",
+              "feature embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              500,
+              900,
+              550
+            ],
+            "label": "GCN propagation rule"
+          },
+          {
+            "latex": "H_K = a(\\hat{A}H_{K-1}\\Omega_{K-1})",
+            "related_concepts": [
+              "final layer",
+              "feature embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              780,
+              800,
+              820
+            ],
+            "label": "final layer transformation"
+          },
+          {
+            "latex": "\\mathcal{L}(\\Theta) = ||H_K W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (H_K w_c - y_c)^2",
+            "related_concepts": [
+              "loss function",
+              "mean squared error",
+              "network parameters"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              820,
+              900,
+              880
+            ],
+            "label": "MSE loss function"
+          },
+          {
+            "latex": "\\Theta = (W, \\Omega_1, \\Omega_2, ..., \\Omega_{K-1})",
+            "related_concepts": [
+              "network parameters",
+              "classifier",
+              "hyperparameters"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              880,
+              850,
+              930
+            ],
+            "label": "network parameters definition"
+          },
+          {
+            "latex": "X = H_0",
+            "related_concepts": [
+              "feature embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              550,
+              550,
+              580
+            ],
+            "label": "initial features"
+          },
+          {
+            "latex": "a(\\hat{A}X\\Omega_0)",
+            "related_concepts": [
+              "feature embedding",
+              "propagation rule"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              300,
+              750,
+              330
+            ],
+            "label": "first layer transformation"
+          },
+          {
+            "latex": "a(\\hat{A}H_1\\Omega_1)",
+            "related_concepts": [
+              "feature embedding",
+              "propagation rule"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              300,
+              850,
+              330
+            ],
+            "label": "second layer transformation"
+          },
+          {
+            "latex": "a(\\hat{A}H_2\\Omega_2)",
+            "related_concepts": [
+              "feature embedding",
+              "propagation rule"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              850,
+              300,
+              950,
+              330
+            ],
+            "label": "third layer transformation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "GCN layer architecture showing input X transformed through multiple layers H1, H2, H3 with propagation rules",
+            "related_concepts": [
+              "graph convolutional network",
+              "feature embedding",
+              "propagation rule",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              250,
+              950,
+              450
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph with training nodes highlighted and prediction scores",
+            "related_concepts": [
+              "training nodes",
+              "node classification",
+              "prediction score"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              150,
+              650,
+              300
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A_hat with self-loops and feature matrix X=H0",
+            "related_concepts": [
+              "self-loop",
+              "feature embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              500,
+              550,
+              650
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Loss function optimization curve showing gradient descent iterations",
+            "related_concepts": [
+              "gradient descent",
+              "loss function",
+              "optimizer"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              700,
+              250,
+              850
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "GCN training pipeline from input features through layers to final predictions",
+            "related_concepts": [
+              "graph convolutional network",
+              "feature embedding",
+              "classifier"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              150,
+              950,
+              650
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Scores matrix Y with dimensions n samples x C classes",
+            "related_concepts": [
+              "node classification",
+              "prediction score"
+            ],
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              550,
+              650,
+              650
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "predict the C score",
+            "reason": "Handwritten text is somewhat unclear, particularly the 'C' which might be a class indicator or confidence",
+            "bbox": [
+              750,
+              200,
+              900,
+              230
+            ]
+          },
+          {
+            "transcription": "transfo weights",
+            "reason": "Abbreviated handwriting, 'transfo' likely means 'transform' but could be interpreted differently",
+            "bbox": [
+              900,
+              450,
+              980,
+              500
+            ]
+          },
+          {
+            "transcription": "embedding in the final layer",
+            "reason": "Handwritten annotation with some words partially obscured",
+            "bbox": [
+              450,
+              900,
+              550,
+              950
+            ]
+          },
+          {
+            "transcription": "huge optimization space",
+            "reason": "Handwritten note with cursive writing that may be misinterpreted",
+            "bbox": [
+              850,
+              900,
+              980,
+              950
+            ]
+          },
+          {
+            "transcription": "active research area",
+            "reason": "Handwritten annotation in quotes, some letters are unclear",
+            "bbox": [
+              200,
+              200,
+              300,
+              230
+            ]
+          },
+          {
+            "transcription": "self loop",
+            "reason": "Handwritten annotation next to formula, 'loop' is somewhat unclear",
+            "bbox": [
+              400,
+              620,
+              450,
+              650
+            ]
+          },
+          {
+            "transcription": "learning rate",
+            "reason": "Handwritten annotation under gradient descent formula, 'rate' is slightly unclear",
+            "bbox": [
+              150,
+              650,
+              220,
+              670
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"GCN training and its powerful inductive capability at testing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 20, 700, 60]\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence\": \"we will examine supervised node- and graph-based classification/regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 80, 800, 110]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [],\n      \"evidence\": \"supervised node- and graph-based classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 80, 450, 110]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [],\n      \"evidence\": \"supervised node- and graph-based classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [460, 80, 650, 110]\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [],\n      \"evidence\": \"classification/regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 80, 650, 110]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [],\n      \"evidence\": \"layer-wise feature embedding rule (message passing)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 400, 750, 420]\n    },\n    {\n      \"canonical\": \"feature embedding\",\n      \"aliases\": [],\n      \"evidence\": \"layer-wise feature embedding rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 380, 750, 400]\n    },\n    {\n      \"canonical\": \"linear transformation\",\n      \"aliases\": [],\n      \"evidence\": \"operations of a GCN layer (e.g., linear transformation, nonlinear\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 250, 400, 280]\n    },\n    {\n      \"canonical\": \"nonlinear activation\",\n      \"aliases\": [],\n      \"evidence\": \"linear transformation, nonlinear\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 250, 400, 280]\n    },\n    {\n      \"canonical\": \"cross-entropy\",\n      \"aliases\": [\"CE\"],\n      \"evidence\": \"cross-entropy (CE) for classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 320, 250, 350]\n    },\n    {\n      \"canonical\": \"mean squared error\",\n      \"aliases\": [\"MSE\"],\n      \"evidence\": \"least squares (or MSE) for regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 320, 450, 350]\n    },\n    {\n      \"canonical\": \"sigmoid function\",\n      \"aliases\": [],\n      \"evidence\": \"through a sigmoid or softmax function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 200, 380]\n    },\n    {\n      \"canonical\": \"softmax function\",\n      \"aliases\": [],\n      \"evidence\": \"sigmoid or softmax function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 350, 350, 380]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"SGD\"],\n      \"evidence\": \"using stochastic gradient descent (SGD)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 450, 300, 480]\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [],\n      \"evidence\": \"using the chain rule during the backward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 500, 350, 530]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence\": \"optimization through gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 550, 250, 580]\n    },\n    {\n      \"canonical\": \"self-loop\",\n      \"aliases\": [],\n      \"evidence\": \"A_hat = A + I 'self loop'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 600, 450, 650]\n    },\n    {\n      \"canonical\": \"training nodes\",\n      \"aliases\": [],\n      \"evidence\": \"Training nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 600, 180]\n    },\n    {\n      \"canonical\": \"prediction score\",\n      \"aliases\": [],\n      \"evidence\": \"predict the C score\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 200, 900, 230]\n    },\n    {\n      \"canonical\": \"network parameters\",\n      \"aliases\": [],\n      \"evidence\": \"all network parameters\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 850, 750, 880]\n    },\n    {\n      \"canonical\": \"optimizer\",\n      \"aliases\": [],\n      \"evidence\": \"optimizer iterations\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 750, 450, 780]\n    },\n    {\n      \"canonical\": \"learning rate\",\n      \"aliases\": [],\n      \"evidence\": \"learning rate\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 650, 220, 670]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [],\n      \"evidence\": \"optimize your loss function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 150, 400, 180]\n    },\n    {\n      \"canonical\": \"classifier\",\n      \"aliases\": [],\n      \"evidence\": \"encoding the classifier bias and weights to learn\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 400, 350, 430]\n    },\n    {\n      \"canonical\": \"hyperparameters\",\n      \"aliases\": [],\n      \"evidence\": \"additional hyperparameters (e.g., classifier weights\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 430, 350, 460]\n    },\n    {\n      \"canonical\": \"vanilla GCN\",\n      \"aliases\": [],\n      \"evidence\": \"node multi-regression using vanilla GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 300, 450, 350]\n    },\n    {\n      \"canonical\": \"multi-regression\",\n      \"aliases\": [],\n      \"evidence\": \"node multi-regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 300, 420, 320]\n    },\n    {\n      \"canonical\": \"inductive capability\",\n      \"aliases\": [],\n      \"evidence\": \"powerful inductive capability at testing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 20, 700, 60]\n    },\n    {\n      \"canonical\": \"active research area\",\n      \"aliases\": [],\n      \"evidence\": \"aggregation function -> 'active research area'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 200, 300, 230]\n    },\n    {\n      \"canonical\": \"aggregation function\",\n      \"aliases\": [],\n      \"evidence\": \"aggregation function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 200, 200, 230]\n    },\n    {\n      \"canonical\": \"propagation rule\",\n      \"aliases\": [],\n      \"evidence\": \"propagation rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 550, 900, 580]\n    },\n    {\n      \"canonical\": \"transform weights\",\n      \"aliases\": [],\n      \"evidence\": \"transfo weights\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [900, 450, 980, 500]\n    },\n    {\n      \"canonical\": \"final layer\",\n      \"aliases\": [],\n      \"evidence\": \"final layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 750, 800, 770]\n    },\n    {\n      \"canonical\": \"embedding\",\n      \"aliases\": [],\n      \"evidence\": \"embedding in the final layer\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 900, 550, 950]\n    },\n    {\n      \"canonical\": \"huge optimization space\",\n      \"aliases\": [],\n      \"evidence\": \"huge optimization space\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [850, 900, 980, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\Theta_t = \\\\Theta_{t-1} - \\\\eta \\\\nabla \\\\mathcal{L}(\\\\Theta_{t-1})\",\n      \"related_concepts\": [\"gradient descent\", \"learning rate\", \"loss function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 600, 300, 650],\n      \"label\": \"gradient descent update\"\n    },\n    {\n      \"latex\": \"\\\\hat{A} = A + I\",\n      \"related_concepts\": [\"self-loop\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 550, 450, 600],\n      \"label\": \"adjacency matrix with self-loops\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a(\\\\hat{A}H_k\\\\Omega_k)\",\n      \"related_concepts\": [\"propagation rule\", \"message passing\", \"feature embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 500, 900, 550],\n      \"label\": \"GCN propagation rule\"\n    },\n    {\n      \"latex\": \"H_K = a(\\\\hat{A}H_{K-1}\\\\Omega_{K-1})\",\n      \"related_concepts\": [\"final layer\", \"feature embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 780, 800, 820],\n      \"label\": \"final layer transformation\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\Theta) = ||H_K W - Y||_2^2 = \\\\frac{1}{C} \\\\sum_{c=1}^{C} (H_K w_c - y_c)^2\",\n      \"related_concepts\": [\"loss function\", \"mean squared error\", \"network parameters\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 820, 900, 880],\n      \"label\": \"MSE loss function\"\n    },\n    {\n      \"latex\": \"\\\\Theta = (W, \\\\Omega_1, \\\\Omega_2, ..., \\\\Omega_{K-1})\",\n      \"related_concepts\": [\"network parameters\", \"classifier\", \"hyperparameters\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 880, 850, 930],\n      \"label\": \"network parameters definition\"\n    },\n    {\n      \"latex\": \"X = H_0\",\n      \"related_concepts\": [\"feature embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 550, 550, 580],\n      \"label\": \"initial features\"\n    },\n    {\n      \"latex\": \"a(\\\\hat{A}X\\\\Omega_0)\",\n      \"related_concepts\": [\"feature embedding\", \"propagation rule\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 300, 750, 330],\n      \"label\": \"first layer transformation\"\n    },\n    {\n      \"latex\": \"a(\\\\hat{A}H_1\\\\Omega_1)\",\n      \"related_concepts\": [\"feature embedding\", \"propagation rule\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 300, 850, 330],\n      \"label\": \"second layer transformation\"\n    },\n    {\n      \"latex\": \"a(\\\\hat{A}H_2\\\\Omega_2)\",\n      \"related_concepts\": [\"feature embedding\", \"propagation rule\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [850, 300, 950, 330],\n      \"label\": \"third layer transformation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"GCN layer architecture showing input X transformed through multiple layers H1, H2, H3 with propagation rules\",\n      \"related_concepts\": [\"graph convolutional network\", \"feature embedding\", \"propagation rule\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 250, 950, 450]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph with training nodes highlighted and prediction scores\",\n      \"related_concepts\": [\"training nodes\", \"node classification\", \"prediction score\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 150, 650, 300]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A_hat with self-loops and feature matrix X=H0\",\n      \"related_concepts\": [\"self-loop\", \"feature embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 500, 550, 650]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Loss function optimization curve showing gradient descent iterations\",\n      \"related_concepts\": [\"gradient descent\", \"loss function\", \"optimizer\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 700, 250, 850]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"GCN training pipeline from input features through layers to final predictions\",\n      \"related_concepts\": [\"graph convolutional network\", \"feature embedding\", \"classifier\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 150, 950, 650]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Scores matrix Y with dimensions n samples x C classes\",\n      \"related_concepts\": [\"node classification\", \"prediction score\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 550, 650, 650]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"predict the C score\",\n      \"reason\": \"Handwritten text is somewhat unclear, particularly the 'C' which might be a class indicator or confidence\",\n      \"bbox\": [750, 200, 900, 230]\n    },\n    {\n      \"transcription\": \"transfo weights\",\n      \"reason\": \"Abbreviated handwriting, 'transfo' likely means 'transform' but could be interpreted differently\",\n      \"bbox\": [900, 450, 980, 500]\n    },\n    {\n      \"transcription\": \"embedding in the final layer\",\n      \"reason\": \"Handwritten annotation with some words partially obscured\",\n      \"bbox\": [450, 900, 550, 950]\n    },\n    {\n      \"transcription\": \"huge optimization space\",\n      \"reason\": \"Handwritten note with cursive writing that may be misinterpreted\",\n      \"bbox\": [850, 900, 980, 950]\n    },\n    {\n      \"transcription\": \"active research area\",\n      \"reason\": \"Handwritten annotation in quotes, some letters are unclear\",\n      \"bbox\": [200, 200, 300, 230]\n    },\n    {\n      \"transcription\": \"self loop\",\n      \"reason\": \"Handwritten annotation next to formula, 'loop' is somewhat unclear\",\n      \"bbox\": [400, 620, 450, 650]\n    },\n    {\n      \"transcription\": \"learning rate\",\n      \"reason\": \"Handwritten annotation under gradient descent formula, 'rate' is slightly unclear\",\n      \"bbox\": [150, 650, 220, 670]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "node-level prediction"
+            ],
+            "evidence": "Printed heading 'node classification' and diagram showing classification of node 3.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              100,
+              150,
+              150
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [
+              "link prediction"
+            ],
+            "evidence": "Printed heading 'edge/link prediction' and diagram showing prediction of edge between nodes m and n.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              600,
+              150,
+              650
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "Handwritten label 'Graph neural network' pointing to the graph transformation process.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              200,
+              250,
+              250
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [],
+            "evidence": "Handwritten note 'msg passing' next to the node update formula.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              300,
+              500,
+              350
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "Printed label 'learned weights' under the matrix multiplication diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              200,
+              480
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "representation"
+            ],
+            "evidence": "Printed label 'node embedding' and handwritten 'embedding of m', 'embedding of n'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              450,
+              350,
+              550
+            ]
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [
+              "sig"
+            ],
+            "evidence": "Handwritten 'sig' in the prediction formulas for both node and edge tasks.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              350,
+              200,
+              380
+            ]
+          },
+          {
+            "canonical": "multi-layer perceptron",
+            "aliases": [
+              "MLP"
+            ],
+            "evidence": "Handwritten note '(MLP)' pointing to the learned parameters section.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              450,
+              400,
+              480
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "GD",
+              "SGD"
+            ],
+            "evidence": "Handwritten note 'Optimize using GD or SGD'.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              700,
+              350,
+              850,
+              400
+            ]
+          },
+          {
+            "canonical": "manifold learning",
+            "aliases": [],
+            "evidence": "Printed text 'find an ultimate... much simpler manifold'.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              500,
+              950,
+              550
+            ]
+          },
+          {
+            "canonical": "training nodes",
+            "aliases": [],
+            "evidence": "Printed label 'Training nodes' above the bar chart visualization.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              50,
+              700,
+              80
+            ]
+          },
+          {
+            "canonical": "testing node",
+            "aliases": [
+              "unseen node"
+            ],
+            "evidence": "Printed label 'Testing node' and 'Test on unseen' in the diagrams.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              650,
+              900,
+              680
+            ]
+          },
+          {
+            "canonical": "dot product",
+            "aliases": [
+              "inner product"
+            ],
+            "evidence": "Handwritten formula showing transpose and multiplication $h_k^{(m)T} h_k^{(n)}$ for similarity.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              750,
+              350,
+              800
+            ]
+          },
+          {
+            "canonical": "binary classification",
+            "aliases": [],
+            "evidence": "Handwritten note '0, 1 -> 0.9' indicating probability output for edge presence.",
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              350,
+              800,
+              450,
+              850
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\hat{y}^{(n)} = \\text{sig}(\\beta_k + \\omega_k h_k^{(n)})",
+            "related_concepts": [
+              "node classification",
+              "sigmoid activation",
+              "learned weights",
+              "node embedding"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              120,
+              320,
+              380,
+              390
+            ],
+            "label": "node prediction head"
+          },
+          {
+            "latex": "y^{(mn)} = \\text{sig}[h_k^{(m)T} h_k^{(n)}]",
+            "related_concepts": [
+              "edge prediction",
+              "sigmoid activation",
+              "dot product",
+              "node embedding"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              120,
+              720,
+              380,
+              790
+            ],
+            "label": "edge prediction head"
+          },
+          {
+            "latex": "\\mathcal{L}(\\hat{y}^{(n)}, y^{(n)})",
+            "related_concepts": [
+              "gradient descent",
+              "node classification"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              250,
+              550,
+              300
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\Theta^* = \\{ [\\Omega_1^*, \\dots, \\Omega_{K-1}^*], W^* \\}",
+            "related_concepts": [
+              "learned weights",
+              "gradient descent"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              650,
+              900,
+              950,
+              950
+            ],
+            "label": "optimal parameters"
+          },
+          {
+            "latex": "\\downarrow (H_0 = X)",
+            "related_concepts": [
+              "manifold learning",
+              "node embedding"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              450,
+              850,
+              480
+            ],
+            "label": "embedding evolution"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Sequence of graphs showing node classification: original graph, GNN processing, and classified node.",
+            "related_concepts": [
+              "node classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              160,
+              350,
+              300
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Sequence of graphs showing edge prediction: original graph, GNN processing, and predicted edge.",
+            "related_concepts": [
+              "edge prediction",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              660,
+              350,
+              800
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing learned weights multiplied by node embedding to produce prediction.",
+            "related_concepts": [
+              "learned weights",
+              "node embedding",
+              "multi-layer perceptron"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              400,
+              350,
+              550
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "2D scatter plot showing separated classes (purple and green dots) with a decision boundary, representing the simplified manifold.",
+            "related_concepts": [
+              "manifold learning",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              380,
+              750,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Bar chart representation of training nodes with embeddings, leading to a testing node prediction.",
+            "related_concepts": [
+              "training nodes",
+              "testing node",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              650,
+              950,
+              850
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Small table showing Ground Truth (GT) vs Predicted (PR) values for node classification.",
+            "related_concepts": [
+              "node classification",
+              "gradient descent"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              250,
+              750,
+              350
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Loss curve showing convergence over iterations ($\\theta_0$ to $\\theta_T$).",
+            "related_concepts": [
+              "gradient descent",
+              "loss function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              800,
+              50,
+              950,
+              200
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "H_{K, t=0} (input)",
+            "reason": "Subscript 't=0' and surrounding parentheses are slightly ambiguous.",
+            "bbox": [
+              550,
+              520,
+              700,
+              550
+            ]
+          },
+          {
+            "transcription": "c scores",
+            "reason": "The letter 'c' is handwritten and could be interpreted as 'class' or another variable.",
+            "bbox": [
+              800,
+              820,
+              850,
+              840
+            ]
+          },
+          {
+            "transcription": "update",
+            "reason": "Handwritten note near the node formula is slightly smudged.",
+            "bbox": [
+              400,
+              280,
+              450,
+              300
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"node-level prediction\"],\n      \"evidence\": \"Printed heading 'node classification' and diagram showing classification of node 3.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 100, 150, 150]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [\"link prediction\"],\n      \"evidence\": \"Printed heading 'edge/link prediction' and diagram showing prediction of edge between nodes m and n.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 600, 150, 650]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"Handwritten label 'Graph neural network' pointing to the graph transformation process.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 200, 250, 250]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note 'msg passing' next to the node update formula.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 300, 500, 350]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"Printed label 'learned weights' under the matrix multiplication diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 200, 480]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"representation\"],\n      \"evidence\": \"Printed label 'node embedding' and handwritten 'embedding of m', 'embedding of n'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 450, 350, 550]\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [\"sig\"],\n      \"evidence\": \"Handwritten 'sig' in the prediction formulas for both node and edge tasks.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 350, 200, 380]\n    },\n    {\n      \"canonical\": \"multi-layer perceptron\",\n      \"aliases\": [\"MLP\"],\n      \"evidence\": \"Handwritten note '(MLP)' pointing to the learned parameters section.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 450, 400, 480]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"GD\", \"SGD\"],\n      \"evidence\": \"Handwritten note 'Optimize using GD or SGD'.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [700, 350, 850, 400]\n    },\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text 'find an ultimate... much simpler manifold'.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 500, 950, 550]\n    },\n    {\n      \"canonical\": \"training nodes\",\n      \"aliases\": [],\n      \"evidence\": \"Printed label 'Training nodes' above the bar chart visualization.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 50, 700, 80]\n    },\n    {\n      \"canonical\": \"testing node\",\n      \"aliases\": [\"unseen node\"],\n      \"evidence\": \"Printed label 'Testing node' and 'Test on unseen' in the diagrams.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 650, 900, 680]\n    },\n    {\n      \"canonical\": \"dot product\",\n      \"aliases\": [\"inner product\"],\n      \"evidence\": \"Handwritten formula showing transpose and multiplication $h_k^{(m)T} h_k^{(n)}$ for similarity.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 750, 350, 800]\n    },\n    {\n      \"canonical\": \"binary classification\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten note '0, 1 -> 0.9' indicating probability output for edge presence.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [350, 800, 450, 850]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\hat{y}^{(n)} = \\\\text{sig}(\\\\beta_k + \\\\omega_k h_k^{(n)})\",\n      \"related_concepts\": [\"node classification\", \"sigmoid activation\", \"learned weights\", \"node embedding\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [120, 320, 380, 390],\n      \"label\": \"node prediction head\"\n    },\n    {\n      \"latex\": \"y^{(mn)} = \\\\text{sig}[h_k^{(m)T} h_k^{(n)}]\",\n      \"related_concepts\": [\"edge prediction\", \"sigmoid activation\", \"dot product\", \"node embedding\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [120, 720, 380, 790],\n      \"label\": \"edge prediction head\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\hat{y}^{(n)}, y^{(n)})\",\n      \"related_concepts\": [\"gradient descent\", \"node classification\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 250, 550, 300],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\Theta^* = \\\\{ [\\\\Omega_1^*, \\\\dots, \\\\Omega_{K-1}^*], W^* \\\\}\",\n      \"related_concepts\": [\"learned weights\", \"gradient descent\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [650, 900, 950, 950],\n      \"label\": \"optimal parameters\"\n    },\n    {\n      \"latex\": \"\\\\downarrow (H_0 = X)\",\n      \"related_concepts\": [\"manifold learning\", \"node embedding\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 450, 850, 480],\n      \"label\": \"embedding evolution\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Sequence of graphs showing node classification: original graph, GNN processing, and classified node.\",\n      \"related_concepts\": [\"node classification\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 160, 350, 300]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Sequence of graphs showing edge prediction: original graph, GNN processing, and predicted edge.\",\n      \"related_concepts\": [\"edge prediction\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 660, 350, 800]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing learned weights multiplied by node embedding to produce prediction.\",\n      \"related_concepts\": [\"learned weights\", \"node embedding\", \"multi-layer perceptron\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 400, 350, 550]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"2D scatter plot showing separated classes (purple and green dots) with a decision boundary, representing the simplified manifold.\",\n      \"related_concepts\": [\"manifold learning\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 380, 750, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Bar chart representation of training nodes with embeddings, leading to a testing node prediction.\",\n      \"related_concepts\": [\"training nodes\", \"testing node\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 650, 950, 850]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Small table showing Ground Truth (GT) vs Predicted (PR) values for node classification.\",\n      \"related_concepts\": [\"node classification\", \"gradient descent\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 250, 750, 350]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Loss curve showing convergence over iterations ($\\\\theta_0$ to $\\\\theta_T$).\",\n      \"related_concepts\": [\"gradient descent\", \"loss function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [800, 50, 950, 200]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"H_{K, t=0} (input)\",\n      \"reason\": \"Subscript 't=0' and surrounding parentheses are slightly ambiguous.\",\n      \"bbox\": [550, 520, 700, 550]\n    },\n    {\n      \"transcription\": \"c scores\",\n      \"reason\": \"The letter 'c' is handwritten and could be interpreted as 'class' or another variable.\",\n      \"bbox\": [800, 820, 850, 840]\n    },\n    {\n      \"transcription\": \"update\",\n      \"reason\": \"Handwritten note near the node formula is slightly smudged.\",\n      \"bbox\": [400, 280, 450, 300]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "gcn"
+            ],
+            "evidence": "Forward pass through the GNN layers and prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              420,
+              720,
+              750,
+              750
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "embedding",
+              "representation"
+            ],
+            "evidence": "Kth embeddings",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              500,
+              650,
+              530
+            ]
+          },
+          {
+            "canonical": "inductive learning",
+            "aliases": [
+              "inductive node embedding"
+            ],
+            "evidence": "inductive node embedding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              950,
+              550,
+              980
+            ]
+          },
+          {
+            "canonical": "transductive learning",
+            "aliases": [
+              "transductive"
+            ],
+            "evidence": "Test on unseen nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              720,
+              300,
+              750
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gd",
+              "sgd"
+            ],
+            "evidence": "Optimize using GD or SGD",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              150,
+              400
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [
+              "objective function",
+              "optimization"
+            ],
+            "evidence": "minimize L(theta) = ||Y_hat - Y||_2^2",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              600,
+              950,
+              650
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "output layer",
+              "classifier"
+            ],
+            "evidence": "prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              720,
+              750,
+              750
+            ]
+          },
+          {
+            "canonical": "matrix multiplication",
+            "aliases": [
+              "linear transformation"
+            ],
+            "evidence": "W in R^{d_k x C}",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              850,
+              650,
+              880
+            ]
+          },
+          {
+            "canonical": "evaluation metrics",
+            "aliases": [
+              "mae",
+              "mse"
+            ],
+            "evidence": "MAE, MSE",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              800,
+              950,
+              900,
+              980
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "L(\\Theta) = ||H_K W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^C (H_K w_c - y_c)^2",
+            "related_concepts": [
+              "loss function",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              50,
+              950,
+              100
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\Theta = (W, \\Omega_1, \\Omega_2, ..., \\Omega_{K-1})",
+            "related_concepts": [
+              "graph neural network",
+              "parameters"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              100,
+              850,
+              150
+            ],
+            "label": "parameters"
+          },
+          {
+            "latex": "H_K \\in \\mathbb{R}^{n \\times d_K}",
+            "related_concepts": [
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              550,
+              650,
+              580
+            ],
+            "label": "embedding dimension"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{d_K \\times C}",
+            "related_concepts": [
+              "matrix multiplication",
+              "prediction head"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              850,
+              650,
+              880
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "prediction head",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              550,
+              850,
+              580
+            ],
+            "label": "predicted output"
+          },
+          {
+            "latex": "Y \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "output scores",
+              "ground truth"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              550,
+              950,
+              580
+            ],
+            "label": "ground truth"
+          },
+          {
+            "latex": "\\min_{\\Theta} L(\\Theta) = ||\\hat{Y} - Y||_2^2",
+            "related_concepts": [
+              "loss function",
+              "optimization"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              600,
+              950,
+              650
+            ],
+            "label": "optimization objective"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing the forward pass through GNN layers and prediction head, including node embeddings, weight matrices, and output scores.",
+            "related_concepts": [
+              "graph neural network",
+              "node embedding",
+              "prediction head"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              450,
+              950,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating the process of testing on unseen nodes, including connecting the testing node to other nodes, forward pass through GCN layers, and evaluation.",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning",
+              "evaluation metrics"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              700,
+              400,
+              950
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot showing the optimization process using gradient descent or stochastic gradient descent.",
+            "related_concepts": [
+              "gradient descent",
+              "loss function"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              200,
+              200
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Table showing the dimensions of various matrices involved in the GNN computation.",
+            "related_concepts": [
+              "matrix multiplication",
+              "node embedding",
+              "prediction head"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              500,
+              950,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "huge optimization space",
+            "reason": "Handwriting is somewhat unclear, especially the word 'huge'.",
+            "bbox": [
+              850,
+              150,
+              950,
+              180
+            ]
+          },
+          {
+            "transcription": "evaluate the generalizability of our GNN model to unseen data points (n-nodes)",
+            "reason": "Handwriting is somewhat unclear, especially the phrase 'generalizability'.",
+            "bbox": [
+              250,
+              850,
+              400,
+              900
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\", \"gcn\"],\n      \"evidence\": \"Forward pass through the GNN layers and prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [420, 720, 750, 750]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"embedding\", \"representation\"],\n      \"evidence\": \"Kth embeddings\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 500, 650, 530]\n    },\n    {\n      \"canonical\": \"inductive learning\",\n      \"aliases\": [\"inductive node embedding\"],\n      \"evidence\": \"inductive node embedding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 950, 550, 980]\n    },\n    {\n      \"canonical\": \"transductive learning\",\n      \"aliases\": [\"transductive\"],\n      \"evidence\": \"Test on unseen nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 720, 300, 750]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gd\", \"sgd\"],\n      \"evidence\": \"Optimize using GD or SGD\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 150, 400]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [\"objective function\", \"optimization\"],\n      \"evidence\": \"minimize L(theta) = ||Y_hat - Y||_2^2\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 600, 950, 650]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"output layer\", \"classifier\"],\n      \"evidence\": \"prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 720, 750, 750]\n    },\n    {\n      \"canonical\": \"matrix multiplication\",\n      \"aliases\": [\"linear transformation\"],\n      \"evidence\": \"W in R^{d_k x C}\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 850, 650, 880]\n    },\n    {\n      \"canonical\": \"evaluation metrics\",\n      \"aliases\": [\"mae\", \"mse\"],\n      \"evidence\": \"MAE, MSE\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [800, 950, 900, 980]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"L(\\\\Theta) = ||H_K W - Y||_2^2 = \\\\frac{1}{C} \\\\sum_{c=1}^C (H_K w_c - y_c)^2\",\n      \"related_concepts\": [\"loss function\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 50, 950, 100],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\Theta = (W, \\\\Omega_1, \\\\Omega_2, ..., \\\\Omega_{K-1})\",\n      \"related_concepts\": [\"graph neural network\", \"parameters\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 100, 850, 150],\n      \"label\": \"parameters\"\n    },\n    {\n      \"latex\": \"H_K \\\\in \\\\mathbb{R}^{n \\\\times d_K}\",\n      \"related_concepts\": [\"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 550, 650, 580],\n      \"label\": \"embedding dimension\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{d_K \\\\times C}\",\n      \"related_concepts\": [\"matrix multiplication\", \"prediction head\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 850, 650, 880],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"prediction head\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 550, 850, 580],\n      \"label\": \"predicted output\"\n    },\n    {\n      \"latex\": \"Y \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"output scores\", \"ground truth\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 550, 950, 580],\n      \"label\": \"ground truth\"\n    },\n    {\n      \"latex\": \"\\\\min_{\\\\Theta} L(\\\\Theta) = ||\\\\hat{Y} - Y||_2^2\",\n      \"related_concepts\": [\"loss function\", \"optimization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 600, 950, 650],\n      \"label\": \"optimization objective\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing the forward pass through GNN layers and prediction head, including node embeddings, weight matrices, and output scores.\",\n      \"related_concepts\": [\"graph neural network\", \"node embedding\", \"prediction head\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 450, 950, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating the process of testing on unseen nodes, including connecting the testing node to other nodes, forward pass through GCN layers, and evaluation.\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\", \"evaluation metrics\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 700, 400, 950]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot showing the optimization process using gradient descent or stochastic gradient descent.\",\n      \"related_concepts\": [\"gradient descent\", \"loss function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 200, 200]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Table showing the dimensions of various matrices involved in the GNN computation.\",\n      \"related_concepts\": [\"matrix multiplication\", \"node embedding\", \"prediction head\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 500, 950, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"huge optimization space\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'huge'.\",\n      \"bbox\": [850, 150, 950, 180]\n    },\n    {\n      \"transcription\": \"evaluate the generalizability of our GNN model to unseen data points (n-nodes)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the phrase 'generalizability'.\",\n      \"bbox\": [250, 850, 400, 900]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "GCN Training and Optimization Pipeline",
+        "summary": "This page details the training process for Graph Convolutional Networks (GCNs), focusing on the message passing mechanism, loss function optimization via gradient descent, and the distinction between transductive and inductive learning. It outlines the mathematical formulation for updating node embeddings through neighborhood aggregation and linear transformation, and defines the prediction heads for node and edge classification tasks.",
+        "key_topics": [
+          "graph convolutional network",
+          "message passing",
+          "gradient descent",
+          "node classification",
+          "edge prediction",
+          "inductive learning"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn",
+              "graph neural network",
+              "gnn"
+            ],
+            "evidence": "Design your GCN layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              55.0,
+              544.5,
+              71.5
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "propagation rule",
+              "feature aggregation"
+            ],
+            "evidence": "A generalized message propagation rule to update the embeddings in a GCN layer",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              110.0,
+              302.5,
+              132.0
+            ]
+          },
+          {
+            "canonical": "neighborhood aggregation",
+            "aliases": [
+              "aggregate information"
+            ],
+            "evidence": "aggregate information from 'myself' (a given node) and 'my neighbors' (its neighbors)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              132.0,
+              302.5,
+              154.0
+            ]
+          },
+          {
+            "canonical": "linear transformation",
+            "aliases": [
+              "matrix multiplication"
+            ],
+            "evidence": "apply a linear transformation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              154.0,
+              302.5,
+              170.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "feature embeddings",
+              "representation"
+            ],
+            "evidence": "Learn feature embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              55.0,
+              110.0,
+              71.5
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [
+              "objective function"
+            ],
+            "evidence": "Define your loss function to optimize",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              137.5,
+              544.5,
+              154.0
+            ]
+          },
+          {
+            "canonical": "cross-entropy",
+            "aliases": [
+              "ce"
+            ],
+            "evidence": "use binary or multiclass cross-entropy (CE) for classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              165.0,
+              544.5,
+              181.5
+            ]
+          },
+          {
+            "canonical": "logistic activation",
+            "aliases": [
+              "sigmoid",
+              "sigmoid function"
+            ],
+            "evidence": "output is passed through a sigmoid or softmax function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              181.5,
+              544.5,
+              198.0
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "output layer",
+              "classifier"
+            ],
+            "evidence": "Define the prediction head (node, edge, or graph)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              209.0,
+              544.5,
+              225.5
+            ]
+          },
+          {
+            "canonical": "stochastic gradient descent",
+            "aliases": [
+              "sgd"
+            ],
+            "evidence": "using stochastic gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              247.5,
+              544.5,
+              264.0
+            ]
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gd"
+            ],
+            "evidence": "Loss optimization through gradient descent",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              302.5,
+              544.5,
+              319.0
+            ]
+          },
+          {
+            "canonical": "computation graph",
+            "aliases": [],
+            "evidence": "The node's neighborhood defines a computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              357.5,
+              302.5,
+              374.0
+            ]
+          },
+          {
+            "canonical": "node classification",
+            "aliases": [
+              "node-level prediction"
+            ],
+            "evidence": "node classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              467.5,
+              110.0,
+              484.0
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "nonlinearity"
+            ],
+            "evidence": "activation function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              121.0,
+              544.5,
+              137.5
+            ]
+          },
+          {
+            "canonical": "hyperparameters",
+            "aliases": [],
+            "evidence": "hyperparameters (e.g., β and ω encoding the classifier bias and weight)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              225.5,
+              544.5,
+              242.0
+            ]
+          },
+          {
+            "canonical": "forward pass",
+            "aliases": [],
+            "evidence": "Compute the loss during the forward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              264.0,
+              544.5,
+              280.5
+            ]
+          },
+          {
+            "canonical": "backward pass",
+            "aliases": [],
+            "evidence": "Compute the gradient of the loss using the chain rule during the backward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              280.5,
+              544.5,
+              297.0
+            ]
+          },
+          {
+            "canonical": "chain rule",
+            "aliases": [],
+            "evidence": "Compute the gradient of the loss using the chain rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              280.5,
+              544.5,
+              297.0
+            ]
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence": "we will examine supervised node- and graph-based classification/regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              44.0,
+              890.0,
+              60.5
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph-level prediction"
+            ],
+            "evidence": "supervised node- and graph-based classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              703.0,
+              44.0,
+              807.5,
+              60.5
+            ]
+          },
+          {
+            "canonical": "regression",
+            "aliases": [],
+            "evidence": "classification/regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              44.0,
+              807.5,
+              60.5
+            ]
+          },
+          {
+            "canonical": "mean squared error",
+            "aliases": [
+              "mse"
+            ],
+            "evidence": "least squares (or MSE) for regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              176.0,
+              697.5,
+              192.5
+            ]
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [],
+            "evidence": "using the chain rule during the backward pass",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              477.5,
+              275.0,
+              642.5,
+              291.5
+            ]
+          },
+          {
+            "canonical": "training samples",
+            "aliases": [
+              "training nodes"
+            ],
+            "evidence": "Training nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              82.5,
+              780.0,
+              99.0
+            ]
+          },
+          {
+            "canonical": "learned weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "Printed label 'learned weights' under the matrix multiplication diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              697.5,
+              110.0,
+              714.0
+            ]
+          },
+          {
+            "canonical": "manifold learning",
+            "aliases": [
+              "dimensionality reduction"
+            ],
+            "evidence": "Printed text 'find an ultimate... much simpler manifold'.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              725.0,
+              522.5,
+              752.5
+            ]
+          },
+          {
+            "canonical": "testing node",
+            "aliases": [
+              "unseen node"
+            ],
+            "evidence": "Printed label 'Testing node' and 'Test on unseen' in the diagrams.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              440.0,
+              807.5,
+              495.0,
+              824.0
+            ]
+          },
+          {
+            "canonical": "transductive learning",
+            "aliases": [
+              "transductive"
+            ],
+            "evidence": "Test on unseen nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              846.0,
+              615.0,
+              862.5
+            ]
+          },
+          {
+            "canonical": "edge prediction",
+            "aliases": [
+              "link prediction"
+            ],
+            "evidence": "Printed heading 'edge/link prediction' and diagram showing prediction of edge between nodes m and n.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              780.0,
+              82.5,
+              807.5
+            ]
+          },
+          {
+            "canonical": "dot product",
+            "aliases": [
+              "inner product"
+            ],
+            "evidence": "Handwritten formula showing transpose and multiplication $h_k^{(m)T} h_k^{(n)}$ for similarity.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              110.0,
+              862.5,
+              192.5,
+              890.0
+            ]
+          },
+          {
+            "canonical": "self-loop",
+            "aliases": [
+              "self-connection"
+            ],
+            "evidence": "A_hat = A + I 'self loop'",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              330.0,
+              697.5,
+              357.5
+            ]
+          },
+          {
+            "canonical": "multilayer perceptron",
+            "aliases": [
+              "mlp"
+            ],
+            "evidence": "Handwritten note '(MLP)' pointing to the learned parameters section.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              192.5,
+              697.5,
+              220.0,
+              714.0
+            ]
+          },
+          {
+            "canonical": "inductive learning",
+            "aliases": [
+              "inductive node embedding"
+            ],
+            "evidence": "inductive node embedding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              697.5,
+              972.5,
+              752.5,
+              989.0
+            ]
+          },
+          {
+            "canonical": "binary classification",
+            "aliases": [
+              "0/1 prediction"
+            ],
+            "evidence": "Handwritten note '0, 1 -> 0.9' indicating probability output for edge presence.",
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              192.5,
+              890.0,
+              247.5,
+              917.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "graph convolutional network",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              192.5,
+              165.0,
+              220.0
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "neighborhood aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              220.0,
+              330.0,
+              247.5
+            ],
+            "label": "aggregation function"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a\\left[\\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k]\\right]",
+            "related_concepts": [
+              "node embedding",
+              "linear transformation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              165.0,
+              247.5,
+              330.0,
+              275.0
+            ],
+            "label": "node embedding update"
+          },
+          {
+            "latex": "H_{k+1} = a\\left[\\beta_k 1^T + \\Omega_k H_k (A + I)\\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "linear transformation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              330.0,
+              330.0,
+              357.5
+            ],
+            "label": "update rule for all node embeddings"
+          },
+          {
+            "latex": "\\Theta_t = \\Theta_{t-1} - \\eta \\nabla \\mathcal{L}(\\Theta_{t-1})",
+            "related_concepts": [
+              "gradient descent",
+              "stochastic gradient descent",
+              "loss function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              372.9,
+              330.0,
+              544.5,
+              357.5
+            ],
+            "label": "gradient descent update rule"
+          },
+          {
+            "latex": "\\hat{A} = A + I",
+            "related_concepts": [
+              "self-loop"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              302.5,
+              697.5,
+              330.0
+            ],
+            "label": "adjacency matrix with self-loops"
+          },
+          {
+            "latex": "H_{k+1} = a(\\hat{A}H_k\\Omega_k)",
+            "related_concepts": [
+              "propagation rule",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              835.0,
+              275.0,
+              945.0,
+              302.5
+            ],
+            "label": "GCN propagation rule"
+          },
+          {
+            "latex": "\\mathcal{L}(\\Theta) = ||H_K W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (H_K w_c - y_c)^2",
+            "related_concepts": [
+              "loss function",
+              "mean squared error"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              725.0,
+              451.0,
+              945.0,
+              484.0
+            ],
+            "label": "MSE loss function"
+          },
+          {
+            "latex": "\\hat{y}^{(n)} = \\text{sig}(\\beta_k + \\omega_k h_k^{(n)})",
+            "related_concepts": [
+              "node classification",
+              "logistic activation",
+              "learned weights"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              66.0,
+              626.0,
+              209.0,
+              664.5
+            ],
+            "label": "node prediction head"
+          },
+          {
+            "latex": "y^{(mn)} = \\text{sig}[h_k^{(m)T} h_k^{(n)}]",
+            "related_concepts": [
+              "edge prediction",
+              "logistic activation",
+              "dot product"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              66.0,
+              846.0,
+              209.0,
+              884.5
+            ],
+            "label": "edge prediction head"
+          },
+          {
+            "latex": "\\min_{\\Theta} L(\\Theta) = ||\\hat{Y} - Y||_2^2",
+            "related_concepts": [
+              "loss function",
+              "optimization"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              862.5,
+              780.0,
+              972.5,
+              807.5
+            ],
+            "label": "optimization objective"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing a node and its 1-hop and 2-hop neighbors with arrows indicating message passing",
+            "related_concepts": [
+              "message passing",
+              "neighborhood aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              5.5,
+              220.0,
+              165.0,
+              330.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot showing the loss function optimization through gradient descent with a curve and annotations",
+            "related_concepts": [
+              "gradient descent",
+              "loss function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              372.9,
+              357.5,
+              544.5,
+              467.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Sequence of graphs showing node classification: original graph, GNN processing, and classified node.",
+            "related_concepts": [
+              "node classification",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              538.0,
+              192.5,
+              615.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Sequence of graphs showing edge prediction: original graph, GNN processing, and predicted edge.",
+            "related_concepts": [
+              "edge prediction",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              813.0,
+              192.5,
+              890.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing learned weights multiplied by node embedding to produce prediction.",
+            "related_concepts": [
+              "learned weights",
+              "node embedding",
+              "multilayer perceptron"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              55.0,
+              670.0,
+              192.5,
+              752.5
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "2D scatter plot showing separated classes (purple and green dots) with a decision boundary, representing the simplified manifold.",
+            "related_concepts": [
+              "manifold learning",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              302.5,
+              659.0,
+              412.5,
+              752.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating the process of testing on unseen nodes, including connecting the testing node to other nodes, forward pass through GCN layers, and evaluation.",
+            "related_concepts": [
+              "inductive learning",
+              "transductive learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              477.5,
+              835.0,
+              670.0,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "GCN training pipeline from input features through layers to final predictions",
+            "related_concepts": [
+              "graph convolutional network",
+              "feature embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              615.0,
+              82.5,
+              972.5,
+              357.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "predict the C score",
+            "reason": "Handwritten text is somewhat unclear, particularly the 'C' which might be a class indicator or confidence",
+            "bbox": [
+              862.5,
+              110.0,
+              945.0,
+              126.5
+            ]
+          },
+          {
+            "transcription": "transfo weights",
+            "reason": "Abbreviated handwriting, 'transfo' likely means 'transform' but could be interpreted differently",
+            "bbox": [
+              945.0,
+              247.5,
+              989.0,
+              275.0
+            ]
+          },
+          {
+            "transcription": "huge optimization space",
+            "reason": "Handwritten note with cursive writing that may be misinterpreted",
+            "bbox": [
+              917.5,
+              495.0,
+              989.0,
+              522.5
+            ]
+          },
+          {
+            "transcription": "active research area",
+            "reason": "Handwritten annotation in quotes, some letters are unclear",
+            "bbox": [
+              560.0,
+              110.0,
+              615.0,
+              126.5
+            ]
+          },
+          {
+            "transcription": "learning rate",
+            "reason": "Handwritten annotation under gradient descent formula, 'rate' is slightly unclear",
+            "bbox": [
+              532.5,
+              357.5,
+              571.0,
+              368.5
+            ]
+          },
+          {
+            "transcription": "evaluate the generalizability of our GNN model to unseen data points (n-nodes)",
+            "reason": "Handwriting is somewhat unclear, especially the phrase 'generalizability'.",
+            "bbox": [
+              587.5,
+              917.5,
+              670.0,
+              945.0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"GCN Training and Optimization Pipeline\",\n  \"summary\": \"This page details the training process for Graph Convolutional Networks (GCNs), focusing on the message passing mechanism, loss function optimization via gradient descent, and the distinction between transductive and inductive learning. It outlines the mathematical formulation for updating node embeddings through neighborhood aggregation and linear transformation, and defines the prediction heads for node and edge classification tasks.\",\n  \"key_topics\": [\n    \"graph convolutional network\",\n    \"message passing\",\n    \"gradient descent\",\n    \"node classification\",\n    \"edge prediction\",\n    \"inductive learning\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\", \"graph neural network\", \"gnn\"],\n      \"evidence\": \"Design your GCN layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 55.0, 544.5, 71.5]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"propagation rule\", \"feature aggregation\"],\n      \"evidence\": \"A generalized message propagation rule to update the embeddings in a GCN layer\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 110.0, 302.5, 132.0]\n    },\n    {\n      \"canonical\": \"neighborhood aggregation\",\n      \"aliases\": [\"aggregate information\"],\n      \"evidence\": \"aggregate information from 'myself' (a given node) and 'my neighbors' (its neighbors)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 132.0, 302.5, 154.0]\n    },\n    {\n      \"canonical\": \"linear transformation\",\n      \"aliases\": [\"matrix multiplication\"],\n      \"evidence\": \"apply a linear transformation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 154.0, 302.5, 170.5]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"feature embeddings\", \"representation\"],\n      \"evidence\": \"Learn feature embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 55.0, 110.0, 71.5]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [\"objective function\"],\n      \"evidence\": \"Define your loss function to optimize\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 137.5, 544.5, 154.0]\n    },\n    {\n      \"canonical\": \"cross-entropy\",\n      \"aliases\": [\"ce\"],\n      \"evidence\": \"use binary or multiclass cross-entropy (CE) for classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 165.0, 544.5, 181.5]\n    },\n    {\n      \"canonical\": \"logistic activation\",\n      \"aliases\": [\"sigmoid\", \"sigmoid function\"],\n      \"evidence\": \"output is passed through a sigmoid or softmax function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 181.5, 544.5, 198.0]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"output layer\", \"classifier\"],\n      \"evidence\": \"Define the prediction head (node, edge, or graph)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 209.0, 544.5, 225.5]\n    },\n    {\n      \"canonical\": \"stochastic gradient descent\",\n      \"aliases\": [\"sgd\"],\n      \"evidence\": \"using stochastic gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 247.5, 544.5, 264.0]\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gd\"],\n      \"evidence\": \"Loss optimization through gradient descent\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 302.5, 544.5, 319.0]\n    },\n    {\n      \"canonical\": \"computation graph\",\n      \"aliases\": [],\n      \"evidence\": \"The node's neighborhood defines a computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 357.5, 302.5, 374.0]\n    },\n    {\n      \"canonical\": \"node classification\",\n      \"aliases\": [\"node-level prediction\"],\n      \"evidence\": \"node classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 467.5, 110.0, 484.0]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"nonlinearity\"],\n      \"evidence\": \"activation function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 121.0, 544.5, 137.5]\n    },\n    {\n      \"canonical\": \"hyperparameters\",\n      \"aliases\": [],\n      \"evidence\": \"hyperparameters (e.g., β and ω encoding the classifier bias and weight)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 225.5, 544.5, 242.0]\n    },\n    {\n      \"canonical\": \"forward pass\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the loss during the forward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 264.0, 544.5, 280.5]\n    },\n    {\n      \"canonical\": \"backward pass\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the gradient of the loss using the chain rule during the backward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 280.5, 544.5, 297.0]\n    },\n    {\n      \"canonical\": \"chain rule\",\n      \"aliases\": [],\n      \"evidence\": \"Compute the gradient of the loss using the chain rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 280.5, 544.5, 297.0]\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence\": \"we will examine supervised node- and graph-based classification/regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 44.0, 890.0, 60.5]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph-level prediction\"],\n      \"evidence\": \"supervised node- and graph-based classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [703.0, 44.0, 807.5, 60.5]\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [],\n      \"evidence\": \"classification/regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 44.0, 807.5, 60.5]\n    },\n    {\n      \"canonical\": \"mean squared error\",\n      \"aliases\": [\"mse\"],\n      \"evidence\": \"least squares (or MSE) for regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 176.0, 697.5, 192.5]\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [],\n      \"evidence\": \"using the chain rule during the backward pass\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [477.5, 275.0, 642.5, 291.5]\n    },\n    {\n      \"canonical\": \"training samples\",\n      \"aliases\": [\"training nodes\"],\n      \"evidence\": \"Training nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 82.5, 780.0, 99.0]\n    },\n    {\n      \"canonical\": \"learned weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"Printed label 'learned weights' under the matrix multiplication diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 697.5, 110.0, 714.0]\n    },\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [\"dimensionality reduction\"],\n      \"evidence\": \"Printed text 'find an ultimate... much simpler manifold'.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 725.0, 522.5, 752.5]\n    },\n    {\n      \"canonical\": \"testing node\",\n      \"aliases\": [\"unseen node\"],\n      \"evidence\": \"Printed label 'Testing node' and 'Test on unseen' in the diagrams.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [440.0, 807.5, 495.0, 824.0]\n    },\n    {\n      \"canonical\": \"transductive learning\",\n      \"aliases\": [\"transductive\"],\n      \"evidence\": \"Test on unseen nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 846.0, 615.0, 862.5]\n    },\n    {\n      \"canonical\": \"edge prediction\",\n      \"aliases\": [\"link prediction\"],\n      \"evidence\": \"Printed heading 'edge/link prediction' and diagram showing prediction of edge between nodes m and n.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 780.0, 82.5, 807.5]\n    },\n    {\n      \"canonical\": \"dot product\",\n      \"aliases\": [\"inner product\"],\n      \"evidence\": \"Handwritten formula showing transpose and multiplication $h_k^{(m)T} h_k^{(n)}$ for similarity.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [110.0, 862.5, 192.5, 890.0]\n    },\n    {\n      \"canonical\": \"self-loop\",\n      \"aliases\": [\"self-connection\"],\n      \"evidence\": \"A_hat = A + I 'self loop'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 330.0, 697.5, 357.5]\n    },\n    {\n      \"canonical\": \"multilayer perceptron\",\n      \"aliases\": [\"mlp\"],\n      \"evidence\": \"Handwritten note '(MLP)' pointing to the learned parameters section.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [192.5, 697.5, 220.0, 714.0]\n    },\n    {\n      \"canonical\": \"inductive learning\",\n      \"aliases\": [\"inductive node embedding\"],\n      \"evidence\": \"inductive node embedding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [697.5, 972.5, 752.5, 989.0]\n    },\n    {\n      \"canonical\": \"binary classification\",\n      \"aliases\": [\"0/1 prediction\"],\n      \"evidence\": \"Handwritten note '0, 1 -> 0.9' indicating probability output for edge presence.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [192.5, 890.0, 247.5, 917.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"graph convolutional network\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 192.5, 165.0, 220.0],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\"neighborhood aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220.0, 220.0, 330.0, 247.5],\n      \"label\": \"aggregation function\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a\\\\left[\\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k]\\\\right]\",\n      \"related_concepts\": [\"node embedding\", \"linear transformation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [165.0, 247.5, 330.0, 275.0],\n      \"label\": \"node embedding update\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a\\\\left[\\\\beta_k 1^T + \\\\Omega_k H_k (A + I)\\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"linear transformation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [165.0, 330.0, 330.0, 357.5],\n      \"label\": \"update rule for all node embeddings\"\n    },\n    {\n      \"latex\": \"\\\\Theta_t = \\\\Theta_{t-1} - \\\\eta \\\\nabla \\\\mathcal{L}(\\\\Theta_{t-1})\",\n      \"related_concepts\": [\"gradient descent\", \"stochastic gradient descent\", \"loss function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [372.9, 330.0, 544.5, 357.5],\n      \"label\": \"gradient descent update rule\"\n    },\n    {\n      \"latex\": \"\\\\hat{A} = A + I\",\n      \"related_concepts\": [\"self-loop\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 302.5, 697.5, 330.0],\n      \"label\": \"adjacency matrix with self-loops\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a(\\\\hat{A}H_k\\\\Omega_k)\",\n      \"related_concepts\": [\"propagation rule\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [835.0, 275.0, 945.0, 302.5],\n      \"label\": \"GCN propagation rule\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\Theta) = ||H_K W - Y||_2^2 = \\\\frac{1}{C} \\\\sum_{c=1}^{C} (H_K w_c - y_c)^2\",\n      \"related_concepts\": [\"loss function\", \"mean squared error\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [725.0, 451.0, 945.0, 484.0],\n      \"label\": \"MSE loss function\"\n    },\n    {\n      \"latex\": \"\\\\hat{y}^{(n)} = \\\\text{sig}(\\\\beta_k + \\\\omega_k h_k^{(n)})\",\n      \"related_concepts\": [\"node classification\", \"logistic activation\", \"learned weights\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [66.0, 626.0, 209.0, 664.5],\n      \"label\": \"node prediction head\"\n    },\n    {\n      \"latex\": \"y^{(mn)} = \\\\text{sig}[h_k^{(m)T} h_k^{(n)}]\",\n      \"related_concepts\": [\"edge prediction\", \"logistic activation\", \"dot product\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [66.0, 846.0, 209.0, 884.5],\n      \"label\": \"edge prediction head\"\n    },\n    {\n      \"latex\": \"\\\\min_{\\\\Theta} L(\\\\Theta) = ||\\\\hat{Y} - Y||_2^2\",\n      \"related_concepts\": [\"loss function\", \"optimization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [862.5, 780.0, 972.5, 807.5],\n      \"label\": \"optimization objective\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing a node and its 1-hop and 2-hop neighbors with arrows indicating message passing\",\n      \"related_concepts\": [\"message passing\", \"neighborhood aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [5.5, 220.0, 165.0, 330.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot showing the loss function optimization through gradient descent with a curve and annotations\",\n      \"related_concepts\": [\"gradient descent\", \"loss function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [372.9, 357.5, 544.5, 467.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Sequence of graphs showing node classification: original graph, GNN processing, and classified node.\",\n      \"related_concepts\": [\"node classification\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 538.0, 192.5, 615.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Sequence of graphs showing edge prediction: original graph, GNN processing, and predicted edge.\",\n      \"related_concepts\": [\"edge prediction\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 813.0, 192.5, 890.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing learned weights multiplied by node embedding to produce prediction.\",\n      \"related_concepts\": [\"learned weights\", \"node embedding\", \"multilayer perceptron\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [55.0, 670.0, 192.5, 752.5]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"2D scatter plot showing separated classes (purple and green dots) with a decision boundary, representing the simplified manifold.\",\n      \"related_concepts\": [\"manifold learning\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [302.5, 659.0, 412.5, 752.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating the process of testing on unseen nodes, including connecting the testing node to other nodes, forward pass through GCN layers, and evaluation.\",\n      \"related_concepts\": [\"inductive learning\", \"transductive learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [477.5, 835.0, 670.0, 972.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"GCN training pipeline from input features through layers to final predictions\",\n      \"related_concepts\": [\"graph convolutional network\", \"feature embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [615.0, 82.5, 972.5, 357.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"predict the C score\",\n      \"reason\": \"Handwritten text is somewhat unclear, particularly the 'C' which might be a class indicator or confidence\",\n      \"bbox\": [862.5, 110.0, 945.0, 126.5]\n    },\n    {\n      \"transcription\": \"transfo weights\",\n      \"reason\": \"Abbreviated handwriting, 'transfo' likely means 'transform' but could be interpreted differently\",\n      \"bbox\": [945.0, 247.5, 989.0, 275.0]\n    },\n    {\n      \"transcription\": \"huge optimization space\",\n      \"reason\": \"Handwritten note with cursive writing that may be misinterpreted\",\n      \"bbox\": [917.5, 495.0, 989.0, 522.5]\n    },\n    {\n      \"transcription\": \"active research area\",\n      \"reason\": \"Handwritten annotation in quotes, some letters are unclear\",\n      \"bbox\": [560.0, 110.0, 615.0, 126.5]\n    },\n    {\n      \"transcription\": \"learning rate\",\n      \"reason\": \"Handwritten annotation under gradient descent formula, 'rate' is slightly unclear\",\n      \"bbox\": [532.5, 357.5, 571.0, 368.5]\n    },\n    {\n      \"transcription\": \"evaluate the generalizability of our GNN model to unseen data points (n-nodes)\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the phrase 'generalizability'.\",\n      \"bbox\": [587.5, 917.5, 670.0, 945.0]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "graph convolutional network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node classification",
+      "into": "node classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "feature embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "linear transformation",
+      "into": "linear transformation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "cross-entropy",
+      "into": "cross-entropy"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sigmoid function",
+      "into": "sigmoid function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "softmax function",
+      "into": "softmax function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "stochastic gradient descent",
+      "into": "stochastic gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "gradient descent",
+      "into": "gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "loss function",
+      "into": "loss function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "hyperparameters",
+      "into": "hyperparameters"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node classification",
+      "into": "node classification"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "training nodes",
+      "into": "training nodes"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph convolutional network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "gradient descent",
+      "into": "stochastic gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "loss function",
+      "into": "loss function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "prediction head",
+      "into": "prediction head"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "matrix multiplication",
+      "into": "linear transformation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph convolutional network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "gradient descent",
+      "into": "stochastic gradient descent"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "embedding",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "evaluation metrics",
+      "into": "mean squared error"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence concept: binary classification"
+  ]
+}

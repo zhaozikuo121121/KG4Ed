@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "50a9da5a7e4e092fa07ecdf9fe8e97225b4c88a0d08408304af7896f3c1e5987",
+  "concept_id": 234,
+  "concept_name": "attention masking",
+  "aliases": [
+    "attention masking",
+    "masked attention"
+  ],
+  "profile": "attention masking: In graph neural networks, attention masking is a technique that restricts each node's attention to itself and its immediate neighbors. This prevents nodes from attending to distant or unrelated nodes, so aggregation uses local graph structure. The masked attention mechanism focuses the model on relevant connections while ignoring others.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "attention masking: In graph neural networks, attention masking restricts each node's attention to itself and its immediate neighbors. This ensures that aggregation only considers local graph structure, preventing nodes from attending to distant or unrelated nodes. The masked attention mechanism focuses the model on relevant connections while ignoring others.",
+    "claims": [
+      {
+        "claim": "In graph neural networks, attention masking restricts each node's attention to itself and its immediate neighbors.",
+        "evidence_ids": [
+          "DGL-E0305"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "attention masking: In graph neural networks, attention masking is a technique that restricts each node's attention to itself and its immediate neighbors. This prevents nodes from attending to distant or unrelated nodes, so aggregation uses local graph structure. The masked attention mechanism focuses the model on relevant connections while ignoring others.",
+    "sentence_reviews": [
+      {
+        "sentence": "attention masking: In graph neural networks, attention masking is a technique that restricts each node's attention to itself and its immediate neighbors.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0305"
+        ],
+        "reason": "Directly matches the source statement that attentions are masked so each node only attends to itself and its neighbors."
+      },
+      {
+        "sentence": "This prevents nodes from attending to distant or unrelated nodes, so aggregation uses local graph structure.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0305"
+        ],
+        "reason": "The restriction to self and neighbors implies no attention to distant or unrelated nodes and a local aggregation focus."
+      },
+      {
+        "sentence": "The masked attention mechanism focuses the model on relevant connections while ignoring others.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0305"
+        ],
+        "reason": "A restatement of the masked-attention behavior described by the source."
+      }
+    ],
+    "warnings": [
+      "Only one evidence source supports this profile; phrases such as 'local graph structure' and 'relevant connections' are contextual restatements of the source's masking description."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"attention masking: In graph neural networks, attention masking restricts each node's attention to itself and its immediate neighbors. This ensures that aggregation only considers local graph structure, preventing nodes from attending to distant or unrelated nodes. The masked attention mechanism focuses the model on relevant connections while ignoring others.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph neural networks, attention masking restricts each node's attention to itself and its immediate neighbors.\",\n      \"evidence_ids\": [\"DGL-E0305\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"attention masking: In graph neural networks, attention masking is a technique that restricts each node's attention to itself and its immediate neighbors. This prevents nodes from attending to distant or unrelated nodes, so aggregation uses local graph structure. The masked attention mechanism focuses the model on relevant connections while ignoring others.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"attention masking: In graph neural networks, attention masking is a technique that restricts each node's attention to itself and its immediate neighbors.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0305\"],\n      \"reason\": \"Directly matches the source statement that attentions are masked so each node only attends to itself and its neighbors.\"\n    },\n    {\n      \"sentence\": \"This prevents nodes from attending to distant or unrelated nodes, so aggregation uses local graph structure.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0305\"],\n      \"reason\": \"The restriction to self and neighbors implies no attention to distant or unrelated nodes and a local aggregation focus.\"\n    },\n    {\n      \"sentence\": \"The masked attention mechanism focuses the model on relevant connections while ignoring others.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0305\"],\n      \"reason\": \"A restatement of the masked-attention behavior described by the source.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence source supports this profile; phrases such as 'local graph structure' and 'relevant connections' are contextual restatements of the source's masking description.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:23:17.913634+00:00"
+}

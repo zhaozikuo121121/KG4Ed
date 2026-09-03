@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7a393e9a836dde3ae7cb4fd67b792a8683290b679d614cfdd5a1d8e86cbe7fbb",
+  "concept_id": 96,
+  "concept_name": "inner product",
+  "aliases": [
+    "inner product",
+    "dot product"
+  ],
+  "profile": "inner product: An inner product is symmetric, so its two arguments can be interchanged without changing the value. Consequently, inner products can be switched around in algebraic manipulations.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "inner product: The expression x^T p w is equal to w^T p x, meaning the two arguments of the inner product can be swapped. This allows reordering inner products in algebraic manipulations.",
+    "claims": [
+      {
+        "claim": "The expression x^T p w equals w^T p x, so the operands of the inner product can be switched.",
+        "evidence_ids": [
+          "MLR-E0112"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "inner product: An inner product is symmetric, so its two arguments can be interchanged without changing the value. Consequently, inner products can be switched around in algebraic manipulations.",
+    "sentence_reviews": [
+      {
+        "sentence": "An inner product is symmetric, so its two arguments can be interchanged without changing the value.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0112"
+        ],
+        "reason": "The evidence states x^T p w = w^T p x for the inner product, showing argument interchangeability."
+      },
+      {
+        "sentence": "Consequently, inner products can be switched around in algebraic manipulations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0112"
+        ],
+        "reason": "The evidence explicitly says 'we can switch around the second inner product'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"inner product: The expression x^T p w is equal to w^T p x, meaning the two arguments of the inner product can be swapped. This allows reordering inner products in algebraic manipulations.\",\n  \"claims\": [\n    {\n      \"claim\": \"The expression x^T p w equals w^T p x, so the operands of the inner product can be switched.\",\n      \"evidence_ids\": [\"MLR-E0112\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"inner product: An inner product is symmetric, so its two arguments can be interchanged without changing the value. Consequently, inner products can be switched around in algebraic manipulations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"An inner product is symmetric, so its two arguments can be interchanged without changing the value.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0112\"\n      ],\n      \"reason\": \"The evidence states x^T p w = w^T p x for the inner product, showing argument interchangeability.\"\n    },\n    {\n      \"sentence\": \"Consequently, inner products can be switched around in algebraic manipulations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0112\"\n      ],\n      \"reason\": \"The evidence explicitly says 'we can switch around the second inner product'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:59:14.666107+00:00"
+}

@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "281a516bd6e4006c563c2aa4df565f6958fa779704f27519fdc1a4f088ce2255",
+  "concept_id": 176,
+  "concept_name": "non-negative matrix factorization",
+  "aliases": [
+    "non-negative matrix factorization"
+  ],
+  "profile": "non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative. The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative. The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.",
+    "claims": [
+      {
+        "claim": "non-negative matrix factorization is a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative.",
+        "evidence_ids": [
+          "MLR-E0201"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.",
+        "evidence_ids": [
+          "MLR-E0201"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative. The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.",
+    "sentence_reviews": [
+      {
+        "sentence": "non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0201"
+        ],
+        "reason": "The source defines the factorization problem with C, W ≥ 0 and residual CW - X."
+      },
+      {
+        "sentence": "The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0201"
+        ],
+        "reason": "The source explicitly states minimizing ||CW - X||_F^2 subject to C, W ≥ 0."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative. The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.\",\n  \"claims\": [\n    {\n      \"claim\": \"non-negative matrix factorization is a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative.\",\n      \"evidence_ids\": [\"MLR-E0201\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.\",\n      \"evidence_ids\": [\"MLR-E0201\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative. The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"non-negative matrix factorization: a matrix factorization problem in which a matrix X is approximated as the product C W, with both C and W constrained to be non-negative.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0201\"],\n      \"reason\": \"The source defines the factorization problem with C, W ≥ 0 and residual CW - X.\"\n    },\n    {\n      \"sentence\": \"The objective is to minimize the squared Frobenius norm of the residual, ||C W - X||_F^2, subject to C ≥ 0 and W ≥ 0.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0201\"],\n      \"reason\": \"The source explicitly states minimizing ||CW - X||_F^2 subject to C, W ≥ 0.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:34:13.347958+00:00"
+}

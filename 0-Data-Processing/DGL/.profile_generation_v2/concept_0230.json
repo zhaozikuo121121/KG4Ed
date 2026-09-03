@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6bc8ad738f7eb76e38bfe8d92f43058e108fd28a1c04b79109b89ec22be047f2",
+  "concept_id": 230,
+  "concept_name": "degree matrix",
+  "aliases": [
+    "degree matrix",
+    "d"
+  ],
+  "profile": "degree matrix: A new GCN layer can be written using the degree matrix.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "degree matrix: A degree matrix is used in the expression for a GCN layer; a new GCN layer can be written using the degree matrix. This usage appears in the context of graph neural network aggregation and attention mechanisms.",
+    "claims": [
+      {
+        "claim": "A degree matrix is used in the expression for a GCN layer.",
+        "evidence_ids": [
+          "DGL-E0302"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A new GCN layer can be written using the degree matrix.",
+        "evidence_ids": [
+          "DGL-E0302"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The degree matrix appears in the context of graph neural network aggregation and attention mechanisms.",
+        "evidence_ids": [
+          "DGL-E0302"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The available metadata does not define the degree matrix or describe its mathematical properties."
+    ]
+  },
+  "review": {
+    "final_profile": "degree matrix: A new GCN layer can be written using the degree matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "degree matrix: A new GCN layer can be written using the degree matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0302"
+        ],
+        "reason": "The evidence states directly that a new GCN layer can be written using the degree matrix."
+      }
+    ],
+    "warnings": [
+      "The available metadata does not define the degree matrix or describe its mathematical properties."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"degree matrix: A degree matrix is used in the expression for a GCN layer; a new GCN layer can be written using the degree matrix. This usage appears in the context of graph neural network aggregation and attention mechanisms.\",\n  \"claims\": [\n    {\n      \"claim\": \"A degree matrix is used in the expression for a GCN layer.\",\n      \"evidence_ids\": [\"DGL-E0302\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A new GCN layer can be written using the degree matrix.\",\n      \"evidence_ids\": [\"DGL-E0302\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The degree matrix appears in the context of graph neural network aggregation and attention mechanisms.\",\n      \"evidence_ids\": [\"DGL-E0302\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The available metadata does not define the degree matrix or describe its mathematical properties.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"degree matrix: A new GCN layer can be written using the degree matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"degree matrix: A new GCN layer can be written using the degree matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0302\"],\n      \"reason\": \"The evidence states directly that a new GCN layer can be written using the degree matrix.\"\n    }\n  ],\n  \"warnings\": [\"The available metadata does not define the degree matrix or describe its mathematical properties.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:22:06.848610+00:00"
+}

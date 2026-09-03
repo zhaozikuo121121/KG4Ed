@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c82e79dc29312dda983b184cf625a1b5b9f50b09daaa616ef666c3503d3e4add",
+  "concept_id": 2,
+  "concept_name": "road network",
+  "aliases": [
+    "road network"
+  ],
+  "profile": "road network: A road network is an example of a real-world graph. It appears among objects in a figure of real-world graphs, as part of a discussion of graph types and representations. Road networks are thus an illustrative instance of real-world graphs.",
+  "word_count": 42,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "road network: A road network is an example of a real-world graph. It appears among objects shown in a figure of real-world graphs. The figure is part of a discussion of graph types and representations. Road networks are thus an illustrative instance of real-world graphs in this source.",
+    "claims": [
+      {
+        "claim": "A road network is an example of a real-world graph.",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It appears among objects shown in a figure of real-world graphs.",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The figure is part of a discussion of graph types and representations.",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Road networks are thus an illustrative instance of real-world graphs in this source.",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "road network: A road network is an example of a real-world graph. It appears among objects in a figure of real-world graphs, as part of a discussion of graph types and representations. Road networks are thus an illustrative instance of real-world graphs.",
+    "sentence_reviews": [
+      {
+        "sentence": "A road network is an example of a real-world graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "reason": "The evidence explicitly lists road networks as an object among real-world graphs."
+      },
+      {
+        "sentence": "It appears among objects in a figure of real-world graphs, as part of a discussion of graph types and representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "reason": "The evidence references a figure of real-world graphs and is located under the topic 'Graph Types and Representations'."
+      },
+      {
+        "sentence": "Road networks are thus an illustrative instance of real-world graphs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0006"
+        ],
+        "reason": "This is a faithful restatement of the source's presentation of road networks as an example."
+      }
+    ],
+    "warnings": [
+      "Only a single figure caption supports this profile; no further properties of road networks are attested."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"road network: A road network is an example of a real-world graph. It appears among objects shown in a figure of real-world graphs. The figure is part of a discussion of graph types and representations. Road networks are thus an illustrative instance of real-world graphs in this source.\",\n  \"claims\": [\n    {\n      \"claim\": \"A road network is an example of a real-world graph.\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It appears among objects shown in a figure of real-world graphs.\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The figure is part of a discussion of graph types and representations.\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Road networks are thus an illustrative instance of real-world graphs in this source.\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"road network: A road network is an example of a real-world graph. It appears among objects in a figure of real-world graphs, as part of a discussion of graph types and representations. Road networks are thus an illustrative instance of real-world graphs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A road network is an example of a real-world graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"reason\": \"The evidence explicitly lists road networks as an object among real-world graphs.\"\n    },\n    {\n      \"sentence\": \"It appears among objects in a figure of real-world graphs, as part of a discussion of graph types and representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"reason\": \"The evidence references a figure of real-world graphs and is located under the topic 'Graph Types and Representations'.\"\n    },\n    {\n      \"sentence\": \"Road networks are thus an illustrative instance of real-world graphs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0006\"],\n      \"reason\": \"This is a faithful restatement of the source's presentation of road networks as an example.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single figure caption supports this profile; no further properties of road networks are attested.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:51:04.419914+00:00"
+}

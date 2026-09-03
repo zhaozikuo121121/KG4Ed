@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "470d3b3bf0fff7adcef3e1c88a36a925bd89d807448f61d08d3f133091133887",
+  "concept_id": 174,
+  "concept_name": "graph pooling",
+  "aliases": [
+    "graph pooling",
+    "pooling layers",
+    "gpool",
+    "graph unpooling",
+    "gunpool"
+  ],
+  "profile": "graph pooling: a layer in graph neural networks. Graph pooling appears in the context of generative graph neural networks and encoder-decoder graph generation. gPool is a graph pooling layer.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph pooling: a layer in graph neural networks that aggregates node information using operations such as MAX and MEAN. gPool is an example of a graph pooling layer.",
+    "claims": [
+      {
+        "claim": "Graph pooling is implemented as a layer in graph neural networks.",
+        "evidence_ids": [
+          "DGL-E0557"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph pooling aggregates node information using operations such as MAX and MEAN.",
+        "evidence_ids": [
+          "DGL-E0446"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "gPool is an example of a graph pooling layer.",
+        "evidence_ids": [
+          "DGL-E0532"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph pooling: a layer in graph neural networks. Graph pooling appears in the context of generative graph neural networks and encoder-decoder graph generation. gPool is a graph pooling layer.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph pooling: a layer in graph neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0557"
+        ],
+        "reason": "The source explicitly labels 'Graph Pooling Layer' in a slide titled 'Encoder-Decoder GNNs and Graph Generation'."
+      },
+      {
+        "sentence": "Graph pooling appears in the context of generative graph neural networks and encoder-decoder graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0532",
+          "DGL-E0557"
+        ],
+        "reason": "Slide titles mention generative graph neural networks, graph pooling, and encoder-decoder graph generation."
+      },
+      {
+        "sentence": "gPool is a graph pooling layer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0532"
+        ],
+        "reason": "The source contains 'gPool' within a slide on generative graph neural networks and graph pooling."
+      }
+    ],
+    "warnings": [
+      "The MAX and MEAN aggregation claim was removed because the only evidence for it is a GIN/expressiveness diagram, not clearly tied to graph pooling."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph pooling: a layer in graph neural networks that aggregates node information using operations such as MAX and MEAN. gPool is an example of a graph pooling layer.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph pooling is implemented as a layer in graph neural networks.\",\n      \"evidence_ids\": [\"DGL-E0557\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph pooling aggregates node information using operations such as MAX and MEAN.\",\n      \"evidence_ids\": [\"DGL-E0446\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"gPool is an example of a graph pooling layer.\",\n      \"evidence_ids\": [\"DGL-E0532\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph pooling: a layer in graph neural networks. Graph pooling appears in the context of generative graph neural networks and encoder-decoder graph generation. gPool is a graph pooling layer.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph pooling: a layer in graph neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0557\"],\n      \"reason\": \"The source explicitly labels 'Graph Pooling Layer' in a slide titled 'Encoder-Decoder GNNs and Graph Generation'.\"\n    },\n    {\n      \"sentence\": \"Graph pooling appears in the context of generative graph neural networks and encoder-decoder graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0532\", \"DGL-E0557\"],\n      \"reason\": \"Slide titles mention generative graph neural networks, graph pooling, and encoder-decoder graph generation.\"\n    },\n    {\n      \"sentence\": \"gPool is a graph pooling layer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0532\"],\n      \"reason\": \"The source contains 'gPool' within a slide on generative graph neural networks and graph pooling.\"\n    }\n  ],\n  \"warnings\": [\n    \"The MAX and MEAN aggregation claim was removed because the only evidence for it is a GIN/expressiveness diagram, not clearly tied to graph pooling.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:02:57.593228+00:00"
+}

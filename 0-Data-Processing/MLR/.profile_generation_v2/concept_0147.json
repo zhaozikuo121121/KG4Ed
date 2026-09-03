@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "add5cf7502f08cdf2e116b995c67c6b441d548567db4d6ecc8bc1e7a3afae5e3",
+  "concept_id": 147,
+  "concept_name": "one-versus-all classification",
+  "aliases": [
+    "one-versus-all classification",
+    "one-versus-rest",
+    "ova algorithm",
+    "one-versus-all multi-class classification",
+    "ova",
+    "one-vs-all",
+    "one-versus-all",
+    "one-against-all"
+  ],
+  "profile": "one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data. This approach is also called one-versus-rest. It can also be applied to tune individual columns of a weight matrix one at a time.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data. This approach is also called one-versus-rest. It can also be applied to tune individual columns of a weight matrix one at a time.",
+    "claims": [
+      {
+        "claim": "one-versus-all classification is a multi-class classification strategy that learns C two-class classifiers over the entire dataset.",
+        "evidence_ids": [
+          "MLR-E0163"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The cth classifier is trained to distinguish the cth class from the remainder of the data.",
+        "evidence_ids": [
+          "MLR-E0163"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This approach is also called one-versus-rest.",
+        "evidence_ids": [
+          "MLR-E0163"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It can also be applied to tune individual columns of a weight matrix one at a time.",
+        "evidence_ids": [
+          "MLR-E0242"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data. This approach is also called one-versus-rest. It can also be applied to tune individual columns of a weight matrix one at a time.",
+    "sentence_reviews": [
+      {
+        "sentence": "one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0163"
+        ],
+        "reason": "E0163 explicitly states that C two-class classifiers are learned over the entire dataset, with the cth classifier distinguishing the cth class from the rest, and the chapter context is multi-class classification."
+      },
+      {
+        "sentence": "This approach is also called one-versus-rest.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0163"
+        ],
+        "reason": "E0163 explicitly says it is called a one-versus-rest or one-versus-all classifier."
+      },
+      {
+        "sentence": "It can also be applied to tune individual columns of a weight matrix one at a time.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0242"
+        ],
+        "reason": "E0242 mentions tuning each column of W one-at-a-time in a one-versus-all approach; W is the weight matrix in context."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data. This approach is also called one-versus-rest. It can also be applied to tune individual columns of a weight matrix one at a time.\",\n  \"claims\": [\n    {\n      \"claim\": \"one-versus-all classification is a multi-class classification strategy that learns C two-class classifiers over the entire dataset.\",\n      \"evidence_ids\": [\"MLR-E0163\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The cth classifier is trained to distinguish the cth class from the remainder of the data.\",\n      \"evidence_ids\": [\"MLR-E0163\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This approach is also called one-versus-rest.\",\n      \"evidence_ids\": [\"MLR-E0163\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It can also be applied to tune individual columns of a weight matrix one at a time.\",\n      \"evidence_ids\": [\"MLR-E0242\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data. This approach is also called one-versus-rest. It can also be applied to tune individual columns of a weight matrix one at a time.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"one-versus-all classification: a multi-class classification strategy that learns C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0163\"],\n      \"reason\": \"E0163 explicitly states that C two-class classifiers are learned over the entire dataset, with the cth classifier distinguishing the cth class from the rest, and the chapter context is multi-class classification.\"\n    },\n    {\n      \"sentence\": \"This approach is also called one-versus-rest.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0163\"],\n      \"reason\": \"E0163 explicitly says it is called a one-versus-rest or one-versus-all classifier.\"\n    },\n    {\n      \"sentence\": \"It can also be applied to tune individual columns of a weight matrix one at a time.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0242\"],\n      \"reason\": \"E0242 mentions tuning each column of W one-at-a-time in a one-versus-all approach; W is the weight matrix in context.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:22:50.773223+00:00"
+}

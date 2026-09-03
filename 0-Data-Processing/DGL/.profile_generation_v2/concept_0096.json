@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "56545ddf390d10aa7d5a0e6481683d3c5ab301d64937cf7bd84884cb4ed67f49",
+  "concept_id": 96,
+  "concept_name": "nonlinear network",
+  "aliases": [
+    "nonlinear network",
+    "nonlinear model",
+    "multi-layer perceptron",
+    "mlp"
+  ],
+  "profile": "nonlinear network: A single-layer nonlinear network can have multiple outputs. Multi-layer perceptrons (MLPs) are universal function approximators.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "nonlinear network: A single-layer nonlinear network can have multiple outputs. Multi-layer perceptrons (MLPs) are universal function approximators. An MLP-based one-shot approach is an application of nonlinear networks.",
+    "claims": [
+      {
+        "claim": "A single-layer nonlinear network can have multiple outputs.",
+        "evidence_ids": [
+          "DGL-E0096"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Multi-layer perceptrons (MLPs) are universal function approximators.",
+        "evidence_ids": [
+          "DGL-E0449"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An MLP-based one-shot approach is an application of nonlinear networks.",
+        "evidence_ids": [
+          "DGL-E0519"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "nonlinear network: A single-layer nonlinear network can have multiple outputs. Multi-layer perceptrons (MLPs) are universal function approximators.",
+    "sentence_reviews": [
+      {
+        "sentence": "A single-layer nonlinear network can have multiple outputs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0096"
+        ],
+        "reason": "Matches the source statement about a single-layer nonlinear network with multiple outputs."
+      },
+      {
+        "sentence": "Multi-layer perceptrons (MLPs) are universal function approximators.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0449"
+        ],
+        "reason": "Directly matches the source statement about MLPs being universal function approximators."
+      }
+    ],
+    "warnings": [
+      "The third source is only a brief fragment and is not sufficient to support a substantive additional sentence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"nonlinear network: A single-layer nonlinear network can have multiple outputs. Multi-layer perceptrons (MLPs) are universal function approximators. An MLP-based one-shot approach is an application of nonlinear networks.\",\n  \"claims\": [\n    {\n      \"claim\": \"A single-layer nonlinear network can have multiple outputs.\",\n      \"evidence_ids\": [\"DGL-E0096\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Multi-layer perceptrons (MLPs) are universal function approximators.\",\n      \"evidence_ids\": [\"DGL-E0449\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An MLP-based one-shot approach is an application of nonlinear networks.\",\n      \"evidence_ids\": [\"DGL-E0519\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"nonlinear network: A single-layer nonlinear network can have multiple outputs. Multi-layer perceptrons (MLPs) are universal function approximators.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A single-layer nonlinear network can have multiple outputs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0096\"],\n      \"reason\": \"Matches the source statement about a single-layer nonlinear network with multiple outputs.\"\n    },\n    {\n      \"sentence\": \"Multi-layer perceptrons (MLPs) are universal function approximators.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0449\"],\n      \"reason\": \"Directly matches the source statement about MLPs being universal function approximators.\"\n    }\n  ],\n  \"warnings\": [\n    \"The third source is only a brief fragment and is not sufficient to support a substantive additional sentence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:26:30.682581+00:00"
+}

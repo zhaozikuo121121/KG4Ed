@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "9fc31f9437979d5ec31fb51a8d1dde1aa97b4faec2e44a9deec83757389d7e73",
+  "concept_id": 34,
+  "concept_name": "initial point",
+  "aliases": [
+    "initial point",
+    "starting point"
+  ],
+  "profile": "initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.",
+    "claims": [
+      {
+        "claim": "An initial point is a sample input used as the starting point.",
+        "evidence_ids": [
+          "MLR-E0035"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The initial point is denoted w0.",
+        "evidence_ids": [
+          "MLR-E0035"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept appears in the context of zero-order optimization.",
+        "evidence_ids": [
+          "MLR-E0035"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.",
+    "sentence_reviews": [
+      {
+        "sentence": "initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0035"
+        ],
+        "reason": "The source states that optimization starts with a sample input, usually called an initial point and denoted w0, within a section on zero-order optimization techniques."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.\",\n  \"claims\": [\n    {\n      \"claim\": \"An initial point is a sample input used as the starting point.\",\n      \"evidence_ids\": [\"MLR-E0035\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The initial point is denoted w0.\",\n      \"evidence_ids\": [\"MLR-E0035\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept appears in the context of zero-order optimization.\",\n      \"evidence_ids\": [\"MLR-E0035\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"initial point: In zero-order optimization, an initial point is a sample input used as the starting point, denoted w0.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0035\"],\n      \"reason\": \"The source states that optimization starts with a sample input, usually called an initial point and denoted w0, within a section on zero-order optimization techniques.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:33:19.652878+00:00"
+}

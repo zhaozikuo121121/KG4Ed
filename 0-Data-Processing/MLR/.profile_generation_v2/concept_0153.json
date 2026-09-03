@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "62e82ce9f7a7b4148291290d1388d59650df99209d5e14238c6f03b2f1fcd99d",
+  "concept_id": 153,
+  "concept_name": "multi-class classification metrics",
+  "aliases": [
+    "multi-class classification metrics",
+    "multi-class metrics"
+  ],
+  "profile": "multi-class classification metrics: metrics used for evaluating multi-class classification problems. They are natural extensions of the metrics first described for two-class problems.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multi-class classification metrics: metrics used for evaluating multi-class classification problems. They are natural extensions of the metrics first described for two-class problems, adapted to handle more than two classes.",
+    "claims": [
+      {
+        "claim": "Multi-class classification metrics are natural extensions of metrics first described for two-class problems.",
+        "evidence_ids": [
+          "MLR-E0172"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Multi-class classification metrics are used for evaluating multi-class classification problems.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "multi-class classification metrics: metrics used for evaluating multi-class classification problems. They are natural extensions of the metrics first described for two-class problems.",
+    "sentence_reviews": [
+      {
+        "sentence": "multi-class classification metrics: metrics used for evaluating multi-class classification problems.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional context consistent with the concept, but not directly stated in the source evidence."
+      },
+      {
+        "sentence": "They are natural extensions of the metrics first described for two-class problems.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0172"
+        ],
+        "reason": "The source evidence states that multi-class metrics are natural extensions of two-class metrics."
+      }
+    ],
+    "warnings": [
+      "No source evidence directly defines the evaluation-purpose statement; it is treated as background context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multi-class classification metrics: metrics used for evaluating multi-class classification problems. They are natural extensions of the metrics first described for two-class problems, adapted to handle more than two classes.\",\n  \"claims\": [\n    {\n      \"claim\": \"Multi-class classification metrics are natural extensions of metrics first described for two-class problems.\",\n      \"evidence_ids\": [\"MLR-E0172\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Multi-class classification metrics are used for evaluating multi-class classification problems.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multi-class classification metrics: metrics used for evaluating multi-class classification problems. They are natural extensions of the metrics first described for two-class problems.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"multi-class classification metrics: metrics used for evaluating multi-class classification problems.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional context consistent with the concept, but not directly stated in the source evidence.\"\n    },\n    {\n      \"sentence\": \"They are natural extensions of the metrics first described for two-class problems.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0172\"\n      ],\n      \"reason\": \"The source evidence states that multi-class metrics are natural extensions of two-class metrics.\"\n    }\n  ],\n  \"warnings\": [\n    \"No source evidence directly defines the evaluation-purpose statement; it is treated as background context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:26:04.701847+00:00"
+}

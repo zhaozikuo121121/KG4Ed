@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "bc5e5da0cdd08e6df5968f57a494932a822201341fd8b2fa5ae26ccdf9e6cf57",
+  "concept_id": 260,
+  "concept_name": "sampling bias",
+  "aliases": [
+    "sampling bias"
+  ],
+  "profile": "sampling bias: A bias that the sampling process may introduce. In GNN training, sampling strategies may introduce this bias.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sampling bias: A bias that the sampling process may introduce. In the context of GNN training, sampling strategies can lead to sampling bias.",
+    "claims": [
+      {
+        "claim": "Sampling bias is a bias that the sampling process may introduce.",
+        "evidence_ids": [
+          "DGL-E0369"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Sampling strategies in GNN training can lead to sampling bias.",
+        "evidence_ids": [
+          "DGL-E0369"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only a brief definition; no examples or further properties are available."
+    ]
+  },
+  "review": {
+    "final_profile": "sampling bias: A bias that the sampling process may introduce. In GNN training, sampling strategies may introduce this bias.",
+    "sentence_reviews": [
+      {
+        "sentence": "sampling bias: A bias that the sampling process may introduce.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0369"
+        ],
+        "reason": "Directly supported by the evidence that the sampling process may introduce biases."
+      },
+      {
+        "sentence": "In GNN training, sampling strategies may introduce this bias.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0369"
+        ],
+        "reason": "The evidence's page title places sampling bias within GNN training sampling strategies, and 'may' preserves the original uncertainty."
+      }
+    ],
+    "warnings": [
+      "Source support is limited to a brief definition; no examples or further properties are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sampling bias: A bias that the sampling process may introduce. In the context of GNN training, sampling strategies can lead to sampling bias.\",\n  \"claims\": [\n    {\n      \"claim\": \"Sampling bias is a bias that the sampling process may introduce.\",\n      \"evidence_ids\": [\"DGL-E0369\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Sampling strategies in GNN training can lead to sampling bias.\",\n      \"evidence_ids\": [\"DGL-E0369\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only a brief definition; no examples or further properties are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sampling bias: A bias that the sampling process may introduce. In GNN training, sampling strategies may introduce this bias.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sampling bias: A bias that the sampling process may introduce.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0369\"],\n      \"reason\": \"Directly supported by the evidence that the sampling process may introduce biases.\"\n    },\n    {\n      \"sentence\": \"In GNN training, sampling strategies may introduce this bias.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0369\"],\n      \"reason\": \"The evidence's page title places sampling bias within GNN training sampling strategies, and 'may' preserves the original uncertainty.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source support is limited to a brief definition; no examples or further properties are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:32:54.770264+00:00"
+}

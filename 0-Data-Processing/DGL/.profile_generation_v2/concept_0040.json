@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9621e4031ff9034b9d931c5f03ac8a652a8934a6681eb9696f8d69709ee2c10c",
+  "concept_id": 40,
+  "concept_name": "graph efficiency",
+  "aliases": [
+    "graph efficiency",
+    "efficiency"
+  ],
+  "profile": "graph efficiency: a term mentioned alongside resilience in material on graph properties and matrix representations. Only this pairing is present; no definition, formula, or examples are supplied.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph efficiency: a graph property that appears alongside resilience in material on graph properties and matrix representations. The available source pairs efficiency with resilience but does not define it or give examples.",
+    "claims": [
+      {
+        "claim": "Graph efficiency is a graph property mentioned together with resilience.",
+        "evidence_ids": [
+          "DGL-E0048"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata contains only a brief phrase; no definition, formula, or examples are available."
+    ]
+  },
+  "review": {
+    "final_profile": "graph efficiency: a term mentioned alongside resilience in material on graph properties and matrix representations. Only this pairing is present; no definition, formula, or examples are supplied.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph efficiency: a term mentioned alongside resilience in material on graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0048"
+        ],
+        "reason": "The evidence phrase lists 'Efficiency and resilience' under a section on graph properties and matrix representations."
+      },
+      {
+        "sentence": "Only this pairing is present; no definition, formula, or examples are supplied.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0048"
+        ],
+        "reason": "The available evidence contains only the pairing, so noting the absence of further detail is cautious and not an overclaim."
+      }
+    ],
+    "warnings": [
+      "The source evidence is a brief phrase; no definition, formula, or examples are available, so the profile remains minimal."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph efficiency: a graph property that appears alongside resilience in material on graph properties and matrix representations. The available source pairs efficiency with resilience but does not define it or give examples.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph efficiency is a graph property mentioned together with resilience.\",\n      \"evidence_ids\": [\"DGL-E0048\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata contains only a brief phrase; no definition, formula, or examples are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph efficiency: a term mentioned alongside resilience in material on graph properties and matrix representations. Only this pairing is present; no definition, formula, or examples are supplied.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph efficiency: a term mentioned alongside resilience in material on graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0048\"],\n      \"reason\": \"The evidence phrase lists 'Efficiency and resilience' under a section on graph properties and matrix representations.\"\n    },\n    {\n      \"sentence\": \"Only this pairing is present; no definition, formula, or examples are supplied.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0048\"],\n      \"reason\": \"The available evidence contains only the pairing, so noting the absence of further detail is cautious and not an overclaim.\"\n    }\n  ],\n  \"warnings\": [\"The source evidence is a brief phrase; no definition, formula, or examples are available, so the profile remains minimal.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:02:17.541267+00:00"
+}

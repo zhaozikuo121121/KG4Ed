@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "91a2f263f8c416f7323038b9f89c9a7c15a6369f47ac32a9e9ad7e9efc89f614",
+  "concept_id": 49,
+  "concept_name": "partial derivative",
+  "aliases": [
+    "partial derivative",
+    "partial derivatives"
+  ],
+  "profile": "partial derivative: A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant. In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.",
+  "word_count": 40,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "partial derivative: A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant. In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.",
+    "claims": [
+      {
+        "claim": "A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.",
+        "evidence_ids": [
+          "MLR-E0052"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "partial derivative: A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant. In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.",
+    "sentence_reviews": [
+      {
+        "sentence": "A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Standard definitional context that connects to the source-supported statement; introduces no unsupported specifics."
+      },
+      {
+        "sentence": "In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0052"
+        ],
+        "reason": "Directly matches the evidence: any N dimensional point v where every partial derivative of g is zero."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"partial derivative: A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant. In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.\",\n  \"claims\": [\n    {\n      \"claim\": \"A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.\",\n      \"evidence_ids\": [\"MLR-E0052\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"partial derivative: A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant. In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A partial derivative of a multivariable function is its derivative with respect to one variable while other variables are held constant.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Standard definitional context that connects to the source-supported statement; introduces no unsupported specifics.\"\n    },\n    {\n      \"sentence\": \"In first-order optimization, an N-dimensional point v where every partial derivative of g is zero is identified.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0052\"],\n      \"reason\": \"Directly matches the evidence: any N dimensional point v where every partial derivative of g is zero.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:39:12.450034+00:00"
+}

@@ -1,0 +1,3912 @@
+{
+  "version": "1.0.0",
+  "lecture": 1,
+  "pdf_file": "DGL_Lecture_1_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "Graph Types and Representations",
+  "summary": "This lecture page introduces fundamental graph theory concepts essential for Deep Graph Learning, categorizing graphs by their structural properties such as directionality, weighting, and connectivity. It defines specific graph classes including simple, complete, hyper, heterogeneous, and annotated graphs, providing formal definitions and visual examples for each. The content concludes by detailing how graphs are mathematically represented using adjacency, feature, and edge matrices to facilitate computational processing.",
+  "key_topics": [
+    "graph taxonomy",
+    "graph representation",
+    "matrix encoding",
+    "graph properties"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T09:05:32+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "graph coded into matrices"
+      ],
+      "evidence": "Graphs coded into matrices",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        11.0,
+        137.5,
+        33.0
+      ]
+    },
+    {
+      "canonical": "graph representation",
+      "aliases": [
+        "modeling interactions",
+        "modeling relationships"
+      ],
+      "evidence": "Graphs are powerful tools in modeling interactions/relationships between different elements.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        66.0,
+        220.0,
+        99.0
+      ]
+    },
+    {
+      "canonical": "simple graph",
+      "aliases": [
+        "simple"
+      ],
+      "evidence": "A graph is simple if it has no loops or multiple edges",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        110.0,
+        697.5,
+        165.0
+      ]
+    },
+    {
+      "canonical": "complete graph",
+      "aliases": [
+        "complete"
+      ],
+      "evidence": "A complete graph has each of its nodes connected to all other nodes. every two nodes are adjacent.",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        110.0,
+        945.0,
+        192.5
+      ]
+    },
+    {
+      "canonical": "weighted graph",
+      "aliases": [
+        "binary graph",
+        "unweighted graph"
+      ],
+      "evidence": "edge weight w_ij ∈ R",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        302.5,
+        137.5,
+        357.5,
+        165.0
+      ]
+    },
+    {
+      "canonical": "road network",
+      "aliases": [],
+      "evidence": "Figure 1 Real-world graphs. Some objects such as a) road networks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        165.0,
+        110.0,
+        176.0
+      ]
+    },
+    {
+      "canonical": "molecular graph",
+      "aliases": [],
+      "evidence": "b) molecules",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        115.5,
+        165.0,
+        154.0,
+        176.0
+      ]
+    },
+    {
+      "canonical": "circuit graph",
+      "aliases": [
+        "electrical circuit"
+      ],
+      "evidence": "c) electrical circuits are naturally structured as graphs.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        159.5,
+        165.0,
+        220.0,
+        176.0
+      ]
+    },
+    {
+      "canonical": "loop",
+      "aliases": [
+        "self-connection",
+        "self-loop"
+      ],
+      "evidence": "loop: self-connection [an edge that connects up the same node]",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        516.0,
+        176.0,
+        587.5,
+        247.5
+      ]
+    },
+    {
+      "canonical": "multiple edges",
+      "aliases": [
+        "multi-edge"
+      ],
+      "evidence": "multiple-edge: Two edges that connect the same end points (or more)",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        176.0,
+        697.5,
+        247.5
+      ]
+    },
+    {
+      "canonical": "directed graph",
+      "aliases": [
+        "digraph"
+      ],
+      "evidence": "directed l_ij",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        192.5,
+        302.5,
+        220.0
+      ]
+    },
+    {
+      "canonical": "adjacency",
+      "aliases": [
+        "adjacent"
+      ],
+      "evidence": "every two nodes are adjacent",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        192.5,
+        917.5,
+        209.0
+      ]
+    },
+    {
+      "canonical": "social network",
+      "aliases": [],
+      "evidence": "Social networks are graphs where nodes are people and the edges represent friendships between them.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        220.0,
+        220.0,
+        236.5
+      ]
+    },
+    {
+      "canonical": "citation network",
+      "aliases": [
+        "scientific literature graph"
+      ],
+      "evidence": "The scientific literature can be viewed as a graph in which the nodes are papers and the edges represent citations.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        236.5,
+        220.0,
+        253.0
+      ]
+    },
+    {
+      "canonical": "knowledge graph",
+      "aliases": [
+        "wikipedia graph"
+      ],
+      "evidence": "Wikipedia can be thought of as a graph in which the nodes are articles and the edges represent hyperlinks between articles.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        253.0,
+        220.0,
+        269.5
+      ]
+    },
+    {
+      "canonical": "program flow graph",
+      "aliases": [
+        "control flow graph"
+      ],
+      "evidence": "Computer programs can be represented as graphs in which the nodes are syntax tokens... and the edges represent computations involving these variables.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        269.5,
+        220.0,
+        291.5
+      ]
+    },
+    {
+      "canonical": "geometric graph",
+      "aliases": [
+        "point cloud graph"
+      ],
+      "evidence": "Geometric point clouds can be represented as graphs. Here, each point is a node and has edges that connect to other nearby points.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        291.5,
+        220.0,
+        308.0
+      ]
+    },
+    {
+      "canonical": "protein interaction network",
+      "aliases": [],
+      "evidence": "Protein interactions in a cell can be expressed as graphs, where the nodes are the proteins, and there is an edge between two proteins if they interact.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        308.0,
+        220.0,
+        324.5
+      ]
+    },
+    {
+      "canonical": "high-order relationships",
+      "aliases": [],
+      "evidence": "models high-order relationships among nodes",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        286.0,
+        357.5,
+        412.5,
+        379.5
+      ]
+    },
+    {
+      "canonical": "subgraph",
+      "aliases": [],
+      "evidence": "A graph H is called a subgraph of G if every vertex and edge of H belong to G",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        357.5,
+        945.0,
+        412.5
+      ]
+    },
+    {
+      "canonical": "vertex set",
+      "aliases": [
+        "v(h",
+        "v(g"
+      ],
+      "evidence": "V(H) \\subseteq V(G)",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        412.5,
+        835.0,
+        429.0
+      ]
+    },
+    {
+      "canonical": "edge set",
+      "aliases": [
+        "e(h",
+        "e(g"
+      ],
+      "evidence": "E(H) \\subseteq E(G)",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        846.0,
+        412.5,
+        928.5,
+        429.0
+      ]
+    },
+    {
+      "canonical": "hypergraph",
+      "aliases": [
+        "hyper graph"
+      ],
+      "evidence": "A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        450.0,
+        495.0,
+        532.5
+      ]
+    },
+    {
+      "canonical": "hyperedge",
+      "aliases": [],
+      "evidence": "It is a set of non-empty subsets (or hyperedges).",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        532.5,
+        495.0,
+        560.0
+      ]
+    },
+    {
+      "canonical": "proper subgraph",
+      "aliases": [],
+      "evidence": "all other subgraphs are proper subgraphs",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        549.0,
+        890.0,
+        565.5
+      ]
+    },
+    {
+      "canonical": "spanning subgraph",
+      "aliases": [],
+      "evidence": "If H is a subgraph of G having the same vertices as G, then H is a spanning subgraph of G.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        571.0,
+        945.0,
+        593.0
+      ]
+    },
+    {
+      "canonical": "incidence matrix",
+      "aliases": [],
+      "evidence": "incidence matrix",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        615.0,
+        357.5,
+        642.5
+      ]
+    },
+    {
+      "canonical": "hierarchical graph",
+      "aliases": [],
+      "evidence": "e) The scene on the left can be represented by a hierarchical graph.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        670.0,
+        220.0,
+        697.5
+      ]
+    },
+    {
+      "canonical": "annotated graph",
+      "aliases": [
+        "decorated graph",
+        "attributed graph"
+      ],
+      "evidence": "A graph G is annotated or decorated if its nodes can hold attributes / features.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        670.0,
+        725.0,
+        725.0
+      ]
+    },
+    {
+      "canonical": "induced subgraph",
+      "aliases": [],
+      "evidence": "Given a non-empty set S != empty set of nodes of G, the subgraph G[S] of G induced by S has vertex set S where two vertices u and v are adjacent if and only if they are adjacent in G.",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        670.0,
+        945.0,
+        752.5
+      ]
+    },
+    {
+      "canonical": "heterogeneous graph",
+      "aliases": [],
+      "evidence": "A heterogeneous graph G = (V, E, R, T)",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        725.0,
+        440.0,
+        780.0
+      ]
+    },
+    {
+      "canonical": "relation type",
+      "aliases": [],
+      "evidence": "relation type r ∈ R",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        752.5,
+        385.0,
+        780.0
+      ]
+    },
+    {
+      "canonical": "node type",
+      "aliases": [],
+      "evidence": "nodes with node types v_i ∈ V",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        780.0,
+        357.5,
+        807.5
+      ]
+    },
+    {
+      "canonical": "edge type",
+      "aliases": [],
+      "evidence": "edges with relation types (v_i, r, v_j) ∈ E",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        780.0,
+        412.5,
+        807.5
+      ]
+    },
+    {
+      "canonical": "feature matrix",
+      "aliases": [
+        "attribute matrix",
+        "node feature matrix"
+      ],
+      "evidence": "X = ... feature matrix",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        615.0,
+        780.0,
+        725.0,
+        835.0
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "node data",
+        "node attributes",
+        "node features"
+      ],
+      "evidence": "Each node has an associated embedding of length five (brown vectors).",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        807.5,
+        220.0,
+        835.0
+      ]
+    },
+    {
+      "canonical": "edge embedding",
+      "aliases": [
+        "edge data"
+      ],
+      "evidence": "Each edge has an associated embedding of length four (blue vectors).",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        821.25,
+        220.0,
+        848.75
+      ]
+    },
+    {
+      "canonical": "triplet",
+      "aliases": [],
+      "evidence": "triplet encoding the relationship between pairs of ns",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        835.0,
+        440.0,
+        862.5
+      ]
+    },
+    {
+      "canonical": "embedding matrix",
+      "aliases": [
+        "node embedding matrix"
+      ],
+      "evidence": "embedding matrix",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        615.0,
+        835.0,
+        725.0,
+        851.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "l_{ij}",
+      "related_concepts": [
+        "directed graph",
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        264.0,
+        198.0,
+        286.0,
+        209.0
+      ],
+      "label": "directed edge label"
+    },
+    {
+      "latex": "w_{ij} \\in \\mathbb{R}",
+      "related_concepts": [
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        319.0,
+        148.5,
+        357.5,
+        159.5
+      ],
+      "label": "edge weight definition"
+    },
+    {
+      "latex": "w_{ij} = 0.5",
+      "related_concepts": [
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        341.0,
+        209.0,
+        379.5,
+        220.0
+      ],
+      "label": "undirected edge weight"
+    },
+    {
+      "latex": "l_{ik} = 0",
+      "related_concepts": [
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        253.0,
+        280.5,
+        280.5,
+        291.5
+      ],
+      "label": "no edge"
+    },
+    {
+      "latex": "l_{kj} = 1",
+      "related_concepts": [
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        253.0,
+        291.5,
+        280.5,
+        302.5
+      ],
+      "label": "edge exists"
+    },
+    {
+      "latex": "H",
+      "related_concepts": [
+        "hypergraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        319.0,
+        412.5,
+        327.25,
+        423.5
+      ],
+      "label": "hypergraph symbol"
+    },
+    {
+      "latex": "V(H) \\subseteq V(G) \\quad \\& \\quad E(H) \\subseteq E(G)",
+      "related_concepts": [
+        "subgraph",
+        "vertex set",
+        "edge set"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        412.5,
+        928.5,
+        429.0
+      ],
+      "label": "subgraph condition"
+    },
+    {
+      "latex": "G = (A, V, E)",
+      "related_concepts": [
+        "graph representation"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        725.0,
+        110.0,
+        752.5
+      ],
+      "label": "Graph representation into a matrix"
+    },
+    {
+      "latex": "(A, X, E)",
+      "related_concepts": [
+        "graph representation"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        752.5,
+        220.0,
+        780.0
+      ],
+      "label": "Graph tuple representation"
+    },
+    {
+      "latex": "G = (V, E, R, T)",
+      "related_concepts": [
+        "heterogeneous graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        752.5,
+        385.0,
+        780.0
+      ],
+      "label": "Heterogeneous graph definition"
+    },
+    {
+      "latex": "e_{12}^{cite} = (v_1, \"cite\", v_2)",
+      "related_concepts": [
+        "heterogeneous graph",
+        "triplet"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        890.0,
+        440.0,
+        917.5
+      ],
+      "label": "Heterogeneous edge triplet"
+    },
+    {
+      "latex": "G = ((V, X), E)",
+      "related_concepts": [
+        "annotated graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        560.0,
+        725.0,
+        670.0,
+        741.5
+      ],
+      "label": "annotated graph definition"
+    },
+    {
+      "latex": "X = \\begin{bmatrix} d_1 \\\\ \\vdots \\\\ d_n \\end{bmatrix} \\in \\mathbb{R}^{n \\times d}",
+      "related_concepts": [
+        "feature matrix"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        615.0,
+        780.0,
+        725.0,
+        835.0
+      ],
+      "label": "feature matrix definition"
+    },
+    {
+      "latex": "V(H) \\subseteq V(G) \\text{ and } E(H) \\subseteq E(G)",
+      "related_concepts": [
+        "subgraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        521.5,
+        917.5,
+        538.0
+      ],
+      "label": "subgraph definition"
+    },
+    {
+      "latex": "G[S]",
+      "related_concepts": [
+        "induced subgraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        807.5,
+        697.5,
+        835.0,
+        708.5
+      ],
+      "label": "induced subgraph notation"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "graph example",
+      "description": "Figure 1 showing real-world graphs: a) road network, b) molecule structure, c) electrical circuit",
+      "related_concepts": [
+        "road network",
+        "molecular graph",
+        "circuit graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        110.0,
+        220.0,
+        165.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Hand-drawn directed graph with nodes i, j, k and labeled edges l_ij, l_ik=0, l_kj=1",
+      "related_concepts": [
+        "directed graph",
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        231.0,
+        176.0,
+        319.0,
+        319.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Hand-drawn undirected weighted graph with nodes and edge weights w_iz=0.9, w_ij=0.5",
+      "related_concepts": [
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        324.5,
+        176.0,
+        412.5,
+        319.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Social network graph with nodes Alice, Bob, Dan, Erin, Carol, Frank",
+      "related_concepts": [
+        "social network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        341.0,
+        82.5,
+        396.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Citation network graph with nodes representing papers (Mascia 1990, Mould & Hart 1983, etc.)",
+      "related_concepts": [
+        "citation network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        88.0,
+        341.0,
+        165.0,
+        396.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Knowledge graph with nodes Alice, Bob, Canada, Google, and edges representing relationships",
+      "related_concepts": [
+        "knowledge graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        170.5,
+        341.0,
+        247.5,
+        396.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Geometric point cloud converted to a mesh/graph structure",
+      "related_concepts": [
+        "geometric graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        401.5,
+        247.5,
+        456.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Hand-drawn small graphs illustrating directed vs undirected, binary vs weighted concepts",
+      "related_concepts": [
+        "directed graph",
+        "weighted graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        231.0,
+        137.5,
+        412.5,
+        319.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Hand-drawn program flow graph with nodes 1, 2, X, Y",
+      "related_concepts": [
+        "program flow graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        192.5,
+        247.5,
+        247.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Diagram of multiple edges connecting two nodes",
+      "related_concepts": [
+        "multiple edges",
+        "simple graph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        176.0,
+        670.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Diagram of a complete graph with 4 nodes where every pair is connected",
+      "related_concepts": [
+        "complete graph",
+        "adjacency"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        247.5,
+        862.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Diagram illustrating a subgraph H within a larger graph G",
+      "related_concepts": [
+        "subgraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        917.5,
+        357.5,
+        972.5,
+        467.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Figure 2 Types of graph. a) A social network is an undirected graph; the connections between people are symmetric. b) A citation network is a directed graph; one publication cites another, so the relationship is asymmetric. c) A knowledge graph is a directed heterogeneous multigraph. d) A point set can be converted to a graph by forming edges between nearby points. e) The scene on the left can be represented by a hierarchical graph.",
+      "related_concepts": [
+        "knowledge graph",
+        "geometric graph",
+        "hierarchical graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        477.5,
+        247.5,
+        615.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "incidence matrix for a hypergraph",
+      "related_concepts": [
+        "incidence matrix",
+        "hypergraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        560.0,
+        357.5,
+        615.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "hypergraph with hyperedges e1, e2, e3, e4",
+      "related_concepts": [
+        "hypergraph",
+        "hyperedge"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        560.0,
+        495.0,
+        670.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Figure 3 Graph representation. a) Example graph with six nodes and seven edges. Each node has an associated embedding of length five (brown vectors). Each edge has an associated embedding of length four (blue vectors). This graph can be represented by three matrices. b) The adjacency matrix is a binary matrix, where the element (m, n) is set to one if node m connects to node n. c) The node data matrix X contains the concatenated node embeddings. d) The edge data matrix E contains the edge embeddings.",
+      "related_concepts": [
+        "graph representation",
+        "adjacency matrix",
+        "node embedding",
+        "edge embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        752.5,
+        247.5,
+        890.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "heterogeneous graph with nodes and edges having types",
+      "related_concepts": [
+        "heterogeneous graph",
+        "node type",
+        "edge type",
+        "relation type"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        780.0,
+        495.0,
+        945.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example of an annotated graph with nodes v1, v2, v3, v4 and their corresponding feature vectors.",
+      "related_concepts": [
+        "annotated graph",
+        "node embedding"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        752.5,
+        670.0,
+        862.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Feature matrix X representing node attributes in an annotated graph.",
+      "related_concepts": [
+        "feature matrix"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        615.0,
+        780.0,
+        725.0,
+        835.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Examples of induced subgraphs G1 and G2 from a larger graph G.",
+      "related_concepts": [
+        "induced subgraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        752.5,
+        917.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Examples of subgraphs, proper subgraphs, and spanning subgraphs.",
+      "related_concepts": [
+        "subgraph",
+        "proper subgraph",
+        "spanning subgraph"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        917.5,
+        477.5,
+        972.5,
+        587.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "Antipaperson nodes",
+      "reason": "Handwriting is unclear; possibly 'Antiperson nodes' or a specific term not fully legible",
+      "bbox": [
+        192.5,
+        341.0,
+        231.0,
+        357.5
+      ]
+    },
+    {
+      "transcription": "self-conn [an edge that up the s",
+      "reason": "Text is cut off and handwriting is ambiguous; likely 'self-connection [an edge that loops back to the same node]' but incomplete",
+      "bbox": [
+        467.5,
+        247.5,
+        522.5,
+        286.0
+      ]
+    },
+    {
+      "transcription": "molecule",
+      "reason": "Handwritten label under Figure 1b is slightly smudged but contextually clear",
+      "bbox": [
+        115.5,
+        170.5,
+        154.0,
+        181.5
+      ]
+    },
+    {
+      "transcription": "circuit",
+      "reason": "Handwritten label under Figure 1c is partially obscured but inferable from context",
+      "bbox": [
+        159.5,
+        170.5,
+        192.5,
+        181.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph representation",
+            "aliases": [
+              "modeling interactions",
+              "modeling relationships"
+            ],
+            "evidence": "Graphs are powerful tools in modeling interactions/relationships between different elements.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              120,
+              400,
+              180
+            ]
+          },
+          {
+            "canonical": "directed graph",
+            "aliases": [
+              "digraph"
+            ],
+            "evidence": "directed l_ij",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              350,
+              550,
+              400
+            ]
+          },
+          {
+            "canonical": "undirected graph",
+            "aliases": [],
+            "evidence": "undirected w_ij = 0.5",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              600,
+              350,
+              700,
+              400
+            ]
+          },
+          {
+            "canonical": "weighted graph",
+            "aliases": [],
+            "evidence": "edge weight w_ij ∈ R",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              250,
+              650,
+              300
+            ]
+          },
+          {
+            "canonical": "binary graph",
+            "aliases": [
+              "unweighted graph"
+            ],
+            "evidence": "l_ik = 0, l_kj = 1",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              500,
+              550,
+              550
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "graph coded into matrices"
+            ],
+            "evidence": "Graphs coded into matrices",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              20,
+              250,
+              60
+            ]
+          },
+          {
+            "canonical": "hypergraph",
+            "aliases": [],
+            "evidence": "A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.",
+            "source_type": "mixed",
+            "confidence": 0.98,
+            "bbox": [
+              500,
+              700,
+              900,
+              850
+            ]
+          },
+          {
+            "canonical": "high-order relationships",
+            "aliases": [],
+            "evidence": "models high-order relationships among nodes",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              520,
+              650,
+              750,
+              690
+            ]
+          },
+          {
+            "canonical": "social network",
+            "aliases": [],
+            "evidence": "Social networks are graphs where nodes are people and the edges represent friendships between them.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              400,
+              400,
+              430
+            ]
+          },
+          {
+            "canonical": "citation network",
+            "aliases": [
+              "scientific literature graph"
+            ],
+            "evidence": "The scientific literature can be viewed as a graph in which the nodes are papers and the edges represent citations.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              430,
+              400,
+              460
+            ]
+          },
+          {
+            "canonical": "knowledge graph",
+            "aliases": [
+              "wikipedia graph"
+            ],
+            "evidence": "Wikipedia can be thought of as a graph in which the nodes are articles and the edges represent hyperlinks between articles.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              460,
+              400,
+              490
+            ]
+          },
+          {
+            "canonical": "program flow graph",
+            "aliases": [
+              "control flow graph"
+            ],
+            "evidence": "Computer programs can be represented as graphs in which the nodes are syntax tokens... and the edges represent computations involving these variables.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              490,
+              400,
+              530
+            ]
+          },
+          {
+            "canonical": "geometric graph",
+            "aliases": [
+              "point cloud graph"
+            ],
+            "evidence": "Geometric point clouds can be represented as graphs. Here, each point is a node and has edges that connect to other nearby points.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              530,
+              400,
+              560
+            ]
+          },
+          {
+            "canonical": "protein interaction network",
+            "aliases": [],
+            "evidence": "Protein interactions in a cell can be expressed as graphs, where the nodes are the proteins, and there is an edge between two proteins if they interact.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              560,
+              400,
+              590
+            ]
+          },
+          {
+            "canonical": "road network",
+            "aliases": [],
+            "evidence": "Figure 1 Real-world graphs. Some objects such as a) road networks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              300,
+              200,
+              320
+            ]
+          },
+          {
+            "canonical": "molecular graph",
+            "aliases": [],
+            "evidence": "b) molecules",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              210,
+              300,
+              280,
+              320
+            ]
+          },
+          {
+            "canonical": "circuit graph",
+            "aliases": [
+              "electrical circuit"
+            ],
+            "evidence": "c) electrical circuits are naturally structured as graphs.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              290,
+              300,
+              400,
+              320
+            ]
+          },
+          {
+            "canonical": "co-authorship network",
+            "aliases": [],
+            "evidence": "Antipaperson nodes",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              350,
+              620,
+              420,
+              650
+            ]
+          },
+          {
+            "canonical": "self-connection",
+            "aliases": [
+              "self-loop"
+            ],
+            "evidence": "self-conn [an edge that up the s",
+            "source_type": "handwritten",
+            "confidence": 0.7,
+            "bbox": [
+              850,
+              450,
+              950,
+              520
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l_{ij}",
+            "related_concepts": [
+              "directed graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              480,
+              360,
+              520,
+              380
+            ],
+            "label": "directed edge label"
+          },
+          {
+            "latex": "w_{ij} \\in \\mathbb{R}",
+            "related_concepts": [
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              270,
+              650,
+              290
+            ],
+            "label": "edge weight definition"
+          },
+          {
+            "latex": "w_{ij} = 0.5",
+            "related_concepts": [
+              "undirected graph",
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              620,
+              380,
+              690,
+              400
+            ],
+            "label": "undirected edge weight"
+          },
+          {
+            "latex": "e_{ij} = e_{ji}",
+            "related_concepts": [
+              "undirected graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              620,
+              420,
+              690,
+              440
+            ],
+            "label": "undirected edge symmetry"
+          },
+          {
+            "latex": "l_{ik} = 0",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              460,
+              510,
+              510,
+              530
+            ],
+            "label": "no edge"
+          },
+          {
+            "latex": "l_{kj} = 1",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              460,
+              530,
+              510,
+              550
+            ],
+            "label": "edge exists"
+          },
+          {
+            "latex": "H",
+            "related_concepts": [
+              "hypergraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              750,
+              595,
+              770
+            ],
+            "label": "hypergraph symbol"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Figure 1 showing real-world graphs: a) road network, b) molecule structure, c) electrical circuit",
+            "related_concepts": [
+              "road network",
+              "molecular graph",
+              "circuit graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              400,
+              300
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn directed graph with nodes i, j, k and labeled edges l_ij, l_ik=0, l_kj=1",
+            "related_concepts": [
+              "directed graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              420,
+              320,
+              580,
+              580
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn undirected weighted graph with nodes and edge weights w_iz=0.9, w_ij=0.5",
+            "related_concepts": [
+              "undirected graph",
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              590,
+              320,
+              750,
+              580
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Social network graph with nodes Alice, Bob, Dan, Erin, Carol, Frank",
+            "related_concepts": [
+              "social network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              620,
+              150,
+              720
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Citation network graph with nodes representing papers (Mascia 1990, Mould & Hart 1983, etc.)",
+            "related_concepts": [
+              "citation network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              160,
+              620,
+              300,
+              720
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Knowledge graph with nodes Alice, Bob, Canada, Google, and edges representing relationships",
+            "related_concepts": [
+              "knowledge graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              310,
+              620,
+              450,
+              720
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Geometric point cloud converted to a mesh/graph structure",
+            "related_concepts": [
+              "geometric graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              730,
+              450,
+              830
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn hypergraph illustration showing an edge connecting multiple vertices",
+            "related_concepts": [
+              "hypergraph",
+              "high-order relationships"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              850,
+              620,
+              950,
+              680
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn small graphs illustrating directed vs undirected, binary vs weighted concepts",
+            "related_concepts": [
+              "directed graph",
+              "undirected graph",
+              "weighted graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              420,
+              250,
+              750,
+              580
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn protein interaction network with nodes P1, P2, P3",
+            "related_concepts": [
+              "protein interaction network"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              570,
+              450,
+              600
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn program flow graph with nodes 1, 2, X, Y",
+            "related_concepts": [
+              "program flow graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              450,
+              450,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn geometric point cloud with arrows indicating graph construction",
+            "related_concepts": [
+              "geometric graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              350,
+              500,
+              400,
+              550
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Antipaperson nodes",
+            "reason": "Handwriting is unclear; possibly 'Antiperson nodes' or a specific term not fully legible",
+            "bbox": [
+              350,
+              620,
+              420,
+              650
+            ]
+          },
+          {
+            "transcription": "self-conn [an edge that up the s",
+            "reason": "Text is cut off and handwriting is ambiguous; likely 'self-connection [an edge that loops back to the same node]' but incomplete",
+            "bbox": [
+              850,
+              450,
+              950,
+              520
+            ]
+          },
+          {
+            "transcription": "molecule",
+            "reason": "Handwritten label under Figure 1b is slightly smudged but contextually clear",
+            "bbox": [
+              210,
+              310,
+              280,
+              330
+            ]
+          },
+          {
+            "transcription": "circuit",
+            "reason": "Handwritten label under Figure 1c is partially obscured but inferable from context",
+            "bbox": [
+              290,
+              310,
+              350,
+              330
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph representation\",\n      \"aliases\": [\"modeling interactions\", \"modeling relationships\"],\n      \"evidence\": \"Graphs are powerful tools in modeling interactions/relationships between different elements.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 120, 400, 180]\n    },\n    {\n      \"canonical\": \"directed graph\",\n      \"aliases\": [\"digraph\"],\n      \"evidence\": \"directed l_ij\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 350, 550, 400]\n    },\n    {\n      \"canonical\": \"undirected graph\",\n      \"aliases\": [],\n      \"evidence\": \"undirected w_ij = 0.5\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [600, 350, 700, 400]\n    },\n    {\n      \"canonical\": \"weighted graph\",\n      \"aliases\": [],\n      \"evidence\": \"edge weight w_ij ∈ R\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 250, 650, 300]\n    },\n    {\n      \"canonical\": \"binary graph\",\n      \"aliases\": [\"unweighted graph\"],\n      \"evidence\": \"l_ik = 0, l_kj = 1\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 500, 550, 550]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"graph coded into matrices\"],\n      \"evidence\": \"Graphs coded into matrices\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 20, 250, 60]\n    },\n    {\n      \"canonical\": \"hypergraph\",\n      \"aliases\": [],\n      \"evidence\": \"A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.98,\n      \"bbox\": [500, 700, 900, 850]\n    },\n    {\n      \"canonical\": \"high-order relationships\",\n      \"aliases\": [],\n      \"evidence\": \"models high-order relationships among nodes\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [520, 650, 750, 690]\n    },\n    {\n      \"canonical\": \"social network\",\n      \"aliases\": [],\n      \"evidence\": \"Social networks are graphs where nodes are people and the edges represent friendships between them.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 400, 400, 430]\n    },\n    {\n      \"canonical\": \"citation network\",\n      \"aliases\": [\"scientific literature graph\"],\n      \"evidence\": \"The scientific literature can be viewed as a graph in which the nodes are papers and the edges represent citations.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 430, 400, 460]\n    },\n    {\n      \"canonical\": \"knowledge graph\",\n      \"aliases\": [\"wikipedia graph\"],\n      \"evidence\": \"Wikipedia can be thought of as a graph in which the nodes are articles and the edges represent hyperlinks between articles.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 460, 400, 490]\n    },\n    {\n      \"canonical\": \"program flow graph\",\n      \"aliases\": [\"control flow graph\"],\n      \"evidence\": \"Computer programs can be represented as graphs in which the nodes are syntax tokens... and the edges represent computations involving these variables.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 490, 400, 530]\n    },\n    {\n      \"canonical\": \"geometric graph\",\n      \"aliases\": [\"point cloud graph\"],\n      \"evidence\": \"Geometric point clouds can be represented as graphs. Here, each point is a node and has edges that connect to other nearby points.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 530, 400, 560]\n    },\n    {\n      \"canonical\": \"protein interaction network\",\n      \"aliases\": [],\n      \"evidence\": \"Protein interactions in a cell can be expressed as graphs, where the nodes are the proteins, and there is an edge between two proteins if they interact.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 560, 400, 590]\n    },\n    {\n      \"canonical\": \"road network\",\n      \"aliases\": [],\n      \"evidence\": \"Figure 1 Real-world graphs. Some objects such as a) road networks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 300, 200, 320]\n    },\n    {\n      \"canonical\": \"molecular graph\",\n      \"aliases\": [],\n      \"evidence\": \"b) molecules\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [210, 300, 280, 320]\n    },\n    {\n      \"canonical\": \"circuit graph\",\n      \"aliases\": [\"electrical circuit\"],\n      \"evidence\": \"c) electrical circuits are naturally structured as graphs.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [290, 300, 400, 320]\n    },\n    {\n      \"canonical\": \"co-authorship network\",\n      \"aliases\": [],\n      \"evidence\": \"Antipaperson nodes\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [350, 620, 420, 650]\n    },\n    {\n      \"canonical\": \"self-connection\",\n      \"aliases\": [\"self-loop\"],\n      \"evidence\": \"self-conn [an edge that up the s\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.7,\n      \"bbox\": [850, 450, 950, 520]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l_{ij}\",\n      \"related_concepts\": [\"directed graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [480, 360, 520, 380],\n      \"label\": \"directed edge label\"\n    },\n    {\n      \"latex\": \"w_{ij} \\\\in \\\\mathbb{R}\",\n      \"related_concepts\": [\"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 270, 650, 290],\n      \"label\": \"edge weight definition\"\n    },\n    {\n      \"latex\": \"w_{ij} = 0.5\",\n      \"related_concepts\": [\"undirected graph\", \"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [620, 380, 690, 400],\n      \"label\": \"undirected edge weight\"\n    },\n    {\n      \"latex\": \"e_{ij} = e_{ji}\",\n      \"related_concepts\": [\"undirected graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [620, 420, 690, 440],\n      \"label\": \"undirected edge symmetry\"\n    },\n    {\n      \"latex\": \"l_{ik} = 0\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [460, 510, 510, 530],\n      \"label\": \"no edge\"\n    },\n    {\n      \"latex\": \"l_{kj} = 1\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [460, 530, 510, 550],\n      \"label\": \"edge exists\"\n    },\n    {\n      \"latex\": \"H\",\n      \"related_concepts\": [\"hypergraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 750, 595, 770],\n      \"label\": \"hypergraph symbol\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 1 showing real-world graphs: a) road network, b) molecule structure, c) electrical circuit\",\n      \"related_concepts\": [\"road network\", \"molecular graph\", \"circuit graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 400, 300]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn directed graph with nodes i, j, k and labeled edges l_ij, l_ik=0, l_kj=1\",\n      \"related_concepts\": [\"directed graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [420, 320, 580, 580]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn undirected weighted graph with nodes and edge weights w_iz=0.9, w_ij=0.5\",\n      \"related_concepts\": [\"undirected graph\", \"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [590, 320, 750, 580]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Social network graph with nodes Alice, Bob, Dan, Erin, Carol, Frank\",\n      \"related_concepts\": [\"social network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 620, 150, 720]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Citation network graph with nodes representing papers (Mascia 1990, Mould & Hart 1983, etc.)\",\n      \"related_concepts\": [\"citation network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [160, 620, 300, 720]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Knowledge graph with nodes Alice, Bob, Canada, Google, and edges representing relationships\",\n      \"related_concepts\": [\"knowledge graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [310, 620, 450, 720]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Geometric point cloud converted to a mesh/graph structure\",\n      \"related_concepts\": [\"geometric graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 730, 450, 830]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn hypergraph illustration showing an edge connecting multiple vertices\",\n      \"related_concepts\": [\"hypergraph\", \"high-order relationships\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [850, 620, 950, 680]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn small graphs illustrating directed vs undirected, binary vs weighted concepts\",\n      \"related_concepts\": [\"directed graph\", \"undirected graph\", \"weighted graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [420, 250, 750, 580]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn protein interaction network with nodes P1, P2, P3\",\n      \"related_concepts\": [\"protein interaction network\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 570, 450, 600]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn program flow graph with nodes 1, 2, X, Y\",\n      \"related_concepts\": [\"program flow graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 450, 450, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn geometric point cloud with arrows indicating graph construction\",\n      \"related_concepts\": [\"geometric graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [350, 500, 400, 550]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Antipaperson nodes\",\n      \"reason\": \"Handwriting is unclear; possibly 'Antiperson nodes' or a specific term not fully legible\",\n      \"bbox\": [350, 620, 420, 650]\n    },\n    {\n      \"transcription\": \"self-conn [an edge that up the s\",\n      \"reason\": \"Text is cut off and handwriting is ambiguous; likely 'self-connection [an edge that loops back to the same node]' but incomplete\",\n      \"bbox\": [850, 450, 950, 520]\n    },\n    {\n      \"transcription\": \"molecule\",\n      \"reason\": \"Handwritten label under Figure 1b is slightly smudged but contextually clear\",\n      \"bbox\": [210, 310, 280, 330]\n    },\n    {\n      \"transcription\": \"circuit\",\n      \"reason\": \"Handwritten label under Figure 1c is partially obscured but inferable from context\",\n      \"bbox\": [290, 310, 350, 330]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "simple graph",
+            "aliases": [
+              "simple"
+            ],
+            "evidence": "A graph is simple if it has no loops or multiple edges",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              200,
+              450,
+              300
+            ]
+          },
+          {
+            "canonical": "loop",
+            "aliases": [
+              "self-connection"
+            ],
+            "evidence": "loop: self-connection [an edge that connects up the same node]",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              120,
+              320,
+              250,
+              450
+            ]
+          },
+          {
+            "canonical": "multiple edges",
+            "aliases": [
+              "multi-edge"
+            ],
+            "evidence": "multiple-edge: Two edges that connect the same end points (or more)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              320,
+              450,
+              450
+            ]
+          },
+          {
+            "canonical": "complete graph",
+            "aliases": [
+              "complete"
+            ],
+            "evidence": "A complete graph has each of its nodes connected to all other nodes. every two nodes are adjacent.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              200,
+              900,
+              350
+            ]
+          },
+          {
+            "canonical": "adjacency",
+            "aliases": [
+              "adjacent"
+            ],
+            "evidence": "every two nodes are adjacent",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              350,
+              850,
+              380
+            ]
+          },
+          {
+            "canonical": "subgraph",
+            "aliases": [
+              "subgraphs"
+            ],
+            "evidence": "A graph H is called a subgraph of G if every vertex and edge of H belong to G",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              650,
+              900,
+              750
+            ]
+          },
+          {
+            "canonical": "vertex set",
+            "aliases": [
+              "V(H)",
+              "V(G)"
+            ],
+            "evidence": "V(H) \\subseteq V(G)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              700,
+              780
+            ]
+          },
+          {
+            "canonical": "edge set",
+            "aliases": [
+              "E(H)",
+              "E(G)"
+            ],
+            "evidence": "E(H) \\subseteq E(G)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              720,
+              750,
+              870,
+              780
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "V(H) \\subseteq V(G) \\quad \\& \\quad E(H) \\subseteq E(G)",
+            "related_concepts": [
+              "subgraph",
+              "vertex set",
+              "edge set"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              870,
+              780
+            ],
+            "label": "subgraph condition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Diagram of a loop (self-connection) on a single node",
+            "related_concepts": [
+              "loop",
+              "simple graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              120,
+              320,
+              200,
+              400
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram of multiple edges connecting two nodes",
+            "related_concepts": [
+              "multiple edges",
+              "simple graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              320,
+              400,
+              400
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram of a complete graph with 4 nodes where every pair is connected",
+            "related_concepts": [
+              "complete graph",
+              "adjacency"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              450,
+              750,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram illustrating a subgraph H within a larger graph G",
+            "related_concepts": [
+              "subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              650,
+              950,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"simple graph\",\n      \"aliases\": [\"simple\"],\n      \"evidence\": \"A graph is simple if it has no loops or multiple edges\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 200, 450, 300]\n    },\n    {\n      \"canonical\": \"loop\",\n      \"aliases\": [\"self-connection\"],\n      \"evidence\": \"loop: self-connection [an edge that connects up the same node]\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [120, 320, 250, 450]\n    },\n    {\n      \"canonical\": \"multiple edges\",\n      \"aliases\": [\"multi-edge\"],\n      \"evidence\": \"multiple-edge: Two edges that connect the same end points (or more)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 320, 450, 450]\n    },\n    {\n      \"canonical\": \"complete graph\",\n      \"aliases\": [\"complete\"],\n      \"evidence\": \"A complete graph has each of its nodes connected to all other nodes. every two nodes are adjacent.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 200, 900, 350]\n    },\n    {\n      \"canonical\": \"adjacency\",\n      \"aliases\": [\"adjacent\"],\n      \"evidence\": \"every two nodes are adjacent\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 350, 850, 380]\n    },\n    {\n      \"canonical\": \"subgraph\",\n      \"aliases\": [\"subgraphs\"],\n      \"evidence\": \"A graph H is called a subgraph of G if every vertex and edge of H belong to G\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 650, 900, 750]\n    },\n    {\n      \"canonical\": \"vertex set\",\n      \"aliases\": [\"V(H)\", \"V(G)\"],\n      \"evidence\": \"V(H) \\\\subseteq V(G)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 700, 780]\n    },\n    {\n      \"canonical\": \"edge set\",\n      \"aliases\": [\"E(H)\", \"E(G)\"],\n      \"evidence\": \"E(H) \\\\subseteq E(G)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [720, 750, 870, 780]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"V(H) \\\\subseteq V(G) \\\\quad \\\\& \\\\quad E(H) \\\\subseteq E(G)\",\n      \"related_concepts\": [\"subgraph\", \"vertex set\", \"edge set\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 870, 780],\n      \"label\": \"subgraph condition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram of a loop (self-connection) on a single node\",\n      \"related_concepts\": [\"loop\", \"simple graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [120, 320, 200, 400]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram of multiple edges connecting two nodes\",\n      \"related_concepts\": [\"multiple edges\", \"simple graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 320, 400, 400]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram of a complete graph with 4 nodes where every pair is connected\",\n      \"related_concepts\": [\"complete graph\", \"adjacency\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 450, 750, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram illustrating a subgraph H within a larger graph G\",\n      \"related_concepts\": [\"subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 650, 950, 850]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "hypergraph",
+            "aliases": [
+              "hyper graph"
+            ],
+            "evidence": "A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              0,
+              900,
+              150
+            ]
+          },
+          {
+            "canonical": "hyperedge",
+            "aliases": [],
+            "evidence": "It is a set of non-empty subsets (or hyperedges).",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              900,
+              200
+            ]
+          },
+          {
+            "canonical": "incidence matrix",
+            "aliases": [],
+            "evidence": "incidence matrix",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              300,
+              650,
+              350
+            ]
+          },
+          {
+            "canonical": "heterogeneous graph",
+            "aliases": [],
+            "evidence": "A heterogeneous graph G = (V, E, R, T)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              500,
+              800,
+              600
+            ]
+          },
+          {
+            "canonical": "knowledge graph",
+            "aliases": [],
+            "evidence": "c) A knowledge graph is a directed heterogeneous multigraph.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              300,
+              400,
+              350
+            ]
+          },
+          {
+            "canonical": "geometric graph",
+            "aliases": [],
+            "evidence": "d) A point set can be converted to a graph by forming edges between nearby points. Each node has an associated position in 3D space and this is termed a geometric graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              350,
+              400,
+              400
+            ]
+          },
+          {
+            "canonical": "hierarchical graph",
+            "aliases": [],
+            "evidence": "e) The scene on the left can be represented by a hierarchical graph.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              400,
+              400,
+              450
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [],
+            "evidence": "b) The adjacency matrix is a binary matrix.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              700,
+              400,
+              750
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node data"
+            ],
+            "evidence": "Each node has an associated embedding of length five (brown vectors).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              650,
+              400,
+              700
+            ]
+          },
+          {
+            "canonical": "edge embedding",
+            "aliases": [
+              "edge data"
+            ],
+            "evidence": "Each edge has an associated embedding of length four (blue vectors).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              675,
+              400,
+              725
+            ]
+          },
+          {
+            "canonical": "graph representation",
+            "aliases": [],
+            "evidence": "Figure 3 Graph representation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              600,
+              400,
+              650
+            ]
+          },
+          {
+            "canonical": "triplet",
+            "aliases": [],
+            "evidence": "triplet encoding the relationship between pairs of ns",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              700,
+              800,
+              750
+            ]
+          },
+          {
+            "canonical": "relation type",
+            "aliases": [],
+            "evidence": "relation type r ∈ R",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              550,
+              700,
+              600
+            ]
+          },
+          {
+            "canonical": "node type",
+            "aliases": [],
+            "evidence": "nodes with node types v_i ∈ V",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              650,
+              650
+            ]
+          },
+          {
+            "canonical": "edge type",
+            "aliases": [],
+            "evidence": "edges with relation types (v_i, r, v_j) ∈ E",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              600,
+              750,
+              650
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "G = (A, V, E)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              500,
+              200,
+              550
+            ],
+            "label": "Graph representation into a matrix"
+          },
+          {
+            "latex": "(A, X, E)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              550,
+              400,
+              600
+            ],
+            "label": ""
+          },
+          {
+            "latex": "G = (V, E, R, T)",
+            "related_concepts": [
+              "heterogeneous graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              550,
+              700,
+              600
+            ],
+            "label": ""
+          },
+          {
+            "latex": "e_{12}^{cite} = (v_1, \"cite\", v_2)",
+            "related_concepts": [
+              "heterogeneous graph",
+              "triplet"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              800,
+              800,
+              850
+            ],
+            "label": ""
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Figure 2 Types of graph. a) A social network is an undirected graph; the connections between people are symmetric. b) A citation network is a directed graph; one publication cites another, so the relationship is asymmetric. c) A knowledge graph is a directed heterogeneous multigraph. d) A point set can be converted to a graph by forming edges between nearby points. e) The scene on the left can be represented by a hierarchical graph.",
+            "related_concepts": [
+              "knowledge graph",
+              "geometric graph",
+              "hierarchical graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              450,
+              300
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "incidence matrix for a hypergraph",
+            "related_concepts": [
+              "incidence matrix",
+              "hypergraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              200,
+              650,
+              300
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "hypergraph with hyperedges e1, e2, e3, e4",
+            "related_concepts": [
+              "hypergraph",
+              "hyperedge"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              200,
+              900,
+              400
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Figure 3 Graph representation. a) Example graph with six nodes and seven edges. Each node has an associated embedding of length five (brown vectors). Each edge has an associated embedding of length four (blue vectors). This graph can be represented by three matrices. b) The adjacency matrix is a binary matrix, where the element (m, n) is set to one if node m connects to node n. c) The node data matrix X contains the concatenated node embeddings. d) The edge data matrix E contains the edge embeddings.",
+            "related_concepts": [
+              "graph representation",
+              "adjacency matrix",
+              "node embedding",
+              "edge embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              550,
+              450,
+              800
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "heterogeneous graph with nodes and edges having types",
+            "related_concepts": [
+              "heterogeneous graph",
+              "node type",
+              "edge type",
+              "relation type"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              600,
+              900,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"hypergraph\",\n      \"aliases\": [\"hyper graph\"],\n      \"evidence\": \"A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 0, 900, 150]\n    },\n    {\n      \"canonical\": \"hyperedge\",\n      \"aliases\": [],\n      \"evidence\": \"It is a set of non-empty subsets (or hyperedges).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 900, 200]\n    },\n    {\n      \"canonical\": \"incidence matrix\",\n      \"aliases\": [],\n      \"evidence\": \"incidence matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 300, 650, 350]\n    },\n    {\n      \"canonical\": \"heterogeneous graph\",\n      \"aliases\": [],\n      \"evidence\": \"A heterogeneous graph G = (V, E, R, T)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 500, 800, 600]\n    },\n    {\n      \"canonical\": \"knowledge graph\",\n      \"aliases\": [],\n      \"evidence\": \"c) A knowledge graph is a directed heterogeneous multigraph.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 300, 400, 350]\n    },\n    {\n      \"canonical\": \"geometric graph\",\n      \"aliases\": [],\n      \"evidence\": \"d) A point set can be converted to a graph by forming edges between nearby points. Each node has an associated position in 3D space and this is termed a geometric graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 350, 400, 400]\n    },\n    {\n      \"canonical\": \"hierarchical graph\",\n      \"aliases\": [],\n      \"evidence\": \"e) The scene on the left can be represented by a hierarchical graph.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 400, 400, 450]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [],\n      \"evidence\": \"b) The adjacency matrix is a binary matrix.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 700, 400, 750]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node data\"],\n      \"evidence\": \"Each node has an associated embedding of length five (brown vectors).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 650, 400, 700]\n    },\n    {\n      \"canonical\": \"edge embedding\",\n      \"aliases\": [\"edge data\"],\n      \"evidence\": \"Each edge has an associated embedding of length four (blue vectors).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 675, 400, 725]\n    },\n    {\n      \"canonical\": \"graph representation\",\n      \"aliases\": [],\n      \"evidence\": \"Figure 3 Graph representation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 600, 400, 650]\n    },\n    {\n      \"canonical\": \"triplet\",\n      \"aliases\": [],\n      \"evidence\": \"triplet encoding the relationship between pairs of ns\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 700, 800, 750]\n    },\n    {\n      \"canonical\": \"relation type\",\n      \"aliases\": [],\n      \"evidence\": \"relation type r ∈ R\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 550, 700, 600]\n    },\n    {\n      \"canonical\": \"node type\",\n      \"aliases\": [],\n      \"evidence\": \"nodes with node types v_i ∈ V\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 650, 650]\n    },\n    {\n      \"canonical\": \"edge type\",\n      \"aliases\": [],\n      \"evidence\": \"edges with relation types (v_i, r, v_j) ∈ E\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 600, 750, 650]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"G = (A, V, E)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 500, 200, 550],\n      \"label\": \"Graph representation into a matrix\"\n    },\n    {\n      \"latex\": \"(A, X, E)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 550, 400, 600],\n      \"label\": \"\"\n    },\n    {\n      \"latex\": \"G = (V, E, R, T)\",\n      \"related_concepts\": [\"heterogeneous graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 550, 700, 600],\n      \"label\": \"\"\n    },\n    {\n      \"latex\": \"e_{12}^{cite} = (v_1, \\\"cite\\\", v_2)\",\n      \"related_concepts\": [\"heterogeneous graph\", \"triplet\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 800, 800, 850],\n      \"label\": \"\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 2 Types of graph. a) A social network is an undirected graph; the connections between people are symmetric. b) A citation network is a directed graph; one publication cites another, so the relationship is asymmetric. c) A knowledge graph is a directed heterogeneous multigraph. d) A point set can be converted to a graph by forming edges between nearby points. e) The scene on the left can be represented by a hierarchical graph.\",\n      \"related_concepts\": [\"knowledge graph\", \"geometric graph\", \"hierarchical graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 450, 300]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"incidence matrix for a hypergraph\",\n      \"related_concepts\": [\"incidence matrix\", \"hypergraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 200, 650, 300]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"hypergraph with hyperedges e1, e2, e3, e4\",\n      \"related_concepts\": [\"hypergraph\", \"hyperedge\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 200, 900, 400]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 3 Graph representation. a) Example graph with six nodes and seven edges. Each node has an associated embedding of length five (brown vectors). Each edge has an associated embedding of length four (blue vectors). This graph can be represented by three matrices. b) The adjacency matrix is a binary matrix, where the element (m, n) is set to one if node m connects to node n. c) The node data matrix X contains the concatenated node embeddings. d) The edge data matrix E contains the edge embeddings.\",\n      \"related_concepts\": [\"graph representation\", \"adjacency matrix\", \"node embedding\", \"edge embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 550, 450, 800]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"heterogeneous graph with nodes and edges having types\",\n      \"related_concepts\": [\"heterogeneous graph\", \"node type\", \"edge type\", \"relation type\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 600, 900, 900]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "annotated graph",
+            "aliases": [
+              "decorated graph",
+              "attributed graph"
+            ],
+            "evidence": "A graph G is annotated or decorated if its nodes can hold attributes / features.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              400,
+              500,
+              500
+            ]
+          },
+          {
+            "canonical": "node attributes",
+            "aliases": [
+              "node features",
+              "node embeddings"
+            ],
+            "evidence": "nodes can hold attributes / features",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              450,
+              400,
+              480
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "attribute matrix",
+              "node feature matrix"
+            ],
+            "evidence": "X = ... feature matrix",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              600,
+              500,
+              700
+            ]
+          },
+          {
+            "canonical": "embedding matrix",
+            "aliases": [
+              "node embedding matrix"
+            ],
+            "evidence": "embedding matrix",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              700,
+              500,
+              730
+            ]
+          },
+          {
+            "canonical": "induced subgraph",
+            "aliases": [],
+            "evidence": "Given a non-empty set S != empty set of nodes of G, the subgraph G[S] of G induced by S has vertex set S where two vertices u and v are adjacent if and only if they are adjacent in G.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              400,
+              900,
+              550
+            ]
+          },
+          {
+            "canonical": "subgraph",
+            "aliases": [],
+            "evidence": "A graph H is called a subgraph of G if every vertex and edge of H belong to G",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              100,
+              900,
+              150
+            ]
+          },
+          {
+            "canonical": "proper subgraph",
+            "aliases": [],
+            "evidence": "all other subgraphs are proper subgraphs",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              180,
+              800,
+              210
+            ]
+          },
+          {
+            "canonical": "spanning subgraph",
+            "aliases": [],
+            "evidence": "If H is a subgraph of G having the same vertices as G, then H is a spanning subgraph of G.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              220,
+              900,
+              260
+            ]
+          },
+          {
+            "canonical": "graph types",
+            "aliases": [],
+            "evidence": "Graph types",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              0,
+              400,
+              200
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "G = ((V, X), E)",
+            "related_concepts": [
+              "annotated graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              500,
+              400,
+              530
+            ],
+            "label": "annotated graph definition"
+          },
+          {
+            "latex": "X = \\begin{bmatrix} d_1 \\\\ \\vdots \\\\ d_n \\end{bmatrix} \\in \\mathbb{R}^{n \\times d}",
+            "related_concepts": [
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              600,
+              500,
+              700
+            ],
+            "label": "feature matrix definition"
+          },
+          {
+            "latex": "V(H) \\subseteq V(G) \\text{ and } E(H) \\subseteq E(G)",
+            "related_concepts": [
+              "subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              130,
+              850,
+              160
+            ],
+            "label": "subgraph definition"
+          },
+          {
+            "latex": "G[S]",
+            "related_concepts": [
+              "induced subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              650,
+              450,
+              700,
+              470
+            ],
+            "label": "induced subgraph notation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Example of an annotated graph with nodes v1, v2, v3, v4 and their corresponding feature vectors.",
+            "related_concepts": [
+              "annotated graph",
+              "node attributes"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              550,
+              400,
+              750
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Feature matrix X representing node attributes in an annotated graph.",
+            "related_concepts": [
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              600,
+              500,
+              700
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of induced subgraphs G1 and G2 from a larger graph G.",
+            "related_concepts": [
+              "induced subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              550,
+              850,
+              750
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of subgraphs, proper subgraphs, and spanning subgraphs.",
+            "related_concepts": [
+              "subgraph",
+              "proper subgraph",
+              "spanning subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              850,
+              50,
+              950,
+              250
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"annotated graph\",\n      \"aliases\": [\"decorated graph\", \"attributed graph\"],\n      \"evidence\": \"A graph G is annotated or decorated if its nodes can hold attributes / features.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 400, 500, 500]\n    },\n    {\n      \"canonical\": \"node attributes\",\n      \"aliases\": [\"node features\", \"node embeddings\"],\n      \"evidence\": \"nodes can hold attributes / features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 450, 400, 480]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"attribute matrix\", \"node feature matrix\"],\n      \"evidence\": \"X = ... feature matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 600, 500, 700]\n    },\n    {\n      \"canonical\": \"embedding matrix\",\n      \"aliases\": [\"node embedding matrix\"],\n      \"evidence\": \"embedding matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 700, 500, 730]\n    },\n    {\n      \"canonical\": \"induced subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"Given a non-empty set S != empty set of nodes of G, the subgraph G[S] of G induced by S has vertex set S where two vertices u and v are adjacent if and only if they are adjacent in G.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 400, 900, 550]\n    },\n    {\n      \"canonical\": \"subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"A graph H is called a subgraph of G if every vertex and edge of H belong to G\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 100, 900, 150]\n    },\n    {\n      \"canonical\": \"proper subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"all other subgraphs are proper subgraphs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 180, 800, 210]\n    },\n    {\n      \"canonical\": \"spanning subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"If H is a subgraph of G having the same vertices as G, then H is a spanning subgraph of G.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 220, 900, 260]\n    },\n    {\n      \"canonical\": \"graph types\",\n      \"aliases\": [],\n      \"evidence\": \"Graph types\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 0, 400, 200]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"G = ((V, X), E)\",\n      \"related_concepts\": [\"annotated graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 500, 400, 530],\n      \"label\": \"annotated graph definition\"\n    },\n    {\n      \"latex\": \"X = \\\\begin{bmatrix} d_1 \\\\\\\\ \\\\vdots \\\\\\\\ d_n \\\\end{bmatrix} \\\\in \\\\mathbb{R}^{n \\\\times d}\",\n      \"related_concepts\": [\"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 600, 500, 700],\n      \"label\": \"feature matrix definition\"\n    },\n    {\n      \"latex\": \"V(H) \\\\subseteq V(G) \\\\text{ and } E(H) \\\\subseteq E(G)\",\n      \"related_concepts\": [\"subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 130, 850, 160],\n      \"label\": \"subgraph definition\"\n    },\n    {\n      \"latex\": \"G[S]\",\n      \"related_concepts\": [\"induced subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [650, 450, 700, 470],\n      \"label\": \"induced subgraph notation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of an annotated graph with nodes v1, v2, v3, v4 and their corresponding feature vectors.\",\n      \"related_concepts\": [\"annotated graph\", \"node attributes\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 550, 400, 750]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Feature matrix X representing node attributes in an annotated graph.\",\n      \"related_concepts\": [\"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 600, 500, 700]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of induced subgraphs G1 and G2 from a larger graph G.\",\n      \"related_concepts\": [\"induced subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 550, 850, 750]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of subgraphs, proper subgraphs, and spanning subgraphs.\",\n      \"related_concepts\": [\"subgraph\", \"proper subgraph\", \"spanning subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [850, 50, 950, 250]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Types and Representations",
+        "summary": "This lecture page introduces fundamental graph theory concepts essential for Deep Graph Learning, categorizing graphs by their structural properties such as directionality, weighting, and connectivity. It defines specific graph classes including simple, complete, hyper, heterogeneous, and annotated graphs, providing formal definitions and visual examples for each. The content concludes by detailing how graphs are mathematically represented using adjacency, feature, and edge matrices to facilitate computational processing.",
+        "key_topics": [
+          "graph taxonomy",
+          "graph representation",
+          "matrix encoding",
+          "graph properties"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph representation",
+            "aliases": [
+              "modeling interactions",
+              "modeling relationships"
+            ],
+            "evidence": "Graphs are powerful tools in modeling interactions/relationships between different elements.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              66.0,
+              220.0,
+              99.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "graph coded into matrices"
+            ],
+            "evidence": "Graphs coded into matrices",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              11.0,
+              137.5,
+              33.0
+            ]
+          },
+          {
+            "canonical": "social network",
+            "aliases": [],
+            "evidence": "Social networks are graphs where nodes are people and the edges represent friendships between them.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              220.0,
+              220.0,
+              236.5
+            ]
+          },
+          {
+            "canonical": "citation network",
+            "aliases": [
+              "scientific literature graph"
+            ],
+            "evidence": "The scientific literature can be viewed as a graph in which the nodes are papers and the edges represent citations.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              236.5,
+              220.0,
+              253.0
+            ]
+          },
+          {
+            "canonical": "knowledge graph",
+            "aliases": [
+              "wikipedia graph"
+            ],
+            "evidence": "Wikipedia can be thought of as a graph in which the nodes are articles and the edges represent hyperlinks between articles.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              253.0,
+              220.0,
+              269.5
+            ]
+          },
+          {
+            "canonical": "program flow graph",
+            "aliases": [
+              "control flow graph"
+            ],
+            "evidence": "Computer programs can be represented as graphs in which the nodes are syntax tokens... and the edges represent computations involving these variables.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              269.5,
+              220.0,
+              291.5
+            ]
+          },
+          {
+            "canonical": "geometric graph",
+            "aliases": [
+              "point cloud graph"
+            ],
+            "evidence": "Geometric point clouds can be represented as graphs. Here, each point is a node and has edges that connect to other nearby points.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              291.5,
+              220.0,
+              308.0
+            ]
+          },
+          {
+            "canonical": "protein interaction network",
+            "aliases": [],
+            "evidence": "Protein interactions in a cell can be expressed as graphs, where the nodes are the proteins, and there is an edge between two proteins if they interact.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              308.0,
+              220.0,
+              324.5
+            ]
+          },
+          {
+            "canonical": "road network",
+            "aliases": [],
+            "evidence": "Figure 1 Real-world graphs. Some objects such as a) road networks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              165.0,
+              110.0,
+              176.0
+            ]
+          },
+          {
+            "canonical": "molecular graph",
+            "aliases": [],
+            "evidence": "b) molecules",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              115.5,
+              165.0,
+              154.0,
+              176.0
+            ]
+          },
+          {
+            "canonical": "circuit graph",
+            "aliases": [
+              "electrical circuit"
+            ],
+            "evidence": "c) electrical circuits are naturally structured as graphs.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              159.5,
+              165.0,
+              220.0,
+              176.0
+            ]
+          },
+          {
+            "canonical": "simple graph",
+            "aliases": [
+              "simple"
+            ],
+            "evidence": "A graph is simple if it has no loops or multiple edges",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              110.0,
+              697.5,
+              165.0
+            ]
+          },
+          {
+            "canonical": "loop",
+            "aliases": [
+              "self-connection",
+              "self-loop"
+            ],
+            "evidence": "loop: self-connection [an edge that connects up the same node]",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              516.0,
+              176.0,
+              587.5,
+              247.5
+            ]
+          },
+          {
+            "canonical": "multiple edges",
+            "aliases": [
+              "multi-edge"
+            ],
+            "evidence": "multiple-edge: Two edges that connect the same end points (or more)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              176.0,
+              697.5,
+              247.5
+            ]
+          },
+          {
+            "canonical": "complete graph",
+            "aliases": [
+              "complete"
+            ],
+            "evidence": "A complete graph has each of its nodes connected to all other nodes. every two nodes are adjacent.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              110.0,
+              945.0,
+              192.5
+            ]
+          },
+          {
+            "canonical": "adjacency",
+            "aliases": [
+              "adjacent"
+            ],
+            "evidence": "every two nodes are adjacent",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              192.5,
+              917.5,
+              209.0
+            ]
+          },
+          {
+            "canonical": "subgraph",
+            "aliases": [],
+            "evidence": "A graph H is called a subgraph of G if every vertex and edge of H belong to G",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              357.5,
+              945.0,
+              412.5
+            ]
+          },
+          {
+            "canonical": "vertex set",
+            "aliases": [
+              "v(h",
+              "v(g"
+            ],
+            "evidence": "V(H) \\subseteq V(G)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              835.0,
+              429.0
+            ]
+          },
+          {
+            "canonical": "edge set",
+            "aliases": [
+              "e(h",
+              "e(g"
+            ],
+            "evidence": "E(H) \\subseteq E(G)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              846.0,
+              412.5,
+              928.5,
+              429.0
+            ]
+          },
+          {
+            "canonical": "hypergraph",
+            "aliases": [
+              "hyper graph"
+            ],
+            "evidence": "A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              450.0,
+              495.0,
+              532.5
+            ]
+          },
+          {
+            "canonical": "hyperedge",
+            "aliases": [],
+            "evidence": "It is a set of non-empty subsets (or hyperedges).",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              532.5,
+              495.0,
+              560.0
+            ]
+          },
+          {
+            "canonical": "incidence matrix",
+            "aliases": [],
+            "evidence": "incidence matrix",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              615.0,
+              357.5,
+              642.5
+            ]
+          },
+          {
+            "canonical": "heterogeneous graph",
+            "aliases": [],
+            "evidence": "A heterogeneous graph G = (V, E, R, T)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              725.0,
+              440.0,
+              780.0
+            ]
+          },
+          {
+            "canonical": "hierarchical graph",
+            "aliases": [],
+            "evidence": "e) The scene on the left can be represented by a hierarchical graph.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              670.0,
+              220.0,
+              697.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node data",
+              "node attributes",
+              "node features"
+            ],
+            "evidence": "Each node has an associated embedding of length five (brown vectors).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              807.5,
+              220.0,
+              835.0
+            ]
+          },
+          {
+            "canonical": "edge embedding",
+            "aliases": [
+              "edge data"
+            ],
+            "evidence": "Each edge has an associated embedding of length four (blue vectors).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              821.25,
+              220.0,
+              848.75
+            ]
+          },
+          {
+            "canonical": "triplet",
+            "aliases": [],
+            "evidence": "triplet encoding the relationship between pairs of ns",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              835.0,
+              440.0,
+              862.5
+            ]
+          },
+          {
+            "canonical": "relation type",
+            "aliases": [],
+            "evidence": "relation type r ∈ R",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              752.5,
+              385.0,
+              780.0
+            ]
+          },
+          {
+            "canonical": "node type",
+            "aliases": [],
+            "evidence": "nodes with node types v_i ∈ V",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              780.0,
+              357.5,
+              807.5
+            ]
+          },
+          {
+            "canonical": "edge type",
+            "aliases": [],
+            "evidence": "edges with relation types (v_i, r, v_j) ∈ E",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              780.0,
+              412.5,
+              807.5
+            ]
+          },
+          {
+            "canonical": "directed graph",
+            "aliases": [
+              "digraph"
+            ],
+            "evidence": "directed l_ij",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              192.5,
+              302.5,
+              220.0
+            ]
+          },
+          {
+            "canonical": "weighted graph",
+            "aliases": [
+              "binary graph",
+              "unweighted graph"
+            ],
+            "evidence": "edge weight w_ij ∈ R",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              302.5,
+              137.5,
+              357.5,
+              165.0
+            ]
+          },
+          {
+            "canonical": "high-order relationships",
+            "aliases": [],
+            "evidence": "models high-order relationships among nodes",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              286.0,
+              357.5,
+              412.5,
+              379.5
+            ]
+          },
+          {
+            "canonical": "annotated graph",
+            "aliases": [
+              "decorated graph",
+              "attributed graph"
+            ],
+            "evidence": "A graph G is annotated or decorated if its nodes can hold attributes / features.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              670.0,
+              725.0,
+              725.0
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "attribute matrix",
+              "node feature matrix"
+            ],
+            "evidence": "X = ... feature matrix",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              615.0,
+              780.0,
+              725.0,
+              835.0
+            ]
+          },
+          {
+            "canonical": "embedding matrix",
+            "aliases": [
+              "node embedding matrix"
+            ],
+            "evidence": "embedding matrix",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              615.0,
+              835.0,
+              725.0,
+              851.5
+            ]
+          },
+          {
+            "canonical": "induced subgraph",
+            "aliases": [],
+            "evidence": "Given a non-empty set S != empty set of nodes of G, the subgraph G[S] of G induced by S has vertex set S where two vertices u and v are adjacent if and only if they are adjacent in G.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              670.0,
+              945.0,
+              752.5
+            ]
+          },
+          {
+            "canonical": "proper subgraph",
+            "aliases": [],
+            "evidence": "all other subgraphs are proper subgraphs",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              549.0,
+              890.0,
+              565.5
+            ]
+          },
+          {
+            "canonical": "spanning subgraph",
+            "aliases": [],
+            "evidence": "If H is a subgraph of G having the same vertices as G, then H is a spanning subgraph of G.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              571.0,
+              945.0,
+              593.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l_{ij}",
+            "related_concepts": [
+              "directed graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              264.0,
+              198.0,
+              286.0,
+              209.0
+            ],
+            "label": "directed edge label"
+          },
+          {
+            "latex": "w_{ij} \\in \\mathbb{R}",
+            "related_concepts": [
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              319.0,
+              148.5,
+              357.5,
+              159.5
+            ],
+            "label": "edge weight definition"
+          },
+          {
+            "latex": "w_{ij} = 0.5",
+            "related_concepts": [
+              "undirected graph",
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              341.0,
+              209.0,
+              379.5,
+              220.0
+            ],
+            "label": "undirected edge weight"
+          },
+          {
+            "latex": "e_{ij} = e_{ji}",
+            "related_concepts": [
+              "undirected graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              341.0,
+              231.0,
+              379.5,
+              242.0
+            ],
+            "label": "undirected edge symmetry"
+          },
+          {
+            "latex": "l_{ik} = 0",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              253.0,
+              280.5,
+              280.5,
+              291.5
+            ],
+            "label": "no edge"
+          },
+          {
+            "latex": "l_{kj} = 1",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              253.0,
+              291.5,
+              280.5,
+              302.5
+            ],
+            "label": "edge exists"
+          },
+          {
+            "latex": "H",
+            "related_concepts": [
+              "hypergraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              319.0,
+              412.5,
+              327.25,
+              423.5
+            ],
+            "label": "hypergraph symbol"
+          },
+          {
+            "latex": "V(H) \\subseteq V(G) \\quad \\& \\quad E(H) \\subseteq E(G)",
+            "related_concepts": [
+              "subgraph",
+              "vertex set",
+              "edge set"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              928.5,
+              429.0
+            ],
+            "label": "subgraph condition"
+          },
+          {
+            "latex": "G = (A, V, E)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              725.0,
+              110.0,
+              752.5
+            ],
+            "label": "Graph representation into a matrix"
+          },
+          {
+            "latex": "(A, X, E)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              752.5,
+              220.0,
+              780.0
+            ],
+            "label": "Graph tuple representation"
+          },
+          {
+            "latex": "G = (V, E, R, T)",
+            "related_concepts": [
+              "heterogeneous graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              752.5,
+              385.0,
+              780.0
+            ],
+            "label": "Heterogeneous graph definition"
+          },
+          {
+            "latex": "e_{12}^{cite} = (v_1, \"cite\", v_2)",
+            "related_concepts": [
+              "heterogeneous graph",
+              "triplet"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              890.0,
+              440.0,
+              917.5
+            ],
+            "label": "Heterogeneous edge triplet"
+          },
+          {
+            "latex": "G = ((V, X), E)",
+            "related_concepts": [
+              "annotated graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              560.0,
+              725.0,
+              670.0,
+              741.5
+            ],
+            "label": "annotated graph definition"
+          },
+          {
+            "latex": "X = \\begin{bmatrix} d_1 \\\\ \\vdots \\\\ d_n \\end{bmatrix} \\in \\mathbb{R}^{n \\times d}",
+            "related_concepts": [
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              615.0,
+              780.0,
+              725.0,
+              835.0
+            ],
+            "label": "feature matrix definition"
+          },
+          {
+            "latex": "V(H) \\subseteq V(G) \\text{ and } E(H) \\subseteq E(G)",
+            "related_concepts": [
+              "subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              521.5,
+              917.5,
+              538.0
+            ],
+            "label": "subgraph definition"
+          },
+          {
+            "latex": "G[S]",
+            "related_concepts": [
+              "induced subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              807.5,
+              697.5,
+              835.0,
+              708.5
+            ],
+            "label": "induced subgraph notation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Figure 1 showing real-world graphs: a) road network, b) molecule structure, c) electrical circuit",
+            "related_concepts": [
+              "road network",
+              "molecular graph",
+              "circuit graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              110.0,
+              220.0,
+              165.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn directed graph with nodes i, j, k and labeled edges l_ij, l_ik=0, l_kj=1",
+            "related_concepts": [
+              "directed graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              231.0,
+              176.0,
+              319.0,
+              319.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn undirected weighted graph with nodes and edge weights w_iz=0.9, w_ij=0.5",
+            "related_concepts": [
+              "undirected graph",
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              324.5,
+              176.0,
+              412.5,
+              319.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Social network graph with nodes Alice, Bob, Dan, Erin, Carol, Frank",
+            "related_concepts": [
+              "social network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              341.0,
+              82.5,
+              396.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Citation network graph with nodes representing papers (Mascia 1990, Mould & Hart 1983, etc.)",
+            "related_concepts": [
+              "citation network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              88.0,
+              341.0,
+              165.0,
+              396.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Knowledge graph with nodes Alice, Bob, Canada, Google, and edges representing relationships",
+            "related_concepts": [
+              "knowledge graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              170.5,
+              341.0,
+              247.5,
+              396.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Geometric point cloud converted to a mesh/graph structure",
+            "related_concepts": [
+              "geometric graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              401.5,
+              247.5,
+              456.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn small graphs illustrating directed vs undirected, binary vs weighted concepts",
+            "related_concepts": [
+              "directed graph",
+              "undirected graph",
+              "weighted graph",
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              231.0,
+              137.5,
+              412.5,
+              319.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn program flow graph with nodes 1, 2, X, Y",
+            "related_concepts": [
+              "program flow graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              192.5,
+              247.5,
+              247.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram of multiple edges connecting two nodes",
+            "related_concepts": [
+              "multiple edges",
+              "simple graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              176.0,
+              670.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram of a complete graph with 4 nodes where every pair is connected",
+            "related_concepts": [
+              "complete graph",
+              "adjacency"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              247.5,
+              862.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Diagram illustrating a subgraph H within a larger graph G",
+            "related_concepts": [
+              "subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              917.5,
+              357.5,
+              972.5,
+              467.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Figure 2 Types of graph. a) A social network is an undirected graph; the connections between people are symmetric. b) A citation network is a directed graph; one publication cites another, so the relationship is asymmetric. c) A knowledge graph is a directed heterogeneous multigraph. d) A point set can be converted to a graph by forming edges between nearby points. e) The scene on the left can be represented by a hierarchical graph.",
+            "related_concepts": [
+              "knowledge graph",
+              "geometric graph",
+              "hierarchical graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              477.5,
+              247.5,
+              615.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "incidence matrix for a hypergraph",
+            "related_concepts": [
+              "incidence matrix",
+              "hypergraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              560.0,
+              357.5,
+              615.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "hypergraph with hyperedges e1, e2, e3, e4",
+            "related_concepts": [
+              "hypergraph",
+              "hyperedge"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              560.0,
+              495.0,
+              670.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Figure 3 Graph representation. a) Example graph with six nodes and seven edges. Each node has an associated embedding of length five (brown vectors). Each edge has an associated embedding of length four (blue vectors). This graph can be represented by three matrices. b) The adjacency matrix is a binary matrix, where the element (m, n) is set to one if node m connects to node n. c) The node data matrix X contains the concatenated node embeddings. d) The edge data matrix E contains the edge embeddings.",
+            "related_concepts": [
+              "graph representation",
+              "adjacency matrix",
+              "node embedding",
+              "edge embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              752.5,
+              247.5,
+              890.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "heterogeneous graph with nodes and edges having types",
+            "related_concepts": [
+              "heterogeneous graph",
+              "node type",
+              "edge type",
+              "relation type"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              780.0,
+              495.0,
+              945.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of an annotated graph with nodes v1, v2, v3, v4 and their corresponding feature vectors.",
+            "related_concepts": [
+              "annotated graph",
+              "node attributes"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              752.5,
+              670.0,
+              862.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Feature matrix X representing node attributes in an annotated graph.",
+            "related_concepts": [
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              615.0,
+              780.0,
+              725.0,
+              835.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of induced subgraphs G1 and G2 from a larger graph G.",
+            "related_concepts": [
+              "induced subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              752.5,
+              917.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of subgraphs, proper subgraphs, and spanning subgraphs.",
+            "related_concepts": [
+              "subgraph",
+              "proper subgraph",
+              "spanning subgraph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              917.5,
+              477.5,
+              972.5,
+              587.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Antipaperson nodes",
+            "reason": "Handwriting is unclear; possibly 'Antiperson nodes' or a specific term not fully legible",
+            "bbox": [
+              192.5,
+              341.0,
+              231.0,
+              357.5
+            ]
+          },
+          {
+            "transcription": "self-conn [an edge that up the s",
+            "reason": "Text is cut off and handwriting is ambiguous; likely 'self-connection [an edge that loops back to the same node]' but incomplete",
+            "bbox": [
+              467.5,
+              247.5,
+              522.5,
+              286.0
+            ]
+          },
+          {
+            "transcription": "molecule",
+            "reason": "Handwritten label under Figure 1b is slightly smudged but contextually clear",
+            "bbox": [
+              115.5,
+              170.5,
+              154.0,
+              181.5
+            ]
+          },
+          {
+            "transcription": "circuit",
+            "reason": "Handwritten label under Figure 1c is partially obscured but inferable from context",
+            "bbox": [
+              159.5,
+              170.5,
+              192.5,
+              181.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Types and Representations\",\n  \"summary\": \"This lecture page introduces fundamental graph theory concepts essential for Deep Graph Learning, categorizing graphs by their structural properties such as directionality, weighting, and connectivity. It defines specific graph classes including simple, complete, hyper, heterogeneous, and annotated graphs, providing formal definitions and visual examples for each. The content concludes by detailing how graphs are mathematically represented using adjacency, feature, and edge matrices to facilitate computational processing.\",\n  \"key_topics\": [\n    \"graph taxonomy\",\n    \"graph representation\",\n    \"matrix encoding\",\n    \"graph properties\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph representation\",\n      \"aliases\": [\"modeling interactions\", \"modeling relationships\"],\n      \"evidence\": \"Graphs are powerful tools in modeling interactions/relationships between different elements.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 66.0, 220.0, 99.0]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"graph coded into matrices\"],\n      \"evidence\": \"Graphs coded into matrices\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 11.0, 137.5, 33.0]\n    },\n    {\n      \"canonical\": \"social network\",\n      \"aliases\": [],\n      \"evidence\": \"Social networks are graphs where nodes are people and the edges represent friendships between them.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 220.0, 220.0, 236.5]\n    },\n    {\n      \"canonical\": \"citation network\",\n      \"aliases\": [\"scientific literature graph\"],\n      \"evidence\": \"The scientific literature can be viewed as a graph in which the nodes are papers and the edges represent citations.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 236.5, 220.0, 253.0]\n    },\n    {\n      \"canonical\": \"knowledge graph\",\n      \"aliases\": [\"wikipedia graph\"],\n      \"evidence\": \"Wikipedia can be thought of as a graph in which the nodes are articles and the edges represent hyperlinks between articles.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 253.0, 220.0, 269.5]\n    },\n    {\n      \"canonical\": \"program flow graph\",\n      \"aliases\": [\"control flow graph\"],\n      \"evidence\": \"Computer programs can be represented as graphs in which the nodes are syntax tokens... and the edges represent computations involving these variables.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 269.5, 220.0, 291.5]\n    },\n    {\n      \"canonical\": \"geometric graph\",\n      \"aliases\": [\"point cloud graph\"],\n      \"evidence\": \"Geometric point clouds can be represented as graphs. Here, each point is a node and has edges that connect to other nearby points.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 291.5, 220.0, 308.0]\n    },\n    {\n      \"canonical\": \"protein interaction network\",\n      \"aliases\": [],\n      \"evidence\": \"Protein interactions in a cell can be expressed as graphs, where the nodes are the proteins, and there is an edge between two proteins if they interact.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 308.0, 220.0, 324.5]\n    },\n    {\n      \"canonical\": \"road network\",\n      \"aliases\": [],\n      \"evidence\": \"Figure 1 Real-world graphs. Some objects such as a) road networks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 165.0, 110.0, 176.0]\n    },\n    {\n      \"canonical\": \"molecular graph\",\n      \"aliases\": [],\n      \"evidence\": \"b) molecules\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [115.5, 165.0, 154.0, 176.0]\n    },\n    {\n      \"canonical\": \"circuit graph\",\n      \"aliases\": [\"electrical circuit\"],\n      \"evidence\": \"c) electrical circuits are naturally structured as graphs.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [159.5, 165.0, 220.0, 176.0]\n    },\n    {\n      \"canonical\": \"simple graph\",\n      \"aliases\": [\"simple\"],\n      \"evidence\": \"A graph is simple if it has no loops or multiple edges\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 110.0, 697.5, 165.0]\n    },\n    {\n      \"canonical\": \"loop\",\n      \"aliases\": [\"self-connection\", \"self-loop\"],\n      \"evidence\": \"loop: self-connection [an edge that connects up the same node]\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [516.0, 176.0, 587.5, 247.5]\n    },\n    {\n      \"canonical\": \"multiple edges\",\n      \"aliases\": [\"multi-edge\"],\n      \"evidence\": \"multiple-edge: Two edges that connect the same end points (or more)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [615.0, 176.0, 697.5, 247.5]\n    },\n    {\n      \"canonical\": \"complete graph\",\n      \"aliases\": [\"complete\"],\n      \"evidence\": \"A complete graph has each of its nodes connected to all other nodes. every two nodes are adjacent.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 110.0, 945.0, 192.5]\n    },\n    {\n      \"canonical\": \"adjacency\",\n      \"aliases\": [\"adjacent\"],\n      \"evidence\": \"every two nodes are adjacent\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 192.5, 917.5, 209.0]\n    },\n    {\n      \"canonical\": \"subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"A graph H is called a subgraph of G if every vertex and edge of H belong to G\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 357.5, 945.0, 412.5]\n    },\n    {\n      \"canonical\": \"vertex set\",\n      \"aliases\": [\"v(h\", \"v(g\"],\n      \"evidence\": \"V(H) \\\\subseteq V(G)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 412.5, 835.0, 429.0]\n    },\n    {\n      \"canonical\": \"edge set\",\n      \"aliases\": [\"e(h\", \"e(g\"],\n      \"evidence\": \"E(H) \\\\subseteq E(G)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [846.0, 412.5, 928.5, 429.0]\n    },\n    {\n      \"canonical\": \"hypergraph\",\n      \"aliases\": [\"hyper graph\"],\n      \"evidence\": \"A hypergraph H is a generalization of a graph in which an edge can join any number of vertices.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 450.0, 495.0, 532.5]\n    },\n    {\n      \"canonical\": \"hyperedge\",\n      \"aliases\": [],\n      \"evidence\": \"It is a set of non-empty subsets (or hyperedges).\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 532.5, 495.0, 560.0]\n    },\n    {\n      \"canonical\": \"incidence matrix\",\n      \"aliases\": [],\n      \"evidence\": \"incidence matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 615.0, 357.5, 642.5]\n    },\n    {\n      \"canonical\": \"heterogeneous graph\",\n      \"aliases\": [],\n      \"evidence\": \"A heterogeneous graph G = (V, E, R, T)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 725.0, 440.0, 780.0]\n    },\n    {\n      \"canonical\": \"hierarchical graph\",\n      \"aliases\": [],\n      \"evidence\": \"e) The scene on the left can be represented by a hierarchical graph.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 670.0, 220.0, 697.5]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node data\", \"node attributes\", \"node features\"],\n      \"evidence\": \"Each node has an associated embedding of length five (brown vectors).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 807.5, 220.0, 835.0]\n    },\n    {\n      \"canonical\": \"edge embedding\",\n      \"aliases\": [\"edge data\"],\n      \"evidence\": \"Each edge has an associated embedding of length four (blue vectors).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 821.25, 220.0, 848.75]\n    },\n    {\n      \"canonical\": \"triplet\",\n      \"aliases\": [],\n      \"evidence\": \"triplet encoding the relationship between pairs of ns\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 835.0, 440.0, 862.5]\n    },\n    {\n      \"canonical\": \"relation type\",\n      \"aliases\": [],\n      \"evidence\": \"relation type r ∈ R\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 752.5, 385.0, 780.0]\n    },\n    {\n      \"canonical\": \"node type\",\n      \"aliases\": [],\n      \"evidence\": \"nodes with node types v_i ∈ V\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 780.0, 357.5, 807.5]\n    },\n    {\n      \"canonical\": \"edge type\",\n      \"aliases\": [],\n      \"evidence\": \"edges with relation types (v_i, r, v_j) ∈ E\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 780.0, 412.5, 807.5]\n    },\n    {\n      \"canonical\": \"directed graph\",\n      \"aliases\": [\"digraph\"],\n      \"evidence\": \"directed l_ij\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [247.5, 192.5, 302.5, 220.0]\n    },\n    {\n      \"canonical\": \"weighted graph\",\n      \"aliases\": [\"binary graph\", \"unweighted graph\"],\n      \"evidence\": \"edge weight w_ij ∈ R\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [302.5, 137.5, 357.5, 165.0]\n    },\n    {\n      \"canonical\": \"high-order relationships\",\n      \"aliases\": [],\n      \"evidence\": \"models high-order relationships among nodes\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [286.0, 357.5, 412.5, 379.5]\n    },\n    {\n      \"canonical\": \"annotated graph\",\n      \"aliases\": [\"decorated graph\", \"attributed graph\"],\n      \"evidence\": \"A graph G is annotated or decorated if its nodes can hold attributes / features.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [505.0, 670.0, 725.0, 725.0]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"attribute matrix\", \"node feature matrix\"],\n      \"evidence\": \"X = ... feature matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [615.0, 780.0, 725.0, 835.0]\n    },\n    {\n      \"canonical\": \"embedding matrix\",\n      \"aliases\": [\"node embedding matrix\"],\n      \"evidence\": \"embedding matrix\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [615.0, 835.0, 725.0, 851.5]\n    },\n    {\n      \"canonical\": \"induced subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"Given a non-empty set S != empty set of nodes of G, the subgraph G[S] of G induced by S has vertex set S where two vertices u and v are adjacent if and only if they are adjacent in G.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 670.0, 945.0, 752.5]\n    },\n    {\n      \"canonical\": \"proper subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"all other subgraphs are proper subgraphs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 549.0, 890.0, 565.5]\n    },\n    {\n      \"canonical\": \"spanning subgraph\",\n      \"aliases\": [],\n      \"evidence\": \"If H is a subgraph of G having the same vertices as G, then H is a spanning subgraph of G.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 571.0, 945.0, 593.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l_{ij}\",\n      \"related_concepts\": [\"directed graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [264.0, 198.0, 286.0, 209.0],\n      \"label\": \"directed edge label\"\n    },\n    {\n      \"latex\": \"w_{ij} \\\\in \\\\mathbb{R}\",\n      \"related_concepts\": [\"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [319.0, 148.5, 357.5, 159.5],\n      \"label\": \"edge weight definition\"\n    },\n    {\n      \"latex\": \"w_{ij} = 0.5\",\n      \"related_concepts\": [\"undirected graph\", \"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [341.0, 209.0, 379.5, 220.0],\n      \"label\": \"undirected edge weight\"\n    },\n    {\n      \"latex\": \"e_{ij} = e_{ji}\",\n      \"related_concepts\": [\"undirected graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [341.0, 231.0, 379.5, 242.0],\n      \"label\": \"undirected edge symmetry\"\n    },\n    {\n      \"latex\": \"l_{ik} = 0\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [253.0, 280.5, 280.5, 291.5],\n      \"label\": \"no edge\"\n    },\n    {\n      \"latex\": \"l_{kj} = 1\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [253.0, 291.5, 280.5, 302.5],\n      \"label\": \"edge exists\"\n    },\n    {\n      \"latex\": \"H\",\n      \"related_concepts\": [\"hypergraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [319.0, 412.5, 327.25, 423.5],\n      \"label\": \"hypergraph symbol\"\n    },\n    {\n      \"latex\": \"V(H) \\\\subseteq V(G) \\\\quad \\\\& \\\\quad E(H) \\\\subseteq E(G)\",\n      \"related_concepts\": [\"subgraph\", \"vertex set\", \"edge set\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 412.5, 928.5, 429.0],\n      \"label\": \"subgraph condition\"\n    },\n    {\n      \"latex\": \"G = (A, V, E)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 725.0, 110.0, 752.5],\n      \"label\": \"Graph representation into a matrix\"\n    },\n    {\n      \"latex\": \"(A, X, E)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 752.5, 220.0, 780.0],\n      \"label\": \"Graph tuple representation\"\n    },\n    {\n      \"latex\": \"G = (V, E, R, T)\",\n      \"related_concepts\": [\"heterogeneous graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 752.5, 385.0, 780.0],\n      \"label\": \"Heterogeneous graph definition\"\n    },\n    {\n      \"latex\": \"e_{12}^{cite} = (v_1, \\\"cite\\\", v_2)\",\n      \"related_concepts\": [\"heterogeneous graph\", \"triplet\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 890.0, 440.0, 917.5],\n      \"label\": \"Heterogeneous edge triplet\"\n    },\n    {\n      \"latex\": \"G = ((V, X), E)\",\n      \"related_concepts\": [\"annotated graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [560.0, 725.0, 670.0, 741.5],\n      \"label\": \"annotated graph definition\"\n    },\n    {\n      \"latex\": \"X = \\\\begin{bmatrix} d_1 \\\\\\\\ \\\\vdots \\\\\\\\ d_n \\\\end{bmatrix} \\\\in \\\\mathbb{R}^{n \\\\times d}\",\n      \"related_concepts\": [\"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [615.0, 780.0, 725.0, 835.0],\n      \"label\": \"feature matrix definition\"\n    },\n    {\n      \"latex\": \"V(H) \\\\subseteq V(G) \\\\text{ and } E(H) \\\\subseteq E(G)\",\n      \"related_concepts\": [\"subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 521.5, 917.5, 538.0],\n      \"label\": \"subgraph definition\"\n    },\n    {\n      \"latex\": \"G[S]\",\n      \"related_concepts\": [\"induced subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [807.5, 697.5, 835.0, 708.5],\n      \"label\": \"induced subgraph notation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 1 showing real-world graphs: a) road network, b) molecule structure, c) electrical circuit\",\n      \"related_concepts\": [\"road network\", \"molecular graph\", \"circuit graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 110.0, 220.0, 165.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn directed graph with nodes i, j, k and labeled edges l_ij, l_ik=0, l_kj=1\",\n      \"related_concepts\": [\"directed graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [231.0, 176.0, 319.0, 319.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn undirected weighted graph with nodes and edge weights w_iz=0.9, w_ij=0.5\",\n      \"related_concepts\": [\"undirected graph\", \"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [324.5, 176.0, 412.5, 319.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Social network graph with nodes Alice, Bob, Dan, Erin, Carol, Frank\",\n      \"related_concepts\": [\"social network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 341.0, 82.5, 396.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Citation network graph with nodes representing papers (Mascia 1990, Mould & Hart 1983, etc.)\",\n      \"related_concepts\": [\"citation network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [88.0, 341.0, 165.0, 396.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Knowledge graph with nodes Alice, Bob, Canada, Google, and edges representing relationships\",\n      \"related_concepts\": [\"knowledge graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [170.5, 341.0, 247.5, 396.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Geometric point cloud converted to a mesh/graph structure\",\n      \"related_concepts\": [\"geometric graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 401.5, 247.5, 456.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn small graphs illustrating directed vs undirected, binary vs weighted concepts\",\n      \"related_concepts\": [\"directed graph\", \"undirected graph\", \"weighted graph\", \"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [231.0, 137.5, 412.5, 319.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn program flow graph with nodes 1, 2, X, Y\",\n      \"related_concepts\": [\"program flow graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [192.5, 247.5, 247.5, 302.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram of multiple edges connecting two nodes\",\n      \"related_concepts\": [\"multiple edges\", \"simple graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [615.0, 176.0, 670.0, 220.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram of a complete graph with 4 nodes where every pair is connected\",\n      \"related_concepts\": [\"complete graph\", \"adjacency\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [807.5, 247.5, 862.5, 302.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Diagram illustrating a subgraph H within a larger graph G\",\n      \"related_concepts\": [\"subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [917.5, 357.5, 972.5, 467.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 2 Types of graph. a) A social network is an undirected graph; the connections between people are symmetric. b) A citation network is a directed graph; one publication cites another, so the relationship is asymmetric. c) A knowledge graph is a directed heterogeneous multigraph. d) A point set can be converted to a graph by forming edges between nearby points. e) The scene on the left can be represented by a hierarchical graph.\",\n      \"related_concepts\": [\"knowledge graph\", \"geometric graph\", \"hierarchical graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 477.5, 247.5, 615.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"incidence matrix for a hypergraph\",\n      \"related_concepts\": [\"incidence matrix\", \"hypergraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 560.0, 357.5, 615.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"hypergraph with hyperedges e1, e2, e3, e4\",\n      \"related_concepts\": [\"hypergraph\", \"hyperedge\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 560.0, 495.0, 670.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Figure 3 Graph representation. a) Example graph with six nodes and seven edges. Each node has an associated embedding of length five (brown vectors). Each edge has an associated embedding of length four (blue vectors). This graph can be represented by three matrices. b) The adjacency matrix is a binary matrix, where the element (m, n) is set to one if node m connects to node n. c) The node data matrix X contains the concatenated node embeddings. d) The edge data matrix E contains the edge embeddings.\",\n      \"related_concepts\": [\"graph representation\", \"adjacency matrix\", \"node embedding\", \"edge embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 752.5, 247.5, 890.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"heterogeneous graph with nodes and edges having types\",\n      \"related_concepts\": [\"heterogeneous graph\", \"node type\", \"edge type\", \"relation type\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 780.0, 495.0, 945.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of an annotated graph with nodes v1, v2, v3, v4 and their corresponding feature vectors.\",\n      \"related_concepts\": [\"annotated graph\", \"node attributes\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [505.0, 752.5, 670.0, 862.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Feature matrix X representing node attributes in an annotated graph.\",\n      \"related_concepts\": [\"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [615.0, 780.0, 725.0, 835.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of induced subgraphs G1 and G2 from a larger graph G.\",\n      \"related_concepts\": [\"induced subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 752.5, 917.5, 862.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of subgraphs, proper subgraphs, and spanning subgraphs.\",\n      \"related_concepts\": [\"subgraph\", \"proper subgraph\", \"spanning subgraph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [917.5, 477.5, 972.5, 587.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Antipaperson nodes\",\n      \"reason\": \"Handwriting is unclear; possibly 'Antiperson nodes' or a specific term not fully legible\",\n      \"bbox\": [192.5, 341.0, 231.0, 357.5]\n    },\n    {\n      \"transcription\": \"self-conn [an edge that up the s\",\n      \"reason\": \"Text is cut off and handwriting is ambiguous; likely 'self-connection [an edge that loops back to the same node]' but incomplete\",\n      \"bbox\": [467.5, 247.5, 522.5, 286.0]\n    },\n    {\n      \"transcription\": \"molecule\",\n      \"reason\": \"Handwritten label under Figure 1b is slightly smudged but contextually clear\",\n      \"bbox\": [115.5, 170.5, 154.0, 181.5]\n    },\n    {\n      \"transcription\": \"circuit\",\n      \"reason\": \"Handwritten label under Figure 1c is partially obscured but inferable from context\",\n      \"bbox\": [159.5, 170.5, 192.5, 181.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "knowledge graph",
+      "into": "knowledge graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "geometric graph",
+      "into": "geometric graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph representation",
+      "into": "graph representation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "hypergraph",
+      "into": "hypergraph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "undirected graph",
+      "into": "directed graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "binary graph",
+      "into": "weighted graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node attributes",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "subgraph",
+      "into": "subgraph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "self-connection",
+      "into": "loop"
+    }
+  ],
+  "warnings": []
+}

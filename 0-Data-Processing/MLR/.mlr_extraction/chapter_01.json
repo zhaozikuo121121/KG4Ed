@@ -1,0 +1,1718 @@
+{
+  "version": "1.0.0",
+  "chapter": 1,
+  "chapter_title": "Introduction to Machine Learning",
+  "pdf_start": 20,
+  "pdf_end": 37,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T14:36:54+00:00",
+  "concepts": [
+    {
+      "canonical": "machine learning",
+      "aliases": [],
+      "evidence_page": 20,
+      "evidence": "Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement.",
+      "relevance": 1.0,
+      "anchor_page": 20
+    },
+    {
+      "canonical": "classification",
+      "aliases": [
+        "classification problem"
+      ],
+      "evidence_page": 21,
+      "evidence": "This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning",
+      "relevance": 1.0,
+      "anchor_page": 21
+    },
+    {
+      "canonical": "training set",
+      "aliases": [
+        "training data",
+        "training set of data",
+        "batch of examples"
+      ],
+      "evidence_page": 21,
+      "evidence": "a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data",
+      "relevance": 1.0,
+      "anchor_page": 21
+    },
+    {
+      "canonical": "feature engineering",
+      "aliases": [
+        "designing features",
+        "feature design",
+        "feature extraction"
+      ],
+      "evidence_page": 21,
+      "evidence": "we need to provide it with properly designed features, or ideally, have it find or learn such features itself",
+      "relevance": 0.95,
+      "anchor_page": 21
+    },
+    {
+      "canonical": "generalization",
+      "aliases": [
+        "generalize"
+      ],
+      "evidence_page": 21,
+      "evidence": "when they can generalize what they have learned to new, previously unseen, examples",
+      "relevance": 0.95,
+      "anchor_page": 21
+    },
+    {
+      "canonical": "feature space",
+      "aliases": [
+        "two-dimensional feature space"
+      ],
+      "evidence_page": 22,
+      "evidence": "we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes",
+      "relevance": 0.9,
+      "anchor_page": 22
+    },
+    {
+      "canonical": "model training",
+      "aliases": [
+        "training of a model",
+        "training a model"
+      ],
+      "evidence_page": 23,
+      "evidence": "the tuning of such a set of parameters to a training set is referred to as the training of a model",
+      "relevance": 1.0,
+      "anchor_page": 23
+    },
+    {
+      "canonical": "validation set",
+      "aliases": [
+        "validation data",
+        "validation set of data"
+      ],
+      "evidence_page": 23,
+      "evidence": "we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image",
+      "relevance": 1.0,
+      "anchor_page": 23
+    },
+    {
+      "canonical": "model validation",
+      "aliases": [
+        "validating the model"
+      ],
+      "evidence_page": 23,
+      "evidence": "To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images",
+      "relevance": 0.9,
+      "anchor_page": 23
+    },
+    {
+      "canonical": "nonlinear model",
+      "aliases": [
+        "nonlinear manifolds",
+        "complex rule"
+      ],
+      "evidence_page": 24,
+      "evidence": "we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs",
+      "relevance": 0.9,
+      "anchor_page": 24
+    },
+    {
+      "canonical": "misclassification",
+      "aliases": [
+        "misidentification"
+      ],
+      "evidence_page": 24,
+      "evidence": "The misidentification of the single dog (a Boston terrier) is due largely to our choice of features",
+      "relevance": 0.75,
+      "anchor_page": 24
+    },
+    {
+      "canonical": "supervised learning",
+      "aliases": [
+        "unsupervised learning"
+      ],
+      "evidence_page": 25,
+      "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+      "relevance": 1.0,
+      "anchor_page": 25
+    },
+    {
+      "canonical": "regression",
+      "aliases": [
+        "regression line",
+        "share price regression",
+        "linear regression",
+        "regression problem"
+      ],
+      "evidence_page": 26,
+      "evidence": "this type of problem comes in two forms called regression and classification depending on the general numerical form of the output",
+      "relevance": 1.0,
+      "anchor_page": 26
+    },
+    {
+      "canonical": "input/output relationship",
+      "aliases": [],
+      "evidence_page": 26,
+      "evidence": "Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships",
+      "relevance": 0.85,
+      "anchor_page": 26
+    },
+    {
+      "canonical": "continuous-valued output",
+      "aliases": [
+        "continuous output"
+      ],
+      "evidence_page": 27,
+      "evidence": "predictions about a continuous-valued output (here, share price) can be made",
+      "relevance": 0.8,
+      "anchor_page": 27
+    },
+    {
+      "canonical": "cost function",
+      "aliases": [
+        "loss function",
+        "cost surface"
+      ],
+      "evidence_page": 35,
+      "evidence": "These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters",
+      "relevance": 1.0,
+      "anchor_page": 35
+    },
+    {
+      "canonical": "mathematical optimization",
+      "aliases": [
+        "optimization"
+      ],
+      "evidence_page": 35,
+      "evidence": "the search for parameters of a learning model via well-defined mathematical functions",
+      "relevance": 1.0,
+      "anchor_page": 35
+    },
+    {
+      "canonical": "clustering",
+      "aliases": [
+        "clustering algorithms"
+      ],
+      "evidence_page": 35,
+      "evidence": "Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic",
+      "relevance": 0.9,
+      "anchor_page": 35
+    },
+    {
+      "canonical": "model parameters",
+      "aliases": [
+        "parameters",
+        "slope and vertical intercept"
+      ],
+      "evidence_page": 35,
+      "evidence": "take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task",
+      "relevance": 0.9,
+      "anchor_page": 35
+    },
+    {
+      "canonical": "minimization",
+      "aliases": [
+        "minimize cost functions",
+        "minimum"
+      ],
+      "evidence_page": 36,
+      "evidence": "we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models",
+      "relevance": 0.9,
+      "anchor_page": 36
+    },
+    {
+      "canonical": "cross-validation",
+      "aliases": [],
+      "evidence_page": 36,
+      "evidence": "optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset",
+      "relevance": 0.8,
+      "anchor_page": 36
+    }
+  ],
+  "formulas": [],
+  "figures": [
+    {
+      "concept": "machine learning",
+      "pdf_page": 21,
+      "figure_label": "Figure 1.1",
+      "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+      "confidence": 0.95
+    },
+    {
+      "concept": "training set",
+      "pdf_page": 21,
+      "figure_label": "Figure 1.1",
+      "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+      "confidence": 0.95
+    },
+    {
+      "concept": "classification",
+      "pdf_page": 21,
+      "figure_label": "Figure 1.1",
+      "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+      "confidence": 0.8
+    },
+    {
+      "concept": "feature engineering",
+      "pdf_page": 22,
+      "figure_label": "Figure 1.2",
+      "caption": "Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "feature space",
+      "pdf_page": 22,
+      "figure_label": "Figure 1.2",
+      "caption": "Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "model training",
+      "pdf_page": 23,
+      "figure_label": "Figure 1.3",
+      "caption": "A trained linear model (shown in black) provides a computational rule for distinguishing between cats and dogs. Any new image received in the future will be classified as a cat if its feature representation lies above this line (in the blue region), and a dog if the feature representation lies below this line (in the red region).",
+      "confidence": 0.95
+    },
+    {
+      "concept": "validation set",
+      "pdf_page": 24,
+      "figure_label": "Figure 1.4",
+      "caption": "A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!",
+      "confidence": 0.95
+    },
+    {
+      "concept": "model validation",
+      "pdf_page": 24,
+      "figure_label": "Figure 1.4",
+      "caption": "A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!",
+      "confidence": 0.9
+    },
+    {
+      "concept": "misclassification",
+      "pdf_page": 25,
+      "figure_label": "Figure 1.5",
+      "caption": "Identification of (the feature representation of) validation images using our trained linear model. The Boston terrier (pointed to by an arrow) is misclassified as a cat since it has pointy ears and a short nose, just like the cats in our training set.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "supervised learning",
+      "pdf_page": 26,
+      "figure_label": "Figure 1.7",
+      "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "regression",
+      "pdf_page": 26,
+      "figure_label": "Figure 1.7",
+      "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "input/output relationship",
+      "pdf_page": 26,
+      "figure_label": "Figure 1.7",
+      "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "continuous-valued output",
+      "pdf_page": 27,
+      "figure_label": "Figure 1.8",
+      "caption": "Figure associated with Example 1.1 illustrating total student loan debt in the United States measured quarterly from 2006 to 2014. The rapid increase rate of the debt, measured by the slope of the trend line fit to the data, confirms that student debt is growing very fast. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "clustering",
+      "pdf_page": 35,
+      "figure_label": "Figure 1.15",
+      "caption": "Two toy examples of the vast array in which input data can cluster. Clustering algorithms are designed to uncover these kinds of distinct structures. In each instance the distinct clusters in the original data (on the left) are colored for visualization purposes (on the right).",
+      "confidence": 0.95
+    },
+    {
+      "concept": "cost function",
+      "pdf_page": 36,
+      "figure_label": "Figure 1.16",
+      "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "model parameters",
+      "pdf_page": 36,
+      "figure_label": "Figure 1.16",
+      "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "mathematical optimization",
+      "pdf_page": 36,
+      "figure_label": "Figure 1.16",
+      "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+      "confidence": 0.85
+    },
+    {
+      "concept": "minimization",
+      "pdf_page": 36,
+      "figure_label": "Figure 1.16",
+      "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "minimization",
+      "pdf_page": 37,
+      "figure_label": "Figure 1.17",
+      "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model separating two classes of the toy dataset first shown in Figure 1.10. Also shown here are two different sets of parameter values, one (left) corresponding to the minimum of the cost function and the other (right) corresponding to a point with larger cost function value. (bottom panels) The linear classifiers corresponding to each set of parameters in the top panels. The optimal set of parameters, i.e., those giving the minimum value of the associated cost function, allow for the best separation between the two classes.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "machine learning",
+            "aliases": [],
+            "evidence_page": 20,
+            "anchor_page": 20,
+            "evidence": "Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classification problem"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "training set",
+            "aliases": [
+              "training data",
+              "training set of data"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "feature engineering",
+            "aliases": [
+              "designing features",
+              "feature design"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "we need to provide it with properly designed features, or ideally, have it find or learn such features itself",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [],
+            "evidence_page": 22,
+            "anchor_page": 22,
+            "evidence": "we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "linear model",
+            "aliases": [],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "Figure 1.3 shows a trained linear model (in black) which divides the feature space into cat and dog regions",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "mathematical optimization",
+            "aliases": [
+              "optimization"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "The process of determining proper parameters relies on a set of tools known as mathematical optimization",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "model training",
+            "aliases": [
+              "training of a model",
+              "training a model"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "the tuning of such a set of parameters to a training set is referred to as the training of a model",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "validation set",
+            "aliases": [
+              "validation data",
+              "validation set of data"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [
+              "nonlinear models"
+            ],
+            "evidence_page": 24,
+            "anchor_page": 24,
+            "evidence": "we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "regression",
+            "aliases": [],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "this type of problem comes in two forms called regression and classification depending on the general numerical form of the output",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "linear regression",
+            "aliases": [
+              "regression line"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "we can test the performance of our linear regression model and apply changes as needed",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "generalization",
+            "aliases": [
+              "generalize"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "when they can generalize what they have learned to new, previously unseen, examples",
+            "relevance": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"machine learning\",\n      \"aliases\": [],\n      \"evidence_page\": 20,\n      \"anchor_page\": 20,\n      \"evidence\": \"Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"classification problem\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"training set\",\n      \"aliases\": [\"training data\", \"training set of data\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [\"designing features\", \"feature design\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"we need to provide it with properly designed features, or ideally, have it find or learn such features itself\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [],\n      \"evidence_page\": 22,\n      \"anchor_page\": 22,\n      \"evidence\": \"we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"linear model\",\n      \"aliases\": [],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"Figure 1.3 shows a trained linear model (in black) which divides the feature space into cat and dog regions\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"mathematical optimization\",\n      \"aliases\": [\"optimization\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"The process of determining proper parameters relies on a set of tools known as mathematical optimization\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"model training\",\n      \"aliases\": [\"training of a model\", \"training a model\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"the tuning of such a set of parameters to a training set is referred to as the training of a model\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"validation set\",\n      \"aliases\": [\"validation data\", \"validation set of data\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [\"nonlinear models\"],\n      \"evidence_page\": 24,\n      \"anchor_page\": 24,\n      \"evidence\": \"we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"this type of problem comes in two forms called regression and classification depending on the general numerical form of the output\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [\"regression line\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"we can test the performance of our linear regression model and apply changes as needed\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"generalization\",\n      \"aliases\": [\"generalize\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"when they can generalize what they have learned to new, previously unseen, examples\",\n      \"relevance\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regression model",
+              "regression models"
+            ],
+            "evidence_page": 20,
+            "anchor_page": 20,
+            "evidence": "Many natural laws in the sciences take the form of regression models.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classification problem",
+              "classification problems",
+              "classification task"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "The machine learning task of classification is similar in principle to that of regression, with the key difference between the two being that instead of predicting a continuous-valued output with classification the output we aim at predicting takes on discrete values or classes.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "linear classifier",
+            "aliases": [
+              "linear model",
+              "linear classifier"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "Figure 1.10 illustrates the concept of a linear model or classifier used for performing classification on a two-dimensional toy dataset.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "separating hyperplane",
+            "aliases": [
+              "separating line",
+              "separating curve",
+              "separating linear hyperplane"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "In higher dimensions we likewise aim at determining a separating linear hyperplane (or more generally a nonlinear manifold).",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "multi-class classification",
+            "aliases": [
+              "multi-class classification problem"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "Many classification problems (e.g., handwritten digit recognition, discussed below) have naturally more than two classes. After describing linear two-class classification in Chapter 6 we detail linear multi-class classification in Chapter 7.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "two-class classification",
+            "aliases": [
+              "two-class classification problem",
+              "binary classification"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "After describing linear two-class classification in Chapter 6 we detail linear multi-class classification in Chapter 7.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "validation set",
+            "aliases": [
+              "validation data",
+              "validation point"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "New data from a validation set are then automatically classified by simply determining which side of the line the data lies on.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "feature representation",
+            "aliases": [
+              "feature extraction",
+              "features extracted",
+              "feature space"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "where we used a line to separate (features extracted from) images of cats and dogs.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "sliding window",
+            "aliases": [
+              "sliding window"
+            ],
+            "evidence_page": 22,
+            "anchor_page": 22,
+            "evidence": "faces are sought after in a new validation image by sliding a (typically) square window over the entire image.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [
+              "unsupervised learning"
+            ],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "Unsupervised learning (unlike supervised learning problems outlined previously) deals with the automatic learning of computational rules that describe input data only.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [
+              "supervised learning"
+            ],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "Unsupervised learning (unlike supervised learning problems outlined previously) deals with the automatic learning of computational rules that describe input data only.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "dimension reduction",
+            "aliases": [
+              "dimensionality reduction",
+              "dimension reduction"
+            ],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "Two fundamental unsupervised problems, dimension reduction and clustering, allow for simplification of a dataset via two natural paths: by either reducing the ambient dimension of input data (in the former case)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "clustering",
+            "aliases": [
+              "clustering"
+            ],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "Two fundamental unsupervised problems, dimension reduction and clustering, allow for simplification of a dataset via two natural paths",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cost function",
+            "aliases": [
+              "loss function",
+              "cost or loss functions"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "mathematical optimization",
+            "aliases": [
+              "mathematical optimization"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "1.4 Mathematical optimization",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "imbalanced dataset",
+            "aliases": [
+              "highly imbalanced",
+              "imbalanced datasets"
+            ],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "making such datasets highly imbalanced, an issue discussed further in Sections 6.8.4 and 6.9).",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear manifold",
+            "aliases": [
+              "nonlinear manifold"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "In higher dimensions we likewise aim at determining a separating linear hyperplane (or more generally a nonlinear manifold).",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [
+              "feature selection"
+            ],
+            "evidence_page": 24,
+            "anchor_page": 24,
+            "evidence": "with the latter example described in the context of feature selection.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "pre-processing",
+            "aliases": [
+              "pre-processing step"
+            ],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "making dimension reduction a common pre-processing step for prediction and analysis tasks.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "model parameters",
+            "aliases": [
+              "parameters of a learning model",
+              "model parameters"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "we can formalize the search for parameters of a learning model via well-defined mathematical functions.",
+            "relevance": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\"regression model\", \"regression models\"],\n      \"evidence_page\": 20,\n      \"anchor_page\": 20,\n      \"evidence\": \"Many natural laws in the sciences take the form of regression models.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"classification problem\", \"classification problems\", \"classification task\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"The machine learning task of classification is similar in principle to that of regression, with the key difference between the two being that instead of predicting a continuous-valued output with classification the output we aim at predicting takes on discrete values or classes.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"linear classifier\",\n      \"aliases\": [\"linear model\", \"linear classifier\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"Figure 1.10 illustrates the concept of a linear model or classifier used for performing classification on a two-dimensional toy dataset.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"separating hyperplane\",\n      \"aliases\": [\"separating line\", \"separating curve\", \"separating linear hyperplane\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"In higher dimensions we likewise aim at determining a separating linear hyperplane (or more generally a nonlinear manifold).\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"multi-class classification\",\n      \"aliases\": [\"multi-class classification problem\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"Many classification problems (e.g., handwritten digit recognition, discussed below) have naturally more than two classes. After describing linear two-class classification in Chapter 6 we detail linear multi-class classification in Chapter 7.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"two-class classification\",\n      \"aliases\": [\"two-class classification problem\", \"binary classification\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"After describing linear two-class classification in Chapter 6 we detail linear multi-class classification in Chapter 7.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"validation set\",\n      \"aliases\": [\"validation data\", \"validation point\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"New data from a validation set are then automatically classified by simply determining which side of the line the data lies on.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"feature representation\",\n      \"aliases\": [\"feature extraction\", \"features extracted\", \"feature space\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"where we used a line to separate (features extracted from) images of cats and dogs.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"sliding window\",\n      \"aliases\": [\"sliding window\"],\n      \"evidence_page\": 22,\n      \"anchor_page\": 22,\n      \"evidence\": \"faces are sought after in a new validation image by sliding a (typically) square window over the entire image.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [\"unsupervised learning\"],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"Unsupervised learning (unlike supervised learning problems outlined previously) deals with the automatic learning of computational rules that describe input data only.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [\"supervised learning\"],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"Unsupervised learning (unlike supervised learning problems outlined previously) deals with the automatic learning of computational rules that describe input data only.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"dimension reduction\",\n      \"aliases\": [\"dimensionality reduction\", \"dimension reduction\"],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"Two fundamental unsupervised problems, dimension reduction and clustering, allow for simplification of a dataset via two natural paths: by either reducing the ambient dimension of input data (in the former case)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"clustering\",\n      \"aliases\": [\"clustering\"],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"Two fundamental unsupervised problems, dimension reduction and clustering, allow for simplification of a dataset via two natural paths\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cost function\",\n      \"aliases\": [\"loss function\", \"cost or loss functions\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"mathematical optimization\",\n      \"aliases\": [\"mathematical optimization\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"1.4 Mathematical optimization\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"imbalanced dataset\",\n      \"aliases\": [\"highly imbalanced\", \"imbalanced datasets\"],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"making such datasets highly imbalanced, an issue discussed further in Sections 6.8.4 and 6.9).\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear manifold\",\n      \"aliases\": [\"nonlinear manifold\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"In higher dimensions we likewise aim at determining a separating linear hyperplane (or more generally a nonlinear manifold).\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [\"feature selection\"],\n      \"evidence_page\": 24,\n      \"anchor_page\": 24,\n      \"evidence\": \"with the latter example described in the context of feature selection.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"pre-processing\",\n      \"aliases\": [\"pre-processing step\"],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"making dimension reduction a common pre-processing step for prediction and analysis tasks.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"model parameters\",\n      \"aliases\": [\"parameters of a learning model\", \"model parameters\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"we can formalize the search for parameters of a learning model via well-defined mathematical functions.\",\n      \"relevance\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "clustering",
+            "aliases": [
+              "clustering algorithms"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cost function",
+            "aliases": [
+              "loss function",
+              "cost surface"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "mathematical optimization",
+            "aliases": [
+              "optimization"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "the search for parameters of a learning model via well-defined mathematical functions",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regression line",
+              "share price regression"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "we aimed at learning a regression line to predict a company's share price based on its revenue",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "linear classifier"
+            ],
+            "evidence_page": 36,
+            "anchor_page": 36,
+            "evidence": "This concept plays a similarly fundamental role with classification (and indeed with all machine learning problems) as well",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence_page": 37,
+            "anchor_page": 37,
+            "evidence": "the fundamental families of machine learning problems - supervised and unsupervised learning",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [],
+            "evidence_page": 37,
+            "anchor_page": 37,
+            "evidence": "the fundamental families of machine learning problems - supervised and unsupervised learning",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [],
+            "evidence_page": 36,
+            "anchor_page": 36,
+            "evidence": "optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [
+              "nonlinear manifolds"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "data falling into globular clusters or along nonlinear manifolds",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "linear model",
+            "aliases": [
+              "linear classifier"
+            ],
+            "evidence_page": 36,
+            "anchor_page": 36,
+            "evidence": "learning the slope and intercept parameters of a linear model for the share price regression problem",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "proximity to one another in the feature space, which helps better organize or summarize a set of training data",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "model parameters",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence_page": 35,
+            "anchor_page": 35,
+            "evidence": "take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "minimization",
+            "aliases": [
+              "minimize cost functions",
+              "minimum"
+            ],
+            "evidence_page": 36,
+            "anchor_page": 36,
+            "evidence": "we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"clustering\",\n      \"aliases\": [\"clustering algorithms\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cost function\",\n      \"aliases\": [\"loss function\", \"cost surface\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"mathematical optimization\",\n      \"aliases\": [\"optimization\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"the search for parameters of a learning model via well-defined mathematical functions\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\"regression line\", \"share price regression\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"we aimed at learning a regression line to predict a company's share price based on its revenue\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"linear classifier\"],\n      \"evidence_page\": 36,\n      \"anchor_page\": 36,\n      \"evidence\": \"This concept plays a similarly fundamental role with classification (and indeed with all machine learning problems) as well\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 37,\n      \"anchor_page\": 37,\n      \"evidence\": \"the fundamental families of machine learning problems - supervised and unsupervised learning\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 37,\n      \"anchor_page\": 37,\n      \"evidence\": \"the fundamental families of machine learning problems - supervised and unsupervised learning\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 36,\n      \"anchor_page\": 36,\n      \"evidence\": \"optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [\"nonlinear manifolds\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"data falling into globular clusters or along nonlinear manifolds\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"linear model\",\n      \"aliases\": [\"linear classifier\"],\n      \"evidence_page\": 36,\n      \"anchor_page\": 36,\n      \"evidence\": \"learning the slope and intercept parameters of a linear model for the share price regression problem\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"proximity to one another in the feature space, which helps better organize or summarize a set of training data\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"model parameters\",\n      \"aliases\": [\"parameters\"],\n      \"evidence_page\": 35,\n      \"anchor_page\": 35,\n      \"evidence\": \"take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"minimization\",\n      \"aliases\": [\"minimize cost functions\", \"minimum\"],\n      \"evidence_page\": 36,\n      \"anchor_page\": 36,\n      \"evidence\": \"we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "supplemental",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "training set",
+            "aliases": [
+              "training data",
+              "batch of examples"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "validation set",
+            "aliases": [
+              "validation data"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [
+              "two-dimensional feature space"
+            ],
+            "evidence_page": 22,
+            "anchor_page": 22,
+            "evidence": "we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature design",
+            "aliases": [
+              "designing features",
+              "feature extraction"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "we need to provide it with properly designed features, or ideally, have it find or learn such features itself",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "linear model",
+            "aliases": [
+              "linear classifier",
+              "regression line"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "Figure 1.3 shows a trained linear model (in black) which divides the feature space into cat and dog regions",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [
+              "nonlinear models",
+              "complex rule"
+            ],
+            "evidence_page": 24,
+            "anchor_page": 24,
+            "evidence": "we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classification problem"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regression problem"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "fitting a model to a set of training data so that predictions about a continuous-valued output (here, share price) can be made, is referred to as regression",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [],
+            "evidence_page": 25,
+            "anchor_page": 25,
+            "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "mathematical optimization",
+            "aliases": [
+              "optimization"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "The process of determining proper parameters relies on a set of tools known as mathematical optimization",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "model training",
+            "aliases": [
+              "training of a model",
+              "training a model"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "the tuning of such a set of parameters to a training set is referred to as the training of a model",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "generalization",
+            "aliases": [
+              "generalize"
+            ],
+            "evidence_page": 21,
+            "anchor_page": 21,
+            "evidence": "when they can generalize what they have learned to new, previously unseen, examples",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "model parameters",
+            "aliases": [
+              "parameters",
+              "slope and vertical intercept"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "we have two parameters (a slope and vertical intercept) that define the line's orientation, and we must find the right values for both",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "misclassification",
+            "aliases": [
+              "misidentification"
+            ],
+            "evidence_page": 24,
+            "anchor_page": 24,
+            "evidence": "The misidentification of the single dog (a Boston terrier) is due largely to our choice of features",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "continuous-valued output",
+            "aliases": [
+              "continuous output"
+            ],
+            "evidence_page": 27,
+            "anchor_page": 27,
+            "evidence": "predictions about a continuous-valued output (here, share price) can be made",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "input/output relationship",
+            "aliases": [
+              "input-output relationship"
+            ],
+            "evidence_page": 26,
+            "anchor_page": 26,
+            "evidence": "Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "model validation",
+            "aliases": [
+              "validating the model"
+            ],
+            "evidence_page": 23,
+            "anchor_page": 23,
+            "evidence": "To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"training set\",\n      \"aliases\": [\"training data\", \"batch of examples\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"validation set\",\n      \"aliases\": [\"validation data\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [\"two-dimensional feature space\"],\n      \"evidence_page\": 22,\n      \"anchor_page\": 22,\n      \"evidence\": \"we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature design\",\n      \"aliases\": [\"designing features\", \"feature extraction\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"we need to provide it with properly designed features, or ideally, have it find or learn such features itself\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"linear model\",\n      \"aliases\": [\"linear classifier\", \"regression line\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"Figure 1.3 shows a trained linear model (in black) which divides the feature space into cat and dog regions\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [\"nonlinear models\", \"complex rule\"],\n      \"evidence_page\": 24,\n      \"anchor_page\": 24,\n      \"evidence\": \"we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"classification problem\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\"regression problem\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"fitting a model to a set of training data so that predictions about a continuous-valued output (here, share price) can be made, is referred to as regression\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 25,\n      \"anchor_page\": 25,\n      \"evidence\": \"The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"mathematical optimization\",\n      \"aliases\": [\"optimization\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"The process of determining proper parameters relies on a set of tools known as mathematical optimization\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"model training\",\n      \"aliases\": [\"training of a model\", \"training a model\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"the tuning of such a set of parameters to a training set is referred to as the training of a model\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"generalization\",\n      \"aliases\": [\"generalize\"],\n      \"evidence_page\": 21,\n      \"anchor_page\": 21,\n      \"evidence\": \"when they can generalize what they have learned to new, previously unseen, examples\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"model parameters\",\n      \"aliases\": [\"parameters\", \"slope and vertical intercept\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"we have two parameters (a slope and vertical intercept) that define the line's orientation, and we must find the right values for both\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"misclassification\",\n      \"aliases\": [\"misidentification\"],\n      \"evidence_page\": 24,\n      \"anchor_page\": 24,\n      \"evidence\": \"The misidentification of the single dog (a Boston terrier) is due largely to our choice of features\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"continuous-valued output\",\n      \"aliases\": [\"continuous output\"],\n      \"evidence_page\": 27,\n      \"anchor_page\": 27,\n      \"evidence\": \"predictions about a continuous-valued output (here, share price) can be made\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"input/output relationship\",\n      \"aliases\": [\"input-output relationship\"],\n      \"evidence_page\": 26,\n      \"anchor_page\": 26,\n      \"evidence\": \"Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"model validation\",\n      \"aliases\": [\"validating the model\"],\n      \"evidence_page\": 23,\n      \"anchor_page\": 23,\n      \"evidence\": \"To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "machine learning",
+            "aliases": [],
+            "evidence_page": 20,
+            "evidence": "Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement.",
+            "relevance": 1.0,
+            "anchor_page": 20
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classification problem"
+            ],
+            "evidence_page": 21,
+            "evidence": "This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning",
+            "relevance": 1.0,
+            "anchor_page": 21
+          },
+          {
+            "canonical": "training set",
+            "aliases": [
+              "training data",
+              "training set of data",
+              "batch of examples"
+            ],
+            "evidence_page": 21,
+            "evidence": "a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data",
+            "relevance": 1.0,
+            "anchor_page": 21
+          },
+          {
+            "canonical": "feature engineering",
+            "aliases": [
+              "designing features",
+              "feature design",
+              "feature extraction"
+            ],
+            "evidence_page": 21,
+            "evidence": "we need to provide it with properly designed features, or ideally, have it find or learn such features itself",
+            "relevance": 0.95,
+            "anchor_page": 21
+          },
+          {
+            "canonical": "generalization",
+            "aliases": [
+              "generalize"
+            ],
+            "evidence_page": 21,
+            "evidence": "when they can generalize what they have learned to new, previously unseen, examples",
+            "relevance": 0.95,
+            "anchor_page": 21
+          },
+          {
+            "canonical": "feature space",
+            "aliases": [
+              "two-dimensional feature space"
+            ],
+            "evidence_page": 22,
+            "evidence": "we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes",
+            "relevance": 0.9,
+            "anchor_page": 22
+          },
+          {
+            "canonical": "model training",
+            "aliases": [
+              "training of a model",
+              "training a model"
+            ],
+            "evidence_page": 23,
+            "evidence": "the tuning of such a set of parameters to a training set is referred to as the training of a model",
+            "relevance": 1.0,
+            "anchor_page": 23
+          },
+          {
+            "canonical": "validation set",
+            "aliases": [
+              "validation data",
+              "validation set of data"
+            ],
+            "evidence_page": 23,
+            "evidence": "we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image",
+            "relevance": 1.0,
+            "anchor_page": 23
+          },
+          {
+            "canonical": "model validation",
+            "aliases": [
+              "validating the model"
+            ],
+            "evidence_page": 23,
+            "evidence": "To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images",
+            "relevance": 0.9,
+            "anchor_page": 23
+          },
+          {
+            "canonical": "nonlinear model",
+            "aliases": [
+              "nonlinear manifolds",
+              "complex rule"
+            ],
+            "evidence_page": 24,
+            "evidence": "we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs",
+            "relevance": 0.9,
+            "anchor_page": 24
+          },
+          {
+            "canonical": "misclassification",
+            "aliases": [
+              "misidentification"
+            ],
+            "evidence_page": 24,
+            "evidence": "The misidentification of the single dog (a Boston terrier) is due largely to our choice of features",
+            "relevance": 0.75,
+            "anchor_page": 24
+          },
+          {
+            "canonical": "supervised learning",
+            "aliases": [],
+            "evidence_page": 25,
+            "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+            "relevance": 1.0,
+            "anchor_page": 25
+          },
+          {
+            "canonical": "unsupervised learning",
+            "aliases": [],
+            "evidence_page": 25,
+            "evidence": "The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning",
+            "relevance": 1.0,
+            "anchor_page": 25
+          },
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regression line",
+              "share price regression",
+              "linear regression",
+              "regression problem"
+            ],
+            "evidence_page": 26,
+            "evidence": "this type of problem comes in two forms called regression and classification depending on the general numerical form of the output",
+            "relevance": 1.0,
+            "anchor_page": 26
+          },
+          {
+            "canonical": "input/output relationship",
+            "aliases": [],
+            "evidence_page": 26,
+            "evidence": "Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships",
+            "relevance": 0.85,
+            "anchor_page": 26
+          },
+          {
+            "canonical": "continuous-valued output",
+            "aliases": [
+              "continuous output"
+            ],
+            "evidence_page": 27,
+            "evidence": "predictions about a continuous-valued output (here, share price) can be made",
+            "relevance": 0.8,
+            "anchor_page": 27
+          },
+          {
+            "canonical": "cost function",
+            "aliases": [
+              "loss function",
+              "cost surface"
+            ],
+            "evidence_page": 35,
+            "evidence": "These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters",
+            "relevance": 1.0,
+            "anchor_page": 35
+          },
+          {
+            "canonical": "mathematical optimization",
+            "aliases": [
+              "optimization"
+            ],
+            "evidence_page": 35,
+            "evidence": "the search for parameters of a learning model via well-defined mathematical functions",
+            "relevance": 1.0,
+            "anchor_page": 35
+          },
+          {
+            "canonical": "clustering",
+            "aliases": [
+              "clustering algorithms"
+            ],
+            "evidence_page": 35,
+            "evidence": "Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic",
+            "relevance": 0.9,
+            "anchor_page": 35
+          },
+          {
+            "canonical": "model parameters",
+            "aliases": [
+              "parameters",
+              "slope and vertical intercept"
+            ],
+            "evidence_page": 35,
+            "evidence": "take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task",
+            "relevance": 0.9,
+            "anchor_page": 35
+          },
+          {
+            "canonical": "minimization",
+            "aliases": [
+              "minimize cost functions",
+              "minimum"
+            ],
+            "evidence_page": 36,
+            "evidence": "we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models",
+            "relevance": 0.9,
+            "anchor_page": 36
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [],
+            "evidence_page": 36,
+            "evidence": "optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset",
+            "relevance": 0.8,
+            "anchor_page": 36
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"machine learning\",\n      \"aliases\": [],\n      \"evidence_page\": 20,\n      \"evidence\": \"Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 20\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\n        \"classification problem\"\n      ],\n      \"evidence_page\": 21,\n      \"evidence\": \"This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 21\n    },\n    {\n      \"canonical\": \"training set\",\n      \"aliases\": [\n        \"training data\",\n        \"training set of data\",\n        \"batch of examples\"\n      ],\n      \"evidence_page\": 21,\n      \"evidence\": \"a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 21\n    },\n    {\n      \"canonical\": \"feature engineering\",\n      \"aliases\": [\n        \"designing features\",\n        \"feature design\",\n        \"feature extraction\"\n      ],\n      \"evidence_page\": 21,\n      \"evidence\": \"we need to provide it with properly designed features, or ideally, have it find or learn such features itself\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 21\n    },\n    {\n      \"canonical\": \"generalization\",\n      \"aliases\": [\n        \"generalize\"\n      ],\n      \"evidence_page\": 21,\n      \"evidence\": \"when they can generalize what they have learned to new, previously unseen, examples\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 21\n    },\n    {\n      \"canonical\": \"feature space\",\n      \"aliases\": [\n        \"two-dimensional feature space\"\n      ],\n      \"evidence_page\": 22,\n      \"evidence\": \"we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 22\n    },\n    {\n      \"canonical\": \"model training\",\n      \"aliases\": [\n        \"training of a model\",\n        \"training a model\"\n      ],\n      \"evidence_page\": 23,\n      \"evidence\": \"the tuning of such a set of parameters to a training set is referred to as the training of a model\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 23\n    },\n    {\n      \"canonical\": \"validation set\",\n      \"aliases\": [\n        \"validation data\",\n        \"validation set of data\"\n      ],\n      \"evidence_page\": 23,\n      \"evidence\": \"we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 23\n    },\n    {\n      \"canonical\": \"model validation\",\n      \"aliases\": [\n        \"validating the model\"\n      ],\n      \"evidence_page\": 23,\n      \"evidence\": \"To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 23\n    },\n    {\n      \"canonical\": \"nonlinear model\",\n      \"aliases\": [\n        \"nonlinear manifolds\",\n        \"complex rule\"\n      ],\n      \"evidence_page\": 24,\n      \"evidence\": \"we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 24\n    },\n    {\n      \"canonical\": \"misclassification\",\n      \"aliases\": [\n        \"misidentification\"\n      ],\n      \"evidence_page\": 24,\n      \"evidence\": \"The misidentification of the single dog (a Boston terrier) is due largely to our choice of features\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 24\n    },\n    {\n      \"canonical\": \"supervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 25,\n      \"evidence\": \"The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 25\n    },\n    {\n      \"canonical\": \"unsupervised learning\",\n      \"aliases\": [],\n      \"evidence_page\": 25,\n      \"evidence\": \"The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 25\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\n        \"regression line\",\n        \"share price regression\",\n        \"linear regression\",\n        \"regression problem\"\n      ],\n      \"evidence_page\": 26,\n      \"evidence\": \"this type of problem comes in two forms called regression and classification depending on the general numerical form of the output\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 26\n    },\n    {\n      \"canonical\": \"input/output relationship\",\n      \"aliases\": [],\n      \"evidence_page\": 26,\n      \"evidence\": \"Supervised learning problems refer to the automatic learning of computational rules involving input/output relationships\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 26\n    },\n    {\n      \"canonical\": \"continuous-valued output\",\n      \"aliases\": [\n        \"continuous output\"\n      ],\n      \"evidence_page\": 27,\n      \"evidence\": \"predictions about a continuous-valued output (here, share price) can be made\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 27\n    },\n    {\n      \"canonical\": \"cost function\",\n      \"aliases\": [\n        \"loss function\",\n        \"cost surface\"\n      ],\n      \"evidence_page\": 35,\n      \"evidence\": \"These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 35\n    },\n    {\n      \"canonical\": \"mathematical optimization\",\n      \"aliases\": [\n        \"optimization\"\n      ],\n      \"evidence_page\": 35,\n      \"evidence\": \"the search for parameters of a learning model via well-defined mathematical functions\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 35\n    },\n    {\n      \"canonical\": \"clustering\",\n      \"aliases\": [\n        \"clustering algorithms\"\n      ],\n      \"evidence_page\": 35,\n      \"evidence\": \"Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 35\n    },\n    {\n      \"canonical\": \"model parameters\",\n      \"aliases\": [\n        \"parameters\",\n        \"slope and vertical intercept\"\n      ],\n      \"evidence_page\": 35,\n      \"evidence\": \"take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 35\n    },\n    {\n      \"canonical\": \"minimization\",\n      \"aliases\": [\n        \"minimize cost functions\",\n        \"minimum\"\n      ],\n      \"evidence_page\": 36,\n      \"evidence\": \"we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 36\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 36,\n      \"evidence\": \"optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 36\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 20,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "machine learning",
+            "pdf_page": 21,
+            "figure_label": "Figure 1.1",
+            "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"machine learning\",\n      \"pdf_page\": 21,\n      \"figure_label\": \"Figure 1.1\",\n      \"caption\": \"A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 21,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "training set",
+            "pdf_page": 21,
+            "figure_label": "Figure 1.1",
+            "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+            "confidence": 0.95
+          },
+          {
+            "concept": "generalization",
+            "pdf_page": 21,
+            "figure_label": "Figure 1.1",
+            "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+            "confidence": 0.7
+          },
+          {
+            "concept": "classification",
+            "pdf_page": 21,
+            "figure_label": "Figure 1.1",
+            "caption": "A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].",
+            "confidence": 0.8
+          },
+          {
+            "concept": "feature engineering",
+            "pdf_page": 22,
+            "figure_label": "Figure 1.2",
+            "caption": "Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"training set\",\n      \"pdf_page\": 21,\n      \"figure_label\": \"Figure 1.1\",\n      \"caption\": \"A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"generalization\",\n      \"pdf_page\": 21,\n      \"figure_label\": \"Figure 1.1\",\n      \"caption\": \"A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].\",\n      \"confidence\": 0.7\n    },\n    {\n      \"concept\": \"classification\",\n      \"pdf_page\": 21,\n      \"figure_label\": \"Figure 1.1\",\n      \"caption\": \"A training set consisting of six images of cats (highlighted in blue) and six images of dogs (highlighted in red). This set is used to train a machine learning model that can distinguish between future images of cats and dogs. The images in this Figure were taken from [1].\",\n      \"confidence\": 0.8\n    },\n    {\n      \"concept\": \"feature engineering\",\n      \"pdf_page\": 22,\n      \"figure_label\": \"Figure 1.2\",\n      \"caption\": \"Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 22,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "feature space",
+            "pdf_page": 22,
+            "figure_label": "Figure 1.2",
+            "caption": "Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"feature space\",\n      \"pdf_page\": 22,\n      \"figure_label\": \"Figure 1.2\",\n      \"caption\": \"Feature space representation of the training set where the horizontal and vertical axes represent the features nose size and ear shape, respectively. The fact that the cats and dogs from our training set lie in distinct regions of the feature space reflects a good choice of features.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 23,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "model training",
+            "pdf_page": 23,
+            "figure_label": "Figure 1.3",
+            "caption": "A trained linear model (shown in black) provides a computational rule for distinguishing between cats and dogs. Any new image received in the future will be classified as a cat if its feature representation lies above this line (in the blue region), and a dog if the feature representation lies below this line (in the red region).",
+            "confidence": 0.95
+          },
+          {
+            "concept": "validation set",
+            "pdf_page": 24,
+            "figure_label": "Figure 1.4",
+            "caption": "A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!",
+            "confidence": 0.95
+          },
+          {
+            "concept": "model validation",
+            "pdf_page": 24,
+            "figure_label": "Figure 1.4",
+            "caption": "A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"model training\",\n      \"pdf_page\": 23,\n      \"figure_label\": \"Figure 1.3\",\n      \"caption\": \"A trained linear model (shown in black) provides a computational rule for distinguishing between cats and dogs. Any new image received in the future will be classified as a cat if its feature representation lies above this line (in the blue region), and a dog if the feature representation lies below this line (in the red region).\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"validation set\",\n      \"pdf_page\": 24,\n      \"figure_label\": \"Figure 1.4\",\n      \"caption\": \"A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"model validation\",\n      \"pdf_page\": 24,\n      \"figure_label\": \"Figure 1.4\",\n      \"caption\": \"A validation set of cat and dog images (also taken from [1]). Notice that the images in this set are not highlighted in red or blue (as was the case with the training set shown in Figure 1.1) indicating that the true identity of each image is not revealed to the learner. Notice that one of the dogs, the Boston terrier in the bottom right corner, has both a short nose and pointy ears. Due to our chosen feature representation the computer will think this is a cat!\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 24,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "misclassification",
+            "pdf_page": 25,
+            "figure_label": "Figure 1.5",
+            "caption": "Identification of (the feature representation of) validation images using our trained linear model. The Boston terrier (pointed to by an arrow) is misclassified as a cat since it has pointy ears and a short nose, just like the cats in our training set.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "nonlinear model",
+            "pdf_page": 24,
+            "figure_label": "Figure 1.6",
+            "caption": "The schematic pipeline of our toy cat/dog classification problem. The same general pipeline is used for essentially all machine learning problems.",
+            "confidence": 0.4
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"misclassification\",\n      \"pdf_page\": 25,\n      \"figure_label\": \"Figure 1.5\",\n      \"caption\": \"Identification of (the feature representation of) validation images using our trained linear model. The Boston terrier (pointed to by an arrow) is misclassified as a cat since it has pointy ears and a short nose, just like the cats in our training set.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"nonlinear model\",\n      \"pdf_page\": 24,\n      \"figure_label\": \"Figure 1.6\",\n      \"caption\": \"The schematic pipeline of our toy cat/dog classification problem. The same general pipeline is used for essentially all machine learning problems.\",\n      \"confidence\": 0.4\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 25,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "supervised learning",
+            "pdf_page": 26,
+            "figure_label": "Figure 1.7",
+            "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"supervised learning\",\n      \"pdf_page\": 26,\n      \"figure_label\": \"Figure 1.7\",\n      \"caption\": \"(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 26,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "regression",
+            "pdf_page": 26,
+            "figure_label": "Figure 1.7",
+            "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "input/output relationship",
+            "pdf_page": 26,
+            "figure_label": "Figure 1.7",
+            "caption": "(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"regression\",\n      \"pdf_page\": 26,\n      \"figure_label\": \"Figure 1.7\",\n      \"caption\": \"(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"input/output relationship\",\n      \"pdf_page\": 26,\n      \"figure_label\": \"Figure 1.7\",\n      \"caption\": \"(top-left panel) A toy training dataset consisting of 10 corporations' share price and revenue values. (top-right panel) A linear model is fit to the data. This trend line models the overall trajectory of the points and can be used for prediction in the future as shown in the bottom-left and bottom-right panels.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 27,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "continuous-valued output",
+            "pdf_page": 27,
+            "figure_label": "Figure 1.8",
+            "caption": "Figure associated with Example 1.1 illustrating total student loan debt in the United States measured quarterly from 2006 to 2014. The rapid increase rate of the debt, measured by the slope of the trend line fit to the data, confirms that student debt is growing very fast. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"continuous-valued output\",\n      \"pdf_page\": 27,\n      \"figure_label\": \"Figure 1.8\",\n      \"caption\": \"Figure associated with Example 1.1 illustrating total student loan debt in the United States measured quarterly from 2006 to 2014. The rapid increase rate of the debt, measured by the slope of the trend line fit to the data, confirms that student debt is growing very fast. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 35,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "clustering",
+            "pdf_page": 35,
+            "figure_label": "Figure 1.15",
+            "caption": "Two toy examples of the vast array in which input data can cluster. Clustering algorithms are designed to uncover these kinds of distinct structures. In each instance the distinct clusters in the original data (on the left) are colored for visualization purposes (on the right).",
+            "confidence": 0.95
+          },
+          {
+            "concept": "cost function",
+            "pdf_page": 36,
+            "figure_label": "Figure 1.16",
+            "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "model parameters",
+            "pdf_page": 36,
+            "figure_label": "Figure 1.16",
+            "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "mathematical optimization",
+            "pdf_page": 36,
+            "figure_label": "Figure 1.16",
+            "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+            "confidence": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"clustering\",\n      \"pdf_page\": 35,\n      \"figure_label\": \"Figure 1.15\",\n      \"caption\": \"Two toy examples of the vast array in which input data can cluster. Clustering algorithms are designed to uncover these kinds of distinct structures. In each instance the distinct clusters in the original data (on the left) are colored for visualization purposes (on the right).\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"cost function\",\n      \"pdf_page\": 36,\n      \"figure_label\": \"Figure 1.16\",\n      \"caption\": \"(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"model parameters\",\n      \"pdf_page\": 36,\n      \"figure_label\": \"Figure 1.16\",\n      \"caption\": \"(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"mathematical optimization\",\n      \"pdf_page\": 36,\n      \"figure_label\": \"Figure 1.16\",\n      \"caption\": \"(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.\",\n      \"confidence\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 36,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "minimization",
+            "pdf_page": 36,
+            "figure_label": "Figure 1.16",
+            "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "minimization",
+            "pdf_page": 37,
+            "figure_label": "Figure 1.17",
+            "caption": "(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model separating two classes of the toy dataset first shown in Figure 1.10. Also shown here are two different sets of parameter values, one (left) corresponding to the minimum of the cost function and the other (right) corresponding to a point with larger cost function value. (bottom panels) The linear classifiers corresponding to each set of parameters in the top panels. The optimal set of parameters, i.e., those giving the minimum value of the associated cost function, allow for the best separation between the two classes.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"minimization\",\n      \"pdf_page\": 36,\n      \"figure_label\": \"Figure 1.16\",\n      \"caption\": \"(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model for the share price regression problem discussed in the previous Section and shown in Figure 1.7. Also shown here are two different sets of parameter values, one (left) at the minimum of the cost function and the other (right) at a point with larger cost function value. (bottom panels) The linear model corresponding to each set of parameters in the top panel. The set of parameters resulting in the best fit are found at the minimum of the cost surface.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"minimization\",\n      \"pdf_page\": 37,\n      \"figure_label\": \"Figure 1.17\",\n      \"caption\": \"(top panels) A figurative drawing of the two-dimensional cost function associated with learning the slope and intercept parameters of a linear model separating two classes of the toy dataset first shown in Figure 1.10. Also shown here are two different sets of parameter values, one (left) corresponding to the minimum of the cost function and the other (right) corresponding to a point with larger cost function value. (bottom panels) The linear classifiers corresponding to each set of parameters in the top panels. The optimal set of parameters, i.e., those giving the minimum value of the associated cost function, allow for the best separation between the two classes.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "mathematical optimization",
+      "into": "mathematical optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "regression",
+      "into": "regression"
+    },
+    {
+      "action": "local_merge",
+      "from": "classification",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "supervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear model",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature space",
+      "into": "feature space"
+    },
+    {
+      "action": "local_merge",
+      "from": "nonlinear model",
+      "into": "nonlinear model"
+    },
+    {
+      "action": "local_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "classification",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "training set",
+      "into": "training set"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear model",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "mathematical optimization",
+      "into": "mathematical optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "validation set",
+      "into": "validation set"
+    },
+    {
+      "action": "local_merge",
+      "from": "supervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear regression",
+      "into": "regression"
+    },
+    {
+      "action": "local_merge",
+      "from": "regression",
+      "into": "regression"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature design",
+      "into": "feature engineering"
+    },
+    {
+      "action": "local_merge",
+      "from": "generalization",
+      "into": "generalization"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature space",
+      "into": "feature space"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear model",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "mathematical optimization",
+      "into": "mathematical optimization"
+    },
+    {
+      "action": "local_merge",
+      "from": "model training",
+      "into": "model training"
+    },
+    {
+      "action": "local_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "regression",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "classification",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "supervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "unsupervised learning",
+      "into": "supervised learning"
+    },
+    {
+      "action": "local_merge",
+      "from": "model parameters",
+      "into": "model parameters"
+    },
+    {
+      "action": "local_merge",
+      "from": "nonlinear model",
+      "into": "nonlinear model"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear model",
+      "into": "classification"
+    },
+    {
+      "action": "local_merge",
+      "from": "feature space",
+      "into": "feature space"
+    },
+    {
+      "action": "local_merge",
+      "from": "nonlinear model",
+      "into": "nonlinear model"
+    }
+  ],
+  "warnings": [
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

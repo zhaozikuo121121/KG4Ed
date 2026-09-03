@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9ca1a979bae260e1c17feafce969aa00f33e82a33d0d6a778958c0bd8fe2349f",
+  "concept_id": 210,
+  "concept_name": "stochastic gradient descent",
+  "aliases": [
+    "stochastic gradient descent",
+    "sgd"
+  ],
+  "profile": "stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.",
+    "claims": [
+      {
+        "claim": "Stochastic gradient descent is referenced in the context of a GCN training and optimization pipeline.",
+        "evidence_ids": [
+          "DGL-E0245"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Stochastic gradient descent is referenced in the context of GNN training strategies and batching.",
+        "evidence_ids": [
+          "DGL-E0310"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata; profile reflects only explicit context."
+    ]
+  },
+  "review": {
+    "final_profile": "stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.",
+    "sentence_reviews": [
+      {
+        "sentence": "stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0245",
+          "DGL-E0310"
+        ],
+        "reason": "Both contexts are directly attested by slide titles and evidence strings."
+      }
+    ],
+    "warnings": [
+      "Limited metadata; profile reflects only explicit context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.\",\n  \"claims\": [\n    {\n      \"claim\": \"Stochastic gradient descent is referenced in the context of a GCN training and optimization pipeline.\",\n      \"evidence_ids\": [\"DGL-E0245\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Stochastic gradient descent is referenced in the context of GNN training strategies and batching.\",\n      \"evidence_ids\": [\"DGL-E0310\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Limited metadata; profile reflects only explicit context.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"stochastic gradient descent: a method referenced in the context of a GCN training and optimization pipeline, and in discussions of GNN training strategies and batching.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0245\", \"DGL-E0310\"],\n      \"reason\": \"Both contexts are directly attested by slide titles and evidence strings.\"\n    }\n  ],\n  \"warnings\": [\n    \"Limited metadata; profile reflects only explicit context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:15:12.181382+00:00"
+}

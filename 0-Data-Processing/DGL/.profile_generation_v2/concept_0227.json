@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "0cebf41019e0150863a53007f75c89287b9274b4ab1e7da473f8a8abc79fb2fb",
+  "concept_id": 227,
+  "concept_name": "batch normalization",
+  "aliases": [
+    "batch normalization",
+    "bn"
+  ],
+  "profile": "batch normalization: In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers. Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "batch normalization: In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers. Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.",
+    "claims": [
+      {
+        "claim": "Batch normalization (BN) is used in graph neural network layer architectures.",
+        "evidence_ids": [
+          "DGL-E0284",
+          "DGL-E0378"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "BN stabilizes optimization and controls embedding variance between layers.",
+        "evidence_ids": [
+          "DGL-E0284",
+          "DGL-E0378"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN.",
+        "evidence_ids": [
+          "DGL-E0284",
+          "DGL-E0297",
+          "DGL-E0315",
+          "DGL-E0349",
+          "DGL-E0378"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only labels and a brief purpose statement; no detailed mathematical formulation or specific examples are given."
+    ]
+  },
+  "review": {
+    "final_profile": "batch normalization: In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers. Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.",
+    "sentence_reviews": [
+      {
+        "sentence": "In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0284",
+          "DGL-E0378"
+        ],
+        "reason": "The source states BN stabilizes optimization and controls embedding variance, and the diagrams occur in GNN layer architecture pages."
+      },
+      {
+        "sentence": "Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0284",
+          "DGL-E0297",
+          "DGL-E0315",
+          "DGL-E0349",
+          "DGL-E0378"
+        ],
+        "reason": "BN labels appear on pages covering these GNN layer and training topics."
+      }
+    ],
+    "warnings": [
+      "The metadata provides only labels and a brief purpose statement; no detailed mathematical formulation or specific examples are given."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"batch normalization: In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers. Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.\",\n  \"claims\": [\n    {\n      \"claim\": \"Batch normalization (BN) is used in graph neural network layer architectures.\",\n      \"evidence_ids\": [\"DGL-E0284\", \"DGL-E0378\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"BN stabilizes optimization and controls embedding variance between layers.\",\n      \"evidence_ids\": [\"DGL-E0284\", \"DGL-E0378\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN.\",\n      \"evidence_ids\": [\"DGL-E0284\", \"DGL-E0297\", \"DGL-E0315\", \"DGL-E0349\", \"DGL-E0378\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only labels and a brief purpose statement; no detailed mathematical formulation or specific examples are given.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"batch normalization: In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers. Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In graph neural network (GNN) layer architectures, batch normalization (BN) is an operation that stabilizes optimization and controls embedding variance between layers.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0284\", \"DGL-E0378\"],\n      \"reason\": \"The source states BN stabilizes optimization and controls embedding variance, and the diagrams occur in GNN layer architecture pages.\"\n    },\n    {\n      \"sentence\": \"Diagrams of GNN layer operations, aggregation/attention mechanisms, and training/batching/sampling strategies include BN, indicating its application across GNN architecture and training contexts.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0284\", \"DGL-E0297\", \"DGL-E0315\", \"DGL-E0349\", \"DGL-E0378\"],\n      \"reason\": \"BN labels appear on pages covering these GNN layer and training topics.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only labels and a brief purpose statement; no detailed mathematical formulation or specific examples are given.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:20:51.761832+00:00"
+}

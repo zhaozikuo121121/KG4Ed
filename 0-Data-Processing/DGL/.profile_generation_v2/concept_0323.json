@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "20abdb0c82100a8305e4d9f4409317a42fb7f2a27fcd263c4af6424e02752353",
+  "concept_id": 323,
+  "concept_name": "edge feature generation",
+  "aliases": [
+    "edge feature generation",
+    "generate edge feature matrix"
+  ],
+  "profile": "edge feature generation: In generative learning tasks, edge feature generation aims to generate the graph's edge feature matrix in the target domain, alongside the graph adjacency matrix and node feature matrix. This task is part of formalizing generative learning, where the objective is to produce these matrix components for the target graph.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge feature generation: The goal is to generate the edge feature matrix for a graph in the target domain, along with the graph adjacency matrix and node feature matrix. This task is part of the formalization of generative learning tasks, where the aim is to synthesize the complete graph structure.",
+    "claims": [
+      {
+        "claim": "Edge feature generation aims to produce the edge feature matrix for a graph.",
+        "evidence_ids": [
+          "DGL-E0479"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is performed in conjunction with generating the graph adjacency matrix and node feature matrix.",
+        "evidence_ids": [
+          "DGL-E0479"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is part of the formalization of generative learning tasks.",
+        "evidence_ids": [
+          "DGL-E0479"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "edge feature generation: In generative learning tasks, edge feature generation aims to generate the graph's edge feature matrix in the target domain, alongside the graph adjacency matrix and node feature matrix. This task is part of formalizing generative learning, where the objective is to produce these matrix components for the target graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge feature generation: In generative learning tasks, edge feature generation aims to generate the graph's edge feature matrix in the target domain, alongside the graph adjacency matrix and node feature matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0479"
+        ],
+        "reason": "The evidence states the aim is to generate the graph adjacency matrix and its node and edge feature matrices in the target domain."
+      },
+      {
+        "sentence": "This task is part of formalizing generative learning, where the objective is to produce these matrix components for the target graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0479"
+        ],
+        "reason": "The evidence is from the section titled 'Generative Learning Tasks Formalization' and describes generating the adjacency, node feature, and edge feature matrices."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge feature generation: The goal is to generate the edge feature matrix for a graph in the target domain, along with the graph adjacency matrix and node feature matrix. This task is part of the formalization of generative learning tasks, where the aim is to synthesize the complete graph structure.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge feature generation aims to produce the edge feature matrix for a graph.\",\n      \"evidence_ids\": [\"DGL-E0479\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is performed in conjunction with generating the graph adjacency matrix and node feature matrix.\",\n      \"evidence_ids\": [\"DGL-E0479\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is part of the formalization of generative learning tasks.\",\n      \"evidence_ids\": [\"DGL-E0479\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge feature generation: In generative learning tasks, edge feature generation aims to generate the graph's edge feature matrix in the target domain, alongside the graph adjacency matrix and node feature matrix. This task is part of formalizing generative learning, where the objective is to produce these matrix components for the target graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge feature generation: In generative learning tasks, edge feature generation aims to generate the graph's edge feature matrix in the target domain, alongside the graph adjacency matrix and node feature matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0479\"],\n      \"reason\": \"The evidence states the aim is to generate the graph adjacency matrix and its node and edge feature matrices in the target domain.\"\n    },\n    {\n      \"sentence\": \"This task is part of formalizing generative learning, where the objective is to produce these matrix components for the target graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0479\"],\n      \"reason\": \"The evidence is from the section titled 'Generative Learning Tasks Formalization' and describes generating the adjacency, node feature, and edge feature matrices.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:55:46.134649+00:00"
+}

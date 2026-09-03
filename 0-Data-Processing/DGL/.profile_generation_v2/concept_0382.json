@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e4b52c24485a456a69019cdebbe57e8c9a80cea5206bdc44863669c8a517c5d0",
+  "concept_id": 382,
+  "concept_name": "graph u-autoencoder",
+  "aliases": [
+    "graph u-autoencoder",
+    "graph uae"
+  ],
+  "profile": "graph u-autoencoder: A block introduced in the context of encoder-decoder graph neural networks and graph generation. The label appears in this setting, but the block's detailed architecture or functionality is not specified.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph u-autoencoder: A graph autoencoder block associated with encoder-decoder graph neural networks and graph generation. The term suggests an autoencoder variant designed for graph-structured data, but its detailed mechanics are not specified in the available material.",
+    "claims": [
+      {
+        "claim": "The graph u-autoencoder is presented as a block in the context of encoder-decoder GNNs and graph generation.",
+        "evidence_ids": [
+          "DGL-E0553"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term suggests an autoencoder variant designed for graph-structured data.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Only a label and surrounding slide title are available; no detailed architecture or functionality is described."
+    ]
+  },
+  "review": {
+    "final_profile": "graph u-autoencoder: A block introduced in the context of encoder-decoder graph neural networks and graph generation. The label appears in this setting, but the block's detailed architecture or functionality is not specified.",
+    "sentence_reviews": [
+      {
+        "sentence": "A block introduced in the context of encoder-decoder graph neural networks and graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0553"
+        ],
+        "reason": "The slide title and evidence label place the graph U-autoencoder block under encoder-decoder GNNs and graph generation."
+      },
+      {
+        "sentence": "The label appears in this setting, but the block's detailed architecture or functionality is not specified.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0553"
+        ],
+        "reason": "Only the block label and surrounding context are present, so no detailed mechanics are described."
+      }
+    ],
+    "warnings": [
+      "No architecture, functionality, or relation to graph autoencoders is described beyond the label and context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph u-autoencoder: A graph autoencoder block associated with encoder-decoder graph neural networks and graph generation. The term suggests an autoencoder variant designed for graph-structured data, but its detailed mechanics are not specified in the available material.\",\n  \"claims\": [\n    {\n      \"claim\": \"The graph u-autoencoder is presented as a block in the context of encoder-decoder GNNs and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0553\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term suggests an autoencoder variant designed for graph-structured data.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"Only a label and surrounding slide title are available; no detailed architecture or functionality is described.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph u-autoencoder: A block introduced in the context of encoder-decoder graph neural networks and graph generation. The label appears in this setting, but the block's detailed architecture or functionality is not specified.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A block introduced in the context of encoder-decoder graph neural networks and graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0553\"],\n      \"reason\": \"The slide title and evidence label place the graph U-autoencoder block under encoder-decoder GNNs and graph generation.\"\n    },\n    {\n      \"sentence\": \"The label appears in this setting, but the block's detailed architecture or functionality is not specified.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0553\"],\n      \"reason\": \"Only the block label and surrounding context are present, so no detailed mechanics are described.\"\n    }\n  ],\n  \"warnings\": [\n    \"No architecture, functionality, or relation to graph autoencoders is described beyond the label and context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:12:36.415806+00:00"
+}

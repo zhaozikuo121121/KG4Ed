@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "50c250074a43b941867b92057d7ca8242d71f7758fad0985f22442dbd5febded",
+  "concept_id": 174,
+  "concept_name": "intra-cluster distance",
+  "aliases": [
+    "intra-cluster distance",
+    "average intra-cluster distance"
+  ],
+  "profile": "intra-cluster distance: A metric for determining the best clustering from a set of runs. It is defined as the average distance of each point to its assigned cluster centroid. The term is synonymous with 'average intra-cluster distance.'",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "intra-cluster distance: A metric for determining the best clustering from a set of runs. It is defined as the average distance of each point to its assigned cluster centroid. The term is synonymous with 'average intra-cluster distance.'",
+    "claims": [
+      {
+        "claim": "Intra-cluster distance is a metric for determining the best clustering from a set of runs.",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is defined as the average distance of each point to its assigned cluster centroid.",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term is synonymous with 'average intra-cluster distance.'",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "intra-cluster distance: A metric for determining the best clustering from a set of runs. It is defined as the average distance of each point to its assigned cluster centroid. The term is synonymous with 'average intra-cluster distance.'",
+    "sentence_reviews": [
+      {
+        "sentence": "intra-cluster distance: A metric for determining the best clustering from a set of runs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "reason": "Source describes it as one metric for determining the best clustering from a set of runs."
+      },
+      {
+        "sentence": "It is defined as the average distance of each point to its assigned cluster centroid.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "reason": "Source defines it as the average distance of each point to its cluster centroid."
+      },
+      {
+        "sentence": "The term is synonymous with 'average intra-cluster distance.'",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0199"
+        ],
+        "reason": "Source states that this metric is called the average intra-cluster distance."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"intra-cluster distance: A metric for determining the best clustering from a set of runs. It is defined as the average distance of each point to its assigned cluster centroid. The term is synonymous with 'average intra-cluster distance.'\",\n  \"claims\": [\n    {\n      \"claim\": \"Intra-cluster distance is a metric for determining the best clustering from a set of runs.\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is defined as the average distance of each point to its assigned cluster centroid.\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term is synonymous with 'average intra-cluster distance.'\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"intra-cluster distance: A metric for determining the best clustering from a set of runs. It is defined as the average distance of each point to its assigned cluster centroid. The term is synonymous with 'average intra-cluster distance.'\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"intra-cluster distance: A metric for determining the best clustering from a set of runs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"reason\": \"Source describes it as one metric for determining the best clustering from a set of runs.\"\n    },\n    {\n      \"sentence\": \"It is defined as the average distance of each point to its assigned cluster centroid.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"reason\": \"Source defines it as the average distance of each point to its cluster centroid.\"\n    },\n    {\n      \"sentence\": \"The term is synonymous with 'average intra-cluster distance.'\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0199\"],\n      \"reason\": \"Source states that this metric is called the average intra-cluster distance.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:33:34.824905+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f873200709460559d376e226e7559aed0570b4934e8abf4f645e1768a357fcd9",
+  "concept_id": 141,
+  "concept_name": "graph feature embedding",
+  "aliases": [
+    "graph feature embedding",
+    "feature embedding"
+  ],
+  "profile": "graph feature embedding: Graph feature embedding is the task of learning feature embeddings. This task appears in the GCN training and optimization pipeline.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature embedding: Graph feature embedding is the task of learning feature embeddings. This task appears in the GCN training and optimization pipeline. The pipeline focuses on learning feature embeddings as part of graph neural network training.",
+    "claims": [
+      {
+        "claim": "Graph feature embedding is the task of learning feature embeddings.",
+        "evidence_ids": [
+          "DGL-E0572"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This task appears in the GCN training and optimization pipeline.",
+        "evidence_ids": [
+          "DGL-E0572"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited; no further properties or examples are documented."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature embedding: Graph feature embedding is the task of learning feature embeddings. This task appears in the GCN training and optimization pipeline.",
+    "sentence_reviews": [
+      {
+        "sentence": "Graph feature embedding is the task of learning feature embeddings.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0572"
+        ],
+        "reason": "The source directly states 'Learn feature embeddings'."
+      },
+      {
+        "sentence": "This task appears in the GCN training and optimization pipeline.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0572"
+        ],
+        "reason": "The source page is titled 'GCN Training and Optimization Pipeline' and includes learning feature embeddings."
+      }
+    ],
+    "warnings": [
+      "Metadata is limited; no further properties or examples are documented."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature embedding: Graph feature embedding is the task of learning feature embeddings. This task appears in the GCN training and optimization pipeline. The pipeline focuses on learning feature embeddings as part of graph neural network training.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph feature embedding is the task of learning feature embeddings.\",\n      \"evidence_ids\": [\"DGL-E0572\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This task appears in the GCN training and optimization pipeline.\",\n      \"evidence_ids\": [\"DGL-E0572\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited; no further properties or examples are documented.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature embedding: Graph feature embedding is the task of learning feature embeddings. This task appears in the GCN training and optimization pipeline.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Graph feature embedding is the task of learning feature embeddings.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0572\"],\n      \"reason\": \"The source directly states 'Learn feature embeddings'.\"\n    },\n    {\n      \"sentence\": \"This task appears in the GCN training and optimization pipeline.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0572\"],\n      \"reason\": \"The source page is titled 'GCN Training and Optimization Pipeline' and includes learning feature embeddings.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is limited; no further properties or examples are documented.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:49:33.643354+00:00"
+}

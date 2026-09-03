@@ -1,0 +1,372 @@
+concept,chapter,chapter_title,pdf_page,book_page,evidence
+machine learning,1,Introduction to Machine Learning,20,12,"Machine learning is a unified algorithmic framework designed to identify computational models that accurately describe empirical data and the phenomena underlying it, with little or no human involvement."
+classification,1,Introduction to Machine Learning,21,13,This kind of task where we aim to teach a computer to distinguish between different types or classes of things (here cats and dogs) is referred to as a classification problem in the jargon of machine learning
+training set,1,Introduction to Machine Learning,21,13,"a computer must be trained to recognize the difference between these two types of animals by learning from a batch of examples, typically referred to as a training set of data"
+feature engineering,1,Introduction to Machine Learning,21,13,"we need to provide it with properly designed features, or ideally, have it find or learn such features itself"
+generalization,1,Introduction to Machine Learning,21,13,"when they can generalize what they have learned to new, previously unseen, examples"
+feature space,1,Introduction to Machine Learning,22,14,we can represent each image in our training set in a two-dimensional feature space where the features nose size and ear shape are the horizontal and vertical coordinate axes
+model training,1,Introduction to Machine Learning,23,15,the tuning of such a set of parameters to a training set is referred to as the training of a model
+validation set,1,Introduction to Machine Learning,23,15,"we now show the computer a batch of previously unseen images of cats and dogs, referred to generally as a validation set of data, and see how well it can identify the animal in each image"
+model validation,1,Introduction to Machine Learning,23,15,To validate the efficacy of our trained learner we now show the computer a batch of previously unseen images
+nonlinear model,1,Introduction to Machine Learning,24,16,"we can also try out (i.e., train and validate) an array of nonlinear models with the hopes that a more complex rule might better distinguish between cats and dogs"
+misclassification,1,Introduction to Machine Learning,24,16,The misidentification of the single dog (a Boston terrier) is due largely to our choice of features
+supervised learning,1,Introduction to Machine Learning,25,17,The sort of computational rules we can learn using machine learning generally fall into two main categories called supervised and unsupervised learning
+regression,1,Introduction to Machine Learning,26,18,this type of problem comes in two forms called regression and classification depending on the general numerical form of the output
+input/output relationship,1,Introduction to Machine Learning,26,18,Supervised learning problems (like the prototypical problem outlined in Section 1.2) refer to the automatic learning of computational rules involving input/output relationships.
+continuous-valued output,1,Introduction to Machine Learning,27,19,"predictions about a continuous-valued output (here, share price) can be made"
+cost function,1,Introduction to Machine Learning,35,27,"These functions, commonly referred to as cost or loss functions, take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task using that choice of parameters"
+mathematical optimization,1,Introduction to Machine Learning,35,27,the search for parameters of a learning model via well-defined mathematical functions
+clustering,1,Introduction to Machine Learning,35,27,Clustering aims at identifying gross underlying structure in a set of input data by grouping together points that share some structural characteristic
+model parameters,1,Introduction to Machine Learning,35,27,take in a specific set of model parameters and return a score indicating how well we would accomplish a given learning task
+minimization,1,Introduction to Machine Learning,36,28,we will always look to minimize cost functions in order to find the ideal parameters of their associated learning models
+cross-validation,1,Introduction to Machine Learning,36,28,optimization also plays a fundamental role in cross-validation or the learning of a proper nonlinear model automatically for any dataset
+zero order optimization,2,Zero order optimization techniques,41,33,zero order optimization techniques - are also referred to as derivative free optimization techniques
+global minimum,2,Zero order optimization techniques,43,35,find a point w⋆ such that g(w⋆) ≤ g(w) for all w. This is the zero order definition of a global minimum.
+global maximum,2,Zero order optimization techniques,43,35,g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.
+local minimum,2,Zero order optimization techniques,44,36,a function g has a local minimum at a point w⋆ if g(w⋆) ≤ g(w) for all w near w⋆
+global optimization,2,Zero order optimization techniques,44,36,evaluate the function using a large number of input points and treat the input that provides the lowest function value as the approximate global minimizer
+zero order optimality condition,2,Zero order optimization techniques,44,36,Packaged together these zero order definitions for minima and maxima (collectively called optima) are often referred to as the zero order condition for optimality
+local maximum,2,Zero order optimization techniques,44,36,"The same formal zero order definition can be made for local maxima as well, switching the ≤ sign to ≥"
+random sampling,2,Zero order optimization techniques,45,37,pick the same number of input points at random (random sampling)
+uniform sampling,2,Zero order optimization techniques,45,37,"sample (i.e., guess) them uniformly over an evenly spaced grid (uniform sampling)"
+curse of dimensionality,2,Zero order optimization techniques,47,39,"the curse of dimensionality which, generally speaking, describes the exponential difficulty one encounters when trying to deal with functions of increasing input dimension"
+descent direction,2,Zero order optimization techniques,48,40,"what is called a descent direction at w0 is found. This is a direction vector d0 in the input space that stems from w0, beginning at w0 and pointing away from it towards a new point w1 with lower function evaluation"
+local optimization,2,Zero order optimization techniques,48,40,"local optimization methods work by starting with a single input point and then by sequentially refining it, driving the point towards an approximate minimizer"
+sequential refinement,2,Zero order optimization techniques,48,40,"local optimization methods refine this initial point sequentially, pulling it downhill towards points that are lower and lower on the function"
+initial point,2,Zero order optimization techniques,48,40,"Starting with a sample input, usually referred to as an initial point and denoted throughout the text by w0"
+diminishing steplength rules,2,Zero order optimization techniques,57,49,A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.
+random search,2,Zero order optimization techniques,57,49,2.5 Random search ... the combination of steplength and maximum number of iterations are best chosen together.
+convergence,2,Zero order optimization techniques,57,49,a small steplength combined with a large number of steps can guarantee convergence to a local minimizer
+coordinate descent,2,Zero order optimization techniques,59,51,With coordinate descent we (ideally) take a step immediately after examining the positive and negative directions along each coordinate.
+coordinate search,2,Zero order optimization techniques,59,51,The coordinate search and descent algorithms are additional zero order local methods that get around the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.
+steplength,2,Zero order optimization techniques,62,54,"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots."
+cost function history plot,2,Zero order optimization techniques,62,54,"the notions of descent directions, steplength / learning rates, diminishing steplength schemes, convergence, and cost function history plots."
+first order optimization methods,3,First order optimization techniques,65,57,"These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today."
+gradient descent,3,First order optimization techniques,65,57,"foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions"
+gradient,3,First order optimization techniques,65,57,fundamental optimization algorithms that leverage the first derivative or gradient of a function
+descent direction,3,First order optimization techniques,65,57,that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches
+automatic differentiation,3,First order optimization techniques,66,58,"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations."
+chain rule,3,First order optimization techniques,66,58,In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)
+numerical approximation,3,First order optimization techniques,66,58,"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules"
+first order taylor series approximation,3,First order optimization techniques,67,59,"the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation"
+global minimum,3,First order optimization techniques,67,59,With a simple convex quadratic this condition identifies the global minimum of the function
+partial derivative,3,First order optimization techniques,67,59,any N dimensional point v where every partial derivative of g is zero
+stationary points,3,First order optimization techniques,68,60,"Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function."
+first order system of equations,3,First order optimization techniques,68,60,This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0
+saddle points,3,First order optimization techniques,68,60,The first order condition also equally characterizes maxima and saddle points of non-convex functions
+closed form solution,3,First order optimization techniques,68,60,"that is, to solve such equations algebraically for ‘closed form’ solutions one can write out on paper"
+local minimum,3,First order optimization techniques,69,61,local minima or points that are the smallest with respect to their immediate neighbors
+rayleigh quotient,3,First order optimization techniques,69,61,By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient
+convex quadratic function,3,First order optimization techniques,71,63,Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix
+symmetric linear system,3,First order optimization techniques,71,63,Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b
+coordinate descent,3,First order optimization techniques,72,64,"This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form"
+diminishing steplength rules,3,First order optimization techniques,99,91,Compare fixed and diminishing steplength values for a simple example
+momentum accelerated gradient descent,3,First order optimization techniques,100,92,Code up the momentum accelerated gradient descent scheme described in Section A.2.2
+normalized gradient descent,3,First order optimization techniques,100,92,compare the standard and fully normalized gradient descent schemes in minimizing the function
+lipschitz continuous gradient,3,First order optimization techniques,101,93,functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂
+second order optimality condition,4,Second order optimization techniques,102,94,the second order condition for optimality. This will help us better understand and quantify the behavior of Newton's method
+second order taylor series approximation,4,Second order optimization techniques,102,94,"the second order Taylor series expansion, and the second order optimality condition"
+convexity,4,Second order optimization techniques,102,94,if g′′ (v) ≥0 (or ≤0) then g is said to be convex (or concave) at v
+curvature,4,Second order optimization techniques,102,94,the notion of curvature defined by second derivatives. To determine whether a general single-input function g is convex or concave at a point v we check its curvature or second derivative information at that point
+positive semi-definite matrix,4,Second order optimization techniques,102,94,the Hessian matrix itself is called positive (or negative) semi-definite
+quadratic function,4,Second order optimization techniques,103,95,The multi-input quadratic function g(w) = a + bTw + wTC w has the Hessian matrix ∇2g (w) = 2C
+saddle points,4,Second order optimization techniques,104,96,a saddle point if ∂2/∂w2 g(v) = 0 and ∂2/∂w2 g(v) changes sign at v
+stationary points,4,Second order optimization techniques,104,96,how the second derivative helps unveil the identity of stationary points
+local minimum,4,Second order optimization techniques,104,96,a local or global minimum if ∂2/∂w2 g(v) > 0 (since it occurs at convex portions of a function)
+eigenvalues of the hessian,4,Second order optimization techniques,105,97,a local minimum if all eigenvalues of ∇2g(v) are positive
+gradient descent,4,Second order optimization techniques,108,100,the first order Taylor series approximation to a function leads to the local optimization framework of gradient descent
+descent direction,4,Second order optimization techniques,109,101,"We saw in our discussion of gradient descent that the first order Taylor approximation, being a hyperplane itself, conveniently provides us with a descent direction (see Section 3.4)."
+first order condition for optimality,4,Second order optimization techniques,109,101,We can compute the stationary point(s) of a quadratic function fairly easily using the first order condition for optimality
+newton's method,4,Second order optimization techniques,118,110,Below we provide a simple implementation of Newton's method in Python
+automatic differentiation,4,Second order optimization techniques,118,110,leveraging the excellent autograd Automatic Differentiation and numpy libraries
+regularized newton's method,4,Second order optimization techniques,115,107,"The value of the regularization parameter ϵ is typically set to a small positive value (e.g., 10−7). The analogous adjustment for the general multi-input Newtons’s update is to add ϵIN×N (an N × N identity matrix scaled by a small positive ϵ value) to the Hessian matrix in Equation (4.14), giving"
+convergence criterion,4,Second order optimization techniques,118,110,while we used a maximum iterations convergence criterion the potentially high computational cost of each Newton step often incentivizes the use of more formal convergence criterion
+hessian matrix,4,Second order optimization techniques,119,111,requiring the storage and computation of not just a gradient but an entire N × N Hessian matrix of second derivative information
+non-convex minimization,4,Second order optimization techniques,119,111,Newton's method can behave very badly when applied to minimizing non-convex functions
+second order optimization,4,Second order optimization techniques,120,112,"second order optimization techniques, i.e., those that leverage both the first and second derivative(s) of a function in forming descent directions"
+hessian-free optimization,4,Second order optimization techniques,120,112,the latter set of adjustments referred to as Hessian-free optimization
+eigenvalue decomposition,4,Second order optimization techniques,611,603,"When the eigenvectors are all perpendicular to each other V is an orthonormal matrix1 and we have VVT = I. Thus multiplying both sides of Equation (C.43) by VT (on the right) we can express X completely in terms of its eigenvectors/values as X = VDVT."
+second order definition of convexity,4,Second order optimization techniques,121,113,the second order definition of convexity for a vector input function g(w) requires that we verify whether or not the eigenvalues of ∇2g(w) are non-negative for each input w
+sub-sampled newton's step,4,Second order optimization techniques,123,115,Implement the sub-sampled Newton's step outlined in Section A.8.1 ... formed by ignoring all off-diagonal elements of the Hessian
+bfgs method,4,Second order optimization techniques,124,116,The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method
+quasi-newton method,4,Second order optimization techniques,124,116,in order to compute a secant-based Quasi-Newton descent step we would like to use its inverse
+secant method,4,Second order optimization techniques,124,116,Secant's method ... employ the secant condition to derive a recursive update
+sherman-morrison identity,4,Second order optimization techniques,124,116,Use the Sherman-Morrison identity to re-write your update in terms of Fk
+regression,5,Linear regression,127,119,"In this Chapter we formally describe the supervised learning problem called linear regression, or the fitting of a representative line (or in higher dimensions a hyperplane) to a set of input/output data points. Regression in general may be performed for a variety of reasons: to produce a so-called trend line (or more generally - as we will see later - a curve) that can be used to visually summarize, drive home a particular point about the data under study, or to learn a model so that precise predictions can be made regarding output values in the future."
+least absolute deviations,5,Linear regression,127,119,including a discussion of the Least Squares and Least Absolute Deviations costs
+bias,5,Linear regression,128,120,"A line in two dimensions is defined as w0 + xw1 = y, where w0 is referred to as the bias and w1 the slope"
+first order taylor series approximation,4,Second order optimization techniques,109,101,"We saw in our discussion of gradient descent that the first order Taylor approximation, being a hyperplane itself, conveniently provides us with a descent direction (see Section 3.4)."
+least squares cost function,5,Linear regression,129,121,One of the more popular choices for doing this is called the Least Squares cost function. For a given set of parameters in the vector w this cost function computes the total squared error between the associated hyperplane and the data
+feature,5,Linear regression,129,121,Each dimension of the input is referred to as a feature or input feature in machine learning parlance.
+feature-touching weights,5,Linear regression,129,121,"we will often refer to the parameters w1, w2, ..., wN as the feature-touching weights, the only weight not touching a feature is the bias w0"
+unconstrained optimization,5,Linear regression,130,122,we want to solve the unconstrained optimization problem minimize w 1/P sum (˚xT pw − yp)^2
+normal equations,5,Linear regression,131,123,This is sometimes referred to as minimizing the Least Squares via solving its normal equations
+backtracking line search,5,Linear regression,131,123,an adjustable method like backtracking line search (as detailed in Chapter 3)
+vectorized implementation,5,Linear regression,135,127,It is easy to get around most of this inefficiency by replacing explicit for loops with numerically equivalent operations performed using operations from the numpy library
+convexity,5,Linear regression,152,144,The line segment connecting two points on the graph of a convex function f always lies above the graph of f.
+convex quadratic function,5,Linear regression,152,144,"the Least Squares cost function for linear regression is always a convex quadratic, and hence is a convex function."
+standard normalization,5,Linear regression,152,144,you should standard normalize the input features of each - as detailed in Section 9.3 - prior to optimization.
+multi-output regression,5,Linear regression,152,144,5.11 Multi-output regression
+convex combination,5,Linear regression,152,144,"any point between x and y, which can be characterized by λx + (1 −λ) y for a certain λ ∈(0, 1)"
+non-negative eigenvalues,5,Linear regression,153,145,the eigenvalues of such a matrix are always non-negative
+quadratic cost function,5,Linear regression,153,145,g (w) = a + bTw + wTC w which is of course a general quadratic.
+inner product,5,Linear regression,153,145,since the inner product ˚xTpw = wT ˚xp we can switch around the second inner product
+outer product,5,Linear regression,153,145,the matrix C is constructed from a sum of outer product matrices
+eigenvalues,5,Linear regression,153,145,the eigenvalues of such a matrix are always non-negative
+perceptron cost,6,Linear Two-class Classification,172,164,"This cost function goes by many names such as the Perceptron cost, the rectified linear unit cost (or ReLU cost for short), and the hinge cost. we can take their average over the entire dataset to form a proper cost function"
+softmax approximation to max,6,Linear Two-class Classification,172,164,"soft (s0, s1, ..., sC−1) = log (es0 + es1 + · · · + esC−1) , (6.34) where s0, s1, ..., sC−1 are any C scalar values - which is a generic smooth approximation to the max function"
+rectified linear unit,6,Linear Two-class Classification,172,164,"The functional form of this point-wise cost max (0, ·) is often called a rectified linear unit for historical reasons"
+convex cost function,6,Linear Two-class Classification,172,164,This cost function is always convex but only has a single (discontinuous) derivative in each input dimension
+point-wise cost,6,Linear Two-class Classification,172,164,"equivalently forming a point-wise cost gp (w) = max(0, −yp˚xTpw) = 0"
+trivial solution,6,Linear Two-class Classification,172,164,"the Perceptron cost always has a trivial solution at w = 0, since indeed g (0) = 0, thus one may need to take care in practice to avoid finding it"
+softmax cost,6,Linear Two-class Classification,173,165,"giving the overall cost function as g (w) = sum log(1 + e^{−yp ˚xTpw}), which is the Softmax cost"
+weight divergence to infinity,6,Linear Two-class Classification,174,166,This likewise decreases the Softmax cost as well with the minimum achieved only as C −→∞.
+numerical instability,6,Linear Two-class Classification,174,166,This fact can cause severe numerical instability issues with local optimization schemes that make large progress at each step
+early stopping,6,Linear Two-class Classification,176,168,"The former strategy (a form of what is called early stopping) is straightforward, requiring slight adjustments to the way we have typically employed local optimization"
+regularization,6,Linear Two-class Classification,176,168,Both approaches are generally referred to in the jargon of machine learning as regularization strategies
+normal vector to hyperplane,6,Linear Two-class Classification,176,168,the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to it
+signed distance to decision boundary,6,Linear Two-class Classification,177,169,the signed distance d of xp to the decision boundary is d = (b + xTpω) / ∥ω∥2
+weight normalization,6,Linear Two-class Classification,178,170,we can always normalize them in a consistent way by dividing them by the magnitude of ω
+regularization parameter,6,Linear Two-class Classification,179,171,the parameter λ ≥ 0 is called a regularization parameter. The parameter λ is used to balance how strongly we pressure one term or the other
+l2 regularizer,6,Linear Two-class Classification,179,171,the term ∥ω∥2^2 is referred to as a regularizer
+regularized softmax cost,6,Linear Two-class Classification,179,171,This relaxed form of the problem consists in minimizing a cost function that is a linear combination of our original Softmax cost and the magnitude of the feature weights
+constrained softmax cost,6,Linear Two-class Classification,179,171,minimize (1/P) Σ log(1 + e^{-yp(b+xTpω)}) subject to ∥ω∥2^2 = 1
+margin of separating hyperplane,6,Linear Two-class Classification,181,173,"the width of the buffer zone confined between two evenly spaced translates of a separating hyperplane that just touch each respective class, defines the margin"
+margin-perceptron cost,6,Linear Two-class Classification,181,173,"g(w) = Σ max(0, 1 − yp x̌p^T w)"
+smoothed margin-perceptron,6,Linear Two-class Classification,182,174,we can smooth out the Margin-Perceptron by replacing the max operator with softmax ... log(1 + e^{1−yp x̌^T w})
+maximum margin decision boundary,6,Linear Two-class Classification,183,175,the decision boundary with the maximum margin is intuitively the best choice
+hard-margin svm,6,Linear Two-class Classification,185,177,"minimize ∥ω∥2^2 subject to max(0, 1 − yp(b + xTpω)) = 0"
+margin computation via normal vector,6,Linear Two-class Classification,185,177,∥x1 − x2∥2 = 2/∥ω∥2 ... finding the separating hyperplane with maximum margin is equivalent to finding the one with the smallest possible normal vector ω
+soft-margin support vector machine,6,Linear Two-class Classification,186,178,This regularized form of the Margin-Perceptron cost function is referred to as the soft-margin support vector machine cost
+support vectors,6,Linear Two-class Classification,186,178,the translates of the decision boundary pass through points from both classes - equidistant from the SVM linear decision boundary. These points are called support vectors
+log-loss svm,6,Linear Two-class Classification,187,179,this soft-margin SVM cost even at times referred to as the log-loss SVM
+categorical cross entropy cost,6,Linear Two-class Classification,188,180,This leads to the derivation of the so-called Categorical Cross Entropy cost function which - as we will see - is equivalent to the Cross Entropy cost.
+one-hot encoded labels,6,Linear Two-class Classification,188,180,"transform our original numerical label values yp ∈{0, 1} with one-hot encoded vectors"
+log error cost,6,Linear Two-class Classification,189,181,we are better off employing a Log Error (see Section 6.2) to better incentivize learning (producing a convex cost function)
+confidence scoring,6,Linear Two-class Classification,191,183,"Once a proper decision boundary is learned, we can judge its confidence in any point based on the point's distance to the decision boundary."
+classification accuracy,6,Linear Two-class Classification,192,184,we can also compute the accuracy - denoted by A - of a trained model. This is simply the percentage of training dataset whose labels are correctly predicted by the model
+misclassification count,6,Linear Two-class Classification,192,184,The simplest metric for judging the quality of a fully trained model is to simply count the number of misclassifications it forms over our training dataset.
+step function approximation,6,Linear Two-class Classification,192,184,Our classification cost functions are - in the end - based on smooth approximations to a discrete step function
+early stopping by validation accuracy,6,Linear Two-class Classification,193,185,"the best step (the one that provides the best classification result), and corresponding weights, are associated with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value"
+cost function versus misclassification discrepancy,6,Linear Two-class Classification,193,185,it is not the case that just because the cost function value is decreasing that so too is the number of misclassifications
+balanced accuracy,6,Linear Two-class Classification,194,186,We can then combine these two metrics into a single value by taking their average. This combined metric is called balanced accuracy
+confusion matrix,6,Linear Two-class Classification,195,187,A confusion matrix is a simple look-up table where classification results are broken down by actual (across rows) and predicted (across columns) class membership.
+precision,6,Linear Two-class Classification,196,188,In the jargon of machine learning these individual accuracy metrics are often called precision (A+1) and specificity (A−1) respectively.
+weighted classification,6,Linear Two-class Classification,197,189,Because our two-class classification cost functions are summable over individual points we can - as we did with regression in Section 5.5 - weight individual points in order to emphasize or de-emphasize their importance to a classification model. This is called weighted classification.
+weighted softmax cost,6,Linear Two-class Classification,197,189,"This leads to the notion of weighting two-class cost functions, like for example the weighted Softmax cost which we write below"
+point-wise weights,6,Linear Two-class Classification,197,189,"Here the values β1, β2, ..., βP are fixed point-wise weights."
+weighting by confidence,6,Linear Two-class Classification,198,190,we can also think of assigning the fixed weight values in Equation (6.83) based on our 'confidence' of the legitimacy of a datapoint
+inverse class frequency weighting,6,Linear Two-class Classification,199,191,it is common to assign such weights inversely proportional to the number of members of each class
+linear multi-class classification,7,Linear Multi-class Classification,204,196,In this Chapter we describe how to generalize what we have seen in the previous Chapter to deal with this multi-class setting - referred to as linear multi-class classification.
+multi-class perceptron,7,Linear Multi-class Classification,204,196,we describe several perspectives on multi-class classification including One-versus-All and the multi-class Perceptron
+categorical multi-class classification,7,Linear Multi-class Classification,204,196,extensions of basic principles (including categorical and weighted multi-class classification)
+weighted multi-class classification,7,Linear Multi-class Classification,204,196,extensions of basic principles (including categorical and weighted multi-class classification)
+one-versus-all classification,7,Linear Multi-class Classification,205,197,"To solve this adjacent problem we learn C two-class classifiers over the entire dataset, with the cth classifier trained to distinguish the cth class from the remainder of the data, and hence called a one-versus-rest or one-versus-all classifier."
+signed distance to decision boundary,7,Linear Multi-class Classification,207,199,we can consider the signed distance of x to a two-class decision boundary as a measure of our confidence in how the point should be labeled.
+weight normalization,7,Linear Multi-class Classification,209,201,if we normalize the weights of each linear classifier by the length of its normal vector (containing all feature-touching weights)
+bias,7,Linear Multi-class Classification,209,201,"Decomposing the weights w_j of our jth classifier by separating the bias weight from feature-touching weights as (bias): b_j = w_{0,j}"
+fusion rule,7,Linear Multi-class Classification,211,203,We call this the fusion rule since we can think of it as a rule that fuses our C two-class classifiers together to determine the label that must be assigned to a point based on the notion of signed distance to decision boundary.
+piecewise linear decision boundary,7,Linear Multi-class Classification,212,204,In general when using linear two-class classifiers the boundary resulting from the fusion rule will always be piecewise linear
+mini-batch gradient descent,7,Linear Multi-class Classification,235,227,the mini-batch run drastically accelerates minimization in terms of both the cost function (left panel) and number of misclassifications (right panel)
+softmax cost function,7,Linear Multi-class Classification,235,227,minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions
+multi-class perceptron cost,7,Linear Multi-class Classification,235,227,minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions
+multi-class classification metrics,7,Linear Multi-class Classification,235,227,Multi-class metrics - natural extensions of those metrics first described for two-class problems in Section 6.8 - were then detailed in Section 7.6.
+batch size,7,Linear Multi-class Classification,235,227,using a batch of size 200 for the mini-batch version
+categorical labels,7,Linear Multi-class Classification,235,227,"we discussed the arbitrary nature of choosing label values, by detailing the most arbitrary choice: categorical labels"
+steplength,7,Linear Multi-class Classification,235,227,the same steplength for both runs
+balanced accuracy,7,Linear Multi-class Classification,237,229,"Extend the notion of balanced accuracy, detailed in the context of two-class classification (see Section 6.8.4), to the multi-class setting."
+weighted softmax cost,7,Linear Multi-class Classification,237,229,A general weighted version of the two-class Softmax cost is given in Equation (6.83). What will the analogous weighted multi-class Softmax cost function look like?
+class imbalance,7,Linear Multi-class Classification,237,229,If we set the weights the of cost function to deal with class imbalance - as detailed for the two-class case in Section 6.9.3
+convexity of cost functions,7,Linear Multi-class Classification,237,229,Show that the multi-class Perceptron and Softmax costs are always convex (regardless of the dataset used).
+hessian of softmax cost,7,Linear Multi-class Classification,237,229,Show that the Hessian of the multi-class Softmax cost function can be computed block-wise
+spanning set,8,Linear Unsupervised Learning,240,232,"Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space."
+mean-centering,8,Linear Unsupervised Learning,240,232,we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.
+orthonormal spanning set,8,Linear Unsupervised Learning,242,234,"An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other."
+autoencoder formula,8,Linear Unsupervised Learning,243,235,the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).
+projection,8,Linear Unsupervised Learning,244,236,the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.
+gradient descent,8,Linear Unsupervised Learning,245,237,local optimization techniques including gradient descent
+linear autoencoder,8,Linear Unsupervised Learning,246,238,"the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder."
+principal component analysis,8,Linear Unsupervised Learning,247,239,"Principal Component Analysis, or PCA for short, in practice."
+dimension reduction,8,Linear Unsupervised Learning,248,240,PCA can technically be used to reduce the dimension of data in a predictive modeling scenario
+covariance matrix regularization,8,Linear Unsupervised Learning,250,242,to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself
+k-means clustering,8,Linear Unsupervised Learning,252,244,"The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms."
+matrix factorization,8,Linear Unsupervised Learning,252,244,"some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector xp can be truly expressed as the linear combination Cwp ≈xp, p = 1, ..., P. In order to then learn both the spanning set C and each weight vector wp we could initially propose to minimize a Least Squares cost similar to one shown in Equation (8.16)."
+coordinate descent,8,Linear Unsupervised Learning,252,244,and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.
+least squares cost for incomplete data,8,Linear Unsupervised Learning,252,244,"we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2"
+cluster centroid,8,Linear Unsupervised Learning,253,245,Each cluster center - also called a centroid - is marked by a star symbol
+cluster assignment,8,Linear Unsupervised Learning,254,246,"the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2"
+centroid initialization,8,Linear Unsupervised Learning,254,246,we can start off by taking a random guess at the locations of our K centroids
+sequential refinement,8,Linear Unsupervised Learning,255,247,"To further refine our centroids / clusters we can now simply repeat the above two-step process of a) re-assigning points based on our new centroid locations and then b) updating the centroid locations as the average of those points assigned to each cluster."
+intra-cluster distance,8,Linear Unsupervised Learning,256,248,"For example, one metric for determining the best clustering from a set of runs is the average distance of each point to its cluster centroid - called the average intra-cluster distance."
+scree plot,8,Linear Unsupervised Learning,256,248,"In the right panel we plot the best distance value attained for each value of K tried, a plot often referred to in the jargon of machine learning as a scree plot."
+non-negative matrix factorization,8,Linear Unsupervised Learning,261,253,"giving the so-called non-negative matrix factorization problem minimize ∥CW −X∥2F C,W (8.40) subject to C, W ≥0."
+sparse coding,8,Linear Unsupervised Learning,261,253,"Sparse coding is a constrained matrix factorization problem often written as minimize ∥CW −X∥2F C,W (8.39) subject to wp 0 ≤S, p = 1, . . . , P,"
+pca least squares cost,8,Linear Unsupervised Learning,264,256,"the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex"
+alternating minimization,8,Linear Unsupervised Learning,264,256,alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems
+bi-convex function,8,Linear Unsupervised Learning,264,256,it is bi-convex in that it is convex in each matrix of parameters C and W independently
+orthogonal matrix,8,Linear Unsupervised Learning,265,257,the only such matrices that have this property are orthogonal
+variance maximization,8,Linear Unsupervised Learning,267,259,we aim to recover a form of the basis vector c1 that points in the maximum direction of variance in the dataset.
+rayleigh quotient,8,Linear Unsupervised Learning,267,259,Written in this form the above takes the form of a so-called Rayleigh Quotient
+feature engineering,9,Feature Engineering and Selection,269,261,Feature engineering methods consist of an array of techniques that are applied to data before they are used by either supervised or unsupervised models.
+feature selection,9,Feature Engineering and Selection,269,261,"Feature selection can be thought of as a supervised dimension reduction technique that reduces the total number of features involved in a regression or classification, making the resulting model more human interpretable."
+local optimization,9,Feature Engineering and Selection,269,261,drastically improving the efficacy of many local optimization methods.
+regularization,9,Feature Engineering and Selection,269,261,In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.
+boosting,9,Feature Engineering and Selection,269,261,In Sections 9.6 and 9.7 we discuss two popular ways for performing feature selection: boosting and regularization.
+dimension reduction,9,Feature Engineering and Selection,269,261,Feature selection can be thought of as a supervised dimension reduction technique
+histogram features,9,Feature Engineering and Selection,269,261,"the histogram feature transformation, is a common feature engineering tool used for a variety of data types including categorical, text, image, and audio data."
+principal component analysis,9,Feature Engineering and Selection,270,262,when PCA (see Section 8.3) is applied to reduce the dimension of a dataset it does so by learning a new (smaller) set of features over which the dataset may be fairly represented.
+clustering,9,Feature Engineering and Selection,270,262,any clustering technique (like K-Means detailed in Section 8.5) learns new representations to reduce the shear number of points in a dataset.
+one-hot encoded labels,9,Feature Engineering and Selection,272,264,This method of encoding categorical features is sometimes referred to as one-hot encoding
+inner product similarity,9,Feature Engineering and Selection,273,265,the inner product between two BoW vectors x1 and x2 always ranges between 0 and 1 ... may be used as a rough geometric measure of similarity
+normalization,9,Feature Engineering and Selection,273,265,each BoW vector is normalized to have unit length.
+stemming,9,Feature Engineering and Selection,273,265,"This preprocessing step is commonly called stemming, where related words with a common stem or root are reduced to (and then represented by) their common linguistic root."
+stop words,9,Feature Engineering and Selection,273,265,"uninformative words such as are and the, typically referred to as stop words"
+newton's method,9,Feature Engineering and Selection,275,267,a run of Newton's method (see Section 4.4)
+softmax cost function,9,Feature Engineering and Selection,275,267,Employing the two-class Softmax cost (see Section 7.3) to learn the separator
+discriminative features,9,Feature Engineering and Selection,276,268,pixel values themselves are typically not discriminative enough to be useful for machine learning tasks.
+edge histogram features,9,Feature Engineering and Selection,277,269,We then make normalized histogram of each image’s edge content (as shown for the examples in the right column of Figure 9.7).
+mini-batch gradient descent,9,Feature Engineering and Selection,280,272,mini-batch gradient descent (20 steps/epochs with a learning rate of α = 10−2 and batch size of 200 applied to a multi-class Softmax cost)
+spectrogram,9,Feature Engineering and Selection,281,273,computing frequency histograms over overlapping windows of an audio signal ... produces a feature vector ... and is a common feature transformation used for speech recognition called a spectrogram.
+standard normalization,9,Feature Engineering and Selection,282,274,Standard normalization of the input features of a dataset is a very simple two-step procedure consisting of first mean-centering and then re-scaling each of its input features by the inverse of its standard deviation.
+nonlinear feature engineering,10,Principles of Nonlinear Feature Engineering,309,301,nonlinear feature engineering in the context supervised and unsupervised learning
+nonlinear regression,10,Principles of Nonlinear Feature Engineering,309,301,the general framework of nonlinear regression via engineering of nonlinear feature transformations
+nonlinear model,10,Principles of Nonlinear Feature Engineering,311,303,"model (x, Θ) = w0 + f1 (x) w1 + f2 (x) w2 + · · · + fB (x) wB"
+feature engineering,10,Principles of Nonlinear Feature Engineering,312,304,feature engineering wherein the functional form of nonlinearities to use in machine learning models is determined (or engineered) by humans through their expertise
+transformed feature space,10,Principles of Nonlinear Feature Engineering,312,304,in this transformed feature space... our tuned nonlinear model becomes a linear one.
+standard normalization,10,Principles of Nonlinear Feature Engineering,313,305,it is still highly advantageous to employ standard normalization to scale our input when employing gradient descent schemes
+non-convex cost function,10,Principles of Nonlinear Feature Engineering,316,308,the corresponding cost functions are generally non-convex.
+softmax cost function,10,Principles of Nonlinear Feature Engineering,317,309,g (W) = 1 P P X p=1 0 B @log C−1 X c=0 e˚xT p wc 1 C A − ˚xT p wyp
+multi-output regression,10,Principles of Nonlinear Feature Engineering,317,309,"nonlinear feature engineering for multi-output regression. In this Section we present a description of nonlinear feature engineering for multi-output regression first introduced Section 5.6. This mirrors what we have seen in the previous Section completely with one small but important difference: in the multi-output case we can choose to model each regression separately, employing one nonlinear model for output, or jointly, producing a single nonlinear model for all outputs simultaneously"
+decision boundary,10,Principles of Nonlinear Feature Engineering,320,312,our decision boundary here consists of all inputs x where ˚fTw = 0
+gradient descent,10,Principles of Nonlinear Feature Engineering,320,312,minimizing the Least Squares cost in Equation (10.23) using gradient descent
+fusion rule,10,Principles of Nonlinear Feature Engineering,325,317,we aim to tune the parameters of W to satisfy the fusion rule
+one-versus-all classification,10,Principles of Nonlinear Feature Engineering,325,317,by either tuning each column of W one-at-a-time in a one-versus-all approach
+automatic differentiation,10,Principles of Nonlinear Feature Engineering,325,317,if we wish to use an automatic diﬀerentiator then these should be expressed using autograd’s numpy wrapper
+feature sharing,10,Principles of Nonlinear Feature Engineering,326,318,choose a single set of nonlinear feature transformations and share them among all C two-class models
+degree two polynomial expansion,10,Principles of Nonlinear Feature Engineering,327,319,full degree two polynomial expansion of the input consisting of features of the form xi 1xj 2 where i + j ≤2
+mean-centering,10,Principles of Nonlinear Feature Engineering,328,320,mean-centered N dimensional input datapoints
+least squares cost function,10,Principles of Nonlinear Feature Engineering,329,321,Least Squares error measurement
+manifold,10,Principles of Nonlinear Feature Engineering,329,321,nonlinear surface (also called a manifold)
+encoder-decoder composition,10,Principles of Nonlinear Feature Engineering,330,322,"model (x, Θ) = fd (fe (x))"
+output transformation,10,Principles of Nonlinear Feature Engineering,334,326,"to produce a linear relationship you will end up having to transform the output, not the input."
+nonlinear classification,10,Principles of Nonlinear Feature Engineering,336,328,Nonlinear two-class classification
+kernel pca,10,Principles of Nonlinear Feature Engineering,337,329,"This is a more restricted version of nonlinear PCA, often termed Kernel PCA"
+kernel k-means,10,Principles of Nonlinear Feature Engineering,338,330,The same idea introduced in the previous exercise can also be used to extend K-means clustering (see Section 8.4) to a nonlinear setting as well - and is the basis for so-called kernel K-means.
+standard basis vector constraint,10,Principles of Nonlinear Feature Engineering,338,330,each weight vector wp ∈{ek}K k=1 is a standard basis vector
+feature learning,11,Principles of Feature Learning,339,331,feature learning (or automatic feature engineering) that allow us to automate this task and learn proper features from the data itself
+nonlinear model,11,Principles of Feature Learning,339,331,a general nonlinear model for regression and two-class classification as a weighted sum of B nonlinear functions
+universal approximators,11,Principles of Feature Learning,341,333,"The first step, as we will see in Section 11.2, is to organize the pursuit of automation by first placing the fundamental building blocks of this infinitude into manageable collections of (relatively simple) nonlinear functions. These collections are often called universal approximators, of which three strains are popularly used and which we introduce here: fixed-shape approximators, artificial neural networks, and trees."
+linear combination,11,Principles of Feature Learning,345,337,the linear combination f1w1 + f2w2 + ... + fBwB = y defines a new N dimensional vector
+least squares cost function,11,Principles of Feature Learning,361,353,using a Least Squares cost (third row) and a softmax cost (fourth row)
+softmax cost function,11,Principles of Feature Learning,361,353,softmax cost (fourth row)
+training error,11,Principles of Feature Learning,362,354,"As a measurement tool the training error only tells us how well a tuned model fits the training data, but fails to tell us when our tuned model becomes too complex."
+overfitting,11,Principles of Feature Learning,367,359,"we say that overfitting begins. This language is used because while such highly complex models fit the given data extremely well, they do so at the cost of not representing the underlying phenomenon well."
+underfitting,11,Principles of Feature Learning,367,359,"We say that such a tuned model underfits, as it does not even fit the given data well"
+model complexity,11,Principles of Feature Learning,367,359,"Notice, we only control the complexity of a tuned model (or, roughly speaking, how ”wiggly” a tuned model fit is) indirectly by how we set both our capacity and optimization dials"
+optimization dial,11,Principles of Feature Learning,367,359,"we only control the complexity of a tuned model (or, roughly speaking, how ”wiggly” a tuned model fit is) indirectly by how we set both our capacity and optimization dials"
+validation error,11,Principles of Feature Learning,370,362,"The model providing the lowest error on the validation data, i.e., the lowest validation error, is then deemed the best choice from a selection of trained models."
+training set,11,Principles of Feature Learning,370,362,the remaining portion we use to train models is likewise referred to as the training data (or training set)
+validation set,11,Principles of Feature Learning,370,362,The random portion of the data we remove to validate our model(s) is commonly called the validation data (or validation set)
+early stopping,11,Principles of Feature Learning,391,383,"With early stopping regularization we properly tune a high capacity model by making a run of local optimization (tuning all parameters of the model), and by using the set of weights from this run where the model achieves minimum validation error."
+local optimization,11,Principles of Feature Learning,391,383,make a run of local optimization
+high capacity model,11,Principles of Feature Learning,391,383,high capacity model
+regularizer,11,Principles of Feature Learning,396,388,A regularizer is a simple function that can be added to a machine learning cost
+regularization parameter,11,Principles of Feature Learning,396,388,where λ is referred to as the regularization parameter. The regularization parameter is always non-negative λ ≥0 and controls the mixture of the cost and regularizer
+regularized cost function,11,Principles of Feature Learning,396,388,the regularized cost is given as the linear combination of g and h as g (Θ) + λh (Θ)
+l2 regularization based cross-validation,11,Principles of Feature Learning,409,401,"the appropriate tuning of each model’s parameters is achieved via ℓ2 regularization based cross-validation (see Section 11.6.3) using a dense range of values for λ ∈[0, 0.1]."
+boosting,11,Principles of Feature Learning,412,404,With boosting we build up a single cross-validated model by gradually adding together simple models consisting of a single universal approximator unit (see especially Section 11.5.4).
+ensembling,11,Principles of Feature Learning,412,404,An ensembling method... refers to any method of combining different models in a machine learning context.
+k-folds cross-validation,11,Principles of Feature Learning,413,405,with K-folds cross-validation we choose a single model that has minimum average validation error over all of the splits together.
+regularization,11,Principles of Feature Learning,416,408,regularizer-based regularization (as described in Section 11.6.3)
+sparse feature selection,11,Principles of Feature Learning,417,409,"sparse feature selection, is commonly done in order to produce high performing and human-interpretable results"
+cross-validation,11,Principles of Feature Learning,419,411,Methods for automating the setting of capacity and optimization (called cross-validation)
+model capacity,11,Principles of Feature Learning,419,411,properly setting the capacity of a model built with units of a universal approximator
+fixed-shape universal approximators,12,Kernel methods,423,415,fixed-shape universal approximators as collections of various nonlinear features which have no internal (tunable) parameters
+fourier basis,12,Kernel methods,424,416,the Fourier basis ... consists of the set of paired sine and cosine waves (with ever-increasing frequency) of the form f2m−1 (x) = sin (2πmx) and f2m (x) = cos (2πmx)
+exponential scaling of fixed-shape units,12,Kernel methods,425,417,the number of units of a typical fixed-shape approximator in a model employing a complete package of such units grows exponentially with the dimension of input.
+complete package of fixed-shape units,12,Kernel methods,425,417,"we virtually always use polynomial units as a complete package of units of a certain degree, not individually."
+kernel trick,12,Kernel methods,426,418,This serious scaling issue motivates the so-called kernel trick described in the next Section
+weight vector decomposition over feature matrix,12,Kernel methods,428,420,any vector ω in an M dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r
+orthogonal component r,12,Kernel methods,428,420,r is orthogonal to this subspace
+kernel matrix,12,Kernel methods,429,421,denoting the symmetric P × P matrix H = FTF ... referred to as a kernel matrix or just a kernel for short
+kernelization via weight vector substitution,12,Kernel methods,429,421,Substituting this representation of ω back into the cost function
+kernelized least squares,12,Kernel methods,429,421,"g(b, z) = Σ(b + hT_p z - yp)^2"
+kernelized logistic regression,12,Kernel methods,430,422,This kernelized form of the Softmax is often referred to as kernelized logistic regression.
+softmax cost function,12,Kernel methods,430,422,"our generic two-class Softmax cost ... g (b, ω) = Σ log(1 + e^{-yp(b+fT p ω)})"
+entry-wise kernel matrix construction,12,Kernel methods,431,423,this matrix may be constructed entry-wise via simple formulae
+polynomial kernel,12,Kernel methods,431,423,Example 12.7 The polynomial kernel
+kernelized l2 regularizer,12,Kernel methods,431,423,the kernelized form of the regularized Least Squares problem ... λz^T H z
+kernelized squared margin,12,Kernel methods,431,423,"squared margin/ soft-margin SVMs ... PP p=1 max2 (0, 1 - yp(b + hT_p z))"
+kernelized multi-class softmax,12,Kernel methods,431,423,multi-class softmax ... kernelized version
+l2 regularizer,12,Kernel methods,431,423,the l2 regularizer can be added to any cost function in the middle column and the resulting kernelized form of the sum will be the sum of the kernelized cost regularizer
+soft-margin support vector machine,12,Kernel methods,431,423,squared margin/soft-margin SVMs
+naive cross-validation,12,Kernel methods,439,431,"we use naive cross-validation (that is, we simply perform a raw search over various models as first detailed in Section 11.4.2)"
+regularization-based cross-validation,12,Kernel methods,439,431,cross-validation via regularization with the ℓ2 norm (as detailed in Section 11.4) is common practice when employing polynomial and Fourier kernels.
+fourier kernel,12,Kernel methods,442,434,"Fourier kernel for vector-valued input ... Calculate the corresponding i, jth entry of the kernel matrix"
+fully-connected neural network,13,Fully-connected neural networks,443,435,"discussing general multi-layer neural networks, also referred to as fully-connected networks, multi-layer perceptrons, and deep feedforward neural networks."
+activation function,13,Fully-connected neural networks,443,435,"a linear combination of input passed through a nonlinear activation function, which is typically an elementary mathematical function (e.g., tanh, ReLU, a logistic sigmoid, etc.,)."
+single-layer unit,13,Fully-connected neural networks,443,435,"single hidden-layer unit, also called a single-layer unit for short"
+model capacity,13,Fully-connected neural networks,444,436,"This roughly illustrates the capacity of each single layer unit. Capacity (a concept first introduced in Section 11.2.2) refers to the range of shapes a function like this can take, given all different settings of its internal parameters."
+model parameters,13,Fully-connected neural networks,444,436,"the internal parameters of the function (i.e., w(1)_0 and w(1)_1 ) have been set randomly"
+recursive construction,13,Fully-connected neural networks,444,436,We refer to this manner of writing out the function as the recursive recipe for creating single-layer network units. The recursive nature of constructing two-layer units using single-layer ones is emphasized.
+hidden layer,13,Fully-connected neural networks,445,437,In the middle of this visual depiction (where the blue circles representing all U1 activations align) is the hidden layer of this network model.
+neural network architecture,13,Fully-connected neural networks,445,437,A visual representation like this is often referred to as a neural network architecture or just an architecture.
+input layer,13,Fully-connected neural networks,445,437,"This layer is ""visible"" to us since this is where we inject the input data to our network which we ourselves can ""see,"" and is also often referred to as the first or input layer of the network."
+output layer,13,Fully-connected neural networks,446,438,"This is the final output of the model, and is often called the final or output layer of the network which is again ""visible"" to us (not hidden)."
+weight matrix,13,Fully-connected neural networks,447,439,"Taking these parameters we form a column vector, starting with the bias w(1)_0, j and then input-touching weights w(1)_1, j through w(1)_N, j, and place them into the jth column of an (N + 1) × U1 matrix W1"
+vector activation,13,Fully-connected neural networks,447,439,we define a (·) as the vector function that takes in a general d × 1 vector v and returns as output a vector of the same size containing activation of each of its input’s entries
+two-layer unit,13,Fully-connected neural networks,448,440,"To create a two-hidden-layer neural network unit, or a two-layer unit for short"
+step function,13,Fully-connected neural networks,464,456,a step function taking on just two values: 0 (off) and 1 (on)
+vanishing gradient problem,13,Fully-connected neural networks,465,457,"a technical issue known as the vanishing gradient problem. These characteristics can cause the gradient of a network employing sigmoid activations to shrink undesirably, preventing proper parameter tuning, a problem that balloons as more hidden layers are added"
+sigmoid activation,13,Fully-connected neural networks,465,457,the logistic sigmoid was viewed as a reasonable compromise between the desired neuronal model and the practical need to tune parameters properly. When used as an activation function it often leads to a technical issue known as the vanishing gradient problem
+backpropagation,13,Fully-connected neural networks,467,459,"The backpropagation algorithm, often referred to simply as backpropagation or backprop for short"
+maxout activation,13,Fully-connected neural networks,467,459,"The maxout activation, defined as a(x) = max(v0 + v1x, w0 + w1x)"
+batch normalization,13,Fully-connected neural networks,475,467,"As was the case in studying the single-layer case above, here too we willneed to graft this step onto the second hidden-layer of our network so that whenever its parameters change (e.g., during each step of a local optimizer) the distribution of this unit remains normalized."
+internal covariate shift,13,Fully-connected neural networks,476,468,the covariate shift of this network is considerable
+split point,14,Tree-based learners,483,475,a split point parameter s defining the boundary between the two levels
+stump,14,Tree-based learners,483,475,"The most basic tree-based universal approximator, the stump, is a simple step function of the form"
+bagging,14,Tree-based learners,483,475,explain their particular usage with boosting-based cross-validation and bagged ensembles
+leaf parameters,14,Tree-based learners,483,475,two step levels or leaf parameters denoted by v1 and v2
+growing of a tree,14,Tree-based learners,485,477,This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.
+local function approximator,14,Tree-based learners,485,477,This is why tree-based universal approximators are sometimes called local function approximators.
+regression tree,14,Tree-based learners,486,478,"the use of general tree-based universal approximators for the problem of regression, often called regression trees."
+addition of trees,14,Tree-based learners,486,478,"Deeper, more flexible trees can also be constructed via addition of shallower trees."
+staircase-like cost,14,Tree-based learners,486,478,"create highly non-convex, staircase-like functions"
+human interpretability,14,Tree-based learners,486,478,shallow tree-based units ... are often easy to interpret by humans
+mid-point split point,14,Tree-based learners,487,479,"we need only test one split point per flat region, e.g., the mid-point, as shown in this panel."
+candidate split points,14,Tree-based learners,490,482,we create a set of candidate split point values by recording every mid-point between our input data
+optimal leaf values,14,Tree-based learners,490,482,optimal leaf values v⋆_L and v⋆_R equal to the mean of the output
+leaf-value optimization,14,Tree-based learners,500,492,optimize the leaf values of fsm (x) using an appropriate cost function
+tree-based learner,14,Tree-based learners,500,492,In the case of tree-based learners we can dispense with the bias and weights
+residual fitting,14,Tree-based learners,501,493,interpreted as successive rounds of fitting to the residual
+feature subsampling,14,Tree-based learners,503,495,only a random subset of feature dimensions are sampled for viable split points
+recursively defined trees,14,Tree-based learners,503,495,recursively defined regression and classification trees
+computational trade-off,14,Tree-based learners,503,495,"the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones"
+mode,14,Tree-based learners,503,495,taking the mode of the five classification trees
+pruning,14,Tree-based learners,507,499,pruning-based regularization. Pruning is a tree-specific form of regularization based cross-validation
+gradient boosting,14,Tree-based learners,508,500,Gradient boosting - the specific application of boosting based cross-validation (described in detail in Section 11.5) to tree-based learners was touched upon in Section 14.5.
+random forests,14,Tree-based learners,508,500,Random Forests - the specialized application of bagging (detailed in Section 11.9) to tree-based learners - was described in Section 14.6.
+classification trees,14,Tree-based learners,508,500,Recursively-defined regression and classification trees were then gently motivated
+supervised learning,1,Introduction to Machine Learning,26,18,Supervised learning problems (like the prototypical problem outlined in Section 1.2) refer to the automatic learning of computational rules involving input/out- put relationships.
+regression,1,Introduction to Machine Learning,27,19,"This sort of task, i.e., fitting a model to a set of training data so that predictions about a continuous-valued output (here, share price) can be made, is referred to as regression."
+mathematical optimization,1,Introduction to Machine Learning,36,28,"As the study of computational methods for minimizing formal mathematical functions, the tools of mathematical optimization therefore play a fundamental role throughout the text."
+random search,2,Zero order optimization techniques,52,44,"With random search we do (perhaps) the ’laziest’ possible thing one could think to do in order to find a descent direction: we sample a given number of random directions stemming from wk−1, evaluate each candidate update point, and choose the one that gives us the smallest evaluation (so long as it is indeed lower on the function than our current point)."
+coordinate descent,2,Zero order optimization techniques,60,52,"A slight twist on the coordinate search produces a much more effective algorithm at precisely the same computational cost called coordinate descent. Instead of collecting each coordinate direction (along with its negative version), and then choosing a single best direction from this entire set, we can simply examine one coordinate direction (and its negative) at a time and step in this direction if it produces descent."
+steplength,2,Zero order optimization techniques,57,49,A commonly used alternative to fixed steplength rules are the so-called diminishing steplength rules wherein we shrink or diminish the size of the steplength at each step of local optimization.
+cost function history plot,2,Zero order optimization techniques,54,46,This visualization is called a cost function history plot since (as we will see in future Chapters) mathematical functions we are interested in minimizing in machine learning are often referred to as cost or loss functions.
+gradient descent,3,First order optimization techniques,81,73,"The rather simple update step in Equation (3.31) is indeed an extremely popular local optimization method called the gradient descent algorithm, named so because it employs the (negative) gradient as the descent direction."
+gradient,3,First order optimization techniques,67,59,Because the derivative of a single-input function or the gradient of a multi-input function (see Section B.2) at a point gives precisely this slope information
+first order taylor series approximation,4,Second order optimization techniques,109,101,"We saw in our discussion of gradient descent that the first order Taylor approximation, being a hyperplane itself, conveniently provides us with a descent direction"
+vectorized implementation,5,Linear regression,134,126,"As a general rule whenever vectorized implementations are available, one must refrain from implementing algebraic expressions in Python entry-wise using for instance, explicit for loops."
+margin of separating hyperplane,6,Linear Two-class Classification,183,175,"One reasonable standard for judging the quality of these hyperplanes is via their margin lengths, that is the distance between the evenly spaced translates that just touch each class."
+orthogonal matrix,8,Linear Unsupervised Learning,611,603,When the eigenvectors are all perpendicular to each other V is an orthonormal matrix1 and we have VVT = I.
+regularization,9,Feature Engineering and Selection,296,288,"In this Section we introduce a complementary approach to feature selection, called regularization. Instead of building up a model starting at the bottom, with regularization we take a ‘top-down’ view and start offwith a complete model that includes every one of our input features, and then we gradually remove input features of inferior importance."
+boosting,9,Feature Engineering and Selection,291,283,"In this Section we discuss one popular way of performing feature selection, called boosting or forward stagewise selection. Boosting is a bottom-up approach to feature selection wherein we gradually build up our model one feature at a time by training a supervised learner sequentially, one weight at a time."
+edge histogram features,9,Feature Engineering and Selection,279,271,Generalizations of this simple edge histogram concept are widely used as feature transformations for visual object recognition
+mini-batch gradient descent,7,Linear Multi-class Classification,233,225,In Appendix Section A.5 we describe a simple extension of the standard gradient descent algorithm (outlined in Chapter 3) called mini-batch gradient descent. This approach is designed to accelerate the minimization of cost functions consisting of a sum of P terms
+polynomial kernel,12,Kernel methods,432,424,"a polynomial kernel can be defined entry-wise, in a similar manner, for general N and D"
+weight matrix,13,Fully-connected neural networks,452,444,which mirrors precisely how we defined the (N + 1) × U1 internal weight matrix W1 for our single-layer units in Equation (13.7).
+internal covariate shift,13,Fully-connected neural networks,472,464,"The constant alteration of these distributions is referred to as internal covariate shift in the jargon of machine learning, or just covariate shift for short"
+bagging,14,Tree-based learners,502,494,Generally speaking bagging (as detailed in Section 11.9) involves combining multiple cross-validated models to produce a single higher performing model.
+classification trees,14,Tree-based learners,502,494,"Unless human interpret-ability of the final model is of primary concern, one virtually never uses a single recursively defined regression or classification tree, but a bagged ensemble of them."
+backtracking line search,5,Linear regression,538,530,"Instead we test out values of α via an efficient bisection process by which we gradually decrease the value of α from some initial value until the inequality is satisfied. This procedure, referred to as backtracking line search, generally runs as follows."

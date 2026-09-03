@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5fe74ceb2c9cf1a5fc6f692c00a4c1ec8043bc2442c204fb5a22595c0782f393",
+  "concept_id": 41,
+  "concept_name": "cost function history plot",
+  "aliases": [
+    "cost function history plot"
+  ],
+  "profile": "cost function history plot: a visualization used in optimization, named because the mathematical functions minimized in machine learning are often referred to as cost or loss functions. The notion is presented alongside descent directions, steplength/learning rates, and convergence.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "cost function history plot: a visualization used in optimization, especially in machine learning, to record the progression of the cost (or loss) function being minimized. It is commonly associated with descent directions, steplength/learning rates, and convergence. The term arises because mathematical functions minimized in machine learning are often referred to as cost or loss functions, making this plot a standard tool for monitoring optimization progress.",
+    "claims": [
+      {
+        "claim": "A cost function history plot is a visualization used in optimization, especially in machine learning, to record the progression of the cost (or loss) function being minimized.",
+        "evidence_ids": [
+          "MLR-E0355"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is commonly associated with descent directions, steplength/learning rates, and convergence.",
+        "evidence_ids": [
+          "MLR-E0042"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term arises because mathematical functions minimized in machine learning are often referred to as cost or loss functions.",
+        "evidence_ids": [
+          "MLR-E0355"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "cost function history plot: a visualization used in optimization, named because the mathematical functions minimized in machine learning are often referred to as cost or loss functions. The notion is presented alongside descent directions, steplength/learning rates, and convergence.",
+    "sentence_reviews": [
+      {
+        "sentence": "cost function history plot: a visualization used in optimization, named because the mathematical functions minimized in machine learning are often referred to as cost or loss functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0355"
+        ],
+        "reason": "Evidence explains the visualization's name by the use of 'cost or loss functions' for machine-learning minimization."
+      },
+      {
+        "sentence": "The notion is presented alongside descent directions, steplength/learning rates, and convergence.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0042"
+        ],
+        "reason": "Evidence lists cost function history plots among these optimization notions."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"cost function history plot: a visualization used in optimization, especially in machine learning, to record the progression of the cost (or loss) function being minimized. It is commonly associated with descent directions, steplength/learning rates, and convergence. The term arises because mathematical functions minimized in machine learning are often referred to as cost or loss functions, making this plot a standard tool for monitoring optimization progress.\",\n  \"claims\": [\n    {\n      \"claim\": \"A cost function history plot is a visualization used in optimization, especially in machine learning, to record the progression of the cost (or loss) function being minimized.\",\n      \"evidence_ids\": [\"MLR-E0355\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is commonly associated with descent directions, steplength/learning rates, and convergence.\",\n      \"evidence_ids\": [\"MLR-E0042\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term arises because mathematical functions minimized in machine learning are often referred to as cost or loss functions.\",\n      \"evidence_ids\": [\"MLR-E0355\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"cost function history plot: a visualization used in optimization, named because the mathematical functions minimized in machine learning are often referred to as cost or loss functions. The notion is presented alongside descent directions, steplength/learning rates, and convergence.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"cost function history plot: a visualization used in optimization, named because the mathematical functions minimized in machine learning are often referred to as cost or loss functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0355\"],\n      \"reason\": \"Evidence explains the visualization's name by the use of 'cost or loss functions' for machine-learning minimization.\"\n    },\n    {\n      \"sentence\": \"The notion is presented alongside descent directions, steplength/learning rates, and convergence.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0042\"],\n      \"reason\": \"Evidence lists cost function history plots among these optimization notions.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:36:30.503738+00:00"
+}

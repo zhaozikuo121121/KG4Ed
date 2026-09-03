@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6993b1e9996e8a9aff24df7b8a7340bc59f0db0bffedd6f4857a00dbd34a188b",
+  "concept_id": 154,
+  "concept_name": "graphlets",
+  "aliases": [
+    "graphlets",
+    "subgraph patterns"
+  ],
+  "profile": "graphlets: The available material shows graphlet labels G1 and G2. No definition or structural properties are provided.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graphlets: The term is represented in notation by labels such as G1 and G2, indicating distinct graphlet types or instances. The notation suggests a systematic naming scheme, but the available information does not define the structural properties of graphlets.",
+    "claims": [
+      {
+        "claim": "Graphlets are denoted by labels such as G1 and G2.",
+        "evidence_ids": [
+          "DGL-E0165"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to a handwritten note; no definition or properties of graphlets are specified."
+    ]
+  },
+  "review": {
+    "final_profile": "graphlets: The available material shows graphlet labels G1 and G2. No definition or structural properties are provided.",
+    "sentence_reviews": [
+      {
+        "sentence": "The available material shows graphlet labels G1 and G2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0165"
+        ],
+        "reason": "The handwritten evidence lists graphlets G1 and G2."
+      },
+      {
+        "sentence": "No definition or structural properties are provided.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0165"
+        ],
+        "reason": "The evidence contains only the labels and gives no further detail about graphlets."
+      }
+    ],
+    "warnings": [
+      "The source is a handwritten note with no definition or explanation; graphlet structure is unknown."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graphlets: The term is represented in notation by labels such as G1 and G2, indicating distinct graphlet types or instances. The notation suggests a systematic naming scheme, but the available information does not define the structural properties of graphlets.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graphlets are denoted by labels such as G1 and G2.\",\n      \"evidence_ids\": [\"DGL-E0165\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to a handwritten note; no definition or properties of graphlets are specified.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graphlets: The available material shows graphlet labels G1 and G2. No definition or structural properties are provided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The available material shows graphlet labels G1 and G2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0165\"],\n      \"reason\": \"The handwritten evidence lists graphlets G1 and G2.\"\n    },\n    {\n      \"sentence\": \"No definition or structural properties are provided.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0165\"],\n      \"reason\": \"The evidence contains only the labels and gives no further detail about graphlets.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source is a handwritten note with no definition or explanation; graphlet structure is unknown.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:54:31.100964+00:00"
+}

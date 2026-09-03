@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "223d9122c4bd78471f089af7e2ccde2bd097e7afa316c83e09f292fe8418d682",
+  "concept_id": 245,
+  "concept_name": "computational efficiency",
+  "aliases": [
+    "computational efficiency",
+    "efficiency"
+  ],
+  "profile": "computational efficiency: In GNN training, computational efficiency is characterized by the phrase 'more computationally efficient.' Node sampling reduces computational cost.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "computational efficiency: In GNN training, computational efficiency is described as being more computationally efficient. Node sampling reduces the computational cost.",
+    "claims": [
+      {
+        "claim": "In GNN training, computational efficiency is described as being more computationally efficient.",
+        "evidence_ids": [
+          "DGL-E0337"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node sampling reduces the computational cost.",
+        "evidence_ids": [
+          "DGL-E0362"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The comparison baseline for 'more computationally efficient' is not specified in the source."
+    ]
+  },
+  "review": {
+    "final_profile": "computational efficiency: In GNN training, computational efficiency is characterized by the phrase 'more computationally efficient.' Node sampling reduces computational cost.",
+    "sentence_reviews": [
+      {
+        "sentence": "In GNN training, computational efficiency is characterized by the phrase 'more computationally efficient.'",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0337"
+        ],
+        "reason": "Directly reflects the source phrase 'Computational Efficiency: More computationally efficient.'"
+      },
+      {
+        "sentence": "Node sampling reduces computational cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0362"
+        ],
+        "reason": "Source explicitly states that node sampling reduces the computational cost."
+      }
+    ],
+    "warnings": [
+      "The source does not specify the baseline or measure for 'more computationally efficient.'"
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"computational efficiency: In GNN training, computational efficiency is described as being more computationally efficient. Node sampling reduces the computational cost.\",\n  \"claims\": [\n    {\n      \"claim\": \"In GNN training, computational efficiency is described as being more computationally efficient.\",\n      \"evidence_ids\": [\"DGL-E0337\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node sampling reduces the computational cost.\",\n      \"evidence_ids\": [\"DGL-E0362\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The comparison baseline for 'more computationally efficient' is not specified in the source.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"computational efficiency: In GNN training, computational efficiency is characterized by the phrase 'more computationally efficient.' Node sampling reduces computational cost.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In GNN training, computational efficiency is characterized by the phrase 'more computationally efficient.'\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0337\"],\n      \"reason\": \"Directly reflects the source phrase 'Computational Efficiency: More computationally efficient.'\"\n    },\n    {\n      \"sentence\": \"Node sampling reduces computational cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0362\"],\n      \"reason\": \"Source explicitly states that node sampling reduces the computational cost.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not specify the baseline or measure for 'more computationally efficient.'\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:26:59.432294+00:00"
+}

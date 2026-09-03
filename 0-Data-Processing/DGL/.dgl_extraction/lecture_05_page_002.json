@@ -1,0 +1,2310 @@
+{
+  "version": "1.0.0",
+  "lecture": 5,
+  "pdf_file": "DGL_Lecture_5_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "Expressive Power of Graph Neural Networks and the Weisfeiler-Lehman Test",
+  "summary": "This lecture page explores the theoretical limits of Graph Neural Networks (GNNs) in distinguishing graph structures, defining expressive power as the ability to map distinct local neighborhoods to unique embeddings. It introduces the Graph Isomorphism Network (GIN) as a model designed to achieve maximum expressiveness by utilizing injective aggregation functions, mathematically equivalent to the Weisfeiler-Lehman (WL) graph isomorphism test. The content contrasts standard aggregators like mean and max, which fail to distinguish certain non-isomorphic graphs, with the WL color refinement algorithm that iteratively hashes neighborhood structures to differentiate nodes.",
+  "key_topics": [
+    "expressive power of gnn",
+    "weisfeiler-lehman graph isomorphism test",
+    "injective aggregation",
+    "graph isomorphism network",
+    "node computational graph"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:01:12+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "k-hop similarity",
+      "aliases": [
+        "k-hop neighborhood similarity"
+      ],
+      "evidence": "K-hop similarity in node local structure",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        203.5,
+        11.0,
+        346.5,
+        27.5
+      ]
+    },
+    {
+      "canonical": "dropgnn",
+      "aliases": [
+        "drop gnn"
+      ],
+      "evidence": "1) DropGNN (2021)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        554.5,
+        165.0,
+        642.5,
+        187.0
+      ]
+    },
+    {
+      "canonical": "symmetric neighborhood",
+      "aliases": [
+        "structural symmetry"
+      ],
+      "evidence": "Symmetric neighborhood",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        286.0,
+        220.0,
+        357.5,
+        231.0
+      ]
+    },
+    {
+      "canonical": "expressive power of gnn",
+      "aliases": [
+        "gnn expressiveness",
+        "expressive gnn"
+      ],
+      "evidence": "Definition: An expressive GNN model maximizes its node representation capacity... by mapping different local neighborhoods to different embeddings",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        357.5,
+        539.0,
+        407.0
+      ]
+    },
+    {
+      "canonical": "gin",
+      "aliases": [
+        "graph isomorphism network"
+      ],
+      "evidence": "2) GIN (2019)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        357.5,
+        495.0,
+        368.5
+      ]
+    },
+    {
+      "canonical": "node representation capacity",
+      "aliases": [
+        "embedding capacity"
+      ],
+      "evidence": "maximizes its node representation capacity in the embedding space",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        385.0,
+        247.5,
+        396.0
+      ]
+    },
+    {
+      "canonical": "mean aggregator",
+      "aliases": [
+        "mean aggregation"
+      ],
+      "evidence": "Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        401.5,
+        752.5,
+        412.5
+      ]
+    },
+    {
+      "canonical": "max aggregator",
+      "aliases": [
+        "max aggregation"
+      ],
+      "evidence": "Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        401.5,
+        752.5,
+        412.5
+      ]
+    },
+    {
+      "canonical": "weisfeiler-lehman graph isomorphism test",
+      "aliases": [
+        "wl test",
+        "weisfeiler-lehman test"
+      ],
+      "evidence": "The Weisfeiler-Lehman (WL) test of graph isomorphism... is an effective and computationally efficient test",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        554.5,
+        440.0,
+        752.5,
+        456.5
+      ]
+    },
+    {
+      "canonical": "graph isomorphism problem",
+      "aliases": [
+        "graph isomorphism"
+      ],
+      "evidence": "The graph isomorphism problem asks whether two graphs are topologically identical",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        554.5,
+        467.5,
+        972.5,
+        484.0
+      ]
+    },
+    {
+      "canonical": "injective aggregation",
+      "aliases": [
+        "injective neighbor aggregation"
+      ],
+      "evidence": "It uses an injective neighbor aggregation at each layer k",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        495.0,
+        165.0,
+        506.0
+      ]
+    },
+    {
+      "canonical": "node computational graph",
+      "aliases": [
+        "computation graph",
+        "computational graph"
+      ],
+      "evidence": "Since the neighborhood aggregation is modeled through the node computational graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        522.5,
+        302.5,
+        533.5
+      ]
+    },
+    {
+      "canonical": "wl color refinement algorithm",
+      "aliases": [
+        "wl color refinement",
+        "color refinement"
+      ],
+      "evidence": "WL color refinement algorithm: 1) Assign an initial color...",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        554.5,
+        528.0,
+        697.5,
+        544.5
+      ]
+    },
+    {
+      "canonical": "k-hop neighborhood",
+      "aliases": [
+        "k-hop"
+      ],
+      "evidence": "After K steps of color refinement, c^K(v) summarizes the structure of K-hop neighborhood",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        604.0,
+        807.5,
+        620.5
+      ]
+    },
+    {
+      "canonical": "rooted subtree",
+      "aliases": [
+        "rooted subtrees"
+      ],
+      "evidence": "Computational graphs are identical to rooted subtree structures around each node",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        752.5,
+        539.0,
+        769.0
+      ]
+    },
+    {
+      "canonical": "injective hash function",
+      "aliases": [
+        "injective hash"
+      ],
+      "evidence": "HASH table: Injective!",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        780.0,
+        917.5,
+        796.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "c^{(0)}(v)",
+      "related_concepts": [
+        "wl color refinement algorithm"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        544.5,
+        697.5,
+        550.0
+      ],
+      "label": "initial color assignment"
+    },
+    {
+      "latex": "c^{k+1}(v) = HASH\\left(c^k(v), \\{c^k(u)\\}_{u \\in ne[v]}\\right)",
+      "related_concepts": [
+        "wl color refinement algorithm"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        576.5,
+        862.5,
+        598.5
+      ],
+      "label": "WL color refinement update rule"
+    },
+    {
+      "latex": "C(n) \\neq C(m) \\implies \\mathbf{h}_{k+1}^{(n)} \\neq \\mathbf{h}_{k+1}^{(m)}",
+      "related_concepts": [
+        "expressive power of gnn",
+        "node computational graph"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        110.0,
+        615.0,
+        330.0,
+        659.0
+      ],
+      "label": "Injectivity Condition"
+    },
+    {
+      "latex": "\\mathbf{h}_{k+1}^{(n)} = \\mathbf{a} \\left[ \\beta_k + \\Omega_k \\cdot \\mathbf{h}_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+      "related_concepts": [
+        "injective aggregation",
+        "gin"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        192.5,
+        659.0,
+        467.5,
+        714.0
+      ],
+      "label": "GIN Update Rule"
+    },
+    {
+      "latex": "d(5) \\neq d(4)",
+      "related_concepts": [
+        "k-hop similarity"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        110.0,
+        247.5,
+        192.5,
+        264.0
+      ],
+      "label": "degree inequality"
+    },
+    {
+      "latex": "d(1) = d(3)",
+      "related_concepts": [
+        "symmetric neighborhood"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        247.5,
+        330.0,
+        264.0
+      ],
+      "label": "symmetric degree"
+    },
+    {
+      "latex": "d(1) = d(5)",
+      "related_concepts": [
+        "k-hop similarity"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        385.0,
+        247.5,
+        467.5,
+        264.0
+      ],
+      "label": "similar degree"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "graph example",
+      "description": "Four graph structures (a-d) showing node local structure similarity with highlighted nodes and degree calculations",
+      "related_concepts": [
+        "k-hop similarity",
+        "symmetric neighborhood"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        55.0,
+        467.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Two scenarios showing same structure with different original embeddings and their impact on GNN expressiveness",
+      "related_concepts": [
+        "expressive power of gnn",
+        "node representation capacity"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        412.5,
+        330.0,
+        484.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "DropGNN dropout mechanism showing original graph, 1-dropouts, and resulting computational graph",
+      "related_concepts": [
+        "dropgnn",
+        "node computational graph"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        165.0,
+        972.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "GIN aggregation failure examples: (a) Mean and Max both fail, (b) Max fails, (c) Mean and Max both fail",
+      "related_concepts": [
+        "gin",
+        "mean aggregator",
+        "max aggregator"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        286.0,
+        972.5,
+        396.0
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Figure 3 caption explaining graph structures that mean and max aggregators fail to distinguish",
+      "related_concepts": [
+        "mean aggregator",
+        "max aggregator"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        401.5,
+        972.5,
+        429.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Small hand-drawn tree structure labeled 'computational graph' illustrating the unfolding of neighbors",
+      "related_concepts": [
+        "node computational graph",
+        "rooted subtree"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        11.0,
+        626.0,
+        82.5,
+        697.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Visual comparison showing an input graph being unfolded into a set of rooted subtrees (k=1, k=2) to demonstrate how identical node features lead to identical embeddings if the subtree structures are the same",
+      "related_concepts": [
+        "rooted subtree",
+        "expressive power of gnn"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        807.5,
+        440.0,
+        945.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Schematic of the GNN update rule showing the combination of self-loop features and aggregated neighbor features",
+      "related_concepts": [
+        "injective aggregation",
+        "gin"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        192.5,
+        659.0,
+        467.5,
+        714.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Two graphs being compared for isomorphism through WL color refinement, showing initial coloring and iterative refinement steps",
+      "related_concepts": [
+        "weisfeiler-lehman graph isomorphism test",
+        "graph isomorphism problem"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        626.0,
+        780.0,
+        752.5
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "HASH table showing injective mapping from color tuples to new colors",
+      "related_concepts": [
+        "injective hash function",
+        "wl color refinement algorithm"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        780.0,
+        917.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph evolution through K steps of color refinement showing depth progression",
+      "related_concepts": [
+        "k-hop neighborhood",
+        "weisfeiler-lehman graph isomorphism test"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        560.0,
+        752.5,
+        780.0,
+        917.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "Keke",
+      "reason": "Unclear handwriting near node 5 in graph c",
+      "bbox": [
+        247.5,
+        192.5,
+        275.0,
+        203.5
+      ]
+    },
+    {
+      "transcription": "É ja1",
+      "reason": "Illegible handwriting near graph d",
+      "bbox": [
+        412.5,
+        192.5,
+        440.0,
+        203.5
+      ]
+    },
+    {
+      "transcription": "misia",
+      "reason": "Unclear text in definition section",
+      "bbox": [
+        220.0,
+        396.0,
+        247.5,
+        407.0
+      ]
+    },
+    {
+      "transcription": "Ign.tn",
+      "reason": "Illegible handwriting in right margin",
+      "bbox": [
+        467.5,
+        412.5,
+        495.0,
+        423.5
+      ]
+    },
+    {
+      "transcription": "important",
+      "reason": "Handwritten note with an arrow pointing to the aggregation term is slightly cursive and quick.",
+      "bbox": [
+        429.0,
+        604.0,
+        484.0,
+        631.5
+      ]
+    },
+    {
+      "transcription": "local neighborhood",
+      "reason": "Handwritten text above the printed text is partially obscured by highlighting and writing style.",
+      "bbox": [
+        137.5,
+        494.0,
+        220.0,
+        510.5
+      ]
+    },
+    {
+      "transcription": "are they isomorphic?",
+      "reason": "Handwritten text between two graphs, slightly unclear but context suggests this reading",
+      "bbox": [
+        670.0,
+        642.5,
+        725.0,
+        670.0
+      ]
+    },
+    {
+      "transcription": "non-isomorphic at this depth / layer (K=4)",
+      "reason": "Handwritten annotation near bottom right graph, some characters unclear",
+      "bbox": [
+        835.0,
+        890.0,
+        945.0,
+        917.5
+      ]
+    },
+    {
+      "transcription": "depth",
+      "reason": "Handwritten label with arrow, possibly incomplete",
+      "bbox": [
+        587.5,
+        835.0,
+        615.0,
+        862.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "k-hop similarity",
+            "aliases": [
+              "k-hop neighborhood similarity"
+            ],
+            "evidence": "K-hop similarity in node local structure",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              370,
+              20,
+              630,
+              50
+            ]
+          },
+          {
+            "canonical": "symmetric neighborhood",
+            "aliases": [
+              "structural symmetry"
+            ],
+            "evidence": "Symmetric neighborhood",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              520,
+              400,
+              650,
+              420
+            ]
+          },
+          {
+            "canonical": "expressive power of gnn",
+            "aliases": [
+              "gnn expressiveness"
+            ],
+            "evidence": "Expressive power of a GNN model",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              650,
+              250,
+              680
+            ]
+          },
+          {
+            "canonical": "node representation capacity",
+            "aliases": [
+              "embedding capacity"
+            ],
+            "evidence": "node representation capacity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              700,
+              450,
+              720
+            ]
+          },
+          {
+            "canonical": "injective aggregation",
+            "aliases": [
+              "injective neighbor aggregation"
+            ],
+            "evidence": "injective neighbor aggregation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              900,
+              300,
+              920
+            ]
+          },
+          {
+            "canonical": "node computational graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "node computational graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              950,
+              550,
+              970
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman test",
+            "aliases": [
+              "wl test",
+              "wl color computation"
+            ],
+            "evidence": "Weisfeiler",
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              850,
+              800,
+              950,
+              820
+            ]
+          },
+          {
+            "canonical": "gin",
+            "aliases": [
+              "graph isomorphism network"
+            ],
+            "evidence": "GIN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              650,
+              900,
+              670
+            ]
+          },
+          {
+            "canonical": "dropgnn",
+            "aliases": [
+              "drop gnn"
+            ],
+            "evidence": "DropGN",
+            "source_type": "printed",
+            "confidence": 0.95,
+            "bbox": [
+              850,
+              550,
+              920,
+              570
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "d(5) \\neq d(4)",
+            "related_concepts": [
+              "k-hop similarity"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              450,
+              350,
+              480
+            ],
+            "label": "degree inequality"
+          },
+          {
+            "latex": "d(1) = d(3)",
+            "related_concepts": [
+              "symmetric neighborhood"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              450,
+              600,
+              480
+            ],
+            "label": "symmetric degree"
+          },
+          {
+            "latex": "d(1) = d(5)",
+            "related_concepts": [
+              "k-hop similarity"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              700,
+              450,
+              850,
+              480
+            ],
+            "label": "similar degree"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Four graph structures (a-d) showing node local structure similarity with highlighted nodes and degree calculations",
+            "related_concepts": [
+              "k-hop similarity",
+              "symmetric neighborhood"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              850,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Two scenarios showing same structure with different original embeddings and their impact on GNN expressiveness",
+            "related_concepts": [
+              "expressive power of gnn",
+              "node representation capacity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              750,
+              600,
+              880
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Keke",
+            "reason": "Unclear handwriting near node 5 in graph c",
+            "bbox": [
+              450,
+              350,
+              500,
+              370
+            ]
+          },
+          {
+            "transcription": "É ja1",
+            "reason": "Illegible handwriting near graph d",
+            "bbox": [
+              750,
+              350,
+              800,
+              370
+            ]
+          },
+          {
+            "transcription": "misia",
+            "reason": "Unclear text in definition section",
+            "bbox": [
+              400,
+              720,
+              450,
+              740
+            ]
+          },
+          {
+            "transcription": "Ign.tn",
+            "reason": "Illegible handwriting in right margin",
+            "bbox": [
+              850,
+              750,
+              900,
+              770
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"k-hop similarity\",\n      \"aliases\": [\"k-hop neighborhood similarity\"],\n      \"evidence\": \"K-hop similarity in node local structure\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [370, 20, 630, 50]\n    },\n    {\n      \"canonical\": \"symmetric neighborhood\",\n      \"aliases\": [\"structural symmetry\"],\n      \"evidence\": \"Symmetric neighborhood\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [520, 400, 650, 420]\n    },\n    {\n      \"canonical\": \"expressive power of gnn\",\n      \"aliases\": [\"gnn expressiveness\"],\n      \"evidence\": \"Expressive power of a GNN model\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 650, 250, 680]\n    },\n    {\n      \"canonical\": \"node representation capacity\",\n      \"aliases\": [\"embedding capacity\"],\n      \"evidence\": \"node representation capacity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 700, 450, 720]\n    },\n    {\n      \"canonical\": \"injective aggregation\",\n      \"aliases\": [\"injective neighbor aggregation\"],\n      \"evidence\": \"injective neighbor aggregation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 900, 300, 920]\n    },\n    {\n      \"canonical\": \"node computational graph\",\n      \"aliases\": [\"computation graph\"],\n      \"evidence\": \"node computational graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 950, 550, 970]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman test\",\n      \"aliases\": [\"wl test\", \"wl color computation\"],\n      \"evidence\": \"Weisfeiler\",\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [850, 800, 950, 820]\n    },\n    {\n      \"canonical\": \"gin\",\n      \"aliases\": [\"graph isomorphism network\"],\n      \"evidence\": \"GIN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 650, 900, 670]\n    },\n    {\n      \"canonical\": \"dropgnn\",\n      \"aliases\": [\"drop gnn\"],\n      \"evidence\": \"DropGN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 0.95,\n      \"bbox\": [850, 550, 920, 570]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"d(5) \\\\neq d(4)\",\n      \"related_concepts\": [\"k-hop similarity\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 450, 350, 480],\n      \"label\": \"degree inequality\"\n    },\n    {\n      \"latex\": \"d(1) = d(3)\",\n      \"related_concepts\": [\"symmetric neighborhood\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 450, 600, 480],\n      \"label\": \"symmetric degree\"\n    },\n    {\n      \"latex\": \"d(1) = d(5)\",\n      \"related_concepts\": [\"k-hop similarity\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [700, 450, 850, 480],\n      \"label\": \"similar degree\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Four graph structures (a-d) showing node local structure similarity with highlighted nodes and degree calculations\",\n      \"related_concepts\": [\"k-hop similarity\", \"symmetric neighborhood\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 850, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Two scenarios showing same structure with different original embeddings and their impact on GNN expressiveness\",\n      \"related_concepts\": [\"expressive power of gnn\", \"node representation capacity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 750, 600, 880]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Keke\",\n      \"reason\": \"Unclear handwriting near node 5 in graph c\",\n      \"bbox\": [450, 350, 500, 370]\n    },\n    {\n      \"transcription\": \"É ja1\",\n      \"reason\": \"Illegible handwriting near graph d\",\n      \"bbox\": [750, 350, 800, 370]\n    },\n    {\n      \"transcription\": \"misia\",\n      \"reason\": \"Unclear text in definition section\",\n      \"bbox\": [400, 720, 450, 740]\n    },\n    {\n      \"transcription\": \"Ign.tn\",\n      \"reason\": \"Illegible handwriting in right margin\",\n      \"bbox\": [850, 750, 900, 770]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "rooted subtree isomorphism test",
+            "aliases": [
+              "rooted subtree isomorphism"
+            ],
+            "evidence": "Printed heading: 'Rooted subtree isomorphism test'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              20,
+              950,
+              60
+            ]
+          },
+          {
+            "canonical": "injective aggregation function",
+            "aliases": [
+              "injective aggregation"
+            ],
+            "evidence": "Handwritten highlight and text: 'injective aggregation function in each layer'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              130,
+              750,
+              160
+            ]
+          },
+          {
+            "canonical": "computational graph",
+            "aliases": [],
+            "evidence": "Printed text: 'produce the same computational graph'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              230,
+              850,
+              260
+            ]
+          },
+          {
+            "canonical": "dropgnn",
+            "aliases": [
+              "DropGNN"
+            ],
+            "evidence": "Handwritten label: '1) DropGNN (2021)'",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              300,
+              350,
+              340
+            ]
+          },
+          {
+            "canonical": "gin",
+            "aliases": [
+              "GIN",
+              "Graph Isomorphism Network"
+            ],
+            "evidence": "Handwritten label: '2) GIN (2019)'",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              520,
+              350,
+              560
+            ]
+          },
+          {
+            "canonical": "mean aggregator",
+            "aliases": [
+              "mean aggregation"
+            ],
+            "evidence": "Figure 3 caption: 'mean and max aggregators fail to distinguish'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              730,
+              550,
+              750
+            ]
+          },
+          {
+            "canonical": "max aggregator",
+            "aliases": [
+              "max aggregation"
+            ],
+            "evidence": "Figure 3 caption: 'mean and max aggregators fail to distinguish'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              730,
+              550,
+              750
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman graph isomorphism test",
+            "aliases": [
+              "WL test",
+              "Weisfeiler-Lehman test"
+            ],
+            "evidence": "Printed heading: 'Weisfeiler-Lehman graph isomorphism test'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              800,
+              550,
+              830
+            ]
+          },
+          {
+            "canonical": "graph isomorphism problem",
+            "aliases": [
+              "graph isomorphism"
+            ],
+            "evidence": "Printed text: 'The graph isomorphism problem asks whether two graphs are topologically identical.'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              850,
+              950,
+              880
+            ]
+          },
+          {
+            "canonical": "wl color refinement algorithm",
+            "aliases": [
+              "WL color refinement"
+            ],
+            "evidence": "Printed heading: 'WL color refinement algorithm:'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              190,
+              960,
+              450,
+              990
+            ]
+          },
+          {
+            "canonical": "expressive gnn",
+            "aliases": [
+              "most expressive GNN"
+            ],
+            "evidence": "Handwritten highlight: 'the most expressive among the class of GNNs'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              920,
+              750,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "c^{(0)}(v)",
+            "related_concepts": [
+              "wl color refinement algorithm"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              990,
+              450,
+              1000
+            ],
+            "label": "initial color assignment"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "DropGNN dropout mechanism showing original graph, 1-dropouts, and resulting computational graph",
+            "related_concepts": [
+              "dropgnn",
+              "computational graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              300,
+              950,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "GIN aggregation failure examples: (a) Mean and Max both fail, (b) Max fails, (c) Mean and Max both fail",
+            "related_concepts": [
+              "gin",
+              "mean aggregator",
+              "max aggregator"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              520,
+              950,
+              720
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Figure 3 caption explaining graph structures that mean and max aggregators fail to distinguish",
+            "related_concepts": [
+              "mean aggregator",
+              "max aggregator"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              730,
+              950,
+              780
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"rooted subtree isomorphism test\",\n      \"aliases\": [\"rooted subtree isomorphism\"],\n      \"evidence\": \"Printed heading: 'Rooted subtree isomorphism test'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 20, 950, 60]\n    },\n    {\n      \"canonical\": \"injective aggregation function\",\n      \"aliases\": [\"injective aggregation\"],\n      \"evidence\": \"Handwritten highlight and text: 'injective aggregation function in each layer'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 130, 750, 160]\n    },\n    {\n      \"canonical\": \"computational graph\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text: 'produce the same computational graph'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 230, 850, 260]\n    },\n    {\n      \"canonical\": \"dropgnn\",\n      \"aliases\": [\"DropGNN\"],\n      \"evidence\": \"Handwritten label: '1) DropGNN (2021)'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 300, 350, 340]\n    },\n    {\n      \"canonical\": \"gin\",\n      \"aliases\": [\"GIN\", \"Graph Isomorphism Network\"],\n      \"evidence\": \"Handwritten label: '2) GIN (2019)'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 520, 350, 560]\n    },\n    {\n      \"canonical\": \"mean aggregator\",\n      \"aliases\": [\"mean aggregation\"],\n      \"evidence\": \"Figure 3 caption: 'mean and max aggregators fail to distinguish'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 730, 550, 750]\n    },\n    {\n      \"canonical\": \"max aggregator\",\n      \"aliases\": [\"max aggregation\"],\n      \"evidence\": \"Figure 3 caption: 'mean and max aggregators fail to distinguish'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 730, 550, 750]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman graph isomorphism test\",\n      \"aliases\": [\"WL test\", \"Weisfeiler-Lehman test\"],\n      \"evidence\": \"Printed heading: 'Weisfeiler-Lehman graph isomorphism test'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 800, 550, 830]\n    },\n    {\n      \"canonical\": \"graph isomorphism problem\",\n      \"aliases\": [\"graph isomorphism\"],\n      \"evidence\": \"Printed text: 'The graph isomorphism problem asks whether two graphs are topologically identical.'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 850, 950, 880]\n    },\n    {\n      \"canonical\": \"wl color refinement algorithm\",\n      \"aliases\": [\"WL color refinement\"],\n      \"evidence\": \"Printed heading: 'WL color refinement algorithm:'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [190, 960, 450, 990]\n    },\n    {\n      \"canonical\": \"expressive gnn\",\n      \"aliases\": [\"most expressive GNN\"],\n      \"evidence\": \"Handwritten highlight: 'the most expressive among the class of GNNs'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 920, 750, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"c^{(0)}(v)\",\n      \"related_concepts\": [\"wl color refinement algorithm\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 990, 450, 1000],\n      \"label\": \"initial color assignment\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"DropGNN dropout mechanism showing original graph, 1-dropouts, and resulting computational graph\",\n      \"related_concepts\": [\"dropgnn\", \"computational graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 300, 950, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"GIN aggregation failure examples: (a) Mean and Max both fail, (b) Max fails, (c) Mean and Max both fail\",\n      \"related_concepts\": [\"gin\", \"mean aggregator\", \"max aggregator\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 520, 950, 720]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Figure 3 caption explaining graph structures that mean and max aggregators fail to distinguish\",\n      \"related_concepts\": [\"mean aggregator\", \"max aggregator\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 730, 950, 780]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "expressive gnn",
+            "aliases": [
+              "highly expressive gnn"
+            ],
+            "evidence": "Mathematically, a highly expressive GNN maps local neighborhoods to node embeddings injectively.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              980,
+              150
+            ]
+          },
+          {
+            "canonical": "injective neighbor aggregation",
+            "aliases": [
+              "injective aggregation"
+            ],
+            "evidence": "It uses an injective neighbor aggregation at each layer k.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              150,
+              980,
+              180
+            ]
+          },
+          {
+            "canonical": "node computational graph",
+            "aliases": [
+              "computational graph"
+            ],
+            "evidence": "Since the neighborhood aggregation is modeled through the node computational graph",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              180,
+              980,
+              210
+            ]
+          },
+          {
+            "canonical": "rooted subtree",
+            "aliases": [
+              "rooted subtrees"
+            ],
+            "evidence": "Computational graphs are identical to rooted subtree structures around each node",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              550,
+              980,
+              580
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman test",
+            "aliases": [
+              "wl test"
+            ],
+            "evidence": "References: ... 3. WL test:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              900,
+              980,
+              980
+            ]
+          },
+          {
+            "canonical": "gin",
+            "aliases": [
+              "graph isomorphism network"
+            ],
+            "evidence": "References: ... 2. GIN: Xu",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              940,
+              980,
+              960
+            ]
+          },
+          {
+            "canonical": "dropgnn",
+            "aliases": [],
+            "evidence": "References: 1. DropGNN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              920,
+              980,
+              940
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "C(n) \\neq C(m) \\implies \\mathbf{h}_{k+1}^{(n)} \\neq \\mathbf{h}_{k+1}^{(m)}",
+            "related_concepts": [
+              "expressive gnn",
+              "node computational graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              300,
+              600,
+              380
+            ],
+            "label": "Injectivity Condition"
+          },
+          {
+            "latex": "\\mathbf{h}_{k+1}^{(n)} = \\mathbf{a} \\left[ \\beta_k + \\Omega_k \\cdot \\mathbf{h}_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "injective neighbor aggregation",
+              "update rule"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              380,
+              850,
+              480
+            ],
+            "label": "GIN Update Rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Small hand-drawn tree structure labeled 'computational graph' illustrating the unfolding of neighbors.",
+            "related_concepts": [
+              "node computational graph",
+              "rooted subtree"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              20,
+              320,
+              150,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual comparison showing an input graph being unfolded into a set of rooted subtrees (k=1, k=2) to demonstrate how identical node features lead to identical embeddings if the subtree structures are the same.",
+            "related_concepts": [
+              "rooted subtree",
+              "expressive gnn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              650,
+              800,
+              900
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Schematic of the GNN update rule showing the combination of self-loop features and aggregated neighbor features.",
+            "related_concepts": [
+              "injective neighbor aggregation",
+              "gin"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              350,
+              380,
+              850,
+              480
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "important",
+            "reason": "Handwritten note with an arrow pointing to the aggregation term is slightly cursive and quick.",
+            "bbox": [
+              780,
+              280,
+              880,
+              330
+            ]
+          },
+          {
+            "transcription": "local neighborhood",
+            "reason": "Handwritten text above the printed text is partially obscured by highlighting and writing style.",
+            "bbox": [
+              250,
+              80,
+              400,
+              110
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"expressive gnn\",\n      \"aliases\": [\"highly expressive gnn\"],\n      \"evidence\": \"Mathematically, a highly expressive GNN maps local neighborhoods to node embeddings injectively.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 980, 150]\n    },\n    {\n      \"canonical\": \"injective neighbor aggregation\",\n      \"aliases\": [\"injective aggregation\"],\n      \"evidence\": \"It uses an injective neighbor aggregation at each layer k.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 150, 980, 180]\n    },\n    {\n      \"canonical\": \"node computational graph\",\n      \"aliases\": [\"computational graph\"],\n      \"evidence\": \"Since the neighborhood aggregation is modeled through the node computational graph\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 180, 980, 210]\n    },\n    {\n      \"canonical\": \"rooted subtree\",\n      \"aliases\": [\"rooted subtrees\"],\n      \"evidence\": \"Computational graphs are identical to rooted subtree structures around each node\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 550, 980, 580]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman test\",\n      \"aliases\": [\"wl test\"],\n      \"evidence\": \"References: ... 3. WL test:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 900, 980, 980]\n    },\n    {\n      \"canonical\": \"gin\",\n      \"aliases\": [\"graph isomorphism network\"],\n      \"evidence\": \"References: ... 2. GIN: Xu\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 940, 980, 960]\n    },\n    {\n      \"canonical\": \"dropgnn\",\n      \"aliases\": [],\n      \"evidence\": \"References: 1. DropGNN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 920, 980, 940]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"C(n) \\\\neq C(m) \\\\implies \\\\mathbf{h}_{k+1}^{(n)} \\\\neq \\\\mathbf{h}_{k+1}^{(m)}\",\n      \"related_concepts\": [\"expressive gnn\", \"node computational graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 300, 600, 380],\n      \"label\": \"Injectivity Condition\"\n    },\n    {\n      \"latex\": \"\\\\mathbf{h}_{k+1}^{(n)} = \\\\mathbf{a} \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot \\\\mathbf{h}_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"injective neighbor aggregation\", \"update rule\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 380, 850, 480],\n      \"label\": \"GIN Update Rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small hand-drawn tree structure labeled 'computational graph' illustrating the unfolding of neighbors.\",\n      \"related_concepts\": [\"node computational graph\", \"rooted subtree\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [20, 320, 150, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual comparison showing an input graph being unfolded into a set of rooted subtrees (k=1, k=2) to demonstrate how identical node features lead to identical embeddings if the subtree structures are the same.\",\n      \"related_concepts\": [\"rooted subtree\", \"expressive gnn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 650, 800, 900]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Schematic of the GNN update rule showing the combination of self-loop features and aggregated neighbor features.\",\n      \"related_concepts\": [\"injective neighbor aggregation\", \"gin\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [350, 380, 850, 480]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"important\",\n      \"reason\": \"Handwritten note with an arrow pointing to the aggregation term is slightly cursive and quick.\",\n      \"bbox\": [780, 280, 880, 330]\n    },\n    {\n      \"transcription\": \"local neighborhood\",\n      \"reason\": \"Handwritten text above the printed text is partially obscured by highlighting and writing style.\",\n      \"bbox\": [250, 80, 400, 110]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "weisfeiler-lehman graph isomorphism test",
+            "aliases": [
+              "wl test",
+              "weisfeiler-lehman test"
+            ],
+            "evidence": "as powerful as the Weisfeiler-Lehman graph isomorphism test",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              570,
+              100,
+              950,
+              130
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "among the class of GNNs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              100,
+              550,
+              130
+            ]
+          },
+          {
+            "canonical": "wl color refinement algorithm",
+            "aliases": [
+              "color refinement"
+            ],
+            "evidence": "WL color refinement algorithm:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              180,
+              350,
+              210
+            ]
+          },
+          {
+            "canonical": "k-hop neighborhood",
+            "aliases": [
+              "k-hop"
+            ],
+            "evidence": "summarizes the structure of K-hop neighborhood",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              280,
+              650,
+              310
+            ]
+          },
+          {
+            "canonical": "graph isomorphism",
+            "aliases": [
+              "isomorphic graphs"
+            ],
+            "evidence": "are they isomorphic?",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              350,
+              500,
+              400
+            ]
+          },
+          {
+            "canonical": "injective hash function",
+            "aliases": [
+              "injective hash"
+            ],
+            "evidence": "HASH table: Injective!",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              600,
+              850,
+              630
+            ]
+          },
+          {
+            "canonical": "non-isomorphic graphs",
+            "aliases": [
+              "non-isomorphic"
+            ],
+            "evidence": "non-isomorphic at this depth / layer (K=4)",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              700,
+              800,
+              900,
+              850
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "c^{k+1}(v) = HASH\\left(c^k(v), \\{c^k(u)\\}_{u \\in ne[v]}\\right)",
+            "related_concepts": [
+              "wl color refinement algorithm",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              230,
+              750,
+              270
+            ],
+            "label": "WL color refinement update rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Two graphs being compared for isomorphism through WL color refinement, showing initial coloring and iterative refinement steps",
+            "related_concepts": [
+              "weisfeiler-lehman graph isomorphism test",
+              "graph isomorphism"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              320,
+              600,
+              550
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "HASH table showing injective mapping from color tuples to new colors",
+            "related_concepts": [
+              "injective hash function",
+              "wl color refinement algorithm"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              600,
+              850,
+              750
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph evolution through K steps of color refinement showing depth progression",
+            "related_concepts": [
+              "k-hop neighborhood",
+              "non-isomorphic graphs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              550,
+              600,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "are they isomorphic?",
+            "reason": "Handwritten text between two graphs, slightly unclear but context suggests this reading",
+            "bbox": [
+              400,
+              350,
+              500,
+              400
+            ]
+          },
+          {
+            "transcription": "non-isomorphic at this depth / layer (K=4)",
+            "reason": "Handwritten annotation near bottom right graph, some characters unclear",
+            "bbox": [
+              700,
+              800,
+              900,
+              850
+            ]
+          },
+          {
+            "transcription": "depth",
+            "reason": "Handwritten label with arrow, possibly incomplete",
+            "bbox": [
+              250,
+              700,
+              300,
+              750
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"weisfeiler-lehman graph isomorphism test\",\n      \"aliases\": [\"wl test\", \"weisfeiler-lehman test\"],\n      \"evidence\": \"as powerful as the Weisfeiler-Lehman graph isomorphism test\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [570, 100, 950, 130]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"among the class of GNNs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 100, 550, 130]\n    },\n    {\n      \"canonical\": \"wl color refinement algorithm\",\n      \"aliases\": [\"color refinement\"],\n      \"evidence\": \"WL color refinement algorithm:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 180, 350, 210]\n    },\n    {\n      \"canonical\": \"k-hop neighborhood\",\n      \"aliases\": [\"k-hop\"],\n      \"evidence\": \"summarizes the structure of K-hop neighborhood\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 280, 650, 310]\n    },\n    {\n      \"canonical\": \"graph isomorphism\",\n      \"aliases\": [\"isomorphic graphs\"],\n      \"evidence\": \"are they isomorphic?\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 350, 500, 400]\n    },\n    {\n      \"canonical\": \"injective hash function\",\n      \"aliases\": [\"injective hash\"],\n      \"evidence\": \"HASH table: Injective!\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 600, 850, 630]\n    },\n    {\n      \"canonical\": \"non-isomorphic graphs\",\n      \"aliases\": [\"non-isomorphic\"],\n      \"evidence\": \"non-isomorphic at this depth / layer (K=4)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [700, 800, 900, 850]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"c^{k+1}(v) = HASH\\\\left(c^k(v), \\\\{c^k(u)\\\\}_{u \\\\in ne[v]}\\\\right)\",\n      \"related_concepts\": [\"wl color refinement algorithm\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 230, 750, 270],\n      \"label\": \"WL color refinement update rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two graphs being compared for isomorphism through WL color refinement, showing initial coloring and iterative refinement steps\",\n      \"related_concepts\": [\"weisfeiler-lehman graph isomorphism test\", \"graph isomorphism\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 320, 600, 550]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"HASH table showing injective mapping from color tuples to new colors\",\n      \"related_concepts\": [\"injective hash function\", \"wl color refinement algorithm\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 600, 850, 750]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph evolution through K steps of color refinement showing depth progression\",\n      \"related_concepts\": [\"k-hop neighborhood\", \"non-isomorphic graphs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 550, 600, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"are they isomorphic?\",\n      \"reason\": \"Handwritten text between two graphs, slightly unclear but context suggests this reading\",\n      \"bbox\": [400, 350, 500, 400]\n    },\n    {\n      \"transcription\": \"non-isomorphic at this depth / layer (K=4)\",\n      \"reason\": \"Handwritten annotation near bottom right graph, some characters unclear\",\n      \"bbox\": [700, 800, 900, 850]\n    },\n    {\n      \"transcription\": \"depth\",\n      \"reason\": \"Handwritten label with arrow, possibly incomplete\",\n      \"bbox\": [250, 700, 300, 750]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Expressive Power of Graph Neural Networks and the Weisfeiler-Lehman Test",
+        "summary": "This lecture page explores the theoretical limits of Graph Neural Networks (GNNs) in distinguishing graph structures, defining expressive power as the ability to map distinct local neighborhoods to unique embeddings. It introduces the Graph Isomorphism Network (GIN) as a model designed to achieve maximum expressiveness by utilizing injective aggregation functions, mathematically equivalent to the Weisfeiler-Lehman (WL) graph isomorphism test. The content contrasts standard aggregators like mean and max, which fail to distinguish certain non-isomorphic graphs, with the WL color refinement algorithm that iteratively hashes neighborhood structures to differentiate nodes.",
+        "key_topics": [
+          "expressive power of gnn",
+          "weisfeiler-lehman graph isomorphism test",
+          "injective aggregation",
+          "graph isomorphism network",
+          "node computational graph"
+        ],
+        "concepts": [
+          {
+            "canonical": "expressive power of gnn",
+            "aliases": [
+              "gnn expressiveness",
+              "expressive gnn"
+            ],
+            "evidence": "Definition: An expressive GNN model maximizes its node representation capacity... by mapping different local neighborhoods to different embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              357.5,
+              539.0,
+              407.0
+            ]
+          },
+          {
+            "canonical": "node representation capacity",
+            "aliases": [
+              "embedding capacity"
+            ],
+            "evidence": "maximizes its node representation capacity in the embedding space",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              385.0,
+              247.5,
+              396.0
+            ]
+          },
+          {
+            "canonical": "injective aggregation",
+            "aliases": [
+              "injective neighbor aggregation"
+            ],
+            "evidence": "It uses an injective neighbor aggregation at each layer k",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              495.0,
+              165.0,
+              506.0
+            ]
+          },
+          {
+            "canonical": "node computational graph",
+            "aliases": [
+              "computation graph",
+              "computational graph"
+            ],
+            "evidence": "Since the neighborhood aggregation is modeled through the node computational graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              522.5,
+              302.5,
+              533.5
+            ]
+          },
+          {
+            "canonical": "gin",
+            "aliases": [
+              "graph isomorphism network"
+            ],
+            "evidence": "2) GIN (2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              357.5,
+              495.0,
+              368.5
+            ]
+          },
+          {
+            "canonical": "weisfeiler-lehman graph isomorphism test",
+            "aliases": [
+              "wl test",
+              "weisfeiler-lehman test"
+            ],
+            "evidence": "The Weisfeiler-Lehman (WL) test of graph isomorphism... is an effective and computationally efficient test",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              554.5,
+              440.0,
+              752.5,
+              456.5
+            ]
+          },
+          {
+            "canonical": "graph isomorphism problem",
+            "aliases": [
+              "graph isomorphism"
+            ],
+            "evidence": "The graph isomorphism problem asks whether two graphs are topologically identical",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              554.5,
+              467.5,
+              972.5,
+              484.0
+            ]
+          },
+          {
+            "canonical": "wl color refinement algorithm",
+            "aliases": [
+              "wl color refinement",
+              "color refinement"
+            ],
+            "evidence": "WL color refinement algorithm: 1) Assign an initial color...",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              554.5,
+              528.0,
+              697.5,
+              544.5
+            ]
+          },
+          {
+            "canonical": "k-hop neighborhood",
+            "aliases": [
+              "k-hop"
+            ],
+            "evidence": "After K steps of color refinement, c^K(v) summarizes the structure of K-hop neighborhood",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              604.0,
+              807.5,
+              620.5
+            ]
+          },
+          {
+            "canonical": "rooted subtree",
+            "aliases": [
+              "rooted subtrees"
+            ],
+            "evidence": "Computational graphs are identical to rooted subtree structures around each node",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              752.5,
+              539.0,
+              769.0
+            ]
+          },
+          {
+            "canonical": "mean aggregator",
+            "aliases": [
+              "mean aggregation"
+            ],
+            "evidence": "Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              401.5,
+              752.5,
+              412.5
+            ]
+          },
+          {
+            "canonical": "max aggregator",
+            "aliases": [
+              "max aggregation"
+            ],
+            "evidence": "Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              401.5,
+              752.5,
+              412.5
+            ]
+          },
+          {
+            "canonical": "dropgnn",
+            "aliases": [
+              "drop gnn"
+            ],
+            "evidence": "1) DropGNN (2021)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              554.5,
+              165.0,
+              642.5,
+              187.0
+            ]
+          },
+          {
+            "canonical": "injective hash function",
+            "aliases": [
+              "injective hash"
+            ],
+            "evidence": "HASH table: Injective!",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              780.0,
+              917.5,
+              796.5
+            ]
+          },
+          {
+            "canonical": "k-hop similarity",
+            "aliases": [
+              "k-hop neighborhood similarity"
+            ],
+            "evidence": "K-hop similarity in node local structure",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              203.5,
+              11.0,
+              346.5,
+              27.5
+            ]
+          },
+          {
+            "canonical": "symmetric neighborhood",
+            "aliases": [
+              "structural symmetry"
+            ],
+            "evidence": "Symmetric neighborhood",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              286.0,
+              220.0,
+              357.5,
+              231.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "c^{(0)}(v)",
+            "related_concepts": [
+              "wl color refinement algorithm"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              544.5,
+              697.5,
+              550.0
+            ],
+            "label": "initial color assignment"
+          },
+          {
+            "latex": "c^{k+1}(v) = HASH\\left(c^k(v), \\{c^k(u)\\}_{u \\in ne[v]}\\right)",
+            "related_concepts": [
+              "wl color refinement algorithm",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              576.5,
+              862.5,
+              598.5
+            ],
+            "label": "WL color refinement update rule"
+          },
+          {
+            "latex": "C(n) \\neq C(m) \\implies \\mathbf{h}_{k+1}^{(n)} \\neq \\mathbf{h}_{k+1}^{(m)}",
+            "related_concepts": [
+              "expressive power of gnn",
+              "node computational graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              110.0,
+              615.0,
+              330.0,
+              659.0
+            ],
+            "label": "Injectivity Condition"
+          },
+          {
+            "latex": "\\mathbf{h}_{k+1}^{(n)} = \\mathbf{a} \\left[ \\beta_k + \\Omega_k \\cdot \\mathbf{h}_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "injective aggregation",
+              "gin"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              192.5,
+              659.0,
+              467.5,
+              714.0
+            ],
+            "label": "GIN Update Rule"
+          },
+          {
+            "latex": "d(5) \\neq d(4)",
+            "related_concepts": [
+              "k-hop similarity"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              110.0,
+              247.5,
+              192.5,
+              264.0
+            ],
+            "label": "degree inequality"
+          },
+          {
+            "latex": "d(1) = d(3)",
+            "related_concepts": [
+              "symmetric neighborhood"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              247.5,
+              330.0,
+              264.0
+            ],
+            "label": "symmetric degree"
+          },
+          {
+            "latex": "d(1) = d(5)",
+            "related_concepts": [
+              "k-hop similarity"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              385.0,
+              247.5,
+              467.5,
+              264.0
+            ],
+            "label": "similar degree"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Four graph structures (a-d) showing node local structure similarity with highlighted nodes and degree calculations",
+            "related_concepts": [
+              "k-hop similarity",
+              "symmetric neighborhood"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              55.0,
+              467.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Two scenarios showing same structure with different original embeddings and their impact on GNN expressiveness",
+            "related_concepts": [
+              "expressive power of gnn",
+              "node representation capacity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              412.5,
+              330.0,
+              484.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "DropGNN dropout mechanism showing original graph, 1-dropouts, and resulting computational graph",
+            "related_concepts": [
+              "dropgnn",
+              "node computational graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              165.0,
+              972.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "GIN aggregation failure examples: (a) Mean and Max both fail, (b) Max fails, (c) Mean and Max both fail",
+            "related_concepts": [
+              "gin",
+              "mean aggregator",
+              "max aggregator"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              286.0,
+              972.5,
+              396.0
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Figure 3 caption explaining graph structures that mean and max aggregators fail to distinguish",
+            "related_concepts": [
+              "mean aggregator",
+              "max aggregator"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              401.5,
+              972.5,
+              429.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small hand-drawn tree structure labeled 'computational graph' illustrating the unfolding of neighbors",
+            "related_concepts": [
+              "node computational graph",
+              "rooted subtree"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              11.0,
+              626.0,
+              82.5,
+              697.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual comparison showing an input graph being unfolded into a set of rooted subtrees (k=1, k=2) to demonstrate how identical node features lead to identical embeddings if the subtree structures are the same",
+            "related_concepts": [
+              "rooted subtree",
+              "expressive power of gnn"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              807.5,
+              440.0,
+              945.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Schematic of the GNN update rule showing the combination of self-loop features and aggregated neighbor features",
+            "related_concepts": [
+              "injective aggregation",
+              "gin"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              192.5,
+              659.0,
+              467.5,
+              714.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Two graphs being compared for isomorphism through WL color refinement, showing initial coloring and iterative refinement steps",
+            "related_concepts": [
+              "weisfeiler-lehman graph isomorphism test",
+              "graph isomorphism problem"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              626.0,
+              780.0,
+              752.5
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "HASH table showing injective mapping from color tuples to new colors",
+            "related_concepts": [
+              "injective hash function",
+              "wl color refinement algorithm"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              780.0,
+              917.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph evolution through K steps of color refinement showing depth progression",
+            "related_concepts": [
+              "k-hop neighborhood",
+              "weisfeiler-lehman graph isomorphism test"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              560.0,
+              752.5,
+              780.0,
+              917.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Keke",
+            "reason": "Unclear handwriting near node 5 in graph c",
+            "bbox": [
+              247.5,
+              192.5,
+              275.0,
+              203.5
+            ]
+          },
+          {
+            "transcription": "É ja1",
+            "reason": "Illegible handwriting near graph d",
+            "bbox": [
+              412.5,
+              192.5,
+              440.0,
+              203.5
+            ]
+          },
+          {
+            "transcription": "misia",
+            "reason": "Unclear text in definition section",
+            "bbox": [
+              220.0,
+              396.0,
+              247.5,
+              407.0
+            ]
+          },
+          {
+            "transcription": "Ign.tn",
+            "reason": "Illegible handwriting in right margin",
+            "bbox": [
+              467.5,
+              412.5,
+              495.0,
+              423.5
+            ]
+          },
+          {
+            "transcription": "important",
+            "reason": "Handwritten note with an arrow pointing to the aggregation term is slightly cursive and quick",
+            "bbox": [
+              429.0,
+              604.0,
+              484.0,
+              631.5
+            ]
+          },
+          {
+            "transcription": "local neighborhood",
+            "reason": "Handwritten text above the printed text is partially obscured by highlighting and writing style",
+            "bbox": [
+              137.5,
+              494.0,
+              220.0,
+              510.5
+            ]
+          },
+          {
+            "transcription": "are they isomorphic?",
+            "reason": "Handwritten text between two graphs, slightly unclear but context suggests this reading",
+            "bbox": [
+              670.0,
+              642.5,
+              725.0,
+              670.0
+            ]
+          },
+          {
+            "transcription": "non-isomorphic at this depth / layer (K=4)",
+            "reason": "Handwritten annotation near bottom right graph, some characters unclear",
+            "bbox": [
+              835.0,
+              890.0,
+              945.0,
+              917.5
+            ]
+          },
+          {
+            "transcription": "depth",
+            "reason": "Handwritten label with arrow, possibly incomplete",
+            "bbox": [
+              587.5,
+              835.0,
+              615.0,
+              862.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Expressive Power of Graph Neural Networks and the Weisfeiler-Lehman Test\",\n  \"summary\": \"This lecture page explores the theoretical limits of Graph Neural Networks (GNNs) in distinguishing graph structures, defining expressive power as the ability to map distinct local neighborhoods to unique embeddings. It introduces the Graph Isomorphism Network (GIN) as a model designed to achieve maximum expressiveness by utilizing injective aggregation functions, mathematically equivalent to the Weisfeiler-Lehman (WL) graph isomorphism test. The content contrasts standard aggregators like mean and max, which fail to distinguish certain non-isomorphic graphs, with the WL color refinement algorithm that iteratively hashes neighborhood structures to differentiate nodes.\",\n  \"key_topics\": [\n    \"expressive power of gnn\",\n    \"weisfeiler-lehman graph isomorphism test\",\n    \"injective aggregation\",\n    \"graph isomorphism network\",\n    \"node computational graph\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"expressive power of gnn\",\n      \"aliases\": [\"gnn expressiveness\", \"expressive gnn\"],\n      \"evidence\": \"Definition: An expressive GNN model maximizes its node representation capacity... by mapping different local neighborhoods to different embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 357.5, 539.0, 407.0]\n    },\n    {\n      \"canonical\": \"node representation capacity\",\n      \"aliases\": [\"embedding capacity\"],\n      \"evidence\": \"maximizes its node representation capacity in the embedding space\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 385.0, 247.5, 396.0]\n    },\n    {\n      \"canonical\": \"injective aggregation\",\n      \"aliases\": [\"injective neighbor aggregation\"],\n      \"evidence\": \"It uses an injective neighbor aggregation at each layer k\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 495.0, 165.0, 506.0]\n    },\n    {\n      \"canonical\": \"node computational graph\",\n      \"aliases\": [\"computation graph\", \"computational graph\"],\n      \"evidence\": \"Since the neighborhood aggregation is modeled through the node computational graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 522.5, 302.5, 533.5]\n    },\n    {\n      \"canonical\": \"gin\",\n      \"aliases\": [\"graph isomorphism network\"],\n      \"evidence\": \"2) GIN (2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 357.5, 495.0, 368.5]\n    },\n    {\n      \"canonical\": \"weisfeiler-lehman graph isomorphism test\",\n      \"aliases\": [\"wl test\", \"weisfeiler-lehman test\"],\n      \"evidence\": \"The Weisfeiler-Lehman (WL) test of graph isomorphism... is an effective and computationally efficient test\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [554.5, 440.0, 752.5, 456.5]\n    },\n    {\n      \"canonical\": \"graph isomorphism problem\",\n      \"aliases\": [\"graph isomorphism\"],\n      \"evidence\": \"The graph isomorphism problem asks whether two graphs are topologically identical\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [554.5, 467.5, 972.5, 484.0]\n    },\n    {\n      \"canonical\": \"wl color refinement algorithm\",\n      \"aliases\": [\"wl color refinement\", \"color refinement\"],\n      \"evidence\": \"WL color refinement algorithm: 1) Assign an initial color...\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [554.5, 528.0, 697.5, 544.5]\n    },\n    {\n      \"canonical\": \"k-hop neighborhood\",\n      \"aliases\": [\"k-hop\"],\n      \"evidence\": \"After K steps of color refinement, c^K(v) summarizes the structure of K-hop neighborhood\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 604.0, 807.5, 620.5]\n    },\n    {\n      \"canonical\": \"rooted subtree\",\n      \"aliases\": [\"rooted subtrees\"],\n      \"evidence\": \"Computational graphs are identical to rooted subtree structures around each node\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 752.5, 539.0, 769.0]\n    },\n    {\n      \"canonical\": \"mean aggregator\",\n      \"aliases\": [\"mean aggregation\"],\n      \"evidence\": \"Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 401.5, 752.5, 412.5]\n    },\n    {\n      \"canonical\": \"max aggregator\",\n      \"aliases\": [\"max aggregation\"],\n      \"evidence\": \"Figure 3 caption: Examples of graph structures that mean and max aggregators fail to distinguish\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 401.5, 752.5, 412.5]\n    },\n    {\n      \"canonical\": \"dropgnn\",\n      \"aliases\": [\"drop gnn\"],\n      \"evidence\": \"1) DropGNN (2021)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [554.5, 165.0, 642.5, 187.0]\n    },\n    {\n      \"canonical\": \"injective hash function\",\n      \"aliases\": [\"injective hash\"],\n      \"evidence\": \"HASH table: Injective!\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [807.5, 780.0, 917.5, 796.5]\n    },\n    {\n      \"canonical\": \"k-hop similarity\",\n      \"aliases\": [\"k-hop neighborhood similarity\"],\n      \"evidence\": \"K-hop similarity in node local structure\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [203.5, 11.0, 346.5, 27.5]\n    },\n    {\n      \"canonical\": \"symmetric neighborhood\",\n      \"aliases\": [\"structural symmetry\"],\n      \"evidence\": \"Symmetric neighborhood\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [286.0, 220.0, 357.5, 231.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"c^{(0)}(v)\",\n      \"related_concepts\": [\"wl color refinement algorithm\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 544.5, 697.5, 550.0],\n      \"label\": \"initial color assignment\"\n    },\n    {\n      \"latex\": \"c^{k+1}(v) = HASH\\\\left(c^k(v), \\\\{c^k(u)\\\\}_{u \\\\in ne[v]}\\\\right)\",\n      \"related_concepts\": [\"wl color refinement algorithm\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 576.5, 862.5, 598.5],\n      \"label\": \"WL color refinement update rule\"\n    },\n    {\n      \"latex\": \"C(n) \\\\neq C(m) \\\\implies \\\\mathbf{h}_{k+1}^{(n)} \\\\neq \\\\mathbf{h}_{k+1}^{(m)}\",\n      \"related_concepts\": [\"expressive power of gnn\", \"node computational graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [110.0, 615.0, 330.0, 659.0],\n      \"label\": \"Injectivity Condition\"\n    },\n    {\n      \"latex\": \"\\\\mathbf{h}_{k+1}^{(n)} = \\\\mathbf{a} \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot \\\\mathbf{h}_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"injective aggregation\", \"gin\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [192.5, 659.0, 467.5, 714.0],\n      \"label\": \"GIN Update Rule\"\n    },\n    {\n      \"latex\": \"d(5) \\\\neq d(4)\",\n      \"related_concepts\": [\"k-hop similarity\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [110.0, 247.5, 192.5, 264.0],\n      \"label\": \"degree inequality\"\n    },\n    {\n      \"latex\": \"d(1) = d(3)\",\n      \"related_concepts\": [\"symmetric neighborhood\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [247.5, 247.5, 330.0, 264.0],\n      \"label\": \"symmetric degree\"\n    },\n    {\n      \"latex\": \"d(1) = d(5)\",\n      \"related_concepts\": [\"k-hop similarity\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [385.0, 247.5, 467.5, 264.0],\n      \"label\": \"similar degree\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Four graph structures (a-d) showing node local structure similarity with highlighted nodes and degree calculations\",\n      \"related_concepts\": [\"k-hop similarity\", \"symmetric neighborhood\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 55.0, 467.5, 302.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Two scenarios showing same structure with different original embeddings and their impact on GNN expressiveness\",\n      \"related_concepts\": [\"expressive power of gnn\", \"node representation capacity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 412.5, 330.0, 484.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"DropGNN dropout mechanism showing original graph, 1-dropouts, and resulting computational graph\",\n      \"related_concepts\": [\"dropgnn\", \"node computational graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 165.0, 972.5, 247.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"GIN aggregation failure examples: (a) Mean and Max both fail, (b) Max fails, (c) Mean and Max both fail\",\n      \"related_concepts\": [\"gin\", \"mean aggregator\", \"max aggregator\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 286.0, 972.5, 396.0]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Figure 3 caption explaining graph structures that mean and max aggregators fail to distinguish\",\n      \"related_concepts\": [\"mean aggregator\", \"max aggregator\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 401.5, 972.5, 429.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small hand-drawn tree structure labeled 'computational graph' illustrating the unfolding of neighbors\",\n      \"related_concepts\": [\"node computational graph\", \"rooted subtree\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [11.0, 626.0, 82.5, 697.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual comparison showing an input graph being unfolded into a set of rooted subtrees (k=1, k=2) to demonstrate how identical node features lead to identical embeddings if the subtree structures are the same\",\n      \"related_concepts\": [\"rooted subtree\", \"expressive power of gnn\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 807.5, 440.0, 945.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Schematic of the GNN update rule showing the combination of self-loop features and aggregated neighbor features\",\n      \"related_concepts\": [\"injective aggregation\", \"gin\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [192.5, 659.0, 467.5, 714.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Two graphs being compared for isomorphism through WL color refinement, showing initial coloring and iterative refinement steps\",\n      \"related_concepts\": [\"weisfeiler-lehman graph isomorphism test\", \"graph isomorphism problem\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 626.0, 780.0, 752.5]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"HASH table showing injective mapping from color tuples to new colors\",\n      \"related_concepts\": [\"injective hash function\", \"wl color refinement algorithm\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [807.5, 780.0, 917.5, 862.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph evolution through K steps of color refinement showing depth progression\",\n      \"related_concepts\": [\"k-hop neighborhood\", \"weisfeiler-lehman graph isomorphism test\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [560.0, 752.5, 780.0, 917.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Keke\",\n      \"reason\": \"Unclear handwriting near node 5 in graph c\",\n      \"bbox\": [247.5, 192.5, 275.0, 203.5]\n    },\n    {\n      \"transcription\": \"É ja1\",\n      \"reason\": \"Illegible handwriting near graph d\",\n      \"bbox\": [412.5, 192.5, 440.0, 203.5]\n    },\n    {\n      \"transcription\": \"misia\",\n      \"reason\": \"Unclear text in definition section\",\n      \"bbox\": [220.0, 396.0, 247.5, 407.0]\n    },\n    {\n      \"transcription\": \"Ign.tn\",\n      \"reason\": \"Illegible handwriting in right margin\",\n      \"bbox\": [467.5, 412.5, 495.0, 423.5]\n    },\n    {\n      \"transcription\": \"important\",\n      \"reason\": \"Handwritten note with an arrow pointing to the aggregation term is slightly cursive and quick\",\n      \"bbox\": [429.0, 604.0, 484.0, 631.5]\n    },\n    {\n      \"transcription\": \"local neighborhood\",\n      \"reason\": \"Handwritten text above the printed text is partially obscured by highlighting and writing style\",\n      \"bbox\": [137.5, 494.0, 220.0, 510.5]\n    },\n    {\n      \"transcription\": \"are they isomorphic?\",\n      \"reason\": \"Handwritten text between two graphs, slightly unclear but context suggests this reading\",\n      \"bbox\": [670.0, 642.5, 725.0, 670.0]\n    },\n    {\n      \"transcription\": \"non-isomorphic at this depth / layer (K=4)\",\n      \"reason\": \"Handwritten annotation near bottom right graph, some characters unclear\",\n      \"bbox\": [835.0, 890.0, 945.0, 917.5]\n    },\n    {\n      \"transcription\": \"depth\",\n      \"reason\": \"Handwritten label with arrow, possibly incomplete\",\n      \"bbox\": [587.5, 835.0, 615.0, 862.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "injective aggregation function",
+      "into": "injective aggregation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "computational graph",
+      "into": "node computational graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "gin",
+      "into": "gin"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "expressive gnn",
+      "into": "expressive gnn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "injective neighbor aggregation",
+      "into": "injective aggregation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node computational graph",
+      "into": "node computational graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "weisfeiler-lehman test",
+      "into": "weisfeiler-lehman graph isomorphism test"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "gin",
+      "into": "gin"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "dropgnn",
+      "into": "dropgnn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "weisfeiler-lehman graph isomorphism test",
+      "into": "weisfeiler-lehman graph isomorphism test"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "wl color refinement algorithm",
+      "into": "wl color refinement algorithm"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "dropgnn",
+      "into": "dropgnn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "weisfeiler-lehman test",
+      "into": "weisfeiler-lehman graph isomorphism test"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph isomorphism",
+      "into": "graph isomorphism problem"
+    }
+  ],
+  "warnings": []
+}

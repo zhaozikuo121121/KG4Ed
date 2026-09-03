@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "d2ac69365daf41a12c74aa9fed5d2ed081106b92350ac77641bf994ae534f3a5",
+  "concept_id": 3,
+  "concept_name": "social network",
+  "aliases": [
+    "social network"
+  ],
+  "profile": "social network: a graph in which nodes represent people and edges represent friendships between them.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "social network: a graph in which nodes represent people and edges represent friendships between them.",
+    "claims": [
+      {
+        "claim": "Social networks are graphs where nodes are people and edges represent friendships.",
+        "evidence_ids": [
+          "DGL-E0013"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "social network: a graph in which nodes represent people and edges represent friendships between them.",
+    "sentence_reviews": [
+      {
+        "sentence": "social network: a graph in which nodes represent people and edges represent friendships between them.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0013"
+        ],
+        "reason": "Directly restates the source definition that social networks are graphs where nodes are people and edges are friendships."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"social network: a graph in which nodes represent people and edges represent friendships between them.\",\n  \"claims\": [\n    {\n      \"claim\": \"Social networks are graphs where nodes are people and edges represent friendships.\",\n      \"evidence_ids\": [\"DGL-E0013\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"social network: a graph in which nodes represent people and edges represent friendships between them.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"social network: a graph in which nodes represent people and edges represent friendships between them.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0013\"],\n      \"reason\": \"Directly restates the source definition that social networks are graphs where nodes are people and edges are friendships.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:51:12.141199+00:00"
+}

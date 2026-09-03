@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "dc9de5687712c6c72cdd4002d112221a22937b63f951a79328cf4fdeb62d9ad5",
+  "concept_id": 168,
+  "concept_name": "matrix multiplication",
+  "aliases": [
+    "matrix multiplication",
+    "matrix product"
+  ],
+  "profile": "matrix multiplication: Given X̃ ∈ R^(n×(d+1)) and w ∈ R^(d+1), their matrix-vector product is ŷ ∈ R^n.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "matrix multiplication: An operation where an n×(d+1) matrix X̃ is multiplied by a (d+1)-dimensional vector w, resulting in an n-dimensional vector ŷ. The multiplication is valid because the matrix's column count equals the vector's dimension.",
+    "claims": [
+      {
+        "claim": "An n×(d+1) matrix X̃ multiplied by a (d+1)-dimensional vector w produces an n-dimensional vector ŷ.",
+        "evidence_ids": [
+          "DGL-E0155"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The multiplication is valid because the matrix's column count equals the vector's dimension.",
+        "evidence_ids": [
+          "DGL-E0155"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "matrix multiplication: Given X̃ ∈ R^(n×(d+1)) and w ∈ R^(d+1), their matrix-vector product is ŷ ∈ R^n.",
+    "sentence_reviews": [
+      {
+        "sentence": "Given X̃ ∈ R^(n×(d+1)) and w ∈ R^(d+1), their matrix-vector product is ŷ ∈ R^n.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0155"
+        ],
+        "reason": "The metadata notation directly states the dimensions of the matrix, vector, and resulting vector for this multiplication."
+      }
+    ],
+    "warnings": [
+      "The source only establishes the matrix-vector product shape; no additional algorithmic or application-level details are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"matrix multiplication: An operation where an n×(d+1) matrix X̃ is multiplied by a (d+1)-dimensional vector w, resulting in an n-dimensional vector ŷ. The multiplication is valid because the matrix's column count equals the vector's dimension.\",\n  \"claims\": [\n    {\n      \"claim\": \"An n×(d+1) matrix X̃ multiplied by a (d+1)-dimensional vector w produces an n-dimensional vector ŷ.\",\n      \"evidence_ids\": [\"DGL-E0155\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The multiplication is valid because the matrix's column count equals the vector's dimension.\",\n      \"evidence_ids\": [\"DGL-E0155\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"matrix multiplication: Given X̃ ∈ R^(n×(d+1)) and w ∈ R^(d+1), their matrix-vector product is ŷ ∈ R^n.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Given X̃ ∈ R^(n×(d+1)) and w ∈ R^(d+1), their matrix-vector product is ŷ ∈ R^n.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0155\"],\n      \"reason\": \"The metadata notation directly states the dimensions of the matrix, vector, and resulting vector for this multiplication.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source only establishes the matrix-vector product shape; no additional algorithmic or application-level details are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:00:07.489997+00:00"
+}

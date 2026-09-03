@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "cde3ca44f427c796b8dafd1071ee6606b03da061225bb4fa99cd6751fb3f51d9",
+  "concept_id": 303,
+  "concept_name": "injective hash function",
+  "aliases": [
+    "injective hash function",
+    "injective hash"
+  ],
+  "profile": "injective hash function: A hash function whose hash table is injective. In an injective hash table, each input maps to a distinct hash value, so collisions are avoided.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "injective hash function: A hash function where the hash table is injective, meaning each input maps to a distinct hash value, avoiding collisions.",
+    "claims": [
+      {
+        "claim": "An injective hash function produces a hash table with the injective property.",
+        "evidence_ids": [
+          "DGL-E0438"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata: only a labeled annotation supports the concept; no detailed explanation is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "injective hash function: A hash function whose hash table is injective. In an injective hash table, each input maps to a distinct hash value, so collisions are avoided.",
+    "sentence_reviews": [
+      {
+        "sentence": "injective hash function: A hash function whose hash table is injective.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0438"
+        ],
+        "reason": "The source annotation explicitly marks the hash table as injective."
+      },
+      {
+        "sentence": "In an injective hash table, each input maps to a distinct hash value, so collisions are avoided.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "This is the standard meaning of injective and does not introduce unsupported specifics."
+      }
+    ],
+    "warnings": [
+      "The source evidence is a brief annotation; no formal definition or further explanation is available in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"injective hash function: A hash function where the hash table is injective, meaning each input maps to a distinct hash value, avoiding collisions.\",\n  \"claims\": [\n    {\n      \"claim\": \"An injective hash function produces a hash table with the injective property.\",\n      \"evidence_ids\": [\"DGL-E0438\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Limited metadata: only a labeled annotation supports the concept; no detailed explanation is provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"injective hash function: A hash function whose hash table is injective. In an injective hash table, each input maps to a distinct hash value, so collisions are avoided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"injective hash function: A hash function whose hash table is injective.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0438\"],\n      \"reason\": \"The source annotation explicitly marks the hash table as injective.\"\n    },\n    {\n      \"sentence\": \"In an injective hash table, each input maps to a distinct hash value, so collisions are avoided.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"This is the standard meaning of injective and does not introduce unsupported specifics.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence is a brief annotation; no formal definition or further explanation is available in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:48:24.592038+00:00"
+}

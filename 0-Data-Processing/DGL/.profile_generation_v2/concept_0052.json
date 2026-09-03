@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "3ce577a2e872bdcf4c21427b1de65bf5be5f06014237668ad73cbd563497fe02",
+  "concept_id": 52,
+  "concept_name": "covariance matrix",
+  "aliases": [
+    "covariance matrix",
+    "covariance"
+  ],
+  "profile": "covariance matrix: The term appears in the source material.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "covariance matrix: The term 'covariance matrix' appears in the lecture material.",
+    "claims": [
+      {
+        "claim": "The term 'covariance matrix' appears in the lecture material.",
+        "evidence_ids": [
+          "DGL-E0062"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only the term is recorded; no definition or additional context is available in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "covariance matrix: The term appears in the source material.",
+    "sentence_reviews": [
+      {
+        "sentence": "covariance matrix: The term appears in the source material.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0062"
+        ],
+        "reason": "The evidence records the handwritten term 'COVARIANCE MATRIX'; no further definition or application is supplied."
+      }
+    ],
+    "warnings": [
+      "Only the standalone term is documented; no definition, formula, or application can be grounded in the available evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"covariance matrix: The term 'covariance matrix' appears in the lecture material.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'covariance matrix' appears in the lecture material.\",\n      \"evidence_ids\": [\"DGL-E0062\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only the term is recorded; no definition or additional context is available in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"covariance matrix: The term appears in the source material.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"covariance matrix: The term appears in the source material.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0062\"],\n      \"reason\": \"The evidence records the handwritten term 'COVARIANCE MATRIX'; no further definition or application is supplied.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the standalone term is documented; no definition, formula, or application can be grounded in the available evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:06:08.980197+00:00"
+}

@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b784f4c0d631ae622eaedc824179f677dc81c69389b30190575676f5a8b19d0c",
+  "concept_id": 89,
+  "concept_name": "backtracking line search",
+  "aliases": [
+    "backtracking line search"
+  ],
+  "profile": "backtracking line search: an adjustable method. It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "backtracking line search: an adjustable method. It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.",
+    "claims": [
+      {
+        "claim": "Backtracking line search is an adjustable method.",
+        "evidence_ids": [
+          "MLR-E0103"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.",
+        "evidence_ids": [
+          "MLR-E0371"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "backtracking line search: an adjustable method. It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.",
+    "sentence_reviews": [
+      {
+        "sentence": "backtracking line search: an adjustable method.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0103"
+        ],
+        "reason": "The source describes backtracking line search as an adjustable method."
+      },
+      {
+        "sentence": "It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0371"
+        ],
+        "reason": "The source explicitly describes this procedure as backtracking line search."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"backtracking line search: an adjustable method. It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.\",\n  \"claims\": [\n    {\n      \"claim\": \"Backtracking line search is an adjustable method.\",\n      \"evidence_ids\": [\"MLR-E0103\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.\",\n      \"evidence_ids\": [\"MLR-E0371\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"backtracking line search: an adjustable method. It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"backtracking line search: an adjustable method.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0103\"],\n      \"reason\": \"The source describes backtracking line search as an adjustable method.\"\n    },\n    {\n      \"sentence\": \"It tests values of α via an efficient bisection process, gradually decreasing α from an initial value until an inequality is satisfied.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0371\"],\n      \"reason\": \"The source explicitly describes this procedure as backtracking line search.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:55:21.204282+00:00"
+}

@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6ba8536e9c354a9d04b9ad26d90eda1a788bf1de65732bc4e04580438cf22708",
+  "concept_id": 368,
+  "concept_name": "encoder-decoder gnns",
+  "aliases": [
+    "encoder-decoder gnns",
+    "encoder decoder graph neural network"
+  ],
+  "profile": "encoder-decoder gnns: In the context of generative graph neural networks, Graph UNet (Gao et al., 2019) is presented as an encoder-decoder GNN case study.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "encoder-decoder gnns: Encoder-decoder GNNs are a topic in graph neural network study; Graph UNet (Gao et al., 2019) is given as an encoder-decoder GNN case study.",
+    "claims": [
+      {
+        "claim": "Encoder-decoder GNNs are a topic in graph neural network study.",
+        "evidence_ids": [
+          "DGL-E0549"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph UNet (Gao et al., 2019) is given as an encoder-decoder GNN case study.",
+        "evidence_ids": [
+          "DGL-E0527"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata only identifies a case study; no formal definition or properties are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "encoder-decoder gnns: In the context of generative graph neural networks, Graph UNet (Gao et al., 2019) is presented as an encoder-decoder GNN case study.",
+    "sentence_reviews": [
+      {
+        "sentence": "In the context of generative graph neural networks, Graph UNet (Gao et al., 2019) is presented as an encoder-decoder GNN case study.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0527"
+        ],
+        "reason": "The source identifies the encoder-decoder GNN case study as Graph UNet and is part of material on generative graph neural networks and graph pooling."
+      }
+    ],
+    "warnings": [
+      "No formal definition or architecture details for encoder-decoder GNNs are provided in the source metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"encoder-decoder gnns: Encoder-decoder GNNs are a topic in graph neural network study; Graph UNet (Gao et al., 2019) is given as an encoder-decoder GNN case study.\",\n  \"claims\": [\n    {\n      \"claim\": \"Encoder-decoder GNNs are a topic in graph neural network study.\",\n      \"evidence_ids\": [\"DGL-E0549\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph UNet (Gao et al., 2019) is given as an encoder-decoder GNN case study.\",\n      \"evidence_ids\": [\"DGL-E0527\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata only identifies a case study; no formal definition or properties are provided.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"encoder-decoder gnns: In the context of generative graph neural networks, Graph UNet (Gao et al., 2019) is presented as an encoder-decoder GNN case study.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In the context of generative graph neural networks, Graph UNet (Gao et al., 2019) is presented as an encoder-decoder GNN case study.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0527\"],\n      \"reason\": \"The source identifies the encoder-decoder GNN case study as Graph UNet and is part of material on generative graph neural networks and graph pooling.\"\n    }\n  ],\n  \"warnings\": [\n    \"No formal definition or architecture details for encoder-decoder GNNs are provided in the source metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:08:20.436936+00:00"
+}

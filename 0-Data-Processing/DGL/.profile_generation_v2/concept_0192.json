@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "3508051baaa6b91166f7e0dc073e7aa1f7da5573cd0fc1127b42c9908f346b56",
+  "concept_id": 192,
+  "concept_name": "graphsage",
+  "aliases": [
+    "graphsage"
+  ],
+  "profile": "graphsage: GraphSAGE is a graph neural network method cited as Hamilton et al. (2017). It appears as an example in GNN training strategies, particularly sampling and batch normalization. It is also referenced in the context of graph isomorphism network (GIN) and expressiveness, showing its role in the field of GNN research.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graphsage: GraphSAGE is a graph neural network method attributed to Hamilton et al. (2017). It appears as an example in GNN training strategies, specifically in the context of sampling and batch normalization. It is also referenced in discussions of graph model expressiveness alongside Graph Isomorphism Network (GIN), indicating its role as a comparison point in GNN analysis.",
+    "claims": [
+      {
+        "claim": "GraphSAGE is a graph neural network method attributed to Hamilton et al. (2017).",
+        "evidence_ids": [
+          "DGL-E0323",
+          "DGL-E0442"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "GraphSAGE appears as an example in GNN training strategies, specifically in the context of sampling and batch normalization.",
+        "evidence_ids": [
+          "DGL-E0359"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "GraphSAGE is referenced in discussions of graph model expressiveness alongside Graph Isomorphism Network (GIN).",
+        "evidence_ids": [
+          "DGL-E0442"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not describe the internal mechanism of GraphSAGE or provide concrete examples beyond its name and citations.",
+      "The word 'attributed' is used instead of 'introduced' because the metadata only shows the citation, not an explicit statement of introduction."
+    ]
+  },
+  "review": {
+    "final_profile": "graphsage: GraphSAGE is a graph neural network method cited as Hamilton et al. (2017). It appears as an example in GNN training strategies, particularly sampling and batch normalization. It is also referenced in the context of graph isomorphism network (GIN) and expressiveness, showing its role in the field of GNN research.",
+    "sentence_reviews": [
+      {
+        "sentence": "GraphSAGE is a graph neural network method cited as Hamilton et al. (2017).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0323",
+          "DGL-E0442"
+        ],
+        "reason": "The metadata repeatedly cites GraphSAGE with Hamilton et al. (2017) in GNN-related contexts."
+      },
+      {
+        "sentence": "It appears as an example in GNN training strategies, particularly sampling and batch normalization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0359"
+        ],
+        "reason": "The source lists GraphSAGE as an example under a GNN training section covering sampling strategies and batch normalization."
+      },
+      {
+        "sentence": "It is also referenced in the context of graph isomorphism network (GIN) and expressiveness, showing its role in the field of GNN research.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0442",
+          "DGL-E0216"
+        ],
+        "reason": "GraphSAGE appears in GIN/expressiveness content and in broader GNN research trends content."
+      }
+    ],
+    "warnings": [
+      "The exact relationship between GraphSAGE and GIN is not specified in the metadata; only co-occurrence in context is asserted.",
+      "No mechanism or introduction date is asserted beyond the citation to Hamilton et al. (2017)."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graphsage: GraphSAGE is a graph neural network method attributed to Hamilton et al. (2017). It appears as an example in GNN training strategies, specifically in the context of sampling and batch normalization. It is also referenced in discussions of graph model expressiveness alongside Graph Isomorphism Network (GIN), indicating its role as a comparison point in GNN analysis.\",\n  \"claims\": [\n    {\n      \"claim\": \"GraphSAGE is a graph neural network method attributed to Hamilton et al. (2017).\",\n      \"evidence_ids\": [\"DGL-E0323\", \"DGL-E0442\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"GraphSAGE appears as an example in GNN training strategies, specifically in the context of sampling and batch normalization.\",\n      \"evidence_ids\": [\"DGL-E0359\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"GraphSAGE is referenced in discussions of graph model expressiveness alongside Graph Isomorphism Network (GIN).\",\n      \"evidence_ids\": [\"DGL-E0442\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not describe the internal mechanism of GraphSAGE or provide concrete examples beyond its name and citations.\",\n    \"The word 'attributed' is used instead of 'introduced' because the metadata only shows the citation, not an explicit statement of introduction.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graphsage: GraphSAGE is a graph neural network method cited as Hamilton et al. (2017). It appears as an example in GNN training strategies, particularly sampling and batch normalization. It is also referenced in the context of graph isomorphism network (GIN) and expressiveness, showing its role in the field of GNN research.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"GraphSAGE is a graph neural network method cited as Hamilton et al. (2017).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0323\", \"DGL-E0442\"],\n      \"reason\": \"The metadata repeatedly cites GraphSAGE with Hamilton et al. (2017) in GNN-related contexts.\"\n    },\n    {\n      \"sentence\": \"It appears as an example in GNN training strategies, particularly sampling and batch normalization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0359\"],\n      \"reason\": \"The source lists GraphSAGE as an example under a GNN training section covering sampling strategies and batch normalization.\"\n    },\n    {\n      \"sentence\": \"It is also referenced in the context of graph isomorphism network (GIN) and expressiveness, showing its role in the field of GNN research.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0442\", \"DGL-E0216\"],\n      \"reason\": \"GraphSAGE appears in GIN/expressiveness content and in broader GNN research trends content.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact relationship between GraphSAGE and GIN is not specified in the metadata; only co-occurrence in context is asserted.\",\n    \"No mechanism or introduction date is asserted beyond the citation to Hamilton et al. (2017).\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:10:16.751575+00:00"
+}

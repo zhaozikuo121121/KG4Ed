@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1368cc6f5b512b52181fe7fab4d080fdb1bcd3cf65e139c83191d9f3671a7c4e",
+  "concept_id": 152,
+  "concept_name": "graph clustering",
+  "aliases": [
+    "graph clustering",
+    "graph grouping",
+    "clustering algorithm"
+  ],
+  "profile": "graph clustering: the process by which a graph clustering algorithm identifies something in a graph.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph clustering: the process by which a graph clustering algorithm identifies something in a graph. The available source mentions graph clustering only in this identification role, without specifying criteria, mechanism, or examples.",
+    "claims": [
+      {
+        "claim": "Graph clustering is the process by which a graph clustering algorithm identifies something in a graph.",
+        "evidence_ids": [
+          "DGL-E0346"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only one mention; no details on criteria, mechanism, or examples are available."
+    ]
+  },
+  "review": {
+    "final_profile": "graph clustering: the process by which a graph clustering algorithm identifies something in a graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph clustering: the process by which a graph clustering algorithm identifies something in a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0346"
+        ],
+        "reason": "The source phrase 'identified by a graph clustering algorithm' directly supports this identification-role description."
+      }
+    ],
+    "warnings": [
+      "No details on the criteria, mechanism, or examples of graph clustering are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph clustering: the process by which a graph clustering algorithm identifies something in a graph. The available source mentions graph clustering only in this identification role, without specifying criteria, mechanism, or examples.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph clustering is the process by which a graph clustering algorithm identifies something in a graph.\",\n      \"evidence_ids\": [\"DGL-E0346\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata provides only one mention; no details on criteria, mechanism, or examples are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph clustering: the process by which a graph clustering algorithm identifies something in a graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph clustering: the process by which a graph clustering algorithm identifies something in a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0346\"],\n      \"reason\": \"The source phrase 'identified by a graph clustering algorithm' directly supports this identification-role description.\"\n    }\n  ],\n  \"warnings\": [\n    \"No details on the criteria, mechanism, or examples of graph clustering are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:53:51.609042+00:00"
+}

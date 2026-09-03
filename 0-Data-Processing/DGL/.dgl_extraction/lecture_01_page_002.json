@@ -1,0 +1,3544 @@
+{
+  "version": "1.0.0",
+  "lecture": 1,
+  "pdf_file": "DGL_Lecture_1_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "Graph Properties and Matrix Representations",
+  "summary": "This lecture page introduces fundamental graph properties including connectivity, scale, and permutation invariance, alongside matrix representations like adjacency matrices. It covers topological concepts such as efficiency, resilience, and centrality measures, while exploring spectral properties through eigen decomposition and matrix powers for analyzing graph walks.",
+  "key_topics": [
+    "adjacency matrix",
+    "graph topology",
+    "permutation invariance",
+    "eigen decomposition",
+    "graph walks",
+    "centrality measures"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T09:19:47+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "feature integration",
+      "aliases": [
+        "integrating information"
+      ],
+      "evidence": "Printed heading '3. The power of integrating information'",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        670.0,
+        27.5,
+        835.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "symmetric matrix",
+      "aliases": [
+        "symmetric"
+      ],
+      "evidence": "symmetric vs asymmetric matrix",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        55.0,
+        165.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "weighted graph",
+      "aliases": [
+        "weighted"
+      ],
+      "evidence": "weighted or binary",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        55.0,
+        165.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "binary graph",
+      "aliases": [
+        "binary"
+      ],
+      "evidence": "weighted or binary",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        55.0,
+        165.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "permutation invariance",
+      "aliases": [
+        "permutation invariant"
+      ],
+      "evidence": "permutation invariance",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        55.0,
+        440.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graph density",
+      "aliases": [
+        "density"
+      ],
+      "evidence": "Scale/size (density, sparsity)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        55.0,
+        440.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graph sparsity",
+      "aliases": [
+        "sparsity"
+      ],
+      "evidence": "Scale/size (density, sparsity)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        55.0,
+        440.0,
+        82.5
+      ]
+    },
+    {
+      "canonical": "directed graph",
+      "aliases": [
+        "directed"
+      ],
+      "evidence": "directed",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        110.0,
+        110.0,
+        165.0,
+        137.5
+      ]
+    },
+    {
+      "canonical": "linear regression",
+      "aliases": [
+        "least squares"
+      ],
+      "evidence": "Diagram showing matrix multiplication Xw = y and loss function l(w)",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        220.0,
+        807.5,
+        385.0
+      ]
+    },
+    {
+      "canonical": "graph efficiency",
+      "aliases": [
+        "efficiency"
+      ],
+      "evidence": "Efficiency and resilience",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        330.0,
+        165.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "graph resilience",
+      "aliases": [
+        "resilience"
+      ],
+      "evidence": "Efficiency and resilience",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        330.0,
+        165.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "percolation threshold",
+      "aliases": [],
+      "evidence": "percolation threshold",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        110.0,
+        385.0,
+        165.0,
+        412.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "matrix a",
+        "a"
+      ],
+      "evidence": "Adjacency matrix, A N x N",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        412.5,
+        522.5,
+        522.5
+      ]
+    },
+    {
+      "canonical": "topology",
+      "aliases": [
+        "graph topology"
+      ],
+      "evidence": "Printed heading '4. Topology'",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        412.5,
+        972.5,
+        522.5
+      ]
+    },
+    {
+      "canonical": "degree centrality",
+      "aliases": [
+        "degree"
+      ],
+      "evidence": "Handwritten text 'degree centrality' and formula 'di = 3'",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        642.5,
+        440.0,
+        752.5,
+        495.0
+      ]
+    },
+    {
+      "canonical": "betweenness centrality",
+      "aliases": [
+        "betweenness"
+      ],
+      "evidence": "Handwritten text 'betweenness centrality' near a graph diagram",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        862.5,
+        467.5,
+        945.0,
+        522.5
+      ]
+    },
+    {
+      "canonical": "core-periphery structure",
+      "aliases": [
+        "core & periphery"
+      ],
+      "evidence": "Handwritten text 'core & periphery' highlighted in yellow",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        495.0,
+        835.0,
+        522.5
+      ]
+    },
+    {
+      "canonical": "node centrality measures",
+      "aliases": [
+        "centrality"
+      ],
+      "evidence": "node centrality measures",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        55.0,
+        752.5,
+        165.0,
+        769.0
+      ]
+    },
+    {
+      "canonical": "eigen decomposition",
+      "aliases": [
+        "spectral decomposition"
+      ],
+      "evidence": "Printed text: '6. Spectra of the matrix (eigen decomposition)'",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        752.5,
+        714.0,
+        972.5
+      ]
+    },
+    {
+      "canonical": "graph walks",
+      "aliases": [
+        "walks"
+      ],
+      "evidence": "Printed text: '5. Walks (powers of matrices)'",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        736.0,
+        752.5,
+        972.5,
+        972.5
+      ]
+    },
+    {
+      "canonical": "matrix powers",
+      "aliases": [
+        "powers of matrices"
+      ],
+      "evidence": "Printed text: '5. Walks (powers of matrices)'",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        736.0,
+        752.5,
+        972.5,
+        972.5
+      ]
+    },
+    {
+      "canonical": "microscale topology",
+      "aliases": [
+        "micro scale topology"
+      ],
+      "evidence": "micro scale topology",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        55.0,
+        780.0,
+        137.5,
+        796.5
+      ]
+    },
+    {
+      "canonical": "mesoscale topology",
+      "aliases": [
+        "meso scale topology"
+      ],
+      "evidence": "mesoscale topology",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        192.5,
+        780.0,
+        275.0,
+        796.5
+      ]
+    },
+    {
+      "canonical": "covariance matrix",
+      "aliases": [
+        "covariance"
+      ],
+      "evidence": "COVARIANCE MATRIX",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        385.0,
+        780.0,
+        467.5,
+        796.5
+      ]
+    },
+    {
+      "canonical": "star-like graphs",
+      "aliases": [
+        "star graphs"
+      ],
+      "evidence": "star-like graphs",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        302.5,
+        807.5,
+        357.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "principal component analysis",
+      "aliases": [
+        "pca"
+      ],
+      "evidence": "The eigen decomposition of Σ is equivalent to a principal component analysis (PCA)",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        357.5,
+        835.0,
+        522.5,
+        851.5
+      ]
+    },
+    {
+      "canonical": "highly connected core structure",
+      "aliases": [
+        "core structure"
+      ],
+      "evidence": "highly connected core structure",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        220.0,
+        917.5,
+        302.5,
+        934.0
+      ]
+    },
+    {
+      "canonical": "eigenvalues",
+      "aliases": [
+        "spectrum"
+      ],
+      "evidence": "eigenvalues",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        385.0,
+        945.0,
+        440.0,
+        961.5
+      ]
+    },
+    {
+      "canonical": "eigenvectors",
+      "aliases": [
+        "eigenmodes"
+      ],
+      "evidence": "eigenvectors",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        467.5,
+        945.0,
+        522.5,
+        961.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "A' = P^T A P",
+      "related_concepts": [
+        "permutation invariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        477.5,
+        165.0,
+        615.0,
+        220.0
+      ],
+      "label": "Permutation of Adjacency Matrix"
+    },
+    {
+      "latex": "A_{i,j} \\neq 0",
+      "related_concepts": [
+        "graph density"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        560.0,
+        82.5,
+        615.0,
+        110.0
+      ],
+      "label": "Edge Condition"
+    },
+    {
+      "latex": "A \\vec{x} = \\lambda \\vec{x}",
+      "related_concepts": [
+        "eigen decomposition",
+        "eigenvalues",
+        "eigenvectors"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        357.5,
+        780.0,
+        412.5,
+        807.5
+      ],
+      "label": "eigenvalue equation"
+    },
+    {
+      "latex": "A \\times A = A^2",
+      "related_concepts": [
+        "matrix powers",
+        "adjacency matrix"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        862.5,
+        769.0,
+        917.5,
+        791.0
+      ],
+      "label": "Matrix power relation"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Comparison of symmetric and asymmetric adjacency matrices with corresponding directed and undirected graphs",
+      "related_concepts": [
+        "symmetric matrix",
+        "directed graph"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        82.5,
+        302.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of permutation invariance in graphs and matrices",
+      "related_concepts": [
+        "permutation invariance",
+        "adjacency matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        302.5,
+        82.5,
+        522.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Examples of graphs illustrating efficiency and resilience, including percolation threshold",
+      "related_concepts": [
+        "graph efficiency",
+        "graph resilience",
+        "percolation threshold"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        302.5,
+        302.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Example of an adjacency matrix for a graph with 6 nodes",
+      "related_concepts": [
+        "adjacency matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        412.5,
+        522.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication diagram showing input features X, weights W, and output scores y, illustrating feature integration",
+      "related_concepts": [
+        "feature integration",
+        "linear regression"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        110.0,
+        835.0,
+        275.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Small graph with nodes and edges used to illustrate degree centrality and topological roles",
+      "related_concepts": [
+        "degree centrality",
+        "topology"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        642.5,
+        412.5,
+        725.0,
+        467.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph with weighted edges illustrating betweenness centrality and core-periphery structure",
+      "related_concepts": [
+        "betweenness centrality",
+        "core-periphery structure"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        835.0,
+        440.0,
+        945.0,
+        495.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Visual representation of matrix permutation A' = P^T A P with colored blocks",
+      "related_concepts": [
+        "permutation invariance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        192.5,
+        642.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Various graph structures illustrating different topologies including modular graphs, star-like graphs, and highly connected core structures",
+      "related_concepts": [
+        "microscale topology",
+        "mesoscale topology",
+        "star-like graphs",
+        "highly connected core structure"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        55.0,
+        807.5,
+        330.0,
+        945.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Visual representation of eigenvalue decomposition showing matrix factorization into eigenvalues and eigenvectors",
+      "related_concepts": [
+        "eigen decomposition",
+        "eigenvalues",
+        "eigenvectors"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        412.5,
+        890.0,
+        522.5,
+        945.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example graph with 8 nodes used to demonstrate walks and adjacency matrix properties",
+      "related_concepts": [
+        "graph walks",
+        "adjacency matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        736.0,
+        791.0,
+        807.5,
+        846.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Adjacency matrix A (8x8) corresponding to the example graph",
+      "related_concepts": [
+        "adjacency matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        813.0,
+        791.0,
+        879.0,
+        846.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Squared adjacency matrix A^2 showing number of walks of length two",
+      "related_concepts": [
+        "matrix powers",
+        "graph walks"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        884.5,
+        791.0,
+        950.5,
+        846.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph illustrating walks of length two from node six",
+      "related_concepts": [
+        "graph walks"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        813.0,
+        862.5,
+        879.0,
+        917.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph illustrating walks of length two returning to original node",
+      "related_concepts": [
+        "graph walks"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        884.5,
+        862.5,
+        950.5,
+        917.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "G_T",
+      "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation.",
+      "bbox": [
+        220.0,
+        330.0,
+        247.5,
+        357.5
+      ]
+    },
+    {
+      "transcription": "G_graph",
+      "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation.",
+      "bbox": [
+        275.0,
+        330.0,
+        302.5,
+        357.5
+      ]
+    },
+    {
+      "transcription": "local averaging of x by W(CC)",
+      "reason": "Handwriting is slightly messy, 'CC' might be 'C' or another symbol.",
+      "bbox": [
+        670.0,
+        55.0,
+        752.5,
+        82.5
+      ]
+    },
+    {
+      "transcription": "spectral image",
+      "reason": "Handwriting is small and slightly unclear.",
+      "bbox": [
+        587.5,
+        137.5,
+        642.5,
+        165.0
+      ]
+    },
+    {
+      "transcription": "quantifies the topological role of an edge e",
+      "reason": "Some words are written quickly and may be misinterpreted.",
+      "bbox": [
+        835.0,
+        440.0,
+        945.0,
+        467.5
+      ]
+    },
+    {
+      "transcription": "global <-> local",
+      "reason": "Arrow direction and exact wording slightly ambiguous",
+      "bbox": [
+        165.0,
+        571.0,
+        220.0,
+        587.5
+      ]
+    },
+    {
+      "transcription": "more efficient",
+      "reason": "Handwriting style makes 'efficient' somewhat unclear",
+      "bbox": [
+        302.5,
+        560.0,
+        357.5,
+        576.5
+      ]
+    },
+    {
+      "transcription": "low efficiency diffusion mixing",
+      "reason": "Multiple words stacked, some letters unclear",
+      "bbox": [
+        55.0,
+        890.0,
+        110.0,
+        934.0
+      ]
+    },
+    {
+      "transcription": "shapes / patterns / topologies",
+      "reason": "Last word partially obscured and handwriting unclear",
+      "bbox": [
+        220.0,
+        752.5,
+        302.5,
+        769.0
+      ]
+    },
+    {
+      "transcription": "natural modes",
+      "reason": "Quotation marks and exact wording slightly ambiguous",
+      "bbox": [
+        357.5,
+        824.0,
+        412.5,
+        835.0
+      ]
+    },
+    {
+      "transcription": "girato from 1 by a 2^nd walk of 2^nd",
+      "reason": "Handwriting is cursive and partially unclear; 'girato' may be a non-English term or miswritten word",
+      "bbox": [
+        714.0,
+        807.5,
+        752.5,
+        862.5
+      ]
+    },
+    {
+      "transcription": "L-length",
+      "reason": "Quotation marks and hyphenation make exact interpretation uncertain",
+      "bbox": [
+        917.5,
+        752.5,
+        956.0,
+        769.0
+      ]
+    },
+    {
+      "transcription": "return: a list of nodes, that are 2-hops away from the initial node",
+      "reason": "Some words are abbreviated or written quickly, making full certainty difficult",
+      "bbox": [
+        917.5,
+        917.5,
+        972.5,
+        972.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "adjacency matrix A",
+              "A"
+            ],
+            "evidence": "Adjacency matrix, A N x N",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              750,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "symmetric matrix",
+            "aliases": [
+              "symmetric"
+            ],
+            "evidence": "symmetric vs asymmetric matrix",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              300,
+              150
+            ]
+          },
+          {
+            "canonical": "asymmetric matrix",
+            "aliases": [
+              "asymmetric"
+            ],
+            "evidence": "symmetric vs asymmetric matrix",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              300,
+              150
+            ]
+          },
+          {
+            "canonical": "weighted graph",
+            "aliases": [
+              "weighted"
+            ],
+            "evidence": "weighted or binary",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              300,
+              150
+            ]
+          },
+          {
+            "canonical": "binary graph",
+            "aliases": [
+              "binary"
+            ],
+            "evidence": "weighted or binary",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              300,
+              150
+            ]
+          },
+          {
+            "canonical": "directed graph",
+            "aliases": [
+              "directed"
+            ],
+            "evidence": "directed",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              200,
+              300,
+              250
+            ]
+          },
+          {
+            "canonical": "undirected graph",
+            "aliases": [
+              "undirected"
+            ],
+            "evidence": "undirected",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              200,
+              500,
+              250
+            ]
+          },
+          {
+            "canonical": "permutation invariance",
+            "aliases": [
+              "permutation invariance"
+            ],
+            "evidence": "permutation invariance",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ]
+          },
+          {
+            "canonical": "graph density",
+            "aliases": [
+              "density"
+            ],
+            "evidence": "Scale/size (density, sparsity)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ]
+          },
+          {
+            "canonical": "graph sparsity",
+            "aliases": [
+              "sparsity"
+            ],
+            "evidence": "Scale/size (density, sparsity)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ]
+          },
+          {
+            "canonical": "graph efficiency",
+            "aliases": [
+              "efficiency"
+            ],
+            "evidence": "Efficiency and resilience",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              600,
+              300,
+              650
+            ]
+          },
+          {
+            "canonical": "graph resilience",
+            "aliases": [
+              "resilience"
+            ],
+            "evidence": "Efficiency and resilience",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              600,
+              300,
+              650
+            ]
+          },
+          {
+            "canonical": "percolation threshold",
+            "aliases": [
+              "percolation threshold"
+            ],
+            "evidence": "percolation threshold",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              700,
+              300,
+              750
+            ]
+          },
+          {
+            "canonical": "information flow",
+            "aliases": [
+              "information flow"
+            ],
+            "evidence": "information flow efficiency measures",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              800,
+              300,
+              850
+            ]
+          },
+          {
+            "canonical": "global efficiency",
+            "aliases": [
+              "global"
+            ],
+            "evidence": "global",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              850,
+              300,
+              900
+            ]
+          },
+          {
+            "canonical": "local efficiency",
+            "aliases": [
+              "local"
+            ],
+            "evidence": "local",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              850,
+              400,
+              900
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "A_{i,j} \\neq A_{j,i}",
+            "related_concepts": [
+              "asymmetric matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              200,
+              200,
+              250
+            ],
+            "label": "asymmetric"
+          },
+          {
+            "latex": "A_{i,j} = A_{j,i}",
+            "related_concepts": [
+              "symmetric matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              200,
+              600,
+              250
+            ],
+            "label": "symmetric"
+          },
+          {
+            "latex": "A_{i,j} \\in \\{0, 1\\}",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              400,
+              200,
+              450
+            ],
+            "label": "binary"
+          },
+          {
+            "latex": "A_{i,j} \\in \\mathbb{R}",
+            "related_concepts": [
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              400,
+              600,
+              450
+            ],
+            "label": "weighted"
+          },
+          {
+            "latex": "A \\in \\mathbb{R}^{N \\times N}",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              200,
+              700,
+              250
+            ],
+            "label": "node size"
+          },
+          {
+            "latex": "X' = XP",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              400,
+              700,
+              450
+            ],
+            "label": "permutation matrix"
+          },
+          {
+            "latex": "A' = P^T A P",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              400,
+              800,
+              450
+            ],
+            "label": "permuted adjacency"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of symmetric and asymmetric adjacency matrices with corresponding directed and undirected graphs",
+            "related_concepts": [
+              "symmetric matrix",
+              "asymmetric matrix",
+              "directed graph",
+              "undirected graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              150,
+              550,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of permutation invariance in graphs and matrices",
+            "related_concepts": [
+              "permutation invariance",
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              150,
+              950,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of graphs illustrating efficiency and resilience, including percolation threshold",
+            "related_concepts": [
+              "graph efficiency",
+              "graph resilience",
+              "percolation threshold"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              550,
+              550,
+              950
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Example of an adjacency matrix for a graph with 6 nodes",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              750,
+              950,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "G_T",
+            "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation.",
+            "bbox": [
+              400,
+              600,
+              450,
+              650
+            ]
+          },
+          {
+            "transcription": "G_graph",
+            "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation.",
+            "bbox": [
+              500,
+              600,
+              550,
+              650
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"adjacency matrix A\", \"A\"],\n      \"evidence\": \"Adjacency matrix, A N x N\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 750, 950, 950]\n    },\n    {\n      \"canonical\": \"symmetric matrix\",\n      \"aliases\": [\"symmetric\"],\n      \"evidence\": \"symmetric vs asymmetric matrix\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 300, 150]\n    },\n    {\n      \"canonical\": \"asymmetric matrix\",\n      \"aliases\": [\"asymmetric\"],\n      \"evidence\": \"symmetric vs asymmetric matrix\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 300, 150]\n    },\n    {\n      \"canonical\": \"weighted graph\",\n      \"aliases\": [\"weighted\"],\n      \"evidence\": \"weighted or binary\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 300, 150]\n    },\n    {\n      \"canonical\": \"binary graph\",\n      \"aliases\": [\"binary\"],\n      \"evidence\": \"weighted or binary\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 300, 150]\n    },\n    {\n      \"canonical\": \"directed graph\",\n      \"aliases\": [\"directed\"],\n      \"evidence\": \"directed\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 200, 300, 250]\n    },\n    {\n      \"canonical\": \"undirected graph\",\n      \"aliases\": [\"undirected\"],\n      \"evidence\": \"undirected\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 200, 500, 250]\n    },\n    {\n      \"canonical\": \"permutation invariance\",\n      \"aliases\": [\"permutation invariance\"],\n      \"evidence\": \"permutation invariance\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 800, 150]\n    },\n    {\n      \"canonical\": \"graph density\",\n      \"aliases\": [\"density\"],\n      \"evidence\": \"Scale/size (density, sparsity)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 800, 150]\n    },\n    {\n      \"canonical\": \"graph sparsity\",\n      \"aliases\": [\"sparsity\"],\n      \"evidence\": \"Scale/size (density, sparsity)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 800, 150]\n    },\n    {\n      \"canonical\": \"graph efficiency\",\n      \"aliases\": [\"efficiency\"],\n      \"evidence\": \"Efficiency and resilience\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 600, 300, 650]\n    },\n    {\n      \"canonical\": \"graph resilience\",\n      \"aliases\": [\"resilience\"],\n      \"evidence\": \"Efficiency and resilience\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 600, 300, 650]\n    },\n    {\n      \"canonical\": \"percolation threshold\",\n      \"aliases\": [\"percolation threshold\"],\n      \"evidence\": \"percolation threshold\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 700, 300, 750]\n    },\n    {\n      \"canonical\": \"information flow\",\n      \"aliases\": [\"information flow\"],\n      \"evidence\": \"information flow efficiency measures\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 800, 300, 850]\n    },\n    {\n      \"canonical\": \"global efficiency\",\n      \"aliases\": [\"global\"],\n      \"evidence\": \"global\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 850, 300, 900]\n    },\n    {\n      \"canonical\": \"local efficiency\",\n      \"aliases\": [\"local\"],\n      \"evidence\": \"local\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 850, 400, 900]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"A_{i,j} \\\\neq A_{j,i}\",\n      \"related_concepts\": [\"asymmetric matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 200, 200, 250],\n      \"label\": \"asymmetric\"\n    },\n    {\n      \"latex\": \"A_{i,j} = A_{j,i}\",\n      \"related_concepts\": [\"symmetric matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 200, 600, 250],\n      \"label\": \"symmetric\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\in \\\\{0, 1\\\\}\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 400, 200, 450],\n      \"label\": \"binary\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\in \\\\mathbb{R}\",\n      \"related_concepts\": [\"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 400, 600, 450],\n      \"label\": \"weighted\"\n    },\n    {\n      \"latex\": \"A \\\\in \\\\mathbb{R}^{N \\\\times N}\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 200, 700, 250],\n      \"label\": \"node size\"\n    },\n    {\n      \"latex\": \"X' = XP\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 400, 700, 450],\n      \"label\": \"permutation matrix\"\n    },\n    {\n      \"latex\": \"A' = P^T A P\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 400, 800, 450],\n      \"label\": \"permuted adjacency\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of symmetric and asymmetric adjacency matrices with corresponding directed and undirected graphs\",\n      \"related_concepts\": [\"symmetric matrix\", \"asymmetric matrix\", \"directed graph\", \"undirected graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 150, 550, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of permutation invariance in graphs and matrices\",\n      \"related_concepts\": [\"permutation invariance\", \"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 150, 950, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of graphs illustrating efficiency and resilience, including percolation threshold\",\n      \"related_concepts\": [\"graph efficiency\", \"graph resilience\", \"percolation threshold\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 550, 550, 950]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Example of an adjacency matrix for a graph with 6 nodes\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 750, 950, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"G_T\",\n      \"reason\": \"Handwritten text is partially obscured and may represent a specific graph type or transformation.\",\n      \"bbox\": [400, 600, 450, 650]\n    },\n    {\n      \"transcription\": \"G_graph\",\n      \"reason\": \"Handwritten text is partially obscured and may represent a specific graph type or transformation.\",\n      \"bbox\": [500, 600, 550, 650]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "permutation invariance",
+            "aliases": [
+              "permutation invariant"
+            ],
+            "evidence": "Printed text 'permutation invariance' and handwritten note 'graphs are permutation invariant'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              300,
+              200
+            ]
+          },
+          {
+            "canonical": "graph density",
+            "aliases": [
+              "density",
+              "sparsity"
+            ],
+            "evidence": "Printed text '(density, sparsity)' and handwritten note 'edge size'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              250,
+              100
+            ]
+          },
+          {
+            "canonical": "feature integration",
+            "aliases": [
+              "integrating information"
+            ],
+            "evidence": "Printed heading '3. The power of integrating information' and handwritten note 'diffusion - integration'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              50,
+              700,
+              150
+            ]
+          },
+          {
+            "canonical": "linear regression",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence": "Diagram showing matrix multiplication Xw = y and loss function l(w).",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              400,
+              650,
+              700
+            ]
+          },
+          {
+            "canonical": "topology",
+            "aliases": [
+              "graph topology"
+            ],
+            "evidence": "Printed heading '4. Topology' and handwritten notes on 'topological role'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              750,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "degree centrality",
+            "aliases": [
+              "degree"
+            ],
+            "evidence": "Handwritten text 'degree centrality' and formula 'di = 3'.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              350,
+              800,
+              550,
+              900
+            ]
+          },
+          {
+            "canonical": "betweenness centrality",
+            "aliases": [
+              "betweenness"
+            ],
+            "evidence": "Handwritten text 'betweenness centrality' near a graph diagram.",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              850,
+              900,
+              950
+            ]
+          },
+          {
+            "canonical": "core-periphery structure",
+            "aliases": [
+              "core & periphery"
+            ],
+            "evidence": "Handwritten text 'core & periphery' highlighted in yellow.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              900,
+              700,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "A' = P^T A P",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              300,
+              300,
+              400
+            ],
+            "label": "Permutation of Adjacency Matrix"
+          },
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^n (\\hat{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "linear regression"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              600,
+              600,
+              650
+            ],
+            "label": "Loss Function"
+          },
+          {
+            "latex": "d_i = \\sum_{j \\in \\mathcal{N}(i)} w_{ij}",
+            "related_concepts": [
+              "degree centrality"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              350,
+              850,
+              500,
+              900
+            ],
+            "label": "Degree Definition"
+          },
+          {
+            "latex": "A_{i,j} \\neq 0",
+            "related_concepts": [
+              "graph density"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              200,
+              150,
+              300,
+              200
+            ],
+            "label": "Edge Condition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing input features X, weights W, and output scores y, illustrating feature integration.",
+            "related_concepts": [
+              "feature integration",
+              "linear regression"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              200,
+              700,
+              500
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph with nodes and edges used to illustrate degree centrality and topological roles.",
+            "related_concepts": [
+              "degree centrality",
+              "topology"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              350,
+              750,
+              500,
+              850
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph with weighted edges illustrating betweenness centrality and core-periphery structure.",
+            "related_concepts": [
+              "betweenness centrality",
+              "core-periphery structure"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              800,
+              900,
+              900
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Histogram or distribution plot labeled 'topological measure' showing frequency of some metric.",
+            "related_concepts": [
+              "topology"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              500,
+              800,
+              650,
+              900
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Visual representation of matrix permutation A' = P^T A P with colored blocks.",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              350,
+              350,
+              450
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "local averaging of x by W(CC)",
+            "reason": "Handwriting is slightly messy, 'CC' might be 'C' or another symbol.",
+            "bbox": [
+              400,
+              100,
+              550,
+              150
+            ]
+          },
+          {
+            "transcription": "spectral image",
+            "reason": "Handwriting is small and slightly unclear.",
+            "bbox": [
+              250,
+              250,
+              350,
+              300
+            ]
+          },
+          {
+            "transcription": "quantifies the topological role of an edge e",
+            "reason": "Some words are written quickly and may be misinterpreted.",
+            "bbox": [
+              700,
+              800,
+              900,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"permutation invariance\",\n      \"aliases\": [\"permutation invariant\"],\n      \"evidence\": \"Printed text 'permutation invariance' and handwritten note 'graphs are permutation invariant'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 300, 200]\n    },\n    {\n      \"canonical\": \"graph density\",\n      \"aliases\": [\"density\", \"sparsity\"],\n      \"evidence\": \"Printed text '(density, sparsity)' and handwritten note 'edge size'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 250, 100]\n    },\n    {\n      \"canonical\": \"feature integration\",\n      \"aliases\": [\"integrating information\"],\n      \"evidence\": \"Printed heading '3. The power of integrating information' and handwritten note 'diffusion - integration'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 50, 700, 150]\n    },\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [\"least squares\"],\n      \"evidence\": \"Diagram showing matrix multiplication Xw = y and loss function l(w).\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 400, 650, 700]\n    },\n    {\n      \"canonical\": \"topology\",\n      \"aliases\": [\"graph topology\"],\n      \"evidence\": \"Printed heading '4. Topology' and handwritten notes on 'topological role'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 750, 950, 950]\n    },\n    {\n      \"canonical\": \"degree centrality\",\n      \"aliases\": [\"degree\"],\n      \"evidence\": \"Handwritten text 'degree centrality' and formula 'di = 3'.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [350, 800, 550, 900]\n    },\n    {\n      \"canonical\": \"betweenness centrality\",\n      \"aliases\": [\"betweenness\"],\n      \"evidence\": \"Handwritten text 'betweenness centrality' near a graph diagram.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 850, 900, 950]\n    },\n    {\n      \"canonical\": \"core-periphery structure\",\n      \"aliases\": [\"core & periphery\"],\n      \"evidence\": \"Handwritten text 'core & periphery' highlighted in yellow.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 900, 700, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"A' = P^T A P\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 300, 300, 400],\n      \"label\": \"Permutation of Adjacency Matrix\"\n    },\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^n (\\\\hat{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"linear regression\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 600, 600, 650],\n      \"label\": \"Loss Function\"\n    },\n    {\n      \"latex\": \"d_i = \\\\sum_{j \\\\in \\\\mathcal{N}(i)} w_{ij}\",\n      \"related_concepts\": [\"degree centrality\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [350, 850, 500, 900],\n      \"label\": \"Degree Definition\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\neq 0\",\n      \"related_concepts\": [\"graph density\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [200, 150, 300, 200],\n      \"label\": \"Edge Condition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing input features X, weights W, and output scores y, illustrating feature integration.\",\n      \"related_concepts\": [\"feature integration\", \"linear regression\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 200, 700, 500]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph with nodes and edges used to illustrate degree centrality and topological roles.\",\n      \"related_concepts\": [\"degree centrality\", \"topology\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [350, 750, 500, 850]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph with weighted edges illustrating betweenness centrality and core-periphery structure.\",\n      \"related_concepts\": [\"betweenness centrality\", \"core-periphery structure\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 800, 900, 900]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Histogram or distribution plot labeled 'topological measure' showing frequency of some metric.\",\n      \"related_concepts\": [\"topology\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [500, 800, 650, 900]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Visual representation of matrix permutation A' = P^T A P with colored blocks.\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 350, 350, 450]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"local averaging of x by W(CC)\",\n      \"reason\": \"Handwriting is slightly messy, 'CC' might be 'C' or another symbol.\",\n      \"bbox\": [400, 100, 550, 150]\n    },\n    {\n      \"transcription\": \"spectral image\",\n      \"reason\": \"Handwriting is small and slightly unclear.\",\n      \"bbox\": [250, 250, 350, 300]\n    },\n    {\n      \"transcription\": \"quantifies the topological role of an edge e\",\n      \"reason\": \"Some words are written quickly and may be misinterpreted.\",\n      \"bbox\": [700, 800, 900, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "information flow efficiency",
+            "aliases": [
+              "information flow",
+              "flow efficiency"
+            ],
+            "evidence": "information flow efficiency measures",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              180,
+              550,
+              220
+            ]
+          },
+          {
+            "canonical": "topological properties",
+            "aliases": [
+              "graph topology"
+            ],
+            "evidence": "How the topological properties of graphs constrain the way in which information flows through the graph?",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              250,
+              600,
+              350
+            ]
+          },
+          {
+            "canonical": "node centrality measures",
+            "aliases": [
+              "centrality"
+            ],
+            "evidence": "node centrality measures",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              550,
+              300,
+              580
+            ]
+          },
+          {
+            "canonical": "core-periphery structure",
+            "aliases": [
+              "core & periphery"
+            ],
+            "evidence": "core & periphery",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              350,
+              550,
+              500,
+              580
+            ]
+          },
+          {
+            "canonical": "microscale topology",
+            "aliases": [
+              "micro scale topology"
+            ],
+            "evidence": "micro scale topology",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              600,
+              250,
+              630
+            ]
+          },
+          {
+            "canonical": "mesoscale topology",
+            "aliases": [
+              "meso scale topology"
+            ],
+            "evidence": "mesoscale topology",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              350,
+              600,
+              500,
+              630
+            ]
+          },
+          {
+            "canonical": "macroscale topology",
+            "aliases": [
+              "macro scale topology"
+            ],
+            "evidence": "macro scale topology",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              600,
+              600,
+              750,
+              630
+            ]
+          },
+          {
+            "canonical": "star-like graphs",
+            "aliases": [
+              "star graphs"
+            ],
+            "evidence": "star-like graphs",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              650,
+              650,
+              680
+            ]
+          },
+          {
+            "canonical": "highly connected core structure",
+            "aliases": [
+              "core structure"
+            ],
+            "evidence": "highly connected core structure",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              400,
+              850,
+              550,
+              880
+            ]
+          },
+          {
+            "canonical": "eigen decomposition",
+            "aliases": [
+              "spectral decomposition"
+            ],
+            "evidence": "Spectra of the matrix (eigen decomposition)",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              650,
+              550,
+              950,
+              580
+            ]
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [
+              "covariance"
+            ],
+            "evidence": "COVARIANCE MATRIX",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              700,
+              600,
+              850,
+              630
+            ]
+          },
+          {
+            "canonical": "eigenvalues",
+            "aliases": [
+              "spectrum"
+            ],
+            "evidence": "eigenvalues",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              700,
+              900,
+              800,
+              930
+            ]
+          },
+          {
+            "canonical": "eigenvectors",
+            "aliases": [
+              "eigenmodes"
+            ],
+            "evidence": "eigenvectors",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              850,
+              900,
+              950,
+              930
+            ]
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence": "The eigen decomposition of Σ is equivalent to a principal component analysis (PCA)",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              650,
+              700,
+              950,
+              730
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "matrix A"
+            ],
+            "evidence": "matrix, A N x N",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              50,
+              950,
+              100
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "A \\vec{x} = \\lambda \\vec{x}",
+            "related_concepts": [
+              "eigen decomposition",
+              "eigenvalues",
+              "eigenvectors"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              650,
+              600,
+              750,
+              650
+            ],
+            "label": "eigenvalue equation"
+          },
+          {
+            "latex": "\\Sigma = \\sum \\lambda_i \\vec{v}_i \\vec{v}_i^T",
+            "related_concepts": [
+              "covariance matrix",
+              "eigen decomposition"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              650,
+              850,
+              700
+            ],
+            "label": "spectral decomposition of covariance"
+          },
+          {
+            "latex": "M \\approx \\tilde{M} = U \\Lambda U^T",
+            "related_concepts": [
+              "principal component analysis",
+              "eigen decomposition"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              700,
+              750,
+              850,
+              800
+            ],
+            "label": "PCA approximation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Various graph structures illustrating different topologies including modular graphs, star-like graphs, and highly connected core structures",
+            "related_concepts": [
+              "microscale topology",
+              "mesoscale topology",
+              "macroscale topology",
+              "star-like graphs",
+              "highly connected core structure"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              650,
+              600,
+              900
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix representation of a graph with 6 nodes",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              100,
+              950,
+              300
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Heatmap visualization of a morphological brain graph adjacency matrix",
+            "related_concepts": [
+              "adjacency matrix",
+              "graph example"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              650,
+              800,
+              750,
+              900
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual representation of eigenvalue decomposition showing matrix factorization into eigenvalues and eigenvectors",
+            "related_concepts": [
+              "eigen decomposition",
+              "eigenvalues",
+              "eigenvectors"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              800,
+              950,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph example illustrating eigenvector centrality or spectral properties",
+            "related_concepts": [
+              "eigenvectors",
+              "node centrality measures"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              850,
+              650,
+              950,
+              750
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "global <-> local",
+            "reason": "Arrow direction and exact wording slightly ambiguous",
+            "bbox": [
+              300,
+              220,
+              400,
+              250
+            ]
+          },
+          {
+            "transcription": "more efficient",
+            "reason": "Handwriting style makes 'efficient' somewhat unclear",
+            "bbox": [
+              550,
+              200,
+              650,
+              230
+            ]
+          },
+          {
+            "transcription": "low efficiency diffusion mixing",
+            "reason": "Multiple words stacked, some letters unclear",
+            "bbox": [
+              100,
+              800,
+              200,
+              880
+            ]
+          },
+          {
+            "transcription": "shapes / patterns / topologies",
+            "reason": "Last word partially obscured and handwriting unclear",
+            "bbox": [
+              400,
+              550,
+              550,
+              580
+            ]
+          },
+          {
+            "transcription": "natural modes",
+            "reason": "Quotation marks and exact wording slightly ambiguous",
+            "bbox": [
+              650,
+              680,
+              750,
+              700
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"information flow efficiency\",\n      \"aliases\": [\"information flow\", \"flow efficiency\"],\n      \"evidence\": \"information flow efficiency measures\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 180, 550, 220]\n    },\n    {\n      \"canonical\": \"topological properties\",\n      \"aliases\": [\"graph topology\"],\n      \"evidence\": \"How the topological properties of graphs constrain the way in which information flows through the graph?\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 250, 600, 350]\n    },\n    {\n      \"canonical\": \"node centrality measures\",\n      \"aliases\": [\"centrality\"],\n      \"evidence\": \"node centrality measures\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 550, 300, 580]\n    },\n    {\n      \"canonical\": \"core-periphery structure\",\n      \"aliases\": [\"core & periphery\"],\n      \"evidence\": \"core & periphery\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [350, 550, 500, 580]\n    },\n    {\n      \"canonical\": \"microscale topology\",\n      \"aliases\": [\"micro scale topology\"],\n      \"evidence\": \"micro scale topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 600, 250, 630]\n    },\n    {\n      \"canonical\": \"mesoscale topology\",\n      \"aliases\": [\"meso scale topology\"],\n      \"evidence\": \"mesoscale topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [350, 600, 500, 630]\n    },\n    {\n      \"canonical\": \"macroscale topology\",\n      \"aliases\": [\"macro scale topology\"],\n      \"evidence\": \"macro scale topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [600, 600, 750, 630]\n    },\n    {\n      \"canonical\": \"star-like graphs\",\n      \"aliases\": [\"star graphs\"],\n      \"evidence\": \"star-like graphs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 650, 650, 680]\n    },\n    {\n      \"canonical\": \"highly connected core structure\",\n      \"aliases\": [\"core structure\"],\n      \"evidence\": \"highly connected core structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [400, 850, 550, 880]\n    },\n    {\n      \"canonical\": \"eigen decomposition\",\n      \"aliases\": [\"spectral decomposition\"],\n      \"evidence\": \"Spectra of the matrix (eigen decomposition)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [650, 550, 950, 580]\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [\"covariance\"],\n      \"evidence\": \"COVARIANCE MATRIX\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [700, 600, 850, 630]\n    },\n    {\n      \"canonical\": \"eigenvalues\",\n      \"aliases\": [\"spectrum\"],\n      \"evidence\": \"eigenvalues\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [700, 900, 800, 930]\n    },\n    {\n      \"canonical\": \"eigenvectors\",\n      \"aliases\": [\"eigenmodes\"],\n      \"evidence\": \"eigenvectors\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [850, 900, 950, 930]\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence\": \"The eigen decomposition of Σ is equivalent to a principal component analysis (PCA)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [650, 700, 950, 730]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"matrix A\"],\n      \"evidence\": \"matrix, A N x N\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 50, 950, 100]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"A \\\\vec{x} = \\\\lambda \\\\vec{x}\",\n      \"related_concepts\": [\"eigen decomposition\", \"eigenvalues\", \"eigenvectors\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [650, 600, 750, 650],\n      \"label\": \"eigenvalue equation\"\n    },\n    {\n      \"latex\": \"\\\\Sigma = \\\\sum \\\\lambda_i \\\\vec{v}_i \\\\vec{v}_i^T\",\n      \"related_concepts\": [\"covariance matrix\", \"eigen decomposition\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.90,\n      \"bbox\": [700, 650, 850, 700],\n      \"label\": \"spectral decomposition of covariance\"\n    },\n    {\n      \"latex\": \"M \\\\approx \\\\tilde{M} = U \\\\Lambda U^T\",\n      \"related_concepts\": [\"principal component analysis\", \"eigen decomposition\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [700, 750, 850, 800],\n      \"label\": \"PCA approximation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Various graph structures illustrating different topologies including modular graphs, star-like graphs, and highly connected core structures\",\n      \"related_concepts\": [\"microscale topology\", \"mesoscale topology\", \"macroscale topology\", \"star-like graphs\", \"highly connected core structure\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 650, 600, 900]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix representation of a graph with 6 nodes\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 100, 950, 300]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Heatmap visualization of a morphological brain graph adjacency matrix\",\n      \"related_concepts\": [\"adjacency matrix\", \"graph example\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [650, 800, 750, 900]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual representation of eigenvalue decomposition showing matrix factorization into eigenvalues and eigenvectors\",\n      \"related_concepts\": [\"eigen decomposition\", \"eigenvalues\", \"eigenvectors\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 800, 950, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph example illustrating eigenvector centrality or spectral properties\",\n      \"related_concepts\": [\"eigenvectors\", \"node centrality measures\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.90,\n      \"bbox\": [850, 650, 950, 750]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"global <-> local\",\n      \"reason\": \"Arrow direction and exact wording slightly ambiguous\",\n      \"bbox\": [300, 220, 400, 250]\n    },\n    {\n      \"transcription\": \"more efficient\",\n      \"reason\": \"Handwriting style makes 'efficient' somewhat unclear\",\n      \"bbox\": [550, 200, 650, 230]\n    },\n    {\n      \"transcription\": \"low efficiency diffusion mixing\",\n      \"reason\": \"Multiple words stacked, some letters unclear\",\n      \"bbox\": [100, 800, 200, 880]\n    },\n    {\n      \"transcription\": \"shapes / patterns / topologies\",\n      \"reason\": \"Last word partially obscured and handwriting unclear\",\n      \"bbox\": [400, 550, 550, 580]\n    },\n    {\n      \"transcription\": \"natural modes\",\n      \"reason\": \"Quotation marks and exact wording slightly ambiguous\",\n      \"bbox\": [650, 680, 750, 700]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "adjacency matrix A",
+              "A"
+            ],
+            "evidence": "Printed text: 'Properties of the adjacency matrix A'; Handwritten label: 'ADJACENCY MATRIX'; Matrix A shown in panel b",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              580,
+              850,
+              720
+            ]
+          },
+          {
+            "canonical": "graph walks",
+            "aliases": [
+              "walks",
+              "walks of length two"
+            ],
+            "evidence": "Printed text: '5. Walks (powers of matrices)'; 'contains the number of walks of length two'; Handwritten note: 'walk of length of k'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              550,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "matrix powers",
+            "aliases": [
+              "powers of matrices",
+              "A^2"
+            ],
+            "evidence": "Printed text: '5. Walks (powers of matrices)'; 'squared adjacency matrix'; Handwritten formula: 'A x A = A^2'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              550,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "eigenvector centrality",
+            "aliases": [
+              "centrality"
+            ],
+            "evidence": "Handwritten text: 'eigenvector centrality' next to a graph diagram",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              750,
+              350,
+              850
+            ]
+          },
+          {
+            "canonical": "eigen decomposition",
+            "aliases": [
+              "spectra of the matrix"
+            ],
+            "evidence": "Printed text: '6. Spectra of the matrix (eigen decomposition)'; Handwritten text: 'eigen decomposition of Σ'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              550,
+              480,
+              950
+            ]
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [
+              "Σ"
+            ],
+            "evidence": "Handwritten text: 'COVARIANCE MATRIX' and formula 'Σ = ...'",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              600,
+              200,
+              700
+            ]
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence": "Handwritten text: 'PCA' next to covariance matrix discussion",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              600,
+              200,
+              650
+            ]
+          },
+          {
+            "canonical": "eigenvalues",
+            "aliases": [],
+            "evidence": "Handwritten text: 'eigenvalues' below a heatmap visualization",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              900,
+              150,
+              950
+            ]
+          },
+          {
+            "canonical": "eigenvectors",
+            "aliases": [],
+            "evidence": "Handwritten text: 'eigenvectors' below a scatter plot visualization",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              900,
+              350,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "A \\times A = A^2",
+            "related_concepts": [
+              "matrix powers",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              750,
+              580,
+              850,
+              620
+            ],
+            "label": "Matrix power relation"
+          },
+          {
+            "latex": "\\Sigma = \\sum ...",
+            "related_concepts": [
+              "covariance matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              50,
+              650,
+              150,
+              680
+            ],
+            "label": "Covariance matrix definition"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "Example graph with 8 nodes used to demonstrate walks and adjacency matrix properties",
+            "related_concepts": [
+              "graph walks",
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              520,
+              620,
+              650,
+              720
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A (8x8) corresponding to the example graph",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              620,
+              780,
+              720
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Squared adjacency matrix A^2 showing number of walks of length two",
+            "related_concepts": [
+              "matrix powers",
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              790,
+              620,
+              910,
+              720
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph illustrating walks of length two from node six",
+            "related_concepts": [
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              660,
+              750,
+              780,
+              850
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph illustrating walks of length two returning to original node",
+            "related_concepts": [
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              790,
+              750,
+              910,
+              850
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot labeled 'eigenvectors' showing data distribution",
+            "related_concepts": [
+              "eigenvectors",
+              "eigen decomposition"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              150,
+              800,
+              350,
+              900
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Heatmap labeled 'eigenvalues' showing spectral properties",
+            "related_concepts": [
+              "eigenvalues",
+              "eigen decomposition"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              0,
+              800,
+              150,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Simple graph diagram illustrating eigenvector centrality concept",
+            "related_concepts": [
+              "eigenvector centrality"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              750,
+              250,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "girato from ① by a 2^nd walk of 2^nd",
+            "reason": "Handwriting is cursive and partially unclear; 'girato' may be a non-English term or miswritten word",
+            "bbox": [
+              480,
+              650,
+              550,
+              750
+            ]
+          },
+          {
+            "transcription": "L-length",
+            "reason": "Quotation marks and hyphenation make exact interpretation uncertain",
+            "bbox": [
+              850,
+              550,
+              920,
+              580
+            ]
+          },
+          {
+            "transcription": "return: a list of nodes, that are 2-hops away from the initial node",
+            "reason": "Some words are abbreviated or written quickly, making full certainty difficult",
+            "bbox": [
+              850,
+              850,
+              950,
+              950
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"adjacency matrix A\", \"A\"],\n      \"evidence\": \"Printed text: 'Properties of the adjacency matrix A'; Handwritten label: 'ADJACENCY MATRIX'; Matrix A shown in panel b\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 580, 850, 720]\n    },\n    {\n      \"canonical\": \"graph walks\",\n      \"aliases\": [\"walks\", \"walks of length two\"],\n      \"evidence\": \"Printed text: '5. Walks (powers of matrices)'; 'contains the number of walks of length two'; Handwritten note: 'walk of length of k'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 550, 950, 950]\n    },\n    {\n      \"canonical\": \"matrix powers\",\n      \"aliases\": [\"powers of matrices\", \"A^2\"],\n      \"evidence\": \"Printed text: '5. Walks (powers of matrices)'; 'squared adjacency matrix'; Handwritten formula: 'A x A = A^2'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 550, 950, 950]\n    },\n    {\n      \"canonical\": \"eigenvector centrality\",\n      \"aliases\": [\"centrality\"],\n      \"evidence\": \"Handwritten text: 'eigenvector centrality' next to a graph diagram\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 750, 350, 850]\n    },\n    {\n      \"canonical\": \"eigen decomposition\",\n      \"aliases\": [\"spectra of the matrix\"],\n      \"evidence\": \"Printed text: '6. Spectra of the matrix (eigen decomposition)'; Handwritten text: 'eigen decomposition of Σ'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 550, 480, 950]\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [\"Σ\"],\n      \"evidence\": \"Handwritten text: 'COVARIANCE MATRIX' and formula 'Σ = ...'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 600, 200, 700]\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence\": \"Handwritten text: 'PCA' next to covariance matrix discussion\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 600, 200, 650]\n    },\n    {\n      \"canonical\": \"eigenvalues\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten text: 'eigenvalues' below a heatmap visualization\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 900, 150, 950]\n    },\n    {\n      \"canonical\": \"eigenvectors\",\n      \"aliases\": [],\n      \"evidence\": \"Handwritten text: 'eigenvectors' below a scatter plot visualization\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 900, 350, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"A \\\\times A = A^2\",\n      \"related_concepts\": [\"matrix powers\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [750, 580, 850, 620],\n      \"label\": \"Matrix power relation\"\n    },\n    {\n      \"latex\": \"\\\\Sigma = \\\\sum ...\",\n      \"related_concepts\": [\"covariance matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [50, 650, 150, 680],\n      \"label\": \"Covariance matrix definition\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graph with 8 nodes used to demonstrate walks and adjacency matrix properties\",\n      \"related_concepts\": [\"graph walks\", \"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [520, 620, 650, 720]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A (8x8) corresponding to the example graph\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 620, 780, 720]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Squared adjacency matrix A^2 showing number of walks of length two\",\n      \"related_concepts\": [\"matrix powers\", \"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [790, 620, 910, 720]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph illustrating walks of length two from node six\",\n      \"related_concepts\": [\"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [660, 750, 780, 850]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph illustrating walks of length two returning to original node\",\n      \"related_concepts\": [\"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [790, 750, 910, 850]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot labeled 'eigenvectors' showing data distribution\",\n      \"related_concepts\": [\"eigenvectors\", \"eigen decomposition\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [150, 800, 350, 900]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Heatmap labeled 'eigenvalues' showing spectral properties\",\n      \"related_concepts\": [\"eigenvalues\", \"eigen decomposition\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [0, 800, 150, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Simple graph diagram illustrating eigenvector centrality concept\",\n      \"related_concepts\": [\"eigenvector centrality\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 750, 250, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"girato from ① by a 2^nd walk of 2^nd\",\n      \"reason\": \"Handwriting is cursive and partially unclear; 'girato' may be a non-English term or miswritten word\",\n      \"bbox\": [480, 650, 550, 750]\n    },\n    {\n      \"transcription\": \"L-length\",\n      \"reason\": \"Quotation marks and hyphenation make exact interpretation uncertain\",\n      \"bbox\": [850, 550, 920, 580]\n    },\n    {\n      \"transcription\": \"return: a list of nodes, that are 2-hops away from the initial node\",\n      \"reason\": \"Some words are abbreviated or written quickly, making full certainty difficult\",\n      \"bbox\": [850, 850, 950, 950]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Properties and Matrix Representations",
+        "summary": "This lecture page introduces fundamental graph properties including connectivity, scale, and permutation invariance, alongside matrix representations like adjacency matrices. It covers topological concepts such as efficiency, resilience, and centrality measures, while exploring spectral properties through eigen decomposition and matrix powers for analyzing graph walks.",
+        "key_topics": [
+          "adjacency matrix",
+          "graph topology",
+          "permutation invariance",
+          "eigen decomposition",
+          "graph walks",
+          "centrality measures"
+        ],
+        "concepts": [
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "matrix a",
+              "a"
+            ],
+            "evidence": "Adjacency matrix, A N x N",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              412.5,
+              522.5,
+              522.5
+            ]
+          },
+          {
+            "canonical": "symmetric matrix",
+            "aliases": [
+              "symmetric"
+            ],
+            "evidence": "symmetric vs asymmetric matrix",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              55.0,
+              165.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "weighted graph",
+            "aliases": [
+              "weighted"
+            ],
+            "evidence": "weighted or binary",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              55.0,
+              165.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "binary graph",
+            "aliases": [
+              "binary"
+            ],
+            "evidence": "weighted or binary",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              55.0,
+              165.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "permutation invariance",
+            "aliases": [
+              "permutation invariant"
+            ],
+            "evidence": "permutation invariance",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              55.0,
+              440.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph density",
+            "aliases": [
+              "density"
+            ],
+            "evidence": "Scale/size (density, sparsity)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              55.0,
+              440.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph sparsity",
+            "aliases": [
+              "sparsity"
+            ],
+            "evidence": "Scale/size (density, sparsity)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              55.0,
+              440.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph efficiency",
+            "aliases": [
+              "efficiency"
+            ],
+            "evidence": "Efficiency and resilience",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              330.0,
+              165.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "graph resilience",
+            "aliases": [
+              "resilience"
+            ],
+            "evidence": "Efficiency and resilience",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              330.0,
+              165.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "feature integration",
+            "aliases": [
+              "integrating information"
+            ],
+            "evidence": "Printed heading '3. The power of integrating information'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              670.0,
+              27.5,
+              835.0,
+              82.5
+            ]
+          },
+          {
+            "canonical": "linear regression",
+            "aliases": [
+              "least squares"
+            ],
+            "evidence": "Diagram showing matrix multiplication Xw = y and loss function l(w)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              220.0,
+              807.5,
+              385.0
+            ]
+          },
+          {
+            "canonical": "topology",
+            "aliases": [
+              "graph topology"
+            ],
+            "evidence": "Printed heading '4. Topology'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              412.5,
+              972.5,
+              522.5
+            ]
+          },
+          {
+            "canonical": "graph walks",
+            "aliases": [
+              "walks"
+            ],
+            "evidence": "Printed text: '5. Walks (powers of matrices)'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              736.0,
+              752.5,
+              972.5,
+              972.5
+            ]
+          },
+          {
+            "canonical": "matrix powers",
+            "aliases": [
+              "powers of matrices"
+            ],
+            "evidence": "Printed text: '5. Walks (powers of matrices)'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              736.0,
+              752.5,
+              972.5,
+              972.5
+            ]
+          },
+          {
+            "canonical": "eigen decomposition",
+            "aliases": [
+              "spectral decomposition"
+            ],
+            "evidence": "Printed text: '6. Spectra of the matrix (eigen decomposition)'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              752.5,
+              714.0,
+              972.5
+            ]
+          },
+          {
+            "canonical": "degree centrality",
+            "aliases": [
+              "degree"
+            ],
+            "evidence": "Handwritten text 'degree centrality' and formula 'di = 3'",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              642.5,
+              440.0,
+              752.5,
+              495.0
+            ]
+          },
+          {
+            "canonical": "core-periphery structure",
+            "aliases": [
+              "core & periphery"
+            ],
+            "evidence": "Handwritten text 'core & periphery' highlighted in yellow",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              495.0,
+              835.0,
+              522.5
+            ]
+          },
+          {
+            "canonical": "node centrality measures",
+            "aliases": [
+              "centrality"
+            ],
+            "evidence": "node centrality measures",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              55.0,
+              752.5,
+              165.0,
+              769.0
+            ]
+          },
+          {
+            "canonical": "microscale topology",
+            "aliases": [
+              "micro scale topology"
+            ],
+            "evidence": "micro scale topology",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              55.0,
+              780.0,
+              137.5,
+              796.5
+            ]
+          },
+          {
+            "canonical": "mesoscale topology",
+            "aliases": [
+              "meso scale topology"
+            ],
+            "evidence": "mesoscale topology",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              192.5,
+              780.0,
+              275.0,
+              796.5
+            ]
+          },
+          {
+            "canonical": "star-like graphs",
+            "aliases": [
+              "star graphs"
+            ],
+            "evidence": "star-like graphs",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              302.5,
+              807.5,
+              357.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "highly connected core structure",
+            "aliases": [
+              "core structure"
+            ],
+            "evidence": "highly connected core structure",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              220.0,
+              917.5,
+              302.5,
+              934.0
+            ]
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [
+              "covariance"
+            ],
+            "evidence": "COVARIANCE MATRIX",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              385.0,
+              780.0,
+              467.5,
+              796.5
+            ]
+          },
+          {
+            "canonical": "eigenvalues",
+            "aliases": [
+              "spectrum"
+            ],
+            "evidence": "eigenvalues",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              385.0,
+              945.0,
+              440.0,
+              961.5
+            ]
+          },
+          {
+            "canonical": "eigenvectors",
+            "aliases": [
+              "eigenmodes"
+            ],
+            "evidence": "eigenvectors",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              467.5,
+              945.0,
+              522.5,
+              961.5
+            ]
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "pca"
+            ],
+            "evidence": "The eigen decomposition of Σ is equivalent to a principal component analysis (PCA)",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              357.5,
+              835.0,
+              522.5,
+              851.5
+            ]
+          },
+          {
+            "canonical": "directed graph",
+            "aliases": [
+              "directed"
+            ],
+            "evidence": "directed",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              110.0,
+              110.0,
+              165.0,
+              137.5
+            ]
+          },
+          {
+            "canonical": "percolation threshold",
+            "aliases": [],
+            "evidence": "percolation threshold",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              110.0,
+              385.0,
+              165.0,
+              412.5
+            ]
+          },
+          {
+            "canonical": "betweenness centrality",
+            "aliases": [
+              "betweenness"
+            ],
+            "evidence": "Handwritten text 'betweenness centrality' near a graph diagram",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              862.5,
+              467.5,
+              945.0,
+              522.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "A_{i,j} \\neq A_{j,i}",
+            "related_concepts": [
+              "symmetric matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              110.0,
+              110.0,
+              137.5
+            ],
+            "label": "asymmetric"
+          },
+          {
+            "latex": "A_{i,j} = A_{j,i}",
+            "related_concepts": [
+              "symmetric matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              275.0,
+              110.0,
+              330.0,
+              137.5
+            ],
+            "label": "symmetric"
+          },
+          {
+            "latex": "A_{i,j} \\in \\{0, 1\\}",
+            "related_concepts": [
+              "binary graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              220.0,
+              110.0,
+              247.5
+            ],
+            "label": "binary"
+          },
+          {
+            "latex": "A_{i,j} \\in \\mathbb{R}",
+            "related_concepts": [
+              "weighted graph"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              275.0,
+              220.0,
+              330.0,
+              247.5
+            ],
+            "label": "weighted"
+          },
+          {
+            "latex": "A \\in \\mathbb{R}^{N \\times N}",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              110.0,
+              385.0,
+              137.5
+            ],
+            "label": "node size"
+          },
+          {
+            "latex": "X' = XP",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              220.0,
+              385.0,
+              247.5
+            ],
+            "label": "permutation matrix"
+          },
+          {
+            "latex": "A' = P^T A P",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              477.5,
+              165.0,
+              615.0,
+              220.0
+            ],
+            "label": "Permutation of Adjacency Matrix"
+          },
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^n (\\hat{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "linear regression"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              670.0,
+              330.0,
+              780.0,
+              357.5
+            ],
+            "label": "Loss Function"
+          },
+          {
+            "latex": "d_i = \\sum_{j \\in \\mathcal{N}(i)} w_{ij}",
+            "related_concepts": [
+              "degree centrality"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              642.5,
+              467.5,
+              725.0,
+              495.0
+            ],
+            "label": "Degree Definition"
+          },
+          {
+            "latex": "A_{i,j} \\neq 0",
+            "related_concepts": [
+              "graph density"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              560.0,
+              82.5,
+              615.0,
+              110.0
+            ],
+            "label": "Edge Condition"
+          },
+          {
+            "latex": "A \\vec{x} = \\lambda \\vec{x}",
+            "related_concepts": [
+              "eigen decomposition",
+              "eigenvalues",
+              "eigenvectors"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              357.5,
+              780.0,
+              412.5,
+              807.5
+            ],
+            "label": "eigenvalue equation"
+          },
+          {
+            "latex": "\\Sigma = \\sum \\lambda_i \\vec{v}_i \\vec{v}_i^T",
+            "related_concepts": [
+              "covariance matrix",
+              "eigen decomposition"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              385.0,
+              807.5,
+              467.5,
+              835.0
+            ],
+            "label": "spectral decomposition of covariance"
+          },
+          {
+            "latex": "M \\approx \\tilde{M} = U \\Lambda U^T",
+            "related_concepts": [
+              "principal component analysis",
+              "eigen decomposition"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              385.0,
+              862.5,
+              467.5,
+              890.0
+            ],
+            "label": "PCA approximation"
+          },
+          {
+            "latex": "A \\times A = A^2",
+            "related_concepts": [
+              "matrix powers",
+              "adjacency matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              862.5,
+              769.0,
+              917.5,
+              791.0
+            ],
+            "label": "Matrix power relation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of symmetric and asymmetric adjacency matrices with corresponding directed and undirected graphs",
+            "related_concepts": [
+              "symmetric matrix",
+              "directed graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              82.5,
+              302.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of permutation invariance in graphs and matrices",
+            "related_concepts": [
+              "permutation invariance",
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              302.5,
+              82.5,
+              522.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Examples of graphs illustrating efficiency and resilience, including percolation threshold",
+            "related_concepts": [
+              "graph efficiency",
+              "graph resilience",
+              "percolation threshold"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              302.5,
+              302.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Example of an adjacency matrix for a graph with 6 nodes",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              412.5,
+              522.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing input features X, weights W, and output scores y, illustrating feature integration",
+            "related_concepts": [
+              "feature integration",
+              "linear regression"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              110.0,
+              835.0,
+              275.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph with nodes and edges used to illustrate degree centrality and topological roles",
+            "related_concepts": [
+              "degree centrality",
+              "topology"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              642.5,
+              412.5,
+              725.0,
+              467.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph with weighted edges illustrating betweenness centrality and core-periphery structure",
+            "related_concepts": [
+              "betweenness centrality",
+              "core-periphery structure"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              835.0,
+              440.0,
+              945.0,
+              495.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Visual representation of matrix permutation A' = P^T A P with colored blocks",
+            "related_concepts": [
+              "permutation invariance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              192.5,
+              642.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Various graph structures illustrating different topologies including modular graphs, star-like graphs, and highly connected core structures",
+            "related_concepts": [
+              "microscale topology",
+              "mesoscale topology",
+              "star-like graphs",
+              "highly connected core structure"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              55.0,
+              807.5,
+              330.0,
+              945.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual representation of eigenvalue decomposition showing matrix factorization into eigenvalues and eigenvectors",
+            "related_concepts": [
+              "eigen decomposition",
+              "eigenvalues",
+              "eigenvectors"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              412.5,
+              890.0,
+              522.5,
+              945.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example graph with 8 nodes used to demonstrate walks and adjacency matrix properties",
+            "related_concepts": [
+              "graph walks",
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              736.0,
+              791.0,
+              807.5,
+              846.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A (8x8) corresponding to the example graph",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              813.0,
+              791.0,
+              879.0,
+              846.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Squared adjacency matrix A^2 showing number of walks of length two",
+            "related_concepts": [
+              "matrix powers",
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              884.5,
+              791.0,
+              950.5,
+              846.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph illustrating walks of length two from node six",
+            "related_concepts": [
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              813.0,
+              862.5,
+              879.0,
+              917.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph illustrating walks of length two returning to original node",
+            "related_concepts": [
+              "graph walks"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              884.5,
+              862.5,
+              950.5,
+              917.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "G_T",
+            "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation",
+            "bbox": [
+              220.0,
+              330.0,
+              247.5,
+              357.5
+            ]
+          },
+          {
+            "transcription": "G_graph",
+            "reason": "Handwritten text is partially obscured and may represent a specific graph type or transformation",
+            "bbox": [
+              275.0,
+              330.0,
+              302.5,
+              357.5
+            ]
+          },
+          {
+            "transcription": "local averaging of x by W(CC)",
+            "reason": "Handwriting is slightly messy, 'CC' might be 'C' or another symbol",
+            "bbox": [
+              670.0,
+              55.0,
+              752.5,
+              82.5
+            ]
+          },
+          {
+            "transcription": "spectral image",
+            "reason": "Handwriting is small and slightly unclear",
+            "bbox": [
+              587.5,
+              137.5,
+              642.5,
+              165.0
+            ]
+          },
+          {
+            "transcription": "quantifies the topological role of an edge e",
+            "reason": "Some words are written quickly and may be misinterpreted",
+            "bbox": [
+              835.0,
+              440.0,
+              945.0,
+              467.5
+            ]
+          },
+          {
+            "transcription": "global <-> local",
+            "reason": "Arrow direction and exact wording slightly ambiguous",
+            "bbox": [
+              165.0,
+              571.0,
+              220.0,
+              587.5
+            ]
+          },
+          {
+            "transcription": "more efficient",
+            "reason": "Handwriting style makes 'efficient' somewhat unclear",
+            "bbox": [
+              302.5,
+              560.0,
+              357.5,
+              576.5
+            ]
+          },
+          {
+            "transcription": "low efficiency diffusion mixing",
+            "reason": "Multiple words stacked, some letters unclear",
+            "bbox": [
+              55.0,
+              890.0,
+              110.0,
+              934.0
+            ]
+          },
+          {
+            "transcription": "shapes / patterns / topologies",
+            "reason": "Last word partially obscured and handwriting unclear",
+            "bbox": [
+              220.0,
+              752.5,
+              302.5,
+              769.0
+            ]
+          },
+          {
+            "transcription": "natural modes",
+            "reason": "Quotation marks and exact wording slightly ambiguous",
+            "bbox": [
+              357.5,
+              824.0,
+              412.5,
+              835.0
+            ]
+          },
+          {
+            "transcription": "girato from 1 by a 2^nd walk of 2^nd",
+            "reason": "Handwriting is cursive and partially unclear; 'girato' may be a non-English term or miswritten word",
+            "bbox": [
+              714.0,
+              807.5,
+              752.5,
+              862.5
+            ]
+          },
+          {
+            "transcription": "L-length",
+            "reason": "Quotation marks and hyphenation make exact interpretation uncertain",
+            "bbox": [
+              917.5,
+              752.5,
+              956.0,
+              769.0
+            ]
+          },
+          {
+            "transcription": "return: a list of nodes, that are 2-hops away from the initial node",
+            "reason": "Some words are abbreviated or written quickly, making full certainty difficult",
+            "bbox": [
+              917.5,
+              917.5,
+              972.5,
+              972.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Properties and Matrix Representations\",\n  \"summary\": \"This lecture page introduces fundamental graph properties including connectivity, scale, and permutation invariance, alongside matrix representations like adjacency matrices. It covers topological concepts such as efficiency, resilience, and centrality measures, while exploring spectral properties through eigen decomposition and matrix powers for analyzing graph walks.\",\n  \"key_topics\": [\"adjacency matrix\", \"graph topology\", \"permutation invariance\", \"eigen decomposition\", \"graph walks\", \"centrality measures\"],\n  \"concepts\": [\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"matrix a\", \"a\"],\n      \"evidence\": \"Adjacency matrix, A N x N\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 412.5, 522.5, 522.5]\n    },\n    {\n      \"canonical\": \"symmetric matrix\",\n      \"aliases\": [\"symmetric\"],\n      \"evidence\": \"symmetric vs asymmetric matrix\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 55.0, 165.0, 82.5]\n    },\n    {\n      \"canonical\": \"weighted graph\",\n      \"aliases\": [\"weighted\"],\n      \"evidence\": \"weighted or binary\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 55.0, 165.0, 82.5]\n    },\n    {\n      \"canonical\": \"binary graph\",\n      \"aliases\": [\"binary\"],\n      \"evidence\": \"weighted or binary\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 55.0, 165.0, 82.5]\n    },\n    {\n      \"canonical\": \"permutation invariance\",\n      \"aliases\": [\"permutation invariant\"],\n      \"evidence\": \"permutation invariance\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 55.0, 440.0, 82.5]\n    },\n    {\n      \"canonical\": \"graph density\",\n      \"aliases\": [\"density\"],\n      \"evidence\": \"Scale/size (density, sparsity)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 55.0, 440.0, 82.5]\n    },\n    {\n      \"canonical\": \"graph sparsity\",\n      \"aliases\": [\"sparsity\"],\n      \"evidence\": \"Scale/size (density, sparsity)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 55.0, 440.0, 82.5]\n    },\n    {\n      \"canonical\": \"graph efficiency\",\n      \"aliases\": [\"efficiency\"],\n      \"evidence\": \"Efficiency and resilience\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 330.0, 165.0, 357.5]\n    },\n    {\n      \"canonical\": \"graph resilience\",\n      \"aliases\": [\"resilience\"],\n      \"evidence\": \"Efficiency and resilience\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 330.0, 165.0, 357.5]\n    },\n    {\n      \"canonical\": \"feature integration\",\n      \"aliases\": [\"integrating information\"],\n      \"evidence\": \"Printed heading '3. The power of integrating information'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [670.0, 27.5, 835.0, 82.5]\n    },\n    {\n      \"canonical\": \"linear regression\",\n      \"aliases\": [\"least squares\"],\n      \"evidence\": \"Diagram showing matrix multiplication Xw = y and loss function l(w)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 220.0, 807.5, 385.0]\n    },\n    {\n      \"canonical\": \"topology\",\n      \"aliases\": [\"graph topology\"],\n      \"evidence\": \"Printed heading '4. Topology'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 412.5, 972.5, 522.5]\n    },\n    {\n      \"canonical\": \"graph walks\",\n      \"aliases\": [\"walks\"],\n      \"evidence\": \"Printed text: '5. Walks (powers of matrices)'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [736.0, 752.5, 972.5, 972.5]\n    },\n    {\n      \"canonical\": \"matrix powers\",\n      \"aliases\": [\"powers of matrices\"],\n      \"evidence\": \"Printed text: '5. Walks (powers of matrices)'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [736.0, 752.5, 972.5, 972.5]\n    },\n    {\n      \"canonical\": \"eigen decomposition\",\n      \"aliases\": [\"spectral decomposition\"],\n      \"evidence\": \"Printed text: '6. Spectra of the matrix (eigen decomposition)'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450.0, 752.5, 714.0, 972.5]\n    },\n    {\n      \"canonical\": \"degree centrality\",\n      \"aliases\": [\"degree\"],\n      \"evidence\": \"Handwritten text 'degree centrality' and formula 'di = 3'\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [642.5, 440.0, 752.5, 495.0]\n    },\n    {\n      \"canonical\": \"core-periphery structure\",\n      \"aliases\": [\"core & periphery\"],\n      \"evidence\": \"Handwritten text 'core & periphery' highlighted in yellow\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 495.0, 835.0, 522.5]\n    },\n    {\n      \"canonical\": \"node centrality measures\",\n      \"aliases\": [\"centrality\"],\n      \"evidence\": \"node centrality measures\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [55.0, 752.5, 165.0, 769.0]\n    },\n    {\n      \"canonical\": \"microscale topology\",\n      \"aliases\": [\"micro scale topology\"],\n      \"evidence\": \"micro scale topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [55.0, 780.0, 137.5, 796.5]\n    },\n    {\n      \"canonical\": \"mesoscale topology\",\n      \"aliases\": [\"meso scale topology\"],\n      \"evidence\": \"mesoscale topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [192.5, 780.0, 275.0, 796.5]\n    },\n    {\n      \"canonical\": \"star-like graphs\",\n      \"aliases\": [\"star graphs\"],\n      \"evidence\": \"star-like graphs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [302.5, 807.5, 357.5, 824.0]\n    },\n    {\n      \"canonical\": \"highly connected core structure\",\n      \"aliases\": [\"core structure\"],\n      \"evidence\": \"highly connected core structure\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [220.0, 917.5, 302.5, 934.0]\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [\"covariance\"],\n      \"evidence\": \"COVARIANCE MATRIX\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [385.0, 780.0, 467.5, 796.5]\n    },\n    {\n      \"canonical\": \"eigenvalues\",\n      \"aliases\": [\"spectrum\"],\n      \"evidence\": \"eigenvalues\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [385.0, 945.0, 440.0, 961.5]\n    },\n    {\n      \"canonical\": \"eigenvectors\",\n      \"aliases\": [\"eigenmodes\"],\n      \"evidence\": \"eigenvectors\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [467.5, 945.0, 522.5, 961.5]\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"pca\"],\n      \"evidence\": \"The eigen decomposition of Σ is equivalent to a principal component analysis (PCA)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [357.5, 835.0, 522.5, 851.5]\n    },\n    {\n      \"canonical\": \"directed graph\",\n      \"aliases\": [\"directed\"],\n      \"evidence\": \"directed\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [110.0, 110.0, 165.0, 137.5]\n    },\n    {\n      \"canonical\": \"percolation threshold\",\n      \"aliases\": [],\n      \"evidence\": \"percolation threshold\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [110.0, 385.0, 165.0, 412.5]\n    },\n    {\n      \"canonical\": \"betweenness centrality\",\n      \"aliases\": [\"betweenness\"],\n      \"evidence\": \"Handwritten text 'betweenness centrality' near a graph diagram\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [862.5, 467.5, 945.0, 522.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"A_{i,j} \\\\neq A_{j,i}\",\n      \"related_concepts\": [\"symmetric matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 110.0, 110.0, 137.5],\n      \"label\": \"asymmetric\"\n    },\n    {\n      \"latex\": \"A_{i,j} = A_{j,i}\",\n      \"related_concepts\": [\"symmetric matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [275.0, 110.0, 330.0, 137.5],\n      \"label\": \"symmetric\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\in \\\\{0, 1\\\\}\",\n      \"related_concepts\": [\"binary graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 220.0, 110.0, 247.5],\n      \"label\": \"binary\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\in \\\\mathbb{R}\",\n      \"related_concepts\": [\"weighted graph\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [275.0, 220.0, 330.0, 247.5],\n      \"label\": \"weighted\"\n    },\n    {\n      \"latex\": \"A \\\\in \\\\mathbb{R}^{N \\\\times N}\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 110.0, 385.0, 137.5],\n      \"label\": \"node size\"\n    },\n    {\n      \"latex\": \"X' = XP\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 220.0, 385.0, 247.5],\n      \"label\": \"permutation matrix\"\n    },\n    {\n      \"latex\": \"A' = P^T A P\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [477.5, 165.0, 615.0, 220.0],\n      \"label\": \"Permutation of Adjacency Matrix\"\n    },\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^n (\\\\hat{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"linear regression\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [670.0, 330.0, 780.0, 357.5],\n      \"label\": \"Loss Function\"\n    },\n    {\n      \"latex\": \"d_i = \\\\sum_{j \\\\in \\\\mathcal{N}(i)} w_{ij}\",\n      \"related_concepts\": [\"degree centrality\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [642.5, 467.5, 725.0, 495.0],\n      \"label\": \"Degree Definition\"\n    },\n    {\n      \"latex\": \"A_{i,j} \\\\neq 0\",\n      \"related_concepts\": [\"graph density\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [560.0, 82.5, 615.0, 110.0],\n      \"label\": \"Edge Condition\"\n    },\n    {\n      \"latex\": \"A \\\\vec{x} = \\\\lambda \\\\vec{x}\",\n      \"related_concepts\": [\"eigen decomposition\", \"eigenvalues\", \"eigenvectors\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [357.5, 780.0, 412.5, 807.5],\n      \"label\": \"eigenvalue equation\"\n    },\n    {\n      \"latex\": \"\\\\Sigma = \\\\sum \\\\lambda_i \\\\vec{v}_i \\\\vec{v}_i^T\",\n      \"related_concepts\": [\"covariance matrix\", \"eigen decomposition\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [385.0, 807.5, 467.5, 835.0],\n      \"label\": \"spectral decomposition of covariance\"\n    },\n    {\n      \"latex\": \"M \\\\approx \\\\tilde{M} = U \\\\Lambda U^T\",\n      \"related_concepts\": [\"principal component analysis\", \"eigen decomposition\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [385.0, 862.5, 467.5, 890.0],\n      \"label\": \"PCA approximation\"\n    },\n    {\n      \"latex\": \"A \\\\times A = A^2\",\n      \"related_concepts\": [\"matrix powers\", \"adjacency matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [862.5, 769.0, 917.5, 791.0],\n      \"label\": \"Matrix power relation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of symmetric and asymmetric adjacency matrices with corresponding directed and undirected graphs\",\n      \"related_concepts\": [\"symmetric matrix\", \"directed graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 82.5, 302.5, 302.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of permutation invariance in graphs and matrices\",\n      \"related_concepts\": [\"permutation invariance\", \"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [302.5, 82.5, 522.5, 302.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Examples of graphs illustrating efficiency and resilience, including percolation threshold\",\n      \"related_concepts\": [\"graph efficiency\", \"graph resilience\", \"percolation threshold\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 302.5, 302.5, 522.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Example of an adjacency matrix for a graph with 6 nodes\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 412.5, 522.5, 522.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing input features X, weights W, and output scores y, illustrating feature integration\",\n      \"related_concepts\": [\"feature integration\", \"linear regression\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 110.0, 835.0, 275.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph with nodes and edges used to illustrate degree centrality and topological roles\",\n      \"related_concepts\": [\"degree centrality\", \"topology\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [642.5, 412.5, 725.0, 467.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph with weighted edges illustrating betweenness centrality and core-periphery structure\",\n      \"related_concepts\": [\"betweenness centrality\", \"core-periphery structure\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [835.0, 440.0, 945.0, 495.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Visual representation of matrix permutation A' = P^T A P with colored blocks\",\n      \"related_concepts\": [\"permutation invariance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 192.5, 642.5, 247.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Various graph structures illustrating different topologies including modular graphs, star-like graphs, and highly connected core structures\",\n      \"related_concepts\": [\"microscale topology\", \"mesoscale topology\", \"star-like graphs\", \"highly connected core structure\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [55.0, 807.5, 330.0, 945.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual representation of eigenvalue decomposition showing matrix factorization into eigenvalues and eigenvectors\",\n      \"related_concepts\": [\"eigen decomposition\", \"eigenvalues\", \"eigenvectors\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [412.5, 890.0, 522.5, 945.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graph with 8 nodes used to demonstrate walks and adjacency matrix properties\",\n      \"related_concepts\": [\"graph walks\", \"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [736.0, 791.0, 807.5, 846.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A (8x8) corresponding to the example graph\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [813.0, 791.0, 879.0, 846.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Squared adjacency matrix A^2 showing number of walks of length two\",\n      \"related_concepts\": [\"matrix powers\", \"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [884.5, 791.0, 950.5, 846.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph illustrating walks of length two from node six\",\n      \"related_concepts\": [\"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [813.0, 862.5, 879.0, 917.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph illustrating walks of length two returning to original node\",\n      \"related_concepts\": [\"graph walks\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [884.5, 862.5, 950.5, 917.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"G_T\",\n      \"reason\": \"Handwritten text is partially obscured and may represent a specific graph type or transformation\",\n      \"bbox\": [220.0, 330.0, 247.5, 357.5]\n    },\n    {\n      \"transcription\": \"G_graph\",\n      \"reason\": \"Handwritten text is partially obscured and may represent a specific graph type or transformation\",\n      \"bbox\": [275.0, 330.0, 302.5, 357.5]\n    },\n    {\n      \"transcription\": \"local averaging of x by W(CC)\",\n      \"reason\": \"Handwriting is slightly messy, 'CC' might be 'C' or another symbol\",\n      \"bbox\": [670.0, 55.0, 752.5, 82.5]\n    },\n    {\n      \"transcription\": \"spectral image\",\n      \"reason\": \"Handwriting is small and slightly unclear\",\n      \"bbox\": [587.5, 137.5, 642.5, 165.0]\n    },\n    {\n      \"transcription\": \"quantifies the topological role of an edge e\",\n      \"reason\": \"Some words are written quickly and may be misinterpreted\",\n      \"bbox\": [835.0, 440.0, 945.0, 467.5]\n    },\n    {\n      \"transcription\": \"global <-> local\",\n      \"reason\": \"Arrow direction and exact wording slightly ambiguous\",\n      \"bbox\": [165.0, 571.0, 220.0, 587.5]\n    },\n    {\n      \"transcription\": \"more efficient\",\n      \"reason\": \"Handwriting style makes 'efficient' somewhat unclear\",\n      \"bbox\": [302.5, 560.0, 357.5, 576.5]\n    },\n    {\n      \"transcription\": \"low efficiency diffusion mixing\",\n      \"reason\": \"Multiple words stacked, some letters unclear\",\n      \"bbox\": [55.0, 890.0, 110.0, 934.0]\n    },\n    {\n      \"transcription\": \"shapes / patterns / topologies\",\n      \"reason\": \"Last word partially obscured and handwriting unclear\",\n      \"bbox\": [220.0, 752.5, 302.5, 769.0]\n    },\n    {\n      \"transcription\": \"natural modes\",\n      \"reason\": \"Quotation marks and exact wording slightly ambiguous\",\n      \"bbox\": [357.5, 824.0, 412.5, 835.0]\n    },\n    {\n      \"transcription\": \"girato from 1 by a 2^nd walk of 2^nd\",\n      \"reason\": \"Handwriting is cursive and partially unclear; 'girato' may be a non-English term or miswritten word\",\n      \"bbox\": [714.0, 807.5, 752.5, 862.5]\n    },\n    {\n      \"transcription\": \"L-length\",\n      \"reason\": \"Quotation marks and hyphenation make exact interpretation uncertain\",\n      \"bbox\": [917.5, 752.5, 956.0, 769.0]\n    },\n    {\n      \"transcription\": \"return: a list of nodes, that are 2-hops away from the initial node\",\n      \"reason\": \"Some words are abbreviated or written quickly, making full certainty difficult\",\n      \"bbox\": [917.5, 917.5, 972.5, 972.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "asymmetric matrix",
+      "into": "symmetric matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "permutation invariance",
+      "into": "permutation invariance"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph density",
+      "into": "graph density"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "topological properties",
+      "into": "topology"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "core-periphery structure",
+      "into": "core-periphery structure"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "macroscale topology",
+      "into": "microscale topology"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "eigen decomposition",
+      "into": "eigen decomposition"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "eigenvector centrality",
+      "into": "node centrality measures"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "covariance matrix",
+      "into": "covariance matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "eigenvalues",
+      "into": "eigenvalues"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "eigenvectors",
+      "into": "eigenvectors"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "undirected graph",
+      "into": "directed graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "information flow",
+      "into": "information flow efficiency"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "principal component analysis",
+      "into": "principal component analysis"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: A_{i,j} \\neq A_{j,i}",
+    "Dropped low-confidence formula: A_{i,j} = A_{j,i}",
+    "Dropped low-confidence formula: A_{i,j} \\in \\{0, 1\\}",
+    "Dropped low-confidence formula: A_{i,j} \\in \\mathbb{R}",
+    "Dropped low-confidence formula: A \\in \\mathbb{R}^{N \\times N}",
+    "Dropped low-confidence formula: X' = XP",
+    "Dropped low-confidence formula: l(w) = \\frac{1}{n} \\sum_{i=1}^n (\\hat{x}_i^T w - y_i)^2",
+    "Dropped low-confidence formula: d_i = \\sum_{j \\in \\mathcal{N}(i)} w_{ij}",
+    "Dropped low-confidence formula: \\Sigma = \\sum \\lambda_i \\vec{v}_i \\vec{v}_i^T",
+    "Dropped low-confidence formula: M \\approx \\tilde{M} = U \\Lambda U^T"
+  ]
+}

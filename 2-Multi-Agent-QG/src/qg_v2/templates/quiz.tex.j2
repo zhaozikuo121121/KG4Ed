@@ -1,0 +1,67 @@
+\documentclass[UTF8,12pt]{ctexart}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\setlist{nosep}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ {{ title }} }
+\rhead{\thepage/\pageref{LastPage}}
+\setlength{\parindent}{0pt}
+\begin{document}
+{% if cover_title %}
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{\fill}
+{\Huge\bfseries {{ cover_title }}\par}
+\vspace*{\fill}
+\end{titlepage}
+{% endif %}
+\begin{center}
+  {\LARGE\bfseries {{ title }} }\\[0.4em]
+  {% if subject %}\textcolor{gray}{Concept: {{ subject }}}\\[0.8em]{% endif %}
+\end{center}
+\hrule\vspace{1em}
+{% for q in questions %}
+\textbf{ {{ q.number }}.} {{ q.stem }}
+{% if q.image %}
+\begin{center}
+\includegraphics[width=0.85\linewidth,height=0.38\textheight,keepaspectratio]{\detokenize{ {{- q.image.path -}} }}
+{% if q.image.display_caption %}\par\small\textcolor{gray}{ {{ q.image.display_caption }} }{% endif %}
+\end{center}
+{% endif %}
+{% if q.given %}
+\begin{center}
+{\small
+\renewcommand{\arraystretch}{1.15}
+\setlength{\arraycolsep}{4pt}
+\begin{tabular}{@{}r@{\;=\;}l@{}}
+\multicolumn{2}{@{}l@{}}{\textit{Given:}}\\[-0.25em]
+{% for value in q.given %}{{ value.label }} & \(\displaystyle {{ value.value }}\) \\
+{% endfor %}\end{tabular}
+}
+\end{center}
+{% endif %}
+{% if q.options %}
+\begin{enumerate}[label=\Alph*., leftmargin=2.3em]
+{% for label, option in q.options %}\item {{ option }}
+{% endfor %}\end{enumerate}
+{% else %}\par\vspace{4\baselineskip}
+{% endif %}
+\vspace{1em}
+{% endfor %}
+{% if with_answers %}
+\newpage
+\section*{Answer Key and Explanations}
+{% for q in questions %}
+\textbf{ {{ q.number }}. Answer: {{ q.answer }}}
+{% if q.explanation %}\par\smallskip\begingroup\itshape Explanation: {{ q.explanation }}\par\endgroup{% endif %}
+\par\vspace{0.8em}
+{% endfor %}
+{% endif %}
+\end{document}

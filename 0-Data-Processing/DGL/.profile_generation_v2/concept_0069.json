@@ -1,0 +1,101 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "5a862761652fd84f61ce254a180434f4502feca336f5451122b6d1531e6373a6",
+  "concept_id": 69,
+  "concept_name": "learned weights",
+  "aliases": [
+    "learned weights",
+    "parameters",
+    "trainable parameters",
+    "omega",
+    "weights"
+  ],
+  "profile": "learned weights: The term appears as a printed label in prediction tasks and, in a GCN training and optimization pipeline, under a matrix multiplication diagram. One instance also shows the handwritten symbol omega_K. The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "learned weights: In graph neural network materials, the term appears as a labeled component in prediction tasks and model diagrams. One occurrence links it to the handwritten symbol omega_K. In a GCN training and optimization pipeline, the label sits under a matrix multiplication diagram. The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.",
+    "claims": [
+      {
+        "claim": "In graph neural network materials, the term learned weights appears as a labeled component in prediction tasks and model diagrams.",
+        "evidence_ids": [
+          "DGL-E0079",
+          "DGL-E0199",
+          "DGL-E0254",
+          "DGL-E0396"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "One occurrence links learned weights to the handwritten symbol omega_K.",
+        "evidence_ids": [
+          "DGL-E0079"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a GCN training and optimization pipeline, the label learned weights appears under a matrix multiplication diagram.",
+        "evidence_ids": [
+          "DGL-E0254"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term learned weights also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.",
+        "evidence_ids": [
+          "DGL-E0199",
+          "DGL-E0396"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "learned weights: The term appears as a printed label in prediction tasks and, in a GCN training and optimization pipeline, under a matrix multiplication diagram. One instance also shows the handwritten symbol omega_K. The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "The term appears as a printed label in prediction tasks and, in a GCN training and optimization pipeline, under a matrix multiplication diagram.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0079",
+          "DGL-E0254"
+        ],
+        "reason": "E0079 places the label in prediction-task material; E0254 shows it as a printed label under a matrix multiplication diagram in a GCN training/optimization pipeline."
+      },
+      {
+        "sentence": "One instance also shows the handwritten symbol omega_K.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0079"
+        ],
+        "reason": "E0079 records the printed text 'learned weights' alongside the handwritten symbol omega_K."
+      },
+      {
+        "sentence": "The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0199",
+          "DGL-E0396"
+        ],
+        "reason": "E0199 is titled for GCN layer mechanics and graph classification; E0396 covers inductive vs. transductive learning and graph classification."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"learned weights: In graph neural network materials, the term appears as a labeled component in prediction tasks and model diagrams. One occurrence links it to the handwritten symbol omega_K. In a GCN training and optimization pipeline, the label sits under a matrix multiplication diagram. The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph neural network materials, the term learned weights appears as a labeled component in prediction tasks and model diagrams.\",\n      \"evidence_ids\": [\"DGL-E0079\", \"DGL-E0199\", \"DGL-E0254\", \"DGL-E0396\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"One occurrence links learned weights to the handwritten symbol omega_K.\",\n      \"evidence_ids\": [\"DGL-E0079\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a GCN training and optimization pipeline, the label learned weights appears under a matrix multiplication diagram.\",\n      \"evidence_ids\": [\"DGL-E0254\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term learned weights also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.\",\n      \"evidence_ids\": [\"DGL-E0199\", \"DGL-E0396\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"learned weights: The term appears as a printed label in prediction tasks and, in a GCN training and optimization pipeline, under a matrix multiplication diagram. One instance also shows the handwritten symbol omega_K. The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The term appears as a printed label in prediction tasks and, in a GCN training and optimization pipeline, under a matrix multiplication diagram.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0079\",\n        \"DGL-E0254\"\n      ],\n      \"reason\": \"E0079 places the label in prediction-task material; E0254 shows it as a printed label under a matrix multiplication diagram in a GCN training/optimization pipeline.\"\n    },\n    {\n      \"sentence\": \"One instance also shows the handwritten symbol omega_K.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0079\"\n      ],\n      \"reason\": \"E0079 records the printed text 'learned weights' alongside the handwritten symbol omega_K.\"\n    },\n    {\n      \"sentence\": \"The term also appears in material covering GCN layer mechanics, graph classification, and inductive versus transductive learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0199\",\n        \"DGL-E0396\"\n      ],\n      \"reason\": \"E0199 is titled for GCN layer mechanics and graph classification; E0396 covers inductive vs. transductive learning and graph classification.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:14:43.166253+00:00"
+}

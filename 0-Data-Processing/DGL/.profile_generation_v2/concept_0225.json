@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "85bc8f2ca5657d66ae6551e92db2e59c68538658232c72dab416aa59bf42a1ac",
+  "concept_id": 225,
+  "concept_name": "operation order",
+  "aliases": [
+    "operation order"
+  ],
+  "profile": "operation order: The sequence in which operations are executed. The operation order can change depending on the rationale and target task.",
+  "word_count": 21,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "operation order: The sequence in which operations are executed within a GNN layer. The operation order can change depending on the rationale and target task.",
+    "claims": [
+      {
+        "claim": "The operation order can change depending on the rationale and target task.",
+        "evidence_ids": [
+          "DGL-E0278"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata: only one source-supported claim was available."
+    ]
+  },
+  "review": {
+    "final_profile": "operation order: The sequence in which operations are executed. The operation order can change depending on the rationale and target task.",
+    "sentence_reviews": [
+      {
+        "sentence": "The sequence in which operations are executed.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional context for the term; no unsupported specifics introduced."
+      },
+      {
+        "sentence": "The operation order can change depending on the rationale and target task.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0278"
+        ],
+        "reason": "Directly matches the source evidence."
+      }
+    ],
+    "warnings": [
+      "Only one source-supported claim was available; the definitional sentence is generic context rather than direct evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"operation order: The sequence in which operations are executed within a GNN layer. The operation order can change depending on the rationale and target task.\",\n  \"claims\": [\n    {\n      \"claim\": \"The operation order can change depending on the rationale and target task.\",\n      \"evidence_ids\": [\"DGL-E0278\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Limited metadata: only one source-supported claim was available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"operation order: The sequence in which operations are executed. The operation order can change depending on the rationale and target task.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The sequence in which operations are executed.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional context for the term; no unsupported specifics introduced.\"\n    },\n    {\n      \"sentence\": \"The operation order can change depending on the rationale and target task.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0278\"],\n      \"reason\": \"Directly matches the source evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source-supported claim was available; the definitional sentence is generic context rather than direct evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:20:13.097419+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "9049607e6ba99eafbbbc2bb0603519761e797bf9eae1ea54e8572c0ba4fb31b9",
+  "concept_id": 53,
+  "concept_name": "closed form solution",
+  "aliases": [
+    "closed form solution",
+    "closed form"
+  ],
+  "profile": "closed form solution: a solution to equations that is found by solving the equations algebraically and can be written out on paper.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "closed form solution: a solution to equations that can be found by solving the equations algebraically, so that it can be written out on paper.",
+    "claims": [
+      {
+        "claim": "A closed form solution is found by solving equations algebraically.",
+        "evidence_ids": [
+          "MLR-E0056"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A closed form solution can be written out on paper.",
+        "evidence_ids": [
+          "MLR-E0056"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "closed form solution: a solution to equations that is found by solving the equations algebraically and can be written out on paper.",
+    "sentence_reviews": [
+      {
+        "sentence": "closed form solution: a solution to equations that is found by solving the equations algebraically and can be written out on paper.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0056"
+        ],
+        "reason": "The evidence says closed-form solutions are obtained by solving equations algebraically and can be written out on paper."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"closed form solution: a solution to equations that can be found by solving the equations algebraically, so that it can be written out on paper.\",\n  \"claims\": [\n    {\n      \"claim\": \"A closed form solution is found by solving equations algebraically.\",\n      \"evidence_ids\": [\"MLR-E0056\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A closed form solution can be written out on paper.\",\n      \"evidence_ids\": [\"MLR-E0056\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"closed form solution: a solution to equations that is found by solving the equations algebraically and can be written out on paper.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"closed form solution: a solution to equations that is found by solving the equations algebraically and can be written out on paper.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0056\"],\n      \"reason\": \"The evidence says closed-form solutions are obtained by solving equations algebraically and can be written out on paper.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:40:16.065581+00:00"
+}

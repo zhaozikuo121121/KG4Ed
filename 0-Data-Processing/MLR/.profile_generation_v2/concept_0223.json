@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4ea0af9ef5c5a7ece6c211b17330f28e1d7dc8231852d4cc101f30fd7aa331d3",
+  "concept_id": 223,
+  "concept_name": "model capacity",
+  "aliases": [
+    "model capacity",
+    "capacity",
+    "capacity dial"
+  ],
+  "profile": "model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters. The capacity of each single layer unit can be roughly illustrated. For a model built with units of a universal approximator, capacity must be properly set.",
+  "word_count": 46,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters. The capacity of each single layer unit can be roughly illustrated. For a model built with units of a universal approximator, capacity must be properly set.",
+    "claims": [
+      {
+        "claim": "Model capacity refers to the range of shapes a function can take, given all different settings of its internal parameters.",
+        "evidence_ids": [
+          "MLR-E0308"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The capacity of each single layer unit can be roughly illustrated.",
+        "evidence_ids": [
+          "MLR-E0308"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "For a model built with units of a universal approximator, capacity must be properly set.",
+        "evidence_ids": [
+          "MLR-E0282"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters. The capacity of each single layer unit can be roughly illustrated. For a model built with units of a universal approximator, capacity must be properly set.",
+    "sentence_reviews": [
+      {
+        "sentence": "model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0308"
+        ],
+        "reason": "Directly restates the definition of capacity from the evidence, with 'a function' in place of 'a function like this'."
+      },
+      {
+        "sentence": "The capacity of each single layer unit can be roughly illustrated.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0308"
+        ],
+        "reason": "Paraphrases 'This roughly illustrates the capacity of each single layer unit.'"
+      },
+      {
+        "sentence": "For a model built with units of a universal approximator, capacity must be properly set.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0282"
+        ],
+        "reason": "Reflects the evidence phrase 'properly setting the capacity of a model built with units of a universal approximator'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters. The capacity of each single layer unit can be roughly illustrated. For a model built with units of a universal approximator, capacity must be properly set.\",\n  \"claims\": [\n    {\n      \"claim\": \"Model capacity refers to the range of shapes a function can take, given all different settings of its internal parameters.\",\n      \"evidence_ids\": [\"MLR-E0308\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The capacity of each single layer unit can be roughly illustrated.\",\n      \"evidence_ids\": [\"MLR-E0308\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"For a model built with units of a universal approximator, capacity must be properly set.\",\n      \"evidence_ids\": [\"MLR-E0282\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters. The capacity of each single layer unit can be roughly illustrated. For a model built with units of a universal approximator, capacity must be properly set.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"model capacity: refers to the range of shapes a function can take, given all different settings of its internal parameters.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0308\"],\n      \"reason\": \"Directly restates the definition of capacity from the evidence, with 'a function' in place of 'a function like this'.\"\n    },\n    {\n      \"sentence\": \"The capacity of each single layer unit can be roughly illustrated.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0308\"],\n      \"reason\": \"Paraphrases 'This roughly illustrates the capacity of each single layer unit.'\"\n    },\n    {\n      \"sentence\": \"For a model built with units of a universal approximator, capacity must be properly set.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0282\"],\n      \"reason\": \"Reflects the evidence phrase 'properly setting the capacity of a model built with units of a universal approximator'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:50:20.957726+00:00"
+}

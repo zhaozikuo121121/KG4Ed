@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ce5eb5782b26e7693a824b4f2c63f0553c3987eb56376518dffcca530c671164",
+  "concept_id": 88,
+  "concept_name": "normal equations",
+  "aliases": [
+    "normal equations"
+  ],
+  "profile": "normal equations: A term sometimes used in the context of least squares. Minimizing the least squares can be performed by solving its normal equations.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "normal equations: A term sometimes used in the context of least squares: minimizing the least squares can be done by solving its normal equations.",
+    "claims": [
+      {
+        "claim": "Minimizing least squares can be performed by solving the normal equations.",
+        "evidence_ids": [
+          "MLR-E0102"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term 'normal equations' may appear when referring to this least-squares minimization approach.",
+        "evidence_ids": [
+          "MLR-E0102"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source provides only a passing mention; no further properties are described."
+    ]
+  },
+  "review": {
+    "final_profile": "normal equations: A term sometimes used in the context of least squares. Minimizing the least squares can be performed by solving its normal equations.",
+    "sentence_reviews": [
+      {
+        "sentence": "normal equations: A term sometimes used in the context of least squares.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0102"
+        ],
+        "reason": "The source states that this is sometimes referred to as minimizing the Least Squares via solving its normal equations."
+      },
+      {
+        "sentence": "Minimizing the least squares can be performed by solving its normal equations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0102"
+        ],
+        "reason": "The source directly equates minimizing least squares with solving its normal equations."
+      }
+    ],
+    "warnings": [
+      "The source provides only a passing mention; no derivation, formula, or further properties are described."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"normal equations: A term sometimes used in the context of least squares: minimizing the least squares can be done by solving its normal equations.\",\n  \"claims\": [\n    {\n      \"claim\": \"Minimizing least squares can be performed by solving the normal equations.\",\n      \"evidence_ids\": [\"MLR-E0102\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term 'normal equations' may appear when referring to this least-squares minimization approach.\",\n      \"evidence_ids\": [\"MLR-E0102\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a passing mention; no further properties are described.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"normal equations: A term sometimes used in the context of least squares. Minimizing the least squares can be performed by solving its normal equations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"normal equations: A term sometimes used in the context of least squares.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0102\"],\n      \"reason\": \"The source states that this is sometimes referred to as minimizing the Least Squares via solving its normal equations.\"\n    },\n    {\n      \"sentence\": \"Minimizing the least squares can be performed by solving its normal equations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0102\"],\n      \"reason\": \"The source directly equates minimizing least squares with solving its normal equations.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a passing mention; no derivation, formula, or further properties are described.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:55:07.322719+00:00"
+}

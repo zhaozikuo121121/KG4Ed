@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "f2f02858eb15799eae6976ed9e4554323861bed15654667d4e9d625a06550851",
+  "concept_id": 59,
+  "concept_name": "lipschitz continuous gradient",
+  "aliases": [
+    "lipschitz continuous gradient",
+    "lipschitz gradient",
+    "gradient with lipschitz constant"
+  ],
+  "profile": "lipschitz continuous gradient: Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "lipschitz continuous gradient: Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.",
+    "claims": [
+      {
+        "claim": "Functions g with Lipschitz continuous gradient satisfy the inequality ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.",
+        "evidence_ids": [
+          "MLR-E0065"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "lipschitz continuous gradient: Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.",
+    "sentence_reviews": [
+      {
+        "sentence": "Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0065"
+        ],
+        "reason": "The inequality matches the source metadata exactly."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"lipschitz continuous gradient: Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂.\",\n  \"claims\": [\n    {\n      \"claim\": \"Functions g with Lipschitz continuous gradient satisfy the inequality ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂.\",\n      \"evidence_ids\": [\"MLR-E0065\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"lipschitz continuous gradient: Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Functions g with Lipschitz continuous gradient satisfy ‖∇g(x) − ∇g(y)‖2 ≤ L‖x − y‖2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0065\"],\n      \"reason\": \"The inequality matches the source metadata exactly.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:43:31.666977+00:00"
+}

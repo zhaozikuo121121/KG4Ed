@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "42b75e237007a1b73456e46b3dabc265687928c0cfb72ba786e10874c672cc0d",
+  "concept_id": 119,
+  "concept_name": "smoothed margin-perceptron",
+  "aliases": [
+    "smoothed margin-perceptron",
+    "softmax smoothing of margin-perceptron"
+  ],
+  "profile": "smoothed margin-perceptron: A variant of the Margin-Perceptron in linear two-class classification, obtained by replacing the max operator with softmax. The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "smoothed margin-perceptron: A variant of the Margin-Perceptron formed by replacing the max operator with softmax to smooth the objective. The smoothed expression is log(1 + e^{1 - y_p x̌^T w}). This concept appears in linear two-class classification.",
+    "claims": [
+      {
+        "claim": "A variant of the Margin-Perceptron formed by replacing the max operator with softmax to smooth the objective.",
+        "evidence_ids": [
+          "MLR-E0135"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).",
+        "evidence_ids": [
+          "MLR-E0135"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This concept appears in linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0135"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "smoothed margin-perceptron: A variant of the Margin-Perceptron in linear two-class classification, obtained by replacing the max operator with softmax. The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).",
+    "sentence_reviews": [
+      {
+        "sentence": "smoothed margin-perceptron: A variant of the Margin-Perceptron in linear two-class classification, obtained by replacing the max operator with softmax.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0135"
+        ],
+        "reason": "The source states the Margin-Perceptron can be smoothed by replacing the max operator with softmax, and the chapter context is linear two-class classification."
+      },
+      {
+        "sentence": "The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0135"
+        ],
+        "reason": "The source gives this expression after the softmax replacement."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"smoothed margin-perceptron: A variant of the Margin-Perceptron formed by replacing the max operator with softmax to smooth the objective. The smoothed expression is log(1 + e^{1 - y_p x̌^T w}). This concept appears in linear two-class classification.\",\n  \"claims\": [\n    {\n      \"claim\": \"A variant of the Margin-Perceptron formed by replacing the max operator with softmax to smooth the objective.\",\n      \"evidence_ids\": [\"MLR-E0135\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).\",\n      \"evidence_ids\": [\"MLR-E0135\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This concept appears in linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0135\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"smoothed margin-perceptron: A variant of the Margin-Perceptron in linear two-class classification, obtained by replacing the max operator with softmax. The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"smoothed margin-perceptron: A variant of the Margin-Perceptron in linear two-class classification, obtained by replacing the max operator with softmax.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0135\"],\n      \"reason\": \"The source states the Margin-Perceptron can be smoothed by replacing the max operator with softmax, and the chapter context is linear two-class classification.\"\n    },\n    {\n      \"sentence\": \"The smoothed expression is log(1 + e^{1 - y_p x̌^T w}).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0135\"],\n      \"reason\": \"The source gives this expression after the softmax replacement.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:13:08.079205+00:00"
+}

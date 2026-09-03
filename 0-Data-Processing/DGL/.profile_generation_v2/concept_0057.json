@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ad4c1e9d10673fd5acd6da71e80e2cd8cfac11936cb8b564a15e4d30f24faabb",
+  "concept_id": 57,
+  "concept_name": "degree centrality",
+  "aliases": [
+    "degree centrality",
+    "degree"
+  ],
+  "profile": "degree centrality: a graph property. In the annotated material it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "degree centrality: a graph property referring to the degree of a vertex. In the annotated material, it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.",
+    "claims": [
+      {
+        "claim": "Degree centrality is a graph property.",
+        "evidence_ids": [
+          "DGL-E0053"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The degree centrality of vertex i is represented by di and equals 3.",
+        "evidence_ids": [
+          "DGL-E0053"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source is handwritten, so the exact reading of the formula may have minor uncertainty."
+    ]
+  },
+  "review": {
+    "final_profile": "degree centrality: a graph property. In the annotated material it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.",
+    "sentence_reviews": [
+      {
+        "sentence": "degree centrality: a graph property.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0053"
+        ],
+        "reason": "The page title and handwritten label associate degree centrality with graph properties."
+      },
+      {
+        "sentence": "In the annotated material it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0053"
+        ],
+        "reason": "The handwritten evidence shows the formula di = 3 directly."
+      }
+    ],
+    "warnings": [
+      "The source is handwritten, so the exact reading of the formula may have minor uncertainty.",
+      "The available evidence shows only a single example and does not provide a broader definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"degree centrality: a graph property referring to the degree of a vertex. In the annotated material, it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.\",\n  \"claims\": [\n    {\n      \"claim\": \"Degree centrality is a graph property.\",\n      \"evidence_ids\": [\"DGL-E0053\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The degree centrality of vertex i is represented by di and equals 3.\",\n      \"evidence_ids\": [\"DGL-E0053\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The source is handwritten, so the exact reading of the formula may have minor uncertainty.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"degree centrality: a graph property. In the annotated material it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"degree centrality: a graph property.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0053\"],\n      \"reason\": \"The page title and handwritten label associate degree centrality with graph properties.\"\n    },\n    {\n      \"sentence\": \"In the annotated material it is expressed with the formula di = 3, indicating that vertex i has a degree centrality value of 3.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0053\"],\n      \"reason\": \"The handwritten evidence shows the formula di = 3 directly.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source is handwritten, so the exact reading of the formula may have minor uncertainty.\",\n    \"The available evidence shows only a single example and does not provide a broader definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:07:29.585593+00:00"
+}

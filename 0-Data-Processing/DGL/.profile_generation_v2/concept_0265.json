@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a915fe963f92a7c7e48e349e43dc5c203ca2cd8e618ebc311215235013395c56",
+  "concept_id": 265,
+  "concept_name": "fastgcn",
+  "aliases": [
+    "fastgcn"
+  ],
+  "profile": "fastgcn: FastGCN (Chen et al., 2018).",
+  "word_count": 6,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fastgcn: FastGCN (Chen et al., 2018).",
+    "claims": [
+      {
+        "claim": "FastGCN is attributed to Chen et al. (2018).",
+        "evidence_ids": [
+          "DGL-E0356"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Profile is minimal due to limited metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "fastgcn: FastGCN (Chen et al., 2018).",
+    "sentence_reviews": [
+      {
+        "sentence": "fastgcn: FastGCN (Chen et al., 2018).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0356"
+        ],
+        "reason": "The metadata explicitly identifies FastGCN with the citation Chen et al., 2018."
+      }
+    ],
+    "warnings": [
+      "Profile is minimal because available metadata supports only the attribution of FastGCN; no further claims can be grounded."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fastgcn: FastGCN (Chen et al., 2018).\",\n  \"claims\": [\n    {\n      \"claim\": \"FastGCN is attributed to Chen et al. (2018).\",\n      \"evidence_ids\": [\"DGL-E0356\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Profile is minimal due to limited metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fastgcn: FastGCN (Chen et al., 2018).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"fastgcn: FastGCN (Chen et al., 2018).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0356\"],\n      \"reason\": \"The metadata explicitly identifies FastGCN with the citation Chen et al., 2018.\"\n    }\n  ],\n  \"warnings\": [\n    \"Profile is minimal because available metadata supports only the attribution of FastGCN; no further claims can be grounded.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:34:41.420457+00:00"
+}

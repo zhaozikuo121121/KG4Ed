@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "36d7d26a1ab849b97624c12d5ffbbbd01fe5075563f11169cc320a222c17c760",
+  "concept_id": 92,
+  "concept_name": "multi-output regression",
+  "aliases": [
+    "multi-output regression",
+    "nonlinear multi-output regression"
+  ],
+  "profile": "multi-output regression: a regression problem with multiple outputs. Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously. Multi-output regression was introduced in the context of linear regression.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multi-output regression: a regression problem with multiple outputs. Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously. The concept was originally introduced in the context of linear regression.",
+    "claims": [
+      {
+        "claim": "Multi-output regression is a regression problem with multiple outputs.",
+        "evidence_ids": [
+          "MLR-E0238"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Nonlinear feature engineering can be applied.",
+        "evidence_ids": [
+          "MLR-E0238"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously.",
+        "evidence_ids": [
+          "MLR-E0238"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept was originally introduced in the context of linear regression.",
+        "evidence_ids": [
+          "MLR-E0238",
+          "MLR-E0108"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "multi-output regression: a regression problem with multiple outputs. Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously. Multi-output regression was introduced in the context of linear regression.",
+    "sentence_reviews": [
+      {
+        "sentence": "multi-output regression: a regression problem with multiple outputs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0238"
+        ],
+        "reason": "The source discusses the multi-output case and describes modeling multiple outputs, supporting the basic description."
+      },
+      {
+        "sentence": "Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0238"
+        ],
+        "reason": "The source explicitly describes nonlinear feature engineering for multi-output regression and the separate-versus-joint modeling choice."
+      },
+      {
+        "sentence": "Multi-output regression was introduced in the context of linear regression.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0238",
+          "MLR-E0108"
+        ],
+        "reason": "The topic appears in the linear regression chapter and the source references it being first introduced in that earlier context."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multi-output regression: a regression problem with multiple outputs. Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously. The concept was originally introduced in the context of linear regression.\",\n  \"claims\": [\n    {\n      \"claim\": \"Multi-output regression is a regression problem with multiple outputs.\",\n      \"evidence_ids\": [\"MLR-E0238\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Nonlinear feature engineering can be applied.\",\n      \"evidence_ids\": [\"MLR-E0238\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously.\",\n      \"evidence_ids\": [\"MLR-E0238\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept was originally introduced in the context of linear regression.\",\n      \"evidence_ids\": [\"MLR-E0238\", \"MLR-E0108\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multi-output regression: a regression problem with multiple outputs. Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously. Multi-output regression was introduced in the context of linear regression.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"multi-output regression: a regression problem with multiple outputs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0238\"],\n      \"reason\": \"The source discusses the multi-output case and describes modeling multiple outputs, supporting the basic description.\"\n    },\n    {\n      \"sentence\": \"Nonlinear feature engineering can be applied, and a key design choice is whether to model each output separately with a nonlinear model per output, or jointly with a single nonlinear model that predicts all outputs simultaneously.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0238\"],\n      \"reason\": \"The source explicitly describes nonlinear feature engineering for multi-output regression and the separate-versus-joint modeling choice.\"\n    },\n    {\n      \"sentence\": \"Multi-output regression was introduced in the context of linear regression.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0238\", \"MLR-E0108\"],\n      \"reason\": \"The topic appears in the linear regression chapter and the source references it being first introduced in that earlier context.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:57:13.655034+00:00"
+}

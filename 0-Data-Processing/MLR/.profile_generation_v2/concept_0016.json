@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "6d4c68772c28bebad5ae1542665a0c39b7515c1737811c174d45fb85f374bebf",
+  "concept_id": 16,
+  "concept_name": "mathematical optimization",
+  "aliases": [
+    "mathematical optimization",
+    "optimization"
+  ],
+  "profile": "mathematical optimization: In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions. It is the study of computational methods for minimizing formal mathematical functions. Because these methods address the search for model parameters, the tools of mathematical optimization play a fundamental role throughout machine learning.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mathematical optimization: In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions. It is the study of computational methods for minimizing formal mathematical functions. The tools of mathematical optimization therefore play a fundamental role in the field.",
+    "claims": [
+      {
+        "claim": "Mathematical optimization is the search for parameters of a learning model via well-defined mathematical functions.",
+        "evidence_ids": [
+          "MLR-E0017"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Mathematical optimization is the study of computational methods for minimizing formal mathematical functions.",
+        "evidence_ids": [
+          "MLR-E0351"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The tools of mathematical optimization play a fundamental role in the field.",
+        "evidence_ids": [
+          "MLR-E0351"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "mathematical optimization: In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions. It is the study of computational methods for minimizing formal mathematical functions. Because these methods address the search for model parameters, the tools of mathematical optimization play a fundamental role throughout machine learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0017"
+        ],
+        "reason": "Directly restates the source definition of optimization in machine learning."
+      },
+      {
+        "sentence": "It is the study of computational methods for minimizing formal mathematical functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0351"
+        ],
+        "reason": "Directly restates the source characterization of mathematical optimization."
+      },
+      {
+        "sentence": "Because these methods address the search for model parameters, the tools of mathematical optimization play a fundamental role throughout machine learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0017",
+          "MLR-E0351"
+        ],
+        "reason": "Combines the source-backed link between optimization methods and parameter search with the source statement that these tools play a fundamental role."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mathematical optimization: In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions. It is the study of computational methods for minimizing formal mathematical functions. The tools of mathematical optimization therefore play a fundamental role in the field.\",\n  \"claims\": [\n    {\n      \"claim\": \"Mathematical optimization is the search for parameters of a learning model via well-defined mathematical functions.\",\n      \"evidence_ids\": [\"MLR-E0017\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Mathematical optimization is the study of computational methods for minimizing formal mathematical functions.\",\n      \"evidence_ids\": [\"MLR-E0351\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The tools of mathematical optimization play a fundamental role in the field.\",\n      \"evidence_ids\": [\"MLR-E0351\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mathematical optimization: In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions. It is the study of computational methods for minimizing formal mathematical functions. Because these methods address the search for model parameters, the tools of mathematical optimization play a fundamental role throughout machine learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In machine learning, optimization is the search for parameters of a learning model via well-defined mathematical functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0017\"\n      ],\n      \"reason\": \"Directly restates the source definition of optimization in machine learning.\"\n    },\n    {\n      \"sentence\": \"It is the study of computational methods for minimizing formal mathematical functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0351\"\n      ],\n      \"reason\": \"Directly restates the source characterization of mathematical optimization.\"\n    },\n    {\n      \"sentence\": \"Because these methods address the search for model parameters, the tools of mathematical optimization play a fundamental role throughout machine learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0017\",\n        \"MLR-E0351\"\n      ],\n      \"reason\": \"Combines the source-backed link between optimization methods and parameter search with the source statement that these tools play a fundamental role.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:26:33.465983+00:00"
+}

@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "089bfa7d81a7d61fe7f2e8b07f978ebd54aa3b0b3f88ac622ada0bdf0d717c11",
+  "concept_id": 91,
+  "concept_name": "standard normalization",
+  "aliases": [
+    "standard normalization",
+    "standardize",
+    "standard normalize",
+    "standardize input features",
+    "feature scaling",
+    "standard scaling",
+    "z-score normalization",
+    "standard normalizing"
+  ],
+  "profile": "standard normalization: a very simple two-step procedure by which the input features of a dataset are first mean-centered and then re-scaled by the inverse of their standard deviation. It should be applied to the input features of a dataset prior to optimization. Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.",
+  "word_count": 56,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "standard normalization: a feature scaling technique that transforms each input feature by first mean-centering it and then re-scaling it by the inverse of its standard deviation. It should be applied to input features prior to optimization. Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.",
+    "claims": [
+      {
+        "claim": "Standard normalization is a two-step procedure: first mean-centering each input feature, then re-scaling it by the inverse of its standard deviation.",
+        "evidence_ids": [
+          "MLR-E0229"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Input features should be standard normalized prior to optimization.",
+        "evidence_ids": [
+          "MLR-E0107"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.",
+        "evidence_ids": [
+          "MLR-E0235"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "standard normalization: a very simple two-step procedure by which the input features of a dataset are first mean-centered and then re-scaled by the inverse of their standard deviation. It should be applied to the input features of a dataset prior to optimization. Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.",
+    "sentence_reviews": [
+      {
+        "sentence": "standard normalization: a very simple two-step procedure by which the input features of a dataset are first mean-centered and then re-scaled by the inverse of their standard deviation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0229"
+        ],
+        "reason": "Directly reflects E0229's definition of standard normalization as mean-centering followed by rescaling by the inverse standard deviation."
+      },
+      {
+        "sentence": "It should be applied to the input features of a dataset prior to optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0107"
+        ],
+        "reason": "E0107 instructs standard normalizing input features prior to optimization."
+      },
+      {
+        "sentence": "Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0235"
+        ],
+        "reason": "E0235 states that standard normalization to scale input is highly advantageous with gradient descent schemes."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"standard normalization: a feature scaling technique that transforms each input feature by first mean-centering it and then re-scaling it by the inverse of its standard deviation. It should be applied to input features prior to optimization. Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.\",\n  \"claims\": [\n    {\n      \"claim\": \"Standard normalization is a two-step procedure: first mean-centering each input feature, then re-scaling it by the inverse of its standard deviation.\",\n      \"evidence_ids\": [\"MLR-E0229\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Input features should be standard normalized prior to optimization.\",\n      \"evidence_ids\": [\"MLR-E0107\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.\",\n      \"evidence_ids\": [\"MLR-E0235\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"standard normalization: a very simple two-step procedure by which the input features of a dataset are first mean-centered and then re-scaled by the inverse of their standard deviation. It should be applied to the input features of a dataset prior to optimization. Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"standard normalization: a very simple two-step procedure by which the input features of a dataset are first mean-centered and then re-scaled by the inverse of their standard deviation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0229\"],\n      \"reason\": \"Directly reflects E0229's definition of standard normalization as mean-centering followed by rescaling by the inverse standard deviation.\"\n    },\n    {\n      \"sentence\": \"It should be applied to the input features of a dataset prior to optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0107\"],\n      \"reason\": \"E0107 instructs standard normalizing input features prior to optimization.\"\n    },\n    {\n      \"sentence\": \"Using standard normalization to scale input is highly advantageous when employing gradient descent schemes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0235\"],\n      \"reason\": \"E0235 states that standard normalization to scale input is highly advantageous with gradient descent schemes.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:56:10.987847+00:00"
+}

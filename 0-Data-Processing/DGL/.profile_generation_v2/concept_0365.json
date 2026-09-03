@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "140410b3d3ae08bf4acf120c7074886d25fe325bcd94a1d7c21034d5e744cbe5",
+  "concept_id": 365,
+  "concept_name": "element-wise product",
+  "aliases": [
+    "element-wise product",
+    "hadamard product"
+  ],
+  "profile": "element-wise product: a mathematical operation that is denoted in the same context as matrix multiplication, indicating a distinct operation.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "element-wise product: an operation on matrices. In mathematical notation, it is denoted alongside matrix multiplication, indicating that it is a separate operation from matrix multiplication.",
+    "claims": [
+      {
+        "claim": "The element-wise product is denoted in mathematical notation alongside matrix multiplication.",
+        "evidence_ids": [
+          "DGL-E0540"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The element-wise product is a separate operation from matrix multiplication.",
+        "evidence_ids": [
+          "DGL-E0540"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single mention; no operational definition is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "element-wise product: a mathematical operation that is denoted in the same context as matrix multiplication, indicating a distinct operation.",
+    "sentence_reviews": [
+      {
+        "sentence": "element-wise product: a mathematical operation that is denoted in the same context as matrix multiplication, indicating a distinct operation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0540"
+        ],
+        "reason": "The source states 'denote matrix multiplication and element-wise product,' supporting the co-mention and distinctness; 'mathematical operation' is generic framing."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single mention; no operational definition is provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"element-wise product: an operation on matrices. In mathematical notation, it is denoted alongside matrix multiplication, indicating that it is a separate operation from matrix multiplication.\",\n  \"claims\": [\n    {\n      \"claim\": \"The element-wise product is denoted in mathematical notation alongside matrix multiplication.\",\n      \"evidence_ids\": [\"DGL-E0540\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The element-wise product is a separate operation from matrix multiplication.\",\n      \"evidence_ids\": [\"DGL-E0540\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Evidence is limited to a single mention; no operational definition is provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"element-wise product: a mathematical operation that is denoted in the same context as matrix multiplication, indicating a distinct operation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"element-wise product: a mathematical operation that is denoted in the same context as matrix multiplication, indicating a distinct operation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0540\"],\n      \"reason\": \"The source states 'denote matrix multiplication and element-wise product,' supporting the co-mention and distinctness; 'mathematical operation' is generic framing.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to a single mention; no operational definition is provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:07:29.146369+00:00"
+}

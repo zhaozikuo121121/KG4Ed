@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b52c723e2489bad2699c767e126041d02cdf3cc557ef951b1a6d91ca60cecdf9",
+  "concept_id": 167,
+  "concept_name": "covariance matrix regularization",
+  "aliases": [
+    "covariance matrix regularization",
+    "regularization of covariance matrix",
+    "covariance regularization"
+  ],
+  "profile": "covariance matrix regularization: replacing the raw covariance matrix with the regularized form 1/P X X^T + λ I_{N×N} to avoid computational trouble when computing principal components.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "covariance matrix regularization: a modification of the covariance matrix, replacing the raw covariance matrix with a regularized form 1/P X X^T + λ I_{N×N}, to avoid computational trouble when computing principal components.",
+    "claims": [
+      {
+        "claim": "The regularized covariance matrix is computed as 1/P X X^T + λ I_{N×N}.",
+        "evidence_ids": [
+          "MLR-E0190"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Covariance matrix regularization is used instead of the raw covariance matrix to avoid computational trouble.",
+        "evidence_ids": [
+          "MLR-E0190"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This regularization is applied when computing principal components.",
+        "evidence_ids": [
+          "MLR-E0190"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "covariance matrix regularization: replacing the raw covariance matrix with the regularized form 1/P X X^T + λ I_{N×N} to avoid computational trouble when computing principal components.",
+    "sentence_reviews": [
+      {
+        "sentence": "covariance matrix regularization: replacing the raw covariance matrix with the regularized form 1/P X X^T + λ I_{N×N} to avoid computational trouble when computing principal components.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0190"
+        ],
+        "reason": "The sentence states the regularized matrix formula, its use instead of the raw covariance matrix, and its connection to computing principal components, all from the source."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"covariance matrix regularization: a modification of the covariance matrix, replacing the raw covariance matrix with a regularized form 1/P X X^T + λ I_{N×N}, to avoid computational trouble when computing principal components.\",\n  \"claims\": [\n    {\n      \"claim\": \"The regularized covariance matrix is computed as 1/P X X^T + λ I_{N×N}.\",\n      \"evidence_ids\": [\"MLR-E0190\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Covariance matrix regularization is used instead of the raw covariance matrix to avoid computational trouble.\",\n      \"evidence_ids\": [\"MLR-E0190\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This regularization is applied when computing principal components.\",\n      \"evidence_ids\": [\"MLR-E0190\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"covariance matrix regularization: replacing the raw covariance matrix with the regularized form 1/P X X^T + λ I_{N×N} to avoid computational trouble when computing principal components.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"covariance matrix regularization: replacing the raw covariance matrix with the regularized form 1/P X X^T + λ I_{N×N} to avoid computational trouble when computing principal components.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0190\"],\n      \"reason\": \"The sentence states the regularized matrix formula, its use instead of the raw covariance matrix, and its connection to computing principal components, all from the source.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:30:36.946938+00:00"
+}

@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "eff817f884d0b177bfcdfb96fb63b953b25c9038020b522c510cf8c77cefdd3f",
+  "concept_id": 203,
+  "concept_name": "nonlinear classification",
+  "aliases": [
+    "nonlinear classification",
+    "nonlinear two-class classification"
+  ],
+  "profile": "nonlinear classification: a two-class classification task, also called nonlinear two-class classification.",
+  "word_count": 11,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "nonlinear classification: a two-class classification task, also called nonlinear two-class classification. It is associated with nonlinear feature engineering.",
+    "claims": [
+      {
+        "claim": "nonlinear classification is a two-class classification task",
+        "evidence_ids": [
+          "MLR-E0251"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "nonlinear classification is also called nonlinear two-class classification",
+        "evidence_ids": [
+          "MLR-E0251"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "nonlinear classification is associated with nonlinear feature engineering",
+        "evidence_ids": [
+          "MLR-E0251"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "nonlinear classification: a two-class classification task, also called nonlinear two-class classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "nonlinear classification: a two-class classification task, also called nonlinear two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0251"
+        ],
+        "reason": "The evidence names 'Nonlinear two-class classification', directly supporting the two-class task description and the alias."
+      }
+    ],
+    "warnings": [
+      "The draft's claim that nonlinear classification is 'associated with nonlinear feature engineering' is inferred from the chapter topic, not directly stated in the evidence, so it was removed."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"nonlinear classification: a two-class classification task, also called nonlinear two-class classification. It is associated with nonlinear feature engineering.\",\n  \"claims\": [\n    {\n      \"claim\": \"nonlinear classification is a two-class classification task\",\n      \"evidence_ids\": [\"MLR-E0251\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"nonlinear classification is also called nonlinear two-class classification\",\n      \"evidence_ids\": [\"MLR-E0251\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"nonlinear classification is associated with nonlinear feature engineering\",\n      \"evidence_ids\": [\"MLR-E0251\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"nonlinear classification: a two-class classification task, also called nonlinear two-class classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"nonlinear classification: a two-class classification task, also called nonlinear two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0251\"],\n      \"reason\": \"The evidence names 'Nonlinear two-class classification', directly supporting the two-class task description and the alias.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's claim that nonlinear classification is 'associated with nonlinear feature engineering' is inferred from the chapter topic, not directly stated in the evidence, so it was removed.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:43:29.530005+00:00"
+}

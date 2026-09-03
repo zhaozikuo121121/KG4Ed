@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "e6a4a3e7bd04e1ae09fd3367bb396498df5f0e8564575bc6e425106d67b368a5",
+  "concept_id": 115,
+  "concept_name": "regularized softmax cost",
+  "aliases": [
+    "regularized softmax cost",
+    "regularized cross-entropy cost",
+    "softmax cost with l2 regularizer",
+    "regularized perceptron cost",
+    "regularized logistic regression"
+  ],
+  "profile": "regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.",
+    "claims": [
+      {
+        "claim": "The regularized softmax cost is a relaxed problem formulation.",
+        "evidence_ids": [
+          "MLR-E0131"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Its cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.",
+        "evidence_ids": [
+          "MLR-E0131"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.",
+    "sentence_reviews": [
+      {
+        "sentence": "regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0131"
+        ],
+        "reason": "The source describes this as a relaxed form of the problem and defines the cost as a linear combination of the original softmax cost and the magnitude of the feature weights."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.\",\n  \"claims\": [\n    {\n      \"claim\": \"The regularized softmax cost is a relaxed problem formulation.\",\n      \"evidence_ids\": [\"MLR-E0131\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Its cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.\",\n      \"evidence_ids\": [\"MLR-E0131\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"regularized softmax cost: a relaxed problem formulation in which the cost function is a linear combination of the original softmax cost and the magnitude of the feature weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0131\"],\n      \"reason\": \"The source describes this as a relaxed form of the problem and defines the cost as a linear combination of the original softmax cost and the magnitude of the feature weights.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:10:51.815920+00:00"
+}

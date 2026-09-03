@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d86c284340f95db2059f61cd994b4e66ffa984445364876037b432861d9a93d8",
+  "concept_id": 87,
+  "concept_name": "unconstrained optimization",
+  "aliases": [
+    "unconstrained optimization"
+  ],
+  "profile": "unconstrained optimization: an optimization problem with no constraints on the variables. Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p. The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.",
+  "word_count": 65,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "unconstrained optimization: an optimization problem with no constraints on the variables. Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p. The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.",
+    "claims": [
+      {
+        "claim": "The given problem is an unconstrained optimization problem.",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The objective is to minimize (1/P) sum (x_p^T w - y_p)^2 over the variable vector w.",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The problem is described as unconstrained, meaning no constraints are placed on w.",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "unconstrained optimization: an optimization problem with no constraints on the variables. Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p. The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.",
+    "sentence_reviews": [
+      {
+        "sentence": "unconstrained optimization: an optimization problem with no constraints on the variables.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "reason": "The evidence explicitly identifies the problem as an unconstrained optimization problem."
+      },
+      {
+        "sentence": "Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "reason": "The evidence gives the objective as minimizing (1/P) sum (x_p^T w - y_p)^2, which is an average squared error."
+      },
+      {
+        "sentence": "The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0101"
+        ],
+        "reason": "The formula and notation match the source expression."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"unconstrained optimization: an optimization problem with no constraints on the variables. Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p. The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.\",\n  \"claims\": [\n    {\n      \"claim\": \"The given problem is an unconstrained optimization problem.\",\n      \"evidence_ids\": [\"MLR-E0101\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The objective is to minimize (1/P) sum (x_p^T w - y_p)^2 over the variable vector w.\",\n      \"evidence_ids\": [\"MLR-E0101\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The problem is described as unconstrained, meaning no constraints are placed on w.\",\n      \"evidence_ids\": [\"MLR-E0101\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"unconstrained optimization: an optimization problem with no constraints on the variables. Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p. The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"unconstrained optimization: an optimization problem with no constraints on the variables.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0101\"\n      ],\n      \"reason\": \"The evidence explicitly identifies the problem as an unconstrained optimization problem.\"\n    },\n    {\n      \"sentence\": \"Here, the goal is to minimize the average squared error between the linear prediction x_p^T w and the observed value y_p.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0101\"\n      ],\n      \"reason\": \"The evidence gives the objective as minimizing (1/P) sum (x_p^T w - y_p)^2, which is an average squared error.\"\n    },\n    {\n      \"sentence\": \"The problem is stated as: minimize w (1/P) sum (x_p^T w - y_p)^2, where w is the variable vector and P is the number of terms.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0101\"\n      ],\n      \"reason\": \"The formula and notation match the source expression.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:54:45.136174+00:00"
+}

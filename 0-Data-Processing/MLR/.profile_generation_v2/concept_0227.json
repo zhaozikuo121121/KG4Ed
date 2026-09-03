@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "73981afd9827a18af26cf260de6ab346b1d4acb5cc9c61b687030e05c7bfa2ab",
+  "concept_id": 227,
+  "concept_name": "complete package of fixed-shape units",
+  "aliases": [
+    "complete package of fixed-shape units",
+    "complete packages of units"
+  ],
+  "profile": "complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set. Polynomial units are virtually always used as a complete package of a certain degree, not individually.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set. As noted in the source, polynomial units are virtually always used as a complete package of a certain degree, not individually.",
+    "claims": [
+      {
+        "claim": "In kernel methods, polynomial units are virtually always used as a complete package of a certain degree, not individually.",
+        "evidence_ids": [
+          "MLR-E0286"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set. Polynomial units are virtually always used as a complete package of a certain degree, not individually.",
+    "sentence_reviews": [
+      {
+        "sentence": "complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0286"
+        ],
+        "reason": "Paraphrases the evidence that polynomial units are used as a complete package of a certain degree."
+      },
+      {
+        "sentence": "Polynomial units are virtually always used as a complete package of a certain degree, not individually.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0286"
+        ],
+        "reason": "Directly restates the evidence sentence."
+      }
+    ],
+    "warnings": [
+      "The source does not define 'fixed-shape units' separately; the concept name is used as required, but the evidence refers specifically to polynomial units."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set. As noted in the source, polynomial units are virtually always used as a complete package of a certain degree, not individually.\",\n  \"claims\": [\n    {\n      \"claim\": \"In kernel methods, polynomial units are virtually always used as a complete package of a certain degree, not individually.\",\n      \"evidence_ids\": [\"MLR-E0286\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set. Polynomial units are virtually always used as a complete package of a certain degree, not individually.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"complete package of fixed-shape units: In kernel methods, this term denotes using all polynomial units of a given degree together as a set.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0286\"],\n      \"reason\": \"Paraphrases the evidence that polynomial units are used as a complete package of a certain degree.\"\n    },\n    {\n      \"sentence\": \"Polynomial units are virtually always used as a complete package of a certain degree, not individually.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0286\"],\n      \"reason\": \"Directly restates the evidence sentence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not define 'fixed-shape units' separately; the concept name is used as required, but the evidence refers specifically to polynomial units.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:51:46.649093+00:00"
+}

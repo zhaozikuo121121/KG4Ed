@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "db08ce4381c8e1b135375894c498d5038538d07b04387d121830dd285f70ebeb",
+  "concept_id": 309,
+  "concept_name": "edge feature matrix",
+  "aliases": [
+    "edge feature matrix",
+    "e"
+  ],
+  "profile": "edge feature matrix: In formal notation for learning tasks, an edge feature matrix may be denoted E or E'. It is a matrix that stores features associated with edges.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge feature matrix: In formal graph notation, an edge feature matrix may be denoted E or E'. It is a structured representation of edge features in a graph.",
+    "claims": [
+      {
+        "claim": "In formal graph notation, an edge feature matrix may be denoted E or E'.",
+        "evidence_ids": [
+          "DGL-E0483"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is a structured representation of edge features in a graph.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Only notation E/E' is available; no definition or usage details are specified."
+    ]
+  },
+  "review": {
+    "final_profile": "edge feature matrix: In formal notation for learning tasks, an edge feature matrix may be denoted E or E'. It is a matrix that stores features associated with edges.",
+    "sentence_reviews": [
+      {
+        "sentence": "In formal notation for learning tasks, an edge feature matrix may be denoted E or E'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0483"
+        ],
+        "reason": "The evidence explicitly provides the notations E and E' in the context of formalization for learning tasks."
+      },
+      {
+        "sentence": "It is a matrix that stores features associated with edges.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional clarification inferred from the concept name; no additional source detail is available."
+      }
+    ],
+    "warnings": [
+      "Only the notation E/E' is attested; the matrix's structure, contents, and usage are not specified by the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge feature matrix: In formal graph notation, an edge feature matrix may be denoted E or E'. It is a structured representation of edge features in a graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"In formal graph notation, an edge feature matrix may be denoted E or E'.\",\n      \"evidence_ids\": [\"DGL-E0483\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is a structured representation of edge features in a graph.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"Only notation E/E' is available; no definition or usage details are specified.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge feature matrix: In formal notation for learning tasks, an edge feature matrix may be denoted E or E'. It is a matrix that stores features associated with edges.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In formal notation for learning tasks, an edge feature matrix may be denoted E or E'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0483\"],\n      \"reason\": \"The evidence explicitly provides the notations E and E' in the context of formalization for learning tasks.\"\n    },\n    {\n      \"sentence\": \"It is a matrix that stores features associated with edges.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional clarification inferred from the concept name; no additional source detail is available.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the notation E/E' is attested; the matrix's structure, contents, and usage are not specified by the source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:50:35.922251+00:00"
+}

@@ -1,0 +1,3123 @@
+{
+  "version": "1.0.0",
+  "lecture": 2,
+  "pdf_file": "DGL_Lecture_2_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "Feature Embedding and Graph-Based Learning",
+  "summary": "This lecture page contrasts traditional machine learning formalization, where data points are treated as independent samples on a high-dimensional manifold, with graph-based learning approaches that model interactions between data points. It introduces manifold learning concepts including intrinsic and extrinsic dimensions, and explains how graph neural networks can extract node-based, edge-based, and graph-based features to capture relationships in data.",
+  "key_topics": [
+    "manifold learning",
+    "feature embedding",
+    "graph neural networks",
+    "dimensionality reduction",
+    "graph-based features"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T09:51:11+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "feature embedding",
+      "aliases": [
+        "feature representation",
+        "embeddings",
+        "latent representation"
+      ],
+      "evidence": "Feature embedding in deep learning and manifold learning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        5.5,
+        247.5,
+        27.5
+      ]
+    },
+    {
+      "canonical": "manifold learning",
+      "aliases": [
+        "manifold hypothesis",
+        "dimensionality reduction"
+      ],
+      "evidence": "Feature embedding in deep learning and manifold learning",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        5.5,
+        247.5,
+        27.5
+      ]
+    },
+    {
+      "canonical": "ml problem formalization",
+      "aliases": [
+        "machine learning problem formalization"
+      ],
+      "evidence": "ML problem formalization",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        5.5,
+        522.5,
+        27.5
+      ]
+    },
+    {
+      "canonical": "high-dimensional manifold",
+      "aliases": [
+        "manifold",
+        "high-dimensional space"
+      ],
+      "evidence": "Individualistic points -- data samples live independently on a high-dimensional manifold",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        55.0,
+        972.5,
+        71.5
+      ]
+    },
+    {
+      "canonical": "linear aggregation",
+      "aliases": [
+        "linear combination",
+        "sum"
+      ],
+      "evidence": "linear aggregation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        82.5,
+        82.5,
+        93.5
+      ]
+    },
+    {
+      "canonical": "nonlinear transformation",
+      "aliases": [
+        "activation",
+        "non-linear transformation",
+        "activation function",
+        "nonlinear function"
+      ],
+      "evidence": "first nonlinear transformation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        165.0,
+        82.5,
+        247.5,
+        93.5
+      ]
+    },
+    {
+      "canonical": "composed feature transformation",
+      "aliases": [
+        "final transformation"
+      ],
+      "evidence": "final composed feature transformation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        82.5,
+        110.0,
+        220.0,
+        121.0
+      ]
+    },
+    {
+      "canonical": "reductionist assumption",
+      "aliases": [],
+      "evidence": "Underlying reductionist assumption",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        137.5,
+        697.5,
+        192.5
+      ]
+    },
+    {
+      "canonical": "hidden layer",
+      "aliases": [
+        "hidden unit"
+      ],
+      "evidence": "hidden layer 1",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        110.0,
+        220.0,
+        154.0,
+        231.0
+      ]
+    },
+    {
+      "canonical": "shared mapping",
+      "aliases": [
+        "weight vector w"
+      ],
+      "evidence": "shared mapping w across all training samples",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        247.5,
+        615.0,
+        264.0
+      ]
+    },
+    {
+      "canonical": "training samples",
+      "aliases": [
+        "data samples"
+      ],
+      "evidence": "However, our training samples are not allowed to directly",
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        357.5,
+        341.0,
+        522.5,
+        352.0
+      ]
+    },
+    {
+      "canonical": "node-based features",
+      "aliases": [
+        "node embeddings"
+      ],
+      "evidence": "1. Node-based features",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        467.5,
+        440.0,
+        478.5
+      ]
+    },
+    {
+      "canonical": "edge-based features",
+      "aliases": [
+        "edge embeddings",
+        "edge features",
+        "edge data",
+        "e"
+      ],
+      "evidence": "2. Edge-based features",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        467.5,
+        550.0,
+        478.5
+      ]
+    },
+    {
+      "canonical": "graph-based features",
+      "aliases": [
+        "graph features"
+      ],
+      "evidence": "3. Graph-based features",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        467.5,
+        752.5,
+        522.5
+      ]
+    },
+    {
+      "canonical": "collectivist points",
+      "aliases": [
+        "interacting data samples"
+      ],
+      "evidence": "Collectivist points -- data samples co-interact and co-learn together via a graph structure (A)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        670.0,
+        615.0,
+        945.0,
+        642.5
+      ]
+    },
+    {
+      "canonical": "feature extraction",
+      "aliases": [],
+      "evidence": "feature extraction from A",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        532.5,
+        642.5,
+        615.0,
+        670.0
+      ]
+    },
+    {
+      "canonical": "graph classification",
+      "aliases": [
+        "classify a graph",
+        "graph-level prediction"
+      ],
+      "evidence": "Graph classification",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        670.0,
+        532.5,
+        697.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "a",
+        "graph adjacency matrix",
+        "matrix a"
+      ],
+      "evidence": "Adjacency matrix, A",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        725.0,
+        780.0,
+        752.5
+      ]
+    },
+    {
+      "canonical": "node data",
+      "aliases": [
+        "x",
+        "node features"
+      ],
+      "evidence": "Node data, X",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        725.0,
+        835.0,
+        752.5
+      ]
+    },
+    {
+      "canonical": "geodesic distance",
+      "aliases": [
+        "shortest path"
+      ],
+      "evidence": "geodesic = shortest path concavity xi to xj on the M",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        247.5,
+        807.5,
+        330.0,
+        862.5
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn",
+        "gcn"
+      ],
+      "evidence": "Graph neural network diagram with GCN label",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        374.0,
+        807.5,
+        522.5,
+        945.0
+      ]
+    },
+    {
+      "canonical": "intrinsic dimension",
+      "aliases": [
+        "manifold dimension"
+      ],
+      "evidence": "d': intrinsic dimension",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        879.0,
+        192.5,
+        901.0
+      ]
+    },
+    {
+      "canonical": "extrinsic dimension",
+      "aliases": [
+        "ambient dimension"
+      ],
+      "evidence": "d: extrinsic dimension",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        198.0,
+        879.0,
+        357.5,
+        901.0
+      ]
+    },
+    {
+      "canonical": "neighborhood preservation",
+      "aliases": [
+        "local structure preservation"
+      ],
+      "evidence": "Underlying reductionist hypothesis: neighborhood preservation across the original and embedding spaces",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        917.5,
+        385.0,
+        939.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+      "related_concepts": [
+        "ml problem formalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        55.0,
+        522.5,
+        82.5
+      ],
+      "label": "loss function"
+    },
+    {
+      "latex": "w \\in \\mathbb{R}^{d+1}",
+      "related_concepts": [
+        "shared mapping"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        165.0,
+        467.5,
+        176.0
+      ],
+      "label": "weight vector"
+    },
+    {
+      "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+      "related_concepts": [
+        "training samples"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        165.0,
+        412.5,
+        176.0
+      ],
+      "label": "feature matrix"
+    },
+    {
+      "latex": "f: \\mathbb{R}^d \\to \\mathbb{R}^{d'} \\text{ is an embedding function}",
+      "related_concepts": [
+        "feature embedding",
+        "manifold learning",
+        "intrinsic dimension",
+        "extrinsic dimension"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        27.5,
+        846.0,
+        302.5,
+        868.0
+      ],
+      "label": "embedding function definition"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Neural network architecture showing input features, hidden layers, and outputs with weights and activations",
+      "related_concepts": [
+        "hidden layer",
+        "nonlinear transformation",
+        "linear aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        27.5,
+        137.5,
+        330.0,
+        275.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication representing the ML problem formalization with feature matrix, weight vector, and predicted output",
+      "related_concepts": [
+        "ml problem formalization",
+        "shared mapping",
+        "training samples"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        357.5,
+        110.0,
+        522.5,
+        192.5
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "3D surface plot representing a high-dimensional manifold with data points and a path on it",
+      "related_concepts": [
+        "high-dimensional manifold"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        82.5,
+        945.0,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication diagram showing feature matrix multiplied by weight vector resulting in output, illustrating the reductionist assumption",
+      "related_concepts": [
+        "reductionist assumption",
+        "shared mapping"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        137.5,
+        615.0,
+        192.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Small hand-drawn graph with nodes and edges, illustrating graph structure",
+      "related_concepts": [
+        "graph-based features"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        532.5,
+        357.5,
+        587.5,
+        412.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Large matrix labeled 'A' representing the graph adjacency matrix",
+      "related_concepts": [
+        "adjacency matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        917.5,
+        467.5,
+        972.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing nodes with features being transformed into a graph structure with an adjacency matrix",
+      "related_concepts": [
+        "graph-based features",
+        "adjacency matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        412.5,
+        917.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Manifold learning process: high-dimensional input manifold is encoded into a low-dimensional latent space, preserving local structure",
+      "related_concepts": [
+        "manifold learning",
+        "feature embedding",
+        "intrinsic dimension",
+        "extrinsic dimension",
+        "geodesic distance"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        697.5,
+        357.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Node-based feature extraction: for each node in a graph, extract features and sum them to form a node embedding",
+      "related_concepts": [
+        "node-based features",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        319.0,
+        532.5,
+        440.0,
+        681.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Edge-based feature extraction: an edge is represented by a combination of its topology and edge-specific features",
+      "related_concepts": [
+        "edge-based features",
+        "graph neural network"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        445.5,
+        532.5,
+        544.5,
+        681.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Graph classification pipeline: a graph neural network processes a graph structure with node features to produce a graph-level representation for classification",
+      "related_concepts": [
+        "graph neural network",
+        "graph classification"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        374.0,
+        807.5,
+        522.5,
+        945.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Sequential embedding into manifolds: complex features are embedded into decreasing complexity manifolds until a low-dimensional space is found",
+      "related_concepts": [
+        "feature embedding",
+        "manifold learning"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        642.5,
+        302.5,
+        686.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Adjacency matrix A with labeled rows and columns",
+      "related_concepts": [
+        "adjacency matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        725.0,
+        780.0,
+        780.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Node data matrix X with labeled rows and columns",
+      "related_concepts": [
+        "node data"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        725.0,
+        835.0,
+        780.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Edge data matrix E with labeled rows and columns",
+      "related_concepts": [
+        "edge-based features"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        780.0,
+        835.0,
+        835.0
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "nanites",
+      "reason": "The word is unclear and may be a misspelling or a specific term not commonly recognized.",
+      "bbox": [
+        165.0,
+        247.5,
+        192.5,
+        258.5
+      ]
+    },
+    {
+      "transcription": "089Eh",
+      "reason": "The sequence of characters is ambiguous and does not form a recognizable word or symbol.",
+      "bbox": [
+        275.0,
+        275.0,
+        302.5,
+        286.0
+      ]
+    },
+    {
+      "transcription": "A =",
+      "reason": "Handwritten text is partially obscured and context is unclear.",
+      "bbox": [
+        642.5,
+        357.5,
+        670.0,
+        374.0
+      ]
+    },
+    {
+      "transcription": "recalculate",
+      "reason": "Handwritten text is small and slightly blurry, but context suggests 'recalculate' based on printed text nearby.",
+      "bbox": [
+        697.5,
+        412.5,
+        736.0,
+        429.0
+      ]
+    },
+    {
+      "transcription": "nanites g",
+      "reason": "Handwriting is unclear; could be 'nanites g', 'manifolds g', or other text. Context suggests it might relate to 'manifolds' but is not certain.",
+      "bbox": [
+        137.5,
+        477.5,
+        192.5,
+        494.0
+      ]
+    },
+    {
+      "transcription": "anneaseummmmantwin i i i J",
+      "reason": "Highly ambiguous handwriting; possibly a miswritten phrase or unrelated note. No clear technical meaning can be inferred.",
+      "bbox": [
+        137.5,
+        494.0,
+        275.0,
+        516.0
+      ]
+    },
+    {
+      "transcription": "Dgig mix ndisanembedding Fit fid",
+      "reason": "Handwriting is very unclear; possibly 'Digital mix and is an embedding Fit fid' but cannot be confidently transcribed.",
+      "bbox": [
+        82.5,
+        659.0,
+        220.0,
+        681.0
+      ]
+    },
+    {
+      "transcription": "topology",
+      "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+      "bbox": [
+        477.5,
+        532.5,
+        505.0,
+        549.0
+      ]
+    },
+    {
+      "transcription": "stacking from",
+      "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+      "bbox": [
+        615.0,
+        549.0,
+        642.5,
+        565.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "feature embedding",
+            "aliases": [
+              "feature representation",
+              "embeddings"
+            ],
+            "evidence": "Feature embedding in deep learning and manifold learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              10,
+              450,
+              50
+            ]
+          },
+          {
+            "canonical": "manifold learning",
+            "aliases": [],
+            "evidence": "Feature embedding in deep learning and manifold learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              10,
+              450,
+              50
+            ]
+          },
+          {
+            "canonical": "ml problem formalization",
+            "aliases": [
+              "machine learning problem formalization"
+            ],
+            "evidence": "ML problem formalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              10,
+              950,
+              50
+            ]
+          },
+          {
+            "canonical": "linear aggregation",
+            "aliases": [
+              "linear combination"
+            ],
+            "evidence": "linear aggregation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              150,
+              150,
+              170
+            ]
+          },
+          {
+            "canonical": "nonlinear transformation",
+            "aliases": [
+              "non-linear transformation"
+            ],
+            "evidence": "first nonlinear transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              300,
+              150,
+              450,
+              170
+            ]
+          },
+          {
+            "canonical": "composed feature transformation",
+            "aliases": [
+              "final composed feature transformation"
+            ],
+            "evidence": "final composed feature transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              200,
+              400,
+              220
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [],
+            "evidence": "hidden layer 1",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              400,
+              280,
+              420
+            ]
+          },
+          {
+            "canonical": "activation",
+            "aliases": [
+              "activation function"
+            ],
+            "evidence": "activation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              450,
+              200,
+              470
+            ]
+          },
+          {
+            "canonical": "sum",
+            "aliases": [
+              "summation"
+            ],
+            "evidence": "sum",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              450,
+              130,
+              470
+            ]
+          },
+          {
+            "canonical": "outputs",
+            "aliases": [
+              "output layer"
+            ],
+            "evidence": "outputs",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              450,
+              550,
+              470
+            ]
+          },
+          {
+            "canonical": "da vinci principle",
+            "aliases": [
+              "simplicity is the ultimate sophistication"
+            ],
+            "evidence": "With higher computational budget we achieve the Da Vinci principle \"Simplicity is the Ultimate Sophistication\"",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              500,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "node-based features",
+            "aliases": [],
+            "evidence": "1. Node-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              850,
+              800,
+              870
+            ]
+          },
+          {
+            "canonical": "edge-based features",
+            "aliases": [],
+            "evidence": "2. Edge-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              850,
+              1000,
+              870
+            ]
+          },
+          {
+            "canonical": "shared mapping",
+            "aliases": [],
+            "evidence": "We learn a shared mapping w across all training",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              600,
+              950,
+              620
+            ]
+          },
+          {
+            "canonical": "training samples",
+            "aliases": [],
+            "evidence": "However, our training samples are not allowed to directly",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              620,
+              950,
+              640
+            ]
+          },
+          {
+            "canonical": "computational budget",
+            "aliases": [],
+            "evidence": "With higher computational budget we achieve",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              500,
+              300,
+              520
+            ]
+          },
+          {
+            "canonical": "manifold",
+            "aliases": [
+              "high-dimensional space"
+            ],
+            "evidence": "manifold high-dim. space",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              10,
+              700,
+              100,
+              750
+            ]
+          },
+          {
+            "canonical": "flattened",
+            "aliases": [
+              "linearly separable"
+            ],
+            "evidence": "flattened linearly separable",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              400,
+              650,
+              500,
+              700
+            ]
+          },
+          {
+            "canonical": "flatten",
+            "aliases": [],
+            "evidence": "flatten",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              500,
+              750,
+              550,
+              770
+            ]
+          },
+          {
+            "canonical": "classify",
+            "aliases": [],
+            "evidence": "classify",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              10,
+              600,
+              60,
+              620
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "ml problem formalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              100,
+              950,
+              150
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\hat{y} \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "outputs"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              300,
+              950,
+              320
+            ],
+            "label": "predicted output"
+          },
+          {
+            "latex": "w \\in \\mathbb{R}^{d+1}",
+            "related_concepts": [
+              "shared mapping"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              300,
+              850,
+              320
+            ],
+            "label": "weight vector"
+          },
+          {
+            "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+            "related_concepts": [
+              "training samples"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              300,
+              750,
+              320
+            ],
+            "label": "feature matrix"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Neural network architecture showing input features, hidden layers, and outputs with weights and activations.",
+            "related_concepts": [
+              "hidden layer",
+              "activation",
+              "sum",
+              "outputs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              250,
+              600,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication representing the ML problem formalization with feature matrix, weight vector, and predicted output.",
+            "related_concepts": [
+              "ml problem formalization",
+              "shared mapping",
+              "training samples"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              200,
+              950,
+              350
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Manifold learning visualization showing high-dimensional space being flattened to a linearly separable form.",
+            "related_concepts": [
+              "manifold",
+              "flattened",
+              "classify"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              10,
+              600,
+              600,
+              800
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph examples illustrating node-based and edge-based features.",
+            "related_concepts": [
+              "node-based features",
+              "edge-based features"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              850,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nanites",
+            "reason": "The word is unclear and may be a misspelling or a specific term not commonly recognized.",
+            "bbox": [
+              300,
+              450,
+              350,
+              470
+            ]
+          },
+          {
+            "transcription": "089Eh",
+            "reason": "The sequence of characters is ambiguous and does not form a recognizable word or symbol.",
+            "bbox": [
+              500,
+              500,
+              550,
+              520
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"feature embedding\",\n      \"aliases\": [\"feature representation\", \"embeddings\"],\n      \"evidence\": \"Feature embedding in deep learning and manifold learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 10, 450, 50]\n    },\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [],\n      \"evidence\": \"Feature embedding in deep learning and manifold learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 10, 450, 50]\n    },\n    {\n      \"canonical\": \"ml problem formalization\",\n      \"aliases\": [\"machine learning problem formalization\"],\n      \"evidence\": \"ML problem formalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 10, 950, 50]\n    },\n    {\n      \"canonical\": \"linear aggregation\",\n      \"aliases\": [\"linear combination\"],\n      \"evidence\": \"linear aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 150, 150, 170]\n    },\n    {\n      \"canonical\": \"nonlinear transformation\",\n      \"aliases\": [\"non-linear transformation\"],\n      \"evidence\": \"first nonlinear transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [300, 150, 450, 170]\n    },\n    {\n      \"canonical\": \"composed feature transformation\",\n      \"aliases\": [\"final composed feature transformation\"],\n      \"evidence\": \"final composed feature transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 200, 400, 220]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [],\n      \"evidence\": \"hidden layer 1\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 400, 280, 420]\n    },\n    {\n      \"canonical\": \"activation\",\n      \"aliases\": [\"activation function\"],\n      \"evidence\": \"activation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 450, 200, 470]\n    },\n    {\n      \"canonical\": \"sum\",\n      \"aliases\": [\"summation\"],\n      \"evidence\": \"sum\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 450, 130, 470]\n    },\n    {\n      \"canonical\": \"outputs\",\n      \"aliases\": [\"output layer\"],\n      \"evidence\": \"outputs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 450, 550, 470]\n    },\n    {\n      \"canonical\": \"da vinci principle\",\n      \"aliases\": [\"simplicity is the ultimate sophistication\"],\n      \"evidence\": \"With higher computational budget we achieve the Da Vinci principle \\\"Simplicity is the Ultimate Sophistication\\\"\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 500, 600, 550]\n    },\n    {\n      \"canonical\": \"node-based features\",\n      \"aliases\": [],\n      \"evidence\": \"1. Node-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 850, 800, 870]\n    },\n    {\n      \"canonical\": \"edge-based features\",\n      \"aliases\": [],\n      \"evidence\": \"2. Edge-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 850, 1000, 870]\n    },\n    {\n      \"canonical\": \"shared mapping\",\n      \"aliases\": [],\n      \"evidence\": \"We learn a shared mapping w across all training\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 600, 950, 620]\n    },\n    {\n      \"canonical\": \"training samples\",\n      \"aliases\": [],\n      \"evidence\": \"However, our training samples are not allowed to directly\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 620, 950, 640]\n    },\n    {\n      \"canonical\": \"computational budget\",\n      \"aliases\": [],\n      \"evidence\": \"With higher computational budget we achieve\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 500, 300, 520]\n    },\n    {\n      \"canonical\": \"manifold\",\n      \"aliases\": [\"high-dimensional space\"],\n      \"evidence\": \"manifold high-dim. space\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [10, 700, 100, 750]\n    },\n    {\n      \"canonical\": \"flattened\",\n      \"aliases\": [\"linearly separable\"],\n      \"evidence\": \"flattened linearly separable\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [400, 650, 500, 700]\n    },\n    {\n      \"canonical\": \"flatten\",\n      \"aliases\": [],\n      \"evidence\": \"flatten\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [500, 750, 550, 770]\n    },\n    {\n      \"canonical\": \"classify\",\n      \"aliases\": [],\n      \"evidence\": \"classify\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [10, 600, 60, 620]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} (\\\\tilde{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"ml problem formalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 100, 950, 150],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\hat{y} \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"outputs\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 300, 950, 320],\n      \"label\": \"predicted output\"\n    },\n    {\n      \"latex\": \"w \\\\in \\\\mathbb{R}^{d+1}\",\n      \"related_concepts\": [\"shared mapping\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 300, 850, 320],\n      \"label\": \"weight vector\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X} \\\\in \\\\mathbb{R}^{n \\\\times (d+1)}\",\n      \"related_concepts\": [\"training samples\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 300, 750, 320],\n      \"label\": \"feature matrix\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network architecture showing input features, hidden layers, and outputs with weights and activations.\",\n      \"related_concepts\": [\"hidden layer\", \"activation\", \"sum\", \"outputs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 250, 600, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication representing the ML problem formalization with feature matrix, weight vector, and predicted output.\",\n      \"related_concepts\": [\"ml problem formalization\", \"shared mapping\", \"training samples\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 200, 950, 350]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Manifold learning visualization showing high-dimensional space being flattened to a linearly separable form.\",\n      \"related_concepts\": [\"manifold\", \"flattened\", \"classify\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [10, 600, 600, 800]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph examples illustrating node-based and edge-based features.\",\n      \"related_concepts\": [\"node-based features\", \"edge-based features\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 850, 1000, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nanites\",\n      \"reason\": \"The word is unclear and may be a misspelling or a specific term not commonly recognized.\",\n      \"bbox\": [300, 450, 350, 470]\n    },\n    {\n      \"transcription\": \"089Eh\",\n      \"reason\": \"The sequence of characters is ambiguous and does not form a recognizable word or symbol.\",\n      \"bbox\": [500, 500, 550, 520]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "ml problem formalization",
+            "aliases": [
+              "machine learning problem formalization"
+            ],
+            "evidence": "Printed heading 'ML problem formalization' highlighted in green.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              150,
+              130
+            ]
+          },
+          {
+            "canonical": "individualistic points",
+            "aliases": [
+              "independent data samples"
+            ],
+            "evidence": "Printed text 'Individualistic points -- data samples live \"independently\" on a high-dimensional manifold.' highlighted in yellow.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              100,
+              950,
+              130
+            ]
+          },
+          {
+            "canonical": "high-dimensional manifold",
+            "aliases": [
+              "manifold"
+            ],
+            "evidence": "Printed text 'high-dimensional manifold' and handwritten note 'discover the embedding manifold' pointing to a 3D surface plot.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              100,
+              950,
+              450
+            ]
+          },
+          {
+            "canonical": "reductionist assumption",
+            "aliases": [],
+            "evidence": "Printed text 'Underlying reductionist assumption' next to a matrix multiplication diagram.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              250,
+              450,
+              350
+            ]
+          },
+          {
+            "canonical": "shared mapping",
+            "aliases": [
+              "weight vector w"
+            ],
+            "evidence": "Printed text 'shared mapping w across all training samples.' highlighted in yellow.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              300,
+              480
+            ]
+          },
+          {
+            "canonical": "manifold learning",
+            "aliases": [],
+            "evidence": "Printed text 'Even in manifold learning, we learn how to calculate the similarity between points but not how to connect them.'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              550,
+              950,
+              620
+            ]
+          },
+          {
+            "canonical": "graph adjacency matrix",
+            "aliases": [
+              "adjacency matrix",
+              "matrix A"
+            ],
+            "evidence": "Handwritten text '\"graph\" adjacency matrix' pointing to a large matrix labeled 'A'.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              850,
+              750,
+              950,
+              850
+            ]
+          },
+          {
+            "canonical": "graph-based features",
+            "aliases": [],
+            "evidence": "Printed text '3. Graph-based features' inside a red box at the bottom.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              850,
+              550,
+              950
+            ]
+          },
+          {
+            "canonical": "edge-based features",
+            "aliases": [],
+            "evidence": "Printed text '2. Edge-based features' inside a red box at the bottom.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              850,
+              250,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "J(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "ml problem formalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              150,
+              250,
+              220
+            ],
+            "label": "Loss function"
+          },
+          {
+            "latex": "w \\in \\mathbb{R}^{d+1}",
+            "related_concepts": [
+              "shared mapping"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              150,
+              380
+            ],
+            "label": null
+          },
+          {
+            "latex": "\\hat{y} \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "ml problem formalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              350,
+              280,
+              380
+            ],
+            "label": null
+          },
+          {
+            "latex": "y \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "ml problem formalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              350,
+              380,
+              380
+            ],
+            "label": null
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "3D surface plot representing a high-dimensional manifold with data points (blue circles) and a path (pink line) on it. Handwritten note 'discover the embedding manifold' points to it.",
+            "related_concepts": [
+              "high-dimensional manifold",
+              "individualistic points"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              150,
+              900,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing (d+1) features multiplied by n samples resulting in n-dimensional output, illustrating the reductionist assumption.",
+            "related_concepts": [
+              "reductionist assumption",
+              "shared mapping"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              250,
+              300,
+              350
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small hand-drawn graph with nodes and edges, possibly illustrating graph structure.",
+            "related_concepts": [
+              "graph-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              650,
+              250,
+              750
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Large matrix labeled 'A' representing the graph adjacency matrix, with handwritten annotation.",
+            "related_concepts": [
+              "graph adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              850,
+              950,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing nodes with (d+1) features being transformed into a graph structure with an adjacency matrix.",
+            "related_concepts": [
+              "graph-based features",
+              "graph adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              850,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "A =",
+            "reason": "Handwritten text is partially obscured and context is unclear.",
+            "bbox": [
+              350,
+              650,
+              400,
+              680
+            ]
+          },
+          {
+            "transcription": "recalculate",
+            "reason": "Handwritten text is small and slightly blurry, but context suggests 'recalculate' based on printed text nearby.",
+            "bbox": [
+              450,
+              750,
+              520,
+              780
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"ml problem formalization\",\n      \"aliases\": [\"machine learning problem formalization\"],\n      \"evidence\": \"Printed heading 'ML problem formalization' highlighted in green.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 150, 130]\n    },\n    {\n      \"canonical\": \"individualistic points\",\n      \"aliases\": [\"independent data samples\"],\n      \"evidence\": \"Printed text 'Individualistic points -- data samples live \\\"independently\\\" on a high-dimensional manifold.' highlighted in yellow.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 100, 950, 130]\n    },\n    {\n      \"canonical\": \"high-dimensional manifold\",\n      \"aliases\": [\"manifold\"],\n      \"evidence\": \"Printed text 'high-dimensional manifold' and handwritten note 'discover the embedding manifold' pointing to a 3D surface plot.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 100, 950, 450]\n    },\n    {\n      \"canonical\": \"reductionist assumption\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text 'Underlying reductionist assumption' next to a matrix multiplication diagram.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 250, 450, 350]\n    },\n    {\n      \"canonical\": \"shared mapping\",\n      \"aliases\": [\"weight vector w\"],\n      \"evidence\": \"Printed text 'shared mapping w across all training samples.' highlighted in yellow.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 300, 480]\n    },\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text 'Even in manifold learning, we learn how to calculate the similarity between points but not how to connect them.'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 550, 950, 620]\n    },\n    {\n      \"canonical\": \"graph adjacency matrix\",\n      \"aliases\": [\"adjacency matrix\", \"matrix A\"],\n      \"evidence\": \"Handwritten text '\\\"graph\\\" adjacency matrix' pointing to a large matrix labeled 'A'.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [850, 750, 950, 850]\n    },\n    {\n      \"canonical\": \"graph-based features\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text '3. Graph-based features' inside a red box at the bottom.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 850, 550, 950]\n    },\n    {\n      \"canonical\": \"edge-based features\",\n      \"aliases\": [],\n      \"evidence\": \"Printed text '2. Edge-based features' inside a red box at the bottom.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 850, 250, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"J(w) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} (\\\\tilde{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"ml problem formalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 150, 250, 220],\n      \"label\": \"Loss function\"\n    },\n    {\n      \"latex\": \"w \\\\in \\\\mathbb{R}^{d+1}\",\n      \"related_concepts\": [\"shared mapping\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 150, 380],\n      \"label\": null\n    },\n    {\n      \"latex\": \"\\\\hat{y} \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"ml problem formalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 350, 280, 380],\n      \"label\": null\n    },\n    {\n      \"latex\": \"y \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"ml problem formalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 350, 380, 380],\n      \"label\": null\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"3D surface plot representing a high-dimensional manifold with data points (blue circles) and a path (pink line) on it. Handwritten note 'discover the embedding manifold' points to it.\",\n      \"related_concepts\": [\"high-dimensional manifold\", \"individualistic points\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 150, 900, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing (d+1) features multiplied by n samples resulting in n-dimensional output, illustrating the reductionist assumption.\",\n      \"related_concepts\": [\"reductionist assumption\", \"shared mapping\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 250, 300, 350]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small hand-drawn graph with nodes and edges, possibly illustrating graph structure.\",\n      \"related_concepts\": [\"graph-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 650, 250, 750]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Large matrix labeled 'A' representing the graph adjacency matrix, with handwritten annotation.\",\n      \"related_concepts\": [\"graph adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 850, 950, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing nodes with (d+1) features being transformed into a graph structure with an adjacency matrix.\",\n      \"related_concepts\": [\"graph-based features\", \"graph adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 850, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"A =\",\n      \"reason\": \"Handwritten text is partially obscured and context is unclear.\",\n      \"bbox\": [350, 650, 400, 680]\n    },\n    {\n      \"transcription\": \"recalculate\",\n      \"reason\": \"Handwritten text is small and slightly blurry, but context suggests 'recalculate' based on printed text nearby.\",\n      \"bbox\": [450, 750, 520, 780]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "manifold learning",
+            "aliases": [
+              "manifold hypothesis",
+              "dimensionality reduction"
+            ],
+            "evidence": "Printed heading 'What is manifold learning?' and handwritten diagram showing 'input manifold' being encoded into a 'low-dim space'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              430,
+              650,
+              750
+            ]
+          },
+          {
+            "canonical": "embedding",
+            "aliases": [
+              "feature representation",
+              "latent representation"
+            ],
+            "evidence": "Handwritten text 'embedding manifold to learn' and printed text 'embed complex features sequentially into manifolds'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              500,
+              650
+            ]
+          },
+          {
+            "canonical": "intrinsic dimension",
+            "aliases": [
+              "manifold dimension"
+            ],
+            "evidence": "Handwritten text 'd': intrinsic dimension' below the embedding function formula.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              780,
+              350,
+              820
+            ]
+          },
+          {
+            "canonical": "extrinsic dimension",
+            "aliases": [
+              "ambient dimension"
+            ],
+            "evidence": "Handwritten text 'd: extrinsic dimension' next to the intrinsic dimension definition.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              360,
+              780,
+              650,
+              820
+            ]
+          },
+          {
+            "canonical": "neighborhood preservation",
+            "aliases": [
+              "local structure preservation"
+            ],
+            "evidence": "Printed text 'Underlying reductionist hypothesis: neighborhood preservation across the original and embedding spaces.'",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              850,
+              700,
+              890
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN",
+              "GCN"
+            ],
+            "evidence": "Diagram labeled 'Graph neural network' with an arrow pointing to 'GCN' and 'Graph classification'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              650,
+              950,
+              900
+            ]
+          },
+          {
+            "canonical": "node-based features",
+            "aliases": [
+              "node embeddings"
+            ],
+            "evidence": "Box labeled '1. Node-based features' showing feature extraction for each node.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              150,
+              800,
+              420
+            ]
+          },
+          {
+            "canonical": "edge-based features",
+            "aliases": [
+              "edge embeddings"
+            ],
+            "evidence": "Box labeled '2. Edge-based features' showing edge representation via 'topology' and 'edge features'.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              810,
+              150,
+              990,
+              420
+            ]
+          },
+          {
+            "canonical": "geodesic distance",
+            "aliases": [
+              "shortest path"
+            ],
+            "evidence": "Handwritten note 'geodesic = shortest path concavity xi to xj on the M' pointing to a curve on a manifold.",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              450,
+              650,
+              600,
+              750
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f: \\mathbb{R}^d \\to \\mathbb{R}^{d'} \\text{ is an embedding function}",
+            "related_concepts": [
+              "embedding",
+              "manifold learning",
+              "intrinsic dimension",
+              "extrinsic dimension"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              720,
+              550,
+              760
+            ],
+            "label": "embedding function definition"
+          },
+          {
+            "latex": "f(x_i) + \\epsilon_i = z_i",
+            "related_concepts": [
+              "embedding",
+              "manifold learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              720,
+              550,
+              760
+            ],
+            "label": "noisy embedding observation model"
+          },
+          {
+            "latex": "w_{ij} = 0.5",
+            "related_concepts": [
+              "edge-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              850,
+              280,
+              950,
+              310
+            ],
+            "label": "edge weight example"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Manifold learning process: high-dimensional input manifold (with noise) is encoded into a low-dimensional latent space, preserving local structure (geodesics).",
+            "related_concepts": [
+              "manifold learning",
+              "embedding",
+              "intrinsic dimension",
+              "extrinsic dimension",
+              "geodesic distance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              650,
+              750
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node-based feature extraction: for each node in a graph, extract features (e.g., degree, centrality) and sum them to form a node embedding.",
+            "related_concepts": [
+              "node-based features",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              580,
+              150,
+              800,
+              420
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Edge-based feature extraction: an edge is represented by a combination of its topology (adjacency) and edge-specific features.",
+            "related_concepts": [
+              "edge-based features",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              810,
+              150,
+              990,
+              420
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph classification pipeline: a graph neural network (GCN) processes a graph structure with node features to produce a graph-level representation for classification.",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              650,
+              950,
+              900
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Sequential embedding into manifolds: complex features are embedded into decreasing complexity manifolds until a low-dimensional space is found where linear models work.",
+            "related_concepts": [
+              "embedding",
+              "manifold learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              350,
+              550,
+              430
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nanites g",
+            "reason": "Handwriting is unclear; could be 'nanites g', 'manifolds g', or other text. Context suggests it might relate to 'manifolds' but is not certain.",
+            "bbox": [
+              250,
+              50,
+              350,
+              80
+            ]
+          },
+          {
+            "transcription": "anneaseummmmantwin i i i J",
+            "reason": "Highly ambiguous handwriting; possibly a miswritten phrase or unrelated note. No clear technical meaning can be inferred.",
+            "bbox": [
+              250,
+              80,
+              500,
+              120
+            ]
+          },
+          {
+            "transcription": "Dgig mix ndisanembedding Fit fid",
+            "reason": "Handwriting is very unclear; possibly 'Digital mix and is an embedding Fit fid' but cannot be confidently transcribed.",
+            "bbox": [
+              150,
+              380,
+              400,
+              420
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [\"manifold hypothesis\", \"dimensionality reduction\"],\n      \"evidence\": \"Printed heading 'What is manifold learning?' and handwritten diagram showing 'input manifold' being encoded into a 'low-dim space'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 430, 650, 750]\n    },\n    {\n      \"canonical\": \"embedding\",\n      \"aliases\": [\"feature representation\", \"latent representation\"],\n      \"evidence\": \"Handwritten text 'embedding manifold to learn' and printed text 'embed complex features sequentially into manifolds'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 500, 650]\n    },\n    {\n      \"canonical\": \"intrinsic dimension\",\n      \"aliases\": [\"manifold dimension\"],\n      \"evidence\": \"Handwritten text 'd': intrinsic dimension' below the embedding function formula.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 780, 350, 820]\n    },\n    {\n      \"canonical\": \"extrinsic dimension\",\n      \"aliases\": [\"ambient dimension\"],\n      \"evidence\": \"Handwritten text 'd: extrinsic dimension' next to the intrinsic dimension definition.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [360, 780, 650, 820]\n    },\n    {\n      \"canonical\": \"neighborhood preservation\",\n      \"aliases\": [\"local structure preservation\"],\n      \"evidence\": \"Printed text 'Underlying reductionist hypothesis: neighborhood preservation across the original and embedding spaces.'\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 850, 700, 890]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\", \"GCN\"],\n      \"evidence\": \"Diagram labeled 'Graph neural network' with an arrow pointing to 'GCN' and 'Graph classification'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 650, 950, 900]\n    },\n    {\n      \"canonical\": \"node-based features\",\n      \"aliases\": [\"node embeddings\"],\n      \"evidence\": \"Box labeled '1. Node-based features' showing feature extraction for each node.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 150, 800, 420]\n    },\n    {\n      \"canonical\": \"edge-based features\",\n      \"aliases\": [\"edge embeddings\"],\n      \"evidence\": \"Box labeled '2. Edge-based features' showing edge representation via 'topology' and 'edge features'.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [810, 150, 990, 420]\n    },\n    {\n      \"canonical\": \"geodesic distance\",\n      \"aliases\": [\"shortest path\"],\n      \"evidence\": \"Handwritten note 'geodesic = shortest path concavity xi to xj on the M' pointing to a curve on a manifold.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [450, 650, 600, 750]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f: \\\\mathbb{R}^d \\\\to \\\\mathbb{R}^{d'} \\\\text{ is an embedding function}\",\n      \"related_concepts\": [\"embedding\", \"manifold learning\", \"intrinsic dimension\", \"extrinsic dimension\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 720, 550, 760],\n      \"label\": \"embedding function definition\"\n    },\n    {\n      \"latex\": \"f(x_i) + \\\\epsilon_i = z_i\",\n      \"related_concepts\": [\"embedding\", \"manifold learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 720, 550, 760],\n      \"label\": \"noisy embedding observation model\"\n    },\n    {\n      \"latex\": \"w_{ij} = 0.5\",\n      \"related_concepts\": [\"edge-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [850, 280, 950, 310],\n      \"label\": \"edge weight example\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Manifold learning process: high-dimensional input manifold (with noise) is encoded into a low-dimensional latent space, preserving local structure (geodesics).\",\n      \"related_concepts\": [\"manifold learning\", \"embedding\", \"intrinsic dimension\", \"extrinsic dimension\", \"geodesic distance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 650, 750]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node-based feature extraction: for each node in a graph, extract features (e.g., degree, centrality) and sum them to form a node embedding.\",\n      \"related_concepts\": [\"node-based features\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [580, 150, 800, 420]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Edge-based feature extraction: an edge is represented by a combination of its topology (adjacency) and edge-specific features.\",\n      \"related_concepts\": [\"edge-based features\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [810, 150, 990, 420]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph classification pipeline: a graph neural network (GCN) processes a graph structure with node features to produce a graph-level representation for classification.\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 650, 950, 900]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Sequential embedding into manifolds: complex features are embedded into decreasing complexity manifolds until a low-dimensional space is found where linear models work.\",\n      \"related_concepts\": [\"embedding\", \"manifold learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 350, 550, 430]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nanites g\",\n      \"reason\": \"Handwriting is unclear; could be 'nanites g', 'manifolds g', or other text. Context suggests it might relate to 'manifolds' but is not certain.\",\n      \"bbox\": [250, 50, 350, 80]\n    },\n    {\n      \"transcription\": \"anneaseummmmantwin i i i J\",\n      \"reason\": \"Highly ambiguous handwriting; possibly a miswritten phrase or unrelated note. No clear technical meaning can be inferred.\",\n      \"bbox\": [250, 80, 500, 120]\n    },\n    {\n      \"transcription\": \"Dgig mix ndisanembedding Fit fid\",\n      \"reason\": \"Handwriting is very unclear; possibly 'Digital mix and is an embedding Fit fid' but cannot be confidently transcribed.\",\n      \"bbox\": [150, 380, 400, 420]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "edge-based features",
+            "aliases": [
+              "edge features"
+            ],
+            "evidence": "2. Edge-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              10,
+              200,
+              50
+            ]
+          },
+          {
+            "canonical": "graph-based features",
+            "aliases": [
+              "graph features"
+            ],
+            "evidence": "3. Graph-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              210,
+              10,
+              400,
+              50
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "A"
+            ],
+            "evidence": "Adjacency matrix, A",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              500,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "node data",
+            "aliases": [
+              "X"
+            ],
+            "evidence": "Node data, X",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              500,
+              700,
+              550
+            ]
+          },
+          {
+            "canonical": "edge data",
+            "aliases": [
+              "E"
+            ],
+            "evidence": "Edge data, E",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              700,
+              650
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [],
+            "evidence": "Graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              400,
+              150,
+              450
+            ]
+          },
+          {
+            "canonical": "feature extraction",
+            "aliases": [],
+            "evidence": "feature extraction from A",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              350,
+              300,
+              400
+            ]
+          },
+          {
+            "canonical": "collectivist points",
+            "aliases": [],
+            "evidence": "Collectivist points -- data samples co-interact and co-learn together via a graph structure (A)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              300,
+              900,
+              350
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "w_{ij} = 0.5",
+            "related_concepts": [
+              "edge-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              20,
+              100,
+              100,
+              150
+            ],
+            "label": "edge weight"
+          },
+          {
+            "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+            "related_concepts": [
+              "node data"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              100,
+              550,
+              150
+            ],
+            "label": "feature matrix"
+          },
+          {
+            "latex": "\\frac{n(n-1)}{2}",
+            "related_concepts": [
+              "graph-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              150,
+              350,
+              200
+            ],
+            "label": "number of edges"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing edge-based features with nodes and edges labeled",
+            "related_concepts": [
+              "edge-based features"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              50,
+              200,
+              250
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing graph-based features with a graph and adjacency matrix",
+            "related_concepts": [
+              "graph-based features"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              210,
+              50,
+              400,
+              250
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A with labeled rows and columns",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              500,
+              600,
+              600
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Node data matrix X with labeled rows and columns",
+            "related_concepts": [
+              "node data"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              500,
+              700,
+              600
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Edge data matrix E with labeled rows and columns",
+            "related_concepts": [
+              "edge data"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              700,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Graph classification process with nodes and edges",
+            "related_concepts": [
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              300,
+              650
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "topology",
+            "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+            "bbox": [
+              50,
+              150,
+              100,
+              180
+            ]
+          },
+          {
+            "transcription": "stacking from",
+            "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+            "bbox": [
+              300,
+              180,
+              350,
+              210
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"edge-based features\",\n      \"aliases\": [\"edge features\"],\n      \"evidence\": \"2. Edge-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 10, 200, 50]\n    },\n    {\n      \"canonical\": \"graph-based features\",\n      \"aliases\": [\"graph features\"],\n      \"evidence\": \"3. Graph-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [210, 10, 400, 50]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"A\"],\n      \"evidence\": \"Adjacency matrix, A\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 500, 600, 550]\n    },\n    {\n      \"canonical\": \"node data\",\n      \"aliases\": [\"X\"],\n      \"evidence\": \"Node data, X\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 500, 700, 550]\n    },\n    {\n      \"canonical\": \"edge data\",\n      \"aliases\": [\"E\"],\n      \"evidence\": \"Edge data, E\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 700, 650]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [],\n      \"evidence\": \"Graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 400, 150, 450]\n    },\n    {\n      \"canonical\": \"feature extraction\",\n      \"aliases\": [],\n      \"evidence\": \"feature extraction from A\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 350, 300, 400]\n    },\n    {\n      \"canonical\": \"collectivist points\",\n      \"aliases\": [],\n      \"evidence\": \"Collectivist points -- data samples co-interact and co-learn together via a graph structure (A)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 300, 900, 350]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"w_{ij} = 0.5\",\n      \"related_concepts\": [\"edge-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [20, 100, 100, 150],\n      \"label\": \"edge weight\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X} \\\\in \\\\mathbb{R}^{n \\\\times (d+1)}\",\n      \"related_concepts\": [\"node data\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 100, 550, 150],\n      \"label\": \"feature matrix\"\n    },\n    {\n      \"latex\": \"\\\\frac{n(n-1)}{2}\",\n      \"related_concepts\": [\"graph-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 150, 350, 200],\n      \"label\": \"number of edges\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing edge-based features with nodes and edges labeled\",\n      \"related_concepts\": [\"edge-based features\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 50, 200, 250]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing graph-based features with a graph and adjacency matrix\",\n      \"related_concepts\": [\"graph-based features\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [210, 50, 400, 250]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A with labeled rows and columns\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 500, 600, 600]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Node data matrix X with labeled rows and columns\",\n      \"related_concepts\": [\"node data\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 500, 700, 600]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Edge data matrix E with labeled rows and columns\",\n      \"related_concepts\": [\"edge data\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 700, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Graph classification process with nodes and edges\",\n      \"related_concepts\": [\"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 300, 650]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"topology\",\n      \"reason\": \"Handwriting is somewhat unclear and could be interpreted differently\",\n      \"bbox\": [50, 150, 100, 180]\n    },\n    {\n      \"transcription\": \"stacking from\",\n      \"reason\": \"Handwriting is somewhat unclear and could be interpreted differently\",\n      \"bbox\": [300, 180, 350, 210]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Feature Embedding and Graph-Based Learning",
+        "summary": "This lecture page contrasts traditional machine learning formalization, where data points are treated as independent samples on a high-dimensional manifold, with graph-based learning approaches that model interactions between data points. It introduces manifold learning concepts including intrinsic and extrinsic dimensions, and explains how graph neural networks can extract node-based, edge-based, and graph-based features to capture relationships in data.",
+        "key_topics": [
+          "manifold learning",
+          "feature embedding",
+          "graph neural networks",
+          "dimensionality reduction",
+          "graph-based features"
+        ],
+        "concepts": [
+          {
+            "canonical": "feature embedding",
+            "aliases": [
+              "feature representation",
+              "embeddings",
+              "latent representation"
+            ],
+            "evidence": "Feature embedding in deep learning and manifold learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              5.5,
+              247.5,
+              27.5
+            ]
+          },
+          {
+            "canonical": "manifold learning",
+            "aliases": [
+              "manifold hypothesis",
+              "dimensionality reduction"
+            ],
+            "evidence": "Feature embedding in deep learning and manifold learning",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              5.5,
+              247.5,
+              27.5
+            ]
+          },
+          {
+            "canonical": "ml problem formalization",
+            "aliases": [
+              "machine learning problem formalization"
+            ],
+            "evidence": "ML problem formalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              5.5,
+              522.5,
+              27.5
+            ]
+          },
+          {
+            "canonical": "node-based features",
+            "aliases": [
+              "node embeddings"
+            ],
+            "evidence": "1. Node-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              467.5,
+              440.0,
+              478.5
+            ]
+          },
+          {
+            "canonical": "edge-based features",
+            "aliases": [
+              "edge embeddings",
+              "edge features"
+            ],
+            "evidence": "2. Edge-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              467.5,
+              550.0,
+              478.5
+            ]
+          },
+          {
+            "canonical": "graph-based features",
+            "aliases": [
+              "graph features"
+            ],
+            "evidence": "3. Graph-based features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              467.5,
+              752.5,
+              522.5
+            ]
+          },
+          {
+            "canonical": "high-dimensional manifold",
+            "aliases": [
+              "manifold",
+              "high-dimensional space"
+            ],
+            "evidence": "Individualistic points -- data samples live independently on a high-dimensional manifold",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              55.0,
+              972.5,
+              71.5
+            ]
+          },
+          {
+            "canonical": "intrinsic dimension",
+            "aliases": [
+              "manifold dimension"
+            ],
+            "evidence": "d': intrinsic dimension",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              879.0,
+              192.5,
+              901.0
+            ]
+          },
+          {
+            "canonical": "extrinsic dimension",
+            "aliases": [
+              "ambient dimension"
+            ],
+            "evidence": "d: extrinsic dimension",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              198.0,
+              879.0,
+              357.5,
+              901.0
+            ]
+          },
+          {
+            "canonical": "neighborhood preservation",
+            "aliases": [
+              "local structure preservation"
+            ],
+            "evidence": "Underlying reductionist hypothesis: neighborhood preservation across the original and embedding spaces",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              917.5,
+              385.0,
+              939.5
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "gcn"
+            ],
+            "evidence": "Graph neural network diagram with GCN label",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              374.0,
+              807.5,
+              522.5,
+              945.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "a",
+              "graph adjacency matrix",
+              "matrix a"
+            ],
+            "evidence": "Adjacency matrix, A",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              725.0,
+              780.0,
+              752.5
+            ]
+          },
+          {
+            "canonical": "node data",
+            "aliases": [
+              "x",
+              "node features"
+            ],
+            "evidence": "Node data, X",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              725.0,
+              835.0,
+              752.5
+            ]
+          },
+          {
+            "canonical": "edge data",
+            "aliases": [
+              "e",
+              "edge features"
+            ],
+            "evidence": "Edge data, E",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              780.0,
+              835.0,
+              807.5
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "classify a graph",
+              "graph-level prediction"
+            ],
+            "evidence": "Graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              670.0,
+              532.5,
+              697.5
+            ]
+          },
+          {
+            "canonical": "collectivist points",
+            "aliases": [
+              "interacting data samples"
+            ],
+            "evidence": "Collectivist points -- data samples co-interact and co-learn together via a graph structure (A)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              670.0,
+              615.0,
+              945.0,
+              642.5
+            ]
+          },
+          {
+            "canonical": "geodesic distance",
+            "aliases": [
+              "shortest path"
+            ],
+            "evidence": "geodesic = shortest path concavity xi to xj on the M",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              247.5,
+              807.5,
+              330.0,
+              862.5
+            ]
+          },
+          {
+            "canonical": "linear aggregation",
+            "aliases": [
+              "linear combination",
+              "sum"
+            ],
+            "evidence": "linear aggregation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              82.5,
+              82.5,
+              93.5
+            ]
+          },
+          {
+            "canonical": "nonlinear transformation",
+            "aliases": [
+              "activation",
+              "non-linear transformation"
+            ],
+            "evidence": "first nonlinear transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              165.0,
+              82.5,
+              247.5,
+              93.5
+            ]
+          },
+          {
+            "canonical": "composed feature transformation",
+            "aliases": [
+              "final transformation"
+            ],
+            "evidence": "final composed feature transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              82.5,
+              110.0,
+              220.0,
+              121.0
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "hidden unit"
+            ],
+            "evidence": "hidden layer 1",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              110.0,
+              220.0,
+              154.0,
+              231.0
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "activation",
+              "nonlinear function"
+            ],
+            "evidence": "activation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              82.5,
+              247.5,
+              110.0,
+              258.5
+            ]
+          },
+          {
+            "canonical": "shared mapping",
+            "aliases": [
+              "weight vector w"
+            ],
+            "evidence": "shared mapping w across all training samples",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              247.5,
+              615.0,
+              264.0
+            ]
+          },
+          {
+            "canonical": "reductionist assumption",
+            "aliases": [],
+            "evidence": "Underlying reductionist assumption",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              137.5,
+              697.5,
+              192.5
+            ]
+          },
+          {
+            "canonical": "training samples",
+            "aliases": [
+              "data samples"
+            ],
+            "evidence": "However, our training samples are not allowed to directly",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              357.5,
+              341.0,
+              522.5,
+              352.0
+            ]
+          },
+          {
+            "canonical": "feature extraction",
+            "aliases": [],
+            "evidence": "feature extraction from A",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              532.5,
+              642.5,
+              615.0,
+              670.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "ml problem formalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              55.0,
+              522.5,
+              82.5
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\hat{y} \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "outputs"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              165.0,
+              522.5,
+              176.0
+            ],
+            "label": "predicted output"
+          },
+          {
+            "latex": "w \\in \\mathbb{R}^{d+1}",
+            "related_concepts": [
+              "shared mapping"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              165.0,
+              467.5,
+              176.0
+            ],
+            "label": "weight vector"
+          },
+          {
+            "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+            "related_concepts": [
+              "training samples"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              165.0,
+              412.5,
+              176.0
+            ],
+            "label": "feature matrix"
+          },
+          {
+            "latex": "f: \\mathbb{R}^d \\to \\mathbb{R}^{d'} \\text{ is an embedding function}",
+            "related_concepts": [
+              "feature embedding",
+              "manifold learning",
+              "intrinsic dimension",
+              "extrinsic dimension"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              27.5,
+              846.0,
+              302.5,
+              868.0
+            ],
+            "label": "embedding function definition"
+          },
+          {
+            "latex": "f(x_i) + \\epsilon_i = z_i",
+            "related_concepts": [
+              "feature embedding",
+              "manifold learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              192.5,
+              846.0,
+              302.5,
+              868.0
+            ],
+            "label": "noisy embedding observation model"
+          },
+          {
+            "latex": "w_{ij} = 0.5",
+            "related_concepts": [
+              "edge-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.85,
+            "bbox": [
+              467.5,
+              604.0,
+              522.5,
+              620.5
+            ],
+            "label": "edge weight example"
+          },
+          {
+            "latex": "\\frac{n(n-1)}{2}",
+            "related_concepts": [
+              "graph-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              587.5,
+              532.5,
+              642.5,
+              560.0
+            ],
+            "label": "number of edges"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Neural network architecture showing input features, hidden layers, and outputs with weights and activations",
+            "related_concepts": [
+              "hidden layer",
+              "activation function",
+              "linear aggregation",
+              "outputs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              27.5,
+              137.5,
+              330.0,
+              275.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication representing the ML problem formalization with feature matrix, weight vector, and predicted output",
+            "related_concepts": [
+              "ml problem formalization",
+              "shared mapping",
+              "training samples"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              357.5,
+              110.0,
+              522.5,
+              192.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Manifold learning visualization showing high-dimensional space being flattened to a linearly separable form",
+            "related_concepts": [
+              "high-dimensional manifold",
+              "manifold learning"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              5.5,
+              330.0,
+              330.0,
+              440.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph examples illustrating node-based and edge-based features",
+            "related_concepts": [
+              "node-based features",
+              "edge-based features"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              357.5,
+              467.5,
+              550.0,
+              550.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "3D surface plot representing a high-dimensional manifold with data points and a path on it",
+            "related_concepts": [
+              "high-dimensional manifold"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              82.5,
+              945.0,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram showing feature matrix multiplied by weight vector resulting in output, illustrating the reductionist assumption",
+            "related_concepts": [
+              "reductionist assumption",
+              "shared mapping"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              137.5,
+              615.0,
+              192.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small hand-drawn graph with nodes and edges, illustrating graph structure",
+            "related_concepts": [
+              "graph-based features"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              532.5,
+              357.5,
+              587.5,
+              412.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Large matrix labeled 'A' representing the graph adjacency matrix",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              917.5,
+              467.5,
+              972.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing nodes with features being transformed into a graph structure with an adjacency matrix",
+            "related_concepts": [
+              "graph-based features",
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              917.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Manifold learning process: high-dimensional input manifold is encoded into a low-dimensional latent space, preserving local structure",
+            "related_concepts": [
+              "manifold learning",
+              "feature embedding",
+              "intrinsic dimension",
+              "extrinsic dimension",
+              "geodesic distance"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              697.5,
+              357.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Node-based feature extraction: for each node in a graph, extract features and sum them to form a node embedding",
+            "related_concepts": [
+              "node-based features",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              319.0,
+              532.5,
+              440.0,
+              681.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Edge-based feature extraction: an edge is represented by a combination of its topology and edge-specific features",
+            "related_concepts": [
+              "edge-based features",
+              "graph neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              445.5,
+              532.5,
+              544.5,
+              681.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Graph classification pipeline: a graph neural network processes a graph structure with node features to produce a graph-level representation for classification",
+            "related_concepts": [
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              374.0,
+              807.5,
+              522.5,
+              945.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Sequential embedding into manifolds: complex features are embedded into decreasing complexity manifolds until a low-dimensional space is found",
+            "related_concepts": [
+              "feature embedding",
+              "manifold learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              642.5,
+              302.5,
+              686.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Adjacency matrix A with labeled rows and columns",
+            "related_concepts": [
+              "adjacency matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              725.0,
+              780.0,
+              780.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Node data matrix X with labeled rows and columns",
+            "related_concepts": [
+              "node data"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              725.0,
+              835.0,
+              780.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Edge data matrix E with labeled rows and columns",
+            "related_concepts": [
+              "edge data"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              780.0,
+              835.0,
+              835.0
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nanites",
+            "reason": "The word is unclear and may be a misspelling or a specific term not commonly recognized",
+            "bbox": [
+              165.0,
+              247.5,
+              192.5,
+              258.5
+            ]
+          },
+          {
+            "transcription": "089Eh",
+            "reason": "The sequence of characters is ambiguous and does not form a recognizable word or symbol",
+            "bbox": [
+              275.0,
+              275.0,
+              302.5,
+              286.0
+            ]
+          },
+          {
+            "transcription": "A =",
+            "reason": "Handwritten text is partially obscured and context is unclear",
+            "bbox": [
+              642.5,
+              357.5,
+              670.0,
+              374.0
+            ]
+          },
+          {
+            "transcription": "recalculate",
+            "reason": "Handwritten text is small and slightly blurry, but context suggests 'recalculate' based on printed text nearby",
+            "bbox": [
+              697.5,
+              412.5,
+              736.0,
+              429.0
+            ]
+          },
+          {
+            "transcription": "nanites g",
+            "reason": "Handwriting is unclear; could be 'nanites g', 'manifolds g', or other text",
+            "bbox": [
+              137.5,
+              477.5,
+              192.5,
+              494.0
+            ]
+          },
+          {
+            "transcription": "anneaseummmmantwin i i i J",
+            "reason": "Highly ambiguous handwriting; possibly a miswritten phrase or unrelated note",
+            "bbox": [
+              137.5,
+              494.0,
+              275.0,
+              516.0
+            ]
+          },
+          {
+            "transcription": "Dgig mix ndisanembedding Fit fid",
+            "reason": "Handwriting is very unclear; possibly 'Digital mix and is an embedding Fit fid' but cannot be confidently transcribed",
+            "bbox": [
+              82.5,
+              659.0,
+              220.0,
+              681.0
+            ]
+          },
+          {
+            "transcription": "topology",
+            "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+            "bbox": [
+              477.5,
+              532.5,
+              505.0,
+              549.0
+            ]
+          },
+          {
+            "transcription": "stacking from",
+            "reason": "Handwriting is somewhat unclear and could be interpreted differently",
+            "bbox": [
+              615.0,
+              549.0,
+              642.5,
+              565.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Feature Embedding and Graph-Based Learning\",\n  \"summary\": \"This lecture page contrasts traditional machine learning formalization, where data points are treated as independent samples on a high-dimensional manifold, with graph-based learning approaches that model interactions between data points. It introduces manifold learning concepts including intrinsic and extrinsic dimensions, and explains how graph neural networks can extract node-based, edge-based, and graph-based features to capture relationships in data.\",\n  \"key_topics\": [\"manifold learning\", \"feature embedding\", \"graph neural networks\", \"dimensionality reduction\", \"graph-based features\"],\n  \"concepts\": [\n    {\n      \"canonical\": \"feature embedding\",\n      \"aliases\": [\"feature representation\", \"embeddings\", \"latent representation\"],\n      \"evidence\": \"Feature embedding in deep learning and manifold learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 5.5, 247.5, 27.5]\n    },\n    {\n      \"canonical\": \"manifold learning\",\n      \"aliases\": [\"manifold hypothesis\", \"dimensionality reduction\"],\n      \"evidence\": \"Feature embedding in deep learning and manifold learning\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 5.5, 247.5, 27.5]\n    },\n    {\n      \"canonical\": \"ml problem formalization\",\n      \"aliases\": [\"machine learning problem formalization\"],\n      \"evidence\": \"ML problem formalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 5.5, 522.5, 27.5]\n    },\n    {\n      \"canonical\": \"node-based features\",\n      \"aliases\": [\"node embeddings\"],\n      \"evidence\": \"1. Node-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 467.5, 440.0, 478.5]\n    },\n    {\n      \"canonical\": \"edge-based features\",\n      \"aliases\": [\"edge embeddings\", \"edge features\"],\n      \"evidence\": \"2. Edge-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 467.5, 550.0, 478.5]\n    },\n    {\n      \"canonical\": \"graph-based features\",\n      \"aliases\": [\"graph features\"],\n      \"evidence\": \"3. Graph-based features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 467.5, 752.5, 522.5]\n    },\n    {\n      \"canonical\": \"high-dimensional manifold\",\n      \"aliases\": [\"manifold\", \"high-dimensional space\"],\n      \"evidence\": \"Individualistic points -- data samples live independently on a high-dimensional manifold\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 55.0, 972.5, 71.5]\n    },\n    {\n      \"canonical\": \"intrinsic dimension\",\n      \"aliases\": [\"manifold dimension\"],\n      \"evidence\": \"d': intrinsic dimension\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 879.0, 192.5, 901.0]\n    },\n    {\n      \"canonical\": \"extrinsic dimension\",\n      \"aliases\": [\"ambient dimension\"],\n      \"evidence\": \"d: extrinsic dimension\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [198.0, 879.0, 357.5, 901.0]\n    },\n    {\n      \"canonical\": \"neighborhood preservation\",\n      \"aliases\": [\"local structure preservation\"],\n      \"evidence\": \"Underlying reductionist hypothesis: neighborhood preservation across the original and embedding spaces\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 917.5, 385.0, 939.5]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\", \"gcn\"],\n      \"evidence\": \"Graph neural network diagram with GCN label\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [374.0, 807.5, 522.5, 945.0]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"a\", \"graph adjacency matrix\", \"matrix a\"],\n      \"evidence\": \"Adjacency matrix, A\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 725.0, 780.0, 752.5]\n    },\n    {\n      \"canonical\": \"node data\",\n      \"aliases\": [\"x\", \"node features\"],\n      \"evidence\": \"Node data, X\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 725.0, 835.0, 752.5]\n    },\n    {\n      \"canonical\": \"edge data\",\n      \"aliases\": [\"e\", \"edge features\"],\n      \"evidence\": \"Edge data, E\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 780.0, 835.0, 807.5]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"classify a graph\", \"graph-level prediction\"],\n      \"evidence\": \"Graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 670.0, 532.5, 697.5]\n    },\n    {\n      \"canonical\": \"collectivist points\",\n      \"aliases\": [\"interacting data samples\"],\n      \"evidence\": \"Collectivist points -- data samples co-interact and co-learn together via a graph structure (A)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [670.0, 615.0, 945.0, 642.5]\n    },\n    {\n      \"canonical\": \"geodesic distance\",\n      \"aliases\": [\"shortest path\"],\n      \"evidence\": \"geodesic = shortest path concavity xi to xj on the M\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [247.5, 807.5, 330.0, 862.5]\n    },\n    {\n      \"canonical\": \"linear aggregation\",\n      \"aliases\": [\"linear combination\", \"sum\"],\n      \"evidence\": \"linear aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 82.5, 82.5, 93.5]\n    },\n    {\n      \"canonical\": \"nonlinear transformation\",\n      \"aliases\": [\"activation\", \"non-linear transformation\"],\n      \"evidence\": \"first nonlinear transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [165.0, 82.5, 247.5, 93.5]\n    },\n    {\n      \"canonical\": \"composed feature transformation\",\n      \"aliases\": [\"final transformation\"],\n      \"evidence\": \"final composed feature transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [82.5, 110.0, 220.0, 121.0]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\"hidden unit\"],\n      \"evidence\": \"hidden layer 1\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [110.0, 220.0, 154.0, 231.0]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"activation\", \"nonlinear function\"],\n      \"evidence\": \"activation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [82.5, 247.5, 110.0, 258.5]\n    },\n    {\n      \"canonical\": \"shared mapping\",\n      \"aliases\": [\"weight vector w\"],\n      \"evidence\": \"shared mapping w across all training samples\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 247.5, 615.0, 264.0]\n    },\n    {\n      \"canonical\": \"reductionist assumption\",\n      \"aliases\": [],\n      \"evidence\": \"Underlying reductionist assumption\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 137.5, 697.5, 192.5]\n    },\n    {\n      \"canonical\": \"training samples\",\n      \"aliases\": [\"data samples\"],\n      \"evidence\": \"However, our training samples are not allowed to directly\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [357.5, 341.0, 522.5, 352.0]\n    },\n    {\n      \"canonical\": \"feature extraction\",\n      \"aliases\": [],\n      \"evidence\": \"feature extraction from A\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [532.5, 642.5, 615.0, 670.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} (\\\\tilde{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"ml problem formalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 55.0, 522.5, 82.5],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\hat{y} \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"outputs\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 165.0, 522.5, 176.0],\n      \"label\": \"predicted output\"\n    },\n    {\n      \"latex\": \"w \\\\in \\\\mathbb{R}^{d+1}\",\n      \"related_concepts\": [\"shared mapping\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 165.0, 467.5, 176.0],\n      \"label\": \"weight vector\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X} \\\\in \\\\mathbb{R}^{n \\\\times (d+1)}\",\n      \"related_concepts\": [\"training samples\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 165.0, 412.5, 176.0],\n      \"label\": \"feature matrix\"\n    },\n    {\n      \"latex\": \"f: \\\\mathbb{R}^d \\\\to \\\\mathbb{R}^{d'} \\\\text{ is an embedding function}\",\n      \"related_concepts\": [\"feature embedding\", \"manifold learning\", \"intrinsic dimension\", \"extrinsic dimension\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [27.5, 846.0, 302.5, 868.0],\n      \"label\": \"embedding function definition\"\n    },\n    {\n      \"latex\": \"f(x_i) + \\\\epsilon_i = z_i\",\n      \"related_concepts\": [\"feature embedding\", \"manifold learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [192.5, 846.0, 302.5, 868.0],\n      \"label\": \"noisy embedding observation model\"\n    },\n    {\n      \"latex\": \"w_{ij} = 0.5\",\n      \"related_concepts\": [\"edge-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.85,\n      \"bbox\": [467.5, 604.0, 522.5, 620.5],\n      \"label\": \"edge weight example\"\n    },\n    {\n      \"latex\": \"\\\\frac{n(n-1)}{2}\",\n      \"related_concepts\": [\"graph-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [587.5, 532.5, 642.5, 560.0],\n      \"label\": \"number of edges\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network architecture showing input features, hidden layers, and outputs with weights and activations\",\n      \"related_concepts\": [\"hidden layer\", \"activation function\", \"linear aggregation\", \"outputs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [27.5, 137.5, 330.0, 275.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication representing the ML problem formalization with feature matrix, weight vector, and predicted output\",\n      \"related_concepts\": [\"ml problem formalization\", \"shared mapping\", \"training samples\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [357.5, 110.0, 522.5, 192.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Manifold learning visualization showing high-dimensional space being flattened to a linearly separable form\",\n      \"related_concepts\": [\"high-dimensional manifold\", \"manifold learning\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [5.5, 330.0, 330.0, 440.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph examples illustrating node-based and edge-based features\",\n      \"related_concepts\": [\"node-based features\", \"edge-based features\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [357.5, 467.5, 550.0, 550.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"3D surface plot representing a high-dimensional manifold with data points and a path on it\",\n      \"related_concepts\": [\"high-dimensional manifold\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 82.5, 945.0, 247.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram showing feature matrix multiplied by weight vector resulting in output, illustrating the reductionist assumption\",\n      \"related_concepts\": [\"reductionist assumption\", \"shared mapping\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 137.5, 615.0, 192.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small hand-drawn graph with nodes and edges, illustrating graph structure\",\n      \"related_concepts\": [\"graph-based features\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [532.5, 357.5, 587.5, 412.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Large matrix labeled 'A' representing the graph adjacency matrix\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [917.5, 467.5, 972.5, 522.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing nodes with features being transformed into a graph structure with an adjacency matrix\",\n      \"related_concepts\": [\"graph-based features\", \"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 412.5, 917.5, 522.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Manifold learning process: high-dimensional input manifold is encoded into a low-dimensional latent space, preserving local structure\",\n      \"related_concepts\": [\"manifold learning\", \"feature embedding\", \"intrinsic dimension\", \"extrinsic dimension\", \"geodesic distance\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 697.5, 357.5, 862.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Node-based feature extraction: for each node in a graph, extract features and sum them to form a node embedding\",\n      \"related_concepts\": [\"node-based features\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [319.0, 532.5, 440.0, 681.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Edge-based feature extraction: an edge is represented by a combination of its topology and edge-specific features\",\n      \"related_concepts\": [\"edge-based features\", \"graph neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [445.5, 532.5, 544.5, 681.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph classification pipeline: a graph neural network processes a graph structure with node features to produce a graph-level representation for classification\",\n      \"related_concepts\": [\"graph neural network\", \"graph classification\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [374.0, 807.5, 522.5, 945.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Sequential embedding into manifolds: complex features are embedded into decreasing complexity manifolds until a low-dimensional space is found\",\n      \"related_concepts\": [\"feature embedding\", \"manifold learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 642.5, 302.5, 686.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Adjacency matrix A with labeled rows and columns\",\n      \"related_concepts\": [\"adjacency matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 725.0, 780.0, 780.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Node data matrix X with labeled rows and columns\",\n      \"related_concepts\": [\"node data\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 725.0, 835.0, 780.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Edge data matrix E with labeled rows and columns\",\n      \"related_concepts\": [\"edge data\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 780.0, 835.0, 835.0]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nanites\",\n      \"reason\": \"The word is unclear and may be a misspelling or a specific term not commonly recognized\",\n      \"bbox\": [165.0, 247.5, 192.5, 258.5]\n    },\n    {\n      \"transcription\": \"089Eh\",\n      \"reason\": \"The sequence of characters is ambiguous and does not form a recognizable word or symbol\",\n      \"bbox\": [275.0, 275.0, 302.5, 286.0]\n    },\n    {\n      \"transcription\": \"A =\",\n      \"reason\": \"Handwritten text is partially obscured and context is unclear\",\n      \"bbox\": [642.5, 357.5, 670.0, 374.0]\n    },\n    {\n      \"transcription\": \"recalculate\",\n      \"reason\": \"Handwritten text is small and slightly blurry, but context suggests 'recalculate' based on printed text nearby\",\n      \"bbox\": [697.5, 412.5, 736.0, 429.0]\n    },\n    {\n      \"transcription\": \"nanites g\",\n      \"reason\": \"Handwriting is unclear; could be 'nanites g', 'manifolds g', or other text\",\n      \"bbox\": [137.5, 477.5, 192.5, 494.0]\n    },\n    {\n      \"transcription\": \"anneaseummmmantwin i i i J\",\n      \"reason\": \"Highly ambiguous handwriting; possibly a miswritten phrase or unrelated note\",\n      \"bbox\": [137.5, 494.0, 275.0, 516.0]\n    },\n    {\n      \"transcription\": \"Dgig mix ndisanembedding Fit fid\",\n      \"reason\": \"Handwriting is very unclear; possibly 'Digital mix and is an embedding Fit fid' but cannot be confidently transcribed\",\n      \"bbox\": [82.5, 659.0, 220.0, 681.0]\n    },\n    {\n      \"transcription\": \"topology\",\n      \"reason\": \"Handwriting is somewhat unclear and could be interpreted differently\",\n      \"bbox\": [477.5, 532.5, 505.0, 549.0]\n    },\n    {\n      \"transcription\": \"stacking from\",\n      \"reason\": \"Handwriting is somewhat unclear and could be interpreted differently\",\n      \"bbox\": [615.0, 549.0, 642.5, 565.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "ml problem formalization",
+      "into": "ml problem formalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "manifold learning",
+      "into": "manifold learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge-based features",
+      "into": "edge-based features"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "manifold learning",
+      "into": "manifold learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "embedding",
+      "into": "feature embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node-based features",
+      "into": "node-based features"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge-based features",
+      "into": "edge-based features"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "edge-based features",
+      "into": "edge-based features"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph-based features",
+      "into": "graph-based features"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "shared mapping",
+      "into": "shared mapping"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "manifold",
+      "into": "high-dimensional manifold"
+    }
+  ],
+  "warnings": [
+    "Merged duplicate concept edge data into edge-based features",
+    "Merged duplicate concept activation function into nonlinear transformation",
+    "Dropped low-confidence formula: f(x_i) + \\epsilon_i = z_i",
+    "Dropped low-confidence formula: w_{ij} = 0.5",
+    "Dropped low-confidence formula: \\frac{n(n-1)}{2}",
+    "Dropped low-confidence visual: Manifold learning visualization showing high-dimensional space being flattened t",
+    "Dropped low-confidence visual: Graph examples illustrating node-based and edge-based features"
+  ]
+}

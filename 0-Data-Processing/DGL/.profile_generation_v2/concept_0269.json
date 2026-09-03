@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6ed47c34d79c97d6bb7215a30b7b23ecf3392987aaf96a8bf4289e1c999fc92f",
+  "concept_id": 269,
+  "concept_name": "covariate shift",
+  "aliases": [
+    "covariate shift"
+  ],
+  "profile": "covariate shift: In machine learning, covariate shift refers to a change in the input distribution. In GNN training, batch normalization is associated with stable covariate shift.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "covariate shift: In machine learning, covariate shift refers to a change in the input distribution. In GNN training, batch normalization is associated with stable covariate shift.",
+    "claims": [
+      {
+        "claim": "Covariate shift refers to a change in the input distribution.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In GNN training, batch normalization is associated with stable covariate shift.",
+        "evidence_ids": [
+          "DGL-E0364"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence is limited to a single phrase; the precise relationship between batch normalization and covariate shift is not fully elaborated."
+    ]
+  },
+  "review": {
+    "final_profile": "covariate shift: In machine learning, covariate shift refers to a change in the input distribution. In GNN training, batch normalization is associated with stable covariate shift.",
+    "sentence_reviews": [
+      {
+        "sentence": "In machine learning, covariate shift refers to a change in the input distribution.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "This is a general definition used to introduce the concept; it is not explicitly stated in the evidence."
+      },
+      {
+        "sentence": "In GNN training, batch normalization is associated with stable covariate shift.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0364"
+        ],
+        "reason": "The slide phrase 'Stable covariate shift with BN' supports an association between batch normalization and stable covariate shift in the GNN training context."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single slide phrase; the precise nature of the association between batch normalization and covariate shift is not elaborated."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"covariate shift: In machine learning, covariate shift refers to a change in the input distribution. In GNN training, batch normalization is associated with stable covariate shift.\",\n  \"claims\": [\n    {\n      \"claim\": \"Covariate shift refers to a change in the input distribution.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In GNN training, batch normalization is associated with stable covariate shift.\",\n      \"evidence_ids\": [\"DGL-E0364\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The evidence is limited to a single phrase; the precise relationship between batch normalization and covariate shift is not fully elaborated.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"covariate shift: In machine learning, covariate shift refers to a change in the input distribution. In GNN training, batch normalization is associated with stable covariate shift.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In machine learning, covariate shift refers to a change in the input distribution.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"This is a general definition used to introduce the concept; it is not explicitly stated in the evidence.\"\n    },\n    {\n      \"sentence\": \"In GNN training, batch normalization is associated with stable covariate shift.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0364\"],\n      \"reason\": \"The slide phrase 'Stable covariate shift with BN' supports an association between batch normalization and stable covariate shift in the GNN training context.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to a single slide phrase; the precise nature of the association between batch normalization and covariate shift is not elaborated.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:36:04.972729+00:00"
+}

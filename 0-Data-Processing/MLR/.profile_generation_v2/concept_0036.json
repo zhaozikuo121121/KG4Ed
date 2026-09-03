@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7fc69c2969ac9a64087bd241b05675a04b8a8064abbb48a05fc19b8fa3a1ebbe",
+  "concept_id": 36,
+  "concept_name": "random search",
+  "aliases": [
+    "random search",
+    "random local search"
+  ],
+  "profile": "random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point. Its parameters include steplength and maximum number of iterations, which are best chosen together.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point. Its parameters include steplength and maximum number of iterations, which are best chosen together.",
+    "claims": [
+      {
+        "claim": "Random search is a zero-order optimization technique.",
+        "evidence_ids": [
+          "MLR-E0037",
+          "MLR-E0352"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Random search samples random directions from the current point, evaluates each candidate update, and selects the one with the smallest function value if it is lower than the current point.",
+        "evidence_ids": [
+          "MLR-E0352"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The steplength and maximum number of iterations are best chosen together.",
+        "evidence_ids": [
+          "MLR-E0037"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point. Its parameters include steplength and maximum number of iterations, which are best chosen together.",
+    "sentence_reviews": [
+      {
+        "sentence": "random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0037",
+          "MLR-E0352"
+        ],
+        "reason": "Matches the source description of random search as a zero-order technique that samples random directions, evaluates candidates, and picks the smallest evaluation if lower than the current point."
+      },
+      {
+        "sentence": "Its parameters include steplength and maximum number of iterations, which are best chosen together.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0037"
+        ],
+        "reason": "Directly reflects the source statement that the combination of steplength and maximum number of iterations are best chosen together."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point. Its parameters include steplength and maximum number of iterations, which are best chosen together.\",\n  \"claims\": [\n    {\n      \"claim\": \"Random search is a zero-order optimization technique.\",\n      \"evidence_ids\": [\"MLR-E0037\", \"MLR-E0352\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Random search samples random directions from the current point, evaluates each candidate update, and selects the one with the smallest function value if it is lower than the current point.\",\n      \"evidence_ids\": [\"MLR-E0352\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The steplength and maximum number of iterations are best chosen together.\",\n      \"evidence_ids\": [\"MLR-E0037\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point. Its parameters include steplength and maximum number of iterations, which are best chosen together.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"random search: a zero-order optimization technique that finds a descent direction by sampling random directions from the current point, evaluating each candidate update, and selecting the one with the smallest function value if it is lower than the current point.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0037\",\n        \"MLR-E0352\"\n      ],\n      \"reason\": \"Matches the source description of random search as a zero-order technique that samples random directions, evaluates candidates, and picks the smallest evaluation if lower than the current point.\"\n    },\n    {\n      \"sentence\": \"Its parameters include steplength and maximum number of iterations, which are best chosen together.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0037\"\n      ],\n      \"reason\": \"Directly reflects the source statement that the combination of steplength and maximum number of iterations are best chosen together.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:34:04.917217+00:00"
+}

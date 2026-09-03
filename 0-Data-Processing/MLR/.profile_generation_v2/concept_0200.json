@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d1c8327da4880928c078bd64aa8b1e16d2807b708835edf1d576e172fe03ab5b",
+  "concept_id": 200,
+  "concept_name": "manifold",
+  "aliases": [
+    "manifold",
+    "nonlinear manifold"
+  ],
+  "profile": "manifold: A manifold is a nonlinear surface.",
+  "word_count": 7,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "manifold: A manifold is a nonlinear surface, also called a nonlinear manifold.",
+    "claims": [
+      {
+        "claim": "A manifold is a nonlinear surface, also called a nonlinear manifold.",
+        "evidence_ids": [
+          "MLR-E0248"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "manifold: A manifold is a nonlinear surface.",
+    "sentence_reviews": [
+      {
+        "sentence": "manifold: A manifold is a nonlinear surface.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0248"
+        ],
+        "reason": "The source directly defines a nonlinear surface as also called a manifold."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"manifold: A manifold is a nonlinear surface, also called a nonlinear manifold.\",\n  \"claims\": [\n    {\n      \"claim\": \"A manifold is a nonlinear surface, also called a nonlinear manifold.\",\n      \"evidence_ids\": [\"MLR-E0248\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"manifold: A manifold is a nonlinear surface.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"manifold: A manifold is a nonlinear surface.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0248\"],\n      \"reason\": \"The source directly defines a nonlinear surface as also called a manifold.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:42:05.980179+00:00"
+}

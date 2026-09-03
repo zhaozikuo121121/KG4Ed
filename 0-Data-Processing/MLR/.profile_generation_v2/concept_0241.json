@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "66c737787cfd2855b7b4e6cabe0511feb4748ab8a921c66fcf2147d9647e97a8",
+  "concept_id": 241,
+  "concept_name": "regularization-based cross-validation",
+  "aliases": [
+    "regularization-based cross-validation",
+    "cross-validation via regularization"
+  ],
+  "profile": "regularization-based cross-validation: cross-validation via regularization with the l2 norm. It is common practice when employing polynomial and Fourier kernels.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularization-based cross-validation: a cross-validation approach that employs regularization, usually the l2 norm, during model evaluation. It is commonly used in conjunction with polynomial and Fourier kernels. The technique is described as common practice, but no further details on its internal mechanism are provided in the available metadata.",
+    "claims": [
+      {
+        "claim": "Regularization-based cross-validation employs regularization, usually the l2 norm.",
+        "evidence_ids": [
+          "MLR-E0303"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is commonly used with polynomial and Fourier kernels.",
+        "evidence_ids": [
+          "MLR-E0303"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not specify the exact mechanism of regularization-based cross-validation beyond its use of the l2 norm and association with polynomial and Fourier kernels."
+    ]
+  },
+  "review": {
+    "final_profile": "regularization-based cross-validation: cross-validation via regularization with the l2 norm. It is common practice when employing polynomial and Fourier kernels.",
+    "sentence_reviews": [
+      {
+        "sentence": "regularization-based cross-validation: cross-validation via regularization with the l2 norm.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0303"
+        ],
+        "reason": "The evidence explicitly describes this technique as cross-validation via regularization with the l2 norm."
+      },
+      {
+        "sentence": "It is common practice when employing polynomial and Fourier kernels.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0303"
+        ],
+        "reason": "The evidence states this approach is common practice with polynomial and Fourier kernels."
+      }
+    ],
+    "warnings": [
+      "The evidence does not describe the exact mechanism of regularization-based cross-validation beyond its use of the l2 norm and its association with polynomial and Fourier kernels."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularization-based cross-validation: a cross-validation approach that employs regularization, usually the l2 norm, during model evaluation. It is commonly used in conjunction with polynomial and Fourier kernels. The technique is described as common practice, but no further details on its internal mechanism are provided in the available metadata.\",\n  \"claims\": [\n    {\n      \"claim\": \"Regularization-based cross-validation employs regularization, usually the l2 norm.\",\n      \"evidence_ids\": [\"MLR-E0303\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is commonly used with polynomial and Fourier kernels.\",\n      \"evidence_ids\": [\"MLR-E0303\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata does not specify the exact mechanism of regularization-based cross-validation beyond its use of the l2 norm and association with polynomial and Fourier kernels.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularization-based cross-validation: cross-validation via regularization with the l2 norm. It is common practice when employing polynomial and Fourier kernels.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"regularization-based cross-validation: cross-validation via regularization with the l2 norm.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0303\"],\n      \"reason\": \"The evidence explicitly describes this technique as cross-validation via regularization with the l2 norm.\"\n    },\n    {\n      \"sentence\": \"It is common practice when employing polynomial and Fourier kernels.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0303\"],\n      \"reason\": \"The evidence states this approach is common practice with polynomial and Fourier kernels.\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence does not describe the exact mechanism of regularization-based cross-validation beyond its use of the l2 norm and its association with polynomial and Fourier kernels.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:57:34.759759+00:00"
+}

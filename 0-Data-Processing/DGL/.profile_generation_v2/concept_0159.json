@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9947cd5a3ec04537056852cf77855088d9d567a3e5b35c7994e47b106ae94a8d",
+  "concept_id": 159,
+  "concept_name": "graph generative adversarial network",
+  "aliases": [
+    "graph generative adversarial network",
+    "graphgan"
+  ],
+  "profile": "graph generative adversarial network: a generative graph learning model that transforms noise z_i via a deep network function f(.).",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph generative adversarial network: a generative model in graph learning that transforms the noise z_i via a deep network function f(.).",
+    "claims": [
+      {
+        "claim": "A graph generative adversarial network is a generative model in graph learning.",
+        "evidence_ids": [
+          "DGL-E0582"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It transforms the noise z_i via a deep network function f(.).",
+        "evidence_ids": [
+          "DGL-E0582"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The available source material is limited, so the profile is intentionally minimal and does not describe adversarial training or graph-specific operations."
+    ]
+  },
+  "review": {
+    "final_profile": "graph generative adversarial network: a generative graph learning model that transforms noise z_i via a deep network function f(.).",
+    "sentence_reviews": [
+      {
+        "sentence": "graph generative adversarial network: a generative graph learning model that transforms noise z_i via a deep network function f(.).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0582"
+        ],
+        "reason": "Reflects the evidence phrase 'transforms the noise z_i via a deep network function f(.)' and the taxonomy context of generative graph learning."
+      }
+    ],
+    "warnings": [
+      "The available source material describes only the noise transformation step; no evidence covers adversarial training, generator/discriminator structure, or graph-specific operations."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph generative adversarial network: a generative model in graph learning that transforms the noise z_i via a deep network function f(.).\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph generative adversarial network is a generative model in graph learning.\",\n      \"evidence_ids\": [\"DGL-E0582\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It transforms the noise z_i via a deep network function f(.).\",\n      \"evidence_ids\": [\"DGL-E0582\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The available source material is limited, so the profile is intentionally minimal and does not describe adversarial training or graph-specific operations.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph generative adversarial network: a generative graph learning model that transforms noise z_i via a deep network function f(.).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph generative adversarial network: a generative graph learning model that transforms noise z_i via a deep network function f(.).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0582\"],\n      \"reason\": \"Reflects the evidence phrase 'transforms the noise z_i via a deep network function f(.)' and the taxonomy context of generative graph learning.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available source material describes only the noise transformation step; no evidence covers adversarial training, generator/discriminator structure, or graph-specific operations.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:56:24.708330+00:00"
+}

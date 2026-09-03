@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "d066a5b7f1c632bcc7fc43cfbc04082c860fecc3355d6039b81eeea44c39dab6",
+  "concept_id": 31,
+  "concept_name": "complete graph",
+  "aliases": [
+    "complete graph",
+    "complete"
+  ],
+  "profile": "complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.",
+    "claims": [
+      {
+        "claim": "A complete graph has each of its nodes connected to all other nodes.",
+        "evidence_ids": [
+          "DGL-E0004"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a complete graph, every two nodes are adjacent.",
+        "evidence_ids": [
+          "DGL-E0004"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.",
+    "sentence_reviews": [
+      {
+        "sentence": "complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0004"
+        ],
+        "reason": "Both clauses directly restate the source definition: every node connected to all other nodes and every two nodes adjacent."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.\",\n  \"claims\": [\n    {\n      \"claim\": \"A complete graph has each of its nodes connected to all other nodes.\",\n      \"evidence_ids\": [\"DGL-E0004\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a complete graph, every two nodes are adjacent.\",\n      \"evidence_ids\": [\"DGL-E0004\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"complete graph: a graph in which each node is connected to all other nodes, so every pair of distinct nodes is adjacent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0004\"],\n      \"reason\": \"Both clauses directly restate the source definition: every node connected to all other nodes and every two nodes adjacent.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:59:54.400521+00:00"
+}

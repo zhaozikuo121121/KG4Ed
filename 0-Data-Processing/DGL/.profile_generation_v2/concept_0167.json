@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9195c358aa089506115c4fcbdce6023af5b97e1f562b14f581647f84d4025544",
+  "concept_id": 167,
+  "concept_name": "loss function",
+  "aliases": [
+    "loss function",
+    "objective function",
+    "squared error loss",
+    "loss"
+  ],
+  "profile": "loss function: In optimization, a loss function is defined to optimize. Formalizing a learning task raises the question of how to define it. One presented form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2, the average squared difference between a linear prediction x̃_i^T w and a target y_i. In this form, the loss depends on both the linear prediction and the target value.",
+  "word_count": 70,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "loss function: a function used in optimization to quantify a prediction-target discrepancy, whose squared error form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2. Defining it is a step in optimization pipelines, and formalizing a learning task raises the question of how to define the loss function.",
+    "claims": [
+      {
+        "claim": "The squared error form l(w) = 1/n Σ (x̃_i^T w - y_i)^2 quantifies the discrepancy between a linear prediction x̃_i^T w and the target y_i.",
+        "evidence_ids": [
+          "DGL-E0153"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The loss function is used in optimization; defining it is a step in optimization pipelines.",
+        "evidence_ids": [
+          "DGL-E0238"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Formalizing a learning task raises the question of how to define the loss function.",
+        "evidence_ids": [
+          "DGL-E0486"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "loss function: In optimization, a loss function is defined to optimize. Formalizing a learning task raises the question of how to define it. One presented form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2, the average squared difference between a linear prediction x̃_i^T w and a target y_i. In this form, the loss depends on both the linear prediction and the target value.",
+    "sentence_reviews": [
+      {
+        "sentence": "loss function: In optimization, a loss function is defined to optimize.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0238"
+        ],
+        "reason": "The source says to define the loss function to optimize, matching this sentence."
+      },
+      {
+        "sentence": "Formalizing a learning task raises the question of how to define it.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0486"
+        ],
+        "reason": "The source asks how to define the loss function in the context of learning task formalization."
+      },
+      {
+        "sentence": "One presented form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2, the average squared difference between a linear prediction x̃_i^T w and a target y_i.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0153"
+        ],
+        "reason": "The exact formula is given in the source and can be read as an average squared difference between a linear prediction and target."
+      },
+      {
+        "sentence": "In this form, the loss depends on both the linear prediction and the target value.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0153"
+        ],
+        "reason": "The formula includes both x̃_i^T w and y_i, so the loss is a function of both."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"loss function: a function used in optimization to quantify a prediction-target discrepancy, whose squared error form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2. Defining it is a step in optimization pipelines, and formalizing a learning task raises the question of how to define the loss function.\",\n  \"claims\": [\n    {\n      \"claim\": \"The squared error form l(w) = 1/n Σ (x̃_i^T w - y_i)^2 quantifies the discrepancy between a linear prediction x̃_i^T w and the target y_i.\",\n      \"evidence_ids\": [\"DGL-E0153\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The loss function is used in optimization; defining it is a step in optimization pipelines.\",\n      \"evidence_ids\": [\"DGL-E0238\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Formalizing a learning task raises the question of how to define the loss function.\",\n      \"evidence_ids\": [\"DGL-E0486\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"loss function: In optimization, a loss function is defined to optimize. Formalizing a learning task raises the question of how to define it. One presented form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2, the average squared difference between a linear prediction x̃_i^T w and a target y_i. In this form, the loss depends on both the linear prediction and the target value.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"loss function: In optimization, a loss function is defined to optimize.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0238\"],\n      \"reason\": \"The source says to define the loss function to optimize, matching this sentence.\"\n    },\n    {\n      \"sentence\": \"Formalizing a learning task raises the question of how to define it.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0486\"],\n      \"reason\": \"The source asks how to define the loss function in the context of learning task formalization.\"\n    },\n    {\n      \"sentence\": \"One presented form is l(w) = 1/n Σ (x̃_i^T w - y_i)^2, the average squared difference between a linear prediction x̃_i^T w and a target y_i.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0153\"],\n      \"reason\": \"The exact formula is given in the source and can be read as an average squared difference between a linear prediction and target.\"\n    },\n    {\n      \"sentence\": \"In this form, the loss depends on both the linear prediction and the target value.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0153\"],\n      \"reason\": \"The formula includes both x̃_i^T w and y_i, so the loss is a function of both.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:59:43.127640+00:00"
+}

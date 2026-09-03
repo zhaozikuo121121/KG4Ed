@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "dbbac2987c4016771cfa618d04d0339256cce96b4eadcf7009afb80e790ab255",
+  "concept_id": 217,
+  "concept_name": "inductive capability",
+  "aliases": [
+    "inductive capability",
+    "inductive learning",
+    "generalization to new nodes",
+    "generalization to new graphs"
+  ],
+  "profile": "inductive capability: a capability of graph convolutional networks (GCNs), mentioned in the context of graph-level prediction.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "inductive capability: a property of graph convolutional networks (GCNs) that relates to their ability to perform graph-level prediction tasks.",
+    "claims": [
+      {
+        "claim": "Inductive capability is a property of graph convolutional networks (GCNs).",
+        "evidence_ids": [
+          "DGL-E0262"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Inductive capability relates to graph-level prediction.",
+        "evidence_ids": [
+          "DGL-E0262"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence is limited to a title and a phrase; no further details are available."
+    ]
+  },
+  "review": {
+    "final_profile": "inductive capability: a capability of graph convolutional networks (GCNs), mentioned in the context of graph-level prediction.",
+    "sentence_reviews": [
+      {
+        "sentence": "inductive capability: a capability of graph convolutional networks (GCNs), mentioned in the context of graph-level prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0262"
+        ],
+        "reason": "The source phrase and page title associate inductive capability with GCNs and graph-level prediction, but provide no further definition."
+      }
+    ],
+    "warnings": [
+      "Only a high-level connection is supported; no definition, mechanism, or specific prediction task is provided in the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"inductive capability: a property of graph convolutional networks (GCNs) that relates to their ability to perform graph-level prediction tasks.\",\n  \"claims\": [\n    {\n      \"claim\": \"Inductive capability is a property of graph convolutional networks (GCNs).\",\n      \"evidence_ids\": [\"DGL-E0262\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Inductive capability relates to graph-level prediction.\",\n      \"evidence_ids\": [\"DGL-E0262\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The evidence is limited to a title and a phrase; no further details are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"inductive capability: a capability of graph convolutional networks (GCNs), mentioned in the context of graph-level prediction.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"inductive capability: a capability of graph convolutional networks (GCNs), mentioned in the context of graph-level prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0262\"],\n      \"reason\": \"The source phrase and page title associate inductive capability with GCNs and graph-level prediction, but provide no further definition.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a high-level connection is supported; no definition, mechanism, or specific prediction task is provided in the evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:17:31.724578+00:00"
+}

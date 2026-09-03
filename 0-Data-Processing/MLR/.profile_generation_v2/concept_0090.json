@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0a3c46fba8dc07709970f802fd760a06a24d3c61c9a298381b74684c8946a5aa",
+  "concept_id": 90,
+  "concept_name": "vectorized implementation",
+  "aliases": [
+    "vectorized implementation",
+    "numpy vectorization"
+  ],
+  "profile": "vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library. This approach removes much of the inefficiency of entry-wise Python loops. As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library. This approach removes much of the inefficiency of entry-wise Python loops. As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.",
+    "claims": [
+      {
+        "claim": "Vectorized implementation replaces explicit Python for loops with numerically equivalent operations from the numpy library.",
+        "evidence_ids": [
+          "MLR-E0104"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This approach removes much of the inefficiency of entry-wise Python loops.",
+        "evidence_ids": [
+          "MLR-E0104"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "As a general rule, when vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.",
+        "evidence_ids": [
+          "MLR-E0359"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library. This approach removes much of the inefficiency of entry-wise Python loops. As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.",
+    "sentence_reviews": [
+      {
+        "sentence": "vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0104"
+        ],
+        "reason": "The source states that explicit for loops can be replaced with numerically equivalent operations from numpy."
+      },
+      {
+        "sentence": "This approach removes much of the inefficiency of entry-wise Python loops.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0104"
+        ],
+        "reason": "The source says it is easy to get around most of this inefficiency by such replacements."
+      },
+      {
+        "sentence": "As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0359"
+        ],
+        "reason": "The source states that when vectorized implementations are available, one must refrain from implementing algebraic expressions entry-wise using explicit for loops."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library. This approach removes much of the inefficiency of entry-wise Python loops. As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.\",\n  \"claims\": [\n    {\n      \"claim\": \"Vectorized implementation replaces explicit Python for loops with numerically equivalent operations from the numpy library.\",\n      \"evidence_ids\": [\"MLR-E0104\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This approach removes much of the inefficiency of entry-wise Python loops.\",\n      \"evidence_ids\": [\"MLR-E0104\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"As a general rule, when vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.\",\n      \"evidence_ids\": [\"MLR-E0359\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library. This approach removes much of the inefficiency of entry-wise Python loops. As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"vectorized implementation: A way to write numerical code by replacing explicit Python for loops with numerically equivalent operations from the numpy library.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0104\"],\n      \"reason\": \"The source states that explicit for loops can be replaced with numerically equivalent operations from numpy.\"\n    },\n    {\n      \"sentence\": \"This approach removes much of the inefficiency of entry-wise Python loops.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0104\"],\n      \"reason\": \"The source says it is easy to get around most of this inefficiency by such replacements.\"\n    },\n    {\n      \"sentence\": \"As a general rule, whenever vectorized implementations are available, one must avoid implementing algebraic expressions in Python using explicit for loops.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0359\"],\n      \"reason\": \"The source states that when vectorized implementations are available, one must refrain from implementing algebraic expressions entry-wise using explicit for loops.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:55:37.104854+00:00"
+}

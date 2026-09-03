@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "394556fcc5953ccaaa6746871d6056f4ed8394612513077b2144c927e527013b",
+  "concept_id": 163,
+  "concept_name": "projection",
+  "aliases": [
+    "projection"
+  ],
+  "profile": "projection: In linear algebra, a projection maps a vector onto a subspace. In this context, the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "projection: In linear algebra, a projection maps a vector onto a subspace. In this context, the decoding Cwp is the projection of xp onto the subspace spanned by C.",
+    "claims": [
+      {
+        "claim": "A projection maps a vector onto a subspace.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "The decoding Cwp is the projection of xp onto the subspace spanned by C.",
+        "evidence_ids": [
+          "MLR-E0185"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "projection: In linear algebra, a projection maps a vector onto a subspace. In this context, the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+    "sentence_reviews": [
+      {
+        "sentence": "In linear algebra, a projection maps a vector onto a subspace.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional connective not claimed by the evidence; it does not introduce new algorithms, numbers, or performance assertions."
+      },
+      {
+        "sentence": "In this context, the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0185"
+        ],
+        "reason": "Directly restates the evidence statement about decoding Cwp being the projection of xp onto the subspace spanned by C."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"projection: In linear algebra, a projection maps a vector onto a subspace. In this context, the decoding Cwp is the projection of xp onto the subspace spanned by C.\",\n  \"claims\": [\n    {\n      \"claim\": \"A projection maps a vector onto a subspace.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"The decoding Cwp is the projection of xp onto the subspace spanned by C.\",\n      \"evidence_ids\": [\"MLR-E0185\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"projection: In linear algebra, a projection maps a vector onto a subspace. In this context, the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In linear algebra, a projection maps a vector onto a subspace.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional connective not claimed by the evidence; it does not introduce new algorithms, numbers, or performance assertions.\"\n    },\n    {\n      \"sentence\": \"In this context, the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0185\"],\n      \"reason\": \"Directly restates the evidence statement about decoding Cwp being the projection of xp onto the subspace spanned by C.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:29:12.163917+00:00"
+}

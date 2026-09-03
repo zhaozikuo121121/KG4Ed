@@ -1,0 +1,103 @@
+project_root: "${PROJECT_ROOT:-.}"
+seed: 42
+device: auto
+profile:
+  prompt_version: "profile_v3"
+content_model_name: allenai/scibert_scivocab_uncased
+content_max_length: 384
+content_batch_size: 8
+content_epochs: 5
+content_learning_rate: 0.00002
+content_dropout: 0.1
+gold_weight: 1.0
+pseudo_weight: 0.3
+stable_pseudo_min_hits: 1
+model_type: rel_graphsage
+num_relations: 4
+graph_hidden_dim: 128
+graph_latent_dim: 64
+graph_dropout: 0.2
+decoder_type: diagonal_bilinear
+decoder_dropout: 0.2
+graphsage_layers: 2
+use_residual: true
+use_layernorm: true
+semantic_top_k: 10
+semantic_top_k_fallback: 15
+semantic_connectivity_threshold: 0.9
+graph_epochs: 100
+graph_learning_rate: 0.005
+graph_weight_decay: 0.0005
+graph_edge_masking_folds: 5
+use_graph_calibration: true
+graph_calibration_type: temperature_bias
+graph_temperature_init: 1.0
+graph_temperature_min: 0.5
+graph_temperature_max: 10.0
+pseudo_soft_labels: true
+pseudo_soft_target_min: 0.10
+pseudo_soft_target_max: 0.90
+pseudo_weight: 0.3
+pseudo_weight_round1: 0.1
+pseudo_weight_round2: 0.2
+pseudo_weight_round3_plus: 0.3
+pseudo_min_weight: 0.05
+pseudo_max_weight: 0.5
+graph_gold_pos_target: 0.95
+graph_gold_neg_target: 0.05
+graph_logit_cap: 5.0
+graph_logit_penalty_weight: 0.003
+graph_kd_weight: 0.05
+beta_kd: 0.05
+kd_temperature: 3.0
+kd_confidence_threshold: 0.2
+use_kd: true
+use_pseudo_labels: true
+teacher_confidence_weighted_kd: true
+graph_rank_margin: 0.25
+rank_margin_prob: 0.25
+graph_rank_weight: 0.03
+lambda_rank: 0.03
+rank_on_gold_only: true
+rank_on_pseudo: false
+graph_best_metric: auc
+graph_best_tie_breakers: [f1, accuracy]
+fusion_best_metric: f1
+fusion_best_tie_breakers: [auc, accuracy]
+save_best_fusion_snapshot: true
+graph_edge_dropout: 0.1
+graph_feature_dropout: 0.1
+graph_edge_weight_noise: 0.0
+hard_negative_mining_enabled: true
+hard_negative_max_ratio_to_positive_train: 0.1
+hard_negative_graph_high_threshold: 0.65
+hard_negative_content_low_threshold: 0.45
+hard_negative_content_high_threshold: 0.60
+hard_negative_graph_low_threshold: 0.35
+hard_negative_llm_max_score: 0.30
+hard_negative_soft_target_min: 0.15
+hard_negative_soft_target_max: 0.30
+akd_rounds: 4
+max_pseudo_ratio: 0.2
+max_new_pseudo_ratio_per_round: 0.1
+pre_llm_candidate_multiplier: 2
+pseudo_pos_threshold: 0.55
+pseudo_neg_threshold: 0.40
+pseudo_high_conf_pos: 0.85
+pseudo_high_conf_neg: 0.15
+pseudo_memory_enabled: false
+use_llm_judge: true
+llm:
+  provider: qwen
+  model: qwen3.8-max
+  api_key_env: DASHSCOPE_API_KEY
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  timeout_seconds: 120
+  batch_size: 20
+  max_retries: 3
+  retry_backoff_seconds: 2
+  judge_weight: 0.5
+  prompt_version: "prereq_judge_v2"
+alpha_search_values: [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+threshold_search_values: [0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9]
+

@@ -1,0 +1,3526 @@
+{
+  "version": "1.0.0",
+  "lecture": 6,
+  "pdf_file": "DGL_Lecture_6_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "Generative Learning Tasks Formalization",
+  "summary": "This page outlines the formalization of generative learning tasks in Graph Neural Networks (GNNs), distinguishing between predictive analysis and distribution learning for graph generation. It details supervised generative GNN tasks, including the generation of adjacency matrices, node features, and edge features, along with corresponding mapping functions and loss functions. The page also illustrates various applications such as graph super-resolution, multigraph prediction, and brain graph evolution prediction.",
+  "key_topics": [
+    "generative learning tasks",
+    "graph neural network aims",
+    "supervised generative gnn tasks",
+    "adjacency matrix generation",
+    "node feature generation",
+    "edge feature generation",
+    "gnn mapping function",
+    "gnn loss function",
+    "graph super-resolution",
+    "brain graph evolution prediction"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:25:57+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "generative learning tasks",
+      "aliases": [
+        "generative gnn tasks",
+        "graph generation",
+        "generative task",
+        "generative model",
+        "generative gnn",
+        "generative graph neural network"
+      ],
+      "evidence": "Generative learning tasks formalization",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        0.0,
+        550.0,
+        27.5
+      ]
+    },
+    {
+      "canonical": "gnn aims",
+      "aliases": [
+        "graph neural network aims"
+      ],
+      "evidence": "GNN aims",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        44.0,
+        247.5,
+        60.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix generation",
+      "aliases": [
+        "generate graph adjacency matrix"
+      ],
+      "evidence": "Aim: Generate only the graph adjacency matrix.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        55.0,
+        670.0,
+        71.5
+      ]
+    },
+    {
+      "canonical": "predict and analyze patterns",
+      "aliases": [
+        "pattern prediction"
+      ],
+      "evidence": "1) Predict and analyze patterns on given graphs (e.g., predict the label of a node or a graph)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        55.0,
+        82.5,
+        192.5,
+        137.5
+      ]
+    },
+    {
+      "canonical": "learn the distribution of given graphs",
+      "aliases": [
+        "distribution learning"
+      ],
+      "evidence": "2) Learn the distribution of given graphs and generate more novel graphs (e.g., generate target graph B from source graph A)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        82.5,
+        440.0,
+        137.5
+      ]
+    },
+    {
+      "canonical": "gnn mapping function",
+      "aliases": [
+        "message passing"
+      ],
+      "evidence": "GNN mapping function",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        82.5,
+        807.5,
+        99.0
+      ]
+    },
+    {
+      "canonical": "gnn loss function",
+      "aliases": [],
+      "evidence": "GNN loss function",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        835.0,
+        82.5,
+        917.5,
+        99.0
+      ]
+    },
+    {
+      "canonical": "input graph",
+      "aliases": [
+        "source graph",
+        "single graph prediction",
+        "target graph"
+      ],
+      "evidence": "input graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        165.0,
+        82.5,
+        181.5
+      ]
+    },
+    {
+      "canonical": "output label",
+      "aliases": [
+        "predicted label"
+      ],
+      "evidence": "output label",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        165.0,
+        192.5,
+        181.5
+      ]
+    },
+    {
+      "canonical": "node features",
+      "aliases": [
+        "node attributes"
+      ],
+      "evidence": "node features",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        247.5,
+        165.0,
+        302.5,
+        181.5
+      ]
+    },
+    {
+      "canonical": "topology",
+      "aliases": [
+        "graph structure"
+      ],
+      "evidence": "topology",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        247.5,
+        192.5,
+        302.5,
+        209.0
+      ]
+    },
+    {
+      "canonical": "random initialization",
+      "aliases": [
+        "initialize randomly"
+      ],
+      "evidence": "1. Randomly.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        192.5,
+        587.5,
+        203.5
+      ]
+    },
+    {
+      "canonical": "topological attribute initialization",
+      "aliases": [
+        "initialize using topological attributes"
+      ],
+      "evidence": "2. Using the topological attributes of a given node.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        203.5,
+        725.0,
+        214.5
+      ]
+    },
+    {
+      "canonical": "identity vector initialization",
+      "aliases": [
+        "initialize using identity vector"
+      ],
+      "evidence": "3. Using an identity vector of [1 1 ... 1].",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        214.5,
+        697.5,
+        225.5
+      ]
+    },
+    {
+      "canonical": "multiple output scores",
+      "aliases": [
+        "output scores"
+      ],
+      "evidence": "multiple output scores",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        247.5,
+        192.5,
+        264.0
+      ]
+    },
+    {
+      "canonical": "training epochs",
+      "aliases": [
+        "epochs"
+      ],
+      "evidence": "epochs",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        890.0,
+        247.5,
+        917.5,
+        258.5
+      ]
+    },
+    {
+      "canonical": "node feature generation",
+      "aliases": [
+        "generate node feature matrix"
+      ],
+      "evidence": "Aim: Generate the graph adjacency matrix and its node feature matrix in the target domain.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        275.0,
+        780.0,
+        291.5
+      ]
+    },
+    {
+      "canonical": "source graph distribution",
+      "aliases": [
+        "input distribution"
+      ],
+      "evidence": "source graph distribution",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        302.5,
+        302.5,
+        319.0
+      ]
+    },
+    {
+      "canonical": "target graph distribution",
+      "aliases": [
+        "output distribution"
+      ],
+      "evidence": "target graph distribution",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        302.5,
+        412.5,
+        319.0
+      ]
+    },
+    {
+      "canonical": "loss minimization",
+      "aliases": [
+        "minimize loss"
+      ],
+      "evidence": "min d1",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        835.0,
+        302.5,
+        862.5,
+        313.5
+      ]
+    },
+    {
+      "canonical": "supervised generative gnn tasks",
+      "aliases": [
+        "supervised generative tasks"
+      ],
+      "evidence": "Supervised generative GNN tasks (generic task)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        357.5,
+        165.0,
+        374.0
+      ]
+    },
+    {
+      "canonical": "domain b",
+      "aliases": [
+        "output domain"
+      ],
+      "evidence": "domain B",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        385.0,
+        357.5,
+        440.0,
+        374.0
+      ]
+    },
+    {
+      "canonical": "domain a",
+      "aliases": [
+        "input domain"
+      ],
+      "evidence": "domain A",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        55.0,
+        385.0,
+        110.0,
+        401.5
+      ]
+    },
+    {
+      "canonical": "sparsity regularization",
+      "aliases": [
+        "sparsity"
+      ],
+      "evidence": "L2 (sparsity)",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        440.0,
+        835.0,
+        456.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "a",
+        "a_tilde"
+      ],
+      "evidence": "A, A', A_tilde",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        450.0,
+        440.0,
+        560.0
+      ]
+    },
+    {
+      "canonical": "edge feature generation",
+      "aliases": [
+        "generate edge feature matrix"
+      ],
+      "evidence": "Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        467.5,
+        835.0,
+        484.0
+      ]
+    },
+    {
+      "canonical": "node feature matrix",
+      "aliases": [
+        "x",
+        "h0"
+      ],
+      "evidence": "X, X', H0",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        505.0,
+        440.0,
+        615.0
+      ]
+    },
+    {
+      "canonical": "graph representation learning",
+      "aliases": [
+        "graph embedding"
+      ],
+      "evidence": "The target graph has both node and edge features",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        571.0,
+        532.5,
+        752.5,
+        549.0
+      ]
+    },
+    {
+      "canonical": "target domain",
+      "aliases": [],
+      "evidence": "target domain",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        330.0,
+        587.5,
+        440.0,
+        615.0
+      ]
+    },
+    {
+      "canonical": "edge feature matrix",
+      "aliases": [
+        "e"
+      ],
+      "evidence": "E, E'",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        615.0,
+        440.0,
+        780.0
+      ]
+    },
+    {
+      "canonical": "graph super-resolution",
+      "aliases": [
+        "super-resolved graph"
+      ],
+      "evidence": "Graph super-resolution: Low-resolution graph -> Super-resolved graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        780.0,
+        890.0,
+        835.0
+      ]
+    },
+    {
+      "canonical": "multigraph prediction",
+      "aliases": [
+        "target graph 1",
+        "target graph n"
+      ],
+      "evidence": "Multigraph prediction: Source graph -> Target graph 1 ... Target graph n",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        835.0,
+        752.5,
+        972.5
+      ]
+    },
+    {
+      "canonical": "loss function",
+      "aliases": [
+        "loss"
+      ],
+      "evidence": "How to define the loss function?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        857.0,
+        550.0,
+        879.0
+      ]
+    },
+    {
+      "canonical": "generative gnn dimensions",
+      "aliases": [
+        "domain",
+        "time",
+        "resolution"
+      ],
+      "evidence": "Generative GNN dimensions: domain, time, resolution",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        571.0,
+        862.5,
+        642.5,
+        972.5
+      ]
+    },
+    {
+      "canonical": "brain graph evolution prediction",
+      "aliases": [
+        "time-dependent gnn"
+      ],
+      "evidence": "Brain graph evolution prediction: Brain graph at baseline t0 -> Brain graph at t2 -> Brain graph at t3 -> Brain graph at t4",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        862.5,
+        972.5,
+        972.5
+      ]
+    },
+    {
+      "canonical": "gcn",
+      "aliases": [
+        "graph convolutional network"
+      ],
+      "evidence": "GCN node embedding rule",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        901.0,
+        550.0,
+        923.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "f(A, X) = (\\tilde{A}', \\tilde{X}')",
+      "related_concepts": [
+        "gnn mapping function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        110.0,
+        835.0,
+        137.5
+      ],
+      "label": "GNN mapping function"
+    },
+    {
+      "latex": "\\mathcal{L}_1 = dist(A', \\tilde{A}')",
+      "related_concepts": [
+        "gnn loss function",
+        "adjacency matrix generation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        835.0,
+        110.0,
+        945.0,
+        137.5
+      ],
+      "label": "GNN loss function"
+    },
+    {
+      "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+      "related_concepts": [
+        "gnn loss function",
+        "node feature generation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        385.0,
+        945.0,
+        412.5
+      ],
+      "label": "GNN loss function"
+    },
+    {
+      "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+      "related_concepts": [
+        "generative learning tasks",
+        "gnn loss function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        477.5,
+        972.5,
+        505.0
+      ],
+      "label": "L2"
+    },
+    {
+      "latex": "\\mathcal{L}_3 = dist(A', \\tilde{A}') + \\lambda_1 dist(X', \\tilde{X}') + \\lambda_2 dist(E', \\tilde{E}')",
+      "related_concepts": [
+        "generative learning tasks",
+        "gnn loss function"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        697.5,
+        642.5,
+        972.5,
+        697.5
+      ],
+      "label": "L3"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Diagram showing input graph to output label transformation using GNN",
+      "related_concepts": [
+        "predict and analyze patterns",
+        "input graph",
+        "output label"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        165.0,
+        192.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing source graph to target graph transformation using generative function",
+      "related_concepts": [
+        "learn the distribution of given graphs",
+        "source graph distribution",
+        "target graph distribution"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        165.0,
+        412.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example of input graph in domain A and output graph in domain B",
+      "related_concepts": [
+        "supervised generative gnn tasks",
+        "domain a",
+        "domain b"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        385.0,
+        467.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix generation",
+      "related_concepts": [
+        "generative learning tasks",
+        "adjacency matrix generation",
+        "gnn mapping function"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        82.5,
+        725.0,
+        165.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Loss curve showing optimization over epochs",
+      "related_concepts": [
+        "loss minimization",
+        "training epochs"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        835.0,
+        165.0,
+        945.0,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix and node feature generation",
+      "related_concepts": [
+        "generative learning tasks",
+        "node feature generation",
+        "gnn mapping function"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        505.0,
+        302.5,
+        725.0,
+        385.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing graph transformation with sparsity constraint",
+      "related_concepts": [
+        "sparsity regularization",
+        "generative learning tasks"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        302.5,
+        945.0,
+        385.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing input domain with graph, adjacency matrix A, node feature matrix X, and edge feature matrix E being transformed by function f to output domain with A', X', E'.",
+      "related_concepts": [
+        "domain a",
+        "target domain",
+        "adjacency matrix",
+        "node feature matrix",
+        "edge feature matrix"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        0.0,
+        450.0,
+        550.0,
+        780.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example of source graph and target graph transformation via function f.",
+      "related_concepts": [
+        "input graph",
+        "generative learning tasks"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        917.5,
+        330.0,
+        972.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Graph with nodes and edges representing the target graph with both node and edge features.",
+      "related_concepts": [
+        "graph representation learning"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        571.0,
+        587.5,
+        697.5,
+        697.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing single graph prediction from source graph to target graph.",
+      "related_concepts": [
+        "input graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        780.0,
+        752.5,
+        835.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing graph super-resolution from low-resolution graph to super-resolved graph.",
+      "related_concepts": [
+        "graph super-resolution"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        780.0,
+        890.0,
+        835.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing multigraph prediction from source graph to multiple target graphs.",
+      "related_concepts": [
+        "multigraph prediction"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        835.0,
+        752.5,
+        972.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing brain graph evolution prediction over time.",
+      "related_concepts": [
+        "brain graph evolution prediction"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        862.5,
+        972.5,
+        972.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "3D axis diagram showing generative GNN dimensions: domain, time, resolution.",
+      "related_concepts": [
+        "generative gnn dimensions"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        571.0,
+        862.5,
+        642.5,
+        972.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "É aw fight g μ gg",
+      "reason": "Handwriting is unclear and may contain symbols or abbreviations that are not easily readable.",
+      "bbox": [
+        82.5,
+        137.5,
+        137.5,
+        154.0
+      ]
+    },
+    {
+      "transcription": "has",
+      "reason": "Handwriting is small and may be part of a larger annotation that is not fully visible.",
+      "bbox": [
+        440.0,
+        495.0,
+        467.5,
+        511.5
+      ]
+    },
+    {
+      "transcription": "target GT prediction",
+      "reason": "Handwriting is somewhat unclear, possibly 'target GT prediction' or similar",
+      "bbox": [
+        890.0,
+        55.0,
+        945.0,
+        71.5
+      ]
+    },
+    {
+      "transcription": "optimized over the train set",
+      "reason": "Handwriting is somewhat unclear, possibly 'optimized over the train set' or similar",
+      "bbox": [
+        890.0,
+        137.5,
+        972.5,
+        154.0
+      ]
+    },
+    {
+      "transcription": "we don't need the loss to include this",
+      "reason": "Handwriting is somewhat unclear, possibly 'we don't need the loss to include this' or similar",
+      "bbox": [
+        780.0,
+        165.0,
+        862.5,
+        192.5
+      ]
+    },
+    {
+      "transcription": "topology-driven",
+      "reason": "Handwriting is somewhat unclear, possibly 'topology-driven' or similar",
+      "bbox": [
+        725.0,
+        203.5,
+        780.0,
+        214.5
+      ]
+    },
+    {
+      "transcription": "strong final epoch",
+      "reason": "Handwriting is somewhat unclear, possibly 'strong final epoch' or similar",
+      "bbox": [
+        890.0,
+        357.5,
+        945.0,
+        374.0
+      ]
+    },
+    {
+      "transcription": "nora node",
+      "reason": "Handwriting is unclear, possibly 'nora' or another term.",
+      "bbox": [
+        110.0,
+        477.5,
+        165.0,
+        505.0
+      ]
+    },
+    {
+      "transcription": "iitin",
+      "reason": "Handwriting is unclear, possibly a typo or abbreviation.",
+      "bbox": [
+        165.0,
+        477.5,
+        220.0,
+        505.0
+      ]
+    },
+    {
+      "transcription": "tangendonan",
+      "reason": "Handwriting is unclear, possibly a technical term or name.",
+      "bbox": [
+        220.0,
+        477.5,
+        275.0,
+        505.0
+      ]
+    },
+    {
+      "transcription": "ia teams aurea",
+      "reason": "Handwriting is unclear, possibly a phrase or name.",
+      "bbox": [
+        275.0,
+        477.5,
+        330.0,
+        505.0
+      ]
+    },
+    {
+      "transcription": "yggn",
+      "reason": "Handwriting is unclear, possibly an abbreviation or typo.",
+      "bbox": [
+        330.0,
+        477.5,
+        385.0,
+        505.0
+      ]
+    },
+    {
+      "transcription": "has no match in the domain",
+      "reason": "Handwriting is somewhat clear but context is ambiguous.",
+      "bbox": [
+        385.0,
+        532.5,
+        440.0,
+        587.5
+      ]
+    },
+    {
+      "transcription": "balance terms out",
+      "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+      "bbox": [
+        862.5,
+        604.0,
+        972.5,
+        642.5
+      ]
+    },
+    {
+      "transcription": "key attention",
+      "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+      "bbox": [
+        862.5,
+        697.5,
+        917.5,
+        725.0
+      ]
+    },
+    {
+      "transcription": "dynamic graph prediction / generation forecasting ...",
+      "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+      "bbox": [
+        890.0,
+        835.0,
+        972.5,
+        862.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "generative learning tasks",
+            "aliases": [
+              "generative gnn tasks"
+            ],
+            "evidence": "Generative learning tasks formalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              50
+            ]
+          },
+          {
+            "canonical": "gnn aims",
+            "aliases": [
+              "graph neural network aims"
+            ],
+            "evidence": "GNN aims",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              80,
+              450,
+              110
+            ]
+          },
+          {
+            "canonical": "predict and analyze patterns",
+            "aliases": [
+              "pattern prediction"
+            ],
+            "evidence": "1) Predict and analyze patterns on given graphs (e.g., predict the label of a node or a graph)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              150,
+              350,
+              250
+            ]
+          },
+          {
+            "canonical": "learn the distribution of given graphs",
+            "aliases": [
+              "distribution learning"
+            ],
+            "evidence": "2) Learn the distribution of given graphs and generate more novel graphs (e.g., generate target graph B from source graph A)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              150,
+              800,
+              250
+            ]
+          },
+          {
+            "canonical": "input graph",
+            "aliases": [
+              "source graph"
+            ],
+            "evidence": "input graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              300,
+              150,
+              330
+            ]
+          },
+          {
+            "canonical": "output label",
+            "aliases": [
+              "predicted label"
+            ],
+            "evidence": "output label",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              300,
+              350,
+              330
+            ]
+          },
+          {
+            "canonical": "multiple output scores",
+            "aliases": [
+              "output scores"
+            ],
+            "evidence": "multiple output scores",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              450,
+              350,
+              480
+            ]
+          },
+          {
+            "canonical": "source graph distribution",
+            "aliases": [
+              "input distribution"
+            ],
+            "evidence": "source graph distribution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              550,
+              550,
+              580
+            ]
+          },
+          {
+            "canonical": "target graph distribution",
+            "aliases": [
+              "output distribution"
+            ],
+            "evidence": "target graph distribution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              550,
+              750,
+              580
+            ]
+          },
+          {
+            "canonical": "supervised generative gnn tasks",
+            "aliases": [
+              "supervised generative tasks"
+            ],
+            "evidence": "Supervised generative GNN tasks (generic task)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              650,
+              300,
+              680
+            ]
+          },
+          {
+            "canonical": "domain a",
+            "aliases": [
+              "input domain"
+            ],
+            "evidence": "domain A",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              700,
+              200,
+              730
+            ]
+          },
+          {
+            "canonical": "domain b",
+            "aliases": [
+              "output domain"
+            ],
+            "evidence": "domain B",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              650,
+              800,
+              680
+            ]
+          },
+          {
+            "canonical": "node features",
+            "aliases": [
+              "node attributes"
+            ],
+            "evidence": "node features",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              300,
+              550,
+              330
+            ]
+          },
+          {
+            "canonical": "topology",
+            "aliases": [
+              "graph structure"
+            ],
+            "evidence": "topology",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              350,
+              550,
+              380
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f_{GNN}(g) = \\hat{y}",
+            "related_concepts": [
+              "gnn aims",
+              "predict and analyze patterns"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              350,
+              300,
+              400
+            ],
+            "label": "gnn prediction function"
+          },
+          {
+            "latex": "f(g_s) = g_{in}^t",
+            "related_concepts": [
+              "learn the distribution of given graphs",
+              "source graph distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              400,
+              650,
+              450
+            ],
+            "label": "generative function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing input graph to output label transformation using GNN",
+            "related_concepts": [
+              "predict and analyze patterns",
+              "input graph",
+              "output label"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              300,
+              350,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation using generative function",
+            "related_concepts": [
+              "learn the distribution of given graphs",
+              "source graph distribution",
+              "target graph distribution"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              300,
+              750,
+              550
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of input graph in domain A and output graph in domain B",
+            "related_concepts": [
+              "supervised generative gnn tasks",
+              "domain a",
+              "domain b"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              700,
+              850,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "É aw fight g μ gg",
+            "reason": "Handwriting is unclear and may contain symbols or abbreviations that are not easily readable.",
+            "bbox": [
+              150,
+              250,
+              250,
+              280
+            ]
+          },
+          {
+            "transcription": "has",
+            "reason": "Handwriting is small and may be part of a larger annotation that is not fully visible.",
+            "bbox": [
+              800,
+              900,
+              850,
+              930
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"generative learning tasks\",\n      \"aliases\": [\"generative gnn tasks\"],\n      \"evidence\": \"Generative learning tasks formalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 50]\n    },\n    {\n      \"canonical\": \"gnn aims\",\n      \"aliases\": [\"graph neural network aims\"],\n      \"evidence\": \"GNN aims\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 80, 450, 110]\n    },\n    {\n      \"canonical\": \"predict and analyze patterns\",\n      \"aliases\": [\"pattern prediction\"],\n      \"evidence\": \"1) Predict and analyze patterns on given graphs (e.g., predict the label of a node or a graph)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 150, 350, 250]\n    },\n    {\n      \"canonical\": \"learn the distribution of given graphs\",\n      \"aliases\": [\"distribution learning\"],\n      \"evidence\": \"2) Learn the distribution of given graphs and generate more novel graphs (e.g., generate target graph B from source graph A)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 150, 800, 250]\n    },\n    {\n      \"canonical\": \"input graph\",\n      \"aliases\": [\"source graph\"],\n      \"evidence\": \"input graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 300, 150, 330]\n    },\n    {\n      \"canonical\": \"output label\",\n      \"aliases\": [\"predicted label\"],\n      \"evidence\": \"output label\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 300, 350, 330]\n    },\n    {\n      \"canonical\": \"multiple output scores\",\n      \"aliases\": [\"output scores\"],\n      \"evidence\": \"multiple output scores\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 450, 350, 480]\n    },\n    {\n      \"canonical\": \"source graph distribution\",\n      \"aliases\": [\"input distribution\"],\n      \"evidence\": \"source graph distribution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 550, 550, 580]\n    },\n    {\n      \"canonical\": \"target graph distribution\",\n      \"aliases\": [\"output distribution\"],\n      \"evidence\": \"target graph distribution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 550, 750, 580]\n    },\n    {\n      \"canonical\": \"supervised generative gnn tasks\",\n      \"aliases\": [\"supervised generative tasks\"],\n      \"evidence\": \"Supervised generative GNN tasks (generic task)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 650, 300, 680]\n    },\n    {\n      \"canonical\": \"domain a\",\n      \"aliases\": [\"input domain\"],\n      \"evidence\": \"domain A\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 700, 200, 730]\n    },\n    {\n      \"canonical\": \"domain b\",\n      \"aliases\": [\"output domain\"],\n      \"evidence\": \"domain B\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 650, 800, 680]\n    },\n    {\n      \"canonical\": \"node features\",\n      \"aliases\": [\"node attributes\"],\n      \"evidence\": \"node features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 300, 550, 330]\n    },\n    {\n      \"canonical\": \"topology\",\n      \"aliases\": [\"graph structure\"],\n      \"evidence\": \"topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 350, 550, 380]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f_{GNN}(g) = \\\\hat{y}\",\n      \"related_concepts\": [\"gnn aims\", \"predict and analyze patterns\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 350, 300, 400],\n      \"label\": \"gnn prediction function\"\n    },\n    {\n      \"latex\": \"f(g_s) = g_{in}^t\",\n      \"related_concepts\": [\"learn the distribution of given graphs\", \"source graph distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 400, 650, 450],\n      \"label\": \"generative function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing input graph to output label transformation using GNN\",\n      \"related_concepts\": [\"predict and analyze patterns\", \"input graph\", \"output label\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 300, 350, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation using generative function\",\n      \"related_concepts\": [\"learn the distribution of given graphs\", \"source graph distribution\", \"target graph distribution\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 300, 750, 550]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of input graph in domain A and output graph in domain B\",\n      \"related_concepts\": [\"supervised generative gnn tasks\", \"domain a\", \"domain b\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 700, 850, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"É aw fight g μ gg\",\n      \"reason\": \"Handwriting is unclear and may contain symbols or abbreviations that are not easily readable.\",\n      \"bbox\": [150, 250, 250, 280]\n    },\n    {\n      \"transcription\": \"has\",\n      \"reason\": \"Handwriting is small and may be part of a larger annotation that is not fully visible.\",\n      \"bbox\": [800, 900, 850, 930]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative learning tasks"
+            ],
+            "evidence": "generative learning tasks formalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              250,
+              30
+            ]
+          },
+          {
+            "canonical": "adjacency matrix generation",
+            "aliases": [
+              "generate graph adjacency matrix"
+            ],
+            "evidence": "Aim: Generate only the graph adjacency matrix.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              100,
+              400,
+              130
+            ]
+          },
+          {
+            "canonical": "node feature generation",
+            "aliases": [
+              "generate node feature matrix"
+            ],
+            "evidence": "Aim: Generate the graph adjacency matrix and its node feature matrix in the target domain.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              500,
+              600,
+              530
+            ]
+          },
+          {
+            "canonical": "edge feature generation",
+            "aliases": [
+              "generate edge feature matrix"
+            ],
+            "evidence": "Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              850,
+              700,
+              880
+            ]
+          },
+          {
+            "canonical": "gnn mapping function",
+            "aliases": [
+              "GNN mapping function"
+            ],
+            "evidence": "GNN mapping function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              150,
+              650,
+              180
+            ]
+          },
+          {
+            "canonical": "gnn loss function",
+            "aliases": [
+              "GNN loss function"
+            ],
+            "evidence": "GNN loss function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              150,
+              850,
+              180
+            ]
+          },
+          {
+            "canonical": "random initialization",
+            "aliases": [
+              "initialize randomly"
+            ],
+            "evidence": "1. Randomly.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              350,
+              250,
+              370
+            ]
+          },
+          {
+            "canonical": "topological attribute initialization",
+            "aliases": [
+              "initialize using topological attributes"
+            ],
+            "evidence": "2. Using the topological attributes of a given node.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              370,
+              500,
+              390
+            ]
+          },
+          {
+            "canonical": "identity vector initialization",
+            "aliases": [
+              "initialize using identity vector"
+            ],
+            "evidence": "3. Using an identity vector of [1 1 ... 1].",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              390,
+              450,
+              410
+            ]
+          },
+          {
+            "canonical": "sparsity regularization",
+            "aliases": [
+              "sparsity"
+            ],
+            "evidence": "L2 (sparsity)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              800,
+              700,
+              830
+            ]
+          },
+          {
+            "canonical": "training epochs",
+            "aliases": [
+              "epochs"
+            ],
+            "evidence": "epochs",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              800,
+              450,
+              850,
+              470
+            ]
+          },
+          {
+            "canonical": "loss minimization",
+            "aliases": [
+              "minimize loss"
+            ],
+            "evidence": "min d1",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              550,
+              750,
+              570
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f(A, X) = (\\tilde{A}', \\tilde{X}')",
+            "related_concepts": [
+              "gnn mapping function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              200,
+              700,
+              250
+            ],
+            "label": "GNN mapping function"
+          },
+          {
+            "latex": "\\mathcal{L}_1 = dist(A', \\tilde{A}')",
+            "related_concepts": [
+              "gnn loss function",
+              "adjacency matrix generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              200,
+              900,
+              250
+            ],
+            "label": "GNN loss function"
+          },
+          {
+            "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+            "related_concepts": [
+              "gnn loss function",
+              "node feature generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              700,
+              900,
+              750
+            ],
+            "label": "GNN loss function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix generation",
+            "related_concepts": [
+              "graph generation",
+              "adjacency matrix generation",
+              "gnn mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              150,
+              500,
+              300
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Loss curve showing optimization over epochs",
+            "related_concepts": [
+              "loss minimization",
+              "training epochs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              700,
+              300,
+              900,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix and node feature generation",
+            "related_concepts": [
+              "graph generation",
+              "node feature generation",
+              "gnn mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              550,
+              500,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing graph transformation with sparsity constraint",
+            "related_concepts": [
+              "sparsity regularization",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              550,
+              900,
+              700
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "target GT prediction",
+            "reason": "Handwriting is somewhat unclear, possibly 'target GT prediction' or similar",
+            "bbox": [
+              800,
+              100,
+              900,
+              130
+            ]
+          },
+          {
+            "transcription": "optimized over the train set",
+            "reason": "Handwriting is somewhat unclear, possibly 'optimized over the train set' or similar",
+            "bbox": [
+              800,
+              250,
+              950,
+              280
+            ]
+          },
+          {
+            "transcription": "we don't need the loss to include this",
+            "reason": "Handwriting is somewhat unclear, possibly 'we don't need the loss to include this' or similar",
+            "bbox": [
+              600,
+              300,
+              750,
+              350
+            ]
+          },
+          {
+            "transcription": "topology-driven",
+            "reason": "Handwriting is somewhat unclear, possibly 'topology-driven' or similar",
+            "bbox": [
+              500,
+              370,
+              600,
+              390
+            ]
+          },
+          {
+            "transcription": "strong final epoch",
+            "reason": "Handwriting is somewhat unclear, possibly 'strong final epoch' or similar",
+            "bbox": [
+              800,
+              650,
+              900,
+              680
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative learning tasks\"],\n      \"evidence\": \"generative learning tasks formalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 250, 30]\n    },\n    {\n      \"canonical\": \"adjacency matrix generation\",\n      \"aliases\": [\"generate graph adjacency matrix\"],\n      \"evidence\": \"Aim: Generate only the graph adjacency matrix.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 100, 400, 130]\n    },\n    {\n      \"canonical\": \"node feature generation\",\n      \"aliases\": [\"generate node feature matrix\"],\n      \"evidence\": \"Aim: Generate the graph adjacency matrix and its node feature matrix in the target domain.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 500, 600, 530]\n    },\n    {\n      \"canonical\": \"edge feature generation\",\n      \"aliases\": [\"generate edge feature matrix\"],\n      \"evidence\": \"Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 850, 700, 880]\n    },\n    {\n      \"canonical\": \"gnn mapping function\",\n      \"aliases\": [\"GNN mapping function\"],\n      \"evidence\": \"GNN mapping function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 150, 650, 180]\n    },\n    {\n      \"canonical\": \"gnn loss function\",\n      \"aliases\": [\"GNN loss function\"],\n      \"evidence\": \"GNN loss function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 150, 850, 180]\n    },\n    {\n      \"canonical\": \"random initialization\",\n      \"aliases\": [\"initialize randomly\"],\n      \"evidence\": \"1. Randomly.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 350, 250, 370]\n    },\n    {\n      \"canonical\": \"topological attribute initialization\",\n      \"aliases\": [\"initialize using topological attributes\"],\n      \"evidence\": \"2. Using the topological attributes of a given node.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 370, 500, 390]\n    },\n    {\n      \"canonical\": \"identity vector initialization\",\n      \"aliases\": [\"initialize using identity vector\"],\n      \"evidence\": \"3. Using an identity vector of [1 1 ... 1].\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 390, 450, 410]\n    },\n    {\n      \"canonical\": \"sparsity regularization\",\n      \"aliases\": [\"sparsity\"],\n      \"evidence\": \"L2 (sparsity)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 800, 700, 830]\n    },\n    {\n      \"canonical\": \"training epochs\",\n      \"aliases\": [\"epochs\"],\n      \"evidence\": \"epochs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [800, 450, 850, 470]\n    },\n    {\n      \"canonical\": \"loss minimization\",\n      \"aliases\": [\"minimize loss\"],\n      \"evidence\": \"min d1\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 550, 750, 570]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f(A, X) = (\\\\tilde{A}', \\\\tilde{X}')\",\n      \"related_concepts\": [\"gnn mapping function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 200, 700, 250],\n      \"label\": \"GNN mapping function\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_1 = dist(A', \\\\tilde{A}')\",\n      \"related_concepts\": [\"gnn loss function\", \"adjacency matrix generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 200, 900, 250],\n      \"label\": \"GNN loss function\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_2 = dist(A', \\\\tilde{A}') + \\\\lambda dist(X', \\\\tilde{X}')\",\n      \"related_concepts\": [\"gnn loss function\", \"node feature generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 700, 900, 750],\n      \"label\": \"GNN loss function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix generation\",\n      \"related_concepts\": [\"graph generation\", \"adjacency matrix generation\", \"gnn mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 150, 500, 300]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Loss curve showing optimization over epochs\",\n      \"related_concepts\": [\"loss minimization\", \"training epochs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [700, 300, 900, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix and node feature generation\",\n      \"related_concepts\": [\"graph generation\", \"node feature generation\", \"gnn mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 550, 500, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing graph transformation with sparsity constraint\",\n      \"related_concepts\": [\"sparsity regularization\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 550, 900, 700]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"target GT prediction\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'target GT prediction' or similar\",\n      \"bbox\": [800, 100, 900, 130]\n    },\n    {\n      \"transcription\": \"optimized over the train set\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'optimized over the train set' or similar\",\n      \"bbox\": [800, 250, 950, 280]\n    },\n    {\n      \"transcription\": \"we don't need the loss to include this\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'we don't need the loss to include this' or similar\",\n      \"bbox\": [600, 300, 750, 350]\n    },\n    {\n      \"transcription\": \"topology-driven\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'topology-driven' or similar\",\n      \"bbox\": [500, 370, 600, 390]\n    },\n    {\n      \"transcription\": \"strong final epoch\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'strong final epoch' or similar\",\n      \"bbox\": [800, 650, 900, 680]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative task",
+              "generative model"
+            ],
+            "evidence": "How to solve the following generative task?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              780,
+              1000,
+              820
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [
+              "loss"
+            ],
+            "evidence": "How to define the loss function?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              740,
+              1000,
+              780
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "A",
+              "A'",
+              "A_tilde"
+            ],
+            "evidence": "A, A', A_tilde",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              0,
+              800,
+              200
+            ]
+          },
+          {
+            "canonical": "node feature matrix",
+            "aliases": [
+              "X",
+              "X'",
+              "H0"
+            ],
+            "evidence": "X, X', H0",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              100,
+              800,
+              300
+            ]
+          },
+          {
+            "canonical": "edge feature matrix",
+            "aliases": [
+              "E",
+              "E'"
+            ],
+            "evidence": "E, E'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              300,
+              800,
+              600
+            ]
+          },
+          {
+            "canonical": "gcn",
+            "aliases": [
+              "graph convolutional network"
+            ],
+            "evidence": "GCN node embedding rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              820,
+              1000,
+              860
+            ]
+          },
+          {
+            "canonical": "input domain",
+            "aliases": [],
+            "evidence": "input domain",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              250,
+              200,
+              300
+            ]
+          },
+          {
+            "canonical": "target domain",
+            "aliases": [],
+            "evidence": "target domain",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              250,
+              800,
+              300
+            ]
+          },
+          {
+            "canonical": "source graph",
+            "aliases": [],
+            "evidence": "source graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              900,
+              400,
+              950
+            ]
+          },
+          {
+            "canonical": "target graph",
+            "aliases": [],
+            "evidence": "target graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              900,
+              600,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f_{GNN}(A, X, E) = (\\tilde{A}', \\tilde{X}', \\tilde{E}')",
+            "related_concepts": [
+              "graph generation",
+              "gcn",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              350,
+              1000,
+              450
+            ],
+            "label": "GNN function"
+          },
+          {
+            "latex": "GT \\Rightarrow A', X', E'",
+            "related_concepts": [
+              "graph generation",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              600,
+              450,
+              1000,
+              500
+            ],
+            "label": "Ground Truth"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing input domain with graph, adjacency matrix A, node feature matrix X, and edge feature matrix E being transformed by function f to output domain with A', X', E'.",
+            "related_concepts": [
+              "input domain",
+              "target domain",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              600
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of source graph and target graph transformation via function f.",
+            "related_concepts": [
+              "source graph",
+              "target graph",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              850,
+              600,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "nora node",
+            "reason": "Handwriting is unclear, possibly 'nora' or another term.",
+            "bbox": [
+              200,
+              50,
+              300,
+              100
+            ]
+          },
+          {
+            "transcription": "iitin",
+            "reason": "Handwriting is unclear, possibly a typo or abbreviation.",
+            "bbox": [
+              300,
+              50,
+              400,
+              100
+            ]
+          },
+          {
+            "transcription": "tangendonan",
+            "reason": "Handwriting is unclear, possibly a technical term or name.",
+            "bbox": [
+              400,
+              50,
+              500,
+              100
+            ]
+          },
+          {
+            "transcription": "ia teams aurea",
+            "reason": "Handwriting is unclear, possibly a phrase or name.",
+            "bbox": [
+              500,
+              50,
+              600,
+              100
+            ]
+          },
+          {
+            "transcription": "yggn",
+            "reason": "Handwriting is unclear, possibly an abbreviation or typo.",
+            "bbox": [
+              600,
+              50,
+              700,
+              100
+            ]
+          },
+          {
+            "transcription": "has no match in the domain",
+            "reason": "Handwriting is somewhat clear but context is ambiguous.",
+            "bbox": [
+              700,
+              150,
+              800,
+              250
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative task\", \"generative model\"],\n      \"evidence\": \"How to solve the following generative task?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 780, 1000, 820]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [\"loss\"],\n      \"evidence\": \"How to define the loss function?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 740, 1000, 780]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"A\", \"A'\", \"A_tilde\"],\n      \"evidence\": \"A, A', A_tilde\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 0, 800, 200]\n    },\n    {\n      \"canonical\": \"node feature matrix\",\n      \"aliases\": [\"X\", \"X'\", \"H0\"],\n      \"evidence\": \"X, X', H0\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 100, 800, 300]\n    },\n    {\n      \"canonical\": \"edge feature matrix\",\n      \"aliases\": [\"E\", \"E'\"],\n      \"evidence\": \"E, E'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 300, 800, 600]\n    },\n    {\n      \"canonical\": \"gcn\",\n      \"aliases\": [\"graph convolutional network\"],\n      \"evidence\": \"GCN node embedding rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 820, 1000, 860]\n    },\n    {\n      \"canonical\": \"input domain\",\n      \"aliases\": [],\n      \"evidence\": \"input domain\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 250, 200, 300]\n    },\n    {\n      \"canonical\": \"target domain\",\n      \"aliases\": [],\n      \"evidence\": \"target domain\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 250, 800, 300]\n    },\n    {\n      \"canonical\": \"source graph\",\n      \"aliases\": [],\n      \"evidence\": \"source graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 900, 400, 950]\n    },\n    {\n      \"canonical\": \"target graph\",\n      \"aliases\": [],\n      \"evidence\": \"target graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 900, 600, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f_{GNN}(A, X, E) = (\\\\tilde{A}', \\\\tilde{X}', \\\\tilde{E}')\",\n      \"related_concepts\": [\"graph generation\", \"gcn\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 350, 1000, 450],\n      \"label\": \"GNN function\"\n    },\n    {\n      \"latex\": \"GT \\\\Rightarrow A', X', E'\",\n      \"related_concepts\": [\"graph generation\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [600, 450, 1000, 500],\n      \"label\": \"Ground Truth\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing input domain with graph, adjacency matrix A, node feature matrix X, and edge feature matrix E being transformed by function f to output domain with A', X', E'.\",\n      \"related_concepts\": [\"input domain\", \"target domain\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 600]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of source graph and target graph transformation via function f.\",\n      \"related_concepts\": [\"source graph\", \"target graph\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 850, 600, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"nora node\",\n      \"reason\": \"Handwriting is unclear, possibly 'nora' or another term.\",\n      \"bbox\": [200, 50, 300, 100]\n    },\n    {\n      \"transcription\": \"iitin\",\n      \"reason\": \"Handwriting is unclear, possibly a typo or abbreviation.\",\n      \"bbox\": [300, 50, 400, 100]\n    },\n    {\n      \"transcription\": \"tangendonan\",\n      \"reason\": \"Handwriting is unclear, possibly a technical term or name.\",\n      \"bbox\": [400, 50, 500, 100]\n    },\n    {\n      \"transcription\": \"ia teams aurea\",\n      \"reason\": \"Handwriting is unclear, possibly a phrase or name.\",\n      \"bbox\": [500, 50, 600, 100]\n    },\n    {\n      \"transcription\": \"yggn\",\n      \"reason\": \"Handwriting is unclear, possibly an abbreviation or typo.\",\n      \"bbox\": [600, 50, 700, 100]\n    },\n    {\n      \"transcription\": \"has no match in the domain\",\n      \"reason\": \"Handwriting is somewhat clear but context is ambiguous.\",\n      \"bbox\": [700, 150, 800, 250]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative gnn",
+              "generative graph neural network"
+            ],
+            "evidence": "Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              200,
+              750,
+              250
+            ]
+          },
+          {
+            "canonical": "graph representation learning",
+            "aliases": [
+              "graph embedding"
+            ],
+            "evidence": "The target graph has both node and edge features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              150,
+              550,
+              180
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "gnn mapping function"
+            ],
+            "evidence": "GNN mapping function f(A, X, E) = (Ã, X̃, Ẽ)",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              280,
+              750,
+              350
+            ]
+          },
+          {
+            "canonical": "graph super-resolution",
+            "aliases": [
+              "super-resolved graph"
+            ],
+            "evidence": "Graph super-resolution: Low-resolution graph -> Super-resolved graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              800,
+              700
+            ]
+          },
+          {
+            "canonical": "brain graph evolution prediction",
+            "aliases": [
+              "time-dependent gnn"
+            ],
+            "evidence": "Brain graph evolution prediction: Brain graph at baseline t0 -> Brain graph at t2 -> Brain graph at t3 -> Brain graph at t4",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              950,
+              950
+            ]
+          },
+          {
+            "canonical": "single graph prediction",
+            "aliases": [
+              "source graph",
+              "target graph"
+            ],
+            "evidence": "Single graph prediction: Source graph -> Target graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              600,
+              550,
+              700
+            ]
+          },
+          {
+            "canonical": "multigraph prediction",
+            "aliases": [
+              "target graph 1",
+              "target graph n"
+            ],
+            "evidence": "Multigraph prediction: Source graph -> Target graph 1 ... Target graph n",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              700,
+              550,
+              950
+            ]
+          },
+          {
+            "canonical": "generative gnn dimensions",
+            "aliases": [
+              "domain",
+              "time",
+              "resolution"
+            ],
+            "evidence": "Generative GNN dimensions: domain, time, resolution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              750,
+              350,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+            "related_concepts": [
+              "graph generation",
+              "gnn loss function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              50,
+              950,
+              100
+            ],
+            "label": "L2"
+          },
+          {
+            "latex": "\\mathcal{L}_3 = dist(A', \\tilde{A}') + \\lambda_1 dist(X', \\tilde{X}') + \\lambda_2 dist(E', \\tilde{E}')",
+            "related_concepts": [
+              "graph generation",
+              "gnn loss function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              350,
+              950,
+              450
+            ],
+            "label": "L3"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Graph with nodes and edges representing the target graph with both node and edge features.",
+            "related_concepts": [
+              "graph representation learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              250,
+              450,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing single graph prediction from source graph to target graph.",
+            "related_concepts": [
+              "single graph prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              600,
+              550,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing graph super-resolution from low-resolution graph to super-resolved graph.",
+            "related_concepts": [
+              "graph super-resolution"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              800,
+              700
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing multigraph prediction from source graph to multiple target graphs.",
+            "related_concepts": [
+              "multigraph prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              700,
+              550,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing brain graph evolution prediction over time.",
+            "related_concepts": [
+              "brain graph evolution prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              950,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "3D axis diagram showing generative GNN dimensions: domain, time, resolution.",
+            "related_concepts": [
+              "generative gnn dimensions"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              750,
+              350,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "balance terms out",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              750,
+              280,
+              950,
+              350
+            ]
+          },
+          {
+            "transcription": "key attention",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              750,
+              450,
+              850,
+              500
+            ]
+          },
+          {
+            "transcription": "dynamic graph prediction / generation forecasting ...",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              800,
+              700,
+              950,
+              750
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative gnn\", \"generative graph neural network\"],\n      \"evidence\": \"Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 200, 750, 250]\n    },\n    {\n      \"canonical\": \"graph representation learning\",\n      \"aliases\": [\"graph embedding\"],\n      \"evidence\": \"The target graph has both node and edge features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 150, 550, 180]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"gnn mapping function\"],\n      \"evidence\": \"GNN mapping function f(A, X, E) = (Ã, X̃, Ẽ)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 280, 750, 350]\n    },\n    {\n      \"canonical\": \"graph super-resolution\",\n      \"aliases\": [\"super-resolved graph\"],\n      \"evidence\": \"Graph super-resolution: Low-resolution graph -> Super-resolved graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 800, 700]\n    },\n    {\n      \"canonical\": \"brain graph evolution prediction\",\n      \"aliases\": [\"time-dependent gnn\"],\n      \"evidence\": \"Brain graph evolution prediction: Brain graph at baseline t0 -> Brain graph at t2 -> Brain graph at t3 -> Brain graph at t4\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 950, 950]\n    },\n    {\n      \"canonical\": \"single graph prediction\",\n      \"aliases\": [\"source graph\", \"target graph\"],\n      \"evidence\": \"Single graph prediction: Source graph -> Target graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 600, 550, 700]\n    },\n    {\n      \"canonical\": \"multigraph prediction\",\n      \"aliases\": [\"target graph 1\", \"target graph n\"],\n      \"evidence\": \"Multigraph prediction: Source graph -> Target graph 1 ... Target graph n\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 700, 550, 950]\n    },\n    {\n      \"canonical\": \"generative gnn dimensions\",\n      \"aliases\": [\"domain\", \"time\", \"resolution\"],\n      \"evidence\": \"Generative GNN dimensions: domain, time, resolution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 750, 350, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\mathcal{L}_2 = dist(A', \\\\tilde{A}') + \\\\lambda dist(X', \\\\tilde{X}')\",\n      \"related_concepts\": [\"graph generation\", \"gnn loss function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 50, 950, 100],\n      \"label\": \"L2\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_3 = dist(A', \\\\tilde{A}') + \\\\lambda_1 dist(X', \\\\tilde{X}') + \\\\lambda_2 dist(E', \\\\tilde{E}')\",\n      \"related_concepts\": [\"graph generation\", \"gnn loss function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 350, 950, 450],\n      \"label\": \"L3\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Graph with nodes and edges representing the target graph with both node and edge features.\",\n      \"related_concepts\": [\"graph representation learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 250, 450, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing single graph prediction from source graph to target graph.\",\n      \"related_concepts\": [\"single graph prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 600, 550, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing graph super-resolution from low-resolution graph to super-resolved graph.\",\n      \"related_concepts\": [\"graph super-resolution\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 800, 700]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing multigraph prediction from source graph to multiple target graphs.\",\n      \"related_concepts\": [\"multigraph prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 700, 550, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing brain graph evolution prediction over time.\",\n      \"related_concepts\": [\"brain graph evolution prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 950, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"3D axis diagram showing generative GNN dimensions: domain, time, resolution.\",\n      \"related_concepts\": [\"generative gnn dimensions\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 750, 350, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"balance terms out\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [750, 280, 950, 350]\n    },\n    {\n      \"transcription\": \"key attention\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [750, 450, 850, 500]\n    },\n    {\n      \"transcription\": \"dynamic graph prediction / generation forecasting ...\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [800, 700, 950, 750]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Generative Learning Tasks Formalization",
+        "summary": "This page outlines the formalization of generative learning tasks in Graph Neural Networks (GNNs), distinguishing between predictive analysis and distribution learning for graph generation. It details supervised generative GNN tasks, including the generation of adjacency matrices, node features, and edge features, along with corresponding mapping functions and loss functions. The page also illustrates various applications such as graph super-resolution, multigraph prediction, and brain graph evolution prediction.",
+        "key_topics": [
+          "generative learning tasks",
+          "graph neural network aims",
+          "supervised generative gnn tasks",
+          "adjacency matrix generation",
+          "node feature generation",
+          "edge feature generation",
+          "gnn mapping function",
+          "gnn loss function",
+          "graph super-resolution",
+          "brain graph evolution prediction"
+        ],
+        "concepts": [
+          {
+            "canonical": "generative learning tasks",
+            "aliases": [
+              "generative gnn tasks",
+              "graph generation",
+              "generative task",
+              "generative model",
+              "generative gnn",
+              "generative graph neural network"
+            ],
+            "evidence": "Generative learning tasks formalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              0.0,
+              550.0,
+              27.5
+            ]
+          },
+          {
+            "canonical": "gnn aims",
+            "aliases": [
+              "graph neural network aims"
+            ],
+            "evidence": "GNN aims",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              44.0,
+              247.5,
+              60.5
+            ]
+          },
+          {
+            "canonical": "predict and analyze patterns",
+            "aliases": [
+              "pattern prediction"
+            ],
+            "evidence": "1) Predict and analyze patterns on given graphs (e.g., predict the label of a node or a graph)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              55.0,
+              82.5,
+              192.5,
+              137.5
+            ]
+          },
+          {
+            "canonical": "learn the distribution of given graphs",
+            "aliases": [
+              "distribution learning"
+            ],
+            "evidence": "2) Learn the distribution of given graphs and generate more novel graphs (e.g., generate target graph B from source graph A)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              82.5,
+              440.0,
+              137.5
+            ]
+          },
+          {
+            "canonical": "input graph",
+            "aliases": [
+              "source graph",
+              "single graph prediction",
+              "target graph"
+            ],
+            "evidence": "input graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              165.0,
+              82.5,
+              181.5
+            ]
+          },
+          {
+            "canonical": "output label",
+            "aliases": [
+              "predicted label"
+            ],
+            "evidence": "output label",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              165.0,
+              192.5,
+              181.5
+            ]
+          },
+          {
+            "canonical": "multiple output scores",
+            "aliases": [
+              "output scores"
+            ],
+            "evidence": "multiple output scores",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              247.5,
+              192.5,
+              264.0
+            ]
+          },
+          {
+            "canonical": "source graph distribution",
+            "aliases": [
+              "input distribution"
+            ],
+            "evidence": "source graph distribution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              302.5,
+              302.5,
+              319.0
+            ]
+          },
+          {
+            "canonical": "target graph distribution",
+            "aliases": [
+              "output distribution"
+            ],
+            "evidence": "target graph distribution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              302.5,
+              412.5,
+              319.0
+            ]
+          },
+          {
+            "canonical": "supervised generative gnn tasks",
+            "aliases": [
+              "supervised generative tasks"
+            ],
+            "evidence": "Supervised generative GNN tasks (generic task)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              357.5,
+              165.0,
+              374.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix generation",
+            "aliases": [
+              "generate graph adjacency matrix"
+            ],
+            "evidence": "Aim: Generate only the graph adjacency matrix.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              55.0,
+              670.0,
+              71.5
+            ]
+          },
+          {
+            "canonical": "node feature generation",
+            "aliases": [
+              "generate node feature matrix"
+            ],
+            "evidence": "Aim: Generate the graph adjacency matrix and its node feature matrix in the target domain.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              275.0,
+              780.0,
+              291.5
+            ]
+          },
+          {
+            "canonical": "edge feature generation",
+            "aliases": [
+              "generate edge feature matrix"
+            ],
+            "evidence": "Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              467.5,
+              835.0,
+              484.0
+            ]
+          },
+          {
+            "canonical": "gnn mapping function",
+            "aliases": [
+              "message passing",
+              "gnn mapping function"
+            ],
+            "evidence": "GNN mapping function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              82.5,
+              807.5,
+              99.0
+            ]
+          },
+          {
+            "canonical": "gnn loss function",
+            "aliases": [],
+            "evidence": "GNN loss function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              835.0,
+              82.5,
+              917.5,
+              99.0
+            ]
+          },
+          {
+            "canonical": "random initialization",
+            "aliases": [
+              "initialize randomly"
+            ],
+            "evidence": "1. Randomly.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              192.5,
+              587.5,
+              203.5
+            ]
+          },
+          {
+            "canonical": "topological attribute initialization",
+            "aliases": [
+              "initialize using topological attributes"
+            ],
+            "evidence": "2. Using the topological attributes of a given node.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              203.5,
+              725.0,
+              214.5
+            ]
+          },
+          {
+            "canonical": "identity vector initialization",
+            "aliases": [
+              "initialize using identity vector"
+            ],
+            "evidence": "3. Using an identity vector of [1 1 ... 1].",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              214.5,
+              697.5,
+              225.5
+            ]
+          },
+          {
+            "canonical": "loss function",
+            "aliases": [
+              "loss"
+            ],
+            "evidence": "How to define the loss function?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              857.0,
+              550.0,
+              879.0
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "a",
+              "a_tilde"
+            ],
+            "evidence": "A, A', A_tilde",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              450.0,
+              440.0,
+              560.0
+            ]
+          },
+          {
+            "canonical": "node feature matrix",
+            "aliases": [
+              "x",
+              "h0"
+            ],
+            "evidence": "X, X', H0",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              505.0,
+              440.0,
+              615.0
+            ]
+          },
+          {
+            "canonical": "edge feature matrix",
+            "aliases": [
+              "e"
+            ],
+            "evidence": "E, E'",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              615.0,
+              440.0,
+              780.0
+            ]
+          },
+          {
+            "canonical": "gcn",
+            "aliases": [
+              "graph convolutional network"
+            ],
+            "evidence": "GCN node embedding rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              901.0,
+              550.0,
+              923.0
+            ]
+          },
+          {
+            "canonical": "target graph",
+            "aliases": [],
+            "evidence": "target graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              945.0,
+              330.0,
+              972.5
+            ]
+          },
+          {
+            "canonical": "graph representation learning",
+            "aliases": [
+              "graph embedding"
+            ],
+            "evidence": "The target graph has both node and edge features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              571.0,
+              532.5,
+              752.5,
+              549.0
+            ]
+          },
+          {
+            "canonical": "graph super-resolution",
+            "aliases": [
+              "super-resolved graph"
+            ],
+            "evidence": "Graph super-resolution: Low-resolution graph -> Super-resolved graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              780.0,
+              890.0,
+              835.0
+            ]
+          },
+          {
+            "canonical": "brain graph evolution prediction",
+            "aliases": [
+              "time-dependent gnn"
+            ],
+            "evidence": "Brain graph evolution prediction: Brain graph at baseline t0 -> Brain graph at t2 -> Brain graph at t3 -> Brain graph at t4",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              862.5,
+              972.5,
+              972.5
+            ]
+          },
+          {
+            "canonical": "multigraph prediction",
+            "aliases": [
+              "target graph 1",
+              "target graph n"
+            ],
+            "evidence": "Multigraph prediction: Source graph -> Target graph 1 ... Target graph n",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              835.0,
+              752.5,
+              972.5
+            ]
+          },
+          {
+            "canonical": "generative gnn dimensions",
+            "aliases": [
+              "domain",
+              "time",
+              "resolution"
+            ],
+            "evidence": "Generative GNN dimensions: domain, time, resolution",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              571.0,
+              862.5,
+              642.5,
+              972.5
+            ]
+          },
+          {
+            "canonical": "domain a",
+            "aliases": [
+              "input domain"
+            ],
+            "evidence": "domain A",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              385.0,
+              110.0,
+              401.5
+            ]
+          },
+          {
+            "canonical": "domain b",
+            "aliases": [
+              "output domain"
+            ],
+            "evidence": "domain B",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              385.0,
+              357.5,
+              440.0,
+              374.0
+            ]
+          },
+          {
+            "canonical": "node features",
+            "aliases": [
+              "node attributes"
+            ],
+            "evidence": "node features",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              247.5,
+              165.0,
+              302.5,
+              181.5
+            ]
+          },
+          {
+            "canonical": "topology",
+            "aliases": [
+              "graph structure"
+            ],
+            "evidence": "topology",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              247.5,
+              192.5,
+              302.5,
+              209.0
+            ]
+          },
+          {
+            "canonical": "sparsity regularization",
+            "aliases": [
+              "sparsity"
+            ],
+            "evidence": "L2 (sparsity)",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              440.0,
+              835.0,
+              456.5
+            ]
+          },
+          {
+            "canonical": "training epochs",
+            "aliases": [
+              "epochs"
+            ],
+            "evidence": "epochs",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              890.0,
+              247.5,
+              917.5,
+              258.5
+            ]
+          },
+          {
+            "canonical": "loss minimization",
+            "aliases": [
+              "minimize loss"
+            ],
+            "evidence": "min d1",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              835.0,
+              302.5,
+              862.5,
+              313.5
+            ]
+          },
+          {
+            "canonical": "target domain",
+            "aliases": [],
+            "evidence": "target domain",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              587.5,
+              440.0,
+              615.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "f_{GNN}(g) = \\hat{y}",
+            "related_concepts": [
+              "gnn aims",
+              "predict and analyze patterns"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              110.0,
+              192.5,
+              165.0,
+              220.0
+            ],
+            "label": "gnn prediction function"
+          },
+          {
+            "latex": "f(g_s) = g_{in}^t",
+            "related_concepts": [
+              "learn the distribution of given graphs",
+              "source graph distribution"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              302.5,
+              220.0,
+              357.5,
+              247.5
+            ],
+            "label": "generative function"
+          },
+          {
+            "latex": "f(A, X) = (\\tilde{A}', \\tilde{X}')",
+            "related_concepts": [
+              "gnn mapping function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              110.0,
+              835.0,
+              137.5
+            ],
+            "label": "GNN mapping function"
+          },
+          {
+            "latex": "\\mathcal{L}_1 = dist(A', \\tilde{A}')",
+            "related_concepts": [
+              "gnn loss function",
+              "adjacency matrix generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              835.0,
+              110.0,
+              945.0,
+              137.5
+            ],
+            "label": "GNN loss function"
+          },
+          {
+            "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+            "related_concepts": [
+              "gnn loss function",
+              "node feature generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              385.0,
+              945.0,
+              412.5
+            ],
+            "label": "GNN loss function"
+          },
+          {
+            "latex": "f_{GNN}(A, X, E) = (\\tilde{A}', \\tilde{X}', \\tilde{E}')",
+            "related_concepts": [
+              "graph generation",
+              "gcn",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              642.5,
+              550.0,
+              697.5
+            ],
+            "label": "GNN function"
+          },
+          {
+            "latex": "GT \\Rightarrow A', X', E'",
+            "related_concepts": [
+              "graph generation",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              330.0,
+              697.5,
+              550.0,
+              725.0
+            ],
+            "label": "Ground Truth"
+          },
+          {
+            "latex": "\\mathcal{L}_2 = dist(A', \\tilde{A}') + \\lambda dist(X', \\tilde{X}')",
+            "related_concepts": [
+              "graph generation",
+              "gnn loss function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              477.5,
+              972.5,
+              505.0
+            ],
+            "label": "L2"
+          },
+          {
+            "latex": "\\mathcal{L}_3 = dist(A', \\tilde{A}') + \\lambda_1 dist(X', \\tilde{X}') + \\lambda_2 dist(E', \\tilde{E}')",
+            "related_concepts": [
+              "graph generation",
+              "gnn loss function"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              697.5,
+              642.5,
+              972.5,
+              697.5
+            ],
+            "label": "L3"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing input graph to output label transformation using GNN",
+            "related_concepts": [
+              "predict and analyze patterns",
+              "input graph",
+              "output label"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              165.0,
+              192.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation using generative function",
+            "related_concepts": [
+              "learn the distribution of given graphs",
+              "source graph distribution",
+              "target graph distribution"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              165.0,
+              412.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of input graph in domain A and output graph in domain B",
+            "related_concepts": [
+              "supervised generative gnn tasks",
+              "domain a",
+              "domain b"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              385.0,
+              467.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix generation",
+            "related_concepts": [
+              "graph generation",
+              "adjacency matrix generation",
+              "gnn mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              82.5,
+              725.0,
+              165.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Loss curve showing optimization over epochs",
+            "related_concepts": [
+              "loss minimization",
+              "training epochs"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              835.0,
+              165.0,
+              945.0,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix and node feature generation",
+            "related_concepts": [
+              "graph generation",
+              "node feature generation",
+              "gnn mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              505.0,
+              302.5,
+              725.0,
+              385.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing graph transformation with sparsity constraint",
+            "related_concepts": [
+              "sparsity regularization",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              302.5,
+              945.0,
+              385.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing input domain with graph, adjacency matrix A, node feature matrix X, and edge feature matrix E being transformed by function f to output domain with A', X', E'.",
+            "related_concepts": [
+              "input domain",
+              "target domain",
+              "adjacency matrix",
+              "node feature matrix",
+              "edge feature matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0.0,
+              450.0,
+              550.0,
+              780.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of source graph and target graph transformation via function f.",
+            "related_concepts": [
+              "source graph",
+              "target graph",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              917.5,
+              330.0,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Graph with nodes and edges representing the target graph with both node and edge features.",
+            "related_concepts": [
+              "graph representation learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              571.0,
+              587.5,
+              697.5,
+              697.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing single graph prediction from source graph to target graph.",
+            "related_concepts": [
+              "single graph prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              780.0,
+              752.5,
+              835.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing graph super-resolution from low-resolution graph to super-resolved graph.",
+            "related_concepts": [
+              "graph super-resolution"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              780.0,
+              890.0,
+              835.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing multigraph prediction from source graph to multiple target graphs.",
+            "related_concepts": [
+              "multigraph prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              835.0,
+              752.5,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing brain graph evolution prediction over time.",
+            "related_concepts": [
+              "brain graph evolution prediction"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              862.5,
+              972.5,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "3D axis diagram showing generative GNN dimensions: domain, time, resolution.",
+            "related_concepts": [
+              "generative gnn dimensions"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              571.0,
+              862.5,
+              642.5,
+              972.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "É aw fight g μ gg",
+            "reason": "Handwriting is unclear and may contain symbols or abbreviations that are not easily readable.",
+            "bbox": [
+              82.5,
+              137.5,
+              137.5,
+              154.0
+            ]
+          },
+          {
+            "transcription": "has",
+            "reason": "Handwriting is small and may be part of a larger annotation that is not fully visible.",
+            "bbox": [
+              440.0,
+              495.0,
+              467.5,
+              511.5
+            ]
+          },
+          {
+            "transcription": "target GT prediction",
+            "reason": "Handwriting is somewhat unclear, possibly 'target GT prediction' or similar",
+            "bbox": [
+              890.0,
+              55.0,
+              945.0,
+              71.5
+            ]
+          },
+          {
+            "transcription": "optimized over the train set",
+            "reason": "Handwriting is somewhat unclear, possibly 'optimized over the train set' or similar",
+            "bbox": [
+              890.0,
+              137.5,
+              972.5,
+              154.0
+            ]
+          },
+          {
+            "transcription": "we don't need the loss to include this",
+            "reason": "Handwriting is somewhat unclear, possibly 'we don't need the loss to include this' or similar",
+            "bbox": [
+              780.0,
+              165.0,
+              862.5,
+              192.5
+            ]
+          },
+          {
+            "transcription": "topology-driven",
+            "reason": "Handwriting is somewhat unclear, possibly 'topology-driven' or similar",
+            "bbox": [
+              725.0,
+              203.5,
+              780.0,
+              214.5
+            ]
+          },
+          {
+            "transcription": "strong final epoch",
+            "reason": "Handwriting is somewhat unclear, possibly 'strong final epoch' or similar",
+            "bbox": [
+              890.0,
+              357.5,
+              945.0,
+              374.0
+            ]
+          },
+          {
+            "transcription": "nora node",
+            "reason": "Handwriting is unclear, possibly 'nora' or another term.",
+            "bbox": [
+              110.0,
+              477.5,
+              165.0,
+              505.0
+            ]
+          },
+          {
+            "transcription": "iitin",
+            "reason": "Handwriting is unclear, possibly a typo or abbreviation.",
+            "bbox": [
+              165.0,
+              477.5,
+              220.0,
+              505.0
+            ]
+          },
+          {
+            "transcription": "tangendonan",
+            "reason": "Handwriting is unclear, possibly a technical term or name.",
+            "bbox": [
+              220.0,
+              477.5,
+              275.0,
+              505.0
+            ]
+          },
+          {
+            "transcription": "ia teams aurea",
+            "reason": "Handwriting is unclear, possibly a phrase or name.",
+            "bbox": [
+              275.0,
+              477.5,
+              330.0,
+              505.0
+            ]
+          },
+          {
+            "transcription": "yggn",
+            "reason": "Handwriting is unclear, possibly an abbreviation or typo.",
+            "bbox": [
+              330.0,
+              477.5,
+              385.0,
+              505.0
+            ]
+          },
+          {
+            "transcription": "has no match in the domain",
+            "reason": "Handwriting is somewhat clear but context is ambiguous.",
+            "bbox": [
+              385.0,
+              532.5,
+              440.0,
+              587.5
+            ]
+          },
+          {
+            "transcription": "balance terms out",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              862.5,
+              604.0,
+              972.5,
+              642.5
+            ]
+          },
+          {
+            "transcription": "key attention",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              862.5,
+              697.5,
+              917.5,
+              725.0
+            ]
+          },
+          {
+            "transcription": "dynamic graph prediction / generation forecasting ...",
+            "reason": "Handwriting is somewhat unclear and may be interpreted differently.",
+            "bbox": [
+              890.0,
+              835.0,
+              972.5,
+              862.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Generative Learning Tasks Formalization\",\n  \"summary\": \"This page outlines the formalization of generative learning tasks in Graph Neural Networks (GNNs), distinguishing between predictive analysis and distribution learning for graph generation. It details supervised generative GNN tasks, including the generation of adjacency matrices, node features, and edge features, along with corresponding mapping functions and loss functions. The page also illustrates various applications such as graph super-resolution, multigraph prediction, and brain graph evolution prediction.\",\n  \"key_topics\": [\n    \"generative learning tasks\",\n    \"graph neural network aims\",\n    \"supervised generative gnn tasks\",\n    \"adjacency matrix generation\",\n    \"node feature generation\",\n    \"edge feature generation\",\n    \"gnn mapping function\",\n    \"gnn loss function\",\n    \"graph super-resolution\",\n    \"brain graph evolution prediction\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"generative learning tasks\",\n      \"aliases\": [\"generative gnn tasks\", \"graph generation\", \"generative task\", \"generative model\", \"generative gnn\", \"generative graph neural network\"],\n      \"evidence\": \"Generative learning tasks formalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 0.0, 550.0, 27.5]\n    },\n    {\n      \"canonical\": \"gnn aims\",\n      \"aliases\": [\"graph neural network aims\"],\n      \"evidence\": \"GNN aims\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 44.0, 247.5, 60.5]\n    },\n    {\n      \"canonical\": \"predict and analyze patterns\",\n      \"aliases\": [\"pattern prediction\"],\n      \"evidence\": \"1) Predict and analyze patterns on given graphs (e.g., predict the label of a node or a graph)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [55.0, 82.5, 192.5, 137.5]\n    },\n    {\n      \"canonical\": \"learn the distribution of given graphs\",\n      \"aliases\": [\"distribution learning\"],\n      \"evidence\": \"2) Learn the distribution of given graphs and generate more novel graphs (e.g., generate target graph B from source graph A)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 82.5, 440.0, 137.5]\n    },\n    {\n      \"canonical\": \"input graph\",\n      \"aliases\": [\"source graph\", \"single graph prediction\", \"target graph\"],\n      \"evidence\": \"input graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 165.0, 82.5, 181.5]\n    },\n    {\n      \"canonical\": \"output label\",\n      \"aliases\": [\"predicted label\"],\n      \"evidence\": \"output label\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 165.0, 192.5, 181.5]\n    },\n    {\n      \"canonical\": \"multiple output scores\",\n      \"aliases\": [\"output scores\"],\n      \"evidence\": \"multiple output scores\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 247.5, 192.5, 264.0]\n    },\n    {\n      \"canonical\": \"source graph distribution\",\n      \"aliases\": [\"input distribution\"],\n      \"evidence\": \"source graph distribution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 302.5, 302.5, 319.0]\n    },\n    {\n      \"canonical\": \"target graph distribution\",\n      \"aliases\": [\"output distribution\"],\n      \"evidence\": \"target graph distribution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 302.5, 412.5, 319.0]\n    },\n    {\n      \"canonical\": \"supervised generative gnn tasks\",\n      \"aliases\": [\"supervised generative tasks\"],\n      \"evidence\": \"Supervised generative GNN tasks (generic task)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 357.5, 165.0, 374.0]\n    },\n    {\n      \"canonical\": \"adjacency matrix generation\",\n      \"aliases\": [\"generate graph adjacency matrix\"],\n      \"evidence\": \"Aim: Generate only the graph adjacency matrix.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 55.0, 670.0, 71.5]\n    },\n    {\n      \"canonical\": \"node feature generation\",\n      \"aliases\": [\"generate node feature matrix\"],\n      \"evidence\": \"Aim: Generate the graph adjacency matrix and its node feature matrix in the target domain.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 275.0, 780.0, 291.5]\n    },\n    {\n      \"canonical\": \"edge feature generation\",\n      \"aliases\": [\"generate edge feature matrix\"],\n      \"evidence\": \"Aim: Generate the graph adjacency matrix and its node and edge feature matrices in the target domain.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 467.5, 835.0, 484.0]\n    },\n    {\n      \"canonical\": \"gnn mapping function\",\n      \"aliases\": [\"message passing\", \"gnn mapping function\"],\n      \"evidence\": \"GNN mapping function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 82.5, 807.5, 99.0]\n    },\n    {\n      \"canonical\": \"gnn loss function\",\n      \"aliases\": [],\n      \"evidence\": \"GNN loss function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [835.0, 82.5, 917.5, 99.0]\n    },\n    {\n      \"canonical\": \"random initialization\",\n      \"aliases\": [\"initialize randomly\"],\n      \"evidence\": \"1. Randomly.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 192.5, 587.5, 203.5]\n    },\n    {\n      \"canonical\": \"topological attribute initialization\",\n      \"aliases\": [\"initialize using topological attributes\"],\n      \"evidence\": \"2. Using the topological attributes of a given node.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 203.5, 725.0, 214.5]\n    },\n    {\n      \"canonical\": \"identity vector initialization\",\n      \"aliases\": [\"initialize using identity vector\"],\n      \"evidence\": \"3. Using an identity vector of [1 1 ... 1].\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 214.5, 697.5, 225.5]\n    },\n    {\n      \"canonical\": \"loss function\",\n      \"aliases\": [\"loss\"],\n      \"evidence\": \"How to define the loss function?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 857.0, 550.0, 879.0]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"a\", \"a_tilde\"],\n      \"evidence\": \"A, A', A_tilde\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 450.0, 440.0, 560.0]\n    },\n    {\n      \"canonical\": \"node feature matrix\",\n      \"aliases\": [\"x\", \"h0\"],\n      \"evidence\": \"X, X', H0\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 505.0, 440.0, 615.0]\n    },\n    {\n      \"canonical\": \"edge feature matrix\",\n      \"aliases\": [\"e\"],\n      \"evidence\": \"E, E'\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 615.0, 440.0, 780.0]\n    },\n    {\n      \"canonical\": \"gcn\",\n      \"aliases\": [\"graph convolutional network\"],\n      \"evidence\": \"GCN node embedding rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 901.0, 550.0, 923.0]\n    },\n    {\n      \"canonical\": \"target graph\",\n      \"aliases\": [],\n      \"evidence\": \"target graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220.0, 945.0, 330.0, 972.5]\n    },\n    {\n      \"canonical\": \"graph representation learning\",\n      \"aliases\": [\"graph embedding\"],\n      \"evidence\": \"The target graph has both node and edge features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [571.0, 532.5, 752.5, 549.0]\n    },\n    {\n      \"canonical\": \"graph super-resolution\",\n      \"aliases\": [\"super-resolved graph\"],\n      \"evidence\": \"Graph super-resolution: Low-resolution graph -> Super-resolved graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 780.0, 890.0, 835.0]\n    },\n    {\n      \"canonical\": \"brain graph evolution prediction\",\n      \"aliases\": [\"time-dependent gnn\"],\n      \"evidence\": \"Brain graph evolution prediction: Brain graph at baseline t0 -> Brain graph at t2 -> Brain graph at t3 -> Brain graph at t4\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 862.5, 972.5, 972.5]\n    },\n    {\n      \"canonical\": \"multigraph prediction\",\n      \"aliases\": [\"target graph 1\", \"target graph n\"],\n      \"evidence\": \"Multigraph prediction: Source graph -> Target graph 1 ... Target graph n\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 835.0, 752.5, 972.5]\n    },\n    {\n      \"canonical\": \"generative gnn dimensions\",\n      \"aliases\": [\"domain\", \"time\", \"resolution\"],\n      \"evidence\": \"Generative GNN dimensions: domain, time, resolution\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [571.0, 862.5, 642.5, 972.5]\n    },\n    {\n      \"canonical\": \"domain a\",\n      \"aliases\": [\"input domain\"],\n      \"evidence\": \"domain A\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 385.0, 110.0, 401.5]\n    },\n    {\n      \"canonical\": \"domain b\",\n      \"aliases\": [\"output domain\"],\n      \"evidence\": \"domain B\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [385.0, 357.5, 440.0, 374.0]\n    },\n    {\n      \"canonical\": \"node features\",\n      \"aliases\": [\"node attributes\"],\n      \"evidence\": \"node features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [247.5, 165.0, 302.5, 181.5]\n    },\n    {\n      \"canonical\": \"topology\",\n      \"aliases\": [\"graph structure\"],\n      \"evidence\": \"topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [247.5, 192.5, 302.5, 209.0]\n    },\n    {\n      \"canonical\": \"sparsity regularization\",\n      \"aliases\": [\"sparsity\"],\n      \"evidence\": \"L2 (sparsity)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 440.0, 835.0, 456.5]\n    },\n    {\n      \"canonical\": \"training epochs\",\n      \"aliases\": [\"epochs\"],\n      \"evidence\": \"epochs\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [890.0, 247.5, 917.5, 258.5]\n    },\n    {\n      \"canonical\": \"loss minimization\",\n      \"aliases\": [\"minimize loss\"],\n      \"evidence\": \"min d1\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [835.0, 302.5, 862.5, 313.5]\n    },\n    {\n      \"canonical\": \"target domain\",\n      \"aliases\": [],\n      \"evidence\": \"target domain\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 587.5, 440.0, 615.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"f_{GNN}(g) = \\\\hat{y}\",\n      \"related_concepts\": [\"gnn aims\", \"predict and analyze patterns\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [110.0, 192.5, 165.0, 220.0],\n      \"label\": \"gnn prediction function\"\n    },\n    {\n      \"latex\": \"f(g_s) = g_{in}^t\",\n      \"related_concepts\": [\"learn the distribution of given graphs\", \"source graph distribution\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [302.5, 220.0, 357.5, 247.5],\n      \"label\": \"generative function\"\n    },\n    {\n      \"latex\": \"f(A, X) = (\\\\tilde{A}', \\\\tilde{X}')\",\n      \"related_concepts\": [\"gnn mapping function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 110.0, 835.0, 137.5],\n      \"label\": \"GNN mapping function\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_1 = dist(A', \\\\tilde{A}')\",\n      \"related_concepts\": [\"gnn loss function\", \"adjacency matrix generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [835.0, 110.0, 945.0, 137.5],\n      \"label\": \"GNN loss function\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_2 = dist(A', \\\\tilde{A}') + \\\\lambda dist(X', \\\\tilde{X}')\",\n      \"related_concepts\": [\"gnn loss function\", \"node feature generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 385.0, 945.0, 412.5],\n      \"label\": \"GNN loss function\"\n    },\n    {\n      \"latex\": \"f_{GNN}(A, X, E) = (\\\\tilde{A}', \\\\tilde{X}', \\\\tilde{E}')\",\n      \"related_concepts\": [\"graph generation\", \"gcn\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 642.5, 550.0, 697.5],\n      \"label\": \"GNN function\"\n    },\n    {\n      \"latex\": \"GT \\\\Rightarrow A', X', E'\",\n      \"related_concepts\": [\"graph generation\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [330.0, 697.5, 550.0, 725.0],\n      \"label\": \"Ground Truth\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_2 = dist(A', \\\\tilde{A}') + \\\\lambda dist(X', \\\\tilde{X}')\",\n      \"related_concepts\": [\"graph generation\", \"gnn loss function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 477.5, 972.5, 505.0],\n      \"label\": \"L2\"\n    },\n    {\n      \"latex\": \"\\\\mathcal{L}_3 = dist(A', \\\\tilde{A}') + \\\\lambda_1 dist(X', \\\\tilde{X}') + \\\\lambda_2 dist(E', \\\\tilde{E}')\",\n      \"related_concepts\": [\"graph generation\", \"gnn loss function\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [697.5, 642.5, 972.5, 697.5],\n      \"label\": \"L3\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing input graph to output label transformation using GNN\",\n      \"related_concepts\": [\"predict and analyze patterns\", \"input graph\", \"output label\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 165.0, 192.5, 247.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation using generative function\",\n      \"related_concepts\": [\"learn the distribution of given graphs\", \"source graph distribution\", \"target graph distribution\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 165.0, 412.5, 302.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of input graph in domain A and output graph in domain B\",\n      \"related_concepts\": [\"supervised generative gnn tasks\", \"domain a\", \"domain b\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 385.0, 467.5, 522.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix generation\",\n      \"related_concepts\": [\"graph generation\", \"adjacency matrix generation\", \"gnn mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [505.0, 82.5, 725.0, 165.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Loss curve showing optimization over epochs\",\n      \"related_concepts\": [\"loss minimization\", \"training epochs\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [835.0, 165.0, 945.0, 247.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing source graph to target graph transformation with GNN mapping function for adjacency matrix and node feature generation\",\n      \"related_concepts\": [\"graph generation\", \"node feature generation\", \"gnn mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [505.0, 302.5, 725.0, 385.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing graph transformation with sparsity constraint\",\n      \"related_concepts\": [\"sparsity regularization\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 302.5, 945.0, 385.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing input domain with graph, adjacency matrix A, node feature matrix X, and edge feature matrix E being transformed by function f to output domain with A', X', E'.\",\n      \"related_concepts\": [\"input domain\", \"target domain\", \"adjacency matrix\", \"node feature matrix\", \"edge feature matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0.0, 450.0, 550.0, 780.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of source graph and target graph transformation via function f.\",\n      \"related_concepts\": [\"source graph\", \"target graph\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 917.5, 330.0, 972.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Graph with nodes and edges representing the target graph with both node and edge features.\",\n      \"related_concepts\": [\"graph representation learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [571.0, 587.5, 697.5, 697.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing single graph prediction from source graph to target graph.\",\n      \"related_concepts\": [\"single graph prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 780.0, 752.5, 835.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing graph super-resolution from low-resolution graph to super-resolved graph.\",\n      \"related_concepts\": [\"graph super-resolution\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 780.0, 890.0, 835.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing multigraph prediction from source graph to multiple target graphs.\",\n      \"related_concepts\": [\"multigraph prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 835.0, 752.5, 972.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing brain graph evolution prediction over time.\",\n      \"related_concepts\": [\"brain graph evolution prediction\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 862.5, 972.5, 972.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"3D axis diagram showing generative GNN dimensions: domain, time, resolution.\",\n      \"related_concepts\": [\"generative gnn dimensions\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [571.0, 862.5, 642.5, 972.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"É aw fight g μ gg\",\n      \"reason\": \"Handwriting is unclear and may contain symbols or abbreviations that are not easily readable.\",\n      \"bbox\": [82.5, 137.5, 137.5, 154.0]\n    },\n    {\n      \"transcription\": \"has\",\n      \"reason\": \"Handwriting is small and may be part of a larger annotation that is not fully visible.\",\n      \"bbox\": [440.0, 495.0, 467.5, 511.5]\n    },\n    {\n      \"transcription\": \"target GT prediction\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'target GT prediction' or similar\",\n      \"bbox\": [890.0, 55.0, 945.0, 71.5]\n    },\n    {\n      \"transcription\": \"optimized over the train set\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'optimized over the train set' or similar\",\n      \"bbox\": [890.0, 137.5, 972.5, 154.0]\n    },\n    {\n      \"transcription\": \"we don't need the loss to include this\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'we don't need the loss to include this' or similar\",\n      \"bbox\": [780.0, 165.0, 862.5, 192.5]\n    },\n    {\n      \"transcription\": \"topology-driven\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'topology-driven' or similar\",\n      \"bbox\": [725.0, 203.5, 780.0, 214.5]\n    },\n    {\n      \"transcription\": \"strong final epoch\",\n      \"reason\": \"Handwriting is somewhat unclear, possibly 'strong final epoch' or similar\",\n      \"bbox\": [890.0, 357.5, 945.0, 374.0]\n    },\n    {\n      \"transcription\": \"nora node\",\n      \"reason\": \"Handwriting is unclear, possibly 'nora' or another term.\",\n      \"bbox\": [110.0, 477.5, 165.0, 505.0]\n    },\n    {\n      \"transcription\": \"iitin\",\n      \"reason\": \"Handwriting is unclear, possibly a typo or abbreviation.\",\n      \"bbox\": [165.0, 477.5, 220.0, 505.0]\n    },\n    {\n      \"transcription\": \"tangendonan\",\n      \"reason\": \"Handwriting is unclear, possibly a technical term or name.\",\n      \"bbox\": [220.0, 477.5, 275.0, 505.0]\n    },\n    {\n      \"transcription\": \"ia teams aurea\",\n      \"reason\": \"Handwriting is unclear, possibly a phrase or name.\",\n      \"bbox\": [275.0, 477.5, 330.0, 505.0]\n    },\n    {\n      \"transcription\": \"yggn\",\n      \"reason\": \"Handwriting is unclear, possibly an abbreviation or typo.\",\n      \"bbox\": [330.0, 477.5, 385.0, 505.0]\n    },\n    {\n      \"transcription\": \"has no match in the domain\",\n      \"reason\": \"Handwriting is somewhat clear but context is ambiguous.\",\n      \"bbox\": [385.0, 532.5, 440.0, 587.5]\n    },\n    {\n      \"transcription\": \"balance terms out\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [862.5, 604.0, 972.5, 642.5]\n    },\n    {\n      \"transcription\": \"key attention\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [862.5, 697.5, 917.5, 725.0]\n    },\n    {\n      \"transcription\": \"dynamic graph prediction / generation forecasting ...\",\n      \"reason\": \"Handwriting is somewhat unclear and may be interpreted differently.\",\n      \"bbox\": [890.0, 835.0, 972.5, 862.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "generative learning tasks"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "generative learning tasks"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "source graph",
+      "into": "input graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "generative learning tasks"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "gnn mapping function"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "single graph prediction",
+      "into": "input graph"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "input domain",
+      "into": "domain a"
+    }
+  ],
+  "warnings": [
+    "Merged duplicate concept target graph into input graph",
+    "Dropped low-confidence formula: f_{GNN}(g) = \\hat{y}",
+    "Dropped low-confidence formula: f(g_s) = g_{in}^t",
+    "Dropped low-confidence formula: f_{GNN}(A, X, E) = (\\tilde{A}', \\tilde{X}', \\tilde{E}')",
+    "Dropped low-confidence formula: GT \\Rightarrow A', X', E'"
+  ]
+}

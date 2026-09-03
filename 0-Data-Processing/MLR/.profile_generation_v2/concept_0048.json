@@ -1,0 +1,97 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "94299c36b1edaac69f9f44b7b8ee13080a058283c70c88f5f928052ff7cb801b",
+  "concept_id": 48,
+  "concept_name": "first order taylor series approximation",
+  "aliases": [
+    "first order taylor series approximation",
+    "tangent line",
+    "tangent hyperplane",
+    "first order taylor series",
+    "linear surrogate",
+    "first order taylor approximation",
+    "linear approximation surrogate",
+    "hyperplane",
+    "hyperplanes"
+  ],
+  "profile": "first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation. A hyperplane in general is defined by w0 + x1w1 + x2w2 + ... + xNwN = y. As a hyperplane itself, this approximation conveniently provides a descent direction during gradient descent.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation. It is a hyperplane defined by w0 + x1w1 + x2w2 + ... + xNwN = y. Because it is a hyperplane, it conveniently provides a descent direction during gradient descent.",
+    "claims": [
+      {
+        "claim": "The first order Taylor series approximation is a line or hyperplane tangent to the function at its minimum point.",
+        "evidence_ids": [
+          "MLR-E0050"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is a hyperplane defined as w0 + x1w1 + x2w2 + ... + xNwN = y.",
+        "evidence_ids": [
+          "MLR-E0097"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "As a hyperplane, it provides a descent direction in gradient descent.",
+        "evidence_ids": [
+          "MLR-E0358"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The hyperplane definition is general, while the tangent-at-minimum-point statement is specific to one source."
+    ]
+  },
+  "review": {
+    "final_profile": "first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation. A hyperplane in general is defined by w0 + x1w1 + x2w2 + ... + xNwN = y. As a hyperplane itself, this approximation conveniently provides a descent direction during gradient descent.",
+    "sentence_reviews": [
+      {
+        "sentence": "first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0050"
+        ],
+        "reason": "Matches the source statement that the line/hyperplane tangent to the function at its minimum point is also known as its first order Taylor series approximation."
+      },
+      {
+        "sentence": "A hyperplane in general is defined by w0 + x1w1 + x2w2 + ... + xNwN = y.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0097"
+        ],
+        "reason": "Directly restates the general hyperplane definition from the source."
+      },
+      {
+        "sentence": "As a hyperplane itself, this approximation conveniently provides a descent direction during gradient descent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0358"
+        ],
+        "reason": "Source says the first order Taylor approximation, being a hyperplane itself, conveniently provides a descent direction."
+      }
+    ],
+    "warnings": [
+      "The hyperplane equation is a general definition from linear regression, not a definition unique to Taylor approximation; the final profile keeps it as background rather than claiming it defines the approximation.",
+      "The tangent-at-minimum-point statement is from one source and may describe a specific optimization context, not a universal property."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation. It is a hyperplane defined by w0 + x1w1 + x2w2 + ... + xNwN = y. Because it is a hyperplane, it conveniently provides a descent direction during gradient descent.\",\n  \"claims\": [\n    {\n      \"claim\": \"The first order Taylor series approximation is a line or hyperplane tangent to the function at its minimum point.\",\n      \"evidence_ids\": [\"MLR-E0050\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is a hyperplane defined as w0 + x1w1 + x2w2 + ... + xNwN = y.\",\n      \"evidence_ids\": [\"MLR-E0097\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"As a hyperplane, it provides a descent direction in gradient descent.\",\n      \"evidence_ids\": [\"MLR-E0358\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The hyperplane definition is general, while the tangent-at-minimum-point statement is specific to one source.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation. A hyperplane in general is defined by w0 + x1w1 + x2w2 + ... + xNwN = y. As a hyperplane itself, this approximation conveniently provides a descent direction during gradient descent.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"first order taylor series approximation: a line or hyperplane tangent to a function at its minimum point, also known as a first order Taylor approximation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0050\"],\n      \"reason\": \"Matches the source statement that the line/hyperplane tangent to the function at its minimum point is also known as its first order Taylor series approximation.\"\n    },\n    {\n      \"sentence\": \"A hyperplane in general is defined by w0 + x1w1 + x2w2 + ... + xNwN = y.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0097\"],\n      \"reason\": \"Directly restates the general hyperplane definition from the source.\"\n    },\n    {\n      \"sentence\": \"As a hyperplane itself, this approximation conveniently provides a descent direction during gradient descent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0358\"],\n      \"reason\": \"Source says the first order Taylor approximation, being a hyperplane itself, conveniently provides a descent direction.\"\n    }\n  ],\n  \"warnings\": [\n    \"The hyperplane equation is a general definition from linear regression, not a definition unique to Taylor approximation; the final profile keeps it as background rather than claiming it defines the approximation.\",\n    \"The tangent-at-minimum-point statement is from one source and may describe a specific optimization context, not a universal property.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:38:58.998720+00:00"
+}

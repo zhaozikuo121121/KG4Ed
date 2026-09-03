@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0e4157c2a17935d78f6f905a408db9a13d047099762f43eef2ba222d22135671",
+  "concept_id": 263,
+  "concept_name": "bagging",
+  "aliases": [
+    "bagging",
+    "bagged ensembles",
+    "bootstrap aggregating"
+  ],
+  "profile": "bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model.",
+  "word_count": 14,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model. It is used in the context of tree-based learners and can be applied with boosting-based cross-validation and bagged ensembles.",
+    "claims": [
+      {
+        "claim": "bagging combines multiple cross-validated models to produce a single higher-performing model",
+        "evidence_ids": [
+          "MLR-E0369"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "bagging is used in the context of tree-based learners",
+        "evidence_ids": [
+          "MLR-E0369"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "bagging can be applied with boosting-based cross-validation and bagged ensembles",
+        "evidence_ids": [
+          "MLR-E0327"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model.",
+    "sentence_reviews": [
+      {
+        "sentence": "bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0369"
+        ],
+        "reason": "The source explicitly describes bagging as combining multiple cross-validated models to produce a single higher-performing model."
+      }
+    ],
+    "warnings": [
+      "The other source excerpt mentions boosting-based cross-validation and bagged ensembles but without enough detail to support a substantive claim."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model. It is used in the context of tree-based learners and can be applied with boosting-based cross-validation and bagged ensembles.\",\n  \"claims\": [\n    {\n      \"claim\": \"bagging combines multiple cross-validated models to produce a single higher-performing model\",\n      \"evidence_ids\": [\"MLR-E0369\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"bagging is used in the context of tree-based learners\",\n      \"evidence_ids\": [\"MLR-E0369\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"bagging can be applied with boosting-based cross-validation and bagged ensembles\",\n      \"evidence_ids\": [\"MLR-E0327\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"bagging: A technique that combines multiple cross-validated models to produce a single higher-performing model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0369\"],\n      \"reason\": \"The source explicitly describes bagging as combining multiple cross-validated models to produce a single higher-performing model.\"\n    }\n  ],\n  \"warnings\": [\n    \"The other source excerpt mentions boosting-based cross-validation and bagged ensembles but without enough detail to support a substantive claim.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:06:24.818283+00:00"
+}

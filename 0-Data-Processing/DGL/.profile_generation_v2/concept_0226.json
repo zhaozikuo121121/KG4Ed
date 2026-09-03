@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "29abc0864fd4a4eaad52c8bcd8236e5a2e91e95257bfbdad369826c195928c97",
+  "concept_id": 226,
+  "concept_name": "dropout",
+  "aliases": [
+    "dropout",
+    "drop out"
+  ],
+  "profile": "dropout: In graph neural networks, dropout is described as an operation that drops nodes to regularize and increase expressiveness. It appears in discussions of GNN layer operations, including material on aggregation and attention mechanisms. Dropout is also mentioned in the context of GNN training strategies, including batching, sampling strategies, and batch normalization.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "dropout: In graph neural networks, dropout is an operation that drops nodes to regularize and increase expressiveness. It is used within GNN layer operations, including architectures that combine aggregation and attention mechanisms. Dropout also appears in discussions of GNN training strategies, including batching, sampling strategies, and batch normalization. Its stated purpose is to regularize the model while increasing expressiveness.",
+    "claims": [
+      {
+        "claim": "Dropout is an operation that drops nodes to regularize and increase expressiveness.",
+        "evidence_ids": [
+          "DGL-E0286",
+          "DGL-E0381"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used within GNN layer operations, including architectures that combine aggregation and attention mechanisms.",
+        "evidence_ids": [
+          "DGL-E0286",
+          "DGL-E0300"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Dropout appears in discussions of GNN training strategies, including batching, sampling strategies, and batch normalization.",
+        "evidence_ids": [
+          "DGL-E0321",
+          "DGL-E0354"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Its stated purpose is to regularize the model while increasing expressiveness.",
+        "evidence_ids": [
+          "DGL-E0286",
+          "DGL-E0381"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No formal mathematical definition is provided in the source metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "dropout: In graph neural networks, dropout is described as an operation that drops nodes to regularize and increase expressiveness. It appears in discussions of GNN layer operations, including material on aggregation and attention mechanisms. Dropout is also mentioned in the context of GNN training strategies, including batching, sampling strategies, and batch normalization.",
+    "sentence_reviews": [
+      {
+        "sentence": "dropout: In graph neural networks, dropout is described as an operation that drops nodes to regularize and increase expressiveness.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0286",
+          "DGL-E0381"
+        ],
+        "reason": "The source text explicitly states 'Drop nodes to regularize & increase expressiveness'."
+      },
+      {
+        "sentence": "It appears in discussions of GNN layer operations, including material on aggregation and attention mechanisms.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0286",
+          "DGL-E0300"
+        ],
+        "reason": "Dropout appears on pages titled 'GNN Layer Operations and Architecture' and 'Graph Neural Network Aggregation and Attention Mechanisms'."
+      },
+      {
+        "sentence": "Dropout is also mentioned in the context of GNN training strategies, including batching, sampling strategies, and batch normalization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0321",
+          "DGL-E0354"
+        ],
+        "reason": "Dropout is listed on pages titled 'GNN Training Strategies and Batching' and 'GNN Training: Sampling Strategies and Batch Normalization'."
+      }
+    ],
+    "warnings": [
+      "Source material does not provide a formal mathematical definition of dropout; the mechanism described is node dropping, but the exact implementation is not elaborated."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"dropout: In graph neural networks, dropout is an operation that drops nodes to regularize and increase expressiveness. It is used within GNN layer operations, including architectures that combine aggregation and attention mechanisms. Dropout also appears in discussions of GNN training strategies, including batching, sampling strategies, and batch normalization. Its stated purpose is to regularize the model while increasing expressiveness.\",\n  \"claims\": [\n    {\n      \"claim\": \"Dropout is an operation that drops nodes to regularize and increase expressiveness.\",\n      \"evidence_ids\": [\"DGL-E0286\", \"DGL-E0381\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used within GNN layer operations, including architectures that combine aggregation and attention mechanisms.\",\n      \"evidence_ids\": [\"DGL-E0286\", \"DGL-E0300\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Dropout appears in discussions of GNN training strategies, including batching, sampling strategies, and batch normalization.\",\n      \"evidence_ids\": [\"DGL-E0321\", \"DGL-E0354\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Its stated purpose is to regularize the model while increasing expressiveness.\",\n      \"evidence_ids\": [\"DGL-E0286\", \"DGL-E0381\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"No formal mathematical definition is provided in the source metadata.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"dropout: In graph neural networks, dropout is described as an operation that drops nodes to regularize and increase expressiveness. It appears in discussions of GNN layer operations, including material on aggregation and attention mechanisms. Dropout is also mentioned in the context of GNN training strategies, including batching, sampling strategies, and batch normalization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"dropout: In graph neural networks, dropout is described as an operation that drops nodes to regularize and increase expressiveness.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0286\", \"DGL-E0381\"],\n      \"reason\": \"The source text explicitly states 'Drop nodes to regularize & increase expressiveness'.\"\n    },\n    {\n      \"sentence\": \"It appears in discussions of GNN layer operations, including material on aggregation and attention mechanisms.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0286\", \"DGL-E0300\"],\n      \"reason\": \"Dropout appears on pages titled 'GNN Layer Operations and Architecture' and 'Graph Neural Network Aggregation and Attention Mechanisms'.\"\n    },\n    {\n      \"sentence\": \"Dropout is also mentioned in the context of GNN training strategies, including batching, sampling strategies, and batch normalization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0321\", \"DGL-E0354\"],\n      \"reason\": \"Dropout is listed on pages titled 'GNN Training Strategies and Batching' and 'GNN Training: Sampling Strategies and Batch Normalization'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source material does not provide a formal mathematical definition of dropout; the mechanism described is node dropping, but the exact implementation is not elaborated.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:20:34.202939+00:00"
+}

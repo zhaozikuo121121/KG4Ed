@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "e511a666f83be2c7b59ee55b7431dc908549288ccf47d4510bdcd59264485677",
+  "concept_id": 138,
+  "concept_name": "weighted classification",
+  "aliases": [
+    "weighted classification",
+    "weighted two-class classification"
+  ],
+  "profile": "weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model. This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.",
+  "word_count": 47,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model. This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.",
+    "claims": [
+      {
+        "claim": "Weighted classification involves weighting individual points in a two-class classification cost function.",
+        "evidence_ids": [
+          "MLR-E0154"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Weighting individual points allows their importance to the classification model to be emphasized or de-emphasized.",
+        "evidence_ids": [
+          "MLR-E0154"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Weighted classification is possible because two-class classification cost functions are summable over individual points.",
+        "evidence_ids": [
+          "MLR-E0154"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model. This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.",
+    "sentence_reviews": [
+      {
+        "sentence": "weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0154"
+        ],
+        "reason": "The source states that individual points can be weighted to emphasize or de-emphasize their importance to a classification model, and calls this weighted classification."
+      },
+      {
+        "sentence": "This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0154"
+        ],
+        "reason": "The source explains that because two-class classification cost functions are summable over individual points, point-wise weighting is possible, as previously done in regression."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model. This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.\",\n  \"claims\": [\n    {\n      \"claim\": \"Weighted classification involves weighting individual points in a two-class classification cost function.\",\n      \"evidence_ids\": [\"MLR-E0154\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Weighting individual points allows their importance to the classification model to be emphasized or de-emphasized.\",\n      \"evidence_ids\": [\"MLR-E0154\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Weighted classification is possible because two-class classification cost functions are summable over individual points.\",\n      \"evidence_ids\": [\"MLR-E0154\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model. This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"weighted classification: A method in linear two-class classification where individual data points are assigned weights to emphasize or de-emphasize their importance to the classification model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0154\"],\n      \"reason\": \"The source states that individual points can be weighted to emphasize or de-emphasize their importance to a classification model, and calls this weighted classification.\"\n    },\n    {\n      \"sentence\": \"This is enabled by the fact that two-class classification cost functions are summable over individual points, allowing point-wise weighting as in regression.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0154\"],\n      \"reason\": \"The source explains that because two-class classification cost functions are summable over individual points, point-wise weighting is possible, as previously done in regression.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:19:48.099602+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2a55876a2cd3ebfe848497a5171f448964ca7a747ddb496d2433da95194fe993",
+  "concept_id": 301,
+  "concept_name": "mean aggregator",
+  "aliases": [
+    "mean aggregator",
+    "mean aggregation"
+  ],
+  "profile": "mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.",
+    "claims": [
+      {
+        "claim": "The mean aggregator is an aggregation operator in graph neural networks that fails to distinguish certain graph structures.",
+        "evidence_ids": [
+          "DGL-E0429"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.",
+    "sentence_reviews": [
+      {
+        "sentence": "mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0429"
+        ],
+        "reason": "The source caption states that mean aggregators fail to distinguish certain graph structures, and the lecture context places this in graph neural networks."
+      }
+    ],
+    "warnings": [
+      "The source caption mentions mean and max aggregators together; the claim isolates the mean aggregator, but the caption explicitly includes it.",
+      "The evidence is a figure caption and provides limited detail beyond the failure to distinguish graph structures."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.\",\n  \"claims\": [\n    {\n      \"claim\": \"The mean aggregator is an aggregation operator in graph neural networks that fails to distinguish certain graph structures.\",\n      \"evidence_ids\": [\"DGL-E0429\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mean aggregator: an aggregation operator in graph neural networks that fails to distinguish certain graph structures.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0429\"],\n      \"reason\": \"The source caption states that mean aggregators fail to distinguish certain graph structures, and the lecture context places this in graph neural networks.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source caption mentions mean and max aggregators together; the claim isolates the mean aggregator, but the caption explicitly includes it.\",\n    \"The evidence is a figure caption and provides limited detail beyond the failure to distinguish graph structures.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:47:48.091109+00:00"
+}

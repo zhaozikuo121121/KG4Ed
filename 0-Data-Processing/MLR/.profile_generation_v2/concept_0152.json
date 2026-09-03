@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d12594326e383fca4b30b58e4dd18d97dbfee4e521173fc233dea8a741664b89",
+  "concept_id": 152,
+  "concept_name": "multi-class perceptron cost",
+  "aliases": [
+    "multi-class perceptron cost",
+    "multiclass perceptron",
+    "multi-class perceptron cost function",
+    "perceptron cost"
+  ],
+  "profile": "multi-class perceptron cost: a cost function used in linear multi-class classification. It is an objective that can be minimized, as can cross entropy/softmax cost functions, when training a linear multi-class classifier.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multi-class perceptron cost: a cost function used in linear multi-class classification. It is an objective that can be minimized, together with cross entropy/softmax cost functions, when training a linear multi-class classifier.",
+    "claims": [
+      {
+        "claim": "The multi-class perceptron cost is a cost function used in linear multi-class classification and can be minimized together with cross entropy/softmax cost functions.",
+        "evidence_ids": [
+          "MLR-E0171"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "multi-class perceptron cost: a cost function used in linear multi-class classification. It is an objective that can be minimized, as can cross entropy/softmax cost functions, when training a linear multi-class classifier.",
+    "sentence_reviews": [
+      {
+        "sentence": "multi-class perceptron cost: a cost function used in linear multi-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0171"
+        ],
+        "reason": "The evidence discusses multi-class Perceptron cost functions in the context of linear multi-class classification."
+      },
+      {
+        "sentence": "It is an objective that can be minimized, as can cross entropy/softmax cost functions, when training a linear multi-class classifier.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0171"
+        ],
+        "reason": "The evidence explicitly mentions minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multi-class perceptron cost: a cost function used in linear multi-class classification. It is an objective that can be minimized, together with cross entropy/softmax cost functions, when training a linear multi-class classifier.\",\n  \"claims\": [\n    {\n      \"claim\": \"The multi-class perceptron cost is a cost function used in linear multi-class classification and can be minimized together with cross entropy/softmax cost functions.\",\n      \"evidence_ids\": [\"MLR-E0171\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multi-class perceptron cost: a cost function used in linear multi-class classification. It is an objective that can be minimized, as can cross entropy/softmax cost functions, when training a linear multi-class classifier.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"multi-class perceptron cost: a cost function used in linear multi-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0171\"],\n      \"reason\": \"The evidence discusses multi-class Perceptron cost functions in the context of linear multi-class classification.\"\n    },\n    {\n      \"sentence\": \"It is an objective that can be minimized, as can cross entropy/softmax cost functions, when training a linear multi-class classifier.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0171\"],\n      \"reason\": \"The evidence explicitly mentions minimizing multi-class Perceptron or Cross Entropy / Softmax cost functions.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:25:41.545448+00:00"
+}

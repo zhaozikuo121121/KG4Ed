@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "0a5610b7667ffd72e874b8efb998932368a9532edeaf7ddbdced596315f9d31c",
+  "concept_id": 281,
+  "concept_name": "node permutation invariance",
+  "aliases": [
+    "node permutation invariance",
+    "permutation invariance",
+    "permutation invariant function",
+    "invariant to permutations",
+    "order invariance"
+  ],
+  "profile": "node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes. This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes. This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.",
+    "claims": [
+      {
+        "claim": "GNNs need to be permutation-invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.",
+        "evidence_ids": [
+          "DGL-E0402"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes. This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.",
+    "sentence_reviews": [
+      {
+        "sentence": "node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0402"
+        ],
+        "reason": "The source states that GNNs need to be permutation-invariant and learn representations that do not depend on node indexing; 'ordering' is a faithful equivalent."
+      },
+      {
+        "sentence": "This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0402"
+        ],
+        "reason": "This directly follows from the source's statement that representations must not depend on node indexing."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes. This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.\",\n  \"claims\": [\n    {\n      \"claim\": \"GNNs need to be permutation-invariant, thereby learning representations (embeddings) that do not depend on the indexing of the graph nodes.\",\n      \"evidence_ids\": [\"DGL-E0402\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes. This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node permutation invariance: a property required of graph neural networks (GNNs) so that learned representations (embeddings) do not depend on the indexing or ordering of graph nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0402\"],\n      \"reason\": \"The source states that GNNs need to be permutation-invariant and learn representations that do not depend on node indexing; 'ordering' is a faithful equivalent.\"\n    },\n    {\n      \"sentence\": \"This ensures that the same graph, regardless of how its nodes are labeled or permuted, yields the same embedding, making the model's output invariant to node permutations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0402\"],\n      \"reason\": \"This directly follows from the source's statement that representations must not depend on node indexing.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:41:54.543102+00:00"
+}

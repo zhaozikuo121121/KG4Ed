@@ -1,0 +1,257 @@
+formula_id,concept,latex,chapter,pdf_page,book_page,equation_label
+F0001,zero order optimization,g(w) = w^2,2,41,33,2.1
+F0002,zero order optimization,g(w) = -w^2,2,42,34,2.2
+F0003,zero order optimization,g(w) = \sin(2w),2,42,34,2.3
+F0004,global maximum,g(w^\star) \geq g(w) \quad \text{for all } w,2,43,35,2.8
+F0005,global minimum,g(w^\star) \leq g(w) \quad \text{for all } w,2,43,35,2.7
+F0006,global optimization,"\minimize_{w_1, w_2, \ldots, w_N} g(w_1, w_2, \ldots, w_N)",2,43,35,2.5
+F0007,global optimization,\minimize_{w} g(w),2,43,35,2.6
+F0008,zero order optimality condition,g(w^\star) \geq g(w) \quad \text{for all } w,2,43,35,2.8
+F0009,zero order optimality condition,g(w^\star) \leq g(w) \quad \text{for all } w,2,43,35,2.7
+F0010,global optimization,\maximize_{w} g(w),2,44,36,2.9
+F0011,global optimization,\minimize_{w} -g(w),2,44,36,2.10
+F0012,local minimum,g(w^\star) \leq g(w) \quad \text{for all } w \text{ near } w^\star,2,44,36,2.11
+F0013,zero order optimality condition,"g(w_j) \leq g(w_k) \quad k = 1, \ldots, K",2,45,37,2.13
+F0014,curse of dimensionality,3^N,2,47,39,
+F0015,descent direction,w_1 = w_0 + d_0,2,48,40,2.16
+F0016,initial point,"w_0, w_1, \ldots, w_K",2,48,40,2.14
+F0017,sequential refinement,g(w_0) > g(w_1) > \cdots > g(w_K),2,48,40,2.15
+F0018,sequential refinement,"w_0, w_1, \ldots, w_K",2,48,40,2.14
+F0019,descent direction,w_2 = w_1 + d_1,2,49,41,2.17
+F0020,descent direction,w_k = w_{k-1} + d_{k-1},2,49,41,2.18
+F0021,diminishing steplength rules,\sum_{k=1}^{K} \|w_k - w_{k-1}\|_2 = \sum_{k=1}^{K} \frac{1}{k},2,57,49,2.29
+F0022,diminishing steplength rules,\|w_k - w_{k-1}\|_2 = \|w_{k-1} + \alpha d - w_{k-1}\|_2 = \alpha \|d\|_2 = \frac{1}{k},2,57,49,2.28
+F0023,coordinate search,"g(w_1, w_2) = 0.26 w_1^2 + w_2^2 - 0.48 w_1 w_2",2,60,52,2.30
+F0024,chain rule,\frac{d}{dw} g(w) = \frac{d}{dw} \sin(w^2) = \cos(w^2) \cdot \frac{d}{dw} w^2 = 2w \cos(w^2),3,66,58,
+F0025,gradient,\frac{d}{dw} g(w) = \frac{d}{dw} \sin(w^2) = 2w \cos(w^2),3,66,58,
+F0026,global minimum,\frac{d}{dw} g(v) = 0,3,67,59,3.1
+F0027,first order system of equations,"\frac{\partial g(v)}{\partial w_1} = 0, \quad \frac{\partial g(v)}{\partial w_2} = 0, \quad \ldots, \quad \frac{\partial g(v)}{\partial w_N} = 0",3,68,60,3.2
+F0028,first order system of equations,\nabla g(v) = 0_{N \times 1},3,68,60,3.3
+F0029,global minimum,\nabla g(v) = 0_{N \times 1},3,68,60,3.3
+F0030,partial derivative,"\frac{\partial}{\partial w_1} g(v) = 0, \quad \frac{\partial}{\partial w_2} g(v) = 0, \quad \ldots, \quad \frac{\partial}{\partial w_N} g(v) = 0",3,68,60,3.2
+F0031,saddle points,"\frac{\partial g(v)}{\partial w_1} = 0, \quad \frac{\partial g(v)}{\partial w_2} = 0, \quad \ldots, \quad \frac{\partial g(v)}{\partial w_N} = 0",3,68,60,3.2
+F0032,saddle points,\nabla g(v) = 0_{N \times 1},3,68,60,3.3
+F0033,stationary points,"\frac{\partial g(v)}{\partial w_1} = 0, \quad \frac{\partial g(v)}{\partial w_2} = 0, \quad \ldots, \quad \frac{\partial g(v)}{\partial w_N} = 0",3,68,60,3.2
+F0034,stationary points,\nabla g(v) = 0_{N \times 1},3,68,60,3.3
+F0035,convex quadratic function,\nabla g(w) = 2Cw + b,3,71,63,3.11
+F0036,convex quadratic function,g(w) = a + b^T w + w^T C w,3,71,63,3.10
+F0037,coordinate descent,\frac{\partial}{\partial w_1} g(w^0) = 0,3,72,64,3.13
+F0038,coordinate descent,\frac{\partial}{\partial w_n} g(w^{(k-1)N+n}) = 0,3,72,64,3.15
+F0039,coordinate descent,\frac{\partial}{\partial w_n} g(w^{n-1}) = 0,3,72,64,3.14
+F0040,symmetric linear system,Cw = -\frac{1}{2}b,3,73,65,3.18
+F0041,lipschitz continuous gradient,\|\nabla g(x) - \nabla g(y)\|_2 \leq L \|x - y\|_2,3,101,93,3.46
+F0042,convexity,g''(v) \geq 0,4,102,94,
+F0043,positive semi-definite matrix,\nabla^2 g(v) \text{ has all non-negative eigenvalues},4,102,94,
+F0044,convexity,g(w) = a + b^T w + w^T C w,4,103,95,4.1
+F0045,curvature,\nabla^2 g(w) = 2C,4,103,95,
+F0046,quadratic function,g(w) = a + b^T w + w^T C w,4,103,95,4.1
+F0047,local minimum,\frac{\partial^2}{\partial w^2} g(v) > 0,4,104,96,
+F0048,saddle points,\frac{\partial^2}{\partial w^2} g(v) = 0 \text{ and } \frac{\partial^2}{\partial w^2} g(v) \text{ changes sign at } v,4,104,96,
+F0049,stationary points,\frac{\partial^2}{\partial w^2} g(v) > 0,4,104,96,
+F0050,eigenvalues of the hessian,\nabla^2 g(v),4,105,97,
+F0051,local minimum,\text{all eigenvalues of } \nabla^2 g(v) \text{ are positive},4,105,97,
+F0052,saddle points,"\text{eigenvalues of } \nabla^2 g(v) \text{ are of mixed values, i.e., some negative and some positive}",4,105,97,
+F0053,descent direction,w^{\star} = v - \frac{\frac{d g(v)}{dw}}{\frac{d^2 g(v)}{dw^2}},4,109,101,4.7
+F0054,descent direction,w^{\star} = v - \left(\nabla^2 g(v)\right)^{-1} \nabla g(v),4,109,101,4.8
+F0055,first order condition for optimality,w^{\star} = v - \frac{\frac{d g(v)}{dw}}{\frac{d^2 g(v)}{dw^2}},4,109,101,4.7
+F0056,first order condition for optimality,w^{\star} = v - \left(\nabla^2 g(v)\right)^{-1} \nabla g(v),4,109,101,4.8
+F0057,gradient descent,w^{\star} = v - \frac{\frac{d}{dw}g(v)}{\frac{d^2}{dw^2}g(v)},4,109,101,4.7
+F0058,gradient descent,w^{\star} = v - \left(\nabla^2 g(v)\right)^{-1} \nabla g(v),4,109,101,4.8
+F0059,newton's method,w_k = w_{k-1} - \frac{\frac{d g(w_{k-1})}{dw}}{\frac{d^2 g(w_{k-1})}{dw^2}},4,117,109,4.25
+F0060,hessian matrix,A = H + \epsilon I,4,118,110,
+F0061,regularized newton's method,A = H + \epsilon I,4,118,110,
+F0062,eigenvalue decomposition,z^T C z \geq 0,4,120,112,
+F0063,second order definition of convexity,z^T \nabla^2 g(w) z \geq 0,4,121,113,
+F0064,second order optimization,z^T \nabla^2 g(w) z \geq 0,4,121,113,
+F0065,bias,"w_0 + x_p w_1 \approx y_p, \quad p = 1, \ldots, P",5,128,120,5.3
+F0066,bias,"w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \cdots + x_{N,p}w_N \approx y_p, \quad p = 1, \ldots, P",5,128,120,5.4
+F0067,first order taylor series approximation,"w_0 + x_{1,p}w_1 + x_{2,p}w_2 + \cdots + x_{N,p}w_N \approx y_p, \quad p = 1, \ldots, P",5,128,120,5.4
+F0068,regression,"w_0 + x_p w_1 \approx y_p, \quad p = 1, \ldots, P",5,128,120,5.3
+F0069,regression,"w_0 + x_{1,p} w_1 + x_{2,p} w_2 + \cdots + x_{N,p} w_N \approx y_p, \quad p = 1, \ldots, P",5,128,120,5.4
+F0070,feature,"\mathring{x}_p = \begin{bmatrix} 1 \\ x_{1,p} \\ x_{2,p} \\ \vdots \\ x_{N,p} \end{bmatrix}",5,129,121,5.5
+F0071,feature-touching weights,w = \begin{bmatrix} w_0 \\ w_1 \\ w_2 \\ \vdots \\ w_N \end{bmatrix},5,129,121,5.6
+F0072,least squares cost function,g(w) = \frac{1}{P} \sum_{p=1}^{P} g_p(w) = \frac{1}{P} \sum_{p=1}^{P} \left( \mathring{x}_p^T w - y_p \right)^2,5,130,122,5.9
+F0073,normal equations,\minimize_{w} \frac{1}{P} \sum_{p=1}^{P} \left( \mathbf{x}_p^T w - y_p \right)^2,5,131,123,5.10
+F0074,unconstrained optimization,\minimize_{w} \frac{1}{P} \sum_{p=1}^{P} \left( \mathring{x}_p^T w - y_p \right)^2,5,131,123,5.10
+F0075,vectorized implementation,\left( \sum_{p=1}^{P} \mathring{\mathbf{x}}_p \mathring{\mathbf{x}}_p^T \right) \mathbf{w} = \sum_{p=1}^{P} \mathring{\mathbf{x}}_p y_p,5,136,128,5.17
+F0076,vectorized implementation,\nabla g(\mathbf{w}) = \frac{2}{P} \sum_{p=1}^{P} \mathring{\mathbf{x}}_p \left( \mathring{\mathbf{x}}_p^T \mathbf{w} - y_p \right),5,136,128,5.16
+F0077,convexity,g(\lambda w_1 + (1 - \lambda) w_2) \leq \lambda g(w_1) + (1 - \lambda) g(w_2),5,151,143,5.42
+F0078,convex quadratic function,g(\mathbf{w}) = a + \mathbf{b}^T\mathbf{w} + \mathbf{w}^T C \mathbf{w},5,153,145,5.47
+F0079,convexity,g(w) = a + b^T w + w^T C w,5,153,145,5.47
+F0080,inner product,\mathbf{x}_p^T \mathbf{w} = \mathbf{w}^T \mathbf{x}_p,5,153,145,
+F0081,non-negative eigenvalues,C = \frac{1}{P} \sum_{p=1}^{P} \mathbf{x}_p \mathbf{x}_p^T,5,153,145,5.46
+F0082,outer product,C = \frac{1}{P} \sum_{p=1}^{P} \mathbf{x}_p \mathbf{x}_p^T,5,153,145,5.46
+F0083,quadratic cost function,\left(\mathbf{x}_p^T \mathbf{w} - y_p\right)^2 = y_p^2 - 2\mathbf{x}_p^T \mathbf{w} y_p + \mathbf{x}_p^T \mathbf{w} \mathbf{x}_p^T \mathbf{w},5,153,145,5.43
+F0084,quadratic cost function,g(\mathbf{w}) = \frac{1}{P}\sum_{p=1}^{P} y_p^2 - 2\left(\frac{1}{P}\sum_{p=1}^{P} y_p \mathbf{x}_p^T\right)\mathbf{w} + \mathbf{w}^T\left(\frac{1}{P}\sum_{p=1}^{P} \mathbf{x}_p \mathbf{x}_p^T\right)\mathbf{w},5,153,145,5.45
+F0085,quadratic cost function,g(\mathbf{w}) = a + \mathbf{b}^T\mathbf{w} + \mathbf{w}^T C \mathbf{w},5,153,145,5.47
+F0086,perceptron cost,"g(w) = \frac{1}{P} \sum_{p=1}^{P} \max(0, -y_p \mathring{x}_p^T w)",6,172,164,6.33
+F0087,point-wise cost,"g_p(w) = \max(0, -y_p \mathring{x}_p^T w) = 0",6,172,164,6.32
+F0088,rectified linear unit,"g_p(w) = \max(0, -y_p \mathring{x}_p^T w) = 0",6,172,164,6.32
+F0089,softmax approximation to max,"\text{soft}(s_0, s_1, \ldots, s_{C-1}) = \log\left(e^{s_0} + e^{s_1} + \cdots + e^{s_{C-1}}\right)",6,172,164,6.34
+F0090,trivial solution,g(0) = 0,6,172,164,
+F0091,convex cost function,g(\mathbf{w}) = \sum_{p=1}^{P} \log\left(1 + e^{-y_p \breve{\mathbf{x}}_p^T \mathbf{w}}\right),6,173,165,6.37
+F0092,softmax approximation to max,"\text{soft}(s_0, s_1, \ldots, s_{C-1}) \approx \max(s_0, s_1, \ldots, s_{C-1})",6,173,165,6.35
+F0093,softmax cost,g(\mathbf{w}) = \sum_{p=1}^{P} \log\left(1 + e^{-y_p \breve{\mathbf{x}}_p^T \mathbf{w}}\right),6,173,165,6.37
+F0094,softmax cost,"g_p(\mathbf{w}) = \text{soft}\left(0, -y_p \breve{\mathbf{x}}_p^T \mathbf{w}\right) = \log\left(1 + e^{-y_p \breve{\mathbf{x}}_p^T \mathbf{w}}\right)",6,173,165,6.36
+F0095,weight divergence to infinity,\log(1 + e^{-C}) = 0 \text{ only as } C \to \infty,6,174,166,
+F0096,weight divergence to infinity,e^{-y_p \mathring{x}_p^T (C w_0)} = e^{-C e^{-y_p \mathring{x}_p^T w_0}} < e^{-y_p \mathring{x}_p^T w_0},6,174,166,
+F0097,normal vector to hyperplane,\mathring{x}^T w = b + x^T \omega = 0,6,176,168,6.40
+F0098,regularization,(\text{bias}): b = w_0 \quad (\text{feature-touching weights}): \omega = \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_N \end{bmatrix},6,176,168,6.39
+F0099,regularization,\mathring{x}^T w = b + x^T \omega = 0,6,176,168,6.40
+F0100,regularization,w = \begin{bmatrix} w_0 \\ w_1 \\ \vdots \\ w_N \end{bmatrix},6,176,168,6.38
+F0101,normal vector to hyperplane,\|\omega\|_2 d = \beta,6,177,169,6.43
+F0102,normal vector to hyperplane,d = \frac{\beta}{\|\omega\|_2} = \frac{b + x_p^T \omega}{\|\omega\|_2},6,178,170,6.44
+F0103,signed distance to decision boundary,d = \frac{\beta}{\|\omega\|_2} = \frac{b + x_p^T \omega}{\|\omega\|_2},6,178,170,6.44
+F0104,weight normalization,\frac{b + x^T \omega}{\|\omega\|_2} = \frac{b}{\|\omega\|_2} + x^T \frac{\omega}{\|\omega\|_2} = 0,6,178,170,6.45
+F0105,constrained softmax cost,"\min_{b, \omega} \frac{1}{P} \sum_{p=1}^{P} \log\left(1 + e^{-y_p(b + x_p^T \omega)}\right) \quad \text{subject to} \quad \|\omega\|_2^2 = 1",6,179,171,6.46
+F0106,l2 regularizer,\|\omega\|_2^2,6,179,171,
+F0107,regularization parameter,\lambda \geq 0,6,179,171,
+F0108,regularized softmax cost,"g(b, \omega) = \frac{1}{P} \sum_{p=1}^{P} \log\left(1 + e^{-y_p(b + x_p^T \omega)}\right) + \lambda \|\omega\|_2^2",6,179,171,6.47
+F0109,margin-perceptron cost,"g(w) = \sum_{p=1}^{P} \max(0, 1 - y_p \mathring{x}_p^T w)",6,181,173,6.50
+F0110,margin-perceptron cost,"g_p(w) = \max(0, 1 - y_p \mathring{x}_p^T w) = 0",6,181,173,6.49
+F0111,smoothed margin-perceptron,"\text{soft}(0, 1 - y_p \mathring{x}_p^T w) = \log(1 + e^{1 - y_p \mathring{x}_p^T w})",6,182,174,6.51
+F0112,smoothed margin-perceptron,"\text{soft}(0, \epsilon - y_p \mathring{x}_p^T w) = \log(1 + e^{\epsilon - y_p \mathring{x}_p^T w})",6,182,174,6.54
+F0113,maximum margin decision boundary,\hat{x}^T w = b + x^T \omega = 0,6,184,176,6.56
+F0114,maximum margin decision boundary,w_0 + x_1^T w - w_0 + x_2^T w = (x_1 - x_2)^T \omega = 2,6,184,176,6.57
+F0115,hard-margin svm,"\min_{b, \omega} \|\omega\|_2^2 \quad \text{subject to} \quad \max(0, 1 - y_p(b + x_p^T \omega)) = 0, \; p = 1, \ldots, P",6,185,177,6.59
+F0116,margin computation via normal vector,\|x_1 - x_2\|_2 = \frac{2}{\|\omega\|_2},6,185,177,6.58
+F0117,soft-margin support vector machine,"g(b, \omega) = \sum_{p=1}^{P} \max\left(0, 1 - y_p\left(b + \mathbf{x}_p^T \omega\right)\right) + \lambda \|\omega\|_2^2",6,185,177,6.60
+F0118,log-loss svm,"g(b, \omega) = \sum_{p=1}^{P} \log\left(1 + e^{-y_p(b + x_p^T \omega)}\right) + \lambda \|\omega\|_2^2",6,187,179,6.61
+F0119,one-hot encoded labels,y_p = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \longleftarrow y_p = 0 \qquad y_p = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \longleftarrow y_p = 1,6,188,180,6.62
+F0120,categorical cross entropy cost,g_p(w) = -y_p \log \sigma(\mathring{x}_p^T w) - (1 - y_p) \log(1 - \sigma(\mathring{x}_p^T w)),6,189,181,6.67
+F0121,categorical cross entropy cost,"g_p(w) = -y_p^T \log \sigma_p = -y_{p,1} \log \sigma(\mathring{x}_p^T w) - y_{p,2} \log(1 - \sigma(\mathring{x}_p^T w))",6,189,181,6.66
+F0122,log error cost,g_p(w) = -y_p \log \sigma(\mathring{x}_p^T w) - (1 - y_p) \log(1 - \sigma(\mathring{x}_p^T w)),6,189,181,6.67
+F0123,log error cost,"g_p(w) = -y_p^T \log \sigma_p = -y_{p,1} \log \sigma(\mathring{x}_p^T w) - y_{p,2} \log(1 - \sigma(\mathring{x}_p^T w))",6,189,181,6.66
+F0124,confidence scoring,\text{confidence in the predicted label of a point } \mathbf{x} = \sigma(d),6,191,183,6.73
+F0125,confidence scoring,d = \frac{b^{\star} + \mathbf{x}^T \boldsymbol{\omega}^{\star}}{\|\boldsymbol{\omega}^{\star}\|_2},6,191,183,6.71
+F0126,classification accuracy,"A = 1 - \frac{1}{P} \sum_{p=1}^{P} I(\hat{y}_p, y_p)",6,192,184,6.76
+F0127,cost function versus misclassification discrepancy,"A = 1 - \frac{1}{P} \sum_{p=1}^{P} I(\hat{y}_p, y_p)",6,192,184,6.76
+F0128,cost function versus misclassification discrepancy,"I(\hat{y}_p, y_p) = \begin{cases} 0 & \text{if } \hat{y}_p = y_p \\ 1 & \text{if } \hat{y}_p \neq y_p \end{cases}",6,192,184,6.74
+F0129,cost function versus misclassification discrepancy,"\text{number of misclassifications} = \sum_{p=1}^{P} I(\hat{y}_p, y_p)",6,192,184,6.75
+F0130,misclassification count,"I(\hat{y}_p, y_p) = \begin{cases} 0 & \text{if } \hat{y}_p = y_p \\ 1 & \text{if } \hat{y}_p \neq y_p \end{cases}",6,192,184,6.74
+F0131,misclassification count,"\text{number of misclassifications} = \sum_{p=1}^{P} I(\hat{y}_p, y_p)",6,192,184,6.75
+F0132,balanced accuracy,"A_{+1} = 1 - \frac{1}{|\Omega_{+1}|} \sum_{p \in \Omega_{+1}} I(\hat{y}_p, y_p)",6,194,186,6.78
+F0133,balanced accuracy,"A_{-1} = 1 - \frac{1}{|\Omega_{-1}|} \sum_{p \in \Omega_{-1}} I(\hat{y}_p, y_p)",6,194,186,6.78
+F0134,balanced accuracy,A_{\text{balanced}} = \frac{A_{+1} + A_{-1}}{2},6,194,186,6.79
+F0135,confusion matrix,A = \frac{A + D}{A + B + C + D},6,195,187,6.80
+F0136,precision,A_{+1} = \frac{A}{A + C},6,196,188,6.81
+F0137,point-wise weights,"g(w) = \sum_{p=1}^{P} \beta_p \log\left(1 + e^{-y_p \text{model}(x_p, w)}\right)",6,197,189,6.83
+F0138,weighted softmax cost,"g(w) = \sum_{p=1}^{P} \beta_p \log\left(1 + e^{-y_p \text{model}(x_p, w)}\right)",6,197,189,6.83
+F0139,inverse class frequency weighting,"\beta_{+1} \propto \frac{1}{|\Omega_{+1}|}, \quad \beta_{-1} \propto \frac{1}{|\Omega_{-1}|}",6,199,191,6.84
+F0140,weighting by confidence,"\beta_{+1} \propto \frac{1}{|\Omega_{+1}|}, \quad \beta_{-1} \propto \frac{1}{|\Omega_{-1}|}",6,199,191,6.84
+F0141,linear multi-class classification,\tilde{y}_p = \begin{cases} +1 & \text{if } y_p = c \\ -1 & \text{if } y_p \neq c \end{cases},7,205,197,7.1
+F0142,one-versus-all classification,\tilde{y}_p = \begin{cases} +1 & \text{if } y_p = c \\ -1 & \text{if } y_p \neq c \end{cases},7,205,197,7.1
+F0143,one-versus-all classification,"\mathbf{w}_c = \begin{bmatrix} w_{0,c} \\ w_{1,c} \\ w_{2,c} \\ \vdots \\ w_{N,c} \end{bmatrix}",7,206,198,7.2
+F0144,one-versus-all classification,\mathring{\mathbf{x}}^T \mathbf{w}_c = 0,7,206,198,7.3
+F0145,bias,"b_j = w_{0,j}, \quad \omega_j = \begin{bmatrix} w_{1,j} \\ w_{2,j} \\ \vdots \\ w_{N,j} \end{bmatrix}",7,209,201,7.6
+F0146,weight normalization,w_j \leftarrow \frac{w_j}{\|\omega_j\|_2},7,209,201,7.8
+F0147,weight normalization,"y = \underset{j = 0,\dots,C-1}{\mathrm{argmax}} \; \mathring{x}^T w_j",7,210,202,7.10
+F0148,fusion rule,"y = \underset{j = 0,\ldots,C-1}{\operatorname{argmax}} \, \mathring{x}^T w_j",7,211,203,7.12
+F0149,hessian of softmax cost,\nabla^2_{w_c w_c} g = \sum_{p=1}^{P} \frac{e^{x_p^T w_c}}{\sum_{d=1}^{C} e^{x_p^T w_d}}\left(1 - \frac{e^{x_p^T w_c}}{\sum_{d=1}^{C} e^{x_p^T w_d}}\right) x_p x_p^T,7,237,229,
+F0150,hessian of softmax cost,\nabla^2_{w_s w_c} g = -\left(\frac{e^{x_p^T w_c}}{\sum_{d=1}^{C} e^{x_p^T w_d}}\right)\left(1 - \frac{e^{x_p^T w_c}}{\sum_{d=1}^{C} e^{x_p^T w_d}}\right) x_p x_p^T \quad \text{for } s \neq c,7,237,229,
+F0151,spanning set,"\sum_{k=1}^{K} \mathbf{c}_k w_{p,k} = \mathbf{x}_p, \quad p=1,\ldots,P",8,241,233,(8.3)
+F0152,autoencoder formula,\mathbf{C}\mathbf{C}^T\mathbf{x}_p = \mathbf{x}_p,8,243,235,(8.12)
+F0153,orthonormal spanning set,C C^T x_p = x_p,8,243,235,
+F0154,orthonormal spanning set,C^T C = I_{N \times N},8,243,235,
+F0155,orthonormal spanning set,c_i^T c_j = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases},8,243,235,
+F0156,orthonormal spanning set,w_p = C^T x_p,8,243,235,
+F0157,projection,"C\mathbf{w}_p \approx \mathbf{x}_p, \quad p = 1, \ldots, P",8,244,236,(8.13)
+F0158,gradient descent,"g(w_1, \dots, w_P, C) = \frac{1}{P} \sum_{p=1}^P \left\| C w_p - x_p \right\|_2^2",8,245,237,8.16
+F0159,gradient descent,g(C) = \frac{1}{P} \sum_{p=1}^P \left\| C C^T x_p - x_p \right\|_2^2,8,246,238,8.17
+F0160,linear autoencoder,g(\mathbf{C}) = \frac{1}{P} \sum_{p=1}^{P} \left\| \mathbf{C} \mathbf{C}^T \mathbf{x}_p - \mathbf{x}_p \right\|_2^2,8,246,238,Equation 8.17
+F0161,dimension reduction,\frac{1}{P} \mathbf{X} \mathbf{X}^T = \mathbf{V} \mathbf{D} \mathbf{V}^T,8,248,240,(8.19)
+F0162,principal component analysis,\frac{1}{P}\mathbf{X} \mathbf{X}^T = \mathbf{V} \mathbf{D} \mathbf{V}^T,8,248,240,(8.19)
+F0163,covariance matrix regularization,\frac{1}{P} \mathbf{X} \mathbf{X}^T + \lambda \mathbf{I}_{N \times N},8,250,242,
+F0164,coordinate descent,"g(\mathbf{w}_1, ..., \mathbf{w}_P, \mathbf{C}) = \frac{1}{P}\sum_{p=1}^{P} \left\| \left\{ \mathbf{C}\mathbf{w}_p - \mathbf{x}_p \right\}|_{\Omega_p} \right\|_2^2",8,252,244,(8.22)
+F0165,least squares cost for incomplete data,"g(\mathbf{w}_1, ..., \mathbf{w}_P, \mathbf{C}) = \frac{1}{P}\sum_{p=1}^{P} \left\| \left\{ \mathbf{C}\mathbf{w}_p - \mathbf{x}_p \right\}|_{\Omega_p} \right\|_2^2",8,252,244,(8.22)
+F0166,matrix factorization,\mathbf{C}\mathbf{w}_p \approx \mathbf{x}_p,8,252,244,(8.21)
+F0167,cluster assignment,"a_p = \underset{k=1,\ldots,K}{\operatorname{argmin}} \left\Vert \mathbf{x}_p - \mathbf{c}_k \right\Vert_2",8,254,246,8.25
+F0168,cluster centroid,c_k = \frac{1}{|S_k|} \sum_{p \in S_k} x_p,8,254,246,8.24
+F0169,intra-cluster distance,\text{average intra-cluster distance} = \frac{1}{P}\sum_{p=1}^{P} \left\| \mathbf{x}_p - \mathbf{c}_{k_p} \right\|_2,8,256,248,(8.28)
+F0170,non-negative matrix factorization,"\underset{\mathbf{C},\mathbf{W}}{\text{minimize}} \left\|\mathbf{C}\mathbf{W} - \mathbf{X}\right\|_F^2 \quad \text{subject to} \quad \mathbf{C}, \mathbf{W} \geq 0",8,261,253,(8.40)
+F0171,sparse coding,"\underset{\mathbf{C},\mathbf{W}}{\text{minimize}} \left\|\mathbf{C}\mathbf{W} - \mathbf{X}\right\|_F^2 \quad \text{subject to} \quad \left\|\mathbf{w}_p\right\|_0 \leq S, \; p = 1, \ldots, P",8,261,253,(8.39)
+F0172,orthogonal matrix,C^T C = I_{K \times K},8,266,258,
+F0173,rayleigh quotient,h(\mathbf{c}_1) = \frac{1}{P} \mathbf{c}_1^T \mathbf{X} \mathbf{X}^T \mathbf{c}_1 = \mathbf{c}_1^T \left( \frac{1}{P} \mathbf{X} \mathbf{X}^T \right) \mathbf{c}_1,8,267,259,(8.51)
+F0174,variance maximization,h(\mathbf{c}_1) = \frac{1}{P} \sum_{p=1}^{P} \left( \mathbf{c}_1^T \mathbf{x}_p \right)^2,8,267,259,(8.50)
+F0175,inner product similarity,0 \leq \mathbf{x}_1^T \mathbf{x}_2 \leq 1,9,273,265,
+F0176,standard normalization,"\frac{x_{p,n} - \mu_n}{\sigma_n}",9,282,274,(9.2)
+F0177,standard normalization,"\mu_n = \frac{1}{P}\sum_{p=1}^{P} x_{p,n}, \quad \sigma_n = \sqrt{\frac{1}{P}\sum_{p=1}^{P} \left(x_{p,n} - \mu_n\right)^2}",9,283,275,(9.3)
+F0178,nonlinear model,"model (x, \Theta) = \mathring{f}^T w",10,311,303,(10.8)
+F0179,nonlinear model,"model (x, \Theta) = w_0 + f (x) w_1",10,311,303,(10.6)
+F0180,nonlinear model,"model (x, \Theta) = w_0 + f_1 (x) w_1 + f_2 (x) w_2 + \cdots + f_B (x) w_B",10,311,303,(10.7)
+F0181,feature engineering,f(x) = \sin(v_0 + x v_1),10,312,304,(10.12)
+F0182,multi-output regression,"\mathring{\mathbf{x}}_{p}^{T}\mathbf{W}\approx\mathbf{y}_{p},\quad p=1,\ldots,P",10,317,309,(10.16)
+F0183,multi-output regression,"\text{model}\left(\mathbf{x},\mathbf{W}\right)=\mathring{\mathbf{x}}^{T}\mathbf{W}",10,317,309,(10.15)
+F0184,multi-output regression,"\text{model}_{c}(\mathbf{x},\Theta_{c})=\mathring{\mathbf{f}}^{T}\mathbf{w}_{c}",10,317,309,(10.20)
+F0185,multi-output regression,"\text{model}_{c}(\mathbf{x},\Theta_{c})=w_{c,0}+f_{1}(\mathbf{x})w_{c,1}+f_{2}(\mathbf{x})w_{c,2}+\cdots+f_{B}(\mathbf{x})w_{c,B}",10,317,309,(10.19)
+F0186,multi-output regression,"\text{model}_{c}(\mathbf{x},\Theta_{c})=w_{c,0}+f_{c,1}(\mathbf{x})w_{c,1}+f_{c,2}(\mathbf{x})w_{c,2}+\cdots+f_{c,B_{c}}(\mathbf{x})w_{c,B_{c}}",10,317,309,(10.18)
+F0187,multi-output regression,g(\mathbf{W})=\frac{1}{P}\sum_{p=1}^{P}\frac{1}{2}\left\Vert \mathring{\mathbf{x}}_{p}^{T}\mathbf{W}-\mathbf{y}_{p}\right\Vert^{2},10,317,309,(10.17)
+F0188,multi-output regression,"\mathring{\mathbf{f}}_{p}^{T}\mathbf{W}\approx\mathbf{y}_{p},\quad p=1,\ldots,P",10,318,310,(10.22)
+F0189,multi-output regression,"\text{model}(\mathbf{x},\Theta)=\mathring{\mathbf{f}}^{T}\mathbf{W}",10,318,310,(10.21)
+F0190,decision boundary,\mathring{\mathbf{f}}^T\mathbf{w} = 0,10,321,313,
+F0191,fusion rule,"y_p = \underset{c}{\arg\max} \; \left[ \text{model}\left(\mathbf{x}_p, \mathbf{W}\right) \right]_c, \quad p = 1, \dots, P",10,325,317,(10.35)
+F0192,degree two polynomial expansion,"model (x, \Theta) = w_0 + x_1 w_1 + x_2 w_2 + x_1 x_2 w_3 + x_1^2 w_4 + x_2^2 w_5",10,327,319,10.43
+F0193,feature sharing,"\text{model}(x, \Theta) = \mathring{\mathbf{f}}^T W",10,327,319,10.40
+F0194,encoder-decoder composition,"model(x,C) = C C^T x",10,329,321,(10.46)
+F0195,least squares cost function,g(C) = \frac{1}{P}\sum_{p=1}^{P} \left\| C C^T x_p - x_p \right\|_2^2,10,329,321,(10.49)
+F0196,encoder-decoder composition,"model(x,\Theta) = f_d(f_e(x))",10,330,322,(10.51)
+F0197,least squares cost function,g(\Theta) = \frac{1}{P}\sum_{p=1}^{P} \left\| f_d(f_e(x_p)) - x_p \right\|_2^2,10,330,322,(10.54)
+F0198,kernel k-means,"g(w_1, \dots, w_P, C) = \frac{1}{P} \sum_{p=1}^P \left\| C w_p - f_p \right\|_2^2",10,337,329,(10.59)
+F0199,kernel pca,"g (w_1, ..., w_P, C) = \frac{1}{P} \sum_{p=1}^P \left\| C w_p - f_p \right\|_2^2",10,337,329,(10.59)
+F0200,standard basis vector constraint,w_p \in \{e_k\}_{k=1}^K,10,338,330,
+F0201,nonlinear model,"\text{model}(x, \Theta) = w_0 + f_1(x) w_1 + f_2(x) w_2 + \cdots + f_B(x) w_B",11,339,331,11.1
+F0202,linear combination,f_1 w_1 + f_2 w_2 + \cdots + f_B w_B = y,11,345,337,11.3
+F0203,linear combination,w_0 + f_1(x) w_1 + f_2(x) w_2 + \cdots + f_B(x) w_B = y(x),11,345,337,11.4
+F0204,regularization parameter,g(\Theta) + \lambda h(\Theta),11,396,388,(11.36)
+F0205,regularized cost function,g(\Theta) + \lambda h(\Theta),11,396,388,(11.36)
+F0206,regularizer,g(\Theta) + \lambda h(\Theta),11,396,388,(11.36)
+F0207,fixed-shape universal approximators,"f_1(x) = \sin(x), f_2(x) = \sin(2x), f_3(x) = \sin(3x), \ldots",12,423,415,12.1
+F0208,fixed-shape universal approximators,f_m(\mathbf{x}) = \sin(m_1 x_1) \sin(m_2 x_2) \cdots \sin(m_N x_N),12,423,415,12.2
+F0209,fixed-shape universal approximators,f_m(\mathbf{x}) = e^{2\pi i m_1 x_1} e^{2\pi i m_2 x_2} \cdots e^{2\pi i m_N x_N},12,424,416,12.5
+F0210,fixed-shape universal approximators,f_m(x) = e^{2\pi i m x},12,424,416,12.4
+F0211,fixed-shape universal approximators,f_{2m-1}(x) = \sin(2\pi m x) \quad \text{and} \quad f_{2m}(x) = \cos(2\pi m x),12,424,416,12.3
+F0212,fourier basis,f_m(x) = e^{2\pi i m_1 x_1} e^{2\pi i m_2 x_2} \cdots e^{2\pi i m_N x_N},12,424,416,(12.5)
+F0213,fourier basis,f_m(x) = e^{2\pi i m x},12,424,416,(12.4)
+F0214,fourier basis,f_{2m-1}(x) = \sin(2\pi m x) \quad \text{and} \quad f_{2m}(x) = \cos(2\pi m x),12,424,416,(12.3)
+F0215,exponential scaling of fixed-shape units,M = (2D + 1)^N,12,426,418,(12.8)
+F0216,orthogonal component r,F^T r = 0_{P \times 1},12,427,419,
+F0217,weight vector decomposition over feature matrix,\omega = Fz + r,12,427,419,12.11
+F0218,kernel matrix,H = F^T F,12,429,421,
+F0219,kernelization via weight vector substitution,\omega = F z + r \quad \text{with} \quad F^T r = 0_{P \times 1},12,429,421,(12.17)
+F0220,kernelized least squares,"g(b, z) = \sum_{p=1}^{P} \left( b + h_p^T z - y_p \right)^2",12,429,421,(12.19)
+F0221,kernelized logistic regression,"g(b,\mathbf{z}) = \sum_{p=1}^P \log\left(1 + e^{-y_p(b + \mathbf{h}_p^T \mathbf{z})}\right)",12,430,422,(12.23)
+F0222,softmax cost function,"g(b,\omega) = \sum_{p=1}^P \log\left(1 + e^{-y_p(b + \mathbf{f}_p^T \omega)}\right)",12,430,422,(12.21)
+F0223,kernelized l2 regularizer,\lambda \mathbf{z}^T \mathbf{H} \mathbf{z},12,431,423,
+F0224,kernelized multi-class softmax,\sum_{c=1}^{C} \sum_{p \in \Omega_c} \log\left(1 + \sum_{\substack{j=1 \\ j \neq c}}^{C} e^{(b_j - b_c) + \mathbf{h}_p^T (\mathbf{z}_j - \mathbf{z}_c)}\right),12,431,423,
+F0225,kernelized squared margin,"\sum_{p=1}^{P} \max^2\left(0, 1 - y_p(b + \mathbf{h}_p^T \mathbf{z})\right)",12,431,423,
+F0226,l2 regularizer,\lambda \|\mathbf{w}\|_2^2,12,431,423,
+F0227,soft-margin support vector machine,"\sum_{p=1}^{P} \max^2\left(0, 1 - y_p(b + \mathbf{f}_p^T \mathbf{w})\right)",12,431,423,
+F0228,entry-wise kernel matrix construction,H_{ij} = \left(1 + \mathbf{x}_i^T \mathbf{x}_j\right)^D - 1,12,432,424,12.28
+F0229,polynomial kernel,H_{ij} = \left(1 + \mathbf{x}_i^T \mathbf{x}_j\right)^D - 1,12,432,424,12.28
+F0230,fourier kernel,f_m(\mathbf{x}) = e^{2\pi i m_1 x_1} e^{2\pi i m_2 x_2} \cdots e^{2\pi i m_N x_N} = e^{2\pi i \mathbf{m}^T \mathbf{x}},12,442,434,(12.46)
+F0231,activation function,f^{(1)}(x) = a\left(w_0^{(1)} + \sum_{n=1}^{N} w_n^{(1)} x_n\right),13,443,435,(13.1)
+F0232,single-layer unit,f^{(1)}(x) = a\left(w_0^{(1)} + \sum_{n=1}^{N} w_n^{(1)} x_n\right),13,443,435,(13.1)
+F0233,activation function,"f^{(1)}(x) = \max\left(0, w_0^{(1)} + w_1^{(1)} x\right)",13,444,436,(13.3)
+F0234,activation function,f^{(1)}(x) = \tanh\left(w_0^{(1)} + w_1^{(1)} x\right),13,444,436,(13.2)
+F0235,fully-connected neural network,"\text{model}(x, \Theta) = w_0 + f_1^{(1)}(x) w_1 + \cdots + f_{U_1}^{(1)}(x) w_{U_1}",13,444,436,(13.4)
+F0236,model parameters,"\text{model}(x, \Theta) = w_0 + f^{(1)}_1(x) w_1 + \cdots + f^{(1)}_{U_1}(x) w_{U_1}",13,444,436,(13.4)
+F0237,single-layer unit,"f^{(1)}(x) = \max\left(0, w_0^{(1)} + w_1^{(1)} x\right)",13,444,436,(13.3)
+F0238,single-layer unit,f^{(1)}(x) = \tanh\left(w_0^{(1)} + w_1^{(1)} x\right),13,444,436,(13.2)
+F0239,weight matrix,"\mathbf{W}_1 = \begin{bmatrix} w_{0,1}^{(1)} & w_{0,2}^{(1)} & \cdots & w_{0,U_1}^{(1)} \\ w_{1,1}^{(1)} & w_{1,2}^{(1)} & \cdots & w_{2,U_1}^{(1)} \\ \vdots & \vdots & \ddots & \vdots \\ w_{N,1}^{(1)} & w_{N,2}^{(1)} & \cdots & w_{N,U_1}^{(1)} \end{bmatrix}",13,447,439,13.7
+F0240,vector activation,\mathbf{a}(\mathbf{v}) = \begin{bmatrix} a(v_1) \\ \vdots \\ a(v_d) \end{bmatrix},13,448,440,13.9
+F0241,two-layer unit,f (x) = a \left( w^{(2)}_0 + \sum_{i=1}^{U_1} w^{(2)}_i f^{(1)}_i (x) \right),13,449,441,13.13
+F0242,maxout activation,"a(x) = \max(v_0 + v_1 x, w_0 + w_1 x)",13,467,459,13.31
+F0243,batch normalization,\mu_{f_j^{(2)}} = \frac{1}{P} \sum_{p=1}^{P} f_j^{(2)}(\mathbf{x}_p) \quad \sigma_{f_j^{(2)}} = \sqrt{ \frac{1}{P} \sum_{p=1}^{P} \left(f_j^{(2)}(\mathbf{x}_p) - \mu_{f_j^{(2)}}\right)^2 },13,475,467,13.40
+F0244,batch normalization,\mu_{f_j^{(L)}} = \frac{1}{P} \sum_{p=1}^{P} f_j^{(L)}(\mathbf{x}_p) \quad \sigma_{f_j^{(L)}} = \sqrt{ \frac{1}{P} \sum_{p=1}^{P} \left(f_j^{(L)}(\mathbf{x}_p) - \mu_{f_j^{(L)}}\right)^2 },13,475,467,13.43
+F0245,batch normalization,f_j^{(2)}(x) \leftarrow \frac{f_j^{(2)}(x) - \mu_{f_j^{(2)}}}{\sigma_{f_j^{(2)}}},13,475,467,13.39
+F0246,batch normalization,"f_j^{(L)}(\mathbf{x}) = a\left(w_{0,j}^{(L)} + \sum_{i=1}^{U_{L-1}} w_{i,j}^{(L)} f_i^{(L-1)}(\mathbf{x})\right)",13,475,467,13.41
+F0247,batch normalization,f_j^{(L)}(\mathbf{x}) \leftarrow \frac{f_j^{(L)}(\mathbf{x}_p) - \mu_{f_j^{(L)}}}{\sigma_{f_j^{(L)}}},13,475,467,13.42
+F0248,batch normalization,f^{(L)}(\mathbf{x}) \leftarrow \alpha \frac{f^{(L)}(\mathbf{x}) - \mu_{f^{(L)}}}{\sigma_{f^{(L)}}} + \beta,13,476,468,13.44
+F0249,leaf parameters,f(x) = \begin{cases} v_1 & x < s \\ v_2 & x > s \end{cases},14,483,475,14.1
+F0250,split point,f(x) = \begin{cases} v_1 & x < s \\ v_2 & x > s \end{cases},14,483,475,14.1
+F0251,stump,f(x) = \begin{cases} v_1 & x < s \\ v_2 & x > s \end{cases},14,483,475,14.1
+F0252,optimal leaf values,v_{\star L} = \frac{1}{|\Omega_L|} \sum_{p \in \Omega_L} y_p \qquad v_{\star R} = \frac{1}{|\Omega_R|} \sum_{p \in \Omega_R} y_p,14,490,482,(14.6)
+F0253,tree-based learner,"\text{model}_{m-1}\left(\mathbf{x}, \Theta_{m-1}\right) = f_{s_1^\star}(\mathbf{x}) + f_{s_2^\star}(\mathbf{x}) + \cdots + f_{s_{m-1}^\star}(\mathbf{x})",14,499,491,(14.10)
+F0254,leaf-value optimization,"\frac{1}{|\Omega_L|} \sum_{p \in \Omega_L} \left( \text{model}_{m-1}\left(x_p, \Theta_{m-1}\right) + v_L - y_p \right)^2 \\
+\frac{1}{|\Omega_R|} \sum_{p \in \Omega_R} \left( \text{model}_{m-1}\left(x_p, \Theta_{m-1}\right) + v_R - y_p \right)^2",14,500,492,(14.12)
+F0255,residual fitting,\frac{1}{|\Omega_L|}\sum_{p\in\Omega_L} \left(v_L - r_p\right)^2,14,501,493,

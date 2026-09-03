@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "7813338a25ab4c7659d33251fbf58406ca91eecd221c26f5700ab644e537c318",
+  "concept_id": 169,
+  "concept_name": "matrix factorization",
+  "aliases": [
+    "matrix factorization",
+    "matrix completion",
+    "linear recommender system",
+    "matrix factorization problems"
+  ],
+  "profile": "matrix factorization: a linear representation model based on the assumption that some ideal spanning set of K fundamental taste vectors exists, allowing these vectors to be packaged as an N × K matrix C. The goal is for each data vector x_p to be truly expressed as a linear combination of those columns, i.e. C w_p ≈ x_p.",
+  "word_count": 60,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "matrix factorization: a method based on the assumption that an ideal spanning set of K fundamental taste vectors exists, which can be packaged as an N × K matrix C. Each data vector x_p is expressed as a linear combination C w_p, so that x_p ≈ C w_p.",
+    "claims": [
+      {
+        "claim": "Matrix factorization is based on the assumption that an ideal spanning set of K fundamental taste vectors exists, which can be packaged as an N × K matrix C.",
+        "evidence_ids": [
+          "MLR-E0192"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In matrix factorization, each data vector x_p is expressed as a linear combination C w_p, so that x_p ≈ C w_p.",
+        "evidence_ids": [
+          "MLR-E0192"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "matrix factorization: a linear representation model based on the assumption that some ideal spanning set of K fundamental taste vectors exists, allowing these vectors to be packaged as an N × K matrix C. The goal is for each data vector x_p to be truly expressed as a linear combination of those columns, i.e. C w_p ≈ x_p.",
+    "sentence_reviews": [
+      {
+        "sentence": "matrix factorization: a linear representation model based on the assumption that some ideal spanning set of K fundamental taste vectors exists, allowing these vectors to be packaged as an N × K matrix C.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0192"
+        ],
+        "reason": "The evidence states the assumption that an ideal spanning set of K fundamental taste vectors exists and can be packaged as an N × K matrix C."
+      },
+      {
+        "sentence": "The goal is for each data vector x_p to be truly expressed as a linear combination of those columns, i.e. C w_p ≈ x_p.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0192"
+        ],
+        "reason": "The evidence says each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"matrix factorization: a method based on the assumption that an ideal spanning set of K fundamental taste vectors exists, which can be packaged as an N × K matrix C. Each data vector x_p is expressed as a linear combination C w_p, so that x_p ≈ C w_p.\",\n  \"claims\": [\n    {\n      \"claim\": \"Matrix factorization is based on the assumption that an ideal spanning set of K fundamental taste vectors exists, which can be packaged as an N × K matrix C.\",\n      \"evidence_ids\": [\"MLR-E0192\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In matrix factorization, each data vector x_p is expressed as a linear combination C w_p, so that x_p ≈ C w_p.\",\n      \"evidence_ids\": [\"MLR-E0192\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"matrix factorization: a linear representation model based on the assumption that some ideal spanning set of K fundamental taste vectors exists, allowing these vectors to be packaged as an N × K matrix C. The goal is for each data vector x_p to be truly expressed as a linear combination of those columns, i.e. C w_p ≈ x_p.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"matrix factorization: a linear representation model based on the assumption that some ideal spanning set of K fundamental taste vectors exists, allowing these vectors to be packaged as an N × K matrix C.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0192\"],\n      \"reason\": \"The evidence states the assumption that an ideal spanning set of K fundamental taste vectors exists and can be packaged as an N × K matrix C.\"\n    },\n    {\n      \"sentence\": \"The goal is for each data vector x_p to be truly expressed as a linear combination of those columns, i.e. C w_p ≈ x_p.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0192\"],\n      \"reason\": \"The evidence says each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:31:48.907541+00:00"
+}

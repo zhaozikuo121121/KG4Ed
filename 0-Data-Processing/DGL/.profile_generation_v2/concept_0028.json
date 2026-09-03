@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4ae060ae23c06b6970e0dcf097744a54549fbd39dcf42d8c3d69d8763aaaf8a1",
+  "concept_id": 28,
+  "concept_name": "multiple edges",
+  "aliases": [
+    "multiple edges",
+    "multi-edge"
+  ],
+  "profile": "multiple edges: two or more edges that connect the same endpoints.",
+  "word_count": 11,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multiple edges: two or more edges that connect the same endpoints.",
+    "claims": [
+      {
+        "claim": "Multiple edges are two or more edges that connect the same endpoints.",
+        "evidence_ids": [
+          "DGL-E0010"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "multiple edges: two or more edges that connect the same endpoints.",
+    "sentence_reviews": [
+      {
+        "sentence": "multiple edges: two or more edges that connect the same endpoints.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0010"
+        ],
+        "reason": "The handwritten definition states 'Two edges that connect the same end points (or more)', which directly supports the paraphrase."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multiple edges: two or more edges that connect the same endpoints.\",\n  \"claims\": [\n    {\n      \"claim\": \"Multiple edges are two or more edges that connect the same endpoints.\",\n      \"evidence_ids\": [\"DGL-E0010\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multiple edges: two or more edges that connect the same endpoints.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"multiple edges: two or more edges that connect the same endpoints.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0010\"],\n      \"reason\": \"The handwritten definition states 'Two edges that connect the same end points (or more)', which directly supports the paraphrase.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:58:31.331158+00:00"
+}

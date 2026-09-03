@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a449219ce64fe20341dd309e4e4b4241aca45578e2284dc3a27af780e7bc93a6",
+  "concept_id": 189,
+  "concept_name": "clustering",
+  "aliases": [
+    "clustering"
+  ],
+  "profile": "clustering: A term listed among graph learning research trends and tasks. It is identified as a relevant topic but no definition or further explanation is provided.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "clustering: A term listed among graph learning research trends and tasks. The source identifies it as a relevant topic but does not provide a definition or further explanation.",
+    "claims": [
+      {
+        "claim": "clustering is listed among graph learning research trends and tasks.",
+        "evidence_ids": [
+          "DGL-E0206"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only the term 'clustering' appears in the source; no definition or additional context is given."
+    ]
+  },
+  "review": {
+    "final_profile": "clustering: A term listed among graph learning research trends and tasks. It is identified as a relevant topic but no definition or further explanation is provided.",
+    "sentence_reviews": [
+      {
+        "sentence": "clustering: A term listed among graph learning research trends and tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0206"
+        ],
+        "reason": "The term appears in the context of graph learning research trends and tasks."
+      },
+      {
+        "sentence": "It is identified as a relevant topic but no definition or further explanation is provided.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0206"
+        ],
+        "reason": "The evidence only contains the term with no additional definition or detail."
+      }
+    ],
+    "warnings": [
+      "Only the term 'clustering' appears in the source; no definition or additional context is given."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"clustering: A term listed among graph learning research trends and tasks. The source identifies it as a relevant topic but does not provide a definition or further explanation.\",\n  \"claims\": [\n    {\n      \"claim\": \"clustering is listed among graph learning research trends and tasks.\",\n      \"evidence_ids\": [\"DGL-E0206\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only the term 'clustering' appears in the source; no definition or additional context is given.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"clustering: A term listed among graph learning research trends and tasks. It is identified as a relevant topic but no definition or further explanation is provided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"clustering: A term listed among graph learning research trends and tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0206\"],\n      \"reason\": \"The term appears in the context of graph learning research trends and tasks.\"\n    },\n    {\n      \"sentence\": \"It is identified as a relevant topic but no definition or further explanation is provided.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0206\"],\n      \"reason\": \"The evidence only contains the term with no additional definition or detail.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the term 'clustering' appears in the source; no definition or additional context is given.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:08:57.699055+00:00"
+}

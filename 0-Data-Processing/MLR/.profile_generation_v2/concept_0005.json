@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c02a761ce91708f1be2efecdf56dee910938d0360093a15537d1ca593455d10f",
+  "concept_id": 5,
+  "concept_name": "feature space",
+  "aliases": [
+    "feature space",
+    "two-dimensional feature space"
+  ],
+  "profile": "feature space: A feature space represents data items by feature values as coordinates; for example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "feature space: A multidimensional space where each data point is represented by feature values as coordinates. In a two-dimensional feature space, the horizontal and vertical axes correspond to two features, such as nose size and ear shape, and each image in the training set is placed according to its values for these features.",
+    "claims": [
+      {
+        "claim": "A feature space is a multidimensional space where data points are represented by feature values as coordinates.",
+        "evidence_ids": [
+          "MLR-E0006"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a two-dimensional feature space, the horizontal and vertical axes correspond to two features, such as nose size and ear shape.",
+        "evidence_ids": [
+          "MLR-E0006"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Each image in the training set is placed in the feature space according to its values for these features.",
+        "evidence_ids": [
+          "MLR-E0006"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "feature space: A feature space represents data items by feature values as coordinates; for example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.",
+    "sentence_reviews": [
+      {
+        "sentence": "feature space: A feature space represents data items by feature values as coordinates; for example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0006"
+        ],
+        "reason": "The evidence directly shows images in a training set represented in a two-dimensional feature space with nose size and ear shape as coordinate axes, supporting the coordinate-based representation."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"feature space: A multidimensional space where each data point is represented by feature values as coordinates. In a two-dimensional feature space, the horizontal and vertical axes correspond to two features, such as nose size and ear shape, and each image in the training set is placed according to its values for these features.\",\n  \"claims\": [\n    {\n      \"claim\": \"A feature space is a multidimensional space where data points are represented by feature values as coordinates.\",\n      \"evidence_ids\": [\"MLR-E0006\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a two-dimensional feature space, the horizontal and vertical axes correspond to two features, such as nose size and ear shape.\",\n      \"evidence_ids\": [\"MLR-E0006\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Each image in the training set is placed in the feature space according to its values for these features.\",\n      \"evidence_ids\": [\"MLR-E0006\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature space: A feature space represents items by feature values as coordinates. For example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A feature space represents items by feature values as coordinates.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0006\"],\n      \"reason\": \"The evidence shows features serve as coordinate axes, so items are placed by their feature values.\"\n    },\n    {\n      \"sentence\": \"For example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0006\"],\n      \"reason\": \"This directly restates the evidence about images in a training set mapped to features as axes.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature space: A feature space represents data items by feature values as coordinates; for example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"feature space: A feature space represents data items by feature values as coordinates; for example, each image in a training set can be represented in a two-dimensional feature space, where the features nose size and ear shape are the horizontal and vertical coordinate axes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0006\"\n      ],\n      \"reason\": \"The evidence directly shows images in a training set represented in a two-dimensional feature space with nose size and ear shape as coordinate axes, supporting the coordinate-based representation.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T20:55:14.510777+00:00"
+}

@@ -1,0 +1,116 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ab3a9c673bd796ea582eef82791ac562d1df0b32043e01ffce4d8e8640b555b9",
+  "concept_id": 1,
+  "concept_name": "graph representation",
+  "aliases": [
+    "graph representation",
+    "modeling interactions",
+    "modeling relationships",
+    "g = (v, e",
+    "graph embedding",
+    "graph structure",
+    "topology"
+  ],
+  "profile": "graph representation: A graph representation can be written as G=(V,E) or G=(V,E,A,X). Graphs are powerful tools in modeling interactions and relationships between different elements. The learned graph embedding is invariant to its node permutation. Topology is another term associated with graph representation.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph representation: A graph representation is commonly written G=(V,E) or G=(V,E,A,X). Graphs are powerful tools in modeling interactions/relationships between different elements. It also enables distinguishing between different graph structures and accurately mapping graph inputs to outputs. Learned graph embeddings can be invariant to node permutation, and the representation captures topology.",
+    "claims": [
+      {
+        "claim": "A graph representation is commonly written G=(V,E) or G=(V,E,A,X).",
+        "evidence_ids": [
+          "DGL-E0162",
+          "DGL-E0272"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graphs are powerful tools in modeling interactions/relationships between different elements.",
+        "evidence_ids": [
+          "DGL-E0002"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The representation enables distinguishing between different graph structures and accurately mapping graph inputs to outputs.",
+        "evidence_ids": [
+          "DGL-E0371"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Learned graph embeddings can be invariant to node permutation.",
+        "evidence_ids": [
+          "DGL-E0420"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The representation captures topology.",
+        "evidence_ids": [
+          "DGL-E0464"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph representation: A graph representation can be written as G=(V,E) or G=(V,E,A,X). Graphs are powerful tools in modeling interactions and relationships between different elements. The learned graph embedding is invariant to its node permutation. Topology is another term associated with graph representation.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph representation can be written as G=(V,E) or G=(V,E,A,X).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0162",
+          "DGL-E0272"
+        ],
+        "reason": "Both formula notations appear in the source materials."
+      },
+      {
+        "sentence": "Graphs are powerful tools in modeling interactions and relationships between different elements.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0002"
+        ],
+        "reason": "Directly states that graphs model interactions/relationships between elements."
+      },
+      {
+        "sentence": "The learned graph embedding is invariant to its node permutation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0420"
+        ],
+        "reason": "Source explicitly states that the learned graph embedding is invariant to node permutation."
+      },
+      {
+        "sentence": "Topology is another term associated with graph representation.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0464"
+        ],
+        "reason": "Only a handwritten keyword 'topology' appears; the statement is kept minimal to avoid overclaiming."
+      }
+    ],
+    "warnings": [
+      "The topology statement is a minimal interpretation of a single keyword; no further topology details are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph representation: A graph representation is commonly written G=(V,E) or G=(V,E,A,X). Graphs are powerful tools in modeling interactions/relationships between different elements. It also enables distinguishing between different graph structures and accurately mapping graph inputs to outputs. Learned graph embeddings can be invariant to node permutation, and the representation captures topology.\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph representation is commonly written G=(V,E) or G=(V,E,A,X).\",\n      \"evidence_ids\": [\"DGL-E0162\", \"DGL-E0272\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graphs are powerful tools in modeling interactions/relationships between different elements.\",\n      \"evidence_ids\": [\"DGL-E0002\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The representation enables distinguishing between different graph structures and accurately mapping graph inputs to outputs.\",\n      \"evidence_ids\": [\"DGL-E0371\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Learned graph embeddings can be invariant to node permutation.\",\n      \"evidence_ids\": [\"DGL-E0420\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The representation captures topology.\",\n      \"evidence_ids\": [\"DGL-E0464\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph representation: A graph representation can be written as G=(V,E) or G=(V,E,A,X). Graphs are powerful tools in modeling interactions and relationships between different elements. The learned graph embedding is invariant to its node permutation. Topology is another term associated with graph representation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph representation can be written as G=(V,E) or G=(V,E,A,X).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0162\", \"DGL-E0272\"],\n      \"reason\": \"Both formula notations appear in the source materials.\"\n    },\n    {\n      \"sentence\": \"Graphs are powerful tools in modeling interactions and relationships between different elements.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0002\"],\n      \"reason\": \"Directly states that graphs model interactions/relationships between elements.\"\n    },\n    {\n      \"sentence\": \"The learned graph embedding is invariant to its node permutation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0420\"],\n      \"reason\": \"Source explicitly states that the learned graph embedding is invariant to node permutation.\"\n    },\n    {\n      \"sentence\": \"Topology is another term associated with graph representation.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0464\"],\n      \"reason\": \"Only a handwritten keyword 'topology' appears; the statement is kept minimal to avoid overclaiming.\"\n    }\n  ],\n  \"warnings\": [\n    \"The topology statement is a minimal interpretation of a single keyword; no further topology details are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:50:30.450346+00:00"
+}

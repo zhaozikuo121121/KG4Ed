@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "176c6c5b4a07132e397b4b9a1f4ce98b8af93e604dfbf4e6274e0a331d6670f0",
+  "concept_id": 229,
+  "concept_name": "weight vector decomposition over feature matrix",
+  "aliases": [
+    "weight vector decomposition over feature matrix",
+    "decomposition of ω over columns of f"
+  ],
+  "profile": "weight vector decomposition over feature matrix: In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r. The term Fz lies in the column space of F, while r is a residual vector. This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.",
+  "word_count": 63,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weight vector decomposition over feature matrix: In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r. The term Fz lies in the column space of F, while r is a residual vector. This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.",
+    "claims": [
+      {
+        "claim": "In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r.",
+        "evidence_ids": [
+          "MLR-E0288"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term Fz lies in the column space of F, while r is a residual vector.",
+        "evidence_ids": [
+          "MLR-E0288"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not specify whether the residual r is orthogonal to the column space of F."
+    ]
+  },
+  "review": {
+    "final_profile": "weight vector decomposition over feature matrix: In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r. The term Fz lies in the column space of F, while r is a residual vector. This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.",
+    "sentence_reviews": [
+      {
+        "sentence": "In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0288"
+        ],
+        "reason": "Directly restates the evidence that any vector in an M-dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r."
+      },
+      {
+        "sentence": "The term Fz lies in the column space of F, while r is a residual vector.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0288"
+        ],
+        "reason": "The decomposition is described as being over the column space of F, so Fz corresponds to that column-space component and r is the residual part of the decomposition."
+      },
+      {
+        "sentence": "This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0288"
+        ],
+        "reason": "Summarizes the decomposition of ω into a column-space component Fz and a residual r."
+      }
+    ],
+    "warnings": [
+      "The metadata does not specify whether the residual r is orthogonal to the column space of F."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weight vector decomposition over feature matrix: In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r. The term Fz lies in the column space of F, while r is a residual vector. This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.\",\n  \"claims\": [\n    {\n      \"claim\": \"In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r.\",\n      \"evidence_ids\": [\"MLR-E0288\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term Fz lies in the column space of F, while r is a residual vector.\",\n      \"evidence_ids\": [\"MLR-E0288\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not specify whether the residual r is orthogonal to the column space of F.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weight vector decomposition over feature matrix: In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r. The term Fz lies in the column space of F, while r is a residual vector. This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In an M-dimensional space, any vector ω can be decomposed over the column space of a given feature matrix F as ω = Fz + r.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0288\"],\n      \"reason\": \"Directly restates the evidence that any vector in an M-dimensional space can be decomposed over the column space of a given matrix F as ω = Fz + r.\"\n    },\n    {\n      \"sentence\": \"The term Fz lies in the column space of F, while r is a residual vector.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0288\"],\n      \"reason\": \"The decomposition is described as being over the column space of F, so Fz corresponds to that column-space component and r is the residual part of the decomposition.\"\n    },\n    {\n      \"sentence\": \"This decomposition splits a weight vector into a part spanned by the feature matrix columns and a remaining part.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0288\"],\n      \"reason\": \"Summarizes the decomposition of ω into a column-space component Fz and a residual r.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not specify whether the residual r is orthogonal to the column space of F.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:52:29.791093+00:00"
+}

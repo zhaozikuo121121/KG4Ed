@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "fa081fba92fea8ebb97dd75fb38d7f96734a93bc68a83892276569815beb07a7",
+  "concept_id": 28,
+  "concept_name": "random sampling",
+  "aliases": [
+    "random sampling"
+  ],
+  "profile": "random sampling: In zero-order optimization, random sampling picks the same number of input points at random.",
+  "word_count": 16,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "random sampling: In zero-order optimization, random sampling is picking the same number of input points at random.",
+    "claims": [
+      {
+        "claim": "In zero-order optimization, random sampling is picking the same number of input points at random.",
+        "evidence_ids": [
+          "MLR-E0029"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "random sampling: In zero-order optimization, random sampling picks the same number of input points at random.",
+    "sentence_reviews": [
+      {
+        "sentence": "random sampling: In zero-order optimization, random sampling picks the same number of input points at random.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0029"
+        ],
+        "reason": "Directly restates the evidence that random sampling involves picking the same number of input points at random within a zero-order optimization context."
+      }
+    ],
+    "warnings": [
+      "The phrase 'same number' is relational and its comparator is not specified in the provided evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"random sampling: In zero-order optimization, random sampling is picking the same number of input points at random.\",\n  \"claims\": [\n    {\n      \"claim\": \"In zero-order optimization, random sampling is picking the same number of input points at random.\",\n      \"evidence_ids\": [\"MLR-E0029\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"random sampling: In zero-order optimization, random sampling picks the same number of input points at random.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"random sampling: In zero-order optimization, random sampling picks the same number of input points at random.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0029\"],\n      \"reason\": \"Directly restates the evidence that random sampling involves picking the same number of input points at random within a zero-order optimization context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The phrase 'same number' is relational and its comparator is not specified in the provided evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:30:35.248336+00:00"
+}

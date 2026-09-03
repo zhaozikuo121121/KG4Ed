@@ -1,0 +1,90 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "bd4ea6d5e57c5c4ce1ad35a9df1185d366fecf3ef581bd26475ced17c1372d4a",
+  "concept_id": 277,
+  "concept_name": "global pooling",
+  "aliases": [
+    "global pooling",
+    "readout",
+    "aggregation"
+  ],
+  "profile": "global pooling: an aggregation operation that combines node embeddings into a single graph-level representation. In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes. This operation is used in graph classification to produce a representation for the entire graph.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "global pooling: an aggregation operation that combines node embeddings into a single graph-level representation. In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes. This operation is used in graph classification to produce a representation for the entire graph.",
+    "claims": [
+      {
+        "claim": "Global pooling combines node embeddings into a single graph-level representation.",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N.",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This operation is used in graph classification to produce a representation for the entire graph.",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one visual evidence item supports the profile; the graph-classification connection is inferred from contextual title."
+    ]
+  },
+  "review": {
+    "final_profile": "global pooling: an aggregation operation that combines node embeddings into a single graph-level representation. In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes. This operation is used in graph classification to produce a representation for the entire graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "global pooling: an aggregation operation that combines node embeddings into a single graph-level representation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "reason": "The evidence describes averaging node embeddings to form a graph representation."
+      },
+      {
+        "sentence": "In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "reason": "This directly matches the visual operation described in the evidence."
+      },
+      {
+        "sentence": "This operation is used in graph classification to produce a representation for the entire graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0397"
+        ],
+        "reason": "The page title and graph-representation phrasing connect the operation to graph classification."
+      }
+    ],
+    "warnings": [
+      "Only one visual evidence item supports the profile; the graph-classification connection is inferred from the page title."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"global pooling: an aggregation operation that combines node embeddings into a single graph-level representation. In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes. This operation is used in graph classification to produce a representation for the entire graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"Global pooling combines node embeddings into a single graph-level representation.\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N.\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This operation is used in graph classification to produce a representation for the entire graph.\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only one visual evidence item supports the profile; the graph-classification connection is inferred from contextual title.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"global pooling: an aggregation operation that combines node embeddings into a single graph-level representation. In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes. This operation is used in graph classification to produce a representation for the entire graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"global pooling: an aggregation operation that combines node embeddings into a single graph-level representation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"reason\": \"The evidence describes averaging node embeddings to form a graph representation.\"\n    },\n    {\n      \"sentence\": \"In the illustrated form, it averages node embeddings by multiplying by a vector of ones and dividing by N, the number of nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"reason\": \"This directly matches the visual operation described in the evidence.\"\n    },\n    {\n      \"sentence\": \"This operation is used in graph classification to produce a representation for the entire graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0397\"],\n      \"reason\": \"The page title and graph-representation phrasing connect the operation to graph classification.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one visual evidence item supports the profile; the graph-classification connection is inferred from the page title.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:40:04.618351+00:00"
+}

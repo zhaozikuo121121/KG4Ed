@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ee6168d428317803e389d5b702dde6ffc0f1896bce985b865251692951aae509",
+  "concept_id": 103,
+  "concept_name": "latent representation",
+  "aliases": [
+    "latent representation",
+    "embedding space"
+  ],
+  "profile": "latent representation: latent representations are also called features. An embedding is written as an element of R^d' (a d'-dimensional real-valued vector).",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "latent representation: a latent representation is a feature vector. An embedding is denoted as an element of R^d', meaning a d'-dimensional real-valued vector.",
+    "claims": [
+      {
+        "claim": "A latent representation is a feature vector.",
+        "evidence_ids": [
+          "DGL-E0104"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An embedding is denoted as an element of R^d'.",
+        "evidence_ids": [
+          "DGL-E0145"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only two short handwritten evidence fragments were available."
+    ]
+  },
+  "review": {
+    "final_profile": "latent representation: latent representations are also called features. An embedding is written as an element of R^d' (a d'-dimensional real-valued vector).",
+    "sentence_reviews": [
+      {
+        "sentence": "latent representations are also called features.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0104"
+        ],
+        "reason": "The source annotation lists 'latent representations / features', directly supporting synonymy."
+      },
+      {
+        "sentence": "An embedding is written as an element of R^d' (a d'-dimensional real-valued vector).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0145"
+        ],
+        "reason": "The source states 'embedding ∈ R^d'; the parenthetical is the standard interpretation of R^d'."
+      }
+    ],
+    "warnings": [
+      "Only two short annotations support this entry, so the profile remains minimal."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"latent representation: a latent representation is a feature vector. An embedding is denoted as an element of R^d', meaning a d'-dimensional real-valued vector.\",\n  \"claims\": [\n    {\n      \"claim\": \"A latent representation is a feature vector.\",\n      \"evidence_ids\": [\"DGL-E0104\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An embedding is denoted as an element of R^d'.\",\n      \"evidence_ids\": [\"DGL-E0145\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only two short handwritten evidence fragments were available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"latent representation: latent representations are also called features. An embedding is written as an element of R^d' (a d'-dimensional real-valued vector).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"latent representations are also called features.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0104\"],\n      \"reason\": \"The source annotation lists 'latent representations / features', directly supporting synonymy.\"\n    },\n    {\n      \"sentence\": \"An embedding is written as an element of R^d' (a d'-dimensional real-valued vector).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0145\"],\n      \"reason\": \"The source states 'embedding ∈ R^d'; the parenthetical is the standard interpretation of R^d'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only two short annotations support this entry, so the profile remains minimal.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:32:38.085982+00:00"
+}

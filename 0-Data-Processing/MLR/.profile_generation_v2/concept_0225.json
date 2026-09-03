@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "13dc3fb52b516c2a426b548f5b94bfcbe059add4023e53b4e34d0eea69ebc1a8",
+  "concept_id": 225,
+  "concept_name": "fourier basis",
+  "aliases": [
+    "fourier basis",
+    "fourier approximators"
+  ],
+  "profile": "fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).",
+    "claims": [
+      {
+        "claim": "The Fourier basis consists of paired sine and cosine waves with ever-increasing frequency, specifically f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).",
+        "evidence_ids": [
+          "MLR-E0284"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).",
+    "sentence_reviews": [
+      {
+        "sentence": "fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0284"
+        ],
+        "reason": "Directly restates the definition and formula from the metadata evidence."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).\",\n  \"claims\": [\n    {\n      \"claim\": \"The Fourier basis consists of paired sine and cosine waves with ever-increasing frequency, specifically f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).\",\n      \"evidence_ids\": [\"MLR-E0284\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"fourier basis: a set of paired sine and cosine waves with ever-increasing frequency, of the form f_{2m-1}(x)=sin(2πmx) and f_{2m}(x)=cos(2πmx).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0284\"],\n      \"reason\": \"Directly restates the definition and formula from the metadata evidence.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:50:51.083469+00:00"
+}

@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4d625d87126b42ae1f019f85014959fe3a8e4e6339a4327311808f044e098ff6",
+  "concept_id": 72,
+  "concept_name": "non-convex minimization",
+  "aliases": [
+    "non-convex minimization",
+    "minimizing non-convex functions",
+    "non-convexity"
+  ],
+  "profile": "non-convex minimization: the task of finding a minimum of a non-convex function. Newton's method can behave very badly when applied to minimizing such functions.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "non-convex minimization: the task of finding a minimum of a non-convex function. Newton's method can behave very badly when applied to minimizing such functions.",
+    "claims": [
+      {
+        "claim": "Newton's method can behave very badly when applied to minimizing non-convex functions.",
+        "evidence_ids": [
+          "MLR-E0084"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "non-convex minimization: the task of finding a minimum of a non-convex function. Newton's method can behave very badly when applied to minimizing such functions.",
+    "sentence_reviews": [
+      {
+        "sentence": "non-convex minimization: the task of finding a minimum of a non-convex function.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional background connecting the term to the source-supported statement."
+      },
+      {
+        "sentence": "Newton's method can behave very badly when applied to minimizing such functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0084"
+        ],
+        "reason": "Directly restates the source evidence."
+      }
+    ],
+    "warnings": [
+      "The opening definition is generic background; only the statement about Newton's method is directly supported by the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"non-convex minimization: the task of finding a minimum of a non-convex function. Newton's method can behave very badly when applied to minimizing such functions.\",\n  \"claims\": [\n    {\n      \"claim\": \"Newton's method can behave very badly when applied to minimizing non-convex functions.\",\n      \"evidence_ids\": [\"MLR-E0084\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"non-convex minimization: the task of finding a minimum of a non-convex function. Newton's method can behave very badly when applied to minimizing such functions.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"non-convex minimization: the task of finding a minimum of a non-convex function.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional background connecting the term to the source-supported statement.\"\n    },\n    {\n      \"sentence\": \"Newton's method can behave very badly when applied to minimizing such functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0084\"],\n      \"reason\": \"Directly restates the source evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The opening definition is generic background; only the statement about Newton's method is directly supported by the evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:48:14.758151+00:00"
+}

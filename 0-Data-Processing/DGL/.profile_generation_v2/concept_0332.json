@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ed98a32d98cc23bfe4e799947da478f5fa07d56471e7624683ea3595ded596c2",
+  "concept_id": 332,
+  "concept_name": "brain graph evolution prediction",
+  "aliases": [
+    "brain graph evolution prediction",
+    "time-dependent gnn"
+  ],
+  "profile": "brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict later brain graphs at time points t2, t3, and t4.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict subsequent brain graphs at time points t2, t3, and t4, modeling the temporal evolution of brain connectivity.",
+    "claims": [
+      {
+        "claim": "Brain graph evolution prediction models the sequence from a baseline brain graph at t0 to later brain graphs at t2, t3, and t4.",
+        "evidence_ids": [
+          "DGL-E0488"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict later brain graphs at time points t2, t3, and t4.",
+    "sentence_reviews": [
+      {
+        "sentence": "brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict later brain graphs at time points t2, t3, and t4.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0488"
+        ],
+        "reason": "The evidence directly shows the brain graph at baseline t0 leading to brain graphs at t2, t3, and t4."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict subsequent brain graphs at time points t2, t3, and t4, modeling the temporal evolution of brain connectivity.\",\n  \"claims\": [\n    {\n      \"claim\": \"Brain graph evolution prediction models the sequence from a baseline brain graph at t0 to later brain graphs at t2, t3, and t4.\",\n      \"evidence_ids\": [\"DGL-E0488\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict later brain graphs at time points t2, t3, and t4.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"brain graph evolution prediction: a task in which a brain graph at baseline t0 is used to predict later brain graphs at time points t2, t3, and t4.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0488\"],\n      \"reason\": \"The evidence directly shows the brain graph at baseline t0 leading to brain graphs at t2, t3, and t4.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:58:30.270565+00:00"
+}

@@ -1,0 +1,80 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "d89ab6350bd3c60ee63c230a33c55f291db059bec8934a1fb8bd0953a9ddc4d5",
+  "concept_id": 109,
+  "concept_name": "manifold learning",
+  "aliases": [
+    "manifold learning",
+    "manifold hypothesis",
+    "dimensionality reduction"
+  ],
+  "profile": "manifold learning: referenced together with feature embedding in deep learning. It is also mentioned in relation to finding an ultimate, much simpler manifold in the context of GCN training and optimization.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "manifold learning: an approach associated with feature embedding in deep learning. It is also linked to a goal of finding an ultimate, much simpler manifold in the context of GCN training and optimization.",
+    "claims": [
+      {
+        "claim": "Manifold learning is associated with feature embedding in deep learning.",
+        "evidence_ids": [
+          "DGL-E0115"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is linked to a goal of finding an ultimate, much simpler manifold.",
+        "evidence_ids": [
+          "DGL-E0256"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This goal appears in the context of GCN training and optimization.",
+        "evidence_ids": [
+          "DGL-E0256"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "manifold learning: referenced together with feature embedding in deep learning. It is also mentioned in relation to finding an ultimate, much simpler manifold in the context of GCN training and optimization.",
+    "sentence_reviews": [
+      {
+        "sentence": "manifold learning: referenced together with feature embedding in deep learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0115"
+        ],
+        "reason": "The source pairs feature embedding in deep learning with manifold learning."
+      },
+      {
+        "sentence": "It is also mentioned in relation to finding an ultimate, much simpler manifold in the context of GCN training and optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0256"
+        ],
+        "reason": "The source contains the phrase 'find an ultimate... much simpler manifold' on a page about GCN training and optimization."
+      }
+    ],
+    "warnings": [
+      "The second evidence is a partial printed string with an ellipsis, so the broader surrounding sentence is not available and the claim is limited to that phrase."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"manifold learning: an approach associated with feature embedding in deep learning. It is also linked to a goal of finding an ultimate, much simpler manifold in the context of GCN training and optimization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Manifold learning is associated with feature embedding in deep learning.\",\n      \"evidence_ids\": [\"DGL-E0115\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is linked to a goal of finding an ultimate, much simpler manifold.\",\n      \"evidence_ids\": [\"DGL-E0256\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This goal appears in the context of GCN training and optimization.\",\n      \"evidence_ids\": [\"DGL-E0256\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"manifold learning: referenced together with feature embedding in deep learning. It is also mentioned in relation to finding an ultimate, much simpler manifold in the context of GCN training and optimization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"manifold learning: referenced together with feature embedding in deep learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0115\"],\n      \"reason\": \"The source pairs feature embedding in deep learning with manifold learning.\"\n    },\n    {\n      \"sentence\": \"It is also mentioned in relation to finding an ultimate, much simpler manifold in the context of GCN training and optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0256\"],\n      \"reason\": \"The source contains the phrase 'find an ultimate... much simpler manifold' on a page about GCN training and optimization.\"\n    }\n  ],\n  \"warnings\": [\n    \"The second evidence is a partial printed string with an ellipsis, so the broader surrounding sentence is not available and the claim is limited to that phrase.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:35:43.969576+00:00"
+}

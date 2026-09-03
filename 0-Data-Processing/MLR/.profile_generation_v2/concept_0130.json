@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "66d28b292428a798510bfe1dbdc67c6cb5cb05ad31c27f8b21a609bb612323f2",
+  "concept_id": 130,
+  "concept_name": "classification accuracy",
+  "aliases": [
+    "classification accuracy",
+    "accuracy",
+    "accuracy metric"
+  ],
+  "profile": "classification accuracy: a measure, denoted A, for a trained model. It is the percentage of the training dataset whose labels are correctly predicted by the model. This measure gives a simple way to quantify how well the model's predicted labels match the true labels on the training data. Accuracy is expressed as a percentage.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "classification accuracy: a metric, denoted A, for a trained model. It is the percentage of the training dataset whose labels are correctly predicted by the model. This measure provides a simple way to quantify the model's predictive correctness on the training data.",
+    "claims": [
+      {
+        "claim": "Classification accuracy is denoted A and is computed for a trained model.",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Classification accuracy is the percentage of the training dataset whose labels are correctly predicted by the model.",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "classification accuracy: a measure, denoted A, for a trained model. It is the percentage of the training dataset whose labels are correctly predicted by the model. This measure gives a simple way to quantify how well the model's predicted labels match the true labels on the training data. Accuracy is expressed as a percentage.",
+    "sentence_reviews": [
+      {
+        "sentence": "classification accuracy: a measure, denoted A, for a trained model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "reason": "Source states accuracy is denoted by A and is computed for a trained model."
+      },
+      {
+        "sentence": "It is the percentage of the training dataset whose labels are correctly predicted by the model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "reason": "Directly matches the source's definition of accuracy."
+      },
+      {
+        "sentence": "This measure gives a simple way to quantify how well the model's predicted labels match the true labels on the training data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "reason": "Paraphrases the source's 'simply the percentage of training dataset whose labels are correctly predicted'."
+      },
+      {
+        "sentence": "Accuracy is expressed as a percentage.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0146"
+        ],
+        "reason": "Source explicitly says accuracy is a percentage."
+      }
+    ],
+    "warnings": [
+      "Definition is limited to training dataset accuracy as described in the source; no claims about test or generalization accuracy are made."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"classification accuracy: a metric, denoted A, for a trained model. It is the percentage of the training dataset whose labels are correctly predicted by the model. This measure provides a simple way to quantify the model's predictive correctness on the training data.\",\n  \"claims\": [\n    {\n      \"claim\": \"Classification accuracy is denoted A and is computed for a trained model.\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Classification accuracy is the percentage of the training dataset whose labels are correctly predicted by the model.\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"classification accuracy: a measure, denoted A, for a trained model. It is the percentage of the training dataset whose labels are correctly predicted by the model. This measure gives a simple way to quantify how well the model's predicted labels match the true labels on the training data. Accuracy is expressed as a percentage.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"classification accuracy: a measure, denoted A, for a trained model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"reason\": \"Source states accuracy is denoted by A and is computed for a trained model.\"\n    },\n    {\n      \"sentence\": \"It is the percentage of the training dataset whose labels are correctly predicted by the model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"reason\": \"Directly matches the source's definition of accuracy.\"\n    },\n    {\n      \"sentence\": \"This measure gives a simple way to quantify how well the model's predicted labels match the true labels on the training data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"reason\": \"Paraphrases the source's 'simply the percentage of training dataset whose labels are correctly predicted'.\"\n    },\n    {\n      \"sentence\": \"Accuracy is expressed as a percentage.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0146\"],\n      \"reason\": \"Source explicitly says accuracy is a percentage.\"\n    }\n  ],\n  \"warnings\": [\n    \"Definition is limited to training dataset accuracy as described in the source; no claims about test or generalization accuracy are made.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:17:11.427026+00:00"
+}

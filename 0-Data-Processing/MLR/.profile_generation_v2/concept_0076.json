@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "02c21898a0701fad9755d4786b664a1c3645ac2c90ea5d867cc8d34e5aeb11d8",
+  "concept_id": 76,
+  "concept_name": "second order definition of convexity",
+  "aliases": [
+    "second order definition of convexity",
+    "second order convexity"
+  ],
+  "profile": "second order definition of convexity: For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w). The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.",
+  "word_count": 38,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "second order definition of convexity: For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w). The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.",
+    "claims": [
+      {
+        "claim": "The second order definition of convexity for a vector input function g(w) involves verifying the eigenvalues of ∇2g(w).",
+        "evidence_ids": [
+          "MLR-E0088"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Convexity holds if the eigenvalues of ∇2g(w) are non-negative for each input w.",
+        "evidence_ids": [
+          "MLR-E0088"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "second order definition of convexity: For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w). The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.",
+    "sentence_reviews": [
+      {
+        "sentence": "For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0088"
+        ],
+        "reason": "The source states the second order definition for a vector input function requires verifying properties of ∇2g(w)."
+      },
+      {
+        "sentence": "The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0088"
+        ],
+        "reason": "The source explicitly requires eigenvalues of ∇2g(w) to be non-negative for each input w."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"second order definition of convexity: For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇²g(w). The function is convex if, for every input w, all eigenvalues of ∇²g(w) are non-negative.\",\n  \"claims\": [\n    {\n      \"claim\": \"The second order definition of convexity for a vector input function g(w) involves verifying the eigenvalues of ∇²g(w).\",\n      \"evidence_ids\": [\"MLR-E0088\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Convexity holds if the eigenvalues of ∇²g(w) are non-negative for each input w.\",\n      \"evidence_ids\": [\"MLR-E0088\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"second order definition of convexity: For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w). The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"For a vector input function g(w), convexity is defined by checking the Hessian matrix ∇2g(w).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0088\"],\n      \"reason\": \"The source states the second order definition for a vector input function requires verifying properties of ∇2g(w).\"\n    },\n    {\n      \"sentence\": \"The function is convex if, for every input w, all eigenvalues of ∇2g(w) are non-negative.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0088\"],\n      \"reason\": \"The source explicitly requires eigenvalues of ∇2g(w) to be non-negative for each input w.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:49:10.425351+00:00"
+}

@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c5668427a58d82eea79f309ffb0233a1b5569499450135f73348eadc8b389c25",
+  "concept_id": 54,
+  "concept_name": "eigen decomposition",
+  "aliases": [
+    "eigen decomposition",
+    "spectral decomposition"
+  ],
+  "profile": "eigen decomposition: the spectra of a matrix, listed among graph properties and matrix representations.",
+  "word_count": 14,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "eigen decomposition: a method for obtaining the spectra of a matrix, mentioned in the context of graph properties and matrix representations.",
+    "claims": [
+      {
+        "claim": "Eigen decomposition is associated with the spectra of a matrix.",
+        "evidence_ids": [
+          "DGL-E0057"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Eigen decomposition is mentioned in the context of graph properties and matrix representations.",
+        "evidence_ids": [
+          "DGL-E0057"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata only provides a bullet-point mention; no definition, properties, or examples are supplied."
+    ]
+  },
+  "review": {
+    "final_profile": "eigen decomposition: the spectra of a matrix, listed among graph properties and matrix representations.",
+    "sentence_reviews": [
+      {
+        "sentence": "eigen decomposition: the spectra of a matrix, listed among graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0057"
+        ],
+        "reason": "The source lists 'Spectra of the matrix (eigen decomposition)' under the page title 'Graph Properties and Matrix Representations'."
+      }
+    ],
+    "warnings": [
+      "Only a bullet-point mention is available; no definition, properties, or examples are supplied."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"eigen decomposition: a method for obtaining the spectra of a matrix, mentioned in the context of graph properties and matrix representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"Eigen decomposition is associated with the spectra of a matrix.\",\n      \"evidence_ids\": [\"DGL-E0057\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Eigen decomposition is mentioned in the context of graph properties and matrix representations.\",\n      \"evidence_ids\": [\"DGL-E0057\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata only provides a bullet-point mention; no definition, properties, or examples are supplied.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"eigen decomposition: the spectra of a matrix, listed among graph properties and matrix representations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"eigen decomposition: the spectra of a matrix, listed among graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0057\"],\n      \"reason\": \"The source lists 'Spectra of the matrix (eigen decomposition)' under the page title 'Graph Properties and Matrix Representations'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a bullet-point mention is available; no definition, properties, or examples are supplied.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:06:38.754987+00:00"
+}

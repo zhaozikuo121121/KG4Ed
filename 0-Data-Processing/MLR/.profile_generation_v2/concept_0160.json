@@ -1,0 +1,88 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "38f923d59538635e522d182e2933d5f30cf919416b5f88f139530f01e15a462c",
+  "concept_id": 160,
+  "concept_name": "mean-centering",
+  "aliases": [
+    "mean-centering",
+    "data centering",
+    "mean-centered",
+    "mean-centered data",
+    "mean subtraction",
+    "center data"
+  ],
+  "profile": "mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin. It applies to N-dimensional input datapoints.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin. It applies to N-dimensional input datapoints.",
+    "claims": [
+      {
+        "claim": "Mean-centering is a simple and completely reversible operation.",
+        "evidence_ids": [
+          "MLR-E0182"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Mean-centering involves subtracting off the mean of the dataset along each input dimension.",
+        "evidence_ids": [
+          "MLR-E0182"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Mean-centering causes the dataset to straddle the origin.",
+        "evidence_ids": [
+          "MLR-E0182"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Mean-centering applies to N-dimensional input datapoints.",
+        "evidence_ids": [
+          "MLR-E0246"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin. It applies to N-dimensional input datapoints.",
+    "sentence_reviews": [
+      {
+        "sentence": "mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0182"
+        ],
+        "reason": "Directly reflects the source description of mean-centering as simple, reversible, subtracting the mean along each input dimension, and causing the dataset to straddle the origin."
+      },
+      {
+        "sentence": "It applies to N-dimensional input datapoints.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0246"
+        ],
+        "reason": "The source refers to mean-centered N-dimensional input datapoints, supporting this applicability."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin. It applies to N-dimensional input datapoints.\",\n  \"claims\": [\n    {\n      \"claim\": \"Mean-centering is a simple and completely reversible operation.\",\n      \"evidence_ids\": [\"MLR-E0182\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Mean-centering involves subtracting off the mean of the dataset along each input dimension.\",\n      \"evidence_ids\": [\"MLR-E0182\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Mean-centering causes the dataset to straddle the origin.\",\n      \"evidence_ids\": [\"MLR-E0182\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Mean-centering applies to N-dimensional input datapoints.\",\n      \"evidence_ids\": [\"MLR-E0246\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin. It applies to N-dimensional input datapoints.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mean-centering: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension, so that the dataset straddles the origin.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0182\"],\n      \"reason\": \"Directly reflects the source description of mean-centering as simple, reversible, subtracting the mean along each input dimension, and causing the dataset to straddle the origin.\"\n    },\n    {\n      \"sentence\": \"It applies to N-dimensional input datapoints.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0246\"],\n      \"reason\": \"The source refers to mean-centered N-dimensional input datapoints, supporting this applicability.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:28:17.326725+00:00"
+}

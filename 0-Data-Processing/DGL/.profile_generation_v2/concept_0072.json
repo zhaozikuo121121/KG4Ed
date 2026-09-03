@@ -1,0 +1,105 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "7262b5c55afca61b6974cd398df6b22f07cdfa33042b296735861c585ce7571d",
+  "concept_id": 72,
+  "concept_name": "edge prediction",
+  "aliases": [
+    "edge prediction",
+    "link prediction",
+    "edge-level prediction"
+  ],
+  "profile": "edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes. It is also called link prediction. Examples include predicting an edge between nodes 1 and 2, and between nodes m and n. It is mentioned alongside node classification as a graph task.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes. It is also called link prediction. Examples include predicting an edge between nodes 1 and 2, and between nodes m and n. It is mentioned alongside node classification as a graph task.",
+    "claims": [
+      {
+        "claim": "Edge prediction is a graph prediction task that predicts the presence of an edge between a pair of nodes.",
+        "evidence_ids": [
+          "DGL-E0071",
+          "DGL-E0257"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is also called link prediction.",
+        "evidence_ids": [
+          "DGL-E0257"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Examples include predicting an edge between nodes 1 and 2, and between nodes m and n.",
+        "evidence_ids": [
+          "DGL-E0071",
+          "DGL-E0257"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is mentioned alongside node classification as a graph task.",
+        "evidence_ids": [
+          "DGL-E0414"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes. It is also called link prediction. Examples include predicting an edge between nodes 1 and 2, and between nodes m and n. It is mentioned alongside node classification as a graph task.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0071",
+          "DGL-E0257"
+        ],
+        "reason": "The source diagrams and headings show edge prediction as a graph-level prediction of whether an edge exists between two nodes."
+      },
+      {
+        "sentence": "It is also called link prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0257"
+        ],
+        "reason": "The printed heading explicitly says 'edge/link prediction'."
+      },
+      {
+        "sentence": "Examples include predicting an edge between nodes 1 and 2, and between nodes m and n.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0071",
+          "DGL-E0257"
+        ],
+        "reason": "The source diagrams illustrate exactly these node pairs."
+      },
+      {
+        "sentence": "It is mentioned alongside node classification as a graph task.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0414"
+        ],
+        "reason": "The source text refers to 'node classification and edge prediction tasks'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes. It is also called link prediction. Examples include predicting an edge between nodes 1 and 2, and between nodes m and n. It is mentioned alongside node classification as a graph task.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge prediction is a graph prediction task that predicts the presence of an edge between a pair of nodes.\",\n      \"evidence_ids\": [\"DGL-E0071\", \"DGL-E0257\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is also called link prediction.\",\n      \"evidence_ids\": [\"DGL-E0257\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Examples include predicting an edge between nodes 1 and 2, and between nodes m and n.\",\n      \"evidence_ids\": [\"DGL-E0071\", \"DGL-E0257\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is mentioned alongside node classification as a graph task.\",\n      \"evidence_ids\": [\"DGL-E0414\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes. It is also called link prediction. Examples include predicting an edge between nodes 1 and 2, and between nodes m and n. It is mentioned alongside node classification as a graph task.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge prediction: a graph prediction task that predicts the presence of an edge between a pair of nodes.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0071\", \"DGL-E0257\"],\n      \"reason\": \"The source diagrams and headings show edge prediction as a graph-level prediction of whether an edge exists between two nodes.\"\n    },\n    {\n      \"sentence\": \"It is also called link prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0257\"],\n      \"reason\": \"The printed heading explicitly says 'edge/link prediction'.\"\n    },\n    {\n      \"sentence\": \"Examples include predicting an edge between nodes 1 and 2, and between nodes m and n.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0071\", \"DGL-E0257\"],\n      \"reason\": \"The source diagrams illustrate exactly these node pairs.\"\n    },\n    {\n      \"sentence\": \"It is mentioned alongside node classification as a graph task.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0414\"],\n      \"reason\": \"The source text refers to 'node classification and edge prediction tasks'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:16:14.636232+00:00"
+}

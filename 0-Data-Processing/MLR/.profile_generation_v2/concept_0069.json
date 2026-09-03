@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d14789932bdef3cb5c133b0d2db191773083f9854b90d2d99c3b8790870f8a20",
+  "concept_id": 69,
+  "concept_name": "regularized newton's method",
+  "aliases": [
+    "regularized newton's method",
+    "regularized newtons method"
+  ],
+  "profile": "regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter. In one described setting, the parameter is set to epsilon = 10^-7 to support numerical stability.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter. In one specified configuration, this parameter is set to epsilon = 10^-7. The source identifies this parameter as serving numerical stability, but provides no further details about the algorithm's update rule or convergence properties.",
+    "claims": [
+      {
+        "claim": "The regularized Newton's method uses a numerical stability/regularization parameter, and a specific setting assigns it epsilon = 10^-7.",
+        "evidence_ids": [
+          "MLR-E0081"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter. In one described setting, the parameter is set to epsilon = 10^-7 to support numerical stability.",
+    "sentence_reviews": [
+      {
+        "sentence": "regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0081"
+        ],
+        "reason": "The chapter title identifies second-order optimization; the evidence directly mentions a numerical stability/regularization parameter."
+      },
+      {
+        "sentence": "In one described setting, the parameter is set to epsilon = 10^-7 to support numerical stability.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0081"
+        ],
+        "reason": "The evidence gives epsilon = 10**(-7) as the numerical stability/regularization parameter setting."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to the parameter setting; the update rule and convergence properties are not covered."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter. In one specified configuration, this parameter is set to epsilon = 10^-7. The source identifies this parameter as serving numerical stability, but provides no further details about the algorithm's update rule or convergence properties.\",\n  \"claims\": [\n    {\n      \"claim\": \"The regularized Newton's method uses a numerical stability/regularization parameter, and a specific setting assigns it epsilon = 10^-7.\",\n      \"evidence_ids\": [\"MLR-E0081\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter. In one described setting, the parameter is set to epsilon = 10^-7 to support numerical stability.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"regularized newton's method: a second-order optimization technique that uses a numerical stability/regularization parameter.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0081\"],\n      \"reason\": \"The chapter title identifies second-order optimization; the evidence directly mentions a numerical stability/regularization parameter.\"\n    },\n    {\n      \"sentence\": \"In one described setting, the parameter is set to epsilon = 10^-7 to support numerical stability.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0081\"],\n      \"reason\": \"The evidence gives epsilon = 10**(-7) as the numerical stability/regularization parameter setting.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to the parameter setting; the update rule and convergence properties are not covered.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:47:18.313551+00:00"
+}

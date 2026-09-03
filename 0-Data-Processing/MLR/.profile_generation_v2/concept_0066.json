@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5e4fc57cd3a74a09068aa62de4eb85eb553f6b3b86ef0f58d60eae8ed68d3a9d",
+  "concept_id": 66,
+  "concept_name": "eigenvalues of the hessian",
+  "aliases": [
+    "eigenvalues of the hessian",
+    "eigenvalues of ∇2g(v"
+  ],
+  "profile": "eigenvalues of the hessian: If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "eigenvalues of the hessian: For the Hessian matrix ∇2g(v), the eigenvalues indicate whether a point is a local minimum. Specifically, if all eigenvalues of ∇2g(v) are positive, then v is a local minimum.",
+    "claims": [
+      {
+        "claim": "The eigenvalues of the Hessian ∇2g(v) indicate whether a point is a local minimum.",
+        "evidence_ids": [
+          "MLR-E0075"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.",
+        "evidence_ids": [
+          "MLR-E0075"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "eigenvalues of the hessian: If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.",
+    "sentence_reviews": [
+      {
+        "sentence": "eigenvalues of the hessian: If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0075"
+        ],
+        "reason": "Matches the source evidence exactly without adding converse claims or generalizations."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"eigenvalues of the hessian: For the Hessian matrix ∇²g(v), the eigenvalues indicate whether a point is a local minimum. Specifically, if all eigenvalues of ∇²g(v) are positive, then v is a local minimum.\",\n  \"claims\": [\n    {\n      \"claim\": \"The eigenvalues of the Hessian ∇²g(v) indicate whether a point is a local minimum.\",\n      \"evidence_ids\": [\"MLR-E0075\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"If all eigenvalues of ∇²g(v) are positive, then v is a local minimum.\",\n      \"evidence_ids\": [\"MLR-E0075\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"eigenvalues of the hessian: If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"eigenvalues of the hessian: If all eigenvalues of ∇2g(v) are positive, then v is a local minimum.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0075\"],\n      \"reason\": \"Matches the source evidence exactly without adding converse claims or generalizations.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:45:51.253380+00:00"
+}

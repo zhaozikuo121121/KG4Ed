@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c6d14b2cd2c78f31304c5b45f6ea5661cea122e6ab694a90807e34c966ce87d1",
+  "concept_id": 19,
+  "concept_name": "minimization",
+  "aliases": [
+    "minimization",
+    "minimize cost functions",
+    "minimum"
+  ],
+  "profile": "minimization: In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models. It is always pursued, as the aim is to minimize these cost functions.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "minimization: In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models. It is always pursued, as the aim is to minimize these cost functions.",
+    "claims": [
+      {
+        "claim": "In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models.",
+        "evidence_ids": [
+          "MLR-E0020"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is always pursued, as the aim is to minimize these cost functions.",
+        "evidence_ids": [
+          "MLR-E0020"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "minimization: In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models. It is always pursued, as the aim is to minimize these cost functions.",
+    "sentence_reviews": [
+      {
+        "sentence": "In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0020"
+        ],
+        "reason": "The source states that cost functions are minimized to find the ideal parameters of associated learning models."
+      },
+      {
+        "sentence": "It is always pursued, as the aim is to minimize these cost functions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0020"
+        ],
+        "reason": "The source says 'we will always look to minimize cost functions', supporting the claim of always pursuing minimization."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"minimization: In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models. It is always pursued, as the aim is to minimize these cost functions.\",\n  \"claims\": [\n    {\n      \"claim\": \"In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models.\",\n      \"evidence_ids\": [\"MLR-E0020\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is always pursued, as the aim is to minimize these cost functions.\",\n      \"evidence_ids\": [\"MLR-E0020\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"minimization: In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models. It is always pursued, as the aim is to minimize these cost functions.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In machine learning, minimization is the process of reducing cost functions to find the ideal parameters of learning models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0020\"],\n      \"reason\": \"The source states that cost functions are minimized to find the ideal parameters of associated learning models.\"\n    },\n    {\n      \"sentence\": \"It is always pursued, as the aim is to minimize these cost functions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0020\"],\n      \"reason\": \"The source says 'we will always look to minimize cost functions', supporting the claim of always pursuing minimization.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:27:32.655621+00:00"
+}

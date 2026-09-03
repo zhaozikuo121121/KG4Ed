@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b7a59945b55e0560760d86aad0d4af81a97d2c151365c5b319c3045c4369011f",
+  "concept_id": 164,
+  "concept_name": "linear autoencoder",
+  "aliases": [
+    "linear autoencoder",
+    "autoencoder"
+  ],
+  "profile": "linear autoencoder: A linear autoencoder has a least squares cost function, which can be thought of as enforcing the autoencoder formula when properly minimized. Because of this least squares formulation, it is often referred to as the linear autoencoder.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "linear autoencoder: A linear autoencoder uses a least squares cost function, which enforces the autoencoder formula when properly minimized. This formulation gives rise to the term linear autoencoder.",
+    "claims": [
+      {
+        "claim": "The linear autoencoder uses a least squares cost function that enforces the autoencoder formula when properly minimized.",
+        "evidence_ids": [
+          "MLR-E0187"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to one source; the profile reflects only that evidence."
+    ]
+  },
+  "review": {
+    "final_profile": "linear autoencoder: A linear autoencoder has a least squares cost function, which can be thought of as enforcing the autoencoder formula when properly minimized. Because of this least squares formulation, it is often referred to as the linear autoencoder.",
+    "sentence_reviews": [
+      {
+        "sentence": "A linear autoencoder has a least squares cost function, which can be thought of as enforcing the autoencoder formula when properly minimized.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0187"
+        ],
+        "reason": "The source describes the least squares cost function as enforcing the autoencoder formula when properly minimized."
+      },
+      {
+        "sentence": "Because of this least squares formulation, it is often referred to as the linear autoencoder.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0187"
+        ],
+        "reason": "The source states that this least squares formulation is often referred to as the linear autoencoder."
+      }
+    ],
+    "warnings": [
+      "Limited to one source; the profile reflects only that evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"linear autoencoder: A linear autoencoder uses a least squares cost function, which enforces the autoencoder formula when properly minimized. This formulation gives rise to the term linear autoencoder.\",\n  \"claims\": [\n    {\n      \"claim\": \"The linear autoencoder uses a least squares cost function that enforces the autoencoder formula when properly minimized.\",\n      \"evidence_ids\": [\"MLR-E0187\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to one source; the profile reflects only that evidence.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"linear autoencoder: A linear autoencoder has a least squares cost function, which can be thought of as enforcing the autoencoder formula when properly minimized. Because of this least squares formulation, it is often referred to as the linear autoencoder.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A linear autoencoder has a least squares cost function, which can be thought of as enforcing the autoencoder formula when properly minimized.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0187\"],\n      \"reason\": \"The source describes the least squares cost function as enforcing the autoencoder formula when properly minimized.\"\n    },\n    {\n      \"sentence\": \"Because of this least squares formulation, it is often referred to as the linear autoencoder.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0187\"],\n      \"reason\": \"The source states that this least squares formulation is often referred to as the linear autoencoder.\"\n    }\n  ],\n  \"warnings\": [\n    \"Limited to one source; the profile reflects only that evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:29:25.395590+00:00"
+}

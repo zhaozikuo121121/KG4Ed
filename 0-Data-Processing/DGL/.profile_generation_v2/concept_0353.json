@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "73e368f1cdf19f62e0c1ce6e0dc389beefaf633e68146e576fb184cc9acef71f",
+  "concept_id": 353,
+  "concept_name": "variational autoencoder",
+  "aliases": [
+    "variational autoencoder",
+    "vae"
+  ],
+  "profile": "variational autoencoder: A variational autoencoder has a loss objective. The term NED-VAE appears in the context of encoder-decoder GNNs and graph generation.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "variational autoencoder: A variational autoencoder has a loss objective. The name NED-VAE appears in the context of encoder-decoder GNNs and graph generation.",
+    "claims": [
+      {
+        "claim": "A variational autoencoder has a loss objective.",
+        "evidence_ids": [
+          "DGL-E0526"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The name NED-VAE appears in the context of encoder-decoder GNNs and graph generation.",
+        "evidence_ids": [
+          "DGL-E0562"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "variational autoencoder: A variational autoencoder has a loss objective. The term NED-VAE appears in the context of encoder-decoder GNNs and graph generation.",
+    "sentence_reviews": [
+      {
+        "sentence": "A variational autoencoder has a loss objective.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0526"
+        ],
+        "reason": "The source explicitly names the loss objective of variational autoencoders."
+      },
+      {
+        "sentence": "The term NED-VAE appears in the context of encoder-decoder GNNs and graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0562"
+        ],
+        "reason": "The source page title places NED-VAE within encoder-decoder GNNs and graph generation."
+      }
+    ],
+    "warnings": [
+      "NED-VAE is only mentioned by name; no definition or explanation is provided in the source.",
+      "No formula or further details about the loss objective are present in the source evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"variational autoencoder: A variational autoencoder has a loss objective. The name NED-VAE appears in the context of encoder-decoder GNNs and graph generation.\",\n  \"claims\": [\n    {\n      \"claim\": \"A variational autoencoder has a loss objective.\",\n      \"evidence_ids\": [\"DGL-E0526\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The name NED-VAE appears in the context of encoder-decoder GNNs and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0562\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"variational autoencoder: A variational autoencoder has a loss objective. The term NED-VAE appears in the context of encoder-decoder GNNs and graph generation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A variational autoencoder has a loss objective.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0526\"],\n      \"reason\": \"The source explicitly names the loss objective of variational autoencoders.\"\n    },\n    {\n      \"sentence\": \"The term NED-VAE appears in the context of encoder-decoder GNNs and graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0562\"],\n      \"reason\": \"The source page title places NED-VAE within encoder-decoder GNNs and graph generation.\"\n    }\n  ],\n  \"warnings\": [\n    \"NED-VAE is only mentioned by name; no definition or explanation is provided in the source.\",\n    \"No formula or further details about the loss objective are present in the source evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:04:00.642360+00:00"
+}

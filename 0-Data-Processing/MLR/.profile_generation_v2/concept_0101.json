@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c884d6e06404f174b014c20caabaee00f154ced32279a537d7eff2c2f2319f22",
+  "concept_id": 101,
+  "concept_name": "rectified linear unit",
+  "aliases": [
+    "rectified linear unit",
+    "relu"
+  ],
+  "profile": "rectified linear unit: The functional form max(0, ·) is often called a rectified linear unit for historical reasons. It describes a point-wise cost in linear two-class classification.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "rectified linear unit: A point-wise cost function with functional form max(0, ·). For historical reasons, this form is often called a rectified linear unit. In linear two-class classification, it is used as a point-wise cost.",
+    "claims": [
+      {
+        "claim": "The rectified linear unit is a point-wise cost function with functional form max(0, ·).",
+        "evidence_ids": [
+          "MLR-E0117"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This form is often called a rectified linear unit for historical reasons.",
+        "evidence_ids": [
+          "MLR-E0117"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used as a point-wise cost in linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0117"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The single evidence provides limited information; no details on mechanism, examples, or broader usage are specified."
+    ]
+  },
+  "review": {
+    "final_profile": "rectified linear unit: The functional form max(0, ·) is often called a rectified linear unit for historical reasons. It describes a point-wise cost in linear two-class classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "The functional form max(0, ·) is often called a rectified linear unit for historical reasons.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0117"
+        ],
+        "reason": "This directly restates the provided evidence: the functional form max(0, ·) is often called a rectified linear unit for historical reasons."
+      },
+      {
+        "sentence": "It describes a point-wise cost in linear two-class classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0117"
+        ],
+        "reason": "The evidence identifies max(0, ·) as the functional form of a point-wise cost, and the chapter metadata places the discussion in linear two-class classification."
+      }
+    ],
+    "warnings": [
+      "The single evidence provides limited information; no details on mechanism, examples, or broader usage are specified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"rectified linear unit: A point-wise cost function with functional form max(0, ·). For historical reasons, this form is often called a rectified linear unit. In linear two-class classification, it is used as a point-wise cost.\",\n  \"claims\": [\n    {\n      \"claim\": \"The rectified linear unit is a point-wise cost function with functional form max(0, ·).\",\n      \"evidence_ids\": [\"MLR-E0117\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This form is often called a rectified linear unit for historical reasons.\",\n      \"evidence_ids\": [\"MLR-E0117\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used as a point-wise cost in linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0117\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The single evidence provides limited information; no details on mechanism, examples, or broader usage are specified.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"rectified linear unit: The functional form max(0, ·) is often called a rectified linear unit for historical reasons. It describes a point-wise cost in linear two-class classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The functional form max(0, ·) is often called a rectified linear unit for historical reasons.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0117\"],\n      \"reason\": \"This directly restates the provided evidence: the functional form max(0, ·) is often called a rectified linear unit for historical reasons.\"\n    },\n    {\n      \"sentence\": \"It describes a point-wise cost in linear two-class classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0117\"],\n      \"reason\": \"The evidence identifies max(0, ·) as the functional form of a point-wise cost, and the chapter metadata places the discussion in linear two-class classification.\"\n    }\n  ],\n  \"warnings\": [\n    \"The single evidence provides limited information; no details on mechanism, examples, or broader usage are specified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:01:21.003610+00:00"
+}

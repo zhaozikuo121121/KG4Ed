@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "5c2fe55579a6d29578d8c4e9cf4d1319ff368ab23803ec221f64bb0decdfaf25",
+  "concept_id": 206,
+  "concept_name": "computation graph",
+  "aliases": [
+    "computation graph",
+    "computational graph"
+  ],
+  "profile": "computation graph: A node's neighborhood defines a computation graph. Node computational graphs can use multiple layers, such as two layers.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "computation graph: A structure defined by a node's neighborhood in a graph neural network. Node computational graphs may use multiple layers, such as two layers, to compute node representations.",
+    "claims": [
+      {
+        "claim": "A node's neighborhood defines a computation graph.",
+        "evidence_ids": [
+          "DGL-E0252"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node computational graphs can be constructed using multiple layers, such as two layers.",
+        "evidence_ids": [
+          "DGL-E0409"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "computation graph: A node's neighborhood defines a computation graph. Node computational graphs can use multiple layers, such as two layers.",
+    "sentence_reviews": [
+      {
+        "sentence": "computation graph: A node's neighborhood defines a computation graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0252"
+        ],
+        "reason": "The source states that the node's neighborhood defines a computation graph."
+      },
+      {
+        "sentence": "Node computational graphs can use multiple layers, such as two layers.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0409"
+        ],
+        "reason": "The source mentions node computational graphs using 2 layers."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"computation graph: A structure defined by a node's neighborhood in a graph neural network. Node computational graphs may use multiple layers, such as two layers, to compute node representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"A node's neighborhood defines a computation graph.\",\n      \"evidence_ids\": [\"DGL-E0252\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node computational graphs can be constructed using multiple layers, such as two layers.\",\n      \"evidence_ids\": [\"DGL-E0409\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"computation graph: A node's neighborhood defines a computation graph. Node computational graphs can use multiple layers, such as two layers.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"computation graph: A node's neighborhood defines a computation graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0252\"],\n      \"reason\": \"The source states that the node's neighborhood defines a computation graph.\"\n    },\n    {\n      \"sentence\": \"Node computational graphs can use multiple layers, such as two layers.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0409\"],\n      \"reason\": \"The source mentions node computational graphs using 2 layers.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:13:46.583711+00:00"
+}

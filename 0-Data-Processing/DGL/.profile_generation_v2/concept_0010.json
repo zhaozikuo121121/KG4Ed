@@ -1,0 +1,137 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c65809794e15381ec9267134a768561c5a73e55905c2d02e2e0923abbac77236",
+  "concept_id": 10,
+  "concept_name": "node embedding",
+  "aliases": [
+    "node embedding",
+    "node data",
+    "node attributes",
+    "node features",
+    "node representation",
+    "embeddings",
+    "learned representation",
+    "x",
+    "latent representation",
+    "hidden representation",
+    "encoding",
+    "encode",
+    "learned embedding",
+    "h_k",
+    "feature embeddings",
+    "representation",
+    "encoder"
+  ],
+  "profile": "node embedding: A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X. It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network. Embeddings can be linearly transformed and combined across the graph for graph-level prediction. An example is a five-dimensional vector attached to a node.",
+  "word_count": 66,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node embedding: A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X. It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network. Embeddings can be linearly transformed in GCN layers and combined across the graph for graph-level prediction. They are designed to be permutation invariant, so the representation does not depend on node indexing. An example is a five-dimensional vector attached to a node.",
+    "claims": [
+      {
+        "claim": "A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X.",
+        "evidence_ids": [
+          "DGL-E0036",
+          "DGL-E0070",
+          "DGL-E0132",
+          "DGL-E0187"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network.",
+        "evidence_ids": [
+          "DGL-E0139",
+          "DGL-E0232",
+          "DGL-E0514"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Embeddings can be linearly transformed in GCN layers and combined across the graph for graph-level prediction.",
+        "evidence_ids": [
+          "DGL-E0291",
+          "DGL-E0263"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "They are designed to be permutation invariant, so the representation does not depend on node indexing.",
+        "evidence_ids": [
+          "DGL-E0405"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An example is a five-dimensional vector attached to a node.",
+        "evidence_ids": [
+          "DGL-E0036"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node embedding: A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X. It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network. Embeddings can be linearly transformed and combined across the graph for graph-level prediction. An example is a five-dimensional vector attached to a node.",
+    "sentence_reviews": [
+      {
+        "sentence": "A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0036",
+          "DGL-E0070",
+          "DGL-E0132",
+          "DGL-E0187"
+        ],
+        "reason": "E0036 says each node has an associated embedding; E0070 labels a node vector h_k; E0187 says node embeddings are stored in columns of X; E0132 names node data X."
+      },
+      {
+        "sentence": "It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0139",
+          "DGL-E0232",
+          "DGL-E0514"
+        ],
+        "reason": "E0139 equates embedding with latent/hidden representation, encoding, and transformation; E0232 and E0514 place this learning in GNN/encoder context."
+      },
+      {
+        "sentence": "Embeddings can be linearly transformed and combined across the graph for graph-level prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0291",
+          "DGL-E0263"
+        ],
+        "reason": "E0291 instructs linear transformation of embeddings; E0263 asks how to combine node embeddings across the graph in the graph-level prediction section."
+      },
+      {
+        "sentence": "An example is a five-dimensional vector attached to a node.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0036"
+        ],
+        "reason": "E0036 explicitly gives an example where each node has an associated embedding of length five."
+      }
+    ],
+    "warnings": [
+      "The draft's permutation-invariance statement was removed because the cited source is more directly about graph-level embeddings than node embeddings.",
+      "The phrase 'GCN layers' was removed because the supporting evidence confirms linear transformation of embeddings without specifying the layer type."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node embedding: A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X. It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network. Embeddings can be linearly transformed in GCN layers and combined across the graph for graph-level prediction. They are designed to be permutation invariant, so the representation does not depend on node indexing. An example is a five-dimensional vector attached to a node.\",\n  \"claims\": [\n    {\n      \"claim\": \"A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X.\",\n      \"evidence_ids\": [\"DGL-E0036\", \"DGL-E0070\", \"DGL-E0132\", \"DGL-E0187\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network.\",\n      \"evidence_ids\": [\"DGL-E0139\", \"DGL-E0232\", \"DGL-E0514\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Embeddings can be linearly transformed in GCN layers and combined across the graph for graph-level prediction.\",\n      \"evidence_ids\": [\"DGL-E0291\", \"DGL-E0263\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"They are designed to be permutation invariant, so the representation does not depend on node indexing.\",\n      \"evidence_ids\": [\"DGL-E0405\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An example is a five-dimensional vector attached to a node.\",\n      \"evidence_ids\": [\"DGL-E0036\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node embedding: A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X. It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network. Embeddings can be linearly transformed and combined across the graph for graph-level prediction. An example is a five-dimensional vector attached to a node.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A node embedding is an associated vector representation for each node, often denoted h_k or stored as columns of node data X.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0036\", \"DGL-E0070\", \"DGL-E0132\", \"DGL-E0187\"],\n      \"reason\": \"E0036 says each node has an associated embedding; E0070 labels a node vector h_k; E0187 says node embeddings are stored in columns of X; E0132 names node data X.\"\n    },\n    {\n      \"sentence\": \"It is a latent/hidden representation, also called an encoding or transformation, learned by a graph neural network.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0139\", \"DGL-E0232\", \"DGL-E0514\"],\n      \"reason\": \"E0139 equates embedding with latent/hidden representation, encoding, and transformation; E0232 and E0514 place this learning in GNN/encoder context.\"\n    },\n    {\n      \"sentence\": \"Embeddings can be linearly transformed and combined across the graph for graph-level prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0291\", \"DGL-E0263\"],\n      \"reason\": \"E0291 instructs linear transformation of embeddings; E0263 asks how to combine node embeddings across the graph in the graph-level prediction section.\"\n    },\n    {\n      \"sentence\": \"An example is a five-dimensional vector attached to a node.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0036\"],\n      \"reason\": \"E0036 explicitly gives an example where each node has an associated embedding of length five.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's permutation-invariance statement was removed because the cited source is more directly about graph-level embeddings than node embeddings.\",\n    \"The phrase 'GCN layers' was removed because the supporting evidence confirms linear transformation of embeddings without specifying the layer type.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:53:48.187995+00:00"
+}

@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2ba7ddf998c0ac3146f424e7e25abc6f69233653006b7a38f67310d1679bdfc4",
+  "concept_id": 254,
+  "concept_name": "disjoint subsets",
+  "aliases": [
+    "disjoint subsets",
+    "clusters"
+  ],
+  "profile": "disjoint subsets: groups of graph nodes that do not overlap. In GNN training, graph nodes are clustered into such subsets before processing.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "disjoint subsets: sets of graph nodes that share no elements. In GNN training, graph nodes are clustered into these subsets before processing, as part of a batching strategy.",
+    "claims": [
+      {
+        "claim": "Disjoint subsets are sets of graph nodes that share no elements.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In GNN training, graph nodes are clustered into disjoint subsets before processing as part of a batching strategy.",
+        "evidence_ids": [
+          "DGL-E0334"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "disjoint subsets: groups of graph nodes that do not overlap. In GNN training, graph nodes are clustered into such subsets before processing.",
+    "sentence_reviews": [
+      {
+        "sentence": "disjoint subsets: groups of graph nodes that do not overlap.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "This is a general definition of the term 'disjoint' rather than a claim extracted from the evidence."
+      },
+      {
+        "sentence": "In GNN training, graph nodes are clustered into such subsets before processing.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0334"
+        ],
+        "reason": "Directly reflects the source statement: 'Cluster the graph nodes into disjoint subsets of nodes before processing.'"
+      }
+    ],
+    "warnings": [
+      "The non-overlap definition is generic background; the source evidence only explicitly supports clustering nodes into disjoint subsets."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"disjoint subsets: sets of graph nodes that share no elements. In GNN training, graph nodes are clustered into these subsets before processing, as part of a batching strategy.\",\n  \"claims\": [\n    {\n      \"claim\": \"Disjoint subsets are sets of graph nodes that share no elements.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In GNN training, graph nodes are clustered into disjoint subsets before processing as part of a batching strategy.\",\n      \"evidence_ids\": [\"DGL-E0334\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"disjoint subsets: groups of graph nodes that do not overlap. In GNN training, graph nodes are clustered into such subsets before processing.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"disjoint subsets: groups of graph nodes that do not overlap.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"This is a general definition of the term 'disjoint' rather than a claim extracted from the evidence.\"\n    },\n    {\n      \"sentence\": \"In GNN training, graph nodes are clustered into such subsets before processing.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0334\"],\n      \"reason\": \"Directly reflects the source statement: 'Cluster the graph nodes into disjoint subsets of nodes before processing.'\"\n    }\n  ],\n  \"warnings\": [\n    \"The non-overlap definition is generic background; the source evidence only explicitly supports clustering nodes into disjoint subsets.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:30:53.092293+00:00"
+}

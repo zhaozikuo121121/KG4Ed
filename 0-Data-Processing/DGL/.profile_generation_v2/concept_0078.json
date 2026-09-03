@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2f2ec147f3bbdd4ec9d334ea03886a7be74c19afe1436aedfc97e55dfdd081f5",
+  "concept_id": 78,
+  "concept_name": "fixed prior",
+  "aliases": [
+    "fixed prior"
+  ],
+  "profile": "fixed prior: The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries. The source records only the phrase without definition or further context.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fixed prior: The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.",
+    "claims": [
+      {
+        "claim": "The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.",
+        "evidence_ids": [
+          "DGL-E0098"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence only records the phrase without definition."
+    ]
+  },
+  "review": {
+    "final_profile": "fixed prior: The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries. The source records only the phrase without definition or further context.",
+    "sentence_reviews": [
+      {
+        "sentence": "The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0098"
+        ],
+        "reason": "The evidence is a handwritten note titled 'FIXED/PRIOR' within a lecture PDF on deep learning preliminaries."
+      },
+      {
+        "sentence": "The source records only the phrase without definition or further context.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0098"
+        ],
+        "reason": "The evidence metadata contains only the phrase itself and no explanatory content."
+      }
+    ],
+    "warnings": [
+      "The conceptual meaning of 'fixed prior' cannot be determined from the available evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fixed prior: The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.\",\n  \"claims\": [\n    {\n      \"claim\": \"The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.\",\n      \"evidence_ids\": [\"DGL-E0098\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The evidence only records the phrase without definition.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fixed prior: The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries. The source records only the phrase without definition or further context.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The phrase 'fixed prior' appears as a handwritten note in lecture materials on deep learning preliminaries.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0098\"],\n      \"reason\": \"The evidence is a handwritten note titled 'FIXED/PRIOR' within a lecture PDF on deep learning preliminaries.\"\n    },\n    {\n      \"sentence\": \"The source records only the phrase without definition or further context.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0098\"],\n      \"reason\": \"The evidence metadata contains only the phrase itself and no explanatory content.\"\n    }\n  ],\n  \"warnings\": [\n    \"The conceptual meaning of 'fixed prior' cannot be determined from the available evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:18:38.634518+00:00"
+}

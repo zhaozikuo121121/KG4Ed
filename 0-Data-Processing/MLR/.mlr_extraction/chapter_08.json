@@ -1,0 +1,2147 @@
+{
+  "version": "1.0.0",
+  "chapter": 8,
+  "chapter_title": "Linear Unsupervised Learning",
+  "pdf_start": 239,
+  "pdf_end": 268,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T20:18:17+00:00",
+  "concepts": [
+    {
+      "canonical": "spanning set",
+      "aliases": [
+        "basis"
+      ],
+      "evidence_page": 240,
+      "evidence": "Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space.",
+      "relevance": 0.85,
+      "anchor_page": 240
+    },
+    {
+      "canonical": "mean-centering",
+      "aliases": [
+        "data centering",
+        "mean-centered",
+        "mean-centered data"
+      ],
+      "evidence_page": 240,
+      "evidence": "we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.",
+      "relevance": 0.8,
+      "anchor_page": 240
+    },
+    {
+      "canonical": "orthonormal spanning set",
+      "aliases": [
+        "orthonormal basis"
+      ],
+      "evidence_page": 242,
+      "evidence": "An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other.",
+      "relevance": 0.9,
+      "anchor_page": 242
+    },
+    {
+      "canonical": "autoencoder formula",
+      "aliases": [],
+      "evidence_page": 243,
+      "evidence": "the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).",
+      "relevance": 0.9,
+      "anchor_page": 243
+    },
+    {
+      "canonical": "projection",
+      "aliases": [],
+      "evidence_page": 244,
+      "evidence": "the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+      "relevance": 0.8,
+      "anchor_page": 244
+    },
+    {
+      "canonical": "gradient descent",
+      "aliases": [
+        "first order methods",
+        "gradient-based optimization"
+      ],
+      "evidence_page": 245,
+      "evidence": "local optimization techniques including gradient descent",
+      "relevance": 0.9,
+      "anchor_page": 245
+    },
+    {
+      "canonical": "linear autoencoder",
+      "aliases": [
+        "autoencoder"
+      ],
+      "evidence_page": 246,
+      "evidence": "the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder.",
+      "relevance": 0.95,
+      "anchor_page": 246
+    },
+    {
+      "canonical": "principal component analysis",
+      "aliases": [
+        "pca"
+      ],
+      "evidence_page": 247,
+      "evidence": "Principal Component Analysis, or PCA for short, in practice.",
+      "relevance": 1.0,
+      "anchor_page": 247
+    },
+    {
+      "canonical": "dimension reduction",
+      "aliases": [
+        "dimensionality reduction"
+      ],
+      "evidence_page": 248,
+      "evidence": "PCA can technically be used to reduce the dimension of data in a predictive modeling scenario",
+      "relevance": 0.9,
+      "anchor_page": 248
+    },
+    {
+      "canonical": "covariance matrix regularization",
+      "aliases": [
+        "regularization of covariance matrix",
+        "covariance regularization"
+      ],
+      "evidence_page": 250,
+      "evidence": "to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself",
+      "relevance": 0.8,
+      "anchor_page": 250
+    },
+    {
+      "canonical": "k-means clustering",
+      "aliases": [
+        "k-means algorithm",
+        "k-means"
+      ],
+      "evidence_page": 252,
+      "evidence": "The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms.",
+      "relevance": 1.0,
+      "anchor_page": 252
+    },
+    {
+      "canonical": "matrix factorization",
+      "aliases": [
+        "matrix completion",
+        "linear recommender system",
+        "matrix factorization problems"
+      ],
+      "evidence_page": 252,
+      "evidence": "we assume that some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p",
+      "relevance": 0.9,
+      "anchor_page": 252
+    },
+    {
+      "canonical": "coordinate descent",
+      "aliases": [
+        "coordinate-wise approaches",
+        "coordinate descent method"
+      ],
+      "evidence_page": 252,
+      "evidence": "and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.",
+      "relevance": 0.8,
+      "anchor_page": 252
+    },
+    {
+      "canonical": "least squares cost for incomplete data",
+      "aliases": [
+        "incomplete data least squares"
+      ],
+      "evidence_page": 252,
+      "evidence": "we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2",
+      "relevance": 0.8,
+      "anchor_page": 252
+    },
+    {
+      "canonical": "cluster centroid",
+      "aliases": [
+        "centroid"
+      ],
+      "evidence_page": 253,
+      "evidence": "Each cluster center - also called a centroid - is marked by a star symbol",
+      "relevance": 0.8,
+      "anchor_page": 253
+    },
+    {
+      "canonical": "cluster assignment",
+      "aliases": [],
+      "evidence_page": 254,
+      "evidence": "the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2",
+      "relevance": 0.8,
+      "anchor_page": 254
+    },
+    {
+      "canonical": "centroid initialization",
+      "aliases": [
+        "random initialization"
+      ],
+      "evidence_page": 254,
+      "evidence": "we can start off by taking a random guess at the locations of our K centroids",
+      "relevance": 0.7,
+      "anchor_page": 254
+    },
+    {
+      "canonical": "sequential refinement",
+      "aliases": [
+        "iterative update",
+        "iterative optimization",
+        "iterative refinement"
+      ],
+      "evidence_page": 255,
+      "evidence": "To further refine our centroids / clusters we can now simply repeat the above two-step process",
+      "relevance": 0.8,
+      "anchor_page": 255
+    },
+    {
+      "canonical": "intra-cluster distance",
+      "aliases": [
+        "average intra-cluster distance"
+      ],
+      "evidence_page": 256,
+      "evidence": "average intra-cluster distance = 1/P \\sum_{p=1}^P \\|x_p - c_{k_p}\\|_2",
+      "relevance": 0.8,
+      "anchor_page": 256
+    },
+    {
+      "canonical": "scree plot",
+      "aliases": [],
+      "evidence_page": 256,
+      "evidence": "a plot often referred to in the jargon of machine learning as a scree plot.",
+      "relevance": 0.7,
+      "anchor_page": 256
+    },
+    {
+      "canonical": "non-negative matrix factorization",
+      "aliases": [],
+      "evidence_page": 261,
+      "evidence": "giving the so-called non-negative matrix factorization problem",
+      "relevance": 0.7,
+      "anchor_page": 261
+    },
+    {
+      "canonical": "sparse coding",
+      "aliases": [
+        "sparse dictionary learning"
+      ],
+      "evidence_page": 261,
+      "evidence": "a natural generalization of K-Means called Sparse Coding",
+      "relevance": 0.7,
+      "anchor_page": 261
+    },
+    {
+      "canonical": "pca least squares cost",
+      "aliases": [
+        "pca least squares cost function",
+        "least squares cost function",
+        "least squares",
+        "least squares cost",
+        "sum of squared errors"
+      ],
+      "evidence_page": 264,
+      "evidence": "the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex",
+      "relevance": 0.9,
+      "anchor_page": 264
+    },
+    {
+      "canonical": "alternating minimization",
+      "aliases": [
+        "alternating minimization method"
+      ],
+      "evidence_page": 264,
+      "evidence": "alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems",
+      "relevance": 0.8,
+      "anchor_page": 264
+    },
+    {
+      "canonical": "bi-convex function",
+      "aliases": [
+        "bi-convexity"
+      ],
+      "evidence_page": 264,
+      "evidence": "it is bi-convex in that it is convex in each matrix of parameters C and W independently",
+      "relevance": 0.7,
+      "anchor_page": 264
+    },
+    {
+      "canonical": "orthogonal matrix",
+      "aliases": [
+        "orthonormal matrix"
+      ],
+      "evidence_page": 265,
+      "evidence": "the only such matrices that have this property are orthogonal",
+      "relevance": 0.85,
+      "anchor_page": 265
+    },
+    {
+      "canonical": "variance maximization",
+      "aliases": [
+        "maximizing variance"
+      ],
+      "evidence_page": 267,
+      "evidence": "maximize the direction of variance in the data",
+      "relevance": 0.9,
+      "anchor_page": 267
+    },
+    {
+      "canonical": "rayleigh quotient",
+      "aliases": [],
+      "evidence_page": 267,
+      "evidence": "Written in this form the above takes the form of a so-called Rayleigh Quotient",
+      "relevance": 0.8,
+      "anchor_page": 267
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "spanning set",
+      "latex": "\\sum_{k=1}^{K} \\mathbf{c}_k w_{p,k} = \\mathbf{x}_p, \\quad p=1,\\ldots,P",
+      "pdf_page": 241,
+      "equation_label": "(8.3)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "orthonormal spanning set",
+      "latex": "c_i^T c_j = \\begin{cases} 1 & \\text{if } i = j \\\\ 0 & \\text{if } i \\neq j \\end{cases}",
+      "pdf_page": 243,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "orthonormal spanning set",
+      "latex": "C^T C = I_{N \\times N}",
+      "pdf_page": 243,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "orthonormal spanning set",
+      "latex": "w_p = C^T x_p",
+      "pdf_page": 243,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "orthonormal spanning set",
+      "latex": "C C^T x_p = x_p",
+      "pdf_page": 243,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "autoencoder formula",
+      "latex": "\\mathbf{C}\\mathbf{C}^T\\mathbf{x}_p = \\mathbf{x}_p",
+      "pdf_page": 243,
+      "equation_label": "(8.12)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "projection",
+      "latex": "C\\mathbf{w}_p \\approx \\mathbf{x}_p, \\quad p = 1, \\ldots, P",
+      "pdf_page": 244,
+      "equation_label": "(8.13)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "gradient descent",
+      "latex": "g(w_1, \\dots, w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - x_p \\right\\|_2^2",
+      "pdf_page": 245,
+      "equation_label": "8.16",
+      "confidence": 0.95
+    },
+    {
+      "concept": "gradient descent",
+      "latex": "g(C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C C^T x_p - x_p \\right\\|_2^2",
+      "pdf_page": 246,
+      "equation_label": "8.17",
+      "confidence": 0.95
+    },
+    {
+      "concept": "linear autoencoder",
+      "latex": "g(\\mathbf{C}) = \\frac{1}{P} \\sum_{p=1}^{P} \\left\\| \\mathbf{C} \\mathbf{C}^T \\mathbf{x}_p - \\mathbf{x}_p \\right\\|_2^2",
+      "pdf_page": 246,
+      "equation_label": "Equation 8.17",
+      "confidence": 1.0
+    },
+    {
+      "concept": "principal component analysis",
+      "latex": "\\frac{1}{P}\\mathbf{X} \\mathbf{X}^T = \\mathbf{V} \\mathbf{D} \\mathbf{V}^T",
+      "pdf_page": 248,
+      "equation_label": "(8.19)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "dimension reduction",
+      "latex": "\\frac{1}{P} \\mathbf{X} \\mathbf{X}^T = \\mathbf{V} \\mathbf{D} \\mathbf{V}^T",
+      "pdf_page": 248,
+      "equation_label": "(8.19)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "covariance matrix regularization",
+      "latex": "\\frac{1}{P} \\mathbf{X} \\mathbf{X}^T + \\lambda \\mathbf{I}_{N \\times N}",
+      "pdf_page": 250,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "matrix factorization",
+      "latex": "\\mathbf{C}\\mathbf{w}_p \\approx \\mathbf{x}_p",
+      "pdf_page": 252,
+      "equation_label": "(8.21)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "least squares cost for incomplete data",
+      "latex": "g(\\mathbf{w}_1, ..., \\mathbf{w}_P, \\mathbf{C}) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\left\\{ \\mathbf{C}\\mathbf{w}_p - \\mathbf{x}_p \\right\\}|_{\\Omega_p} \\right\\|_2^2",
+      "pdf_page": 252,
+      "equation_label": "(8.22)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate descent",
+      "latex": "g(\\mathbf{w}_1, ..., \\mathbf{w}_P, \\mathbf{C}) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\left\\{ \\mathbf{C}\\mathbf{w}_p - \\mathbf{x}_p \\right\\}|_{\\Omega_p} \\right\\|_2^2",
+      "pdf_page": 252,
+      "equation_label": "(8.22)",
+      "confidence": 0.9
+    },
+    {
+      "concept": "cluster centroid",
+      "latex": "c_k = \\frac{1}{|S_k|} \\sum_{p \\in S_k} x_p",
+      "pdf_page": 254,
+      "equation_label": "8.24",
+      "confidence": 1.0
+    },
+    {
+      "concept": "cluster assignment",
+      "latex": "a_p = \\underset{k=1,\\ldots,K}{\\operatorname{argmin}} \\left\\Vert \\mathbf{x}_p - \\mathbf{c}_k \\right\\Vert_2",
+      "pdf_page": 254,
+      "equation_label": "8.25",
+      "confidence": 0.95
+    },
+    {
+      "concept": "intra-cluster distance",
+      "latex": "\\text{average intra-cluster distance} = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\mathbf{x}_p - \\mathbf{c}_{k_p} \\right\\|_2",
+      "pdf_page": 256,
+      "equation_label": "(8.28)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "sparse coding",
+      "latex": "\\underset{\\mathbf{C},\\mathbf{W}}{\\text{minimize}} \\left\\|\\mathbf{C}\\mathbf{W} - \\mathbf{X}\\right\\|_F^2 \\quad \\text{subject to} \\quad \\left\\|\\mathbf{w}_p\\right\\|_0 \\leq S, \\; p = 1, \\ldots, P",
+      "pdf_page": 261,
+      "equation_label": "(8.39)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "non-negative matrix factorization",
+      "latex": "\\underset{\\mathbf{C},\\mathbf{W}}{\\text{minimize}} \\left\\|\\mathbf{C}\\mathbf{W} - \\mathbf{X}\\right\\|_F^2 \\quad \\text{subject to} \\quad \\mathbf{C}, \\mathbf{W} \\geq 0",
+      "pdf_page": 261,
+      "equation_label": "(8.40)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "orthogonal matrix",
+      "latex": "C^T C = I_{K \\times K}",
+      "pdf_page": 266,
+      "equation_label": "",
+      "confidence": 1.0
+    },
+    {
+      "concept": "variance maximization",
+      "latex": "h(\\mathbf{c}_1) = \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathbf{c}_1^T \\mathbf{x}_p \\right)^2",
+      "pdf_page": 267,
+      "equation_label": "(8.50)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "rayleigh quotient",
+      "latex": "h(\\mathbf{c}_1) = \\frac{1}{P} \\mathbf{c}_1^T \\mathbf{X} \\mathbf{X}^T \\mathbf{c}_1 = \\mathbf{c}_1^T \\left( \\frac{1}{P} \\mathbf{X} \\mathbf{X}^T \\right) \\mathbf{c}_1",
+      "pdf_page": 267,
+      "equation_label": "(8.51)",
+      "confidence": 0.95
+    }
+  ],
+  "figures": [
+    {
+      "concept": "spanning set",
+      "pdf_page": 240,
+      "figure_label": "Figure 8.1",
+      "caption": "Two-dimensional points illustrated as dots (left panel), arrows (middle panel), and a mixture of both (right panel). Those shown as arrows on the right are a basis or spanning set over which we aim to represent every point in the entire space.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "projection",
+      "pdf_page": 244,
+      "figure_label": "Figure 8.3",
+      "caption": "Figure 8.3 (left panel) A dataset of points xp in N = 3 dimensions along with a linear subspace spanned by K = 2 vectors c1 and c2, colored in red. (middle panel) The encoding space spanned by c1 and c2, where our encoded vectors wp live. (right panel) The projected or decoded versions of each data point xp shown in the subspace spanned by C = [c1 c2]. The decoded version of the original point xp is expressed as Cwp.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "gradient descent",
+      "pdf_page": 245,
+      "figure_label": "Figure 8.4",
+      "caption": "Figure 8.4 Figure associated with Example 8.2. See text for details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "linear autoencoder",
+      "pdf_page": 247,
+      "figure_label": "Figure 8.5",
+      "caption": "Figure 8.5 Figure associated with Example 8.3. See text for details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "principal component analysis",
+      "pdf_page": 247,
+      "figure_label": "Figure 8.6",
+      "caption": "A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "principal component analysis",
+      "pdf_page": 248,
+      "figure_label": "Figure 8.7",
+      "caption": "Figure associated with Example 8.4.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "dimension reduction",
+      "pdf_page": 247,
+      "figure_label": "Figure 8.6",
+      "caption": "Figure 8.6 A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "dimension reduction",
+      "pdf_page": 248,
+      "figure_label": "Figure 8.7",
+      "caption": "Figure 8.7 Figure associated with Example 8.4.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "dimension reduction",
+      "pdf_page": 249,
+      "figure_label": "Figure 8.8",
+      "caption": "Figure 8.8 Figure associated with Example 8.5. (left panel) A toy classification dataset consisting of two linearly separable classes. The ideal one-dimensional subspace produced via PCA is shown in black. (right panel) Reducing the feature space dimension by projecting the data onto this subspace completely destroys the original separability of the data.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "matrix factorization",
+      "pdf_page": 251,
+      "figure_label": "Figure 8.9",
+      "caption": "A prototypical movie rating matrix is very sparsely populated, with each user having rated only a very small number of films. In this diagram movies are listed along rows with users along columns. In order to properly recommend movies for users to watch we try to intelligently guess the missing values of this matrix, and then recommend movies that we predict users would rate highly (and therefore enjoy the most).",
+      "confidence": 0.95
+    },
+    {
+      "concept": "k-means clustering",
+      "pdf_page": 253,
+      "figure_label": "Figure 8.10",
+      "caption": "(left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "cluster centroid",
+      "pdf_page": 253,
+      "figure_label": "Figure 8.10",
+      "caption": "Figure 8.10 (left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "centroid initialization",
+      "pdf_page": 255,
+      "figure_label": "Figure 8.11",
+      "caption": "The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "sequential refinement",
+      "pdf_page": 255,
+      "figure_label": "Figure 8.11",
+      "caption": "Figure 8.11 The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "scree plot",
+      "pdf_page": 257,
+      "figure_label": "Figure 8.13",
+      "caption": "Figure 8.13 Figure associated with Example 8.7. (left panel) A dataset to cluster. (right panel) A skree plot. See text for further details.",
+      "confidence": 1.0
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "mean-centering",
+            "aliases": [],
+            "evidence_page": 240,
+            "anchor_page": 240,
+            "evidence": "we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "spanning set",
+            "aliases": [
+              "basis"
+            ],
+            "evidence_page": 240,
+            "anchor_page": 240,
+            "evidence": "Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "encoding",
+            "aliases": [],
+            "evidence_page": 241,
+            "anchor_page": 241,
+            "evidence": "the optimally tuned weight vector w⋆p for the point xp is often referred to as the encoding of the point over the spanning matrix C.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "decoding",
+            "aliases": [],
+            "evidence_page": 241,
+            "anchor_page": 241,
+            "evidence": "The actual linear combination of the spanning vectors for each xp (i.e., Cw⋆p ) is likewise referred to as the decoding of the point.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "orthonormal spanning set",
+            "aliases": [
+              "orthonormal basis"
+            ],
+            "evidence_page": 242,
+            "anchor_page": 242,
+            "evidence": "An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "autoencoder formula",
+            "aliases": [],
+            "evidence_page": 243,
+            "anchor_page": 243,
+            "evidence": "the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "linear autoencoder",
+            "aliases": [],
+            "evidence_page": 246,
+            "anchor_page": 246,
+            "evidence": "the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence_page": 247,
+            "anchor_page": 247,
+            "evidence": "Principal Component Analysis, or PCA for short, in practice.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "principal component",
+            "aliases": [],
+            "evidence_page": 247,
+            "anchor_page": 247,
+            "evidence": "The spanning set of principal components always provide a consistent skeleton for a dataset, with its members pointing in the dataset’s largest directions of orthogonal variance.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [],
+            "evidence_page": 247,
+            "anchor_page": 247,
+            "evidence": "the covariance matrix is defined as the N × N matrix 1/P X X^T.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "eigen-decomposition",
+            "aliases": [],
+            "evidence_page": 247,
+            "anchor_page": 247,
+            "evidence": "Denoting the eigen-decomposition (see Section C.4) of the covariance matrix as 1/PX XT = V D VT",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "projection",
+            "aliases": [],
+            "evidence_page": 244,
+            "anchor_page": 244,
+            "evidence": "the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares",
+            "aliases": [],
+            "evidence_page": 241,
+            "anchor_page": 241,
+            "evidence": "we can form an associated Least Squares cost function",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 245,
+            "anchor_page": 245,
+            "evidence": "local optimization techniques including gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [],
+            "evidence_page": 245,
+            "anchor_page": 245,
+            "evidence": "and coordinate descent",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"mean-centering\",\n      \"aliases\": [],\n      \"evidence_page\": 240,\n      \"anchor_page\": 240,\n      \"evidence\": \"we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"spanning set\",\n      \"aliases\": [\"basis\"],\n      \"evidence_page\": 240,\n      \"anchor_page\": 240,\n      \"evidence\": \"Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"encoding\",\n      \"aliases\": [],\n      \"evidence_page\": 241,\n      \"anchor_page\": 241,\n      \"evidence\": \"the optimally tuned weight vector w⋆p for the point xp is often referred to as the encoding of the point over the spanning matrix C.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"decoding\",\n      \"aliases\": [],\n      \"evidence_page\": 241,\n      \"anchor_page\": 241,\n      \"evidence\": \"The actual linear combination of the spanning vectors for each xp (i.e., Cw⋆p ) is likewise referred to as the decoding of the point.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"orthonormal spanning set\",\n      \"aliases\": [\"orthonormal basis\"],\n      \"evidence_page\": 242,\n      \"anchor_page\": 242,\n      \"evidence\": \"An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"autoencoder formula\",\n      \"aliases\": [],\n      \"evidence_page\": 243,\n      \"anchor_page\": 243,\n      \"evidence\": \"the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"linear autoencoder\",\n      \"aliases\": [],\n      \"evidence_page\": 246,\n      \"anchor_page\": 246,\n      \"evidence\": \"the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence_page\": 247,\n      \"anchor_page\": 247,\n      \"evidence\": \"Principal Component Analysis, or PCA for short, in practice.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"principal component\",\n      \"aliases\": [],\n      \"evidence_page\": 247,\n      \"anchor_page\": 247,\n      \"evidence\": \"The spanning set of principal components always provide a consistent skeleton for a dataset, with its members pointing in the dataset’s largest directions of orthogonal variance.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 247,\n      \"anchor_page\": 247,\n      \"evidence\": \"the covariance matrix is defined as the N × N matrix 1/P X X^T.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"eigen-decomposition\",\n      \"aliases\": [],\n      \"evidence_page\": 247,\n      \"anchor_page\": 247,\n      \"evidence\": \"Denoting the eigen-decomposition (see Section C.4) of the covariance matrix as 1/PX XT = V D VT\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"projection\",\n      \"aliases\": [],\n      \"evidence_page\": 244,\n      \"anchor_page\": 244,\n      \"evidence\": \"the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares\",\n      \"aliases\": [],\n      \"evidence_page\": 241,\n      \"anchor_page\": 241,\n      \"evidence\": \"we can form an associated Least Squares cost function\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 245,\n      \"anchor_page\": 245,\n      \"evidence\": \"local optimization techniques including gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 245,\n      \"anchor_page\": 245,\n      \"evidence\": \"and coordinate descent\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "pca"
+            ],
+            "evidence_page": 248,
+            "anchor_page": 248,
+            "evidence": "the principal components are given by the orthonormal eigenvectors in V, and the variance in each (principal component) direction is given precisely by the corresponding non-negative eigenvalues",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [
+              "data covariance matrix"
+            ],
+            "evidence_page": 248,
+            "anchor_page": 248,
+            "evidence": "the covariance matrix is defined as the N × N matrix 1/P X X^T",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "eigen-decomposition",
+            "aliases": [
+              "eigendecomposition"
+            ],
+            "evidence_page": 248,
+            "anchor_page": 248,
+            "evidence": "Denoting the eigen-decomposition of the covariance matrix as 1/P X X^T = V D V^T",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "data centering",
+            "aliases": [
+              "mean centering"
+            ],
+            "evidence_page": 249,
+            "anchor_page": 249,
+            "evidence": "def center(X): X_means = np.mean(X,axis=1)[:,np.newaxis]; X_centered = X - X_means",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "regularization of covariance matrix",
+            "aliases": [
+              "covariance regularization",
+              "regularization"
+            ],
+            "evidence_page": 250,
+            "anchor_page": 250,
+            "evidence": "to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "dimension reduction",
+            "aliases": [
+              "dimensionality reduction"
+            ],
+            "evidence_page": 248,
+            "anchor_page": 248,
+            "evidence": "PCA can technically be used to reduce the dimension of data in a predictive modeling scenario",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "recommender system",
+            "aliases": [
+              "collaborative filtering"
+            ],
+            "evidence_page": 251,
+            "anchor_page": 251,
+            "evidence": "In this Section we discuss the fundamental linear recommender system, a popular unsupervised learning framework commonly employed by businesses to help automatically recommend products and services to their customers.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [
+              "matrix completion",
+              "linear recommender system"
+            ],
+            "evidence_page": 252,
+            "anchor_page": 252,
+            "evidence": "we assume that some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "least squares cost for incomplete data",
+            "aliases": [
+              "incomplete data least squares"
+            ],
+            "evidence_page": 252,
+            "anchor_page": 252,
+            "evidence": "we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient-based optimization"
+            ],
+            "evidence_page": 252,
+            "anchor_page": 252,
+            "evidence": "we can easily use gradient (see Section 3.6) and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [],
+            "evidence_page": 252,
+            "anchor_page": 252,
+            "evidence": "and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "k-means algorithm",
+              "k-means"
+            ],
+            "evidence_page": 252,
+            "anchor_page": 252,
+            "evidence": "The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "cluster centroid",
+            "aliases": [
+              "centroid"
+            ],
+            "evidence_page": 253,
+            "anchor_page": 253,
+            "evidence": "Each cluster center - also called a centroid - is marked by a star symbol",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "cluster assignment",
+            "aliases": [],
+            "evidence_page": 254,
+            "anchor_page": 254,
+            "evidence": "the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "centroid initialization",
+            "aliases": [
+              "random initialization"
+            ],
+            "evidence_page": 254,
+            "anchor_page": 254,
+            "evidence": "we can start off by taking a random guess at the locations of our K centroids",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "iterative optimization",
+            "aliases": [
+              "iterative refinement"
+            ],
+            "evidence_page": 255,
+            "anchor_page": 255,
+            "evidence": "To further refine our centroids / clusters we can now simply repeat the above two-step process",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"pca\"],\n      \"evidence_page\": 248,\n      \"anchor_page\": 248,\n      \"evidence\": \"the principal components are given by the orthonormal eigenvectors in V, and the variance in each (principal component) direction is given precisely by the corresponding non-negative eigenvalues\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [\"data covariance matrix\"],\n      \"evidence_page\": 248,\n      \"anchor_page\": 248,\n      \"evidence\": \"the covariance matrix is defined as the N × N matrix 1/P X X^T\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"eigen-decomposition\",\n      \"aliases\": [\"eigendecomposition\"],\n      \"evidence_page\": 248,\n      \"anchor_page\": 248,\n      \"evidence\": \"Denoting the eigen-decomposition of the covariance matrix as 1/P X X^T = V D V^T\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"data centering\",\n      \"aliases\": [\"mean centering\"],\n      \"evidence_page\": 249,\n      \"anchor_page\": 249,\n      \"evidence\": \"def center(X): X_means = np.mean(X,axis=1)[:,np.newaxis]; X_centered = X - X_means\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"regularization of covariance matrix\",\n      \"aliases\": [\"covariance regularization\", \"regularization\"],\n      \"evidence_page\": 250,\n      \"anchor_page\": 250,\n      \"evidence\": \"to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"dimension reduction\",\n      \"aliases\": [\"dimensionality reduction\"],\n      \"evidence_page\": 248,\n      \"anchor_page\": 248,\n      \"evidence\": \"PCA can technically be used to reduce the dimension of data in a predictive modeling scenario\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"recommender system\",\n      \"aliases\": [\"collaborative filtering\"],\n      \"evidence_page\": 251,\n      \"anchor_page\": 251,\n      \"evidence\": \"In this Section we discuss the fundamental linear recommender system, a popular unsupervised learning framework commonly employed by businesses to help automatically recommend products and services to their customers.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [\"matrix completion\", \"linear recommender system\"],\n      \"evidence_page\": 252,\n      \"anchor_page\": 252,\n      \"evidence\": \"we assume that some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"least squares cost for incomplete data\",\n      \"aliases\": [\"incomplete data least squares\"],\n      \"evidence_page\": 252,\n      \"anchor_page\": 252,\n      \"evidence\": \"we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient-based optimization\"],\n      \"evidence_page\": 252,\n      \"anchor_page\": 252,\n      \"evidence\": \"we can easily use gradient (see Section 3.6) and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 252,\n      \"anchor_page\": 252,\n      \"evidence\": \"and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"k-means algorithm\", \"k-means\"],\n      \"evidence_page\": 252,\n      \"anchor_page\": 252,\n      \"evidence\": \"The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"cluster centroid\",\n      \"aliases\": [\"centroid\"],\n      \"evidence_page\": 253,\n      \"anchor_page\": 253,\n      \"evidence\": \"Each cluster center - also called a centroid - is marked by a star symbol\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"cluster assignment\",\n      \"aliases\": [],\n      \"evidence_page\": 254,\n      \"anchor_page\": 254,\n      \"evidence\": \"the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"centroid initialization\",\n      \"aliases\": [\"random initialization\"],\n      \"evidence_page\": 254,\n      \"anchor_page\": 254,\n      \"evidence\": \"we can start off by taking a random guess at the locations of our K centroids\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"iterative optimization\",\n      \"aliases\": [\"iterative refinement\"],\n      \"evidence_page\": 255,\n      \"anchor_page\": 255,\n      \"evidence\": \"To further refine our centroids / clusters we can now simply repeat the above two-step process\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "k-means"
+            ],
+            "evidence_page": 255,
+            "anchor_page": 255,
+            "evidence": "8.5 K-means clustering",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "centroid",
+            "aliases": [],
+            "evidence_page": 255,
+            "anchor_page": 255,
+            "evidence": "centroid locations updated as average of points assigned to each cluster.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cluster assignment",
+            "aliases": [],
+            "evidence_page": 257,
+            "anchor_page": 257,
+            "evidence": "cluster assignment is updated",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minima"
+            ],
+            "evidence_page": 256,
+            "anchor_page": 256,
+            "evidence": "the K-means algorithm gets stuck in a local minimum",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "initialization",
+            "aliases": [],
+            "evidence_page": 256,
+            "anchor_page": 256,
+            "evidence": "The impact of initialization",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "intra-cluster distance",
+            "aliases": [
+              "average intra-cluster distance"
+            ],
+            "evidence_page": 256,
+            "anchor_page": 256,
+            "evidence": "average intra-cluster distance = 1/P \\sum_{p=1}^P \\|x_p - c_{k_p}\\|_2",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "scree plot",
+            "aliases": [],
+            "evidence_page": 256,
+            "anchor_page": 256,
+            "evidence": "a plot often referred to in the jargon of machine learning as a scree plot.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "elbow method",
+            "aliases": [],
+            "evidence_page": 257,
+            "anchor_page": 257,
+            "evidence": "pick the value at the ‘elbow’ of the plot",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [],
+            "evidence_page": 258,
+            "anchor_page": 258,
+            "evidence": "This set of desired approximations is often referred to as a matrix factorization since we desire to factorize the matrix X into a product of two matrices C and W.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence_page": 258,
+            "anchor_page": 258,
+            "evidence": "the PCA problem can be interpreted as a basic exemplar of a matrix factorization problem.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "recommender systems",
+            "aliases": [],
+            "evidence_page": 258,
+            "anchor_page": 258,
+            "evidence": "Recommender Systems, as we saw in Section 8.4, results in a cost function that closely mirrors PCA’s",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "frobenius norm",
+            "aliases": [
+              "Frobenius norm"
+            ],
+            "evidence_page": 258,
+            "anchor_page": 258,
+            "evidence": "Here ∥A∥2_F = ... is the ‘Frobenius’ norm",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "block-coordinate descent",
+            "aliases": [],
+            "evidence_page": 260,
+            "anchor_page": 260,
+            "evidence": "the K-Means algorithm ... is also the set of updates resulting from the application of the block-coordinate descent method for solving the above K-Means optimization problem.",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "standard basis vector",
+            "aliases": [],
+            "evidence_page": 259,
+            "anchor_page": 259,
+            "evidence": "ek the kth standard basis vector (that is a K × 1 vector with a 1 in the kth slot and zeros elsewhere)",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "sparse coding",
+            "aliases": [
+              "sparse dictionary learning"
+            ],
+            "evidence_page": 261,
+            "anchor_page": 261,
+            "evidence": "a natural generalization of K-Means called Sparse Coding",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "non-negative matrix factorization",
+            "aliases": [],
+            "evidence_page": 261,
+            "anchor_page": 261,
+            "evidence": "giving the so-called non-negative matrix factorization problem",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "orthonormal matrix",
+            "aliases": [],
+            "evidence_page": 262,
+            "anchor_page": 262,
+            "evidence": "C is orthonormal",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "sparsity constraint",
+            "aliases": [],
+            "evidence_page": 261,
+            "anchor_page": 261,
+            "evidence": "constraints of the form \\|wp\\|_0 ≤ S",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "non-negativity constraint",
+            "aliases": [],
+            "evidence_page": 261,
+            "anchor_page": 261,
+            "evidence": "C, W ≥ 0",
+            "relevance": 0.5
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"k-means\"],\n      \"evidence_page\": 255,\n      \"anchor_page\": 255,\n      \"evidence\": \"8.5 K-means clustering\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"centroid\",\n      \"aliases\": [],\n      \"evidence_page\": 255,\n      \"anchor_page\": 255,\n      \"evidence\": \"centroid locations updated as average of points assigned to each cluster.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cluster assignment\",\n      \"aliases\": [],\n      \"evidence_page\": 257,\n      \"anchor_page\": 257,\n      \"evidence\": \"cluster assignment is updated\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\"local minima\"],\n      \"evidence_page\": 256,\n      \"anchor_page\": 256,\n      \"evidence\": \"the K-means algorithm gets stuck in a local minimum\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"initialization\",\n      \"aliases\": [],\n      \"evidence_page\": 256,\n      \"anchor_page\": 256,\n      \"evidence\": \"The impact of initialization\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"intra-cluster distance\",\n      \"aliases\": [\"average intra-cluster distance\"],\n      \"evidence_page\": 256,\n      \"anchor_page\": 256,\n      \"evidence\": \"average intra-cluster distance = 1/P \\\\sum_{p=1}^P \\\\|x_p - c_{k_p}\\\\|_2\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"scree plot\",\n      \"aliases\": [],\n      \"evidence_page\": 256,\n      \"anchor_page\": 256,\n      \"evidence\": \"a plot often referred to in the jargon of machine learning as a scree plot.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"elbow method\",\n      \"aliases\": [],\n      \"evidence_page\": 257,\n      \"anchor_page\": 257,\n      \"evidence\": \"pick the value at the ‘elbow’ of the plot\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [],\n      \"evidence_page\": 258,\n      \"anchor_page\": 258,\n      \"evidence\": \"This set of desired approximations is often referred to as a matrix factorization since we desire to factorize the matrix X into a product of two matrices C and W.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence_page\": 258,\n      \"anchor_page\": 258,\n      \"evidence\": \"the PCA problem can be interpreted as a basic exemplar of a matrix factorization problem.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"recommender systems\",\n      \"aliases\": [],\n      \"evidence_page\": 258,\n      \"anchor_page\": 258,\n      \"evidence\": \"Recommender Systems, as we saw in Section 8.4, results in a cost function that closely mirrors PCA’s\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"frobenius norm\",\n      \"aliases\": [\"Frobenius norm\"],\n      \"evidence_page\": 258,\n      \"anchor_page\": 258,\n      \"evidence\": \"Here ∥A∥2_F = ... is the ‘Frobenius’ norm\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"block-coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 260,\n      \"anchor_page\": 260,\n      \"evidence\": \"the K-Means algorithm ... is also the set of updates resulting from the application of the block-coordinate descent method for solving the above K-Means optimization problem.\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"standard basis vector\",\n      \"aliases\": [],\n      \"evidence_page\": 259,\n      \"anchor_page\": 259,\n      \"evidence\": \"ek the kth standard basis vector (that is a K × 1 vector with a 1 in the kth slot and zeros elsewhere)\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"sparse coding\",\n      \"aliases\": [\"sparse dictionary learning\"],\n      \"evidence_page\": 261,\n      \"anchor_page\": 261,\n      \"evidence\": \"a natural generalization of K-Means called Sparse Coding\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"non-negative matrix factorization\",\n      \"aliases\": [],\n      \"evidence_page\": 261,\n      \"anchor_page\": 261,\n      \"evidence\": \"giving the so-called non-negative matrix factorization problem\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"orthonormal matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 262,\n      \"anchor_page\": 262,\n      \"evidence\": \"C is orthonormal\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"sparsity constraint\",\n      \"aliases\": [],\n      \"evidence_page\": 261,\n      \"anchor_page\": 261,\n      \"evidence\": \"constraints of the form \\\\|wp\\\\|_0 ≤ S\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"non-negativity constraint\",\n      \"aliases\": [],\n      \"evidence_page\": 261,\n      \"anchor_page\": 261,\n      \"evidence\": \"C, W ≥ 0\",\n      \"relevance\": 0.5\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "linear autoencoder",
+            "aliases": [
+              "autoencoder"
+            ],
+            "evidence_page": 265,
+            "anchor_page": 265,
+            "evidence": "the minima of the linear Autoencoder in Equation 8.17 are all orthogonal matrices",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA"
+            ],
+            "evidence_page": 266,
+            "anchor_page": 266,
+            "evidence": "the classic Principal Components Analysis solution to the linear Autoencoder",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "principal component",
+            "aliases": [
+              "first principal component",
+              "second principal component",
+              "nth principal component"
+            ],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "v1 is referred to as the first principal component of the data.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "rayleigh quotient",
+            "aliases": [],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "Written in this form the above takes the form of a so-called Rayleigh Quotient",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "the matrix 1/P X X^T can be interpreted statistically as the covariance matrix of the data",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "eigenvalue decomposition",
+            "aliases": [
+              "eigenvalue eigenvector decomposition"
+            ],
+            "evidence_page": 265,
+            "anchor_page": 265,
+            "evidence": "we first substitute the eigenvalue decomposition (see Section C.4) CCT as CCT = VDVT",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "orthogonal matrix",
+            "aliases": [
+              "orthonormal matrix"
+            ],
+            "evidence_page": 265,
+            "anchor_page": 265,
+            "evidence": "the only such matrices that have this property are orthogonal",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "k-means",
+            "aliases": [
+              "K-Means"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "Implement the K-Means algorithm",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "alternating minimization",
+            "aliases": [
+              "alternating minimization method"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "pca least squares cost",
+            "aliases": [
+              "PCA Least Squares cost function"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bi-convex function",
+            "aliases": [
+              "bi-convexity"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "it is bi-convex in that it is convex in each matrix of parameters C and W independently",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate descent method"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "the coordinate descent method described in Section 3.3.2",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [
+              "matrix factorization problems"
+            ],
+            "evidence_page": 264,
+            "anchor_page": 264,
+            "evidence": "general matrix factorization problems (like those listed in Table 8.1)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "variance maximization",
+            "aliases": [
+              "maximizing variance"
+            ],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "maximize the direction of variance in the data",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "mean-centered data",
+            "aliases": [
+              "mean-centered"
+            ],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "our data is assumed to have been mean-centered",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "orthonormal basis",
+            "aliases": [
+              "orthonormal spanning set"
+            ],
+            "evidence_page": 267,
+            "anchor_page": 267,
+            "evidence": "since our basis is constrained to be orthonormal",
+            "relevance": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"linear autoencoder\",\n      \"aliases\": [\"autoencoder\"],\n      \"evidence_page\": 265,\n      \"anchor_page\": 265,\n      \"evidence\": \"the minima of the linear Autoencoder in Equation 8.17 are all orthogonal matrices\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\"],\n      \"evidence_page\": 266,\n      \"anchor_page\": 266,\n      \"evidence\": \"the classic Principal Components Analysis solution to the linear Autoencoder\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"principal component\",\n      \"aliases\": [\"first principal component\", \"second principal component\", \"nth principal component\"],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"v1 is referred to as the first principal component of the data.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"rayleigh quotient\",\n      \"aliases\": [],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"Written in this form the above takes the form of a so-called Rayleigh Quotient\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"the matrix 1/P X X^T can be interpreted statistically as the covariance matrix of the data\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"eigenvalue decomposition\",\n      \"aliases\": [\"eigenvalue eigenvector decomposition\"],\n      \"evidence_page\": 265,\n      \"anchor_page\": 265,\n      \"evidence\": \"we first substitute the eigenvalue decomposition (see Section C.4) CCT as CCT = VDVT\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"orthogonal matrix\",\n      \"aliases\": [\"orthonormal matrix\"],\n      \"evidence_page\": 265,\n      \"anchor_page\": 265,\n      \"evidence\": \"the only such matrices that have this property are orthogonal\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"k-means\",\n      \"aliases\": [\"K-Means\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"Implement the K-Means algorithm\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"alternating minimization\",\n      \"aliases\": [\"alternating minimization method\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"pca least squares cost\",\n      \"aliases\": [\"PCA Least Squares cost function\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bi-convex function\",\n      \"aliases\": [\"bi-convexity\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"it is bi-convex in that it is convex in each matrix of parameters C and W independently\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\"coordinate descent method\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"the coordinate descent method described in Section 3.3.2\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [\"matrix factorization problems\"],\n      \"evidence_page\": 264,\n      \"anchor_page\": 264,\n      \"evidence\": \"general matrix factorization problems (like those listed in Table 8.1)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"variance maximization\",\n      \"aliases\": [\"maximizing variance\"],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"maximize the direction of variance in the data\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"mean-centered data\",\n      \"aliases\": [\"mean-centered\"],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"our data is assumed to have been mean-centered\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"orthonormal basis\",\n      \"aliases\": [\"orthonormal spanning set\"],\n      \"evidence_page\": 267,\n      \"anchor_page\": 267,\n      \"evidence\": \"since our basis is constrained to be orthonormal\",\n      \"relevance\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "spanning set",
+            "aliases": [
+              "basis"
+            ],
+            "evidence_page": 240,
+            "evidence": "Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space.",
+            "relevance": 0.85,
+            "anchor_page": 240
+          },
+          {
+            "canonical": "mean-centering",
+            "aliases": [
+              "data centering",
+              "mean-centered",
+              "mean-centered data"
+            ],
+            "evidence_page": 240,
+            "evidence": "we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.",
+            "relevance": 0.8,
+            "anchor_page": 240
+          },
+          {
+            "canonical": "decoding",
+            "aliases": [],
+            "evidence_page": 241,
+            "evidence": "The actual linear combination of the spanning vectors for each xp (i.e., Cw⋆p ) is likewise referred to as the decoding of the point.",
+            "relevance": 0.85,
+            "anchor_page": 241
+          },
+          {
+            "canonical": "encoding",
+            "aliases": [],
+            "evidence_page": 241,
+            "evidence": "the optimally tuned weight vector w⋆p for the point xp is often referred to as the encoding of the point over the spanning matrix C.",
+            "relevance": 0.85,
+            "anchor_page": 241
+          },
+          {
+            "canonical": "least squares cost function",
+            "aliases": [
+              "least squares",
+              "least squares cost",
+              "sum of squared errors"
+            ],
+            "evidence_page": 241,
+            "evidence": "we can form an associated Least Squares cost function",
+            "relevance": 0.7,
+            "anchor_page": 241
+          },
+          {
+            "canonical": "orthonormal spanning set",
+            "aliases": [
+              "orthonormal basis"
+            ],
+            "evidence_page": 242,
+            "evidence": "An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other.",
+            "relevance": 0.9,
+            "anchor_page": 242
+          },
+          {
+            "canonical": "autoencoder formula",
+            "aliases": [],
+            "evidence_page": 243,
+            "evidence": "the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).",
+            "relevance": 0.9,
+            "anchor_page": 243
+          },
+          {
+            "canonical": "projection",
+            "aliases": [],
+            "evidence_page": 244,
+            "evidence": "the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.",
+            "relevance": 0.8,
+            "anchor_page": 244
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "first order methods",
+              "gradient-based optimization"
+            ],
+            "evidence_page": 245,
+            "evidence": "local optimization techniques including gradient descent",
+            "relevance": 0.9,
+            "anchor_page": 245
+          },
+          {
+            "canonical": "linear autoencoder",
+            "aliases": [
+              "autoencoder"
+            ],
+            "evidence_page": 246,
+            "evidence": "the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder.",
+            "relevance": 0.95,
+            "anchor_page": 246
+          },
+          {
+            "canonical": "principal component",
+            "aliases": [
+              "first principal component",
+              "second principal component",
+              "nth principal component"
+            ],
+            "evidence_page": 247,
+            "evidence": "The spanning set of principal components always provide a consistent skeleton for a dataset, with its members pointing in the dataset’s largest directions of orthogonal variance.",
+            "relevance": 1.0,
+            "anchor_page": 247
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "pca"
+            ],
+            "evidence_page": 247,
+            "evidence": "Principal Component Analysis, or PCA for short, in practice.",
+            "relevance": 1.0,
+            "anchor_page": 247
+          },
+          {
+            "canonical": "covariance matrix",
+            "aliases": [
+              "data covariance matrix"
+            ],
+            "evidence_page": 247,
+            "evidence": "the covariance matrix is defined as the N × N matrix 1/P X X^T.",
+            "relevance": 0.95,
+            "anchor_page": 247
+          },
+          {
+            "canonical": "eigenvalue decomposition",
+            "aliases": [
+              "eigenvalues of a symmetric matrix",
+              "eigendecomposition"
+            ],
+            "evidence_page": 247,
+            "evidence": "Denoting the eigen-decomposition (see Section C.4) of the covariance matrix as 1/PX XT = V D VT",
+            "relevance": 0.9,
+            "anchor_page": 247
+          },
+          {
+            "canonical": "dimension reduction",
+            "aliases": [
+              "dimensionality reduction"
+            ],
+            "evidence_page": 248,
+            "evidence": "PCA can technically be used to reduce the dimension of data in a predictive modeling scenario",
+            "relevance": 0.9,
+            "anchor_page": 248
+          },
+          {
+            "canonical": "covariance matrix regularization",
+            "aliases": [
+              "regularization of covariance matrix",
+              "covariance regularization"
+            ],
+            "evidence_page": 250,
+            "evidence": "to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself",
+            "relevance": 0.8,
+            "anchor_page": 250
+          },
+          {
+            "canonical": "recommender system",
+            "aliases": [
+              "collaborative filtering"
+            ],
+            "evidence_page": 251,
+            "evidence": "In this Section we discuss the fundamental linear recommender system, a popular unsupervised learning framework commonly employed by businesses to help automatically recommend products and services to their customers.",
+            "relevance": 0.9,
+            "anchor_page": 251
+          },
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "k-means algorithm",
+              "k-means"
+            ],
+            "evidence_page": 252,
+            "evidence": "The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms.",
+            "relevance": 1.0,
+            "anchor_page": 252
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [
+              "matrix completion",
+              "linear recommender system",
+              "matrix factorization problems"
+            ],
+            "evidence_page": 252,
+            "evidence": "we assume that some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p",
+            "relevance": 0.9,
+            "anchor_page": 252
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate-wise approaches",
+              "coordinate descent method"
+            ],
+            "evidence_page": 252,
+            "evidence": "and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.",
+            "relevance": 0.8,
+            "anchor_page": 252
+          },
+          {
+            "canonical": "least squares cost for incomplete data",
+            "aliases": [
+              "incomplete data least squares"
+            ],
+            "evidence_page": 252,
+            "evidence": "we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2",
+            "relevance": 0.8,
+            "anchor_page": 252
+          },
+          {
+            "canonical": "cluster centroid",
+            "aliases": [
+              "centroid"
+            ],
+            "evidence_page": 253,
+            "evidence": "Each cluster center - also called a centroid - is marked by a star symbol",
+            "relevance": 0.8,
+            "anchor_page": 253
+          },
+          {
+            "canonical": "cluster assignment",
+            "aliases": [],
+            "evidence_page": 254,
+            "evidence": "the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2",
+            "relevance": 0.8,
+            "anchor_page": 254
+          },
+          {
+            "canonical": "centroid initialization",
+            "aliases": [
+              "random initialization"
+            ],
+            "evidence_page": 254,
+            "evidence": "we can start off by taking a random guess at the locations of our K centroids",
+            "relevance": 0.7,
+            "anchor_page": 254
+          },
+          {
+            "canonical": "sequential refinement",
+            "aliases": [
+              "iterative update",
+              "iterative optimization",
+              "iterative refinement"
+            ],
+            "evidence_page": 255,
+            "evidence": "To further refine our centroids / clusters we can now simply repeat the above two-step process",
+            "relevance": 0.8,
+            "anchor_page": 255
+          },
+          {
+            "canonical": "intra-cluster distance",
+            "aliases": [
+              "average intra-cluster distance"
+            ],
+            "evidence_page": 256,
+            "evidence": "average intra-cluster distance = 1/P \\sum_{p=1}^P \\|x_p - c_{k_p}\\|_2",
+            "relevance": 0.8,
+            "anchor_page": 256
+          },
+          {
+            "canonical": "scree plot",
+            "aliases": [],
+            "evidence_page": 256,
+            "evidence": "a plot often referred to in the jargon of machine learning as a scree plot.",
+            "relevance": 0.7,
+            "anchor_page": 256
+          },
+          {
+            "canonical": "elbow method",
+            "aliases": [],
+            "evidence_page": 257,
+            "evidence": "pick the value at the ‘elbow’ of the plot",
+            "relevance": 0.7,
+            "anchor_page": 257
+          },
+          {
+            "canonical": "non-negative matrix factorization",
+            "aliases": [],
+            "evidence_page": 261,
+            "evidence": "giving the so-called non-negative matrix factorization problem",
+            "relevance": 0.7,
+            "anchor_page": 261
+          },
+          {
+            "canonical": "sparse coding",
+            "aliases": [
+              "sparse dictionary learning"
+            ],
+            "evidence_page": 261,
+            "evidence": "a natural generalization of K-Means called Sparse Coding",
+            "relevance": 0.7,
+            "anchor_page": 261
+          },
+          {
+            "canonical": "pca least squares cost",
+            "aliases": [
+              "pca least squares cost function"
+            ],
+            "evidence_page": 264,
+            "evidence": "the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex",
+            "relevance": 0.9,
+            "anchor_page": 264
+          },
+          {
+            "canonical": "alternating minimization",
+            "aliases": [
+              "alternating minimization method"
+            ],
+            "evidence_page": 264,
+            "evidence": "alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems",
+            "relevance": 0.8,
+            "anchor_page": 264
+          },
+          {
+            "canonical": "bi-convex function",
+            "aliases": [
+              "bi-convexity"
+            ],
+            "evidence_page": 264,
+            "evidence": "it is bi-convex in that it is convex in each matrix of parameters C and W independently",
+            "relevance": 0.7,
+            "anchor_page": 264
+          },
+          {
+            "canonical": "orthogonal matrix",
+            "aliases": [
+              "orthonormal matrix"
+            ],
+            "evidence_page": 265,
+            "evidence": "the only such matrices that have this property are orthogonal",
+            "relevance": 0.85,
+            "anchor_page": 265
+          },
+          {
+            "canonical": "variance maximization",
+            "aliases": [
+              "maximizing variance"
+            ],
+            "evidence_page": 267,
+            "evidence": "maximize the direction of variance in the data",
+            "relevance": 0.9,
+            "anchor_page": 267
+          },
+          {
+            "canonical": "rayleigh quotient",
+            "aliases": [],
+            "evidence_page": 267,
+            "evidence": "Written in this form the above takes the form of a so-called Rayleigh Quotient",
+            "relevance": 0.8,
+            "anchor_page": 267
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"spanning set\",\n      \"aliases\": [\"basis\"],\n      \"evidence_page\": 240,\n      \"evidence\": \"Those vectors drawn as arrows are particular points, often called a basis or spanning set of vectors, over which we aim to represent every other point in the space.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 240\n    },\n    {\n      \"canonical\": \"mean-centering\",\n      \"aliases\": [\"data centering\", \"mean-centered\", \"mean-centered data\"],\n      \"evidence_page\": 240,\n      \"evidence\": \"we will assume that our dataset has been mean-centered: a simple and completely reversible operation that involves subtracting off the mean of the dataset along each input dimension so that it straddles the origin.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 240\n    },\n    {\n      \"canonical\": \"decoding\",\n      \"aliases\": [],\n      \"evidence_page\": 241,\n      \"evidence\": \"The actual linear combination of the spanning vectors for each xp (i.e., Cw⋆p ) is likewise referred to as the decoding of the point.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 241\n    },\n    {\n      \"canonical\": \"encoding\",\n      \"aliases\": [],\n      \"evidence_page\": 241,\n      \"evidence\": \"the optimally tuned weight vector w⋆p for the point xp is often referred to as the encoding of the point over the spanning matrix C.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 241\n    },\n    {\n      \"canonical\": \"least squares cost function\",\n      \"aliases\": [\"least squares\", \"least squares cost\", \"sum of squared errors\"],\n      \"evidence_page\": 241,\n      \"evidence\": \"we can form an associated Least Squares cost function\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 241\n    },\n    {\n      \"canonical\": \"orthonormal spanning set\",\n      \"aliases\": [\"orthonormal basis\"],\n      \"evidence_page\": 242,\n      \"evidence\": \"An orthonormal basis or spanning set is a very special kind of spanning set whose elements (i) have unit length, and (ii) are perpendicular or orthogonal to each other.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 242\n    },\n    {\n      \"canonical\": \"autoencoder formula\",\n      \"aliases\": [],\n      \"evidence_page\": 243,\n      \"evidence\": \"the autoencoder formula since it expresses how a point xp is first encoded (via wp = CTxp) and then decoded back to itself (Cwp = CCTxp).\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 243\n    },\n    {\n      \"canonical\": \"projection\",\n      \"aliases\": [],\n      \"evidence_page\": 244,\n      \"evidence\": \"the decoding Cwp is precisely the projection of xp onto the subspace spanned by C.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 244\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"first order methods\", \"gradient-based optimization\"],\n      \"evidence_page\": 245,\n      \"evidence\": \"local optimization techniques including gradient descent\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 245\n    },\n    {\n      \"canonical\": \"linear autoencoder\",\n      \"aliases\": [\"autoencoder\"],\n      \"evidence_page\": 246,\n      \"evidence\": \"the linear Autoencoder cost function in Equation (8.17). We can think of this Least Squares as enforcing the Autoencoder formula shown in Equation (8.14) to hold when properly minimized, and thus it is often referred to as the linear Autoencoder.\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 246\n    },\n    {\n      \"canonical\": \"principal component\",\n      \"aliases\": [\"first principal component\", \"second principal component\", \"nth principal component\"],\n      \"evidence_page\": 247,\n      \"evidence\": \"The spanning set of principal components always provide a consistent skeleton for a dataset, with its members pointing in the dataset’s largest directions of orthogonal variance.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 247\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"pca\"],\n      \"evidence_page\": 247,\n      \"evidence\": \"Principal Component Analysis, or PCA for short, in practice.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 247\n    },\n    {\n      \"canonical\": \"covariance matrix\",\n      \"aliases\": [\"data covariance matrix\"],\n      \"evidence_page\": 247,\n      \"evidence\": \"the covariance matrix is defined as the N × N matrix 1/P X X^T.\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 247\n    },\n    {\n      \"canonical\": \"eigenvalue decomposition\",\n      \"aliases\": [\"eigenvalues of a symmetric matrix\", \"eigendecomposition\"],\n      \"evidence_page\": 247,\n      \"evidence\": \"Denoting the eigen-decomposition (see Section C.4) of the covariance matrix as 1/PX XT = V D VT\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 247\n    },\n    {\n      \"canonical\": \"dimension reduction\",\n      \"aliases\": [\"dimensionality reduction\"],\n      \"evidence_page\": 248,\n      \"evidence\": \"PCA can technically be used to reduce the dimension of data in a predictive modeling scenario\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 248\n    },\n    {\n      \"canonical\": \"covariance matrix regularization\",\n      \"aliases\": [\"regularization of covariance matrix\", \"covariance regularization\"],\n      \"evidence_page\": 250,\n      \"evidence\": \"to avoid computational trouble we typically compute principal components of the regularized covariance matrix 1/P X X^T + λ I_{N×N} instead of the raw covariance matrix itself\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 250\n    },\n    {\n      \"canonical\": \"recommender system\",\n      \"aliases\": [\"collaborative filtering\"],\n      \"evidence_page\": 251,\n      \"evidence\": \"In this Section we discuss the fundamental linear recommender system, a popular unsupervised learning framework commonly employed by businesses to help automatically recommend products and services to their customers.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 251\n    },\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"k-means algorithm\", \"k-means\"],\n      \"evidence_page\": 252,\n      \"evidence\": \"The subject of this Section, the K-means algorithm, is an elementary example of another set of unsupervised learning methods called clustering algorithms.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 252\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [\"matrix completion\", \"linear recommender system\", \"matrix factorization problems\"],\n      \"evidence_page\": 252,\n      \"evidence\": \"we assume that some ideal spanning set of K fundamental taste vectors (which we can package in an N × K matrix C) exist so that each vector x_p can be truly expressed as the linear combination C w_p ≈ x_p\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 252\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\"coordinate-wise approaches\", \"coordinate descent method\"],\n      \"evidence_page\": 252,\n      \"evidence\": \"and coordinate descent (see Section 3.3.2) based schemes to properly minimize it.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 252\n    },\n    {\n      \"canonical\": \"least squares cost for incomplete data\",\n      \"aliases\": [\"incomplete data least squares\"],\n      \"evidence_page\": 252,\n      \"evidence\": \"we can only minimize that Least Squares cost over these entries, i.e., g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 252\n    },\n    {\n      \"canonical\": \"cluster centroid\",\n      \"aliases\": [\"centroid\"],\n      \"evidence_page\": 253,\n      \"evidence\": \"Each cluster center - also called a centroid - is marked by a star symbol\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 253\n    },\n    {\n      \"canonical\": \"cluster assignment\",\n      \"aliases\": [],\n      \"evidence_page\": 254,\n      \"evidence\": \"the point x_p belongs to or is assigned to cluster k⋆ if a_p = argmin_{k=1,...,K} ||x_p - c_k||^2\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 254\n    },\n    {\n      \"canonical\": \"centroid initialization\",\n      \"aliases\": [\"random initialization\"],\n      \"evidence_page\": 254,\n      \"evidence\": \"we can start off by taking a random guess at the locations of our K centroids\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 254\n    },\n    {\n      \"canonical\": \"sequential refinement\",\n      \"aliases\": [\"iterative update\", \"iterative optimization\", \"iterative refinement\"],\n      \"evidence_page\": 255,\n      \"evidence\": \"To further refine our centroids / clusters we can now simply repeat the above two-step process\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 255\n    },\n    {\n      \"canonical\": \"intra-cluster distance\",\n      \"aliases\": [\"average intra-cluster distance\"],\n      \"evidence_page\": 256,\n      \"evidence\": \"average intra-cluster distance = 1/P \\\\sum_{p=1}^P \\\\|x_p - c_{k_p}\\\\|_2\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 256\n    },\n    {\n      \"canonical\": \"scree plot\",\n      \"aliases\": [],\n      \"evidence_page\": 256,\n      \"evidence\": \"a plot often referred to in the jargon of machine learning as a scree plot.\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 256\n    },\n    {\n      \"canonical\": \"elbow method\",\n      \"aliases\": [],\n      \"evidence_page\": 257,\n      \"evidence\": \"pick the value at the ‘elbow’ of the plot\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 257\n    },\n    {\n      \"canonical\": \"non-negative matrix factorization\",\n      \"aliases\": [],\n      \"evidence_page\": 261,\n      \"evidence\": \"giving the so-called non-negative matrix factorization problem\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 261\n    },\n    {\n      \"canonical\": \"sparse coding\",\n      \"aliases\": [\"sparse dictionary learning\"],\n      \"evidence_page\": 261,\n      \"evidence\": \"a natural generalization of K-Means called Sparse Coding\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 261\n    },\n    {\n      \"canonical\": \"pca least squares cost\",\n      \"aliases\": [\"pca least squares cost function\"],\n      \"evidence_page\": 264,\n      \"evidence\": \"the PCA Least Squares cost function in Equation (8.29) is not convex, it is bi-convex\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 264\n    },\n    {\n      \"canonical\": \"alternating minimization\",\n      \"aliases\": [\"alternating minimization method\"],\n      \"evidence_page\": 264,\n      \"evidence\": \"alternating minimization. Such optimization methods are widely used to solve general matrix factorization problems\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 264\n    },\n    {\n      \"canonical\": \"bi-convex function\",\n      \"aliases\": [\"bi-convexity\"],\n      \"evidence_page\": 264,\n      \"evidence\": \"it is bi-convex in that it is convex in each matrix of parameters C and W independently\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 264\n    },\n    {\n      \"canonical\": \"orthogonal matrix\",\n      \"aliases\": [\"orthonormal matrix\"],\n      \"evidence_page\": 265,\n      \"evidence\": \"the only such matrices that have this property are orthogonal\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 265\n    },\n    {\n      \"canonical\": \"variance maximization\",\n      \"aliases\": [\"maximizing variance\"],\n      \"evidence_page\": 267,\n      \"evidence\": \"maximize the direction of variance in the data\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 267\n    },\n    {\n      \"canonical\": \"rayleigh quotient\",\n      \"aliases\": [],\n      \"evidence_page\": 267,\n      \"evidence\": \"Written in this form the above takes the form of a so-called Rayleigh Quotient\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 267\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 240,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "spanning set",
+            "latex": "\\sum_{k=1}^{K} \\mathbf{c}_k w_{p,k} = \\mathbf{x}_p, \\quad p=1,\\ldots,P",
+            "pdf_page": 241,
+            "equation_label": "(8.3)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "spanning set",
+            "pdf_page": 240,
+            "figure_label": "Figure 8.1",
+            "caption": "Two-dimensional points illustrated as dots (left panel), arrows (middle panel), and a mixture of both (right panel). Those shown as arrows on the right are a basis or spanning set over which we aim to represent every point in the entire space.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"spanning set\",\n      \"latex\": \"\\\\sum_{k=1}^{K} \\\\mathbf{c}_k w_{p,k} = \\\\mathbf{x}_p, \\\\quad p=1,\\\\ldots,P\",\n      \"pdf_page\": 241,\n      \"equation_label\": \"(8.3)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"spanning set\",\n      \"pdf_page\": 240,\n      \"figure_label\": \"Figure 8.1\",\n      \"caption\": \"Two-dimensional points illustrated as dots (left panel), arrows (middle panel), and a mixture of both (right panel). Those shown as arrows on the right are a basis or spanning set over which we aim to represent every point in the entire space.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 242,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "orthonormal spanning set",
+            "latex": "c_i^T c_j = \\begin{cases} 1 & \\text{if } i = j \\\\ 0 & \\text{if } i \\neq j \\end{cases}",
+            "pdf_page": 243,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "orthonormal spanning set",
+            "latex": "C^T C = I_{N \\times N}",
+            "pdf_page": 243,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "orthonormal spanning set",
+            "latex": "w_p = C^T x_p",
+            "pdf_page": 243,
+            "equation_label": "",
+            "confidence": 0.95
+          },
+          {
+            "concept": "orthonormal spanning set",
+            "latex": "C C^T x_p = x_p",
+            "pdf_page": 243,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"orthonormal spanning set\",\n      \"latex\": \"c_i^T c_j = \\\\begin{cases} 1 & \\\\text{if } i = j \\\\\\\\ 0 & \\\\text{if } i \\\\neq j \\\\end{cases}\",\n      \"pdf_page\": 243,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"orthonormal spanning set\",\n      \"latex\": \"C^T C = I_{N \\\\times N}\",\n      \"pdf_page\": 243,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"orthonormal spanning set\",\n      \"latex\": \"w_p = C^T x_p\",\n      \"pdf_page\": 243,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"orthonormal spanning set\",\n      \"latex\": \"C C^T x_p = x_p\",\n      \"pdf_page\": 243,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 243,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "autoencoder formula",
+            "latex": "\\mathbf{C}\\mathbf{C}^T\\mathbf{x}_p = \\mathbf{x}_p",
+            "pdf_page": 243,
+            "equation_label": "(8.12)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"autoencoder formula\",\n      \"latex\": \"\\\\mathbf{C}\\\\mathbf{C}^T\\\\mathbf{x}_p = \\\\mathbf{x}_p\",\n      \"pdf_page\": 243,\n      \"equation_label\": \"(8.12)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 244,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "projection",
+            "latex": "C\\mathbf{w}_p \\approx \\mathbf{x}_p, \\quad p = 1, \\ldots, P",
+            "pdf_page": 244,
+            "equation_label": "(8.13)",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "projection",
+            "pdf_page": 244,
+            "figure_label": "Figure 8.3",
+            "caption": "Figure 8.3 (left panel) A dataset of points xp in N = 3 dimensions along with a linear subspace spanned by K = 2 vectors c1 and c2, colored in red. (middle panel) The encoding space spanned by c1 and c2, where our encoded vectors wp live. (right panel) The projected or decoded versions of each data point xp shown in the subspace spanned by C = [c1 c2]. The decoded version of the original point xp is expressed as Cwp.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"projection\",\n      \"latex\": \"C\\\\mathbf{w}_p \\\\approx \\\\mathbf{x}_p, \\\\quad p = 1, \\\\ldots, P\",\n      \"pdf_page\": 244,\n      \"equation_label\": \"(8.13)\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"projection\",\n      \"pdf_page\": 244,\n      \"figure_label\": \"Figure 8.3\",\n      \"caption\": \"Figure 8.3 (left panel) A dataset of points xp in N = 3 dimensions along with a linear subspace spanned by K = 2 vectors c1 and c2, colored in red. (middle panel) The encoding space spanned by c1 and c2, where our encoded vectors wp live. (right panel) The projected or decoded versions of each data point xp shown in the subspace spanned by C = [c1 c2]. The decoded version of the original point xp is expressed as Cwp.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 245,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "gradient descent",
+            "latex": "g(w_1, \\dots, w_P, C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C w_p - x_p \\right\\|_2^2",
+            "pdf_page": 245,
+            "equation_label": "8.16",
+            "confidence": 0.95
+          },
+          {
+            "concept": "gradient descent",
+            "latex": "g(C) = \\frac{1}{P} \\sum_{p=1}^P \\left\\| C C^T x_p - x_p \\right\\|_2^2",
+            "pdf_page": 246,
+            "equation_label": "8.17",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "gradient descent",
+            "pdf_page": 245,
+            "figure_label": "Figure 8.4",
+            "caption": "Figure 8.4 Figure associated with Example 8.2. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"gradient descent\",\n      \"latex\": \"g(w_1, \\\\dots, w_P, C) = \\\\frac{1}{P} \\\\sum_{p=1}^P \\\\left\\\\| C w_p - x_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 245,\n      \"equation_label\": \"8.16\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"gradient descent\",\n      \"latex\": \"g(C) = \\\\frac{1}{P} \\\\sum_{p=1}^P \\\\left\\\\| C C^T x_p - x_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 246,\n      \"equation_label\": \"8.17\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"gradient descent\",\n      \"pdf_page\": 245,\n      \"figure_label\": \"Figure 8.4\",\n      \"caption\": \"Figure 8.4 Figure associated with Example 8.2. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 246,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "linear autoencoder",
+            "latex": "g(\\mathbf{C}) = \\frac{1}{P} \\sum_{p=1}^{P} \\left\\| \\mathbf{C} \\mathbf{C}^T \\mathbf{x}_p - \\mathbf{x}_p \\right\\|_2^2",
+            "pdf_page": 246,
+            "equation_label": "Equation 8.17",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "linear autoencoder",
+            "pdf_page": 247,
+            "figure_label": "Figure 8.5",
+            "caption": "Figure 8.5 Figure associated with Example 8.3. See text for details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"linear autoencoder\",\n      \"latex\": \"g(\\\\mathbf{C}) = \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left\\\\| \\\\mathbf{C} \\\\mathbf{C}^T \\\\mathbf{x}_p - \\\\mathbf{x}_p \\\\right\\\\|_2^2\",\n      \"pdf_page\": 246,\n      \"equation_label\": \"Equation 8.17\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"linear autoencoder\",\n      \"pdf_page\": 247,\n      \"figure_label\": \"Figure 8.5\",\n      \"caption\": \"Figure 8.5 Figure associated with Example 8.3. See text for details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 247,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "principal component analysis",
+            "latex": "\\frac{1}{P}\\mathbf{X} \\mathbf{X}^T = \\mathbf{V} \\mathbf{D} \\mathbf{V}^T",
+            "pdf_page": 248,
+            "equation_label": "(8.19)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "principal component analysis",
+            "pdf_page": 247,
+            "figure_label": "Figure 8.6",
+            "caption": "A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "principal component analysis",
+            "pdf_page": 248,
+            "figure_label": "Figure 8.7",
+            "caption": "Figure associated with Example 8.4.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"principal component analysis\",\n      \"latex\": \"\\\\frac{1}{P}\\\\mathbf{X} \\\\mathbf{X}^T = \\\\mathbf{V} \\\\mathbf{D} \\\\mathbf{V}^T\",\n      \"pdf_page\": 248,\n      \"equation_label\": \"(8.19)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"principal component analysis\",\n      \"pdf_page\": 247,\n      \"figure_label\": \"Figure 8.6\",\n      \"caption\": \"A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"principal component analysis\",\n      \"pdf_page\": 248,\n      \"figure_label\": \"Figure 8.7\",\n      \"caption\": \"Figure associated with Example 8.4.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 248,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "dimension reduction",
+            "latex": "\\frac{1}{P} \\mathbf{X} \\mathbf{X}^T = \\mathbf{V} \\mathbf{D} \\mathbf{V}^T",
+            "pdf_page": 248,
+            "equation_label": "(8.19)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "dimension reduction",
+            "pdf_page": 247,
+            "figure_label": "Figure 8.6",
+            "caption": "Figure 8.6 A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "dimension reduction",
+            "pdf_page": 248,
+            "figure_label": "Figure 8.7",
+            "caption": "Figure 8.7 Figure associated with Example 8.4.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "dimension reduction",
+            "pdf_page": 249,
+            "figure_label": "Figure 8.8",
+            "caption": "Figure 8.8 Figure associated with Example 8.5. (left panel) A toy classification dataset consisting of two linearly separable classes. The ideal one-dimensional subspace produced via PCA is shown in black. (right panel) Reducing the feature space dimension by projecting the data onto this subspace completely destroys the original separability of the data.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"dimension reduction\",\n      \"latex\": \"\\\\frac{1}{P} \\\\mathbf{X} \\\\mathbf{X}^T = \\\\mathbf{V} \\\\mathbf{D} \\\\mathbf{V}^T\",\n      \"pdf_page\": 248,\n      \"equation_label\": \"(8.19)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"dimension reduction\",\n      \"pdf_page\": 247,\n      \"figure_label\": \"Figure 8.6\",\n      \"caption\": \"Figure 8.6 A prototypical dataset with scaled versions of its first and second principal components shown as the longer and shorter red arrows, respectively. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"dimension reduction\",\n      \"pdf_page\": 248,\n      \"figure_label\": \"Figure 8.7\",\n      \"caption\": \"Figure 8.7 Figure associated with Example 8.4.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"dimension reduction\",\n      \"pdf_page\": 249,\n      \"figure_label\": \"Figure 8.8\",\n      \"caption\": \"Figure 8.8 Figure associated with Example 8.5. (left panel) A toy classification dataset consisting of two linearly separable classes. The ideal one-dimensional subspace produced via PCA is shown in black. (right panel) Reducing the feature space dimension by projecting the data onto this subspace completely destroys the original separability of the data.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 250,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "covariance matrix regularization",
+            "latex": "\\frac{1}{P} \\mathbf{X} \\mathbf{X}^T + \\lambda \\mathbf{I}_{N \\times N}",
+            "pdf_page": 250,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"covariance matrix regularization\",\n      \"latex\": \"\\\\frac{1}{P} \\\\mathbf{X} \\\\mathbf{X}^T + \\\\lambda \\\\mathbf{I}_{N \\\\times N}\",\n      \"pdf_page\": 250,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 252,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "matrix factorization",
+            "latex": "\\mathbf{C}\\mathbf{w}_p \\approx \\mathbf{x}_p",
+            "pdf_page": 252,
+            "equation_label": "(8.21)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "least squares cost for incomplete data",
+            "latex": "g(\\mathbf{w}_1, ..., \\mathbf{w}_P, \\mathbf{C}) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\left\\{ \\mathbf{C}\\mathbf{w}_p - \\mathbf{x}_p \\right\\}|_{\\Omega_p} \\right\\|_2^2",
+            "pdf_page": 252,
+            "equation_label": "(8.22)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "coordinate descent",
+            "latex": "g(\\mathbf{w}_1, ..., \\mathbf{w}_P, \\mathbf{C}) = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\left\\{ \\mathbf{C}\\mathbf{w}_p - \\mathbf{x}_p \\right\\}|_{\\Omega_p} \\right\\|_2^2",
+            "pdf_page": 252,
+            "equation_label": "(8.22)",
+            "confidence": 0.9
+          }
+        ],
+        "figures": [
+          {
+            "concept": "matrix factorization",
+            "pdf_page": 251,
+            "figure_label": "Figure 8.9",
+            "caption": "A prototypical movie rating matrix is very sparsely populated, with each user having rated only a very small number of films. In this diagram movies are listed along rows with users along columns. In order to properly recommend movies for users to watch we try to intelligently guess the missing values of this matrix, and then recommend movies that we predict users would rate highly (and therefore enjoy the most).",
+            "confidence": 0.95
+          },
+          {
+            "concept": "k-means clustering",
+            "pdf_page": 253,
+            "figure_label": "Figure 8.10",
+            "caption": "(left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"matrix factorization\",\n      \"latex\": \"\\\\mathbf{C}\\\\mathbf{w}_p \\\\approx \\\\mathbf{x}_p\",\n      \"pdf_page\": 252,\n      \"equation_label\": \"(8.21)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"least squares cost for incomplete data\",\n      \"latex\": \"g(\\\\mathbf{w}_1, ..., \\\\mathbf{w}_P, \\\\mathbf{C}) = \\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left\\\\| \\\\left\\\\{ \\\\mathbf{C}\\\\mathbf{w}_p - \\\\mathbf{x}_p \\\\right\\\\}|_{\\\\Omega_p} \\\\right\\\\|_2^2\",\n      \"pdf_page\": 252,\n      \"equation_label\": \"(8.22)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"coordinate descent\",\n      \"latex\": \"g(\\\\mathbf{w}_1, ..., \\\\mathbf{w}_P, \\\\mathbf{C}) = \\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left\\\\| \\\\left\\\\{ \\\\mathbf{C}\\\\mathbf{w}_p - \\\\mathbf{x}_p \\\\right\\\\}|_{\\\\Omega_p} \\\\right\\\\|_2^2\",\n      \"pdf_page\": 252,\n      \"equation_label\": \"(8.22)\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"matrix factorization\",\n      \"pdf_page\": 251,\n      \"figure_label\": \"Figure 8.9\",\n      \"caption\": \"A prototypical movie rating matrix is very sparsely populated, with each user having rated only a very small number of films. In this diagram movies are listed along rows with users along columns. In order to properly recommend movies for users to watch we try to intelligently guess the missing values of this matrix, and then recommend movies that we predict users would rate highly (and therefore enjoy the most).\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"k-means clustering\",\n      \"pdf_page\": 253,\n      \"figure_label\": \"Figure 8.10\",\n      \"caption\": \"(left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 253,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "cluster centroid",
+            "latex": "c_k = \\frac{1}{|S_k|} \\sum_{p \\in S_k} x_p",
+            "pdf_page": 254,
+            "equation_label": "8.24",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "cluster centroid",
+            "pdf_page": 253,
+            "figure_label": "Figure 8.10",
+            "caption": "Figure 8.10 (left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"cluster centroid\",\n      \"latex\": \"c_k = \\\\frac{1}{|S_k|} \\\\sum_{p \\\\in S_k} x_p\",\n      \"pdf_page\": 254,\n      \"equation_label\": \"8.24\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"cluster centroid\",\n      \"pdf_page\": 253,\n      \"figure_label\": \"Figure 8.10\",\n      \"caption\": \"Figure 8.10 (left) A two-dimensional toy dataset with P = 10 data points. (right) The data shown naturally clustered into K = 3 clusters. Points that are geometrically close to one another belong to the same cluster, and each cluster boundary is roughly marked using a uniquely colored solid curve. Each cluster center - also called a centroid - is marked by a star symbol colored to match its cluster boundary.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 254,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "cluster assignment",
+            "latex": "a_p = \\underset{k=1,\\ldots,K}{\\operatorname{argmin}} \\left\\Vert \\mathbf{x}_p - \\mathbf{c}_k \\right\\Vert_2",
+            "pdf_page": 254,
+            "equation_label": "8.25",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "centroid initialization",
+            "pdf_page": 255,
+            "figure_label": "Figure 8.11",
+            "caption": "The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"cluster assignment\",\n      \"latex\": \"a_p = \\\\underset{k=1,\\\\ldots,K}{\\\\operatorname{argmin}} \\\\left\\\\Vert \\\\mathbf{x}_p - \\\\mathbf{c}_k \\\\right\\\\Vert_2\",\n      \"pdf_page\": 254,\n      \"equation_label\": \"8.25\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"centroid initialization\",\n      \"pdf_page\": 255,\n      \"figure_label\": \"Figure 8.11\",\n      \"caption\": \"The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 255,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "sequential refinement",
+            "pdf_page": 255,
+            "figure_label": "Figure 8.11",
+            "caption": "Figure 8.11 The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"sequential refinement\",\n      \"pdf_page\": 255,\n      \"figure_label\": \"Figure 8.11\",\n      \"caption\": \"Figure 8.11 The first two iterations of the K-means algorithm illustrated using the dataset first shown in Figure 8.10. (top row) (left panel) A set of data points with random centroid initializations and assignments. (right panel) Centroid locations updated as average of points assigned to each cluster. (bottom row) (left panel) Assigning points based on updated centroid locations. (right panel) Updated location of centroids given by cluster averages.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 256,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "intra-cluster distance",
+            "latex": "\\text{average intra-cluster distance} = \\frac{1}{P}\\sum_{p=1}^{P} \\left\\| \\mathbf{x}_p - \\mathbf{c}_{k_p} \\right\\|_2",
+            "pdf_page": 256,
+            "equation_label": "(8.28)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "scree plot",
+            "pdf_page": 257,
+            "figure_label": "Figure 8.13",
+            "caption": "Figure 8.13 Figure associated with Example 8.7. (left panel) A dataset to cluster. (right panel) A skree plot. See text for further details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"intra-cluster distance\",\n      \"latex\": \"\\\\text{average intra-cluster distance} = \\\\frac{1}{P}\\\\sum_{p=1}^{P} \\\\left\\\\| \\\\mathbf{x}_p - \\\\mathbf{c}_{k_p} \\\\right\\\\|_2\",\n      \"pdf_page\": 256,\n      \"equation_label\": \"(8.28)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"scree plot\",\n      \"pdf_page\": 257,\n      \"figure_label\": \"Figure 8.13\",\n      \"caption\": \"Figure 8.13 Figure associated with Example 8.7. (left panel) A dataset to cluster. (right panel) A skree plot. See text for further details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 261,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "sparse coding",
+            "latex": "\\underset{\\mathbf{C},\\mathbf{W}}{\\text{minimize}} \\left\\|\\mathbf{C}\\mathbf{W} - \\mathbf{X}\\right\\|_F^2 \\quad \\text{subject to} \\quad \\left\\|\\mathbf{w}_p\\right\\|_0 \\leq S, \\; p = 1, \\ldots, P",
+            "pdf_page": 261,
+            "equation_label": "(8.39)",
+            "confidence": 1.0
+          },
+          {
+            "concept": "non-negative matrix factorization",
+            "latex": "\\underset{\\mathbf{C},\\mathbf{W}}{\\text{minimize}} \\left\\|\\mathbf{C}\\mathbf{W} - \\mathbf{X}\\right\\|_F^2 \\quad \\text{subject to} \\quad \\mathbf{C}, \\mathbf{W} \\geq 0",
+            "pdf_page": 261,
+            "equation_label": "(8.40)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"sparse coding\",\n      \"latex\": \"\\\\underset{\\\\mathbf{C},\\\\mathbf{W}}{\\\\text{minimize}} \\\\left\\\\|\\\\mathbf{C}\\\\mathbf{W} - \\\\mathbf{X}\\\\right\\\\|_F^2 \\\\quad \\\\text{subject to} \\\\quad \\\\left\\\\|\\\\mathbf{w}_p\\\\right\\\\|_0 \\\\leq S, \\\\; p = 1, \\\\ldots, P\",\n      \"pdf_page\": 261,\n      \"equation_label\": \"(8.39)\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"non-negative matrix factorization\",\n      \"latex\": \"\\\\underset{\\\\mathbf{C},\\\\mathbf{W}}{\\\\text{minimize}} \\\\left\\\\|\\\\mathbf{C}\\\\mathbf{W} - \\\\mathbf{X}\\\\right\\\\|_F^2 \\\\quad \\\\text{subject to} \\\\quad \\\\mathbf{C}, \\\\mathbf{W} \\\\geq 0\",\n      \"pdf_page\": 261,\n      \"equation_label\": \"(8.40)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 264,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 265,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "orthogonal matrix",
+            "latex": "C^T C = I_{K \\times K}",
+            "pdf_page": 266,
+            "equation_label": "",
+            "confidence": 1.0
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"orthogonal matrix\",\n      \"latex\": \"C^T C = I_{K \\\\times K}\",\n      \"pdf_page\": 266,\n      \"equation_label\": \"\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 267,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "variance maximization",
+            "latex": "h(\\mathbf{c}_1) = \\frac{1}{P} \\sum_{p=1}^{P} \\left( \\mathbf{c}_1^T \\mathbf{x}_p \\right)^2",
+            "pdf_page": 267,
+            "equation_label": "(8.50)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "rayleigh quotient",
+            "latex": "h(\\mathbf{c}_1) = \\frac{1}{P} \\mathbf{c}_1^T \\mathbf{X} \\mathbf{X}^T \\mathbf{c}_1 = \\mathbf{c}_1^T \\left( \\frac{1}{P} \\mathbf{X} \\mathbf{X}^T \\right) \\mathbf{c}_1",
+            "pdf_page": 267,
+            "equation_label": "(8.51)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"variance maximization\",\n      \"latex\": \"h(\\\\mathbf{c}_1) = \\\\frac{1}{P} \\\\sum_{p=1}^{P} \\\\left( \\\\mathbf{c}_1^T \\\\mathbf{x}_p \\\\right)^2\",\n      \"pdf_page\": 267,\n      \"equation_label\": \"(8.50)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"rayleigh quotient\",\n      \"latex\": \"h(\\\\mathbf{c}_1) = \\\\frac{1}{P} \\\\mathbf{c}_1^T \\\\mathbf{X} \\\\mathbf{X}^T \\\\mathbf{c}_1 = \\\\mathbf{c}_1^T \\\\left( \\\\frac{1}{P} \\\\mathbf{X} \\\\mathbf{X}^T \\\\right) \\\\mathbf{c}_1\",\n      \"pdf_page\": 267,\n      \"equation_label\": \"(8.51)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "principal component analysis",
+      "into": "principal component analysis"
+    },
+    {
+      "action": "local_merge",
+      "from": "k-means clustering",
+      "into": "k-means clustering"
+    },
+    {
+      "action": "local_merge",
+      "from": "principal component analysis",
+      "into": "principal component analysis"
+    },
+    {
+      "action": "local_merge",
+      "from": "principal component",
+      "into": "principal component"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear autoencoder",
+      "into": "linear autoencoder"
+    },
+    {
+      "action": "local_merge",
+      "from": "covariance matrix",
+      "into": "covariance matrix"
+    },
+    {
+      "action": "local_merge",
+      "from": "eigen-decomposition",
+      "into": "eigen-decomposition"
+    },
+    {
+      "action": "local_merge",
+      "from": "gradient descent",
+      "into": "gradient descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "matrix factorization",
+      "into": "matrix factorization"
+    },
+    {
+      "action": "local_merge",
+      "from": "k-means",
+      "into": "k-means clustering"
+    },
+    {
+      "action": "local_merge",
+      "from": "covariance matrix",
+      "into": "covariance matrix"
+    },
+    {
+      "action": "local_merge",
+      "from": "orthonormal basis",
+      "into": "orthonormal spanning set"
+    },
+    {
+      "action": "local_merge",
+      "from": "data centering",
+      "into": "mean-centering"
+    },
+    {
+      "action": "local_merge",
+      "from": "principal component analysis",
+      "into": "principal component analysis"
+    },
+    {
+      "action": "local_merge",
+      "from": "matrix factorization",
+      "into": "matrix factorization"
+    },
+    {
+      "action": "local_merge",
+      "from": "coordinate descent",
+      "into": "coordinate descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "centroid",
+      "into": "cluster centroid"
+    },
+    {
+      "action": "local_merge",
+      "from": "recommender systems",
+      "into": "recommender system"
+    },
+    {
+      "action": "local_merge",
+      "from": "coordinate descent",
+      "into": "coordinate descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares cost function",
+      "into": "pca least squares cost"
+    }
+  ],
+  "warnings": [
+    "Rejected 7 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

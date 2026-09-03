@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e3fb10470eee0c91e6192b87fe293c6ae9ca5bbc4ac29cbb210b3f5d1cb9e9d8",
+  "concept_id": 317,
+  "concept_name": "learn the distribution of given graphs",
+  "aliases": [
+    "learn the distribution of given graphs",
+    "distribution learning"
+  ],
+  "profile": "learn the distribution of given graphs: This task learns the distribution of given graphs and generates more novel graphs. An example is generating a target graph B from a source graph A.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "learn the distribution of given graphs: This task involves learning the distribution of given graphs and generating more novel graphs. An example is generating a target graph B from a source graph A. The task is part of generative learning, focusing on producing new graph instances from the learned distribution. The objective is to capture the pattern of given graphs and use it to create additional graph examples.",
+    "claims": [
+      {
+        "claim": "This task involves learning the distribution of given graphs and generating more novel graphs.",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An example is generating a target graph B from a source graph A.",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The task is part of generative learning.",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The objective is to capture the pattern of given graphs and use it to create additional graph examples.",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "learn the distribution of given graphs: This task learns the distribution of given graphs and generates more novel graphs. An example is generating a target graph B from a source graph A.",
+    "sentence_reviews": [
+      {
+        "sentence": "This task learns the distribution of given graphs and generates more novel graphs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "reason": "Directly restates the source evidence: learn the distribution of given graphs and generate more novel graphs."
+      },
+      {
+        "sentence": "An example is generating a target graph B from a source graph A.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0458"
+        ],
+        "reason": "The source provides this exact example."
+      }
+    ],
+    "warnings": [
+      "Only one source excerpt supports this profile, so the description is intentionally minimal and omits inferred statements about the objective or mechanism."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"learn the distribution of given graphs: This task involves learning the distribution of given graphs and generating more novel graphs. An example is generating a target graph B from a source graph A. The task is part of generative learning, focusing on producing new graph instances from the learned distribution. The objective is to capture the pattern of given graphs and use it to create additional graph examples.\",\n  \"claims\": [\n    {\n      \"claim\": \"This task involves learning the distribution of given graphs and generating more novel graphs.\",\n      \"evidence_ids\": [\"DGL-E0458\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An example is generating a target graph B from a source graph A.\",\n      \"evidence_ids\": [\"DGL-E0458\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The task is part of generative learning.\",\n      \"evidence_ids\": [\"DGL-E0458\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The objective is to capture the pattern of given graphs and use it to create additional graph examples.\",\n      \"evidence_ids\": [\"DGL-E0458\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"learn the distribution of given graphs: This task learns the distribution of given graphs and generates more novel graphs. An example is generating a target graph B from a source graph A.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"This task learns the distribution of given graphs and generates more novel graphs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0458\"\n      ],\n      \"reason\": \"Directly restates the source evidence: learn the distribution of given graphs and generate more novel graphs.\"\n    },\n    {\n      \"sentence\": \"An example is generating a target graph B from a source graph A.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0458\"\n      ],\n      \"reason\": \"The source provides this exact example.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source excerpt supports this profile, so the description is intentionally minimal and omits inferred statements about the objective or mechanism.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:53:39.691295+00:00"
+}

@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1b3decf91ca724e7983d0491b772bdacec02d0d1e7281ca08c0abcd51fae7bbc",
+  "concept_id": 213,
+  "concept_name": "model complexity",
+  "aliases": [
+    "model complexity",
+    "complexity"
+  ],
+  "profile": "model complexity: Model complexity refers to how 'wiggly' a tuned model fit is. We only control complexity indirectly by how we set both capacity and optimization dials. Therefore, the complexity of a tuned model is not directly adjustable; it is determined by capacity and optimization settings, and it reflects the behavior of the tuned fit.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "model complexity: Model complexity refers to how 'wiggly' a tuned model fit is. It is not directly adjustable; instead, it is controlled indirectly by how we set both capacity and optimization dials. This means that model complexity is a consequence of the chosen capacity and optimization settings, reflecting the behavior of the tuned fit.",
+    "claims": [
+      {
+        "claim": "Model complexity refers to how 'wiggly' a tuned model fit is.",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is not directly adjustable; instead, it is controlled indirectly by how we set both capacity and optimization dials.",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Model complexity is a consequence of the chosen capacity and optimization settings, reflecting the behavior of the tuned fit.",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "model complexity: Model complexity refers to how 'wiggly' a tuned model fit is. We only control complexity indirectly by how we set both capacity and optimization dials. Therefore, the complexity of a tuned model is not directly adjustable; it is determined by capacity and optimization settings, and it reflects the behavior of the tuned fit.",
+    "sentence_reviews": [
+      {
+        "sentence": "Model complexity refers to how 'wiggly' a tuned model fit is.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "reason": "Directly restates the source's characterization of complexity as how 'wiggly' a tuned model fit is."
+      },
+      {
+        "sentence": "We only control complexity indirectly by how we set both capacity and optimization dials.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "reason": "Matches the source statement that we only control complexity indirectly by setting capacity and optimization dials."
+      },
+      {
+        "sentence": "Therefore, the complexity of a tuned model is not directly adjustable; it is determined by capacity and optimization settings, and it reflects the behavior of the tuned fit.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0264"
+        ],
+        "reason": "Paraphrases the implied indirect control and ties complexity back to the behavior of the tuned fit, as in the source."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"model complexity: Model complexity refers to how 'wiggly' a tuned model fit is. It is not directly adjustable; instead, it is controlled indirectly by how we set both capacity and optimization dials. This means that model complexity is a consequence of the chosen capacity and optimization settings, reflecting the behavior of the tuned fit.\",\n  \"claims\": [\n    {\n      \"claim\": \"Model complexity refers to how 'wiggly' a tuned model fit is.\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is not directly adjustable; instead, it is controlled indirectly by how we set both capacity and optimization dials.\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Model complexity is a consequence of the chosen capacity and optimization settings, reflecting the behavior of the tuned fit.\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"model complexity: Model complexity refers to how 'wiggly' a tuned model fit is. We only control complexity indirectly by how we set both capacity and optimization dials. Therefore, the complexity of a tuned model is not directly adjustable; it is determined by capacity and optimization settings, and it reflects the behavior of the tuned fit.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Model complexity refers to how 'wiggly' a tuned model fit is.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"reason\": \"Directly restates the source's characterization of complexity as how 'wiggly' a tuned model fit is.\"\n    },\n    {\n      \"sentence\": \"We only control complexity indirectly by how we set both capacity and optimization dials.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"reason\": \"Matches the source statement that we only control complexity indirectly by setting capacity and optimization dials.\"\n    },\n    {\n      \"sentence\": \"Therefore, the complexity of a tuned model is not directly adjustable; it is determined by capacity and optimization settings, and it reflects the behavior of the tuned fit.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0264\"],\n      \"reason\": \"Paraphrases the implied indirect control and ties complexity back to the behavior of the tuned fit, as in the source.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:47:08.317273+00:00"
+}

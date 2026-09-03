@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "60c3172faaac3f26b9dd9a41725c81382d457ce2eab389a7dea6b7df126d62fc",
+  "concept_id": 324,
+  "concept_name": "random initialization",
+  "aliases": [
+    "random initialization",
+    "initialize randomly"
+  ],
+  "profile": "random initialization: a method of assigning starting values by choosing them randomly.",
+  "word_count": 12,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "random initialization: a method of assigning starting values by choosing them randomly, rather than using a fixed rule.",
+    "claims": [
+      {
+        "claim": "Random initialization assigns starting values by random choice.",
+        "evidence_ids": [
+          "DGL-E0465"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single word 'Randomly.'; the profile is minimal to avoid unsupported details."
+    ]
+  },
+  "review": {
+    "final_profile": "random initialization: a method of assigning starting values by choosing them randomly.",
+    "sentence_reviews": [
+      {
+        "sentence": "random initialization: a method of assigning starting values by choosing them randomly.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0465"
+        ],
+        "reason": "The evidence 'Randomly' directly supports the idea of choosing values by random chance, and the concept name supplies the initialization context."
+      }
+    ],
+    "warnings": [
+      "The source evidence is minimal ('Randomly.'), so the profile intentionally avoids specifying what is being initialized or any further details."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"random initialization: a method of assigning starting values by choosing them randomly, rather than using a fixed rule.\",\n  \"claims\": [\n    {\n      \"claim\": \"Random initialization assigns starting values by random choice.\",\n      \"evidence_ids\": [\"DGL-E0465\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Evidence is limited to a single word 'Randomly.'; the profile is minimal to avoid unsupported details.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"random initialization: a method of assigning starting values by choosing them randomly.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"random initialization: a method of assigning starting values by choosing them randomly.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0465\"],\n      \"reason\": \"The evidence 'Randomly' directly supports the idea of choosing values by random chance, and the concept name supplies the initialization context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence is minimal ('Randomly.'), so the profile intentionally avoids specifying what is being initialized or any further details.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:56:03.924932+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e71b19ba2e3b40d591a8f6d8f27bf9eb6a8938cfce8395427bf66fcea58df5f1",
+  "concept_id": 339,
+  "concept_name": "sampling",
+  "aliases": [
+    "sampling",
+    "generative sampling",
+    "sampled noise"
+  ],
+  "profile": "sampling: In generative graph learning, sampling is the step of drawing a new graph from the model distribution p_model(g). The related term sampled noise also appears in this context.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sampling: In generative graph learning, sampling refers to the step of drawing a new graph from the model distribution p_model(g). The term sampled noise is also associated with this step.",
+    "claims": [
+      {
+        "claim": "In generative graph learning, sampling refers to the step of drawing a new graph from the model distribution p_model(g).",
+        "evidence_ids": [
+          "DGL-E0502"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term sampled noise is also associated with this step.",
+        "evidence_ids": [
+          "DGL-E0543"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to two short excerpts; no further detail on the role of sampled noise."
+    ]
+  },
+  "review": {
+    "final_profile": "sampling: In generative graph learning, sampling is the step of drawing a new graph from the model distribution p_model(g). The related term sampled noise also appears in this context.",
+    "sentence_reviews": [
+      {
+        "sentence": "sampling: In generative graph learning, sampling is the step of drawing a new graph from the model distribution p_model(g).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0502"
+        ],
+        "reason": "The source excerpt defines sampling as identifying how to sample from p_model(g) to generate a new graph."
+      },
+      {
+        "sentence": "The related term sampled noise also appears in this context.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0543"
+        ],
+        "reason": "The source contains the phrase 'sampled noise' in the same lecture material, and it is listed as an alias for sampling."
+      }
+    ],
+    "warnings": [
+      "Evidence for sampled noise is limited to the term itself; no further explanation is provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sampling: In generative graph learning, sampling refers to the step of drawing a new graph from the model distribution p_model(g). The term sampled noise is also associated with this step.\",\n  \"claims\": [\n    {\n      \"claim\": \"In generative graph learning, sampling refers to the step of drawing a new graph from the model distribution p_model(g).\",\n      \"evidence_ids\": [\"DGL-E0502\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term sampled noise is also associated with this step.\",\n      \"evidence_ids\": [\"DGL-E0543\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to two short excerpts; no further detail on the role of sampled noise.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sampling: In generative graph learning, sampling is the step of drawing a new graph from the model distribution p_model(g). The related term sampled noise also appears in this context.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sampling: In generative graph learning, sampling is the step of drawing a new graph from the model distribution p_model(g).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0502\"],\n      \"reason\": \"The source excerpt defines sampling as identifying how to sample from p_model(g) to generate a new graph.\"\n    },\n    {\n      \"sentence\": \"The related term sampled noise also appears in this context.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0543\"],\n      \"reason\": \"The source contains the phrase 'sampled noise' in the same lecture material, and it is listed as an alias for sampling.\"\n    }\n  ],\n  \"warnings\": [\"Evidence for sampled noise is limited to the term itself; no further explanation is provided.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:00:46.544142+00:00"
+}

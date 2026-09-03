@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "bfd0ae91bca44a7fd831779bc3c268ee5c87b06d0c07c4f9b520d2b7adecbaeb",
+  "concept_id": 15,
+  "concept_name": "cost function",
+  "aliases": [
+    "cost function",
+    "loss function",
+    "cost surface"
+  ],
+  "profile": "cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters. This score measures how well the chosen parameters accomplish the learning task, and the function is commonly referred to as a cost or loss function.",
+    "claims": [
+      {
+        "claim": "A cost function takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.",
+        "evidence_ids": [
+          "MLR-E0016"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The function is also called a loss function.",
+        "evidence_ids": [
+          "MLR-E0016"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The score measures how well the chosen parameters accomplish the learning task.",
+        "evidence_ids": [
+          "MLR-E0016"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.",
+    "sentence_reviews": [
+      {
+        "sentence": "cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0016"
+        ],
+        "reason": "The sentence directly paraphrases the source definition, including the cost/loss naming and the parameter-to-score behavior."
+      }
+    ],
+    "warnings": [
+      "The alias 'cost surface' is not supported by the cited evidence and was omitted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters. This score measures how well the chosen parameters accomplish the learning task, and the function is commonly referred to as a cost or loss function.\",\n  \"claims\": [\n    {\n      \"claim\": \"A cost function takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.\",\n      \"evidence_ids\": [\"MLR-E0016\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The function is also called a loss function.\",\n      \"evidence_ids\": [\"MLR-E0016\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The score measures how well the chosen parameters accomplish the learning task.\",\n      \"evidence_ids\": [\"MLR-E0016\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"cost function: A cost function, also called a loss function, takes in a specific set of model parameters and returns a score indicating how well we would accomplish a given learning task using that choice of parameters.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0016\"],\n      \"reason\": \"The sentence directly paraphrases the source definition, including the cost/loss naming and the parameter-to-score behavior.\"\n    }\n  ],\n  \"warnings\": [\n    \"The alias 'cost surface' is not supported by the cited evidence and was omitted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:25:53.611333+00:00"
+}

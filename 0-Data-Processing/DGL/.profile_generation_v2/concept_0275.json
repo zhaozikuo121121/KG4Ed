@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "69a2b5e1b83ff8b5ce31f7d7123a25f06118ac67de666ffcd48860a611eab16e",
+  "concept_id": 275,
+  "concept_name": "test graph",
+  "aliases": [
+    "test graph"
+  ],
+  "profile": "test graph: A graph used for testing a model.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "test graph: A graph used for testing a model.",
+    "claims": [
+      {
+        "claim": "A test graph is a graph used for testing a model.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "No explicit definition was found for the term; the definition is inferred from general usage."
+    ]
+  },
+  "review": {
+    "final_profile": "test graph: A graph used for testing a model.",
+    "sentence_reviews": [
+      {
+        "sentence": "test graph: A graph used for testing a model.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The source only lists the term without providing a definition; this generic gloss is retained as minimal background."
+      }
+    ],
+    "warnings": [
+      "No explicit definition was found in the source; the profile is a generic background gloss."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"test graph: A graph used for testing a model.\",\n  \"claims\": [\n    {\n      \"claim\": \"A test graph is a graph used for testing a model.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"No explicit definition was found for the term; the definition is inferred from general usage.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"test graph: A graph used for testing a model.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"test graph: A graph used for testing a model.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The source only lists the term without providing a definition; this generic gloss is retained as minimal background.\"\n    }\n  ],\n  \"warnings\": [\n    \"No explicit definition was found in the source; the profile is a generic background gloss.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:39:05.427454+00:00"
+}

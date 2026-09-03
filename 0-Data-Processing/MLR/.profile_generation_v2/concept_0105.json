@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b5ead2ec5184f3d25c813e320a3ff0e42c01bf054fa08f67471333c7e88526db",
+  "concept_id": 105,
+  "concept_name": "softmax cost",
+  "aliases": [
+    "softmax cost",
+    "log-sum-exp cost"
+  ],
+  "profile": "softmax cost: an overall cost function for linear two-class classification, given by g(w) = \\sum_p \\log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.",
+  "word_count": 42,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "softmax cost: an overall cost function for linear two-class classification, defined as g(w) = sum_p log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.",
+    "claims": [
+      {
+        "claim": "The softmax cost is an overall cost function for linear two-class classification.",
+        "evidence_ids": [
+          "MLR-E0121"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The softmax cost is defined by g(w) = sum_p log(1 + e^{-y_p x_p^T w}).",
+        "evidence_ids": [
+          "MLR-E0121"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "softmax cost: an overall cost function for linear two-class classification, given by g(w) = \\sum_p \\log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.",
+    "sentence_reviews": [
+      {
+        "sentence": "softmax cost: an overall cost function for linear two-class classification, given by g(w) = \\sum_p \\log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0121"
+        ],
+        "reason": "The source states the overall cost function is g(w) = sum log(1 + e^{-yp x_p^T w}) and identifies it as the Softmax cost; chapter context supports linear two-class classification."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"softmax cost: an overall cost function for linear two-class classification, defined as g(w) = sum_p log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.\",\n  \"claims\": [\n    {\n      \"claim\": \"The softmax cost is an overall cost function for linear two-class classification.\",\n      \"evidence_ids\": [\"MLR-E0121\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The softmax cost is defined by g(w) = sum_p log(1 + e^{-y_p x_p^T w}).\",\n      \"evidence_ids\": [\"MLR-E0121\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"softmax cost: an overall cost function for linear two-class classification, given by g(w) = \\\\sum_p \\\\log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"softmax cost: an overall cost function for linear two-class classification, given by g(w) = \\\\sum_p \\\\log(1 + e^{-y_p x_p^T w}), where y_p is the label and x_p is the feature vector for data point p.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0121\"\n      ],\n      \"reason\": \"The source states the overall cost function is g(w) = sum log(1 + e^{-yp x_p^T w}) and identifies it as the Softmax cost; chapter context supports linear two-class classification.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:02:49.518872+00:00"
+}

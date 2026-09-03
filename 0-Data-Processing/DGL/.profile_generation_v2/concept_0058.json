@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "fbbea8fdc2fa016306bacdf91ff230a19264f0553cb0501200517bdd6f6ad779",
+  "concept_id": 58,
+  "concept_name": "feature integration",
+  "aliases": [
+    "feature integration",
+    "integrating information"
+  ],
+  "profile": "feature integration: the concept of integrating information, presented under the printed heading 'The power of integrating information' within material on graph properties and matrix representations. The heading highlights the concept as powerful in that context, but no formal definition or further explanation is included.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "feature integration: the concept of integrating information, emphasized as a powerful idea in a section on graph properties and matrix representations. The material presents this topic under the heading 'The power of integrating information,' indicating its importance in that context.",
+    "claims": [
+      {
+        "claim": "The material presents this topic under the heading 'The power of integrating information.'",
+        "evidence_ids": [
+          "DGL-E0040"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is emphasized as a powerful idea in a section on graph properties and matrix representations.",
+        "evidence_ids": [
+          "DGL-E0040"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata contains only a heading; no formal definition is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "feature integration: the concept of integrating information, presented under the printed heading 'The power of integrating information' within material on graph properties and matrix representations. The heading highlights the concept as powerful in that context, but no formal definition or further explanation is included.",
+    "sentence_reviews": [
+      {
+        "sentence": "feature integration: the concept of integrating information, presented under the printed heading 'The power of integrating information' within material on graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0040"
+        ],
+        "reason": "The heading and page title in the source support this contextual description."
+      },
+      {
+        "sentence": "The heading highlights the concept as powerful in that context, but no formal definition or further explanation is included.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0040"
+        ],
+        "reason": "The heading uses 'power,' and the available source contains only the heading, not a definition."
+      }
+    ],
+    "warnings": [
+      "Only a heading is available; no formal definition or explanatory content is present."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"feature integration: the concept of integrating information, emphasized as a powerful idea in a section on graph properties and matrix representations. The material presents this topic under the heading 'The power of integrating information,' indicating its importance in that context.\",\n  \"claims\": [\n    {\n      \"claim\": \"The material presents this topic under the heading 'The power of integrating information.'\",\n      \"evidence_ids\": [\"DGL-E0040\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is emphasized as a powerful idea in a section on graph properties and matrix representations.\",\n      \"evidence_ids\": [\"DGL-E0040\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata contains only a heading; no formal definition is provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature integration: the concept of integrating information, presented under the printed heading 'The power of integrating information' within material on graph properties and matrix representations. The heading highlights the concept as powerful in that context, but no formal definition or further explanation is included.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"feature integration: the concept of integrating information, presented under the printed heading 'The power of integrating information' within material on graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0040\"],\n      \"reason\": \"The heading and page title in the source support this contextual description.\"\n    },\n    {\n      \"sentence\": \"The heading highlights the concept as powerful in that context, but no formal definition or further explanation is included.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0040\"],\n      \"reason\": \"The heading uses 'power,' and the available source contains only the heading, not a definition.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a heading is available; no formal definition or explanatory content is present.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:07:50.639699+00:00"
+}

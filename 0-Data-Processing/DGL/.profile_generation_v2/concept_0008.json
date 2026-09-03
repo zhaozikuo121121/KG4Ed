@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1c2001ebe97f8c370d9b8331f6006b140f0cfa5c214ecd99d35d8735bdac7894",
+  "concept_id": 8,
+  "concept_name": "protein interaction network",
+  "aliases": [
+    "protein interaction network"
+  ],
+  "profile": "protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.",
+  "word_count": 21,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.",
+    "claims": [
+      {
+        "claim": "A protein interaction network represents protein interactions in a cell as a graph, with proteins as nodes and edges between interacting proteins.",
+        "evidence_ids": [
+          "DGL-E0018"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.",
+    "sentence_reviews": [
+      {
+        "sentence": "protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0018"
+        ],
+        "reason": "The source states protein interactions in a cell can be expressed as graphs with proteins as nodes and edges for interactions."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.\",\n  \"claims\": [\n    {\n      \"claim\": \"A protein interaction network represents protein interactions in a cell as a graph, with proteins as nodes and edges between interacting proteins.\",\n      \"evidence_ids\": [\"DGL-E0018\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"protein interaction network: a graph representation of protein interactions in a cell, where nodes are proteins and edges connect interacting proteins.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0018\"\n      ],\n      \"reason\": \"The source states protein interactions in a cell can be expressed as graphs with proteins as nodes and edges for interactions.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:52:26.565112+00:00"
+}

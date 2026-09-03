@@ -1,0 +1,90 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2978b092cb04645bb7feae7b7caa1d52d96c5d70249bb6d80775240b28529efd",
+  "concept_id": 270,
+  "concept_name": "graph neural network layer",
+  "aliases": [
+    "graph neural network layer",
+    "gnn layer",
+    "gcn layer"
+  ],
+  "profile": "graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}. This operation is written as H_{k+1} = GraphLayer[H_k, A]. A single GNN layer can take a specified computational form.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}. This operation is written as H_{k+1} = GraphLayer[H_k, A]. A single GNN layer can take a specified computational form.",
+    "claims": [
+      {
+        "claim": "A graph neural network layer updates node representations by combining current embedding H_k with graph adjacency A to produce H_{k+1}.",
+        "evidence_ids": [
+          "DGL-E0419"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The operation is written as H_{k+1} = GraphLayer[H_k, A].",
+        "evidence_ids": [
+          "DGL-E0419"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A single GNN layer can take a specified computational form.",
+        "evidence_ids": [
+          "DGL-E0372"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The exact details of the layer form are not provided in the evidence excerpts."
+    ]
+  },
+  "review": {
+    "final_profile": "graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}. This operation is written as H_{k+1} = GraphLayer[H_k, A]. A single GNN layer can take a specified computational form.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0419"
+        ],
+        "reason": "The source defines a GNN layer by the update H_{k+1} = GraphLayer[H_k, A], which supports combining H_k with adjacency A to update representations."
+      },
+      {
+        "sentence": "This operation is written as H_{k+1} = GraphLayer[H_k, A].",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0419"
+        ],
+        "reason": "The equation appears verbatim in the evidence."
+      },
+      {
+        "sentence": "A single GNN layer can take a specified computational form.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0372"
+        ],
+        "reason": "The source states that a single GNN layer can take the following form."
+      }
+    ],
+    "warnings": [
+      "The exact computational details of the GNN layer form are not included in the evidence excerpts."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}. This operation is written as H_{k+1} = GraphLayer[H_k, A]. A single GNN layer can take a specified computational form.\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph neural network layer updates node representations by combining current embedding H_k with graph adjacency A to produce H_{k+1}.\",\n      \"evidence_ids\": [\"DGL-E0419\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The operation is written as H_{k+1} = GraphLayer[H_k, A].\",\n      \"evidence_ids\": [\"DGL-E0419\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A single GNN layer can take a specified computational form.\",\n      \"evidence_ids\": [\"DGL-E0372\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The exact details of the layer form are not provided in the evidence excerpts.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}. This operation is written as H_{k+1} = GraphLayer[H_k, A]. A single GNN layer can take a specified computational form.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph neural network layer: A graph neural network (GNN) layer updates node representations by combining the current embedding H_k with graph adjacency A to produce H_{k+1}.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0419\"],\n      \"reason\": \"The source defines a GNN layer by the update H_{k+1} = GraphLayer[H_k, A], which supports combining H_k with adjacency A to update representations.\"\n    },\n    {\n      \"sentence\": \"This operation is written as H_{k+1} = GraphLayer[H_k, A].\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0419\"],\n      \"reason\": \"The equation appears verbatim in the evidence.\"\n    },\n    {\n      \"sentence\": \"A single GNN layer can take a specified computational form.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0372\"],\n      \"reason\": \"The source states that a single GNN layer can take the following form.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact computational details of the GNN layer form are not included in the evidence excerpts.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:36:33.648123+00:00"
+}

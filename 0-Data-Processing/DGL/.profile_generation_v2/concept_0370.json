@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f6535d395af89bdeef593c7f6743c13ac4006be3a81e36924db8dbee94c0fae6",
+  "concept_id": 370,
+  "concept_name": "embedding-based nect",
+  "aliases": [
+    "embedding-based nect"
+  ],
+  "profile": "embedding-based nect: The concept is identified by name only. No definition, role, mechanism, or properties are provided.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "embedding-based nect: A concept identified by name. No definition, role, mechanism, or properties are available in the provided information.",
+    "claims": [
+      {
+        "claim": "The concept is identified by the name 'embedding-based nect'.",
+        "evidence_ids": [
+          "DGL-E0515"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "No definition, role, mechanism, or properties are available in the provided information.",
+        "evidence_ids": [
+          "DGL-E0515"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "embedding-based nect: The concept is identified by name only. No definition, role, mechanism, or properties are provided.",
+    "sentence_reviews": [
+      {
+        "sentence": "embedding-based nect: The concept is identified by name only.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0515"
+        ],
+        "reason": "The evidence contains the name 'embedding-based NECT' with no accompanying explanation."
+      },
+      {
+        "sentence": "No definition, role, mechanism, or properties are provided.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0515"
+        ],
+        "reason": "The available evidence shows only the label, so no further claims can be made."
+      }
+    ],
+    "warnings": [
+      "The profile is intentionally minimal due to lack of definitional content in the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"embedding-based nect: A concept identified by name. No definition, role, mechanism, or properties are available in the provided information.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept is identified by the name 'embedding-based nect'.\",\n      \"evidence_ids\": [\"DGL-E0515\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"No definition, role, mechanism, or properties are available in the provided information.\",\n      \"evidence_ids\": [\"DGL-E0515\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"embedding-based nect: The concept is identified by name only. No definition, role, mechanism, or properties are provided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"embedding-based nect: The concept is identified by name only.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0515\"],\n      \"reason\": \"The evidence contains the name 'embedding-based NECT' with no accompanying explanation.\"\n    },\n    {\n      \"sentence\": \"No definition, role, mechanism, or properties are provided.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0515\"],\n      \"reason\": \"The available evidence shows only the label, so no further claims can be made.\"\n    }\n  ],\n  \"warnings\": [\"The profile is intentionally minimal due to lack of definitional content in the source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:09:01.141906+00:00"
+}

@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "99f1874fa7c7e52ac58fc2b81ce59094efe12c876df79eba20ab913b5905781b",
+  "concept_id": 108,
+  "concept_name": "early stopping",
+  "aliases": [
+    "early stopping",
+    "early stopping regularization"
+  ],
+  "profile": "early stopping: a regularization strategy for tuning high-capacity models. It is straightforward and requires only slight adjustments to the typical use of local optimization. In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "early stopping: a regularization strategy for tuning high-capacity models. It is straightforward and requires only slight adjustments to the typical use of local optimization. In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.",
+    "claims": [
+      {
+        "claim": "early stopping is a regularization strategy for tuning high-capacity models",
+        "evidence_ids": [
+          "MLR-E0269"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is straightforward and requires only slight adjustments to the typical use of local optimization",
+        "evidence_ids": [
+          "MLR-E0124"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It makes a run of local optimization tuning all model parameters",
+        "evidence_ids": [
+          "MLR-E0269"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It uses the set of weights from that run where the model achieves minimum validation error",
+        "evidence_ids": [
+          "MLR-E0269"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "early stopping: a regularization strategy for tuning high-capacity models. It is straightforward and requires only slight adjustments to the typical use of local optimization. In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.",
+    "sentence_reviews": [
+      {
+        "sentence": "early stopping: a regularization strategy for tuning high-capacity models.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0269"
+        ],
+        "reason": "The source explicitly describes early stopping regularization as a way to properly tune a high-capacity model."
+      },
+      {
+        "sentence": "It is straightforward and requires only slight adjustments to the typical use of local optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0124"
+        ],
+        "reason": "The source states early stopping is straightforward and requires slight adjustments to how local optimization is typically employed."
+      },
+      {
+        "sentence": "In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0269"
+        ],
+        "reason": "The source describes making a local optimization run, tuning all parameters, and selecting weights from the run where validation error is minimized."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"early stopping: a regularization strategy for tuning high-capacity models. It is straightforward and requires only slight adjustments to the typical use of local optimization. In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.\",\n  \"claims\": [\n    {\n      \"claim\": \"early stopping is a regularization strategy for tuning high-capacity models\",\n      \"evidence_ids\": [\"MLR-E0269\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is straightforward and requires only slight adjustments to the typical use of local optimization\",\n      \"evidence_ids\": [\"MLR-E0124\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It makes a run of local optimization tuning all model parameters\",\n      \"evidence_ids\": [\"MLR-E0269\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It uses the set of weights from that run where the model achieves minimum validation error\",\n      \"evidence_ids\": [\"MLR-E0269\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"early stopping: a regularization strategy for tuning high-capacity models. It is straightforward and requires only slight adjustments to the typical use of local optimization. In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"early stopping: a regularization strategy for tuning high-capacity models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0269\"],\n      \"reason\": \"The source explicitly describes early stopping regularization as a way to properly tune a high-capacity model.\"\n    },\n    {\n      \"sentence\": \"It is straightforward and requires only slight adjustments to the typical use of local optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0124\"],\n      \"reason\": \"The source states early stopping is straightforward and requires slight adjustments to how local optimization is typically employed.\"\n    },\n    {\n      \"sentence\": \"In practice, one makes a run of local optimization, tuning all model parameters, and then uses the set of weights from that run at which the model achieves minimum validation error.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0269\"],\n      \"reason\": \"The source describes making a local optimization run, tuning all parameters, and selecting weights from the run where validation error is minimized.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:06:02.541206+00:00"
+}

@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "04ebcf7b1a7f12951c99304e23ee63337b4276477687569a32b5c67a13a04998",
+  "concept_id": 162,
+  "concept_name": "graph feature generation",
+  "aliases": [
+    "graph feature generation",
+    "feature generation"
+  ],
+  "profile": "graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in the target domain. It aims to produce the structural connectivity between nodes and the feature attributes associated with each node.",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in a target domain. It aims to produce the structural connectivity between nodes as well as the feature attributes associated with each node, thus constructing a complete graph representation.",
+    "claims": [
+      {
+        "claim": "Graph feature generation aims to generate the graph adjacency matrix and its node feature matrix in the target domain.",
+        "evidence_ids": [
+          "DGL-E0585"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No additional source-supported details are available beyond the aim."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in the target domain. It aims to produce the structural connectivity between nodes and the feature attributes associated with each node.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in the target domain.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0585"
+        ],
+        "reason": "Directly restates the source aim to generate the graph adjacency matrix and node feature matrix in the target domain."
+      },
+      {
+        "sentence": "It aims to produce the structural connectivity between nodes and the feature attributes associated with each node.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0585"
+        ],
+        "reason": "Paraphrases the adjacency matrix as structural connectivity and the node feature matrix as node-associated feature attributes."
+      }
+    ],
+    "warnings": [
+      "No additional source-supported details are available beyond the stated aim."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in a target domain. It aims to produce the structural connectivity between nodes as well as the feature attributes associated with each node, thus constructing a complete graph representation.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph feature generation aims to generate the graph adjacency matrix and its node feature matrix in the target domain.\",\n      \"evidence_ids\": [\"DGL-E0585\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No additional source-supported details are available beyond the aim.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in the target domain. It aims to produce the structural connectivity between nodes and the feature attributes associated with each node.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph feature generation: the task of generating the graph adjacency matrix and its node feature matrix in the target domain.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0585\"],\n      \"reason\": \"Directly restates the source aim to generate the graph adjacency matrix and node feature matrix in the target domain.\"\n    },\n    {\n      \"sentence\": \"It aims to produce the structural connectivity between nodes and the feature attributes associated with each node.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0585\"],\n      \"reason\": \"Paraphrases the adjacency matrix as structural connectivity and the node feature matrix as node-associated feature attributes.\"\n    }\n  ],\n  \"warnings\": [\"No additional source-supported details are available beyond the stated aim.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:57:23.732830+00:00"
+}

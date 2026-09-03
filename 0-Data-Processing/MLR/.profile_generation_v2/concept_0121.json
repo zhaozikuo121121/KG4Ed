@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "efd870969581f75888b30b4c3624ed0623b34b4e76b9fe39992ae2c4e5d7e7f3",
+  "concept_id": 121,
+  "concept_name": "hard-margin svm",
+  "aliases": [
+    "hard-margin svm",
+    "hard-margin support vector machine",
+    "hard margin problem"
+  ],
+  "profile": "hard-margin svm: In linear two-class classification, the hard-margin SVM minimizes ∥ω∥2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0 for each training sample p. This constraint forces the hinge term to zero and is equivalent to yp(b + xp^Tω) ≥ 1, i.e. every sample has a margin of at least 1.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hard-margin svm: An optimization problem for linear classification. It minimizes the squared L2 norm of the weight vector ω, ∥ω∥2^2, subject to the condition max(0, 1 − yp(b + xp^T ω)) = 0. This condition requires each training sample p to be correctly classified with a margin of at least 1.",
+    "claims": [
+      {
+        "claim": "hard-margin SVM is an optimization problem for linear classification that minimizes ||ω||_2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0.",
+        "evidence_ids": [
+          "MLR-E0137"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The constraint requires each training sample p to be correctly classified with a margin of at least 1.",
+        "evidence_ids": [
+          "MLR-E0137"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The name 'hard-margin' is not explicitly defined in the evidence; it is inferred from the strict zero-loss constraint."
+    ]
+  },
+  "review": {
+    "final_profile": "hard-margin svm: In linear two-class classification, the hard-margin SVM minimizes ∥ω∥2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0 for each training sample p. This constraint forces the hinge term to zero and is equivalent to yp(b + xp^Tω) ≥ 1, i.e. every sample has a margin of at least 1.",
+    "sentence_reviews": [
+      {
+        "sentence": "hard-margin svm: In linear two-class classification, the hard-margin SVM minimizes ∥ω∥2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0 for each training sample p.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0137"
+        ],
+        "reason": "Directly restates the minimization and equality constraint from the evidence."
+      },
+      {
+        "sentence": "This constraint forces the hinge term to zero and is equivalent to yp(b + xp^Tω) ≥ 1, i.e. every sample has a margin of at least 1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0137"
+        ],
+        "reason": "The equivalence follows algebraically from max(0, 1 − yp(b + xp^Tω)) = 0, implying the margin is at least 1."
+      }
+    ],
+    "warnings": [
+      "The name 'hard-margin' is not explicitly defined in the evidence; it is inferred from the strict zero-loss equality constraint."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hard-margin svm: An optimization problem for linear classification. It minimizes the squared L2 norm of the weight vector ω, ∥ω∥2^2, subject to the condition max(0, 1 − yp(b + xp^T ω)) = 0. This condition requires each training sample p to be correctly classified with a margin of at least 1.\",\n  \"claims\": [\n    {\n      \"claim\": \"hard-margin SVM is an optimization problem for linear classification that minimizes ||ω||_2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0.\",\n      \"evidence_ids\": [\"MLR-E0137\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The constraint requires each training sample p to be correctly classified with a margin of at least 1.\",\n      \"evidence_ids\": [\"MLR-E0137\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The name 'hard-margin' is not explicitly defined in the evidence; it is inferred from the strict zero-loss constraint.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hard-margin svm: In linear two-class classification, the hard-margin SVM minimizes ∥ω∥2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0 for each training sample p. This constraint forces the hinge term to zero and is equivalent to yp(b + xp^Tω) ≥ 1, i.e. every sample has a margin of at least 1.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"hard-margin svm: In linear two-class classification, the hard-margin SVM minimizes ∥ω∥2^2 subject to max(0, 1 − yp(b + xp^Tω)) = 0 for each training sample p.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0137\"],\n      \"reason\": \"Directly restates the minimization and equality constraint from the evidence.\"\n    },\n    {\n      \"sentence\": \"This constraint forces the hinge term to zero and is equivalent to yp(b + xp^Tω) ≥ 1, i.e. every sample has a margin of at least 1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0137\"],\n      \"reason\": \"The equivalence follows algebraically from max(0, 1 − yp(b + xp^Tω)) = 0, implying the margin is at least 1.\"\n    }\n  ],\n  \"warnings\": [\n    \"The name 'hard-margin' is not explicitly defined in the evidence; it is inferred from the strict zero-loss equality constraint.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:14:15.637434+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1e59e0ddd5fd678815e5aa8dca9ed142fc82707091a51a0bf6ea58af69f4d337",
+  "concept_id": 144,
+  "concept_name": "graph feature representation method",
+  "aliases": [
+    "graph feature representation method",
+    "feature representation technique"
+  ],
+  "profile": "graph feature representation method: a feature representation technique that learns feature embeddings. It is presented in the context of a GCN training and optimization pipeline.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature representation method: a feature representation technique that learns feature embeddings. This method is presented within a GCN training and optimization pipeline, indicating its role in generating embeddings used for graph learning.",
+    "claims": [
+      {
+        "claim": "It is a feature representation technique that learns feature embeddings.",
+        "evidence_ids": [
+          "DGL-E0575"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It appears in the context of a GCN training and optimization pipeline.",
+        "evidence_ids": [
+          "DGL-E0575"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata limited to a single evidence snippet; profile is minimal."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature representation method: a feature representation technique that learns feature embeddings. It is presented in the context of a GCN training and optimization pipeline.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph feature representation method: a feature representation technique that learns feature embeddings.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0575"
+        ],
+        "reason": "The source states 'Learn feature embeddings', supporting the definition of a feature representation technique that learns embeddings."
+      },
+      {
+        "sentence": "It is presented in the context of a GCN training and optimization pipeline.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0575"
+        ],
+        "reason": "The source page title places the feature-embedding statement within a GCN training and optimization pipeline."
+      }
+    ],
+    "warnings": [
+      "Single evidence snippet; profile is minimal."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature representation method: a feature representation technique that learns feature embeddings. This method is presented within a GCN training and optimization pipeline, indicating its role in generating embeddings used for graph learning.\",\n  \"claims\": [\n    {\n      \"claim\": \"It is a feature representation technique that learns feature embeddings.\",\n      \"evidence_ids\": [\"DGL-E0575\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It appears in the context of a GCN training and optimization pipeline.\",\n      \"evidence_ids\": [\"DGL-E0575\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata limited to a single evidence snippet; profile is minimal.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature representation method: a feature representation technique that learns feature embeddings. It is presented in the context of a GCN training and optimization pipeline.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph feature representation method: a feature representation technique that learns feature embeddings.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0575\"],\n      \"reason\": \"The source states 'Learn feature embeddings', supporting the definition of a feature representation technique that learns embeddings.\"\n    },\n    {\n      \"sentence\": \"It is presented in the context of a GCN training and optimization pipeline.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0575\"],\n      \"reason\": \"The source page title places the feature-embedding statement within a GCN training and optimization pipeline.\"\n    }\n  ],\n  \"warnings\": [\"Single evidence snippet; profile is minimal.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:50:49.303689+00:00"
+}

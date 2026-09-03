@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c4f1aded9024a123c746e3948f9b32010feb137cc73c24e4278dfb660c719f69",
+  "concept_id": 153,
+  "concept_name": "node regression",
+  "aliases": [
+    "node regression",
+    "node value prediction"
+  ],
+  "profile": "node regression: a regression task performed at the node level. It can be extended to graph-level regression.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node regression: a regression task performed at the node level, which can be extended to graph-level regression.",
+    "claims": [
+      {
+        "claim": "Node regression is a regression task performed at the node level.",
+        "evidence_ids": [
+          "DGL-E0589"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node regression can be extended to graph-level regression.",
+        "evidence_ids": [
+          "DGL-E0589"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata; the profile is based on a single reference."
+    ]
+  },
+  "review": {
+    "final_profile": "node regression: a regression task performed at the node level. It can be extended to graph-level regression.",
+    "sentence_reviews": [
+      {
+        "sentence": "node regression: a regression task performed at the node level.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0589"
+        ],
+        "reason": "The source refers to node-level regression as a task, supporting this definition."
+      },
+      {
+        "sentence": "It can be extended to graph-level regression.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0589"
+        ],
+        "reason": "The source explicitly mentions extending node-level regression to graph-level regression."
+      }
+    ],
+    "warnings": [
+      "Only one source mention is available; no formal definition or additional details are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node regression: a regression task performed at the node level, which can be extended to graph-level regression.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node regression is a regression task performed at the node level.\",\n      \"evidence_ids\": [\"DGL-E0589\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node regression can be extended to graph-level regression.\",\n      \"evidence_ids\": [\"DGL-E0589\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Limited metadata; the profile is based on a single reference.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node regression: a regression task performed at the node level. It can be extended to graph-level regression.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node regression: a regression task performed at the node level.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0589\"],\n      \"reason\": \"The source refers to node-level regression as a task, supporting this definition.\"\n    },\n    {\n      \"sentence\": \"It can be extended to graph-level regression.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0589\"],\n      \"reason\": \"The source explicitly mentions extending node-level regression to graph-level regression.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source mention is available; no formal definition or additional details are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:54:11.579850+00:00"
+}

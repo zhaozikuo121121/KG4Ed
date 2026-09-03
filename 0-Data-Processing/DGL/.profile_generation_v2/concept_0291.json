@@ -1,0 +1,99 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b947ef898e690b1a17310f328548691399e6abec5b563392336412a1b4f1ecc8",
+  "concept_id": 291,
+  "concept_name": "injective aggregation",
+  "aliases": [
+    "injective aggregation",
+    "injective neighbor aggregation"
+  ],
+  "profile": "injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective. The function f operates on multisets, and phi is also injective. Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.",
+  "word_count": 45,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective. It treats neighbor features as a multiset: the function f operates on multisets, and the function phi is also injective. Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.",
+    "claims": [
+      {
+        "claim": "At each layer k, the aggregation function is injective.",
+        "evidence_ids": [
+          "DGL-E0433"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Neighbor features are treated as a multiset.",
+        "evidence_ids": [
+          "DGL-E0443"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The function f operates on multisets.",
+        "evidence_ids": [
+          "DGL-E0443"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The function phi is injective.",
+        "evidence_ids": [
+          "DGL-E0443"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.",
+        "evidence_ids": [
+          "DGL-E0433"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective. The function f operates on multisets, and phi is also injective. Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.",
+    "sentence_reviews": [
+      {
+        "sentence": "injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0433"
+        ],
+        "reason": "Source states it uses an injective neighbor aggregation at each layer k."
+      },
+      {
+        "sentence": "The function f operates on multisets, and phi is also injective.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0443"
+        ],
+        "reason": "Source states functions f, which operates on multisets, and phi are injective."
+      },
+      {
+        "sentence": "Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0433"
+        ],
+        "reason": "Source page context is expressive power of graph neural networks and the Weisfeiler-Lehman test."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective. It treats neighbor features as a multiset: the function f operates on multisets, and the function phi is also injective. Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.\",\n  \"claims\": [\n    {\n      \"claim\": \"At each layer k, the aggregation function is injective.\",\n      \"evidence_ids\": [\"DGL-E0433\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Neighbor features are treated as a multiset.\",\n      \"evidence_ids\": [\"DGL-E0443\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The function f operates on multisets.\",\n      \"evidence_ids\": [\"DGL-E0443\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The function phi is injective.\",\n      \"evidence_ids\": [\"DGL-E0443\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.\",\n      \"evidence_ids\": [\"DGL-E0433\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective. The function f operates on multisets, and phi is also injective. Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"injective aggregation: a neighbor aggregation approach in which, at each layer k, the aggregation function is injective.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0433\"],\n      \"reason\": \"Source states it uses an injective neighbor aggregation at each layer k.\"\n    },\n    {\n      \"sentence\": \"The function f operates on multisets, and phi is also injective.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0443\"],\n      \"reason\": \"Source states functions f, which operates on multisets, and phi are injective.\"\n    },\n    {\n      \"sentence\": \"Injective aggregation is discussed in the context of graph neural network expressive power and the Weisfeiler-Lehman test.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0433\"],\n      \"reason\": \"Source page context is expressive power of graph neural networks and the Weisfeiler-Lehman test.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:44:40.059507+00:00"
+}

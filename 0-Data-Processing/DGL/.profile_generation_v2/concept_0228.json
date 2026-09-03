@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "70c104a239e07e43e9a241900ff718b777551cd187d045e7ab980864340bdc55",
+  "concept_id": 228,
+  "concept_name": "regularization",
+  "aliases": [
+    "regularization",
+    "regularizer",
+    "regularize"
+  ],
+  "profile": "regularization: Regularization aims to avoid overfitting in neural networks. In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularization: Regularization aims to avoid overfitting in neural networks. In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.",
+    "claims": [
+      {
+        "claim": "Regularization aims to avoid overfitting in neural networks.",
+        "evidence_ids": [
+          "DGL-E0382"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Dropping nodes regularizes and increases expressiveness in GNNs.",
+        "evidence_ids": [
+          "DGL-E0301",
+          "DGL-E0326"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Batch normalization injects noise into the training process as regularization.",
+        "evidence_ids": [
+          "DGL-E0358"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularization: Regularization aims to avoid overfitting in neural networks. In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.",
+    "sentence_reviews": [
+      {
+        "sentence": "Regularization aims to avoid overfitting in neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0382"
+        ],
+        "reason": "The source states: 'Aim: regularize a neural network to avoid overfitting.'"
+      },
+      {
+        "sentence": "In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0301",
+          "DGL-E0326",
+          "DGL-E0358"
+        ],
+        "reason": "Dropping nodes is described as regularization that increases expressiveness; batch normalization is described as injecting noise into training under the heading 'Regularization'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularization: Regularization aims to avoid overfitting in neural networks. In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.\",\n  \"claims\": [\n    {\n      \"claim\": \"Regularization aims to avoid overfitting in neural networks.\",\n      \"evidence_ids\": [\"DGL-E0382\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Dropping nodes regularizes and increases expressiveness in GNNs.\",\n      \"evidence_ids\": [\"DGL-E0301\", \"DGL-E0326\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Batch normalization injects noise into the training process as regularization.\",\n      \"evidence_ids\": [\"DGL-E0358\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularization: Regularization aims to avoid overfitting in neural networks. In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Regularization aims to avoid overfitting in neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0382\"],\n      \"reason\": \"The source states: 'Aim: regularize a neural network to avoid overfitting.'\"\n    },\n    {\n      \"sentence\": \"In GNNs, techniques include dropping nodes to regularize and increase expressiveness, and batch normalization, which injects noise into the training process as a regularizer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0301\", \"DGL-E0326\", \"DGL-E0358\"],\n      \"reason\": \"Dropping nodes is described as regularization that increases expressiveness; batch normalization is described as injecting noise into training under the heading 'Regularization'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:21:07.236001+00:00"
+}

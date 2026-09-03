@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a84e3573bf205000c398ce9402dffd624f1bae1ac1b4fac4bdc308c38490960e",
+  "concept_id": 363,
+  "concept_name": "softmax",
+  "aliases": [
+    "softmax"
+  ],
+  "profile": "softmax: Softmax appears in the context of generative graph neural networks and graph pooling. It can be applied in an edge-wise or a node-wise manner.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "softmax: Softmax appears in the context of generative graph neural networks and graph pooling. It can be applied in an edge-wise or a node-wise manner. No further details about its definition, mechanism, or properties are provided by the source.",
+    "claims": [
+      {
+        "claim": "Softmax appears in the context of generative graph neural networks and graph pooling.",
+        "evidence_ids": [
+          "DGL-E0529"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Softmax can be applied edge-wise or node-wise.",
+        "evidence_ids": [
+          "DGL-E0529"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only the phrase 'edge- and node-wise softmax' and its course context; no detailed mathematical definition is given."
+    ]
+  },
+  "review": {
+    "final_profile": "softmax: Softmax appears in the context of generative graph neural networks and graph pooling. It can be applied in an edge-wise or a node-wise manner.",
+    "sentence_reviews": [
+      {
+        "sentence": "Softmax appears in the context of generative graph neural networks and graph pooling.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0529"
+        ],
+        "reason": "The evidence is drawn from lecture material titled 'Generative Graph Neural Networks and Graph Pooling'."
+      },
+      {
+        "sentence": "It can be applied in an edge-wise or a node-wise manner.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0529"
+        ],
+        "reason": "The metadata explicitly provides the phrase 'edge- and node-wise softmax'."
+      }
+    ],
+    "warnings": [
+      "The metadata supplies only the phrase 'edge- and node-wise softmax' and course context; no mathematical definition or further properties are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"softmax: Softmax appears in the context of generative graph neural networks and graph pooling. It can be applied in an edge-wise or a node-wise manner. No further details about its definition, mechanism, or properties are provided by the source.\",\n  \"claims\": [\n    {\n      \"claim\": \"Softmax appears in the context of generative graph neural networks and graph pooling.\",\n      \"evidence_ids\": [\"DGL-E0529\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Softmax can be applied edge-wise or node-wise.\",\n      \"evidence_ids\": [\"DGL-E0529\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only the phrase 'edge- and node-wise softmax' and its course context; no detailed mathematical definition is given.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"softmax: Softmax appears in the context of generative graph neural networks and graph pooling. It can be applied in an edge-wise or a node-wise manner.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Softmax appears in the context of generative graph neural networks and graph pooling.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0529\"],\n      \"reason\": \"The evidence is drawn from lecture material titled 'Generative Graph Neural Networks and Graph Pooling'.\"\n    },\n    {\n      \"sentence\": \"It can be applied in an edge-wise or a node-wise manner.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0529\"],\n      \"reason\": \"The metadata explicitly provides the phrase 'edge- and node-wise softmax'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata supplies only the phrase 'edge- and node-wise softmax' and course context; no mathematical definition or further properties are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:06:56.792067+00:00"
+}

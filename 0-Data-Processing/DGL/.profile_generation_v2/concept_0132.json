@@ -1,0 +1,134 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "7177fdf17b713b0858953681f17bf962044b20c7cf3266110a9adcf7d849d05f",
+  "concept_id": 132,
+  "concept_name": "unsupervised learning",
+  "aliases": [
+    "unsupervised learning",
+    "self-supervised",
+    "ul",
+    "supervised learning",
+    "ssl",
+    "self-supervised learning",
+    "supervised"
+  ],
+  "profile": "unsupervised learning: Unsupervised learning is treated as self-supervised learning (SSL). Training samples can be unlabeled. Node embedding is described as unsupervised or self-supervised. Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are described as self-supervised/unsupervised. When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "unsupervised learning: Unsupervised learning, also called self-supervised learning (SSL), can use unlabeled training samples. Node embedding is described as unsupervised or self-supervised. Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are often self-supervised/unsupervised. When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.",
+    "claims": [
+      {
+        "claim": "Unsupervised learning is also called self-supervised learning (SSL).",
+        "evidence_ids": [
+          "DGL-E0181",
+          "DGL-E0508",
+          "DGL-E0509"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In unsupervised/self-supervised learning, training samples can be unlabeled.",
+        "evidence_ids": [
+          "DGL-E0386"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Node embedding is described as unsupervised or self-supervised.",
+        "evidence_ids": [
+          "DGL-E0181"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Self-regeneration is characterized as self-supervised/unsupervised.",
+        "evidence_ids": [
+          "DGL-E0508"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Generative graph neural network tasks are often self-supervised/unsupervised.",
+        "evidence_ids": [
+          "DGL-E0509"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph generation without a ground-truth target graph is considered self/unsupervised.",
+        "evidence_ids": [
+          "DGL-E0552"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "unsupervised learning: Unsupervised learning is treated as self-supervised learning (SSL). Training samples can be unlabeled. Node embedding is described as unsupervised or self-supervised. Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are described as self-supervised/unsupervised. When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.",
+    "sentence_reviews": [
+      {
+        "sentence": "Unsupervised learning is treated as self-supervised learning (SSL).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0508",
+          "DGL-E0509"
+        ],
+        "reason": "Source annotations use 'self supervised (unsupervised)' and 'Self-supervised/unsupervised' interchangeably."
+      },
+      {
+        "sentence": "Training samples can be unlabeled.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0386"
+        ],
+        "reason": "Handwritten note states 'SSL => training samples can be unlabeled'."
+      },
+      {
+        "sentence": "Node embedding is described as unsupervised or self-supervised.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0181"
+        ],
+        "reason": "Source note directly says 'Node embedding is unsupervised or self-supervised.'"
+      },
+      {
+        "sentence": "Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are described as self-supervised/unsupervised.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0508",
+          "DGL-E0509"
+        ],
+        "reason": "Self-regeneration maps to 'self supervised (unsupervised)', and printed text lists 'Self-supervised/unsupervised generative GNN tasks'."
+      },
+      {
+        "sentence": "When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0552"
+        ],
+        "reason": "Source says 'Ground-truth target graph is unavailable (self/unsupervised)'."
+      }
+    ],
+    "warnings": [
+      "The equivalence between unsupervised learning and self-supervised learning is implied by slash/or notations and handwritten annotations, not by a formal definition.",
+      "The unlabeled-training-samples statement is tied to SSL in the source rather than explicitly to the standalone term 'unsupervised learning'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"unsupervised learning: Unsupervised learning, also called self-supervised learning (SSL), can use unlabeled training samples. Node embedding is described as unsupervised or self-supervised. Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are often self-supervised/unsupervised. When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.\",\n  \"claims\": [\n    {\n      \"claim\": \"Unsupervised learning is also called self-supervised learning (SSL).\",\n      \"evidence_ids\": [\"DGL-E0181\", \"DGL-E0508\", \"DGL-E0509\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In unsupervised/self-supervised learning, training samples can be unlabeled.\",\n      \"evidence_ids\": [\"DGL-E0386\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Node embedding is described as unsupervised or self-supervised.\",\n      \"evidence_ids\": [\"DGL-E0181\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Self-regeneration is characterized as self-supervised/unsupervised.\",\n      \"evidence_ids\": [\"DGL-E0508\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Generative graph neural network tasks are often self-supervised/unsupervised.\",\n      \"evidence_ids\": [\"DGL-E0509\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph generation without a ground-truth target graph is considered self/unsupervised.\",\n      \"evidence_ids\": [\"DGL-E0552\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"unsupervised learning: Unsupervised learning is treated as self-supervised learning (SSL). Training samples can be unlabeled. Node embedding is described as unsupervised or self-supervised. Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are described as self-supervised/unsupervised. When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Unsupervised learning is treated as self-supervised learning (SSL).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0508\", \"DGL-E0509\"],\n      \"reason\": \"Source annotations use 'self supervised (unsupervised)' and 'Self-supervised/unsupervised' interchangeably.\"\n    },\n    {\n      \"sentence\": \"Training samples can be unlabeled.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0386\"],\n      \"reason\": \"Handwritten note states 'SSL => training samples can be unlabeled'.\"\n    },\n    {\n      \"sentence\": \"Node embedding is described as unsupervised or self-supervised.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0181\"],\n      \"reason\": \"Source note directly says 'Node embedding is unsupervised or self-supervised.'\"\n    },\n    {\n      \"sentence\": \"Self-regeneration is characterized as self-supervised/unsupervised, and generative graph neural network tasks are described as self-supervised/unsupervised.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0508\", \"DGL-E0509\"],\n      \"reason\": \"Self-regeneration maps to 'self supervised (unsupervised)', and printed text lists 'Self-supervised/unsupervised generative GNN tasks'.\"\n    },\n    {\n      \"sentence\": \"When generating graphs without a ground-truth target graph, the setting is considered self/unsupervised.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0552\"],\n      \"reason\": \"Source says 'Ground-truth target graph is unavailable (self/unsupervised)'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The equivalence between unsupervised learning and self-supervised learning is implied by slash/or notations and handwritten annotations, not by a formal definition.\",\n    \"The unlabeled-training-samples statement is tied to SSL in the source rather than explicitly to the standalone term 'unsupervised learning'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:46:06.569704+00:00"
+}

@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "80ac050fa50854319d3d5c376e65ffb8030d5cbd28247e1ecce9146e5e0406db",
+  "concept_id": 218,
+  "concept_name": "parameter sharing",
+  "aliases": [
+    "parameter sharing",
+    "shared parameters"
+  ],
+  "profile": "parameter sharing: a node-level mechanism in graph convolutional networks that, together with feature aggregation, contributes to graph-level prediction and inductive capability. It refers to applying the same learned weights across different nodes during feature aggregation.",
+  "word_count": 35,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "parameter sharing: a node-level mechanism that, along with feature aggregation, powers graph-level prediction and inductive capability in graph convolutional networks. In such networks, parameter sharing means that the same learned weights are applied across different nodes during feature aggregation.",
+    "claims": [
+      {
+        "claim": "Parameter sharing at the node level, along with feature aggregation, powers graph-level prediction and inductive capability in graph convolutional networks.",
+        "evidence_ids": [
+          "DGL-E0275"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In graph convolutional networks, parameter sharing means that the same learned weights are applied across different nodes during feature aggregation.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "parameter sharing: a node-level mechanism in graph convolutional networks that, together with feature aggregation, contributes to graph-level prediction and inductive capability. It refers to applying the same learned weights across different nodes during feature aggregation.",
+    "sentence_reviews": [
+      {
+        "sentence": "parameter sharing: a node-level mechanism in graph convolutional networks that, together with feature aggregation, contributes to graph-level prediction and inductive capability.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0275"
+        ],
+        "reason": "The evidence states that power stems from feature aggregation and parameter sharing at the node level, and the source context concerns graph-level prediction and inductive capability of GCNs."
+      },
+      {
+        "sentence": "It refers to applying the same learned weights across different nodes during feature aggregation.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "This is a standard generic clarification of parameter sharing; it is not explicitly stated in the source excerpt."
+      }
+    ],
+    "warnings": [
+      "Only one source excerpt supports the profile; the shared-weight definition is background clarification."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"parameter sharing: a node-level mechanism that, along with feature aggregation, powers graph-level prediction and inductive capability in graph convolutional networks. In such networks, parameter sharing means that the same learned weights are applied across different nodes during feature aggregation.\",\n  \"claims\": [\n    {\n      \"claim\": \"Parameter sharing at the node level, along with feature aggregation, powers graph-level prediction and inductive capability in graph convolutional networks.\",\n      \"evidence_ids\": [\"DGL-E0275\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In graph convolutional networks, parameter sharing means that the same learned weights are applied across different nodes during feature aggregation.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"parameter sharing: a node-level mechanism in graph convolutional networks that, together with feature aggregation, contributes to graph-level prediction and inductive capability. It refers to applying the same learned weights across different nodes during feature aggregation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"parameter sharing: a node-level mechanism in graph convolutional networks that, together with feature aggregation, contributes to graph-level prediction and inductive capability.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0275\"],\n      \"reason\": \"The evidence states that power stems from feature aggregation and parameter sharing at the node level, and the source context concerns graph-level prediction and inductive capability of GCNs.\"\n    },\n    {\n      \"sentence\": \"It refers to applying the same learned weights across different nodes during feature aggregation.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"This is a standard generic clarification of parameter sharing; it is not explicitly stated in the source excerpt.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source excerpt supports the profile; the shared-weight definition is background clarification.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:18:01.957020+00:00"
+}

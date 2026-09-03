@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0345812ddc2415a64682cda41edfbc2f5607f53acbb70830f7cd7297d995fd1f",
+  "concept_id": 255,
+  "concept_name": "vanishing gradient problem",
+  "aliases": [
+    "vanishing gradient problem"
+  ],
+  "profile": "vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning. The problem balloons as more hidden layers are added.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning. The problem balloons as more hidden layers are added.",
+    "claims": [
+      {
+        "claim": "The vanishing gradient problem is a technical issue where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning.",
+        "evidence_ids": [
+          "MLR-E0319"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The problem balloons as more hidden layers are added.",
+        "evidence_ids": [
+          "MLR-E0319"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata limited to one source."
+    ]
+  },
+  "review": {
+    "final_profile": "vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning. The problem balloons as more hidden layers are added.",
+    "sentence_reviews": [
+      {
+        "sentence": "vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0319"
+        ],
+        "reason": "The evidence describes the vanishing gradient problem as a technical issue where sigmoid-activation network gradients shrink undesirably and prevent proper parameter tuning."
+      },
+      {
+        "sentence": "The problem balloons as more hidden layers are added.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0319"
+        ],
+        "reason": "The evidence states that the problem balloons as more hidden layers are added."
+      }
+    ],
+    "warnings": [
+      "Limited to one source; broader context not independently corroborated."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning. The problem balloons as more hidden layers are added.\",\n  \"claims\": [\n    {\n      \"claim\": \"The vanishing gradient problem is a technical issue where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning.\",\n      \"evidence_ids\": [\"MLR-E0319\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The problem balloons as more hidden layers are added.\",\n      \"evidence_ids\": [\"MLR-E0319\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata limited to one source.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning. The problem balloons as more hidden layers are added.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"vanishing gradient problem: a technical issue in neural networks where gradients of a network employing sigmoid activations shrink undesirably, preventing proper parameter tuning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0319\"],\n      \"reason\": \"The evidence describes the vanishing gradient problem as a technical issue where sigmoid-activation network gradients shrink undesirably and prevent proper parameter tuning.\"\n    },\n    {\n      \"sentence\": \"The problem balloons as more hidden layers are added.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0319\"],\n      \"reason\": \"The evidence states that the problem balloons as more hidden layers are added.\"\n    }\n  ],\n  \"warnings\": [\"Limited to one source; broader context not independently corroborated.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:02:31.398281+00:00"
+}

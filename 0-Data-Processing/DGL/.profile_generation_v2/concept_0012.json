@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "f4281d4f6b146e2585fb0a27bf0d24234746c8155573454d65ce0a7f9647cd31",
+  "concept_id": 12,
+  "concept_name": "molecular graph",
+  "aliases": [
+    "molecular graph"
+  ],
+  "profile": "molecular graph: A graph type associated with molecules in a listing of graph types and representations. Molecules are listed as item (b).",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "molecular graph: A graph type associated with molecules in a listing of graph types and representations. Molecules are listed as item (b).",
+    "claims": [
+      {
+        "claim": "A graph type associated with molecules in a listing of graph types and representations.",
+        "evidence_ids": [
+          "DGL-E0007"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Molecules are listed as item (b).",
+        "evidence_ids": [
+          "DGL-E0007"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is minimal; no further details are supported."
+    ]
+  },
+  "review": {
+    "final_profile": "molecular graph: A graph type associated with molecules in a listing of graph types and representations. Molecules are listed as item (b).",
+    "sentence_reviews": [
+      {
+        "sentence": "molecular graph: A graph type associated with molecules in a listing of graph types and representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0007"
+        ],
+        "reason": "The slide is titled 'Graph Types and Representations' and lists molecules, so linking molecular graph to molecules as a graph type is supported."
+      },
+      {
+        "sentence": "Molecules are listed as item (b).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0007"
+        ],
+        "reason": "The evidence text is 'b) molecules'."
+      }
+    ],
+    "warnings": [
+      "Metadata is minimal; no further details are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"molecular graph: A graph type associated with molecules in a listing of graph types and representations. Molecules are listed as item (b).\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph type associated with molecules in a listing of graph types and representations.\",\n      \"evidence_ids\": [\"DGL-E0007\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Molecules are listed as item (b).\",\n      \"evidence_ids\": [\"DGL-E0007\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is minimal; no further details are supported.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"molecular graph: A graph type associated with molecules in a listing of graph types and representations. Molecules are listed as item (b).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"molecular graph: A graph type associated with molecules in a listing of graph types and representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0007\"],\n      \"reason\": \"The slide is titled 'Graph Types and Representations' and lists molecules, so linking molecular graph to molecules as a graph type is supported.\"\n    },\n    {\n      \"sentence\": \"Molecules are listed as item (b).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0007\"],\n      \"reason\": \"The evidence text is 'b) molecules'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is minimal; no further details are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:54:26.240158+00:00"
+}

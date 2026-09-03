@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e7c85f226ce1fdf2001a2244fbe0196cec04f95fad2a51316588dc53a9d14d08",
+  "concept_id": 212,
+  "concept_name": "chain rule",
+  "aliases": [
+    "chain rule"
+  ],
+  "profile": "chain rule: a mathematical technique used to compute the gradient of the loss, as in GCN training and optimization.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "chain rule: a mathematical technique used to compute the gradient of the loss function, as applied in GCN training and optimization.",
+    "claims": [
+      {
+        "claim": "The chain rule is used to compute the gradient of the loss.",
+        "evidence_ids": [
+          "DGL-E0249"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "chain rule: a mathematical technique used to compute the gradient of the loss, as in GCN training and optimization.",
+    "sentence_reviews": [
+      {
+        "sentence": "chain rule: a mathematical technique used to compute the gradient of the loss, as in GCN training and optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0249"
+        ],
+        "reason": "The evidence states 'Compute the gradient of the loss using the chain rule' within a GCN training and optimization context."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"chain rule: a mathematical technique used to compute the gradient of the loss function, as applied in GCN training and optimization.\",\n  \"claims\": [\n    {\n      \"claim\": \"The chain rule is used to compute the gradient of the loss.\",\n      \"evidence_ids\": [\"DGL-E0249\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"chain rule: a mathematical technique used to compute the gradient of the loss, as in GCN training and optimization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"chain rule: a mathematical technique used to compute the gradient of the loss, as in GCN training and optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0249\"],\n      \"reason\": \"The evidence states 'Compute the gradient of the loss using the chain rule' within a GCN training and optimization context.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:15:35.116430+00:00"
+}

@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "9f4f9106eceb08d091a67071a3feeb843d2f61b78836ac7291069b63e0128e73",
+  "concept_id": 124,
+  "concept_name": "support vectors",
+  "aliases": [
+    "support vectors"
+  ],
+  "profile": "support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the linear decision boundary; translates of the decision boundary pass through these points.",
+  "word_count": 31,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the SVM linear decision boundary. Translates of the decision boundary pass through these points. They are called support vectors.",
+    "claims": [
+      {
+        "claim": "Support vectors are points from both classes that are equidistant from the SVM linear decision boundary.",
+        "evidence_ids": [
+          "MLR-E0140"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Translates of the decision boundary pass through support vectors.",
+        "evidence_ids": [
+          "MLR-E0140"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the linear decision boundary; translates of the decision boundary pass through these points.",
+    "sentence_reviews": [
+      {
+        "sentence": "support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the linear decision boundary; translates of the decision boundary pass through these points.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0140"
+        ],
+        "reason": "All claims match the source: support vectors are from both classes, equidistant from the linear decision boundary, and translates of the boundary pass through them."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the SVM linear decision boundary. Translates of the decision boundary pass through these points. They are called support vectors.\",\n  \"claims\": [\n    {\n      \"claim\": \"Support vectors are points from both classes that are equidistant from the SVM linear decision boundary.\",\n      \"evidence_ids\": [\"MLR-E0140\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Translates of the decision boundary pass through support vectors.\",\n      \"evidence_ids\": [\"MLR-E0140\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the linear decision boundary; translates of the decision boundary pass through these points.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"support vectors: In SVM linear two-class classification, support vectors are points from both classes that are equidistant from the linear decision boundary; translates of the decision boundary pass through these points.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0140\"],\n      \"reason\": \"All claims match the source: support vectors are from both classes, equidistant from the linear decision boundary, and translates of the boundary pass through them.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:15:01.546427+00:00"
+}

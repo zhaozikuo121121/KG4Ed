@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "7c2cecb2f86a16fafdcb8d6354bb5ee9e27477ed3352bbd57d7505b4fd2ee5df",
+  "concept_id": 221,
+  "concept_name": "global mean pooling",
+  "aliases": [
+    "global mean pooling",
+    "mean pooling"
+  ],
+  "profile": "global mean pooling: a term appearing in material on graph-level prediction and the inductive capability of graph convolutional networks. It refers to averaging feature values across elements to produce a fixed-size output.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "global mean pooling: a concept found in the context of graph-level prediction and inductive capability of GCNs. It typically refers to averaging feature values across all elements to produce a fixed-size output.",
+    "claims": [
+      {
+        "claim": "global mean pooling is a concept found in the context of graph-level prediction and inductive capability of GCNs.",
+        "evidence_ids": [
+          "DGL-E0264"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It typically refers to averaging feature values across all elements to produce a fixed-size output.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The metadata provides no explicit definition; the definition is a generic background explanation."
+    ]
+  },
+  "review": {
+    "final_profile": "global mean pooling: a term appearing in material on graph-level prediction and the inductive capability of graph convolutional networks. It refers to averaging feature values across elements to produce a fixed-size output.",
+    "sentence_reviews": [
+      {
+        "sentence": "global mean pooling: a term appearing in material on graph-level prediction and the inductive capability of graph convolutional networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0264"
+        ],
+        "reason": "The evidence places the term on a page titled Graph-Level Prediction and Inductive Capability of GCNs."
+      },
+      {
+        "sentence": "It refers to averaging feature values across elements to produce a fixed-size output.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic description of mean pooling; no explicit definition is present in the source."
+      }
+    ],
+    "warnings": [
+      "The source provides no explicit definition; the averaging description is generic background."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"global mean pooling: a concept found in the context of graph-level prediction and inductive capability of GCNs. It typically refers to averaging feature values across all elements to produce a fixed-size output.\",\n  \"claims\": [\n    {\n      \"claim\": \"global mean pooling is a concept found in the context of graph-level prediction and inductive capability of GCNs.\",\n      \"evidence_ids\": [\"DGL-E0264\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It typically refers to averaging feature values across all elements to produce a fixed-size output.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"The metadata provides no explicit definition; the definition is a generic background explanation.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"global mean pooling: a term appearing in material on graph-level prediction and the inductive capability of graph convolutional networks. It refers to averaging feature values across elements to produce a fixed-size output.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"global mean pooling: a term appearing in material on graph-level prediction and the inductive capability of graph convolutional networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0264\"],\n      \"reason\": \"The evidence places the term on a page titled Graph-Level Prediction and Inductive Capability of GCNs.\"\n    },\n    {\n      \"sentence\": \"It refers to averaging feature values across elements to produce a fixed-size output.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic description of mean pooling; no explicit definition is present in the source.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides no explicit definition; the averaging description is generic background.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:19:02.050320+00:00"
+}

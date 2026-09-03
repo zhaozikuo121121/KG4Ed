@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "0e6627c8a762f583ae2c5a08fc18909ae804403b291786731272458e154bc370",
+  "concept_id": 266,
+  "concept_name": "bipartite graph",
+  "aliases": [
+    "bipartite graph"
+  ],
+  "profile": "bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets. In GNN training, a bipartite graph is constructed among the nodes between two layers.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets. In GNN training, a bipartite graph is constructed among the nodes between two layers.",
+    "claims": [
+      {
+        "claim": "A bipartite graph is a graph whose nodes are divided into two sets, with edges only between sets.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In GNN training, a bipartite graph is constructed among the nodes between two layers.",
+        "evidence_ids": [
+          "DGL-E0363"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets. In GNN training, a bipartite graph is constructed among the nodes between two layers.",
+    "sentence_reviews": [
+      {
+        "sentence": "bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition of a bipartite graph; not explicitly defined in the source but provides necessary context."
+      },
+      {
+        "sentence": "In GNN training, a bipartite graph is constructed among the nodes between two layers.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0363"
+        ],
+        "reason": "Directly matches the evidence: 'constructs a bipartite graph among the nodes between the two layers'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets. In GNN training, a bipartite graph is constructed among the nodes between two layers.\",\n  \"claims\": [\n    {\n      \"claim\": \"A bipartite graph is a graph whose nodes are divided into two sets, with edges only between sets.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In GNN training, a bipartite graph is constructed among the nodes between two layers.\",\n      \"evidence_ids\": [\"DGL-E0363\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets. In GNN training, a bipartite graph is constructed among the nodes between two layers.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"bipartite graph: a graph whose nodes are divided into two sets, with edges only between sets.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition of a bipartite graph; not explicitly defined in the source but provides necessary context.\"\n    },\n    {\n      \"sentence\": \"In GNN training, a bipartite graph is constructed among the nodes between two layers.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0363\"],\n      \"reason\": \"Directly matches the evidence: 'constructs a bipartite graph among the nodes between the two layers'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:34:59.527910+00:00"
+}

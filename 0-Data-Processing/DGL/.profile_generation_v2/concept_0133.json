@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "b04993bf18923b9607270205ea703b74d6a96e2b65d57eb59c48bca17b3e09c0",
+  "concept_id": 133,
+  "concept_name": "self-supervised learning",
+  "aliases": [
+    "self-supervised learning",
+    "ssl"
+  ],
+  "profile": "self-supervised learning: A type of learning relevant to graph learning and node embedding. Node embedding is described as unsupervised or self-supervised. The term also appears in materials on graph learning research trends and tasks.",
+  "word_count": 34,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "self-supervised learning: A learning paradigm relevant to graph learning and node embedding. In node embedding, it is grouped with unsupervised learning, as node embedding is described as unsupervised or self-supervised. The term also appears among graph learning research trends.",
+    "claims": [
+      {
+        "claim": "Self-supervised learning is relevant to graph learning and node embedding.",
+        "evidence_ids": [
+          "DGL-E0182",
+          "DGL-E0211"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In node embedding, self-supervised learning is grouped with unsupervised learning.",
+        "evidence_ids": [
+          "DGL-E0182"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Self-supervised learning appears among graph learning research trends.",
+        "evidence_ids": [
+          "DGL-E0211"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "self-supervised learning: A type of learning relevant to graph learning and node embedding. Node embedding is described as unsupervised or self-supervised. The term also appears in materials on graph learning research trends and tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "self-supervised learning: A type of learning relevant to graph learning and node embedding.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0182",
+          "DGL-E0211"
+        ],
+        "reason": "Generic connective framing; supported by the term appearing in node embedding and graph learning contexts."
+      },
+      {
+        "sentence": "Node embedding is described as unsupervised or self-supervised.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0182"
+        ],
+        "reason": "Directly paraphrases the source note 'Node embedding is unsupervised or self-supervised.'"
+      },
+      {
+        "sentence": "The term also appears in materials on graph learning research trends and tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0211"
+        ],
+        "reason": "Printed term appears on a slide whose title includes 'Graph Learning Research Trends and Tasks'."
+      }
+    ],
+    "warnings": [
+      "The 'research trends and tasks' context comes from the slide page title rather than a full sentence in the printed evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"self-supervised learning: A learning paradigm relevant to graph learning and node embedding. In node embedding, it is grouped with unsupervised learning, as node embedding is described as unsupervised or self-supervised. The term also appears among graph learning research trends.\",\n  \"claims\": [\n    {\n      \"claim\": \"Self-supervised learning is relevant to graph learning and node embedding.\",\n      \"evidence_ids\": [\"DGL-E0182\", \"DGL-E0211\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In node embedding, self-supervised learning is grouped with unsupervised learning.\",\n      \"evidence_ids\": [\"DGL-E0182\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Self-supervised learning appears among graph learning research trends.\",\n      \"evidence_ids\": [\"DGL-E0211\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"self-supervised learning: A type of learning relevant to graph learning and node embedding. Node embedding is described as unsupervised or self-supervised. The term also appears in materials on graph learning research trends and tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"self-supervised learning: A type of learning relevant to graph learning and node embedding.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\n        \"DGL-E0182\",\n        \"DGL-E0211\"\n      ],\n      \"reason\": \"Generic connective framing; supported by the term appearing in node embedding and graph learning contexts.\"\n    },\n    {\n      \"sentence\": \"Node embedding is described as unsupervised or self-supervised.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0182\"\n      ],\n      \"reason\": \"Directly paraphrases the source note 'Node embedding is unsupervised or self-supervised.'\"\n    },\n    {\n      \"sentence\": \"The term also appears in materials on graph learning research trends and tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0211\"\n      ],\n      \"reason\": \"Printed term appears on a slide whose title includes 'Graph Learning Research Trends and Tasks'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The 'research trends and tasks' context comes from the slide page title rather than a full sentence in the printed evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:46:38.858712+00:00"
+}

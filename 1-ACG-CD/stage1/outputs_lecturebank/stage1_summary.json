@@ -1,0 +1,92 @@
+{
+  "stage": "stage1",
+  "config": {
+    "project_root": "G:\\ACG-CD",
+    "dataset_name": "lecturebank",
+    "train_ratio": 0.6,
+    "val_ratio_to_train": 0.1,
+    "seed": 42,
+    "reverse_negative_count": 0,
+    "hard_negative_count": 0,
+    "label_file_negative_ratio_to_train": 1.5,
+    "label_file_negative_count": null,
+    "config_path": "G:\\ACG-CD\\stage1\\config.yaml",
+    "stage1_dir": "G:\\ACG-CD\\stage1",
+    "data_dir": "G:\\ACG-CD\\data\\LectureBank",
+    "label_file": "LectureBank_prerequisites.csv",
+    "stage0_outputs_dir": "G:\\ACG-CD\\stage0\\outputs_lecturebank",
+    "stage1_outputs_dir": "G:\\ACG-CD\\stage1\\outputs_lecturebank",
+    "output_dir": "G:\\ACG-CD\\stage1\\outputs_lecturebank"
+  },
+  "concept_count": 206,
+  "label_stats": {
+    "label_file_rows": 41921,
+    "label_1": 913,
+    "label_0": 41008,
+    "ignored_file_negative_rows": 41008,
+    "invalid_rows": 0,
+    "self_loop_rows": 0,
+    "duplicate_rows": 0,
+    "unique_directed_positive_edges": 913
+  },
+  "split_counts": {
+    "positive_edges_all": 913,
+    "train_pos": 548,
+    "val_pos": 55,
+    "test_pos": 310,
+    "train_neg_reverse": 0,
+    "train_neg_hard": 0,
+    "train_neg_file_random": 822,
+    "val_neg": 55,
+    "test_neg": 310,
+    "train_labels_initial": 1370,
+    "val_labels": 110,
+    "test_labels": 620,
+    "heldout_pairs": 730
+  },
+  "label_file_random_negative_stats": {
+    "label_file_negative_rows": 41008,
+    "invalid_label_file_negative_rows": 0,
+    "self_loop_label_file_negative_rows": 2,
+    "duplicate_label_file_negative_rows": 402,
+    "unique_label_file_negative_edges": 40604,
+    "enabled": true,
+    "requested": 822,
+    "available_after_exclusion": 40600,
+    "sampled": 822
+  },
+  "schema": [
+    "source_id",
+    "target_id",
+    "source_index",
+    "target_index",
+    "source",
+    "target",
+    "label",
+    "split",
+    "negative_type",
+    "similarity"
+  ],
+  "leakage_guard": "Stage2 must exclude heldout_pairs.csv from supervised training and pseudo-label generation candidates.",
+  "notes": [
+    "Sampled negative rows in LectureBank_prerequisites.csv are added as label_file_random training negatives; remaining file negatives stay unused.",
+    "source_id/source_index and target_id/target_index are both Stage0 concept_id values for direct indexing into Stage0 numpy arrays."
+  ],
+  "outputs": {
+    "positive_edges_all.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\positive_edges_all.csv",
+    "train_pos.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\train_pos.csv",
+    "val_pos.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\val_pos.csv",
+    "test_pos.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\test_pos.csv",
+    "train_neg_reverse.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\train_neg_reverse.csv",
+    "train_neg_hard.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\train_neg_hard.csv",
+    "train_neg_file_random.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\train_neg_file_random.csv",
+    "val_neg.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\val_neg.csv",
+    "test_neg.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\test_neg.csv",
+    "train_labels_initial.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\train_labels_initial.csv",
+    "val_labels.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\val_labels.csv",
+    "test_labels.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\test_labels.csv",
+    "heldout_pairs.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\heldout_pairs.csv",
+    "pseudo_pos_empty.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\pseudo_pos_empty.csv",
+    "pseudo_neg_empty.csv": "G:\\ACG-CD\\stage1\\outputs_lecturebank\\pseudo_neg_empty.csv"
+  }
+}

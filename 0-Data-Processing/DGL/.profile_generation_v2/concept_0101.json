@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "0f2771028d0b078b34a4e5e2750aac6809ef66d73f08e1b1a62aba48091eb94a",
+  "concept_id": 101,
+  "concept_name": "hidden layer",
+  "aliases": [
+    "hidden layer",
+    "hidden unit"
+  ],
+  "profile": "hidden layer: The term labels layers such as 'hidden layer 1' and 'hidden layer 2'. It appears in contexts including deep learning preliminaries, feature embedding and graph-based learning, and GNN training. In general, a hidden layer is a layer between the input and output layers.",
+  "word_count": 45,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hidden layer: A term used for particular layers, labeled 'hidden layer 1' and 'hidden layer 2'. It appears in materials on deep learning preliminaries, feature embedding and graph-based learning, and GNN training. In general, a hidden layer is a layer between the input and output layers.",
+    "claims": [
+      {
+        "claim": "The term refers to layers labeled 'hidden layer 1' and 'hidden layer 2' in the source materials.",
+        "evidence_ids": [
+          "DGL-E0109",
+          "DGL-E0122",
+          "DGL-E0318"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term appears in materials on deep learning preliminaries, feature embedding and graph-based learning, and GNN training.",
+        "evidence_ids": [
+          "DGL-E0109",
+          "DGL-E0122",
+          "DGL-E0318"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A hidden layer is a layer between the input and output layers.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The source evidence only shows term instances, not a formal definition; the definitional sentence is general background."
+    ]
+  },
+  "review": {
+    "final_profile": "hidden layer: The term labels layers such as 'hidden layer 1' and 'hidden layer 2'. It appears in contexts including deep learning preliminaries, feature embedding and graph-based learning, and GNN training. In general, a hidden layer is a layer between the input and output layers.",
+    "sentence_reviews": [
+      {
+        "sentence": "The term labels layers such as 'hidden layer 1' and 'hidden layer 2'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0109",
+          "DGL-E0122",
+          "DGL-E0318"
+        ],
+        "reason": "Evidence contains the exact labels 'hidden layer 1' and 'hidden layer 2'."
+      },
+      {
+        "sentence": "It appears in contexts including deep learning preliminaries, feature embedding and graph-based learning, and GNN training.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0109",
+          "DGL-E0122",
+          "DGL-E0318"
+        ],
+        "reason": "Page titles associated with the evidence indicate these respective topics."
+      },
+      {
+        "sentence": "In general, a hidden layer is a layer between the input and output layers.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional statement not explicitly present in the evidence; included as background."
+      }
+    ],
+    "warnings": [
+      "The source evidence only shows term instances, not a formal definition; the definitional sentence is general background."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hidden layer: A term used for particular layers, labeled 'hidden layer 1' and 'hidden layer 2'. It appears in materials on deep learning preliminaries, feature embedding and graph-based learning, and GNN training. In general, a hidden layer is a layer between the input and output layers.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term refers to layers labeled 'hidden layer 1' and 'hidden layer 2' in the source materials.\",\n      \"evidence_ids\": [\"DGL-E0109\", \"DGL-E0122\", \"DGL-E0318\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term appears in materials on deep learning preliminaries, feature embedding and graph-based learning, and GNN training.\",\n      \"evidence_ids\": [\"DGL-E0109\", \"DGL-E0122\", \"DGL-E0318\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A hidden layer is a layer between the input and output layers.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence only shows term instances, not a formal definition; the definitional sentence is general background.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hidden layer: The term labels layers such as 'hidden layer 1' and 'hidden layer 2'. It appears in contexts including deep learning preliminaries, feature embedding and graph-based learning, and GNN training. In general, a hidden layer is a layer between the input and output layers.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The term labels layers such as 'hidden layer 1' and 'hidden layer 2'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0109\", \"DGL-E0122\", \"DGL-E0318\"],\n      \"reason\": \"Evidence contains the exact labels 'hidden layer 1' and 'hidden layer 2'.\"\n    },\n    {\n      \"sentence\": \"It appears in contexts including deep learning preliminaries, feature embedding and graph-based learning, and GNN training.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0109\", \"DGL-E0122\", \"DGL-E0318\"],\n      \"reason\": \"Page titles associated with the evidence indicate these respective topics.\"\n    },\n    {\n      \"sentence\": \"In general, a hidden layer is a layer between the input and output layers.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional statement not explicitly present in the evidence; included as background.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence only shows term instances, not a formal definition; the definitional sentence is general background.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:30:53.007354+00:00"
+}

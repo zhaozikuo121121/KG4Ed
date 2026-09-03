@@ -1,0 +1,119 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "134cb97d101c5b02abd1bd9596dd399132d68b61c7a0098410dcebccbc5b1892",
+  "concept_id": 156,
+  "concept_name": "graph generation",
+  "aliases": [
+    "graph generation",
+    "generative models",
+    "graph to embeddings",
+    "embeddings to graphs",
+    "graph encoders",
+    "graph decoders",
+    "generating new graphs",
+    "generative models for graphs"
+  ],
+  "profile": "graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models. In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs. Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.",
+  "word_count": 56,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models. In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs. Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.",
+    "claims": [
+      {
+        "claim": "Graph generation is the task of producing new graphs.",
+        "evidence_ids": [
+          "DGL-E0551"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It can be addressed with generative models.",
+        "evidence_ids": [
+          "DGL-E0213"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph encoders map graph structure to node embeddings.",
+        "evidence_ids": [
+          "DGL-E0491"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph decoders map embeddings back to graphs.",
+        "evidence_ids": [
+          "DGL-E0491"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph generation involves this encoder-decoder mapping.",
+        "evidence_ids": [
+          "DGL-E0491"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The central question is how to generate new graphs from learned representations.",
+        "evidence_ids": [
+          "DGL-E0551",
+          "DGL-E0491"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The provided metadata lacks details about specific generative mechanisms or algorithms for graph generation."
+    ]
+  },
+  "review": {
+    "final_profile": "graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models. In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs. Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0551",
+          "DGL-E0213"
+        ],
+        "reason": "E0551 asks 'How to generate new graphs?', and E0213 lists 'generative model' as a graph learning task."
+      },
+      {
+        "sentence": "In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0491"
+        ],
+        "reason": "E0491 explicitly states 'Graph encoders -> graph to embeddings' and 'Graph decoders -> embeddings to graphs'."
+      },
+      {
+        "sentence": "Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0491",
+          "DGL-E0551"
+        ],
+        "reason": "E0491 presents encoder-decoder mapping under graph generation, and E0551 frames the core question as generating new graphs."
+      }
+    ],
+    "warnings": [
+      "The provided metadata lacks details about specific generative mechanisms or algorithms for graph generation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models. In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs. Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph generation is the task of producing new graphs.\",\n      \"evidence_ids\": [\"DGL-E0551\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It can be addressed with generative models.\",\n      \"evidence_ids\": [\"DGL-E0213\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph encoders map graph structure to node embeddings.\",\n      \"evidence_ids\": [\"DGL-E0491\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph decoders map embeddings back to graphs.\",\n      \"evidence_ids\": [\"DGL-E0491\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph generation involves this encoder-decoder mapping.\",\n      \"evidence_ids\": [\"DGL-E0491\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The central question is how to generate new graphs from learned representations.\",\n      \"evidence_ids\": [\"DGL-E0551\", \"DGL-E0491\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The provided metadata lacks details about specific generative mechanisms or algorithms for graph generation.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models. In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs. Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph generation: Graph generation is the task of producing new graphs, and can be addressed with generative models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0551\", \"DGL-E0213\"],\n      \"reason\": \"E0551 asks 'How to generate new graphs?', and E0213 lists 'generative model' as a graph learning task.\"\n    },\n    {\n      \"sentence\": \"In graph learning, graph encoders map graph structure to node embeddings, while graph decoders map embeddings back to graphs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0491\"],\n      \"reason\": \"E0491 explicitly states 'Graph encoders -> graph to embeddings' and 'Graph decoders -> embeddings to graphs'.\"\n    },\n    {\n      \"sentence\": \"Graph generation involves this encoder-decoder mapping, and the central question is how to generate new graphs from learned representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0491\", \"DGL-E0551\"],\n      \"reason\": \"E0491 presents encoder-decoder mapping under graph generation, and E0551 frames the core question as generating new graphs.\"\n    }\n  ],\n  \"warnings\": [\n    \"The provided metadata lacks details about specific generative mechanisms or algorithms for graph generation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:55:22.686638+00:00"
+}

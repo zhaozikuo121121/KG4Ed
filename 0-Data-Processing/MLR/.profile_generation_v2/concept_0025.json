@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c8b98f7ea78ff8744caa39ea6544988adcade7dcede30969fb0c618e79b5410b",
+  "concept_id": 25,
+  "concept_name": "global optimization",
+  "aliases": [
+    "global optimization",
+    "global optimization method"
+  ],
+  "profile": "global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.",
+    "claims": [
+      {
+        "claim": "Global optimization evaluates the function using many input points and treats the lowest-valued input as the approximate global minimizer.",
+        "evidence_ids": [
+          "MLR-E0026"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.",
+    "sentence_reviews": [
+      {
+        "sentence": "global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0026"
+        ],
+        "reason": "The sentence directly matches the evidence description of evaluating with many input points and treating the lowest-valued input as the approximate global minimizer."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.\",\n  \"claims\": [\n    {\n      \"claim\": \"Global optimization evaluates the function using many input points and treats the lowest-valued input as the approximate global minimizer.\",\n      \"evidence_ids\": [\"MLR-E0026\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"global optimization: a technique that evaluates the objective function at a large number of input points, then selects the input yielding the lowest function value as the approximate global minimizer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0026\"],\n      \"reason\": \"The sentence directly matches the evidence description of evaluating with many input points and treating the lowest-valued input as the approximate global minimizer.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:29:57.257985+00:00"
+}

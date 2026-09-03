@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4ea5b9e1a9277a79ebc48511b9c1743281e077fc1294c26a926568e889e1988c",
+  "concept_id": 70,
+  "concept_name": "convergence criterion",
+  "aliases": [
+    "convergence criterion",
+    "convergence criteria",
+    "maximum iterations convergence criterion"
+  ],
+  "profile": "convergence criterion: A convergence criterion can take the form of a maximum iterations rule. In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.",
+  "word_count": 35,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "convergence criterion: A convergence criterion can take the form of a maximum iterations rule. In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.",
+    "claims": [
+      {
+        "claim": "A convergence criterion can take the form of a maximum iterations rule.",
+        "evidence_ids": [
+          "MLR-E0082"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.",
+        "evidence_ids": [
+          "MLR-E0082"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "convergence criterion: A convergence criterion can take the form of a maximum iterations rule. In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.",
+    "sentence_reviews": [
+      {
+        "sentence": "A convergence criterion can take the form of a maximum iterations rule.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0082"
+        ],
+        "reason": "The source explicitly mentions using a maximum iterations convergence criterion."
+      },
+      {
+        "sentence": "In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0082"
+        ],
+        "reason": "The source links high computational cost of Newton steps with motivation for more formal convergence criteria."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"convergence criterion: A convergence criterion can take the form of a maximum iterations rule. In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.\",\n  \"claims\": [\n    {\n      \"claim\": \"A convergence criterion can take the form of a maximum iterations rule.\",\n      \"evidence_ids\": [\"MLR-E0082\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.\",\n      \"evidence_ids\": [\"MLR-E0082\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"convergence criterion: A convergence criterion can take the form of a maximum iterations rule. In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A convergence criterion can take the form of a maximum iterations rule.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0082\"],\n      \"reason\": \"The source explicitly mentions using a maximum iterations convergence criterion.\"\n    },\n    {\n      \"sentence\": \"In Newton-based second-order optimization, the potentially high computational cost of each step often incentivizes the use of more formal convergence criteria.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0082\"],\n      \"reason\": \"The source links high computational cost of Newton steps with motivation for more formal convergence criteria.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:47:47.368783+00:00"
+}

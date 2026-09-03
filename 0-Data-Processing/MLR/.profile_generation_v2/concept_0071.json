@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1938fb0b7b33b37e9caa73fd0aa324271bef3312555a5137e4d08d3fad171133",
+  "concept_id": 71,
+  "concept_name": "hessian matrix",
+  "aliases": [
+    "hessian matrix",
+    "hessian",
+    "matrix of second derivatives",
+    "second derivative matrix"
+  ],
+  "profile": "hessian matrix: an N × N matrix of second derivative information, requiring the storage and computation of the full second derivative matrix rather than only a gradient.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hessian matrix: an N × N matrix of second derivative information used in second-order optimization. It requires storage and computation of the full second derivative matrix, not just a gradient.",
+    "claims": [
+      {
+        "claim": "The Hessian matrix is an N × N matrix of second derivative information.",
+        "evidence_ids": [
+          "MLR-E0083"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It requires storage and computation of the full Hessian, not just a gradient.",
+        "evidence_ids": [
+          "MLR-E0083"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to a single mention; no additional properties or examples are asserted."
+    ]
+  },
+  "review": {
+    "final_profile": "hessian matrix: an N × N matrix of second derivative information, requiring the storage and computation of the full second derivative matrix rather than only a gradient.",
+    "sentence_reviews": [
+      {
+        "sentence": "hessian matrix: an N × N matrix of second derivative information, requiring the storage and computation of the full second derivative matrix rather than only a gradient.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0083"
+        ],
+        "reason": "Directly reflects the evidence: N x N matrix of second derivative information, storage/computation, and contrast with gradient."
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to a single mention; no additional properties or examples are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hessian matrix: an N × N matrix of second derivative information used in second-order optimization. It requires storage and computation of the full second derivative matrix, not just a gradient.\",\n  \"claims\": [\n    {\n      \"claim\": \"The Hessian matrix is an N × N matrix of second derivative information.\",\n      \"evidence_ids\": [\"MLR-E0083\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It requires storage and computation of the full Hessian, not just a gradient.\",\n      \"evidence_ids\": [\"MLR-E0083\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is limited to a single mention; no additional properties or examples are asserted.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hessian matrix: an N × N matrix of second derivative information, requiring the storage and computation of the full second derivative matrix rather than only a gradient.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"hessian matrix: an N × N matrix of second derivative information, requiring the storage and computation of the full second derivative matrix rather than only a gradient.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0083\"],\n      \"reason\": \"Directly reflects the evidence: N x N matrix of second derivative information, storage/computation, and contrast with gradient.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is limited to a single mention; no additional properties or examples are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:48:02.293211+00:00"
+}

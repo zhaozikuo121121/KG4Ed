@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "85a5024f2e97251d9374f64cfda6434ccce19730b964becee672631614974dfa",
+  "concept_id": 387,
+  "concept_name": "degree distribution",
+  "aliases": [
+    "degree distribution",
+    "degree"
+  ],
+  "profile": "degree distribution: the distribution of node degrees across all nodes in a graph.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "degree distribution: the distribution of node degrees across all nodes in a graph.",
+    "claims": [
+      {
+        "claim": "Degree distribution is the distribution of node degrees across all nodes in a graph.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "No source-supported definition of degree distribution was found; only the term 'degree' appears in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "degree distribution: the distribution of node degrees across all nodes in a graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "degree distribution: the distribution of node degrees across all nodes in a graph.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General definition of the concept; the source contains only the term 'degree'."
+      }
+    ],
+    "warnings": [
+      "Only the term 'degree' appears in the source; no explicit definition of degree distribution is attested."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"degree distribution: the distribution of node degrees across all nodes in a graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"Degree distribution is the distribution of node degrees across all nodes in a graph.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\"No source-supported definition of degree distribution was found; only the term 'degree' appears in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"degree distribution: the distribution of node degrees across all nodes in a graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"degree distribution: the distribution of node degrees across all nodes in a graph.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General definition of the concept; the source contains only the term 'degree'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the term 'degree' appears in the source; no explicit definition of degree distribution is attested.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:14:33.724071+00:00"
+}

@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4be94582e572b8a84409e4e395018e85e3f30c083d10079389023bfac02a1a73",
+  "concept_id": 63,
+  "concept_name": "betweenness centrality",
+  "aliases": [
+    "betweenness centrality",
+    "betweenness"
+  ],
+  "profile": "betweenness centrality: The term appears as a handwritten label next to a graph diagram. The surrounding material concerns graph properties and matrix representations. The available record does not provide a definition or formula for the term.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "betweenness centrality: The term appears as a handwritten label near a graph diagram. The surrounding context identifies the topic as graph properties and matrix representations.",
+    "claims": [
+      {
+        "claim": "The term 'betweenness centrality' appears as a handwritten label near a graph diagram.",
+        "evidence_ids": [
+          "DGL-E0054"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The surrounding context identifies the topic as graph properties and matrix representations.",
+        "evidence_ids": [
+          "DGL-E0054"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten occurrence; definition or formula not specified in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "betweenness centrality: The term appears as a handwritten label next to a graph diagram. The surrounding material concerns graph properties and matrix representations. The available record does not provide a definition or formula for the term.",
+    "sentence_reviews": [
+      {
+        "sentence": "The term appears as a handwritten label next to a graph diagram.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0054"
+        ],
+        "reason": "The evidence describes handwritten text 'betweenness centrality' near a graph diagram."
+      },
+      {
+        "sentence": "The surrounding material concerns graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0054"
+        ],
+        "reason": "The associated page title is 'Graph Properties and Matrix Representations'."
+      },
+      {
+        "sentence": "The available record does not provide a definition or formula for the term.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0054"
+        ],
+        "reason": "Only a single handwritten occurrence is present; no definition or formula is supplied."
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten occurrence; definition or formula not specified in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"betweenness centrality: The term appears as a handwritten label near a graph diagram. The surrounding context identifies the topic as graph properties and matrix representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'betweenness centrality' appears as a handwritten label near a graph diagram.\",\n      \"evidence_ids\": [\"DGL-E0054\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The surrounding context identifies the topic as graph properties and matrix representations.\",\n      \"evidence_ids\": [\"DGL-E0054\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only a single handwritten occurrence; definition or formula not specified in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"betweenness centrality: The term appears as a handwritten label next to a graph diagram. The surrounding material concerns graph properties and matrix representations. The available record does not provide a definition or formula for the term.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The term appears as a handwritten label next to a graph diagram.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0054\"],\n      \"reason\": \"The evidence describes handwritten text 'betweenness centrality' near a graph diagram.\"\n    },\n    {\n      \"sentence\": \"The surrounding material concerns graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0054\"],\n      \"reason\": \"The associated page title is 'Graph Properties and Matrix Representations'.\"\n    },\n    {\n      \"sentence\": \"The available record does not provide a definition or formula for the term.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0054\"],\n      \"reason\": \"Only a single handwritten occurrence is present; no definition or formula is supplied.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single handwritten occurrence; definition or formula not specified in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:09:17.540831+00:00"
+}

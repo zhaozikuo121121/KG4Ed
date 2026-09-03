@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "606ae7b2945aa9db3ae06b589f36f3d1e011ea8a149902b9776c8f1f5d420d39",
+  "concept_id": 172,
+  "concept_name": "transformation layers",
+  "aliases": [
+    "transformation layers",
+    "layers"
+  ],
+  "profile": "transformation layers: transformation layers describe the operation of transforming layer k onto layer k+1.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "transformation layers: transformation layers describe the operation of transforming layer k onto layer k+1.",
+    "claims": [
+      {
+        "claim": "transformation layers describe the operation of transforming layer k onto layer k+1.",
+        "evidence_ids": [
+          "DGL-E0171"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence phrase is available; the profile is restricted to that phrase.",
+      "The source is handwritten with confidence 0.900."
+    ]
+  },
+  "review": {
+    "final_profile": "transformation layers: transformation layers describe the operation of transforming layer k onto layer k+1.",
+    "sentence_reviews": [
+      {
+        "sentence": "transformation layers describe the operation of transforming layer k onto layer k+1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0171"
+        ],
+        "reason": "Directly supported by the handwritten phrase 'transforming layer k onto k+1' in the source."
+      }
+    ],
+    "warnings": [
+      "Only one source phrase supports the profile; no additional claims were added.",
+      "The source is a handwritten note, so the wording is kept close to the transcription."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"transformation layers: transformation layers describe the operation of transforming layer k onto layer k+1.\",\n  \"claims\": [\n    {\n      \"claim\": \"transformation layers describe the operation of transforming layer k onto layer k+1.\",\n      \"evidence_ids\": [\"DGL-E0171\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence phrase is available; the profile is restricted to that phrase.\",\n    \"The source is handwritten with confidence 0.900.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"transformation layers: transformation layers describe the operation of transforming layer k onto layer k+1.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"transformation layers describe the operation of transforming layer k onto layer k+1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0171\"],\n      \"reason\": \"Directly supported by the handwritten phrase 'transforming layer k onto k+1' in the source.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source phrase supports the profile; no additional claims were added.\",\n    \"The source is a handwritten note, so the wording is kept close to the transcription.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:02:10.934899+00:00"
+}

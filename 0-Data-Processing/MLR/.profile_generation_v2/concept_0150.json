@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "64af259ab68aafa13e7fc8c312e4ad6bf94ca27763d2f294b5937817a726b13d",
+  "concept_id": 150,
+  "concept_name": "mini-batch gradient descent",
+  "aliases": [
+    "mini-batch gradient descent",
+    "minibatch gradient descent",
+    "mini-batch optimization"
+  ],
+  "profile": "mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms. Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost. Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.",
+  "word_count": 64,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms. Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost. Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.",
+    "claims": [
+      {
+        "claim": "Mini-batch gradient descent is an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms.",
+        "evidence_ids": [
+          "MLR-E0365"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost.",
+        "evidence_ids": [
+          "MLR-E0227"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.",
+        "evidence_ids": [
+          "MLR-E0169"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms. Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost. Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.",
+    "sentence_reviews": [
+      {
+        "sentence": "mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0365"
+        ],
+        "reason": "Directly paraphrases the source definition of mini-batch gradient descent as an extension of standard gradient descent for accelerating minimization of sum-of-terms cost functions."
+      },
+      {
+        "sentence": "Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0227"
+        ],
+        "reason": "The listed hyperparameters and cost function match the mini-batch gradient descent configuration mentioned in the source."
+      },
+      {
+        "sentence": "Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0169"
+        ],
+        "reason": "The source states that the mini-batch run drastically accelerates minimization in terms of cost function and misclassifications."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms. Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost. Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.\",\n  \"claims\": [\n    {\n      \"claim\": \"Mini-batch gradient descent is an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms.\",\n      \"evidence_ids\": [\"MLR-E0365\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost.\",\n      \"evidence_ids\": [\"MLR-E0227\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.\",\n      \"evidence_ids\": [\"MLR-E0169\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms. Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost. Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mini-batch gradient descent: an extension of standard gradient descent designed to accelerate minimization of cost functions consisting of a sum of P terms.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0365\"],\n      \"reason\": \"Directly paraphrases the source definition of mini-batch gradient descent as an extension of standard gradient descent for accelerating minimization of sum-of-terms cost functions.\"\n    },\n    {\n      \"sentence\": \"Example settings include a learning rate of α = 10−2, batch size 200, and 20 steps/epochs applied to a multi-class Softmax cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0227\"],\n      \"reason\": \"The listed hyperparameters and cost function match the mini-batch gradient descent configuration mentioned in the source.\"\n    },\n    {\n      \"sentence\": \"Empirically, a mini-batch run drastically accelerates minimization in terms of both the cost function and the number of misclassifications.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0169\"],\n      \"reason\": \"The source states that the mini-batch run drastically accelerates minimization in terms of cost function and misclassifications.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:24:50.791564+00:00"
+}

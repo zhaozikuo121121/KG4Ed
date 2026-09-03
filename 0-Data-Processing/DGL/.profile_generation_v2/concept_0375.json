@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "91257db613836116068a7b2427814d63262aa1f8a783a9a56d889a4b467c34a0",
+  "concept_id": 375,
+  "concept_name": "graph unet",
+  "aliases": [
+    "graph unet",
+    "g-u-nets",
+    "graph u-net",
+    "g-unet"
+  ],
+  "profile": "graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'. It is described as an encoder-decoder GNN case study and appears under 'Generative Graph Neural Networks and Graph Pooling'.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'. In DGL lecture materials, it is used as an encoder-decoder GNN case study and appears in the topic 'Generative Graph Neural Networks and Graph Pooling'.",
+    "claims": [
+      {
+        "claim": "The concept is referenced as 'Graph UNet (Gao et al., 2019)'.",
+        "evidence_ids": [
+          "DGL-E0528",
+          "DGL-E0548"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is also known as 'g-U-Nets'.",
+        "evidence_ids": [
+          "DGL-E0528"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is used as an encoder-decoder GNN case study.",
+        "evidence_ids": [
+          "DGL-E0548"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept appears in the topic 'Generative Graph Neural Networks and Graph Pooling'.",
+        "evidence_ids": [
+          "DGL-E0528"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'. It is described as an encoder-decoder GNN case study and appears under 'Generative Graph Neural Networks and Graph Pooling'.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0528",
+          "DGL-E0548"
+        ],
+        "reason": "Both evidence items explicitly use the name 'Graph UNet (Gao et al., 2019)', and E0528 also lists 'g-U-Nets'."
+      },
+      {
+        "sentence": "It is described as an encoder-decoder GNN case study and appears under 'Generative Graph Neural Networks and Graph Pooling'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0548",
+          "DGL-E0528"
+        ],
+        "reason": "E0548 labels it as an encoder-decoder GNN case study; E0528 presents it under the given topic heading."
+      }
+    ],
+    "warnings": [
+      "No source supports architectural details, functional claims, or performance statements; the profile is limited to naming and contextual placement."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'. In DGL lecture materials, it is used as an encoder-decoder GNN case study and appears in the topic 'Generative Graph Neural Networks and Graph Pooling'.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept is referenced as 'Graph UNet (Gao et al., 2019)'.\",\n      \"evidence_ids\": [\"DGL-E0528\", \"DGL-E0548\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is also known as 'g-U-Nets'.\",\n      \"evidence_ids\": [\"DGL-E0528\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is used as an encoder-decoder GNN case study.\",\n      \"evidence_ids\": [\"DGL-E0548\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept appears in the topic 'Generative Graph Neural Networks and Graph Pooling'.\",\n      \"evidence_ids\": [\"DGL-E0528\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'. It is described as an encoder-decoder GNN case study and appears under 'Generative Graph Neural Networks and Graph Pooling'.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph unet: A concept referenced as 'Graph UNet (Gao et al., 2019)' and 'g-U-Nets'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0528\",\n        \"DGL-E0548\"\n      ],\n      \"reason\": \"Both evidence items explicitly use the name 'Graph UNet (Gao et al., 2019)', and E0528 also lists 'g-U-Nets'.\"\n    },\n    {\n      \"sentence\": \"It is described as an encoder-decoder GNN case study and appears under 'Generative Graph Neural Networks and Graph Pooling'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0548\",\n        \"DGL-E0528\"\n      ],\n      \"reason\": \"E0548 labels it as an encoder-decoder GNN case study; E0528 presents it under the given topic heading.\"\n    }\n  ],\n  \"warnings\": [\n    \"No source supports architectural details, functional claims, or performance statements; the profile is limited to naming and contextual placement.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:10:33.378293+00:00"
+}

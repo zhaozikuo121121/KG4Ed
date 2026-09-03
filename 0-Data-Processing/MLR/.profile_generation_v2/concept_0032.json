@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "0a2ea55f11e3ebdafb55fbadaa6fb8d0b278dfaeb669b3194c54a3de9069f182",
+  "concept_id": 32,
+  "concept_name": "local optimization",
+  "aliases": [
+    "local optimization",
+    "local optimization method",
+    "local algorithm"
+  ],
+  "profile": "local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer. Feature engineering and selection can drastically improve the efficacy of many local optimization methods. In feature learning, a run of local optimization may be made.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer. Feature engineering and selection can drastically improve the efficacy of many local optimization methods. In feature learning, a run of local optimization may be made.",
+    "claims": [
+      {
+        "claim": "Local optimization is a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer.",
+        "evidence_ids": [
+          "MLR-E0033"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Feature engineering and selection can drastically improve the efficacy of many local optimization methods.",
+        "evidence_ids": [
+          "MLR-E0211"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In feature learning, a run of local optimization may be made.",
+        "evidence_ids": [
+          "MLR-E0270"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer. Feature engineering and selection can drastically improve the efficacy of many local optimization methods. In feature learning, a run of local optimization may be made.",
+    "sentence_reviews": [
+      {
+        "sentence": "local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0033"
+        ],
+        "reason": "Directly reflects the described sequential refinement from a single starting point toward an approximate minimizer."
+      },
+      {
+        "sentence": "Feature engineering and selection can drastically improve the efficacy of many local optimization methods.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0211"
+        ],
+        "reason": "Grounds the phrase about drastically improving the efficacy of many local optimization methods."
+      },
+      {
+        "sentence": "In feature learning, a run of local optimization may be made.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0270"
+        ],
+        "reason": "Minimally restates the source phrase about making a run of local optimization in the feature learning context."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer. Feature engineering and selection can drastically improve the efficacy of many local optimization methods. In feature learning, a run of local optimization may be made.\",\n  \"claims\": [\n    {\n      \"claim\": \"Local optimization is a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer.\",\n      \"evidence_ids\": [\"MLR-E0033\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Feature engineering and selection can drastically improve the efficacy of many local optimization methods.\",\n      \"evidence_ids\": [\"MLR-E0211\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In feature learning, a run of local optimization may be made.\",\n      \"evidence_ids\": [\"MLR-E0270\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer. Feature engineering and selection can drastically improve the efficacy of many local optimization methods. In feature learning, a run of local optimization may be made.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"local optimization: a class of methods that work by starting with a single input point and then sequentially refining it, driving the point towards an approximate minimizer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0033\"],\n      \"reason\": \"Directly reflects the described sequential refinement from a single starting point toward an approximate minimizer.\"\n    },\n    {\n      \"sentence\": \"Feature engineering and selection can drastically improve the efficacy of many local optimization methods.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0211\"],\n      \"reason\": \"Grounds the phrase about drastically improving the efficacy of many local optimization methods.\"\n    },\n    {\n      \"sentence\": \"In feature learning, a run of local optimization may be made.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0270\"],\n      \"reason\": \"Minimally restates the source phrase about making a run of local optimization in the feature learning context.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:32:21.990080+00:00"
+}

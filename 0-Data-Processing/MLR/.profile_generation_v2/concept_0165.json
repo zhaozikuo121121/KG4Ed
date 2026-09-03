@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c81fefb21694b8acb20cb542c8c9ecd26dc667540f7bd715624c1378de0e6cd6",
+  "concept_id": 165,
+  "concept_name": "principal component analysis",
+  "aliases": [
+    "principal component analysis",
+    "pca"
+  ],
+  "profile": "principal component analysis: Principal component analysis, or PCA for short, is a method used in practice. When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features. This new set of features is one over which the dataset may be fairly represented.",
+  "word_count": 53,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "principal component analysis: Principal component analysis, or PCA for short, is a method used in practice. When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features. This new set of features is one over which the dataset may be fairly represented.",
+    "claims": [
+      {
+        "claim": "Principal component analysis is also known as PCA for short and is used in practice.",
+        "evidence_ids": [
+          "MLR-E0188"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "When applied to reduce the dimension of a dataset, PCA learns a new, smaller set of features over which the dataset may be fairly represented.",
+        "evidence_ids": [
+          "MLR-E0216"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "principal component analysis: Principal component analysis, or PCA for short, is a method used in practice. When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features. This new set of features is one over which the dataset may be fairly represented.",
+    "sentence_reviews": [
+      {
+        "sentence": "Principal component analysis, or PCA for short, is a method used in practice.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0188"
+        ],
+        "reason": "The source names PCA and indicates its use in practice."
+      },
+      {
+        "sentence": "When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0216"
+        ],
+        "reason": "The source states PCA reduces dimension by learning a new, smaller set of features."
+      },
+      {
+        "sentence": "This new set of features is one over which the dataset may be fairly represented.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0216"
+        ],
+        "reason": "The source says the dataset may be fairly represented over this new feature set."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"principal component analysis: Principal component analysis, or PCA for short, is a method used in practice. When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features. This new set of features is one over which the dataset may be fairly represented.\",\n  \"claims\": [\n    {\n      \"claim\": \"Principal component analysis is also known as PCA for short and is used in practice.\",\n      \"evidence_ids\": [\"MLR-E0188\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"When applied to reduce the dimension of a dataset, PCA learns a new, smaller set of features over which the dataset may be fairly represented.\",\n      \"evidence_ids\": [\"MLR-E0216\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"principal component analysis: Principal component analysis, or PCA for short, is a method used in practice. When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features. This new set of features is one over which the dataset may be fairly represented.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Principal component analysis, or PCA for short, is a method used in practice.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0188\"],\n      \"reason\": \"The source names PCA and indicates its use in practice.\"\n    },\n    {\n      \"sentence\": \"When PCA is applied to reduce the dimension of a dataset, it does so by learning a new, smaller set of features.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0216\"],\n      \"reason\": \"The source states PCA reduces dimension by learning a new, smaller set of features.\"\n    },\n    {\n      \"sentence\": \"This new set of features is one over which the dataset may be fairly represented.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0216\"],\n      \"reason\": \"The source says the dataset may be fairly represented over this new feature set.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:30:01.492924+00:00"
+}

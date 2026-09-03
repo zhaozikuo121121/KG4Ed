@@ -1,0 +1,73 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "91f4c1d1363b63b5c1c0685e0158dd3a6ad2b7472e19f83afefa88d68c6dfedc",
+  "concept_id": 290,
+  "concept_name": "rooted subtree",
+  "aliases": [
+    "rooted subtree",
+    "rooted subtrees"
+  ],
+  "profile": "rooted subtree: A rooted subtree is the structure around a node in a graph. In graph neural networks, computational graphs are identical to rooted subtree structures around each node. Therefore, the computational graph of a node can be viewed as its rooted subtree.",
+  "word_count": 43,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "rooted subtree: A rooted subtree is a structure centered on a node in a graph. In graph neural networks, computational graphs are identical to rooted subtree structures around each node. This means the computational graph of a node can be viewed as its rooted subtree.",
+    "claims": [
+      {
+        "claim": "Computational graphs are identical to rooted subtree structures around each node.",
+        "evidence_ids": [
+          "DGL-E0437"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "rooted subtree: A rooted subtree is the structure around a node in a graph. In graph neural networks, computational graphs are identical to rooted subtree structures around each node. Therefore, the computational graph of a node can be viewed as its rooted subtree.",
+    "sentence_reviews": [
+      {
+        "sentence": "A rooted subtree is the structure around a node in a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0437"
+        ],
+        "reason": "The evidence describes rooted subtree structures around each node, supporting this definitional statement."
+      },
+      {
+        "sentence": "In graph neural networks, computational graphs are identical to rooted subtree structures around each node.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0437"
+        ],
+        "reason": "This directly restates the evidence: computational graphs are identical to rooted subtree structures around each node."
+      },
+      {
+        "sentence": "Therefore, the computational graph of a node can be viewed as its rooted subtree.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0437"
+        ],
+        "reason": "This is a direct consequence of the stated identity between computational graphs and rooted subtree structures."
+      }
+    ],
+    "warnings": [
+      "The profile is limited to the equivalence between computational graphs and rooted subtrees; no independent formal definition of rooted subtree is provided by the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"rooted subtree: A rooted subtree is a structure centered on a node in a graph. In graph neural networks, computational graphs are identical to rooted subtree structures around each node. This means the computational graph of a node can be viewed as its rooted subtree.\",\n  \"claims\": [\n    {\n      \"claim\": \"Computational graphs are identical to rooted subtree structures around each node.\",\n      \"evidence_ids\": [\"DGL-E0437\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"rooted subtree: A rooted subtree is the structure around a node in a graph. In graph neural networks, computational graphs are identical to rooted subtree structures around each node. Therefore, the computational graph of a node can be viewed as its rooted subtree.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A rooted subtree is the structure around a node in a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0437\"],\n      \"reason\": \"The evidence describes rooted subtree structures around each node, supporting this definitional statement.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks, computational graphs are identical to rooted subtree structures around each node.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0437\"],\n      \"reason\": \"This directly restates the evidence: computational graphs are identical to rooted subtree structures around each node.\"\n    },\n    {\n      \"sentence\": \"Therefore, the computational graph of a node can be viewed as its rooted subtree.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0437\"],\n      \"reason\": \"This is a direct consequence of the stated identity between computational graphs and rooted subtree structures.\"\n    }\n  ],\n  \"warnings\": [\n    \"The profile is limited to the equivalence between computational graphs and rooted subtrees; no independent formal definition of rooted subtree is provided by the evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:44:02.313856+00:00"
+}

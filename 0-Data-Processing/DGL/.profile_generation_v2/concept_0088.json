@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "84c5131b2df086fae89e986f667cce4483ca46da5344de43db0f56e08baacb74",
+  "concept_id": 88,
+  "concept_name": "classification",
+  "aliases": [
+    "classification",
+    "classify"
+  ],
+  "profile": "classification: the term 'classify' appears in deep learning preliminaries.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "classification: a concept appearing in deep learning preliminaries. The term also appears as the verb form 'classify'.",
+    "claims": [
+      {
+        "claim": "Classification is a concept appearing in deep learning preliminaries.",
+        "evidence_ids": [
+          "DGL-E0091"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term also appears as the verb form 'classify'.",
+        "evidence_ids": [
+          "DGL-E0091"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata is limited to a single handwritten occurrence of the term, so the profile is minimal."
+    ]
+  },
+  "review": {
+    "final_profile": "classification: the term 'classify' appears in deep learning preliminaries.",
+    "sentence_reviews": [
+      {
+        "sentence": "classification: the term 'classify' appears in deep learning preliminaries.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0091"
+        ],
+        "reason": "The evidence is a single handwritten occurrence of 'Classify' in a deep learning preliminaries context; no definitional content is provided, so the profile is intentionally minimal."
+      }
+    ],
+    "warnings": [
+      "Only a single occurrence of 'Classify' is available; there is no source-backed information about what classification means or how it is used."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"classification: a concept appearing in deep learning preliminaries. The term also appears as the verb form 'classify'.\",\n  \"claims\": [\n    {\n      \"claim\": \"Classification is a concept appearing in deep learning preliminaries.\",\n      \"evidence_ids\": [\"DGL-E0091\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term also appears as the verb form 'classify'.\",\n      \"evidence_ids\": [\"DGL-E0091\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata is limited to a single handwritten occurrence of the term, so the profile is minimal.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"classification: the term 'classify' appears in deep learning preliminaries.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"classification: the term 'classify' appears in deep learning preliminaries.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0091\"\n      ],\n      \"reason\": \"The evidence is a single handwritten occurrence of 'Classify' in a deep learning preliminaries context; no definitional content is provided, so the profile is intentionally minimal.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single occurrence of 'Classify' is available; there is no source-backed information about what classification means or how it is used.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:22:27.642007+00:00"
+}

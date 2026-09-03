@@ -1,0 +1,118 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4e8d2af8ff159630290d72da02199177a359afcf39539f15215ab48e238fc865",
+  "concept_id": 109,
+  "concept_name": "regularization",
+  "aliases": [
+    "regularization",
+    "regularization strategies",
+    "regularizer-based regularization"
+  ],
+  "profile": "regularization: A complementary approach to feature selection. Instead of building up a model from the bottom, regularization takes a top-down view: it starts with a complete model that includes all input features and gradually removes features of inferior importance. This top-down approach is generally referred to in machine learning jargon as a regularization strategy. A related term is regularizer-based regularization. Along with boosting, regularization is one of two popular ways for performing feature selection.",
+  "word_count": 74,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regularization: A complementary approach to feature selection. Instead of bottom-up model building, regularization takes a top-down view: it starts with a complete model including all input features and gradually removes features of inferior importance. In machine learning jargon, such approaches are often called regularization strategies. A specific variant is regularizer-based regularization. Along with boosting, regularization is one of two popular ways for performing feature selection.",
+    "claims": [
+      {
+        "claim": "Regularization is a complementary approach to feature selection.",
+        "evidence_ids": [
+          "MLR-E0362"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Regularization takes a top-down view: it starts with a complete model containing all input features and gradually removes features of inferior importance.",
+        "evidence_ids": [
+          "MLR-E0362"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In machine learning jargon, such approaches are often called regularization strategies.",
+        "evidence_ids": [
+          "MLR-E0125"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Regularizer-based regularization is a specific variant of regularization.",
+        "evidence_ids": [
+          "MLR-E0279"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Along with boosting, regularization is one of two popular ways for performing feature selection.",
+        "evidence_ids": [
+          "MLR-E0212"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regularization: A complementary approach to feature selection. Instead of building up a model from the bottom, regularization takes a top-down view: it starts with a complete model that includes all input features and gradually removes features of inferior importance. This top-down approach is generally referred to in machine learning jargon as a regularization strategy. A related term is regularizer-based regularization. Along with boosting, regularization is one of two popular ways for performing feature selection.",
+    "sentence_reviews": [
+      {
+        "sentence": "regularization: A complementary approach to feature selection.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0362"
+        ],
+        "reason": "The source introduces regularization as a complementary approach to feature selection; the label is the required concept name."
+      },
+      {
+        "sentence": "Instead of building up a model from the bottom, regularization takes a top-down view: it starts with a complete model that includes all input features and gradually removes features of inferior importance.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0362"
+        ],
+        "reason": "This mirrors the source description of starting with a complete model and removing less important input features top-down."
+      },
+      {
+        "sentence": "This top-down approach is generally referred to in machine learning jargon as a regularization strategy.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0125"
+        ],
+        "reason": "The source says such approaches are generally called regularization strategies in machine learning jargon."
+      },
+      {
+        "sentence": "A related term is regularizer-based regularization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0279"
+        ],
+        "reason": "The source mentions the term regularizer-based regularization; no further detail is asserted."
+      },
+      {
+        "sentence": "Along with boosting, regularization is one of two popular ways for performing feature selection.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0212"
+        ],
+        "reason": "The source lists boosting and regularization as two popular ways for performing feature selection."
+      }
+    ],
+    "warnings": [
+      "The exact relationship between 'regularization strategies' and 'regularizer-based regularization' is not elaborated in the provided evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regularization: A complementary approach to feature selection. Instead of bottom-up model building, regularization takes a top-down view: it starts with a complete model including all input features and gradually removes features of inferior importance. In machine learning jargon, such approaches are often called regularization strategies. A specific variant is regularizer-based regularization. Along with boosting, regularization is one of two popular ways for performing feature selection.\",\n  \"claims\": [\n    {\n      \"claim\": \"Regularization is a complementary approach to feature selection.\",\n      \"evidence_ids\": [\"MLR-E0362\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Regularization takes a top-down view: it starts with a complete model containing all input features and gradually removes features of inferior importance.\",\n      \"evidence_ids\": [\"MLR-E0362\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In machine learning jargon, such approaches are often called regularization strategies.\",\n      \"evidence_ids\": [\"MLR-E0125\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Regularizer-based regularization is a specific variant of regularization.\",\n      \"evidence_ids\": [\"MLR-E0279\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Along with boosting, regularization is one of two popular ways for performing feature selection.\",\n      \"evidence_ids\": [\"MLR-E0212\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regularization: A complementary approach to feature selection. Instead of building up a model from the bottom, regularization takes a top-down view: it starts with a complete model that includes all input features and gradually removes features of inferior importance. This top-down approach is generally referred to in machine learning jargon as a regularization strategy. A related term is regularizer-based regularization. Along with boosting, regularization is one of two popular ways for performing feature selection.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"regularization: A complementary approach to feature selection.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0362\"],\n      \"reason\": \"The source introduces regularization as a complementary approach to feature selection; the label is the required concept name.\"\n    },\n    {\n      \"sentence\": \"Instead of building up a model from the bottom, regularization takes a top-down view: it starts with a complete model that includes all input features and gradually removes features of inferior importance.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0362\"],\n      \"reason\": \"This mirrors the source description of starting with a complete model and removing less important input features top-down.\"\n    },\n    {\n      \"sentence\": \"This top-down approach is generally referred to in machine learning jargon as a regularization strategy.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0125\"],\n      \"reason\": \"The source says such approaches are generally called regularization strategies in machine learning jargon.\"\n    },\n    {\n      \"sentence\": \"A related term is regularizer-based regularization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0279\"],\n      \"reason\": \"The source mentions the term regularizer-based regularization; no further detail is asserted.\"\n    },\n    {\n      \"sentence\": \"Along with boosting, regularization is one of two popular ways for performing feature selection.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0212\"],\n      \"reason\": \"The source lists boosting and regularization as two popular ways for performing feature selection.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact relationship between 'regularization strategies' and 'regularizer-based regularization' is not elaborated in the provided evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:07:12.218878+00:00"
+}

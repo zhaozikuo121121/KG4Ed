@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "11e56787fc9af73b3991d39bbe0f8a3c942f5f06e6c503b379f63ffb3734af76",
+  "concept_id": 280,
+  "concept_name": "mode",
+  "aliases": [
+    "mode",
+    "majority voting"
+  ],
+  "profile": "mode: the most frequent classification result among multiple decision trees; used to combine their predictions into a final output, e.g., taking the mode of five classification trees.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mode: the most frequent classification result among multiple decision trees; used to combine tree predictions into a final consensus output, e.g., taking the mode of five classification trees.",
+    "claims": [
+      {
+        "claim": "The mode is the most frequent classification result among multiple decision trees, used to combine their predictions into a final consensus output.",
+        "evidence_ids": [
+          "MLR-E0344"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single example; no formal definition or broader context is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "mode: the most frequent classification result among multiple decision trees; used to combine their predictions into a final output, e.g., taking the mode of five classification trees.",
+    "sentence_reviews": [
+      {
+        "sentence": "mode: the most frequent classification result among multiple decision trees; used to combine their predictions into a final output, e.g., taking the mode of five classification trees.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0344"
+        ],
+        "reason": "The source directly mentions taking the mode of five classification trees, supporting the idea of a most frequent result used to combine tree predictions."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single example; no formal definition or broader context is provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mode: the most frequent classification result among multiple decision trees; used to combine tree predictions into a final consensus output, e.g., taking the mode of five classification trees.\",\n  \"claims\": [\n    {\n      \"claim\": \"The mode is the most frequent classification result among multiple decision trees, used to combine their predictions into a final consensus output.\",\n      \"evidence_ids\": [\"MLR-E0344\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Evidence is limited to a single example; no formal definition or broader context is provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mode: the most frequent classification result among multiple decision trees; used to combine their predictions into a final output, e.g., taking the mode of five classification trees.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mode: the most frequent classification result among multiple decision trees; used to combine their predictions into a final output, e.g., taking the mode of five classification trees.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0344\"],\n      \"reason\": \"The source directly mentions taking the mode of five classification trees, supporting the idea of a most frequent result used to combine tree predictions.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to a single example; no formal definition or broader context is provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:11:50.394092+00:00"
+}

@@ -1,0 +1,3682 @@
+{
+  "version": "1.0.0",
+  "lecture": 6,
+  "pdf_file": "DGL_Lecture_6_Annotated.pdf",
+  "pdf_page": 3,
+  "page_title": "Generative Graph Neural Networks and Graph Pooling",
+  "summary": "This page covers generative models for graphs, including GraphVAE and various one-shot generation methods using MLPs and message passing. It details the taxonomy of generative GNN tasks, distinguishing between self-supervised and supervised approaches like conditional generation and node-edge co-transformation. The page also introduces Graph U-Nets, focusing on the proposed graph pooling (gPool) and unpooling (gUnpool) layers that utilize top-k node selection and skip connections for hierarchical graph representation learning.",
+  "key_topics": [
+    "graph generation",
+    "variational autoencoder",
+    "graph pooling",
+    "graph unet",
+    "message passing"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T15:47:12+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "self-supervised learning",
+      "aliases": [
+        "self-supervised"
+      ],
+      "evidence": "Self-supervised/unsupervised generative GNN tasks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        165.0,
+        66.0
+      ]
+    },
+    {
+      "canonical": "supervised generative gnn tasks",
+      "aliases": [
+        "supervised generation"
+      ],
+      "evidence": "Taxonomy (Guo et al., 2023) Supervised generative GNN tasks",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        549.0,
+        55.0,
+        697.5,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graphvae",
+      "aliases": [
+        "variational graph autoencoder"
+      ],
+      "evidence": "GraphVAE (Simonovsky et al., 2018)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        220.0,
+        82.5,
+        330.0,
+        99.0
+      ]
+    },
+    {
+      "canonical": "conditional generation",
+      "aliases": [
+        "conditioning on graphs"
+      ],
+      "evidence": "Conditional generation, Conditioning on graphs",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        549.0,
+        88.0,
+        642.5,
+        121.0
+      ]
+    },
+    {
+      "canonical": "graph generation",
+      "aliases": [
+        "generative model"
+      ],
+      "evidence": "Unconditional generation",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        110.0,
+        82.5,
+        121.0
+      ]
+    },
+    {
+      "canonical": "node-edge co-transformation",
+      "aliases": [
+        "nect"
+      ],
+      "evidence": "Node-edge co-transformation NECT",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        126.5,
+        615.0,
+        143.0
+      ]
+    },
+    {
+      "canonical": "encoder",
+      "aliases": [],
+      "evidence": "Encoder",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        165.0,
+        275.0,
+        176.0
+      ]
+    },
+    {
+      "canonical": "embedding-based nect",
+      "aliases": [],
+      "evidence": "(a) Embedding-based NECT",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        165.0,
+        670.0,
+        181.5
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "a"
+      ],
+      "evidence": "Adjacency-matrix-based",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        192.5,
+        82.5,
+        203.5
+      ]
+    },
+    {
+      "canonical": "decoder",
+      "aliases": [],
+      "evidence": "Decoder",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        192.5,
+        330.0,
+        203.5
+      ]
+    },
+    {
+      "canonical": "kl divergence",
+      "aliases": [
+        "kullback-leibler divergence"
+      ],
+      "evidence": "KL",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        209.0,
+        286.0,
+        220.0
+      ]
+    },
+    {
+      "canonical": "mlp",
+      "aliases": [
+        "multi-layer perceptron"
+      ],
+      "evidence": "MLP-based one-shot",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        247.5,
+        82.5,
+        258.5
+      ]
+    },
+    {
+      "canonical": "editing-based nect",
+      "aliases": [],
+      "evidence": "(b) Editing-based NECT",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        247.5,
+        670.0,
+        264.0
+      ]
+    },
+    {
+      "canonical": "latent space",
+      "aliases": [],
+      "evidence": "latent space",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        275.0,
+        220.0,
+        286.0
+      ]
+    },
+    {
+      "canonical": "argmax",
+      "aliases": [],
+      "evidence": "argmax",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        385.0,
+        275.0,
+        412.5,
+        286.0
+      ]
+    },
+    {
+      "canonical": "dag-to-dag",
+      "aliases": [],
+      "evidence": "DAG-to-DAG (Kaluza et al., 2018)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        275.0,
+        862.5,
+        291.5
+      ]
+    },
+    {
+      "canonical": "directed acyclic graph",
+      "aliases": [
+        "dag"
+      ],
+      "evidence": "Directed-acyclic-graph (DAG)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        291.5,
+        862.5,
+        308.0
+      ]
+    },
+    {
+      "canonical": "graph matching",
+      "aliases": [],
+      "evidence": "approximate graph matching",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        302.5,
+        357.5,
+        313.5
+      ]
+    },
+    {
+      "canonical": "variational autoencoder",
+      "aliases": [
+        "vae"
+      ],
+      "evidence": "Loss objective of variational autoencoders",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        330.0,
+        275.0,
+        346.5
+      ]
+    },
+    {
+      "canonical": "encoder-decoder gnns",
+      "aliases": [],
+      "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        549.0,
+        330.0,
+        780.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "graph unet",
+      "aliases": [
+        "g-u-nets"
+      ],
+      "evidence": "Graph UNet (Gao et al., 2019), g-U-Nets",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        697.5,
+        330.0,
+        780.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "softmax",
+      "aliases": [],
+      "evidence": "edge- and node-wise softmax",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        385.0,
+        412.5,
+        396.0
+      ]
+    },
+    {
+      "canonical": "gcn",
+      "aliases": [
+        "graph convolutional network"
+      ],
+      "evidence": "GCN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        385.0,
+        631.5,
+        401.5
+      ]
+    },
+    {
+      "canonical": "gaussian prior",
+      "aliases": [],
+      "evidence": "isotropic Gaussian prior",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        412.5,
+        247.5,
+        423.5
+      ]
+    },
+    {
+      "canonical": "graph pooling",
+      "aliases": [
+        "gpool",
+        "graph unpooling",
+        "gunpool"
+      ],
+      "evidence": "gPool",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        412.5,
+        659.0,
+        429.0
+      ]
+    },
+    {
+      "canonical": "reconstruction loss",
+      "aliases": [],
+      "evidence": "reconstruction loss",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        467.5,
+        247.5,
+        478.5
+      ]
+    },
+    {
+      "canonical": "skip connection",
+      "aliases": [],
+      "evidence": "encoder block uses skip connection to fuse the low-level spatial features",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        626.0,
+        835.0,
+        637.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "message-passing-based"
+      ],
+      "evidence": "(c) Message-passing-based one-shot",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        642.5,
+        137.5,
+        659.0
+      ]
+    },
+    {
+      "canonical": "sigmoid activation",
+      "aliases": [],
+      "evidence": "sigmoid",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        681.0,
+        714.0,
+        714.0,
+        725.0
+      ]
+    },
+    {
+      "canonical": "node update",
+      "aliases": [],
+      "evidence": "Node update (msg)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        736.0,
+        302.5,
+        747.0
+      ]
+    },
+    {
+      "canonical": "edge update",
+      "aliases": [],
+      "evidence": "Edge update",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        747.0,
+        302.5,
+        758.0
+      ]
+    },
+    {
+      "canonical": "top-k node selection",
+      "aliases": [],
+      "evidence": "Top k Node Selection",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        626.0,
+        846.0,
+        697.5,
+        857.0
+      ]
+    },
+    {
+      "canonical": "element-wise product",
+      "aliases": [
+        "hadamard product"
+      ],
+      "evidence": "denote matrix multiplication and element-wise product",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        868.0,
+        697.5,
+        879.0
+      ]
+    },
+    {
+      "canonical": "feature matrix",
+      "aliases": [
+        "x"
+      ],
+      "evidence": "input feature matrix X^l",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        879.0,
+        615.0,
+        890.0
+      ]
+    },
+    {
+      "canonical": "coarsened graph",
+      "aliases": [],
+      "evidence": "resulting in a coarsened graph with 4 nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        879.0,
+        917.5,
+        890.0
+      ]
+    },
+    {
+      "canonical": "sampling",
+      "aliases": [
+        "sampled noise"
+      ],
+      "evidence": "sampled noise",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        890.0,
+        55.0,
+        901.0
+      ]
+    },
+    {
+      "canonical": "projection vector",
+      "aliases": [
+        "p"
+      ],
+      "evidence": "p is a trainable projection vector",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        890.0,
+        670.0,
+        901.0
+      ]
+    },
+    {
+      "canonical": "reconstruction",
+      "aliases": [],
+      "evidence": "reconstruct the original graph structure",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        890.0,
+        917.5,
+        901.0
+      ]
+    },
+    {
+      "canonical": "node scores",
+      "aliases": [
+        "y"
+      ],
+      "evidence": "scores estimating scalar projection values",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        532.5,
+        901.0,
+        670.0,
+        912.0
+      ]
+    },
+    {
+      "canonical": "gaussian distribution",
+      "aliases": [
+        "normal distribution"
+      ],
+      "evidence": "N(0, 1)",
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        5.5,
+        917.5,
+        55.0,
+        934.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "\\mathcal{L}(\\phi, \\theta; G) = \\mathbb{E}_{q_\\phi(\\mathbf{z}|G)}[-\\log p_\\theta(G|\\mathbf{z})] + \\text{KL}(q_\\phi(\\mathbf{z}|G) || p(\\mathbf{z}))",
+      "related_concepts": [
+        "variational autoencoder",
+        "kl divergence",
+        "reconstruction loss"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        165.0,
+        440.0,
+        330.0,
+        467.5
+      ],
+      "label": "VAE Loss Objective"
+    },
+    {
+      "latex": "p(\\mathbf{z}) = \\mathcal{N}(0, I)",
+      "related_concepts": [
+        "gaussian prior"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        423.5,
+        247.5,
+        434.5
+      ],
+      "label": "Prior Distribution"
+    },
+    {
+      "latex": "\\| A_T - \\tilde{A}_T \\|_2 + \\lambda \\| F_T - \\tilde{F}_T \\|_2",
+      "related_concepts": [
+        "embedding-based nect"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        725.0,
+        137.5,
+        835.0,
+        154.0
+      ],
+      "label": "loss function"
+    },
+    {
+      "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+      "related_concepts": [
+        "gaussian distribution",
+        "sampling"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        5.5,
+        917.5,
+        55.0,
+        934.0
+      ],
+      "label": "Noise Sampling"
+    },
+    {
+      "latex": "y = X^{(\\ell)} p / \\|p\\|_2, \\quad \\epsilon \\in \\mathbb{R}^n",
+      "related_concepts": [
+        "projection vector",
+        "node scores"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        912.0,
+        752.5,
+        923.0
+      ],
+      "label": "projection score"
+    },
+    {
+      "latex": "\\text{idx} = \\text{rank}(y, k)",
+      "related_concepts": [
+        "top-k node selection"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        934.0,
+        670.0,
+        945.0
+      ],
+      "label": "index selection"
+    },
+    {
+      "latex": "\\tilde{y} = \\text{sigmoid}(y(\\text{idx}))",
+      "related_concepts": [
+        "sigmoid activation",
+        "node scores"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        945.0,
+        697.5,
+        956.0
+      ],
+      "label": "gated scores"
+    },
+    {
+      "latex": "\\tilde{X}^{\\ell} = X^{\\ell}(\\text{idx}, :)",
+      "related_concepts": [
+        "feature matrix",
+        "top-k node selection"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        956.0,
+        697.5,
+        967.0
+      ],
+      "label": "pooled features"
+    },
+    {
+      "latex": "A^{\\ell+1} = A^{\\ell}(\\text{idx}, \\text{idx})",
+      "related_concepts": [
+        "adjacency matrix",
+        "top-k node selection"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        967.0,
+        697.5,
+        978.0
+      ],
+      "label": "pooled adjacency"
+    },
+    {
+      "latex": "X^{\\ell+1} = \\tilde{X}^{\\ell} \\odot (\\tilde{y} \\mathbf{1}_d^T)",
+      "related_concepts": [
+        "element-wise product",
+        "feature matrix"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        587.5,
+        978.0,
+        752.5,
+        989.0
+      ],
+      "label": "gated output features"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "architecture",
+      "description": "GraphVAE architecture showing encoder, latent space, and decoder components with graph inputs and outputs",
+      "related_concepts": [
+        "graphvae",
+        "encoder",
+        "decoder",
+        "latent space"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        137.5,
+        412.5,
+        302.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "MLP-based one-shot generation architecture with adjacency matrix and feature matrix outputs",
+      "related_concepts": [
+        "mlp",
+        "adjacency matrix",
+        "graph generation"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        247.5,
+        137.5,
+        357.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of embedding-based NECT with encoder and decoder",
+      "related_concepts": [
+        "embedding-based nect",
+        "encoder-decoder gnns"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        165.0,
+        725.0,
+        247.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of editing-based NECT with source and target graphs",
+      "related_concepts": [
+        "editing-based nect",
+        "encoder-decoder gnns"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        247.5,
+        725.0,
+        330.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of Graph UNet architecture with GCN, gPool, and gUnpool layers",
+      "related_concepts": [
+        "graph unet",
+        "encoder-decoder gnns"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        560.0,
+        357.5,
+        862.5,
+        495.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of DAG-to-DAG process",
+      "related_concepts": [
+        "dag-to-dag",
+        "directed acyclic graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        275.0,
+        862.5,
+        330.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Diagram showing message-passing-based one-shot graph generation process, including unit matrix initialization, GCN message passing, node and edge updates, and final graph output.",
+      "related_concepts": [
+        "message passing",
+        "gcn",
+        "node update",
+        "edge update"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        5.5,
+        642.5,
+        330.0,
+        807.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of transforming sampled noise into real graphs using trained decoders for molecules and brain networks.",
+      "related_concepts": [
+        "graph generation",
+        "decoder",
+        "sampling"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        5.5,
+        862.5,
+        330.0,
+        972.5
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of the proposed graph pooling layer showing inputs, projection, top-k node selection, gate, and outputs with matrices and operations",
+      "related_concepts": [
+        "graph pooling",
+        "top-k node selection",
+        "projection vector",
+        "sigmoid activation",
+        "element-wise product"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        714.0,
+        769.0,
+        846.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of the proposed graph unpooling (gUnpool) layer showing downsampling with gPool and reconstruction with gUnpool using position information",
+      "related_concepts": [
+        "graph pooling",
+        "coarsened graph",
+        "reconstruction"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        714.0,
+        972.5,
+        846.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Overall architecture of graph U-Nets (g-U-Nets) showing encoder blocks with gPool and GCN layers, decoder blocks with gUnpool and GCN layers, and skip connections",
+      "related_concepts": [
+        "gcn",
+        "graph pooling",
+        "skip connection"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        642.5,
+        450.0,
+        807.5,
+        587.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "P(G|G') by graph matching",
+      "reason": "Handwriting is somewhat unclear, particularly the prime notation and exact wording",
+      "bbox": [
+        247.5,
+        137.5,
+        330.0,
+        154.0
+      ]
+    },
+    {
+      "transcription": "decode z onto G",
+      "reason": "Handwriting is rushed and some letters are ambiguous",
+      "bbox": [
+        385.0,
+        247.5,
+        440.0,
+        275.0
+      ]
+    },
+    {
+      "transcription": "learn the optimal encoding of G",
+      "reason": "Handwriting is small and some words are difficult to distinguish clearly",
+      "bbox": [
+        412.5,
+        357.5,
+        467.5,
+        385.0
+      ]
+    },
+    {
+      "transcription": "Decoder => generate",
+      "reason": "Arrow symbol and exact wording are somewhat ambiguous in handwriting",
+      "bbox": [
+        302.5,
+        467.5,
+        385.0,
+        495.0
+      ]
+    },
+    {
+      "transcription": "selfgastrin",
+      "reason": "Handwriting is unclear and may be a misinterpretation of 'self-supervised'",
+      "bbox": [
+        725.0,
+        99.0,
+        780.0,
+        115.5
+      ]
+    },
+    {
+      "transcription": "assignee ate a knoti E encode toi",
+      "reason": "Handwriting is unclear and may be a misinterpretation of technical terms",
+      "bbox": [
+        725.0,
+        115.5,
+        780.0,
+        132.0
+      ]
+    },
+    {
+      "transcription": "Decoder => generate",
+      "reason": "Handwriting is somewhat unclear, especially the arrow and the word 'generate'.",
+      "bbox": [
+        357.5,
+        477.5,
+        440.0,
+        494.0
+      ]
+    },
+    {
+      "transcription": "higher values",
+      "reason": "Handwriting is cursive and slightly ambiguous.",
+      "bbox": [
+        495.0,
+        917.5,
+        544.5,
+        934.0
+      ]
+    },
+    {
+      "transcription": "new pooled graph h.",
+      "reason": "Handwriting is small and somewhat unclear, especially the 'h'.",
+      "bbox": [
+        495.0,
+        945.0,
+        544.5,
+        972.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graphvae",
+            "aliases": [
+              "variational graph autoencoder"
+            ],
+            "evidence": "GraphVAE (Simonovsky et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              150,
+              600,
+              180
+            ]
+          },
+          {
+            "canonical": "variational autoencoder",
+            "aliases": [
+              "vae"
+            ],
+            "evidence": "Loss objective of variational autoencoders",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              600,
+              500,
+              630
+            ]
+          },
+          {
+            "canonical": "encoder",
+            "aliases": [],
+            "evidence": "Encoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              300,
+              500,
+              320
+            ]
+          },
+          {
+            "canonical": "decoder",
+            "aliases": [],
+            "evidence": "Decoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              350,
+              600,
+              370
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "kullback-leibler divergence"
+            ],
+            "evidence": "KL",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              380,
+              520,
+              400
+            ]
+          },
+          {
+            "canonical": "mlp",
+            "aliases": [
+              "multi-layer perceptron"
+            ],
+            "evidence": "MLP-based one-shot",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              450,
+              150,
+              470
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [],
+            "evidence": "Adjacency-matrix-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              350,
+              150,
+              370
+            ]
+          },
+          {
+            "canonical": "self-supervised learning",
+            "aliases": [],
+            "evidence": "Self-supervised/unsupervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              300,
+              120
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [],
+            "evidence": "Unconditional generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              200,
+              150,
+              220
+            ]
+          },
+          {
+            "canonical": "latent space",
+            "aliases": [],
+            "evidence": "latent space",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              500,
+              400,
+              520
+            ]
+          },
+          {
+            "canonical": "reconstruction loss",
+            "aliases": [],
+            "evidence": "reconstruction loss",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              850,
+              450,
+              870
+            ]
+          },
+          {
+            "canonical": "softmax",
+            "aliases": [],
+            "evidence": "edge- and node-wise softmax",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              700,
+              750,
+              720
+            ]
+          },
+          {
+            "canonical": "argmax",
+            "aliases": [],
+            "evidence": "argmax",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              500,
+              750,
+              520
+            ]
+          },
+          {
+            "canonical": "gaussian prior",
+            "aliases": [],
+            "evidence": "isotropic Gaussian prior",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              750,
+              450,
+              770
+            ]
+          },
+          {
+            "canonical": "graph matching",
+            "aliases": [],
+            "evidence": "approximate graph matching",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              550,
+              650,
+              570
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\mathcal{L}(\\phi, \\theta; G) = \\mathbb{E}_{q_\\phi(\\mathbf{z}|G)}[-\\log p_\\theta(G|\\mathbf{z})] + \\text{KL}(q_\\phi(\\mathbf{z}|G) || p(\\mathbf{z}))",
+            "related_concepts": [
+              "variational autoencoder",
+              "kl divergence",
+              "reconstruction loss"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              800,
+              600,
+              850
+            ],
+            "label": "VAE Loss Objective"
+          },
+          {
+            "latex": "p(\\mathbf{z}) = \\mathcal{N}(0, I)",
+            "related_concepts": [
+              "gaussian prior"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              770,
+              450,
+              790
+            ],
+            "label": "Prior Distribution"
+          },
+          {
+            "latex": "\\text{sim}(G, G') \\uparrow \\Rightarrow \\text{better generation}",
+            "related_concepts": [
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ],
+            "label": "Similarity Metric"
+          },
+          {
+            "latex": "p_\\theta \\sim p_{\\text{model}}(g; \\theta, \\phi)",
+            "related_concepts": [
+              "graphvae"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              600,
+              150,
+              800,
+              200
+            ],
+            "label": "Model Distribution"
+          },
+          {
+            "latex": "q_\\phi(z|G)",
+            "related_concepts": [
+              "encoder",
+              "latent space"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              750,
+              600,
+              850,
+              650
+            ],
+            "label": "Encoder Distribution"
+          },
+          {
+            "latex": "z \\sim h_G",
+            "related_concepts": [
+              "latent space",
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              750,
+              700,
+              850,
+              750
+            ],
+            "label": "Latent Variable Sampling"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "GraphVAE architecture showing encoder, latent space, and decoder components with graph inputs and outputs",
+            "related_concepts": [
+              "graphvae",
+              "encoder",
+              "decoder",
+              "latent space"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              250,
+              750,
+              550
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "MLP-based one-shot generation architecture with adjacency matrix and feature matrix outputs",
+            "related_concepts": [
+              "mlp",
+              "adjacency matrix",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              450,
+              250,
+              650
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example graphs with nodes labeled C and O representing molecular structures",
+            "related_concepts": [
+              "graph generation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              300,
+              350,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn diagram showing encode-decode process with latent variable z",
+            "related_concepts": [
+              "variational autoencoder",
+              "latent space"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              650,
+              300,
+              800
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "P(G|G') by graph matching",
+            "reason": "Handwriting is somewhat unclear, particularly the prime notation and exact wording",
+            "bbox": [
+              450,
+              250,
+              600,
+              280
+            ]
+          },
+          {
+            "transcription": "decode z onto G",
+            "reason": "Handwriting is rushed and some letters are ambiguous",
+            "bbox": [
+              700,
+              450,
+              800,
+              500
+            ]
+          },
+          {
+            "transcription": "learn the optimal encoding of G",
+            "reason": "Handwriting is small and some words are difficult to distinguish clearly",
+            "bbox": [
+              750,
+              650,
+              850,
+              700
+            ]
+          },
+          {
+            "transcription": "Decoder => generate",
+            "reason": "Arrow symbol and exact wording are somewhat ambiguous in handwriting",
+            "bbox": [
+              550,
+              850,
+              700,
+              900
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graphvae\",\n      \"aliases\": [\"variational graph autoencoder\"],\n      \"evidence\": \"GraphVAE (Simonovsky et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 150, 600, 180]\n    },\n    {\n      \"canonical\": \"variational autoencoder\",\n      \"aliases\": [\"vae\"],\n      \"evidence\": \"Loss objective of variational autoencoders\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 600, 500, 630]\n    },\n    {\n      \"canonical\": \"encoder\",\n      \"aliases\": [],\n      \"evidence\": \"Encoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 300, 500, 320]\n    },\n    {\n      \"canonical\": \"decoder\",\n      \"aliases\": [],\n      \"evidence\": \"Decoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 350, 600, 370]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"kullback-leibler divergence\"],\n      \"evidence\": \"KL\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 380, 520, 400]\n    },\n    {\n      \"canonical\": \"mlp\",\n      \"aliases\": [\"multi-layer perceptron\"],\n      \"evidence\": \"MLP-based one-shot\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 450, 150, 470]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [],\n      \"evidence\": \"Adjacency-matrix-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 350, 150, 370]\n    },\n    {\n      \"canonical\": \"self-supervised learning\",\n      \"aliases\": [],\n      \"evidence\": \"Self-supervised/unsupervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 300, 120]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [],\n      \"evidence\": \"Unconditional generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 200, 150, 220]\n    },\n    {\n      \"canonical\": \"latent space\",\n      \"aliases\": [],\n      \"evidence\": \"latent space\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 500, 400, 520]\n    },\n    {\n      \"canonical\": \"reconstruction loss\",\n      \"aliases\": [],\n      \"evidence\": \"reconstruction loss\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 850, 450, 870]\n    },\n    {\n      \"canonical\": \"softmax\",\n      \"aliases\": [],\n      \"evidence\": \"edge- and node-wise softmax\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 700, 750, 720]\n    },\n    {\n      \"canonical\": \"argmax\",\n      \"aliases\": [],\n      \"evidence\": \"argmax\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 500, 750, 520]\n    },\n    {\n      \"canonical\": \"gaussian prior\",\n      \"aliases\": [],\n      \"evidence\": \"isotropic Gaussian prior\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 750, 450, 770]\n    },\n    {\n      \"canonical\": \"graph matching\",\n      \"aliases\": [],\n      \"evidence\": \"approximate graph matching\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 550, 650, 570]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\phi, \\\\theta; G) = \\\\mathbb{E}_{q_\\\\phi(\\\\mathbf{z}|G)}[-\\\\log p_\\\\theta(G|\\\\mathbf{z})] + \\\\text{KL}(q_\\\\phi(\\\\mathbf{z}|G) || p(\\\\mathbf{z}))\",\n      \"related_concepts\": [\"variational autoencoder\", \"kl divergence\", \"reconstruction loss\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 800, 600, 850],\n      \"label\": \"VAE Loss Objective\"\n    },\n    {\n      \"latex\": \"p(\\\\mathbf{z}) = \\\\mathcal{N}(0, I)\",\n      \"related_concepts\": [\"gaussian prior\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 770, 450, 790],\n      \"label\": \"Prior Distribution\"\n    },\n    {\n      \"latex\": \"\\\\text{sim}(G, G') \\\\uparrow \\\\Rightarrow \\\\text{better generation}\",\n      \"related_concepts\": [\"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 100, 800, 150],\n      \"label\": \"Similarity Metric\"\n    },\n    {\n      \"latex\": \"p_\\\\theta \\\\sim p_{\\\\text{model}}(g; \\\\theta, \\\\phi)\",\n      \"related_concepts\": [\"graphvae\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [600, 150, 800, 200],\n      \"label\": \"Model Distribution\"\n    },\n    {\n      \"latex\": \"q_\\\\phi(z|G)\",\n      \"related_concepts\": [\"encoder\", \"latent space\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [750, 600, 850, 650],\n      \"label\": \"Encoder Distribution\"\n    },\n    {\n      \"latex\": \"z \\\\sim h_G\",\n      \"related_concepts\": [\"latent space\", \"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [750, 700, 850, 750],\n      \"label\": \"Latent Variable Sampling\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"GraphVAE architecture showing encoder, latent space, and decoder components with graph inputs and outputs\",\n      \"related_concepts\": [\"graphvae\", \"encoder\", \"decoder\", \"latent space\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 250, 750, 550]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"MLP-based one-shot generation architecture with adjacency matrix and feature matrix outputs\",\n      \"related_concepts\": [\"mlp\", \"adjacency matrix\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 450, 250, 650]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example graphs with nodes labeled C and O representing molecular structures\",\n      \"related_concepts\": [\"graph generation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 300, 350, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn diagram showing encode-decode process with latent variable z\",\n      \"related_concepts\": [\"variational autoencoder\", \"latent space\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 650, 300, 800]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"P(G|G') by graph matching\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly the prime notation and exact wording\",\n      \"bbox\": [450, 250, 600, 280]\n    },\n    {\n      \"transcription\": \"decode z onto G\",\n      \"reason\": \"Handwriting is rushed and some letters are ambiguous\",\n      \"bbox\": [700, 450, 800, 500]\n    },\n    {\n      \"transcription\": \"learn the optimal encoding of G\",\n      \"reason\": \"Handwriting is small and some words are difficult to distinguish clearly\",\n      \"bbox\": [750, 650, 850, 700]\n    },\n    {\n      \"transcription\": \"Decoder => generate\",\n      \"reason\": \"Arrow symbol and exact wording are somewhat ambiguous in handwriting\",\n      \"bbox\": [550, 850, 700, 900]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "supervised generative gnn tasks",
+            "aliases": [
+              "supervised generation"
+            ],
+            "evidence": "Taxonomy (Guo et al., 2023) Supervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              100,
+              450,
+              150
+            ]
+          },
+          {
+            "canonical": "conditional generation",
+            "aliases": [
+              "conditioning on graphs"
+            ],
+            "evidence": "Conditional generation, Conditioning on graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              160,
+              350,
+              220
+            ]
+          },
+          {
+            "canonical": "node-edge co-transformation",
+            "aliases": [
+              "NECT"
+            ],
+            "evidence": "Node-edge co-transformation NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              230,
+              300,
+              260
+            ]
+          },
+          {
+            "canonical": "embedding-based nect",
+            "aliases": [
+              "embedding-based NECT"
+            ],
+            "evidence": "(a) Embedding-based NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              300,
+              400,
+              330
+            ]
+          },
+          {
+            "canonical": "editing-based nect",
+            "aliases": [
+              "editing-based NECT"
+            ],
+            "evidence": "(b) Editing-based NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              450,
+              400,
+              480
+            ]
+          },
+          {
+            "canonical": "encoder-decoder gnns",
+            "aliases": [
+              "encoder-decoder GNNs"
+            ],
+            "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              180,
+              600,
+              600,
+              650
+            ]
+          },
+          {
+            "canonical": "graph unet",
+            "aliases": [
+              "Graph UNet",
+              "g-U-Nets"
+            ],
+            "evidence": "Graph UNet (Gao et al., 2019), g-U-Nets",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              600,
+              600,
+              650
+            ]
+          },
+          {
+            "canonical": "dag-to-dag",
+            "aliases": [
+              "DAG-to-DAG"
+            ],
+            "evidence": "DAG-to-DAG (Kaluza et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              500,
+              750,
+              530
+            ]
+          },
+          {
+            "canonical": "directed acyclic graph",
+            "aliases": [
+              "DAG"
+            ],
+            "evidence": "Directed-acyclic-graph (DAG)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              530,
+              750,
+              560
+            ]
+          },
+          {
+            "canonical": "self-supervised learning",
+            "aliases": [
+              "self-supervised"
+            ],
+            "evidence": "self-supervised",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              150,
+              600,
+              180
+            ]
+          },
+          {
+            "canonical": "skip connection",
+            "aliases": [
+              "skip connection"
+            ],
+            "evidence": "skip connection",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              650,
+              550,
+              680
+            ]
+          },
+          {
+            "canonical": "gcn",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              700,
+              330,
+              730
+            ]
+          },
+          {
+            "canonical": "gpool",
+            "aliases": [
+              "gPool"
+            ],
+            "evidence": "gPool",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              750,
+              380,
+              780
+            ]
+          },
+          {
+            "canonical": "gunpool",
+            "aliases": [
+              "gUnpool"
+            ],
+            "evidence": "gUnpool",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              580,
+              780
+            ]
+          },
+          {
+            "canonical": "network embedding",
+            "aliases": [
+              "Network Embedding"
+            ],
+            "evidence": "Network Embedding",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              800,
+              750,
+              830
+            ]
+          },
+          {
+            "canonical": "self-reconstruction loss",
+            "aliases": [
+              "self-reconstruction loss"
+            ],
+            "evidence": "self-reconstruction loss",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              850,
+              750,
+              880
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\| A_T - \\tilde{A}_T \\|_2 + \\lambda \\| F_T - \\tilde{F}_T \\|_2",
+            "related_concepts": [
+              "embedding-based nect"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              250,
+              700,
+              280
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\| G - \\tilde{G} \\|",
+            "related_concepts": [
+              "self-reconstruction loss"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              830,
+              700,
+              860
+            ],
+            "label": "reconstruction loss"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of embedding-based NECT with encoder and decoder",
+            "related_concepts": [
+              "embedding-based nect",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              300,
+              500,
+              450
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of editing-based NECT with source and target graphs",
+            "related_concepts": [
+              "editing-based nect",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              450,
+              500,
+              600
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of Graph UNet architecture with GCN, gPool, and gUnpool layers",
+            "related_concepts": [
+              "graph unet",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              650,
+              750,
+              900
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of DAG-to-DAG process",
+            "related_concepts": [
+              "dag-to-dag",
+              "directed acyclic graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              500,
+              750,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "selfgastrin",
+            "reason": "Handwriting is unclear and may be a misinterpretation of 'self-supervised'",
+            "bbox": [
+              500,
+              180,
+              600,
+              210
+            ]
+          },
+          {
+            "transcription": "assignee ate a knoti E encode toi",
+            "reason": "Handwriting is unclear and may be a misinterpretation of technical terms",
+            "bbox": [
+              500,
+              210,
+              600,
+              240
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"supervised generative gnn tasks\",\n      \"aliases\": [\"supervised generation\"],\n      \"evidence\": \"Taxonomy (Guo et al., 2023) Supervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 100, 450, 150]\n    },\n    {\n      \"canonical\": \"conditional generation\",\n      \"aliases\": [\"conditioning on graphs\"],\n      \"evidence\": \"Conditional generation, Conditioning on graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 160, 350, 220]\n    },\n    {\n      \"canonical\": \"node-edge co-transformation\",\n      \"aliases\": [\"NECT\"],\n      \"evidence\": \"Node-edge co-transformation NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 230, 300, 260]\n    },\n    {\n      \"canonical\": \"embedding-based nect\",\n      \"aliases\": [\"embedding-based NECT\"],\n      \"evidence\": \"(a) Embedding-based NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 300, 400, 330]\n    },\n    {\n      \"canonical\": \"editing-based nect\",\n      \"aliases\": [\"editing-based NECT\"],\n      \"evidence\": \"(b) Editing-based NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 450, 400, 480]\n    },\n    {\n      \"canonical\": \"encoder-decoder gnns\",\n      \"aliases\": [\"encoder-decoder GNNs\"],\n      \"evidence\": \"Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [180, 600, 600, 650]\n    },\n    {\n      \"canonical\": \"graph unet\",\n      \"aliases\": [\"Graph UNet\", \"g-U-Nets\"],\n      \"evidence\": \"Graph UNet (Gao et al., 2019), g-U-Nets\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 600, 600, 650]\n    },\n    {\n      \"canonical\": \"dag-to-dag\",\n      \"aliases\": [\"DAG-to-DAG\"],\n      \"evidence\": \"DAG-to-DAG (Kaluza et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 500, 750, 530]\n    },\n    {\n      \"canonical\": \"directed acyclic graph\",\n      \"aliases\": [\"DAG\"],\n      \"evidence\": \"Directed-acyclic-graph (DAG)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 530, 750, 560]\n    },\n    {\n      \"canonical\": \"self-supervised learning\",\n      \"aliases\": [\"self-supervised\"],\n      \"evidence\": \"self-supervised\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 150, 600, 180]\n    },\n    {\n      \"canonical\": \"skip connection\",\n      \"aliases\": [\"skip connection\"],\n      \"evidence\": \"skip connection\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 650, 550, 680]\n    },\n    {\n      \"canonical\": \"gcn\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 700, 330, 730]\n    },\n    {\n      \"canonical\": \"gpool\",\n      \"aliases\": [\"gPool\"],\n      \"evidence\": \"gPool\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 750, 380, 780]\n    },\n    {\n      \"canonical\": \"gunpool\",\n      \"aliases\": [\"gUnpool\"],\n      \"evidence\": \"gUnpool\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 580, 780]\n    },\n    {\n      \"canonical\": \"network embedding\",\n      \"aliases\": [\"Network Embedding\"],\n      \"evidence\": \"Network Embedding\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 800, 750, 830]\n    },\n    {\n      \"canonical\": \"self-reconstruction loss\",\n      \"aliases\": [\"self-reconstruction loss\"],\n      \"evidence\": \"self-reconstruction loss\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 850, 750, 880]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\| A_T - \\\\tilde{A}_T \\\\|_2 + \\\\lambda \\\\| F_T - \\\\tilde{F}_T \\\\|_2\",\n      \"related_concepts\": [\"embedding-based nect\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 250, 700, 280],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\| G - \\\\tilde{G} \\\\|\",\n      \"related_concepts\": [\"self-reconstruction loss\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 830, 700, 860],\n      \"label\": \"reconstruction loss\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of embedding-based NECT with encoder and decoder\",\n      \"related_concepts\": [\"embedding-based nect\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 300, 500, 450]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of editing-based NECT with source and target graphs\",\n      \"related_concepts\": [\"editing-based nect\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 450, 500, 600]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of Graph UNet architecture with GCN, gPool, and gUnpool layers\",\n      \"related_concepts\": [\"graph unet\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 650, 750, 900]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of DAG-to-DAG process\",\n      \"related_concepts\": [\"dag-to-dag\", \"directed acyclic graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 500, 750, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"selfgastrin\",\n      \"reason\": \"Handwriting is unclear and may be a misinterpretation of 'self-supervised'\",\n      \"bbox\": [500, 180, 600, 210]\n    },\n    {\n      \"transcription\": \"assignee ate a knoti E encode toi\",\n      \"reason\": \"Handwriting is unclear and may be a misinterpretation of technical terms\",\n      \"bbox\": [500, 210, 600, 240]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative model",
+              "generative power"
+            ],
+            "evidence": "The universal generative power: transforming noise to real graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              680,
+              350,
+              720
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "message-passing-based"
+            ],
+            "evidence": "(c) Message-passing-based one-shot",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              350,
+              250,
+              380
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "GCN MSG",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              220,
+              450,
+              280,
+              480
+            ]
+          },
+          {
+            "canonical": "node update",
+            "aliases": [],
+            "evidence": "Node update (msg)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              520,
+              550,
+              540
+            ]
+          },
+          {
+            "canonical": "edge update",
+            "aliases": [],
+            "evidence": "Edge update",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              540,
+              550,
+              560
+            ]
+          },
+          {
+            "canonical": "variational autoencoder",
+            "aliases": [
+              "VAE"
+            ],
+            "evidence": "isotropic Gaussian prior p(z) = N(0, I). The whole model is trained by minimizing the upper bound on negative log-likelihood",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              10,
+              600,
+              100
+            ]
+          },
+          {
+            "canonical": "reconstruction loss",
+            "aliases": [],
+            "evidence": "The first term of L, the reconstruction loss, enforces high similarity of sampled generated graphs to the input graph G.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              150,
+              600,
+              180
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "KL-divergence"
+            ],
+            "evidence": "The second term, KL-divergence, regularizes the code space",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              180,
+              600,
+              200
+            ]
+          },
+          {
+            "canonical": "decoder",
+            "aliases": [
+              "trained decoders"
+            ],
+            "evidence": "trained decoders",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              750,
+              300,
+              780
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [
+              "sampled noise"
+            ],
+            "evidence": "sampled noise",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              800,
+              100,
+              820
+            ]
+          },
+          {
+            "canonical": "gaussian distribution",
+            "aliases": [
+              "normal distribution"
+            ],
+            "evidence": "N(0, 1)",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              850,
+              100,
+              880
+            ]
+          },
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "pooled graph"
+            ],
+            "evidence": "new pooled graph h.",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              900,
+              900,
+              990,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\mathcal{L}(\\phi, \\theta; G) = \\mathbb{E}_{q_\\phi(z|G)}[-\\log p_\\theta(G|z)] + KL(q_\\phi(z|G)||p(z))",
+            "related_concepts": [
+              "variational autoencoder",
+              "reconstruction loss",
+              "kl divergence"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              80,
+              600,
+              120
+            ],
+            "label": "VAE Loss Function"
+          },
+          {
+            "latex": "p_{data} \\sim p(g|\\Theta)",
+            "related_concepts": [
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              580,
+              550,
+              620
+            ],
+            "label": "Data Distribution"
+          },
+          {
+            "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+            "related_concepts": [
+              "gaussian distribution",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              850,
+              100,
+              880
+            ],
+            "label": "Noise Sampling"
+          },
+          {
+            "latex": "f_{mol}(z_i; \\theta^*_m)",
+            "related_concepts": [
+              "decoder"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              200,
+              780,
+              300,
+              820
+            ],
+            "label": "Molecule Decoder"
+          },
+          {
+            "latex": "f_{brain}(z_i; \\theta^*_b)",
+            "related_concepts": [
+              "decoder"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              200,
+              850,
+              300,
+              890
+            ],
+            "label": "Brain Decoder"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Diagram showing message-passing-based one-shot graph generation process, including unit matrix initialization, GCN message passing, node and edge updates, and final graph output.",
+            "related_concepts": [
+              "message passing",
+              "graph convolutional network",
+              "node update",
+              "edge update"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              10,
+              350,
+              600,
+              650
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of transforming sampled noise into real graphs using trained decoders for molecules and brain networks.",
+            "related_concepts": [
+              "graph generation",
+              "decoder",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              10,
+              750,
+              600,
+              950
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of a generated graph structure with nodes and edges, highlighted as 'realistic?'.",
+            "related_concepts": [
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              550,
+              650,
+              700,
+              750
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Plot showing the function f_model(Θ*) with a curve indicating model performance or loss over iterations.",
+            "related_concepts": [
+              "graph generation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              700,
+              350,
+              850,
+              500
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of adjacency matrix A^T and its transformations in the message-passing process.",
+            "related_concepts": [
+              "message passing",
+              "graph convolutional network"
+            ],
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              150,
+              380,
+              350,
+              450
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Decoder => generate",
+            "reason": "Handwriting is somewhat unclear, especially the arrow and the word 'generate'.",
+            "bbox": [
+              650,
+              50,
+              800,
+              80
+            ]
+          },
+          {
+            "transcription": "higher values",
+            "reason": "Handwriting is cursive and slightly ambiguous.",
+            "bbox": [
+              900,
+              850,
+              990,
+              880
+            ]
+          },
+          {
+            "transcription": "new pooled graph h.",
+            "reason": "Handwriting is small and somewhat unclear, especially the 'h'.",
+            "bbox": [
+              900,
+              900,
+              990,
+              950
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative model\", \"generative power\"],\n      \"evidence\": \"The universal generative power: transforming noise to real graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 680, 350, 720]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"message-passing-based\"],\n      \"evidence\": \"(c) Message-passing-based one-shot\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 350, 250, 380]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"GCN MSG\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [220, 450, 280, 480]\n    },\n    {\n      \"canonical\": \"node update\",\n      \"aliases\": [],\n      \"evidence\": \"Node update (msg)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 520, 550, 540]\n    },\n    {\n      \"canonical\": \"edge update\",\n      \"aliases\": [],\n      \"evidence\": \"Edge update\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 540, 550, 560]\n    },\n    {\n      \"canonical\": \"variational autoencoder\",\n      \"aliases\": [\"VAE\"],\n      \"evidence\": \"isotropic Gaussian prior p(z) = N(0, I). The whole model is trained by minimizing the upper bound on negative log-likelihood\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 10, 600, 100]\n    },\n    {\n      \"canonical\": \"reconstruction loss\",\n      \"aliases\": [],\n      \"evidence\": \"The first term of L, the reconstruction loss, enforces high similarity of sampled generated graphs to the input graph G.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 150, 600, 180]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"KL-divergence\"],\n      \"evidence\": \"The second term, KL-divergence, regularizes the code space\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 180, 600, 200]\n    },\n    {\n      \"canonical\": \"decoder\",\n      \"aliases\": [\"trained decoders\"],\n      \"evidence\": \"trained decoders\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 750, 300, 780]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [\"sampled noise\"],\n      \"evidence\": \"sampled noise\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 800, 100, 820]\n    },\n    {\n      \"canonical\": \"gaussian distribution\",\n      \"aliases\": [\"normal distribution\"],\n      \"evidence\": \"N(0, 1)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 850, 100, 880]\n    },\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"pooled graph\"],\n      \"evidence\": \"new pooled graph h.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [900, 900, 990, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\phi, \\\\theta; G) = \\\\mathbb{E}_{q_\\\\phi(z|G)}[-\\\\log p_\\\\theta(G|z)] + KL(q_\\\\phi(z|G)||p(z))\",\n      \"related_concepts\": [\"variational autoencoder\", \"reconstruction loss\", \"kl divergence\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 80, 600, 120],\n      \"label\": \"VAE Loss Function\"\n    },\n    {\n      \"latex\": \"p_{data} \\\\sim p(g|\\\\Theta)\",\n      \"related_concepts\": [\"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 580, 550, 620],\n      \"label\": \"Data Distribution\"\n    },\n    {\n      \"latex\": \"z_i \\\\sim \\\\mathcal{N}(0, 1)\",\n      \"related_concepts\": [\"gaussian distribution\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 850, 100, 880],\n      \"label\": \"Noise Sampling\"\n    },\n    {\n      \"latex\": \"f_{mol}(z_i; \\\\theta^*_m)\",\n      \"related_concepts\": [\"decoder\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [200, 780, 300, 820],\n      \"label\": \"Molecule Decoder\"\n    },\n    {\n      \"latex\": \"f_{brain}(z_i; \\\\theta^*_b)\",\n      \"related_concepts\": [\"decoder\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [200, 850, 300, 890],\n      \"label\": \"Brain Decoder\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram showing message-passing-based one-shot graph generation process, including unit matrix initialization, GCN message passing, node and edge updates, and final graph output.\",\n      \"related_concepts\": [\"message passing\", \"graph convolutional network\", \"node update\", \"edge update\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [10, 350, 600, 650]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of transforming sampled noise into real graphs using trained decoders for molecules and brain networks.\",\n      \"related_concepts\": [\"graph generation\", \"decoder\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [10, 750, 600, 950]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of a generated graph structure with nodes and edges, highlighted as 'realistic?'.\",\n      \"related_concepts\": [\"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [550, 650, 700, 750]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Plot showing the function f_model(Θ*) with a curve indicating model performance or loss over iterations.\",\n      \"related_concepts\": [\"graph generation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [700, 350, 850, 500]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of adjacency matrix A^T and its transformations in the message-passing process.\",\n      \"related_concepts\": [\"message passing\", \"graph convolutional network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [150, 380, 350, 450]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Decoder => generate\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the arrow and the word 'generate'.\",\n      \"bbox\": [650, 50, 800, 80]\n    },\n    {\n      \"transcription\": \"higher values\",\n      \"reason\": \"Handwriting is cursive and slightly ambiguous.\",\n      \"bbox\": [900, 850, 990, 880]\n    },\n    {\n      \"transcription\": \"new pooled graph h.\",\n      \"reason\": \"Handwriting is small and somewhat unclear, especially the 'h'.\",\n      \"bbox\": [900, 900, 990, 950]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "gPool",
+              "downsample"
+            ],
+            "evidence": "Proposed graph pooling - downsample",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              430,
+              550,
+              460
+            ]
+          },
+          {
+            "canonical": "graph unpooling",
+            "aliases": [
+              "gUnpool",
+              "upsample"
+            ],
+            "evidence": "Proposed graph unpooling - upsample",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              680,
+              430,
+              950,
+              460
+            ]
+          },
+          {
+            "canonical": "top-k node selection",
+            "aliases": [],
+            "evidence": "Top k Node Selection",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              320,
+              720,
+              450,
+              740
+            ]
+          },
+          {
+            "canonical": "projection vector",
+            "aliases": [
+              "p"
+            ],
+            "evidence": "p is a trainable projection vector",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              800,
+              400,
+              820
+            ]
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [],
+            "evidence": "sigmoid",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              420,
+              480,
+              480,
+              500
+            ]
+          },
+          {
+            "canonical": "element-wise product",
+            "aliases": [
+              "Hadamard product"
+            ],
+            "evidence": "⊙ denote matrix multiplication and element-wise product",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              760,
+              450,
+              780
+            ]
+          },
+          {
+            "canonical": "skip connection",
+            "aliases": [],
+            "evidence": "encoder block uses skip connection to fuse the low-level spatial features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              320,
+              700,
+              340
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              680,
+              650,
+              700
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "A"
+            ],
+            "evidence": "adjacency matrix A^l",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              780,
+              300,
+              800
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "X"
+            ],
+            "evidence": "input feature matrix X^l",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              780,
+              300,
+              800
+            ]
+          },
+          {
+            "canonical": "rank function",
+            "aliases": [],
+            "evidence": "idx = rank(y, k)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              880,
+              400,
+              900
+            ]
+          },
+          {
+            "canonical": "node scores",
+            "aliases": [
+              "y"
+            ],
+            "evidence": "scores estimating scalar projection values",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              820,
+              400,
+              840
+            ]
+          },
+          {
+            "canonical": "pooled graph",
+            "aliases": [],
+            "evidence": "new pooled graph",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              150,
+              960,
+              250,
+              980
+            ]
+          },
+          {
+            "canonical": "coarsened graph",
+            "aliases": [],
+            "evidence": "resulting in a coarsened graph with 4 nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              780,
+              850,
+              800
+            ]
+          },
+          {
+            "canonical": "reconstruction",
+            "aliases": [],
+            "evidence": "reconstruct the original graph structure",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              800,
+              850,
+              820
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = X^{(\\ell)} p / \\|p\\|_2, \\quad \\epsilon \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "projection vector",
+              "node scores"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              840,
+              550,
+              860
+            ],
+            "label": "projection score"
+          },
+          {
+            "latex": "\\text{idx} = \\text{rank}(y, k)",
+            "related_concepts": [
+              "rank function",
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              880,
+              400,
+              900
+            ],
+            "label": "index selection"
+          },
+          {
+            "latex": "\\tilde{y} = \\text{sigmoid}(y(\\text{idx}))",
+            "related_concepts": [
+              "sigmoid activation",
+              "node scores"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              900,
+              450,
+              920
+            ],
+            "label": "gated scores"
+          },
+          {
+            "latex": "\\tilde{X}^{\\ell} = X^{\\ell}(\\text{idx}, :)",
+            "related_concepts": [
+              "feature matrix",
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              920,
+              450,
+              940
+            ],
+            "label": "pooled features"
+          },
+          {
+            "latex": "A^{\\ell+1} = A^{\\ell}(\\text{idx}, \\text{idx})",
+            "related_concepts": [
+              "adjacency matrix",
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              940,
+              450,
+              960
+            ],
+            "label": "pooled adjacency"
+          },
+          {
+            "latex": "X^{\\ell+1} = \\tilde{X}^{\\ell} \\odot (\\tilde{y} \\mathbf{1}_d^T)",
+            "related_concepts": [
+              "element-wise product",
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              960,
+              550,
+              980
+            ],
+            "label": "gated output features"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of the proposed graph pooling layer showing inputs, projection, top-k node selection, gate, and outputs with matrices and operations",
+            "related_concepts": [
+              "graph pooling",
+              "top-k node selection",
+              "projection vector",
+              "sigmoid activation",
+              "element-wise product"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              480,
+              580,
+              720
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of the proposed graph unpooling (gUnpool) layer showing downsampling with gPool and reconstruction with gUnpool using position information",
+            "related_concepts": [
+              "graph unpooling",
+              "coarsened graph",
+              "reconstruction"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              480,
+              950,
+              720
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Overall architecture of graph U-Nets (g-U-Nets) showing encoder blocks with gPool and GCN layers, decoder blocks with gUnpool and GCN layers, and skip connections",
+            "related_concepts": [
+              "graph convolutional network",
+              "graph pooling",
+              "graph unpooling",
+              "skip connection"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              0,
+              650,
+              250
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"gPool\", \"downsample\"],\n      \"evidence\": \"Proposed graph pooling - downsample\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 430, 550, 460]\n    },\n    {\n      \"canonical\": \"graph unpooling\",\n      \"aliases\": [\"gUnpool\", \"upsample\"],\n      \"evidence\": \"Proposed graph unpooling - upsample\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [680, 430, 950, 460]\n    },\n    {\n      \"canonical\": \"top-k node selection\",\n      \"aliases\": [],\n      \"evidence\": \"Top k Node Selection\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [320, 720, 450, 740]\n    },\n    {\n      \"canonical\": \"projection vector\",\n      \"aliases\": [\"p\"],\n      \"evidence\": \"p is a trainable projection vector\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 800, 400, 820]\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [],\n      \"evidence\": \"sigmoid\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [420, 480, 480, 500]\n    },\n    {\n      \"canonical\": \"element-wise product\",\n      \"aliases\": [\"Hadamard product\"],\n      \"evidence\": \"⊙ denote matrix multiplication and element-wise product\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 760, 450, 780]\n    },\n    {\n      \"canonical\": \"skip connection\",\n      \"aliases\": [],\n      \"evidence\": \"encoder block uses skip connection to fuse the low-level spatial features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 320, 700, 340]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 680, 650, 700]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"A\"],\n      \"evidence\": \"adjacency matrix A^l\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 780, 300, 800]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"X\"],\n      \"evidence\": \"input feature matrix X^l\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 780, 300, 800]\n    },\n    {\n      \"canonical\": \"rank function\",\n      \"aliases\": [],\n      \"evidence\": \"idx = rank(y, k)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 880, 400, 900]\n    },\n    {\n      \"canonical\": \"node scores\",\n      \"aliases\": [\"y\"],\n      \"evidence\": \"scores estimating scalar projection values\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 820, 400, 840]\n    },\n    {\n      \"canonical\": \"pooled graph\",\n      \"aliases\": [],\n      \"evidence\": \"new pooled graph\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [150, 960, 250, 980]\n    },\n    {\n      \"canonical\": \"coarsened graph\",\n      \"aliases\": [],\n      \"evidence\": \"resulting in a coarsened graph with 4 nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 780, 850, 800]\n    },\n    {\n      \"canonical\": \"reconstruction\",\n      \"aliases\": [],\n      \"evidence\": \"reconstruct the original graph structure\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 800, 850, 820]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = X^{(\\\\ell)} p / \\\\|p\\\\|_2, \\\\quad \\\\epsilon \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"projection vector\", \"node scores\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 840, 550, 860],\n      \"label\": \"projection score\"\n    },\n    {\n      \"latex\": \"\\\\text{idx} = \\\\text{rank}(y, k)\",\n      \"related_concepts\": [\"rank function\", \"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 880, 400, 900],\n      \"label\": \"index selection\"\n    },\n    {\n      \"latex\": \"\\\\tilde{y} = \\\\text{sigmoid}(y(\\\\text{idx}))\",\n      \"related_concepts\": [\"sigmoid activation\", \"node scores\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 900, 450, 920],\n      \"label\": \"gated scores\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X}^{\\\\ell} = X^{\\\\ell}(\\\\text{idx}, :)\",\n      \"related_concepts\": [\"feature matrix\", \"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 920, 450, 940],\n      \"label\": \"pooled features\"\n    },\n    {\n      \"latex\": \"A^{\\\\ell+1} = A^{\\\\ell}(\\\\text{idx}, \\\\text{idx})\",\n      \"related_concepts\": [\"adjacency matrix\", \"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 940, 450, 960],\n      \"label\": \"pooled adjacency\"\n    },\n    {\n      \"latex\": \"X^{\\\\ell+1} = \\\\tilde{X}^{\\\\ell} \\\\odot (\\\\tilde{y} \\\\mathbf{1}_d^T)\",\n      \"related_concepts\": [\"element-wise product\", \"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 960, 550, 980],\n      \"label\": \"gated output features\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of the proposed graph pooling layer showing inputs, projection, top-k node selection, gate, and outputs with matrices and operations\",\n      \"related_concepts\": [\"graph pooling\", \"top-k node selection\", \"projection vector\", \"sigmoid activation\", \"element-wise product\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 480, 580, 720]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of the proposed graph unpooling (gUnpool) layer showing downsampling with gPool and reconstruction with gUnpool using position information\",\n      \"related_concepts\": [\"graph unpooling\", \"coarsened graph\", \"reconstruction\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 480, 950, 720]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Overall architecture of graph U-Nets (g-U-Nets) showing encoder blocks with gPool and GCN layers, decoder blocks with gUnpool and GCN layers, and skip connections\",\n      \"related_concepts\": [\"graph convolutional network\", \"graph pooling\", \"graph unpooling\", \"skip connection\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 0, 650, 250]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Generative Graph Neural Networks and Graph Pooling",
+        "summary": "This page covers generative models for graphs, including GraphVAE and various one-shot generation methods using MLPs and message passing. It details the taxonomy of generative GNN tasks, distinguishing between self-supervised and supervised approaches like conditional generation and node-edge co-transformation. The page also introduces Graph U-Nets, focusing on the proposed graph pooling (gPool) and unpooling (gUnpool) layers that utilize top-k node selection and skip connections for hierarchical graph representation learning.",
+        "key_topics": [
+          "graph generation",
+          "variational autoencoder",
+          "graph pooling",
+          "graph unet",
+          "message passing"
+        ],
+        "concepts": [
+          {
+            "canonical": "graphvae",
+            "aliases": [
+              "variational graph autoencoder"
+            ],
+            "evidence": "GraphVAE (Simonovsky et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              82.5,
+              330.0,
+              99.0
+            ]
+          },
+          {
+            "canonical": "variational autoencoder",
+            "aliases": [
+              "vae"
+            ],
+            "evidence": "Loss objective of variational autoencoders",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              330.0,
+              275.0,
+              346.5
+            ]
+          },
+          {
+            "canonical": "encoder",
+            "aliases": [],
+            "evidence": "Encoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              165.0,
+              275.0,
+              176.0
+            ]
+          },
+          {
+            "canonical": "decoder",
+            "aliases": [],
+            "evidence": "Decoder",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              192.5,
+              330.0,
+              203.5
+            ]
+          },
+          {
+            "canonical": "kl divergence",
+            "aliases": [
+              "kullback-leibler divergence"
+            ],
+            "evidence": "KL",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              209.0,
+              286.0,
+              220.0
+            ]
+          },
+          {
+            "canonical": "mlp",
+            "aliases": [
+              "multi-layer perceptron"
+            ],
+            "evidence": "MLP-based one-shot",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              247.5,
+              82.5,
+              258.5
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "a"
+            ],
+            "evidence": "Adjacency-matrix-based",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              192.5,
+              82.5,
+              203.5
+            ]
+          },
+          {
+            "canonical": "self-supervised learning",
+            "aliases": [
+              "self-supervised"
+            ],
+            "evidence": "Self-supervised/unsupervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              165.0,
+              66.0
+            ]
+          },
+          {
+            "canonical": "graph generation",
+            "aliases": [
+              "generative model"
+            ],
+            "evidence": "Unconditional generation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              110.0,
+              82.5,
+              121.0
+            ]
+          },
+          {
+            "canonical": "latent space",
+            "aliases": [],
+            "evidence": "latent space",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              275.0,
+              220.0,
+              286.0
+            ]
+          },
+          {
+            "canonical": "reconstruction loss",
+            "aliases": [],
+            "evidence": "reconstruction loss",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              467.5,
+              247.5,
+              478.5
+            ]
+          },
+          {
+            "canonical": "softmax",
+            "aliases": [],
+            "evidence": "edge- and node-wise softmax",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              385.0,
+              412.5,
+              396.0
+            ]
+          },
+          {
+            "canonical": "argmax",
+            "aliases": [],
+            "evidence": "argmax",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              385.0,
+              275.0,
+              412.5,
+              286.0
+            ]
+          },
+          {
+            "canonical": "gaussian prior",
+            "aliases": [],
+            "evidence": "isotropic Gaussian prior",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              412.5,
+              247.5,
+              423.5
+            ]
+          },
+          {
+            "canonical": "graph matching",
+            "aliases": [],
+            "evidence": "approximate graph matching",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              302.5,
+              357.5,
+              313.5
+            ]
+          },
+          {
+            "canonical": "supervised generative gnn tasks",
+            "aliases": [
+              "supervised generation"
+            ],
+            "evidence": "Taxonomy (Guo et al., 2023) Supervised generative GNN tasks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              549.0,
+              55.0,
+              697.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "conditional generation",
+            "aliases": [
+              "conditioning on graphs"
+            ],
+            "evidence": "Conditional generation, Conditioning on graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              549.0,
+              88.0,
+              642.5,
+              121.0
+            ]
+          },
+          {
+            "canonical": "node-edge co-transformation",
+            "aliases": [
+              "nect"
+            ],
+            "evidence": "Node-edge co-transformation NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              126.5,
+              615.0,
+              143.0
+            ]
+          },
+          {
+            "canonical": "embedding-based nect",
+            "aliases": [],
+            "evidence": "(a) Embedding-based NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              165.0,
+              670.0,
+              181.5
+            ]
+          },
+          {
+            "canonical": "editing-based nect",
+            "aliases": [],
+            "evidence": "(b) Editing-based NECT",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              247.5,
+              670.0,
+              264.0
+            ]
+          },
+          {
+            "canonical": "encoder-decoder gnns",
+            "aliases": [],
+            "evidence": "Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              549.0,
+              330.0,
+              780.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "graph unet",
+            "aliases": [
+              "g-u-nets"
+            ],
+            "evidence": "Graph UNet (Gao et al., 2019), g-U-Nets",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              697.5,
+              330.0,
+              780.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "dag-to-dag",
+            "aliases": [],
+            "evidence": "DAG-to-DAG (Kaluza et al., 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              275.0,
+              862.5,
+              291.5
+            ]
+          },
+          {
+            "canonical": "directed acyclic graph",
+            "aliases": [
+              "dag"
+            ],
+            "evidence": "Directed-acyclic-graph (DAG)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              291.5,
+              862.5,
+              308.0
+            ]
+          },
+          {
+            "canonical": "gcn",
+            "aliases": [
+              "graph convolutional network"
+            ],
+            "evidence": "GCN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              385.0,
+              631.5,
+              401.5
+            ]
+          },
+          {
+            "canonical": "graph pooling",
+            "aliases": [
+              "gpool"
+            ],
+            "evidence": "gPool",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              412.5,
+              659.0,
+              429.0
+            ]
+          },
+          {
+            "canonical": "graph unpooling",
+            "aliases": [
+              "gunpool"
+            ],
+            "evidence": "gUnpool",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              412.5,
+              769.0,
+              429.0
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "message-passing-based"
+            ],
+            "evidence": "(c) Message-passing-based one-shot",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              642.5,
+              137.5,
+              659.0
+            ]
+          },
+          {
+            "canonical": "node update",
+            "aliases": [],
+            "evidence": "Node update (msg)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              736.0,
+              302.5,
+              747.0
+            ]
+          },
+          {
+            "canonical": "edge update",
+            "aliases": [],
+            "evidence": "Edge update",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              747.0,
+              302.5,
+              758.0
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [
+              "sampled noise"
+            ],
+            "evidence": "sampled noise",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              890.0,
+              55.0,
+              901.0
+            ]
+          },
+          {
+            "canonical": "top-k node selection",
+            "aliases": [],
+            "evidence": "Top k Node Selection",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              626.0,
+              846.0,
+              697.5,
+              857.0
+            ]
+          },
+          {
+            "canonical": "projection vector",
+            "aliases": [
+              "p"
+            ],
+            "evidence": "p is a trainable projection vector",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              890.0,
+              670.0,
+              901.0
+            ]
+          },
+          {
+            "canonical": "sigmoid activation",
+            "aliases": [],
+            "evidence": "sigmoid",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              681.0,
+              714.0,
+              714.0,
+              725.0
+            ]
+          },
+          {
+            "canonical": "element-wise product",
+            "aliases": [
+              "hadamard product"
+            ],
+            "evidence": "denote matrix multiplication and element-wise product",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              868.0,
+              697.5,
+              879.0
+            ]
+          },
+          {
+            "canonical": "skip connection",
+            "aliases": [],
+            "evidence": "encoder block uses skip connection to fuse the low-level spatial features",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              626.0,
+              835.0,
+              637.0
+            ]
+          },
+          {
+            "canonical": "feature matrix",
+            "aliases": [
+              "x"
+            ],
+            "evidence": "input feature matrix X^l",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              879.0,
+              615.0,
+              890.0
+            ]
+          },
+          {
+            "canonical": "node scores",
+            "aliases": [
+              "y"
+            ],
+            "evidence": "scores estimating scalar projection values",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              532.5,
+              901.0,
+              670.0,
+              912.0
+            ]
+          },
+          {
+            "canonical": "coarsened graph",
+            "aliases": [],
+            "evidence": "resulting in a coarsened graph with 4 nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              879.0,
+              917.5,
+              890.0
+            ]
+          },
+          {
+            "canonical": "reconstruction",
+            "aliases": [],
+            "evidence": "reconstruct the original graph structure",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              890.0,
+              917.5,
+              901.0
+            ]
+          },
+          {
+            "canonical": "gaussian distribution",
+            "aliases": [
+              "normal distribution"
+            ],
+            "evidence": "N(0, 1)",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              5.5,
+              917.5,
+              55.0,
+              934.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\mathcal{L}(\\phi, \\theta; G) = \\mathbb{E}_{q_\\phi(\\mathbf{z}|G)}[-\\log p_\\theta(G|\\mathbf{z})] + \\text{KL}(q_\\phi(\\mathbf{z}|G) || p(\\mathbf{z}))",
+            "related_concepts": [
+              "variational autoencoder",
+              "kl divergence",
+              "reconstruction loss"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              165.0,
+              440.0,
+              330.0,
+              467.5
+            ],
+            "label": "VAE Loss Objective"
+          },
+          {
+            "latex": "p(\\mathbf{z}) = \\mathcal{N}(0, I)",
+            "related_concepts": [
+              "gaussian prior"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              423.5,
+              247.5,
+              434.5
+            ],
+            "label": "Prior Distribution"
+          },
+          {
+            "latex": "\\| A_T - \\tilde{A}_T \\|_2 + \\lambda \\| F_T - \\tilde{F}_T \\|_2",
+            "related_concepts": [
+              "embedding-based nect"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              725.0,
+              137.5,
+              835.0,
+              154.0
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "z_i \\sim \\mathcal{N}(0, 1)",
+            "related_concepts": [
+              "gaussian distribution",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              5.5,
+              917.5,
+              55.0,
+              934.0
+            ],
+            "label": "Noise Sampling"
+          },
+          {
+            "latex": "y = X^{(\\ell)} p / \\|p\\|_2, \\quad \\epsilon \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "projection vector",
+              "node scores"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              912.0,
+              752.5,
+              923.0
+            ],
+            "label": "projection score"
+          },
+          {
+            "latex": "\\text{idx} = \\text{rank}(y, k)",
+            "related_concepts": [
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              934.0,
+              670.0,
+              945.0
+            ],
+            "label": "index selection"
+          },
+          {
+            "latex": "\\tilde{y} = \\text{sigmoid}(y(\\text{idx}))",
+            "related_concepts": [
+              "sigmoid activation",
+              "node scores"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              945.0,
+              697.5,
+              956.0
+            ],
+            "label": "gated scores"
+          },
+          {
+            "latex": "\\tilde{X}^{\\ell} = X^{\\ell}(\\text{idx}, :)",
+            "related_concepts": [
+              "feature matrix",
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              956.0,
+              697.5,
+              967.0
+            ],
+            "label": "pooled features"
+          },
+          {
+            "latex": "A^{\\ell+1} = A^{\\ell}(\\text{idx}, \\text{idx})",
+            "related_concepts": [
+              "adjacency matrix",
+              "top-k node selection"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              967.0,
+              697.5,
+              978.0
+            ],
+            "label": "pooled adjacency"
+          },
+          {
+            "latex": "X^{\\ell+1} = \\tilde{X}^{\\ell} \\odot (\\tilde{y} \\mathbf{1}_d^T)",
+            "related_concepts": [
+              "element-wise product",
+              "feature matrix"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              587.5,
+              978.0,
+              752.5,
+              989.0
+            ],
+            "label": "gated output features"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "GraphVAE architecture showing encoder, latent space, and decoder components with graph inputs and outputs",
+            "related_concepts": [
+              "graphvae",
+              "encoder",
+              "decoder",
+              "latent space"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              137.5,
+              412.5,
+              302.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "MLP-based one-shot generation architecture with adjacency matrix and feature matrix outputs",
+            "related_concepts": [
+              "mlp",
+              "adjacency matrix",
+              "graph generation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              247.5,
+              137.5,
+              357.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of embedding-based NECT with encoder and decoder",
+            "related_concepts": [
+              "embedding-based nect",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              165.0,
+              725.0,
+              247.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of editing-based NECT with source and target graphs",
+            "related_concepts": [
+              "editing-based nect",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              247.5,
+              725.0,
+              330.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of Graph UNet architecture with GCN, gPool, and gUnpool layers",
+            "related_concepts": [
+              "graph unet",
+              "encoder-decoder gnns"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              560.0,
+              357.5,
+              862.5,
+              495.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of DAG-to-DAG process",
+            "related_concepts": [
+              "dag-to-dag",
+              "directed acyclic graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              275.0,
+              862.5,
+              330.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Diagram showing message-passing-based one-shot graph generation process, including unit matrix initialization, GCN message passing, node and edge updates, and final graph output.",
+            "related_concepts": [
+              "message passing",
+              "graph convolutional network",
+              "node update",
+              "edge update"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              5.5,
+              642.5,
+              330.0,
+              807.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of transforming sampled noise into real graphs using trained decoders for molecules and brain networks.",
+            "related_concepts": [
+              "graph generation",
+              "decoder",
+              "sampling"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              5.5,
+              862.5,
+              330.0,
+              972.5
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of the proposed graph pooling layer showing inputs, projection, top-k node selection, gate, and outputs with matrices and operations",
+            "related_concepts": [
+              "graph pooling",
+              "top-k node selection",
+              "projection vector",
+              "sigmoid activation",
+              "element-wise product"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              714.0,
+              769.0,
+              846.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of the proposed graph unpooling (gUnpool) layer showing downsampling with gPool and reconstruction with gUnpool using position information",
+            "related_concepts": [
+              "graph unpooling",
+              "coarsened graph",
+              "reconstruction"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              714.0,
+              972.5,
+              846.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Overall architecture of graph U-Nets (g-U-Nets) showing encoder blocks with gPool and GCN layers, decoder blocks with gUnpool and GCN layers, and skip connections",
+            "related_concepts": [
+              "graph convolutional network",
+              "graph pooling",
+              "graph unpooling",
+              "skip connection"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              642.5,
+              450.0,
+              807.5,
+              587.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "P(G|G') by graph matching",
+            "reason": "Handwriting is somewhat unclear, particularly the prime notation and exact wording",
+            "bbox": [
+              247.5,
+              137.5,
+              330.0,
+              154.0
+            ]
+          },
+          {
+            "transcription": "decode z onto G",
+            "reason": "Handwriting is rushed and some letters are ambiguous",
+            "bbox": [
+              385.0,
+              247.5,
+              440.0,
+              275.0
+            ]
+          },
+          {
+            "transcription": "learn the optimal encoding of G",
+            "reason": "Handwriting is small and some words are difficult to distinguish clearly",
+            "bbox": [
+              412.5,
+              357.5,
+              467.5,
+              385.0
+            ]
+          },
+          {
+            "transcription": "Decoder => generate",
+            "reason": "Arrow symbol and exact wording are somewhat ambiguous in handwriting",
+            "bbox": [
+              302.5,
+              467.5,
+              385.0,
+              495.0
+            ]
+          },
+          {
+            "transcription": "selfgastrin",
+            "reason": "Handwriting is unclear and may be a misinterpretation of 'self-supervised'",
+            "bbox": [
+              725.0,
+              99.0,
+              780.0,
+              115.5
+            ]
+          },
+          {
+            "transcription": "assignee ate a knoti E encode toi",
+            "reason": "Handwriting is unclear and may be a misinterpretation of technical terms",
+            "bbox": [
+              725.0,
+              115.5,
+              780.0,
+              132.0
+            ]
+          },
+          {
+            "transcription": "Decoder => generate",
+            "reason": "Handwriting is somewhat unclear, especially the arrow and the word 'generate'.",
+            "bbox": [
+              357.5,
+              477.5,
+              440.0,
+              494.0
+            ]
+          },
+          {
+            "transcription": "higher values",
+            "reason": "Handwriting is cursive and slightly ambiguous.",
+            "bbox": [
+              495.0,
+              917.5,
+              544.5,
+              934.0
+            ]
+          },
+          {
+            "transcription": "new pooled graph h.",
+            "reason": "Handwriting is small and somewhat unclear, especially the 'h'.",
+            "bbox": [
+              495.0,
+              945.0,
+              544.5,
+              972.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Generative Graph Neural Networks and Graph Pooling\",\n  \"summary\": \"This page covers generative models for graphs, including GraphVAE and various one-shot generation methods using MLPs and message passing. It details the taxonomy of generative GNN tasks, distinguishing between self-supervised and supervised approaches like conditional generation and node-edge co-transformation. The page also introduces Graph U-Nets, focusing on the proposed graph pooling (gPool) and unpooling (gUnpool) layers that utilize top-k node selection and skip connections for hierarchical graph representation learning.\",\n  \"key_topics\": [\n    \"graph generation\",\n    \"variational autoencoder\",\n    \"graph pooling\",\n    \"graph unet\",\n    \"message passing\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graphvae\",\n      \"aliases\": [\"variational graph autoencoder\"],\n      \"evidence\": \"GraphVAE (Simonovsky et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220.0, 82.5, 330.0, 99.0]\n    },\n    {\n      \"canonical\": \"variational autoencoder\",\n      \"aliases\": [\"vae\"],\n      \"evidence\": \"Loss objective of variational autoencoders\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [165.0, 330.0, 275.0, 346.5]\n    },\n    {\n      \"canonical\": \"encoder\",\n      \"aliases\": [],\n      \"evidence\": \"Encoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 165.0, 275.0, 176.0]\n    },\n    {\n      \"canonical\": \"decoder\",\n      \"aliases\": [],\n      \"evidence\": \"Decoder\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 192.5, 330.0, 203.5]\n    },\n    {\n      \"canonical\": \"kl divergence\",\n      \"aliases\": [\"kullback-leibler divergence\"],\n      \"evidence\": \"KL\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 209.0, 286.0, 220.0]\n    },\n    {\n      \"canonical\": \"mlp\",\n      \"aliases\": [\"multi-layer perceptron\"],\n      \"evidence\": \"MLP-based one-shot\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 247.5, 82.5, 258.5]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"a\"],\n      \"evidence\": \"Adjacency-matrix-based\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 192.5, 82.5, 203.5]\n    },\n    {\n      \"canonical\": \"self-supervised learning\",\n      \"aliases\": [\"self-supervised\"],\n      \"evidence\": \"Self-supervised/unsupervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 55.0, 165.0, 66.0]\n    },\n    {\n      \"canonical\": \"graph generation\",\n      \"aliases\": [\"generative model\"],\n      \"evidence\": \"Unconditional generation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 110.0, 82.5, 121.0]\n    },\n    {\n      \"canonical\": \"latent space\",\n      \"aliases\": [],\n      \"evidence\": \"latent space\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 275.0, 220.0, 286.0]\n    },\n    {\n      \"canonical\": \"reconstruction loss\",\n      \"aliases\": [],\n      \"evidence\": \"reconstruction loss\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 467.5, 247.5, 478.5]\n    },\n    {\n      \"canonical\": \"softmax\",\n      \"aliases\": [],\n      \"evidence\": \"edge- and node-wise softmax\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 385.0, 412.5, 396.0]\n    },\n    {\n      \"canonical\": \"argmax\",\n      \"aliases\": [],\n      \"evidence\": \"argmax\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [385.0, 275.0, 412.5, 286.0]\n    },\n    {\n      \"canonical\": \"gaussian prior\",\n      \"aliases\": [],\n      \"evidence\": \"isotropic Gaussian prior\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 412.5, 247.5, 423.5]\n    },\n    {\n      \"canonical\": \"graph matching\",\n      \"aliases\": [],\n      \"evidence\": \"approximate graph matching\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 302.5, 357.5, 313.5]\n    },\n    {\n      \"canonical\": \"supervised generative gnn tasks\",\n      \"aliases\": [\"supervised generation\"],\n      \"evidence\": \"Taxonomy (Guo et al., 2023) Supervised generative GNN tasks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [549.0, 55.0, 697.5, 82.5]\n    },\n    {\n      \"canonical\": \"conditional generation\",\n      \"aliases\": [\"conditioning on graphs\"],\n      \"evidence\": \"Conditional generation, Conditioning on graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [549.0, 88.0, 642.5, 121.0]\n    },\n    {\n      \"canonical\": \"node-edge co-transformation\",\n      \"aliases\": [\"nect\"],\n      \"evidence\": \"Node-edge co-transformation NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 126.5, 615.0, 143.0]\n    },\n    {\n      \"canonical\": \"embedding-based nect\",\n      \"aliases\": [],\n      \"evidence\": \"(a) Embedding-based NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 165.0, 670.0, 181.5]\n    },\n    {\n      \"canonical\": \"editing-based nect\",\n      \"aliases\": [],\n      \"evidence\": \"(b) Editing-based NECT\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 247.5, 670.0, 264.0]\n    },\n    {\n      \"canonical\": \"encoder-decoder gnns\",\n      \"aliases\": [],\n      \"evidence\": \"Encoder-Decoder GNNs case study: Graph UNet (Gao et al., 2019)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [549.0, 330.0, 780.0, 357.5]\n    },\n    {\n      \"canonical\": \"graph unet\",\n      \"aliases\": [\"g-u-nets\"],\n      \"evidence\": \"Graph UNet (Gao et al., 2019), g-U-Nets\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [697.5, 330.0, 780.0, 357.5]\n    },\n    {\n      \"canonical\": \"dag-to-dag\",\n      \"aliases\": [],\n      \"evidence\": \"DAG-to-DAG (Kaluza et al., 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 275.0, 862.5, 291.5]\n    },\n    {\n      \"canonical\": \"directed acyclic graph\",\n      \"aliases\": [\"dag\"],\n      \"evidence\": \"Directed-acyclic-graph (DAG)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 291.5, 862.5, 308.0]\n    },\n    {\n      \"canonical\": \"gcn\",\n      \"aliases\": [\"graph convolutional network\"],\n      \"evidence\": \"GCN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [615.0, 385.0, 631.5, 401.5]\n    },\n    {\n      \"canonical\": \"graph pooling\",\n      \"aliases\": [\"gpool\"],\n      \"evidence\": \"gPool\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 412.5, 659.0, 429.0]\n    },\n    {\n      \"canonical\": \"graph unpooling\",\n      \"aliases\": [\"gunpool\"],\n      \"evidence\": \"gUnpool\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 412.5, 769.0, 429.0]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"message-passing-based\"],\n      \"evidence\": \"(c) Message-passing-based one-shot\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 642.5, 137.5, 659.0]\n    },\n    {\n      \"canonical\": \"node update\",\n      \"aliases\": [],\n      \"evidence\": \"Node update (msg)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 736.0, 302.5, 747.0]\n    },\n    {\n      \"canonical\": \"edge update\",\n      \"aliases\": [],\n      \"evidence\": \"Edge update\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 747.0, 302.5, 758.0]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [\"sampled noise\"],\n      \"evidence\": \"sampled noise\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 890.0, 55.0, 901.0]\n    },\n    {\n      \"canonical\": \"top-k node selection\",\n      \"aliases\": [],\n      \"evidence\": \"Top k Node Selection\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [626.0, 846.0, 697.5, 857.0]\n    },\n    {\n      \"canonical\": \"projection vector\",\n      \"aliases\": [\"p\"],\n      \"evidence\": \"p is a trainable projection vector\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 890.0, 670.0, 901.0]\n    },\n    {\n      \"canonical\": \"sigmoid activation\",\n      \"aliases\": [],\n      \"evidence\": \"sigmoid\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [681.0, 714.0, 714.0, 725.0]\n    },\n    {\n      \"canonical\": \"element-wise product\",\n      \"aliases\": [\"hadamard product\"],\n      \"evidence\": \"denote matrix multiplication and element-wise product\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 868.0, 697.5, 879.0]\n    },\n    {\n      \"canonical\": \"skip connection\",\n      \"aliases\": [],\n      \"evidence\": \"encoder block uses skip connection to fuse the low-level spatial features\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 626.0, 835.0, 637.0]\n    },\n    {\n      \"canonical\": \"feature matrix\",\n      \"aliases\": [\"x\"],\n      \"evidence\": \"input feature matrix X^l\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 879.0, 615.0, 890.0]\n    },\n    {\n      \"canonical\": \"node scores\",\n      \"aliases\": [\"y\"],\n      \"evidence\": \"scores estimating scalar projection values\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [532.5, 901.0, 670.0, 912.0]\n    },\n    {\n      \"canonical\": \"coarsened graph\",\n      \"aliases\": [],\n      \"evidence\": \"resulting in a coarsened graph with 4 nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 879.0, 917.5, 890.0]\n    },\n    {\n      \"canonical\": \"reconstruction\",\n      \"aliases\": [],\n      \"evidence\": \"reconstruct the original graph structure\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 890.0, 917.5, 901.0]\n    },\n    {\n      \"canonical\": \"gaussian distribution\",\n      \"aliases\": [\"normal distribution\"],\n      \"evidence\": \"N(0, 1)\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [5.5, 917.5, 55.0, 934.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\mathcal{L}(\\\\phi, \\\\theta; G) = \\\\mathbb{E}_{q_\\\\phi(\\\\mathbf{z}|G)}[-\\\\log p_\\\\theta(G|\\\\mathbf{z})] + \\\\text{KL}(q_\\\\phi(\\\\mathbf{z}|G) || p(\\\\mathbf{z}))\",\n      \"related_concepts\": [\"variational autoencoder\", \"kl divergence\", \"reconstruction loss\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [165.0, 440.0, 330.0, 467.5],\n      \"label\": \"VAE Loss Objective\"\n    },\n    {\n      \"latex\": \"p(\\\\mathbf{z}) = \\\\mathcal{N}(0, I)\",\n      \"related_concepts\": [\"gaussian prior\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 423.5, 247.5, 434.5],\n      \"label\": \"Prior Distribution\"\n    },\n    {\n      \"latex\": \"\\\\| A_T - \\\\tilde{A}_T \\\\|_2 + \\\\lambda \\\\| F_T - \\\\tilde{F}_T \\\\|_2\",\n      \"related_concepts\": [\"embedding-based nect\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [725.0, 137.5, 835.0, 154.0],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"z_i \\\\sim \\\\mathcal{N}(0, 1)\",\n      \"related_concepts\": [\"gaussian distribution\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [5.5, 917.5, 55.0, 934.0],\n      \"label\": \"Noise Sampling\"\n    },\n    {\n      \"latex\": \"y = X^{(\\\\ell)} p / \\\\|p\\\\|_2, \\\\quad \\\\epsilon \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"projection vector\", \"node scores\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 912.0, 752.5, 923.0],\n      \"label\": \"projection score\"\n    },\n    {\n      \"latex\": \"\\\\text{idx} = \\\\text{rank}(y, k)\",\n      \"related_concepts\": [\"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 934.0, 670.0, 945.0],\n      \"label\": \"index selection\"\n    },\n    {\n      \"latex\": \"\\\\tilde{y} = \\\\text{sigmoid}(y(\\\\text{idx}))\",\n      \"related_concepts\": [\"sigmoid activation\", \"node scores\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 945.0, 697.5, 956.0],\n      \"label\": \"gated scores\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X}^{\\\\ell} = X^{\\\\ell}(\\\\text{idx}, :)\",\n      \"related_concepts\": [\"feature matrix\", \"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 956.0, 697.5, 967.0],\n      \"label\": \"pooled features\"\n    },\n    {\n      \"latex\": \"A^{\\\\ell+1} = A^{\\\\ell}(\\\\text{idx}, \\\\text{idx})\",\n      \"related_concepts\": [\"adjacency matrix\", \"top-k node selection\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 967.0, 697.5, 978.0],\n      \"label\": \"pooled adjacency\"\n    },\n    {\n      \"latex\": \"X^{\\\\ell+1} = \\\\tilde{X}^{\\\\ell} \\\\odot (\\\\tilde{y} \\\\mathbf{1}_d^T)\",\n      \"related_concepts\": [\"element-wise product\", \"feature matrix\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [587.5, 978.0, 752.5, 989.0],\n      \"label\": \"gated output features\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"GraphVAE architecture showing encoder, latent space, and decoder components with graph inputs and outputs\",\n      \"related_concepts\": [\"graphvae\", \"encoder\", \"decoder\", \"latent space\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 137.5, 412.5, 302.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"MLP-based one-shot generation architecture with adjacency matrix and feature matrix outputs\",\n      \"related_concepts\": [\"mlp\", \"adjacency matrix\", \"graph generation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 247.5, 137.5, 357.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of embedding-based NECT with encoder and decoder\",\n      \"related_concepts\": [\"embedding-based nect\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 165.0, 725.0, 247.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of editing-based NECT with source and target graphs\",\n      \"related_concepts\": [\"editing-based nect\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 247.5, 725.0, 330.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of Graph UNet architecture with GCN, gPool, and gUnpool layers\",\n      \"related_concepts\": [\"graph unet\", \"encoder-decoder gnns\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [560.0, 357.5, 862.5, 495.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of DAG-to-DAG process\",\n      \"related_concepts\": [\"dag-to-dag\", \"directed acyclic graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 275.0, 862.5, 330.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram showing message-passing-based one-shot graph generation process, including unit matrix initialization, GCN message passing, node and edge updates, and final graph output.\",\n      \"related_concepts\": [\"message passing\", \"graph convolutional network\", \"node update\", \"edge update\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [5.5, 642.5, 330.0, 807.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of transforming sampled noise into real graphs using trained decoders for molecules and brain networks.\",\n      \"related_concepts\": [\"graph generation\", \"decoder\", \"sampling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [5.5, 862.5, 330.0, 972.5]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of the proposed graph pooling layer showing inputs, projection, top-k node selection, gate, and outputs with matrices and operations\",\n      \"related_concepts\": [\"graph pooling\", \"top-k node selection\", \"projection vector\", \"sigmoid activation\", \"element-wise product\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 714.0, 769.0, 846.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of the proposed graph unpooling (gUnpool) layer showing downsampling with gPool and reconstruction with gUnpool using position information\",\n      \"related_concepts\": [\"graph unpooling\", \"coarsened graph\", \"reconstruction\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 714.0, 972.5, 846.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Overall architecture of graph U-Nets (g-U-Nets) showing encoder blocks with gPool and GCN layers, decoder blocks with gUnpool and GCN layers, and skip connections\",\n      \"related_concepts\": [\"graph convolutional network\", \"graph pooling\", \"graph unpooling\", \"skip connection\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [642.5, 450.0, 807.5, 587.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"P(G|G') by graph matching\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly the prime notation and exact wording\",\n      \"bbox\": [247.5, 137.5, 330.0, 154.0]\n    },\n    {\n      \"transcription\": \"decode z onto G\",\n      \"reason\": \"Handwriting is rushed and some letters are ambiguous\",\n      \"bbox\": [385.0, 247.5, 440.0, 275.0]\n    },\n    {\n      \"transcription\": \"learn the optimal encoding of G\",\n      \"reason\": \"Handwriting is small and some words are difficult to distinguish clearly\",\n      \"bbox\": [412.5, 357.5, 467.5, 385.0]\n    },\n    {\n      \"transcription\": \"Decoder => generate\",\n      \"reason\": \"Arrow symbol and exact wording are somewhat ambiguous in handwriting\",\n      \"bbox\": [302.5, 467.5, 385.0, 495.0]\n    },\n    {\n      \"transcription\": \"selfgastrin\",\n      \"reason\": \"Handwriting is unclear and may be a misinterpretation of 'self-supervised'\",\n      \"bbox\": [725.0, 99.0, 780.0, 115.5]\n    },\n    {\n      \"transcription\": \"assignee ate a knoti E encode toi\",\n      \"reason\": \"Handwriting is unclear and may be a misinterpretation of technical terms\",\n      \"bbox\": [725.0, 115.5, 780.0, 132.0]\n    },\n    {\n      \"transcription\": \"Decoder => generate\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the arrow and the word 'generate'.\",\n      \"bbox\": [357.5, 477.5, 440.0, 494.0]\n    },\n    {\n      \"transcription\": \"higher values\",\n      \"reason\": \"Handwriting is cursive and slightly ambiguous.\",\n      \"bbox\": [495.0, 917.5, 544.5, 934.0]\n    },\n    {\n      \"transcription\": \"new pooled graph h.\",\n      \"reason\": \"Handwriting is small and somewhat unclear, especially the 'h'.\",\n      \"bbox\": [495.0, 945.0, 544.5, 972.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph generation",
+      "into": "graph generation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "variational autoencoder",
+      "into": "variational autoencoder"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "reconstruction loss",
+      "into": "reconstruction loss"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "kl divergence",
+      "into": "kl divergence"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph pooling",
+      "into": "gpool"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph unpooling",
+      "into": "gpool"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "gcn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "adjacency matrix",
+      "into": "adjacency matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "self-supervised learning",
+      "into": "self-supervised learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "skip connection",
+      "into": "skip connection"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "gcn"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "decoder",
+      "into": "decoder"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph pooling",
+      "into": "gpool"
+    }
+  ],
+  "warnings": [
+    "Merged duplicate concept graph unpooling into graph pooling"
+  ]
+}

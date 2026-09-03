@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "41663ad6fca79fa25dea40a075437ce60f15384aa527be3cafc062a6a8107ac8",
+  "concept_id": 253,
+  "concept_name": "memory usage",
+  "aliases": [
+    "memory usage",
+    "memory requirements"
+  ],
+  "profile": "memory usage: In GNN training, memory usage can increase together with the compute budget. Memory efficiency allows for more efficient memory usage.",
+  "word_count": 22,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "memory usage: In GNN training, memory usage can increase together with the compute budget. Memory efficiency is presented as a property that allows for more efficient memory usage.",
+    "claims": [
+      {
+        "claim": "Memory usage can increase together with the compute budget in GNN training.",
+        "evidence_ids": [
+          "DGL-E0316"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Memory efficiency allows for more efficient memory usage.",
+        "evidence_ids": [
+          "DGL-E0365"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "memory usage: In GNN training, memory usage can increase together with the compute budget. Memory efficiency allows for more efficient memory usage.",
+    "sentence_reviews": [
+      {
+        "sentence": "In GNN training, memory usage can increase together with the compute budget.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0316"
+        ],
+        "reason": "Directly reflects the evidence that memory usage and compute budget increase together."
+      },
+      {
+        "sentence": "Memory efficiency allows for more efficient memory usage.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0365"
+        ],
+        "reason": "Paraphrases the source statement 'Memory Efficiency: It allows for more efficient memory usage...' without adding new claims."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"memory usage: In GNN training, memory usage can increase together with the compute budget. Memory efficiency is presented as a property that allows for more efficient memory usage.\",\n  \"claims\": [\n    {\n      \"claim\": \"Memory usage can increase together with the compute budget in GNN training.\",\n      \"evidence_ids\": [\"DGL-E0316\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Memory efficiency allows for more efficient memory usage.\",\n      \"evidence_ids\": [\"DGL-E0365\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"memory usage: In GNN training, memory usage can increase together with the compute budget. Memory efficiency allows for more efficient memory usage.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In GNN training, memory usage can increase together with the compute budget.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0316\"],\n      \"reason\": \"Directly reflects the evidence that memory usage and compute budget increase together.\"\n    },\n    {\n      \"sentence\": \"Memory efficiency allows for more efficient memory usage.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0365\"],\n      \"reason\": \"Paraphrases the source statement 'Memory Efficiency: It allows for more efficient memory usage...' without adding new claims.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:30:16.179180+00:00"
+}

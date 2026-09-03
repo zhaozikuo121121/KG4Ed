@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1739f5710c8636372b5fb2a9aa38a48daa6a65c09fb8bbb5994105e6da08e0fc",
+  "concept_id": 215,
+  "concept_name": "validation error",
+  "aliases": [
+    "validation error"
+  ],
+  "profile": "validation error: the error computed on validation data. In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "validation error: the error computed on validation data. In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.",
+    "claims": [
+      {
+        "claim": "Validation error is the error computed on validation data.",
+        "evidence_ids": [
+          "MLR-E0266"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The model with the lowest validation error is deemed the best choice from a set of trained models.",
+        "evidence_ids": [
+          "MLR-E0266"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "validation error: the error computed on validation data. In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.",
+    "sentence_reviews": [
+      {
+        "sentence": "validation error: the error computed on validation data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0266"
+        ],
+        "reason": "The source equates validation error with the error on validation data."
+      },
+      {
+        "sentence": "In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0266"
+        ],
+        "reason": "The source states that the model with the lowest validation error is the best choice among trained models."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"validation error: the error computed on validation data. In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.\",\n  \"claims\": [\n    {\n      \"claim\": \"Validation error is the error computed on validation data.\",\n      \"evidence_ids\": [\"MLR-E0266\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The model with the lowest validation error is deemed the best choice from a set of trained models.\",\n      \"evidence_ids\": [\"MLR-E0266\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"validation error: the error computed on validation data. In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"validation error: the error computed on validation data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0266\"],\n      \"reason\": \"The source equates validation error with the error on validation data.\"\n    },\n    {\n      \"sentence\": \"In model selection, the model with the lowest validation error is deemed the best choice from a set of trained models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0266\"],\n      \"reason\": \"The source states that the model with the lowest validation error is the best choice among trained models.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:47:43.605173+00:00"
+}

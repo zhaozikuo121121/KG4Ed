@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "85ffe5c0c91eb19b2fe677b91f1734c2abdee7baba2db0e48bf29de467d6b718",
+  "concept_id": 133,
+  "concept_name": "early stopping by validation accuracy",
+  "aliases": [
+    "early stopping by validation accuracy"
+  ],
+  "profile": "early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result. In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value.",
+  "word_count": 47,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result. In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or equivalently the highest accuracy), not the lowest cost function value. By relying on validation accuracy rather than training cost, it selects a model that generalizes better.",
+    "claims": [
+      {
+        "claim": "early stopping by validation accuracy is a stopping rule that picks the training step with the best classification result.",
+        "evidence_ids": [
+          "MLR-E0149"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or equivalently the highest accuracy), not the lowest cost function value.",
+        "evidence_ids": [
+          "MLR-E0149"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "By relying on validation accuracy rather than training cost, it selects a model that generalizes better.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "The evidence does not explicitly mention validation data; the validation accuracy aspect is inferred from the concept name."
+    ]
+  },
+  "review": {
+    "final_profile": "early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result. In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value.",
+    "sentence_reviews": [
+      {
+        "sentence": "early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0149"
+        ],
+        "reason": "The evidence refers to the best step as providing the best classification result, which aligns with the concept name."
+      },
+      {
+        "sentence": "In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0149"
+        ],
+        "reason": "This directly restates the source evidence about the best step and weights being tied to fewest misclassifications/highest accuracy rather than lowest cost."
+      }
+    ],
+    "warnings": [
+      "The source evidence does not explicitly mention validation data or validation accuracy; this aspect is inferred from the concept name."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result. In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or equivalently the highest accuracy), not the lowest cost function value. By relying on validation accuracy rather than training cost, it selects a model that generalizes better.\",\n  \"claims\": [\n    {\n      \"claim\": \"early stopping by validation accuracy is a stopping rule that picks the training step with the best classification result.\",\n      \"evidence_ids\": [\"MLR-E0149\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or equivalently the highest accuracy), not the lowest cost function value.\",\n      \"evidence_ids\": [\"MLR-E0149\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"By relying on validation accuracy rather than training cost, it selects a model that generalizes better.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence does not explicitly mention validation data; the validation accuracy aspect is inferred from the concept name.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result. In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"early stopping by validation accuracy: a stopping rule that picks the training step with the best classification result.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0149\"],\n      \"reason\": \"The evidence refers to the best step as providing the best classification result, which aligns with the concept name.\"\n    },\n    {\n      \"sentence\": \"In linear two-class classification, the best step and corresponding weights are those with the lowest number of misclassifications (or likewise the highest accuracy), not the lowest cost function value.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0149\"],\n      \"reason\": \"This directly restates the source evidence about the best step and weights being tied to fewest misclassifications/highest accuracy rather than lowest cost.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence does not explicitly mention validation data or validation accuracy; this aspect is inferred from the concept name.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:18:04.823632+00:00"
+}

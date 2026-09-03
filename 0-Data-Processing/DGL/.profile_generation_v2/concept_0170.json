@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "671682f5fbd9a17e430c78c3f80d287cd6ba0296e6f6cf59235bd45c22a1a230",
+  "concept_id": 170,
+  "concept_name": "function f",
+  "aliases": [
+    "function f",
+    "f function"
+  ],
+  "profile": "function f: a transformation applied to a feature matrix (X or H), an adjacency matrix A, and a parameter vector φ. It is applied repeatedly: F[X, A, φ0], F[H1, A, φ1], F[H2, A, φ2], ..., F[HK-1, A, φK-1]. This produces hidden states H1, H2, ..., HK-1, using different parameters at each step while the adjacency matrix A remains the same.",
+  "word_count": 61,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "function f: a transformation used in a layer-wise update, taking a current feature matrix (X or H), an adjacency matrix A, and a parameter vector φ. It is applied repeatedly over K layers, producing hidden states H1, H2, ..., HK-1. The sequence shown is F[X, A, φ0], F[H1, A, φ1], ..., F[HK-1, A, φK-1], indicating that the same function f is reused with different parameters at each layer, and the adjacency matrix remains constant.",
+    "claims": [
+      {
+        "claim": "Function f is applied to an input feature matrix X, adjacency matrix A, and parameters φ0.",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Function f is applied repeatedly to produce hidden states H1, H2, ..., HK-1 with parameters φ1, φ2, ..., φK-1.",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The adjacency matrix A remains the same across applications while parameters change per layer.",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The exact definition of function f is not explicitly stated; only its usage in a recursive sequence is shown. The evidence is from a handwritten annotation with confidence 0.900."
+    ]
+  },
+  "review": {
+    "final_profile": "function f: a transformation applied to a feature matrix (X or H), an adjacency matrix A, and a parameter vector φ. It is applied repeatedly: F[X, A, φ0], F[H1, A, φ1], F[H2, A, φ2], ..., F[HK-1, A, φK-1]. This produces hidden states H1, H2, ..., HK-1, using different parameters at each step while the adjacency matrix A remains the same.",
+    "sentence_reviews": [
+      {
+        "sentence": "function f: a transformation applied to a feature matrix (X or H), an adjacency matrix A, and a parameter vector φ.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "reason": "The evidence lists F with X/H, A, and φ values."
+      },
+      {
+        "sentence": "It is applied repeatedly: F[X, A, φ0], F[H1, A, φ1], F[H2, A, φ2], ..., F[HK-1, A, φK-1].",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "reason": "The sequence is directly shown in the evidence."
+      },
+      {
+        "sentence": "This produces hidden states H1, H2, ..., HK-1, using different parameters at each step while the adjacency matrix A remains the same.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0176"
+        ],
+        "reason": "The outputs H are named in the sequence, parameters change, and A is constant across all terms."
+      }
+    ],
+    "warnings": [
+      "The exact definition of function f is not specified; the evidence shows only its repeated use with a constant adjacency matrix and changing parameters."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"function f: a transformation used in a layer-wise update, taking a current feature matrix (X or H), an adjacency matrix A, and a parameter vector φ. It is applied repeatedly over K layers, producing hidden states H1, H2, ..., HK-1. The sequence shown is F[X, A, φ0], F[H1, A, φ1], ..., F[HK-1, A, φK-1], indicating that the same function f is reused with different parameters at each layer, and the adjacency matrix remains constant.\",\n  \"claims\": [\n    {\n      \"claim\": \"Function f is applied to an input feature matrix X, adjacency matrix A, and parameters φ0.\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Function f is applied repeatedly to produce hidden states H1, H2, ..., HK-1 with parameters φ1, φ2, ..., φK-1.\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The adjacency matrix A remains the same across applications while parameters change per layer.\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact definition of function f is not explicitly stated; only its usage in a recursive sequence is shown. The evidence is from a handwritten annotation with confidence 0.900.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"function f: a transformation applied to a feature matrix (X or H), an adjacency matrix A, and a parameter vector φ. It is applied repeatedly: F[X, A, φ0], F[H1, A, φ1], F[H2, A, φ2], ..., F[HK-1, A, φK-1]. This produces hidden states H1, H2, ..., HK-1, using different parameters at each step while the adjacency matrix A remains the same.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"function f: a transformation applied to a feature matrix (X or H), an adjacency matrix A, and a parameter vector φ.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"reason\": \"The evidence lists F with X/H, A, and φ values.\"\n    },\n    {\n      \"sentence\": \"It is applied repeatedly: F[X, A, φ0], F[H1, A, φ1], F[H2, A, φ2], ..., F[HK-1, A, φK-1].\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"reason\": \"The sequence is directly shown in the evidence.\"\n    },\n    {\n      \"sentence\": \"This produces hidden states H1, H2, ..., HK-1, using different parameters at each step while the adjacency matrix A remains the same.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0176\"],\n      \"reason\": \"The outputs H are named in the sequence, parameters change, and A is constant across all terms.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact definition of function f is not specified; the evidence shows only its repeated use with a constant adjacency matrix and changing parameters.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:01:16.440014+00:00"
+}

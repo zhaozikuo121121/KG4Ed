@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "31b061a734b7333569a8179a934445c34fda3cc9a1aeae4f3b04644aa6bdba27",
+  "concept_id": 159,
+  "concept_name": "spanning set",
+  "aliases": [
+    "spanning set",
+    "basis"
+  ],
+  "profile": "spanning set: a set of vectors, drawn as arrows, that are particular points in a space. It is often called a basis; it is the set of vectors over which we aim to represent every other point in the space.",
+  "word_count": 40,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "spanning set: a set of vectors, drawn as arrows, that serve as particular points in a space. This set is used as a basis for representation: every other point in the space is intended to be represented in terms of these vectors. A spanning set is often called a basis.",
+    "claims": [
+      {
+        "claim": "A spanning set is a set of vectors drawn as arrows.",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "These vectors serve as particular points in the space.",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The goal is to represent every other point in the space over this set.",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A spanning set is often called a basis.",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "spanning set: a set of vectors, drawn as arrows, that are particular points in a space. It is often called a basis; it is the set of vectors over which we aim to represent every other point in the space.",
+    "sentence_reviews": [
+      {
+        "sentence": "spanning set: a set of vectors, drawn as arrows, that are particular points in a space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "reason": "The source describes vectors drawn as arrows and calls them particular points."
+      },
+      {
+        "sentence": "It is often called a basis; it is the set of vectors over which we aim to represent every other point in the space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0181"
+        ],
+        "reason": "The source says such a set is often called a basis and that we aim to represent every other point in the space over these vectors."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"spanning set: a set of vectors, drawn as arrows, that serve as particular points in a space. This set is used as a basis for representation: every other point in the space is intended to be represented in terms of these vectors. A spanning set is often called a basis.\",\n  \"claims\": [\n    {\n      \"claim\": \"A spanning set is a set of vectors drawn as arrows.\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"These vectors serve as particular points in the space.\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The goal is to represent every other point in the space over this set.\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A spanning set is often called a basis.\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"spanning set: a set of vectors, drawn as arrows, that are particular points in a space. It is often called a basis; it is the set of vectors over which we aim to represent every other point in the space.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"spanning set: a set of vectors, drawn as arrows, that are particular points in a space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"reason\": \"The source describes vectors drawn as arrows and calls them particular points.\"\n    },\n    {\n      \"sentence\": \"It is often called a basis; it is the set of vectors over which we aim to represent every other point in the space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0181\"],\n      \"reason\": \"The source says such a set is often called a basis and that we aim to represent every other point in the space over these vectors.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:27:58.245874+00:00"
+}

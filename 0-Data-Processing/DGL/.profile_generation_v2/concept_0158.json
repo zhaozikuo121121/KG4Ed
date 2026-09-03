@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "60950c90748f34a69c1a00da96ddac47898bca790944ef76b809acd7c20635e1",
+  "concept_id": 158,
+  "concept_name": "graph generation model",
+  "aliases": [
+    "graph generation model",
+    "generative graph model"
+  ],
+  "profile": "graph generation model: a model that learns to represent a graph by estimating the data distribution; specifically, it learns a model distribution p_model(g; theta) that approximates p_data(g), a process called density estimation.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph generation model: a model that learns to represent a graph by estimating the underlying data distribution. Specifically, it aims to learn a model distribution p_model(g; theta) that approximates the true data distribution p_data(g), a process known as density estimation.",
+    "claims": [
+      {
+        "claim": "A graph generation model learns to represent a graph by estimating the data distribution, specifically learning p_model(g; theta) approximating p_data(g), known as density estimation.",
+        "evidence_ids": [
+          "DGL-E0581"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph generation model: a model that learns to represent a graph by estimating the data distribution; specifically, it learns a model distribution p_model(g; theta) that approximates p_data(g), a process called density estimation.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph generation model: a model that learns to represent a graph by estimating the data distribution; specifically, it learns a model distribution p_model(g; theta) that approximates p_data(g), a process called density estimation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0581"
+        ],
+        "reason": "The source states that a generative graph model learns a good model of a graph by learning p_model(g; theta) ~ p_data(g), labeled density estimation."
+      }
+    ],
+    "warnings": [
+      "The source describes generative graph learning rather than using the exact phrase 'graph generation model'; the mapping is inferred from the provided concept name and alias."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph generation model: a model that learns to represent a graph by estimating the underlying data distribution. Specifically, it aims to learn a model distribution p_model(g; theta) that approximates the true data distribution p_data(g), a process known as density estimation.\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph generation model learns to represent a graph by estimating the data distribution, specifically learning p_model(g; theta) approximating p_data(g), known as density estimation.\",\n      \"evidence_ids\": [\"DGL-E0581\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph generation model: a model that learns to represent a graph by estimating the data distribution; specifically, it learns a model distribution p_model(g; theta) that approximates p_data(g), a process called density estimation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph generation model: a model that learns to represent a graph by estimating the data distribution; specifically, it learns a model distribution p_model(g; theta) that approximates p_data(g), a process called density estimation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0581\"],\n      \"reason\": \"The source states that a generative graph model learns a good model of a graph by learning p_model(g; theta) ~ p_data(g), labeled density estimation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source describes generative graph learning rather than using the exact phrase 'graph generation model'; the mapping is inferred from the provided concept name and alias.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:56:03.088657+00:00"
+}

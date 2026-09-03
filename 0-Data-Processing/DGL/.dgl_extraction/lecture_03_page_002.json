@@ -1,0 +1,2988 @@
+{
+  "version": "1.0.0",
+  "lecture": 3,
+  "pdf_file": "DGL_Lecture_3_Annotated.pdf",
+  "pdf_page": 2,
+  "page_title": "Graph-Level Prediction and Inductive Capability of GCNs",
+  "summary": "This lecture page explores the inductive capability of Graph Convolutional Networks (GCNs), focusing on their ability to generalize to new nodes and graphs of varying sizes. It details methods for graph-level prediction, specifically how to combine node embeddings into a single graph representation using global pooling techniques like mean, max, and sum. The content also introduces hierarchical pooling (DiffPool) as a method to better differentiate graph structures and discusses the importance of parameter sharing for efficient learning across different graph topologies.",
+  "key_topics": [
+    "inductive capability",
+    "graph-level prediction",
+    "global pooling",
+    "parameter sharing",
+    "hierarchical pooling"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T11:08:17+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "inductive capability",
+      "aliases": [
+        "inductive learning",
+        "generalization to new nodes",
+        "generalization to new graphs"
+      ],
+      "evidence": "Inductive capability of GCNs",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        55.0,
+        137.5,
+        82.5
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "node representation",
+        "embeddings"
+      ],
+      "evidence": "How to combine the node embeddings across the entire graph?",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        55.0,
+        972.5,
+        82.5
+      ]
+    },
+    {
+      "canonical": "global mean pooling",
+      "aliases": [
+        "mean pooling"
+      ],
+      "evidence": "Global mean pooling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        110.0,
+        835.0,
+        137.5
+      ]
+    },
+    {
+      "canonical": "self-loop augmentation",
+      "aliases": [
+        "self-loop",
+        "identity addition"
+      ],
+      "evidence": "A_hat = A + I",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        247.5,
+        192.5,
+        302.5,
+        220.0
+      ]
+    },
+    {
+      "canonical": "global max pooling",
+      "aliases": [
+        "max pooling"
+      ],
+      "evidence": "Global max pooling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        220.0,
+        835.0,
+        247.5
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "neighborhood aggregation",
+        "aggregation"
+      ],
+      "evidence": "agg[n, k] = sum h_k^(m)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        275.0,
+        247.5,
+        302.5
+      ]
+    },
+    {
+      "canonical": "graph-level regression",
+      "aliases": [
+        "graph-level prediction",
+        "graph classification"
+      ],
+      "evidence": "extend the node-level regression to a graph-level regression",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        330.0,
+        495.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "global sum pooling",
+      "aliases": [
+        "sum pooling"
+      ],
+      "evidence": "Global sum pooling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        330.0,
+        835.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "training nodes",
+      "aliases": [
+        "train nodes"
+      ],
+      "evidence": "Training nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        505.0,
+        82.5,
+        532.5
+      ]
+    },
+    {
+      "canonical": "testing nodes",
+      "aliases": [
+        "test nodes"
+      ],
+      "evidence": "Testing nodes",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        275.0,
+        505.0,
+        330.0,
+        532.5
+      ]
+    },
+    {
+      "canonical": "graph representation",
+      "aliases": [
+        "graph structure",
+        "topology"
+      ],
+      "evidence": "G = (V, E, A, X)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        615.0,
+        165.0,
+        642.5
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn",
+        "gcn"
+      ],
+      "evidence": "GNN models",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        697.5,
+        330.0,
+        752.5
+      ]
+    },
+    {
+      "canonical": "hierarchical pooling",
+      "aliases": [
+        "diffpool"
+      ],
+      "evidence": "Hierarchical pooling (DiffPool 2018)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        697.5,
+        862.5,
+        714.0
+      ]
+    },
+    {
+      "canonical": "parameter sharing",
+      "aliases": [
+        "shared parameters"
+      ],
+      "evidence": "This power stems from the feature aggregation and parameter sharing at the node level.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        752.5,
+        330.0,
+        780.0
+      ]
+    },
+    {
+      "canonical": "output scores",
+      "aliases": [
+        "predictions"
+      ],
+      "evidence": "C output scores",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        780.0,
+        467.5,
+        807.5
+      ]
+    },
+    {
+      "canonical": "matrix multiplication",
+      "aliases": [
+        "linear transformation"
+      ],
+      "evidence": "H_K \\in \\mathbb{R}^{n \\times d_K} W \\in \\mathbb{R}^{d_K \\times C}",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        835.0,
+        522.5,
+        862.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+      "related_concepts": [
+        "message passing"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        275.0,
+        247.5,
+        302.5
+      ],
+      "label": "Aggregation function"
+    },
+    {
+      "latex": "h_K^G = \\text{Mean}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+      "related_concepts": [
+        "global mean pooling",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        137.5,
+        972.5,
+        192.5
+      ],
+      "label": "Global mean pooling formula"
+    },
+    {
+      "latex": "h_K^G = \\text{Max}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+      "related_concepts": [
+        "global max pooling",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        247.5,
+        972.5,
+        302.5
+      ],
+      "label": "Global max pooling formula"
+    },
+    {
+      "latex": "h_K^G = \\text{Sum}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+      "related_concepts": [
+        "global sum pooling",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        357.5,
+        972.5,
+        412.5
+      ],
+      "label": "Global sum pooling formula"
+    },
+    {
+      "latex": "G = (V, E, A, X)",
+      "related_concepts": [
+        "graph representation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        615.0,
+        165.0,
+        642.5
+      ],
+      "label": "graph definition"
+    },
+    {
+      "latex": "H_K \\in \\mathbb{R}^{n \\times d_K}",
+      "related_concepts": [
+        "node embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        835.0,
+        412.5,
+        862.5
+      ],
+      "label": "embedding matrix"
+    },
+    {
+      "latex": "W \\in \\mathbb{R}^{d_K \\times C}",
+      "related_concepts": [
+        "matrix multiplication"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        835.0,
+        467.5,
+        862.5
+      ],
+      "label": "weight matrix"
+    },
+    {
+      "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+      "related_concepts": [
+        "output scores"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        467.5,
+        835.0,
+        522.5,
+        862.5
+      ],
+      "label": "output matrix"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Diagram showing training nodes and a testing node with self-connection and neighborhood encoding",
+      "related_concepts": [
+        "inductive capability",
+        "self-loop augmentation",
+        "message passing"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        55.0,
+        110.0,
+        220.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram illustrating the integration of node embeddings for graph-level regression",
+      "related_concepts": [
+        "graph-level regression"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        330.0,
+        110.0,
+        495.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing the process of node embedding update with self-encoding and neighborhood encoding",
+      "related_concepts": [
+        "node embedding",
+        "message passing"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        55.0,
+        275.0,
+        275.0,
+        385.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Diagram showing the process of combining node embeddings to form a graph embedding using different pooling methods (mean, max, sum).",
+      "related_concepts": [
+        "global mean pooling",
+        "global max pooling",
+        "global sum pooling",
+        "node embedding"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        752.5,
+        110.0,
+        972.5,
+        467.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Example of multiresolution brain graphs with nodes and edges, illustrating the concept of graph-level prediction.",
+      "related_concepts": [
+        "graph-level regression"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        450.0,
+        110.0,
+        670.0,
+        220.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of training nodes (blue) and testing nodes (gray) in a graph, showing generalization to new nodes",
+      "related_concepts": [
+        "training nodes",
+        "testing nodes",
+        "inductive capability"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        505.0,
+        330.0,
+        615.0
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Matrix multiplication diagram showing Kth embeddings multiplied by weight matrix to produce output scores",
+      "related_concepts": [
+        "node embedding",
+        "matrix multiplication",
+        "output scores"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        752.5,
+        522.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Hierarchical Graph Representation Learning with Differentiable Pooling (DiffPool) architecture",
+      "related_concepts": [
+        "hierarchical pooling",
+        "graph neural network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        780.0,
+        972.5,
+        917.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "d_k",
+      "reason": "The subscript 'k' is slightly unclear",
+      "bbox": [
+        220.0,
+        165.0,
+        231.0,
+        176.0
+      ]
+    },
+    {
+      "transcription": "h_k^{(test)}",
+      "reason": "The superscript '(test)' is somewhat ambiguous",
+      "bbox": [
+        247.5,
+        137.5,
+        275.0,
+        154.0
+      ]
+    },
+    {
+      "transcription": "Figg areaas.am nodes n us",
+      "reason": "Handwriting is unclear and difficult to interpret accurately.",
+      "bbox": [
+        505.0,
+        192.5,
+        560.0,
+        209.0
+      ]
+    },
+    {
+      "transcription": "d features infand features iFImitimesel",
+      "reason": "Handwriting is ambiguous and may contain errors or abbreviations.",
+      "bbox": [
+        615.0,
+        264.0,
+        697.5,
+        280.5
+      ]
+    },
+    {
+      "transcription": "uennancannaia enmities Ilia",
+      "reason": "Handwriting is highly unclear and does not form coherent words.",
+      "bbox": [
+        780.0,
+        429.0,
+        862.5,
+        445.5
+      ]
+    },
+    {
+      "transcription": "test our learned model \\theta^*",
+      "reason": "Handwritten text near brain graph is partially obscured and stylized",
+      "bbox": [
+        385.0,
+        945.0,
+        467.5,
+        972.5
+      ]
+    },
+    {
+      "transcription": "new graph",
+      "reason": "Handwritten label pointing to graph diagram, slightly unclear",
+      "bbox": [
+        165.0,
+        752.5,
+        220.0,
+        780.0
+      ]
+    },
+    {
+      "transcription": "\\Omega_k",
+      "reason": "Handwritten symbol in graph diagram, possibly omega with subscript",
+      "bbox": [
+        247.5,
+        780.0,
+        275.0,
+        807.5
+      ]
+    },
+    {
+      "transcription": "a J",
+      "reason": "Isolated handwritten characters near graph diagram, meaning unclear",
+      "bbox": [
+        302.5,
+        807.5,
+        330.0,
+        835.0
+      ]
+    },
+    {
+      "transcription": "grapmantis",
+      "reason": "Handwritten word at bottom, possibly 'graph' + something, very unclear",
+      "bbox": [
+        5.5,
+        972.5,
+        82.5,
+        994.5
+      ]
+    },
+    {
+      "transcription": "S lear s tests a p",
+      "reason": "Fragmented handwritten text at bottom right, incomplete and unclear",
+      "bbox": [
+        467.5,
+        972.5,
+        544.5,
+        994.5
+      ]
+    },
+    {
+      "transcription": "enhance without normalization",
+      "reason": "Handwriting is somewhat unclear, particularly the word 'normalization'",
+      "bbox": [
+        807.5,
+        494.0,
+        917.5,
+        505.0
+      ]
+    },
+    {
+      "transcription": "embedding space dimension",
+      "reason": "Handwriting is slightly unclear, especially 'dimension'",
+      "bbox": [
+        862.5,
+        532.5,
+        945.0,
+        543.5
+      ]
+    },
+    {
+      "transcription": "prediction head",
+      "reason": "Handwriting is somewhat unclear, particularly 'head'",
+      "bbox": [
+        917.5,
+        835.0,
+        972.5,
+        846.0
+      ]
+    },
+    {
+      "transcription": "4 nodes in a cluster",
+      "reason": "Handwriting is somewhat unclear, particularly 'cluster'",
+      "bbox": [
+        807.5,
+        917.5,
+        862.5,
+        928.5
+      ]
+    },
+    {
+      "transcription": "med",
+      "reason": "Single word, unclear context",
+      "bbox": [
+        477.5,
+        972.5,
+        494.0,
+        983.5
+      ]
+    },
+    {
+      "transcription": "GT",
+      "reason": "Abbreviation, unclear meaning in this context",
+      "bbox": [
+        532.5,
+        972.5,
+        543.5,
+        983.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "inductive capability",
+            "aliases": [
+              "inductive learning",
+              "generalization to new nodes"
+            ],
+            "evidence": "Inductive capability of GCNs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              250,
+              150
+            ]
+          },
+          {
+            "canonical": "self-encoding",
+            "aliases": [
+              "self-connection",
+              "self-loop"
+            ],
+            "evidence": "self-encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              600,
+              300,
+              650
+            ]
+          },
+          {
+            "canonical": "neighborhood encoding",
+            "aliases": [
+              "neighbor aggregation"
+            ],
+            "evidence": "neighborhood encoding",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              600,
+              500,
+              650
+            ]
+          },
+          {
+            "canonical": "node embedding update",
+            "aliases": [
+              "node representation update"
+            ],
+            "evidence": "node embedding update",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              500,
+              350,
+              530
+            ]
+          },
+          {
+            "canonical": "graph-level regression",
+            "aliases": [
+              "graph classification",
+              "graph prediction"
+            ],
+            "evidence": "extend the node-level regression to a graph-level regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              900,
+              650
+            ]
+          },
+          {
+            "canonical": "integration",
+            "aliases": [
+              "aggregation",
+              "pooling"
+            ],
+            "evidence": "leverage the power of integration",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              650,
+              800,
+              680
+            ]
+          },
+          {
+            "canonical": "adjacency matrix with self-loops",
+            "aliases": [
+              "modified adjacency matrix"
+            ],
+            "evidence": "A_hat = A + I",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              350,
+              550,
+              400
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\hat{A} = A + I",
+            "related_concepts": [
+              "adjacency matrix with self-loops"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              350,
+              550,
+              400
+            ],
+            "label": "Adjacency matrix with self-loops"
+          },
+          {
+            "latex": "h_k^{(n)} = a \\left[ \\beta_k \\cdot \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "node embedding update",
+              "self-encoding",
+              "neighborhood encoding"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              150,
+              550,
+              450,
+              650
+            ],
+            "label": "Node embedding update formula"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "neighborhood encoding",
+              "aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              500,
+              450,
+              550
+            ],
+            "label": "Aggregation function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing training nodes and a testing node with self-connection and neighborhood encoding",
+            "related_concepts": [
+              "inductive capability",
+              "self-encoding",
+              "neighborhood encoding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              200,
+              400,
+              400
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating the integration of node embeddings for graph-level regression",
+            "related_concepts": [
+              "graph-level regression",
+              "integration"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              200,
+              900,
+              400
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing the process of node embedding update with self-encoding and neighborhood encoding",
+            "related_concepts": [
+              "node embedding update",
+              "self-encoding",
+              "neighborhood encoding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              500,
+              500,
+              700
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "d_k",
+            "reason": "The subscript 'k' is slightly unclear",
+            "bbox": [
+              400,
+              300,
+              420,
+              320
+            ]
+          },
+          {
+            "transcription": "h_k^{(test)}",
+            "reason": "The superscript '(test)' is somewhat ambiguous",
+            "bbox": [
+              450,
+              250,
+              500,
+              280
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"inductive capability\",\n      \"aliases\": [\"inductive learning\", \"generalization to new nodes\"],\n      \"evidence\": \"Inductive capability of GCNs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 250, 150]\n    },\n    {\n      \"canonical\": \"self-encoding\",\n      \"aliases\": [\"self-connection\", \"self-loop\"],\n      \"evidence\": \"self-encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 600, 300, 650]\n    },\n    {\n      \"canonical\": \"neighborhood encoding\",\n      \"aliases\": [\"neighbor aggregation\"],\n      \"evidence\": \"neighborhood encoding\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 600, 500, 650]\n    },\n    {\n      \"canonical\": \"node embedding update\",\n      \"aliases\": [\"node representation update\"],\n      \"evidence\": \"node embedding update\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 500, 350, 530]\n    },\n    {\n      \"canonical\": \"graph-level regression\",\n      \"aliases\": [\"graph classification\", \"graph prediction\"],\n      \"evidence\": \"extend the node-level regression to a graph-level regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 900, 650]\n    },\n    {\n      \"canonical\": \"integration\",\n      \"aliases\": [\"aggregation\", \"pooling\"],\n      \"evidence\": \"leverage the power of integration\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 650, 800, 680]\n    },\n    {\n      \"canonical\": \"adjacency matrix with self-loops\",\n      \"aliases\": [\"modified adjacency matrix\"],\n      \"evidence\": \"A_hat = A + I\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 350, 550, 400]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\hat{A} = A + I\",\n      \"related_concepts\": [\"adjacency matrix with self-loops\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 350, 550, 400],\n      \"label\": \"Adjacency matrix with self-loops\"\n    },\n    {\n      \"latex\": \"h_k^{(n)} = a \\\\left[ \\\\beta_k \\\\cdot \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"node embedding update\", \"self-encoding\", \"neighborhood encoding\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [150, 550, 450, 650],\n      \"label\": \"Node embedding update formula\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\"neighborhood encoding\", \"aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 500, 450, 550],\n      \"label\": \"Aggregation function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing training nodes and a testing node with self-connection and neighborhood encoding\",\n      \"related_concepts\": [\"inductive capability\", \"self-encoding\", \"neighborhood encoding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 200, 400, 400]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating the integration of node embeddings for graph-level regression\",\n      \"related_concepts\": [\"graph-level regression\", \"integration\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 200, 900, 400]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing the process of node embedding update with self-encoding and neighborhood encoding\",\n      \"related_concepts\": [\"node embedding update\", \"self-encoding\", \"neighborhood encoding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 500, 500, 700]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"d_k\",\n      \"reason\": \"The subscript 'k' is slightly unclear\",\n      \"bbox\": [400, 300, 420, 320]\n    },\n    {\n      \"transcription\": \"h_k^{(test)}\",\n      \"reason\": \"The superscript '(test)' is somewhat ambiguous\",\n      \"bbox\": [450, 250, 500, 280]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph-level prediction head",
+            "aliases": [
+              "graph-level regression",
+              "graph-level classification"
+            ],
+            "evidence": "Graph-level prediction head: How to combine the node embeddings across the entire graph?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              100,
+              950,
+              150
+            ]
+          },
+          {
+            "canonical": "global mean pooling",
+            "aliases": [
+              "mean pooling"
+            ],
+            "evidence": "Global mean pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              200,
+              700,
+              250
+            ]
+          },
+          {
+            "canonical": "global max pooling",
+            "aliases": [
+              "max pooling"
+            ],
+            "evidence": "Global max pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              400,
+              700,
+              450
+            ]
+          },
+          {
+            "canonical": "global sum pooling",
+            "aliases": [
+              "sum pooling"
+            ],
+            "evidence": "Global sum pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              700,
+              650
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation"
+            ],
+            "evidence": "How to combine the node embeddings across the entire graph?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              100,
+              950,
+              150
+            ]
+          },
+          {
+            "canonical": "graph embedding",
+            "aliases": [
+              "graph representation"
+            ],
+            "evidence": "graph embeddings",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              750,
+              700,
+              780
+            ]
+          },
+          {
+            "canonical": "multiresolution brain graphs",
+            "aliases": [
+              "brain graphs"
+            ],
+            "evidence": "we multi-regress this dataset of multiresolution brain graphs?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              150,
+              400,
+              200
+            ]
+          },
+          {
+            "canonical": "integration/combination",
+            "aliases": [
+              "graph integration"
+            ],
+            "evidence": "integration/combination",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              100,
+              300,
+              200,
+              350
+            ]
+          },
+          {
+            "canonical": "topology",
+            "aliases": [
+              "graph structure"
+            ],
+            "evidence": "topology",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              250,
+              450,
+              300,
+              480
+            ]
+          },
+          {
+            "canonical": "features",
+            "aliases": [
+              "node features"
+            ],
+            "evidence": "features",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              450,
+              400,
+              480
+            ]
+          },
+          {
+            "canonical": "activation",
+            "aliases": [
+              "activation function"
+            ],
+            "evidence": "activation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              550,
+              600,
+              580
+            ]
+          },
+          {
+            "canonical": "embedding space dimension",
+            "aliases": [
+              "embedding dimension"
+            ],
+            "evidence": "embedding space dimension",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              850,
+              850,
+              880
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_K^G = \\text{Mean}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global mean pooling",
+              "node embedding",
+              "graph embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              250,
+              950,
+              350
+            ],
+            "label": "Global mean pooling formula"
+          },
+          {
+            "latex": "h_K^G = \\text{Max}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global max pooling",
+              "node embedding",
+              "graph embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              450,
+              950,
+              550
+            ],
+            "label": "Global max pooling formula"
+          },
+          {
+            "latex": "h_K^G = \\text{Sum}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global sum pooling",
+              "node embedding",
+              "graph embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              650,
+              950,
+              750
+            ],
+            "label": "Global sum pooling formula"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing the process of combining node embeddings to form a graph embedding using different pooling methods (mean, max, sum).",
+            "related_concepts": [
+              "global mean pooling",
+              "global max pooling",
+              "global sum pooling",
+              "node embedding",
+              "graph embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              200,
+              950,
+              850
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of multiresolution brain graphs with nodes and edges, illustrating the concept of graph-level prediction.",
+            "related_concepts": [
+              "multiresolution brain graphs",
+              "graph-level prediction head"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              200,
+              400,
+              400
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of graph topology and features, showing the relationship between nodes and their attributes.",
+            "related_concepts": [
+              "topology",
+              "features"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              400,
+              400,
+              500
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Figg areaas.am nodes n us",
+            "reason": "Handwriting is unclear and difficult to interpret accurately.",
+            "bbox": [
+              100,
+              350,
+              200,
+              380
+            ]
+          },
+          {
+            "transcription": "d features infand features iFImitimesel",
+            "reason": "Handwriting is ambiguous and may contain errors or abbreviations.",
+            "bbox": [
+              300,
+              480,
+              450,
+              510
+            ]
+          },
+          {
+            "transcription": "uennancannaia enmities Ilia",
+            "reason": "Handwriting is highly unclear and does not form coherent words.",
+            "bbox": [
+              600,
+              780,
+              750,
+              810
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph-level prediction head\",\n      \"aliases\": [\"graph-level regression\", \"graph-level classification\"],\n      \"evidence\": \"Graph-level prediction head: How to combine the node embeddings across the entire graph?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 100, 950, 150]\n    },\n    {\n      \"canonical\": \"global mean pooling\",\n      \"aliases\": [\"mean pooling\"],\n      \"evidence\": \"Global mean pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 200, 700, 250]\n    },\n    {\n      \"canonical\": \"global max pooling\",\n      \"aliases\": [\"max pooling\"],\n      \"evidence\": \"Global max pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 400, 700, 450]\n    },\n    {\n      \"canonical\": \"global sum pooling\",\n      \"aliases\": [\"sum pooling\"],\n      \"evidence\": \"Global sum pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 700, 650]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node representation\"],\n      \"evidence\": \"How to combine the node embeddings across the entire graph?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 100, 950, 150]\n    },\n    {\n      \"canonical\": \"graph embedding\",\n      \"aliases\": [\"graph representation\"],\n      \"evidence\": \"graph embeddings\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 750, 700, 780]\n    },\n    {\n      \"canonical\": \"multiresolution brain graphs\",\n      \"aliases\": [\"brain graphs\"],\n      \"evidence\": \"we multi-regress this dataset of multiresolution brain graphs?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 150, 400, 200]\n    },\n    {\n      \"canonical\": \"integration/combination\",\n      \"aliases\": [\"graph integration\"],\n      \"evidence\": \"integration/combination\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [100, 300, 200, 350]\n    },\n    {\n      \"canonical\": \"topology\",\n      \"aliases\": [\"graph structure\"],\n      \"evidence\": \"topology\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [250, 450, 300, 480]\n    },\n    {\n      \"canonical\": \"features\",\n      \"aliases\": [\"node features\"],\n      \"evidence\": \"features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 450, 400, 480]\n    },\n    {\n      \"canonical\": \"activation\",\n      \"aliases\": [\"activation function\"],\n      \"evidence\": \"activation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 550, 600, 580]\n    },\n    {\n      \"canonical\": \"embedding space dimension\",\n      \"aliases\": [\"embedding dimension\"],\n      \"evidence\": \"embedding space dimension\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 850, 850, 880]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_K^G = \\\\text{Mean}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global mean pooling\", \"node embedding\", \"graph embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 250, 950, 350],\n      \"label\": \"Global mean pooling formula\"\n    },\n    {\n      \"latex\": \"h_K^G = \\\\text{Max}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global max pooling\", \"node embedding\", \"graph embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 450, 950, 550],\n      \"label\": \"Global max pooling formula\"\n    },\n    {\n      \"latex\": \"h_K^G = \\\\text{Sum}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global sum pooling\", \"node embedding\", \"graph embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 650, 950, 750],\n      \"label\": \"Global sum pooling formula\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing the process of combining node embeddings to form a graph embedding using different pooling methods (mean, max, sum).\",\n      \"related_concepts\": [\"global mean pooling\", \"global max pooling\", \"global sum pooling\", \"node embedding\", \"graph embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 200, 950, 850]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of multiresolution brain graphs with nodes and edges, illustrating the concept of graph-level prediction.\",\n      \"related_concepts\": [\"multiresolution brain graphs\", \"graph-level prediction head\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 200, 400, 400]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of graph topology and features, showing the relationship between nodes and their attributes.\",\n      \"related_concepts\": [\"topology\", \"features\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 400, 400, 500]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Figg areaas.am nodes n us\",\n      \"reason\": \"Handwriting is unclear and difficult to interpret accurately.\",\n      \"bbox\": [100, 350, 200, 380]\n    },\n    {\n      \"transcription\": \"d features infand features iFImitimesel\",\n      \"reason\": \"Handwriting is ambiguous and may contain errors or abbreviations.\",\n      \"bbox\": [300, 480, 450, 510]\n    },\n    {\n      \"transcription\": \"uennancannaia enmities Ilia\",\n      \"reason\": \"Handwriting is highly unclear and does not form coherent words.\",\n      \"bbox\": [600, 780, 750, 810]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "inductive capability",
+            "aliases": [
+              "inductive learning",
+              "generalization to new graphs"
+            ],
+            "evidence": "One of the most compelling aspects of GNN models lies in their inductive capability where we can easily generalize to new graphs with varying sizes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "parameter sharing",
+            "aliases": [
+              "shared parameters"
+            ],
+            "evidence": "This power stems from the feature aggregation and parameter sharing at the node level.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              550,
+              600,
+              600
+            ]
+          },
+          {
+            "canonical": "feature aggregation",
+            "aliases": [
+              "aggregation"
+            ],
+            "evidence": "This power stems from the feature aggregation and parameter sharing at the node level.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              550,
+              600,
+              600
+            ]
+          },
+          {
+            "canonical": "graph representation",
+            "aliases": [
+              "graph structure"
+            ],
+            "evidence": "G = (V, E, A, X)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              300,
+              300,
+              350
+            ]
+          },
+          {
+            "canonical": "node embeddings",
+            "aliases": [
+              "embeddings"
+            ],
+            "evidence": "Kth embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              600,
+              750,
+              650
+            ]
+          },
+          {
+            "canonical": "output scores",
+            "aliases": [
+              "predictions"
+            ],
+            "evidence": "C output scores",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              600,
+              850,
+              650
+            ]
+          },
+          {
+            "canonical": "matrix multiplication",
+            "aliases": [
+              "linear transformation"
+            ],
+            "evidence": "H_K \\in \\mathbb{R}^{n \\times d_K} W \\in \\mathbb{R}^{d_K \\times C} \\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              700,
+              950,
+              750
+            ]
+          },
+          {
+            "canonical": "training nodes",
+            "aliases": [
+              "train nodes"
+            ],
+            "evidence": "Training nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              150,
+              150
+            ]
+          },
+          {
+            "canonical": "testing nodes",
+            "aliases": [
+              "test nodes"
+            ],
+            "evidence": "Testing nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              500,
+              100,
+              600,
+              150
+            ]
+          },
+          {
+            "canonical": "generalization to new graphs",
+            "aliases": [
+              "generalize to new graphs"
+            ],
+            "evidence": "generalize to new graphs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              200,
+              450,
+              250
+            ]
+          },
+          {
+            "canonical": "separate parameters",
+            "aliases": [
+              "node-specific parameters"
+            ],
+            "evidence": "We could learn a model with separate parameters associated with each node.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              650,
+              600,
+              700
+            ]
+          },
+          {
+            "canonical": "same topology",
+            "aliases": [
+              "identical graph structure"
+            ],
+            "evidence": "training would require many graphs with the same topology",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              750,
+              600,
+              800
+            ]
+          },
+          {
+            "canonical": "relearn connections",
+            "aliases": [
+              "relearn meaning of connections"
+            ],
+            "evidence": "the network must relearn the meaning of the connections in the graph at each position",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              700,
+              600,
+              750
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "GNN models",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              450,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "varying sizes",
+            "aliases": [
+              "different graph sizes"
+            ],
+            "evidence": "generalize to new graphs with varying sizes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              500,
+              600,
+              550
+            ]
+          },
+          {
+            "canonical": "brain graph",
+            "aliases": [
+              "brain network"
+            ],
+            "evidence": "a new brain graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              800,
+              800,
+              950,
+              850
+            ]
+          },
+          {
+            "canonical": "combine embeddings",
+            "aliases": [
+              "integrate embeddings"
+            ],
+            "evidence": "combine/integrate embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              200,
+              850,
+              250
+            ]
+          },
+          {
+            "canonical": "graph sequence",
+            "aliases": [
+              "multiple graphs"
+            ],
+            "evidence": "(G_1, y_1) ... (G_n, y_n)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              100,
+              850,
+              400
+            ]
+          },
+          {
+            "canonical": "learned model",
+            "aliases": [
+              "trained model"
+            ],
+            "evidence": "test our learned model \\theta^*",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              900,
+              850,
+              950
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "G = (V, E, A, X)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              300,
+              300,
+              350
+            ],
+            "label": "graph definition"
+          },
+          {
+            "latex": "G' = (V', E', A', X')",
+            "related_concepts": [
+              "graph representation",
+              "generalization to new graphs"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              300,
+              600,
+              350
+            ],
+            "label": "new graph definition"
+          },
+          {
+            "latex": "H_K \\in \\mathbb{R}^{n \\times d_K}",
+            "related_concepts": [
+              "node embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              700,
+              750,
+              750
+            ],
+            "label": "embedding matrix"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{d_K \\times C}",
+            "related_concepts": [
+              "matrix multiplication"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              700,
+              850,
+              750
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "output scores"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              700,
+              950,
+              750
+            ],
+            "label": "output matrix"
+          },
+          {
+            "latex": "(G_1, y_1)",
+            "related_concepts": [
+              "graph sequence"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              150,
+              800,
+              200
+            ],
+            "label": "first graph-label pair"
+          },
+          {
+            "latex": "(G_n, y_n)",
+            "related_concepts": [
+              "graph sequence"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              350,
+              800,
+              400
+            ],
+            "label": "nth graph-label pair"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of training nodes (blue) and testing nodes (gray) in a graph, showing generalization to new nodes",
+            "related_concepts": [
+              "training nodes",
+              "testing nodes",
+              "generalization to new graphs"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              100,
+              600,
+              300
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Sequence of graphs (G1 to Gn) with corresponding labels, illustrating multiple graph inputs",
+            "related_concepts": [
+              "graph sequence",
+              "combine embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              700,
+              50,
+              850,
+              450
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix multiplication diagram showing Kth embeddings multiplied by weight matrix to produce output scores",
+            "related_concepts": [
+              "node embeddings",
+              "matrix multiplication",
+              "output scores"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              550,
+              950,
+              750
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Hand-drawn examples of small graphs with different topologies",
+            "related_concepts": [
+              "same topology",
+              "relearn connections"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              800,
+              600,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Brain graph illustration with colored nodes representing a new brain graph",
+            "related_concepts": [
+              "brain graph",
+              "learned model"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              850,
+              900,
+              950
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Hand-drawn diagram showing new graph with labeled nodes and connections",
+            "related_concepts": [
+              "generalization to new graphs",
+              "varying sizes"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              300,
+              550,
+              600,
+              700
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "test our learned model \\theta^*",
+            "reason": "Handwritten text near brain graph is partially obscured and stylized",
+            "bbox": [
+              700,
+              900,
+              850,
+              950
+            ]
+          },
+          {
+            "transcription": "new graph",
+            "reason": "Handwritten label pointing to graph diagram, slightly unclear",
+            "bbox": [
+              300,
+              550,
+              400,
+              600
+            ]
+          },
+          {
+            "transcription": "\\Omega_k",
+            "reason": "Handwritten symbol in graph diagram, possibly omega with subscript",
+            "bbox": [
+              450,
+              600,
+              500,
+              650
+            ]
+          },
+          {
+            "transcription": "a J",
+            "reason": "Isolated handwritten characters near graph diagram, meaning unclear",
+            "bbox": [
+              550,
+              650,
+              600,
+              700
+            ]
+          },
+          {
+            "transcription": "grapmantis",
+            "reason": "Handwritten word at bottom, possibly 'graph' + something, very unclear",
+            "bbox": [
+              10,
+              950,
+              150,
+              990
+            ]
+          },
+          {
+            "transcription": "S lear s tests a p",
+            "reason": "Fragmented handwritten text at bottom right, incomplete and unclear",
+            "bbox": [
+              850,
+              950,
+              990,
+              990
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"inductive capability\",\n      \"aliases\": [\"inductive learning\", \"generalization to new graphs\"],\n      \"evidence\": \"One of the most compelling aspects of GNN models lies in their inductive capability where we can easily generalize to new graphs with varying sizes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 600, 550]\n    },\n    {\n      \"canonical\": \"parameter sharing\",\n      \"aliases\": [\"shared parameters\"],\n      \"evidence\": \"This power stems from the feature aggregation and parameter sharing at the node level.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 550, 600, 600]\n    },\n    {\n      \"canonical\": \"feature aggregation\",\n      \"aliases\": [\"aggregation\"],\n      \"evidence\": \"This power stems from the feature aggregation and parameter sharing at the node level.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 550, 600, 600]\n    },\n    {\n      \"canonical\": \"graph representation\",\n      \"aliases\": [\"graph structure\"],\n      \"evidence\": \"G = (V, E, A, X)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 300, 300, 350]\n    },\n    {\n      \"canonical\": \"node embeddings\",\n      \"aliases\": [\"embeddings\"],\n      \"evidence\": \"Kth embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 600, 750, 650]\n    },\n    {\n      \"canonical\": \"output scores\",\n      \"aliases\": [\"predictions\"],\n      \"evidence\": \"C output scores\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 600, 850, 650]\n    },\n    {\n      \"canonical\": \"matrix multiplication\",\n      \"aliases\": [\"linear transformation\"],\n      \"evidence\": \"H_K \\\\in \\\\mathbb{R}^{n \\\\times d_K} W \\\\in \\\\mathbb{R}^{d_K \\\\times C} \\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 700, 950, 750]\n    },\n    {\n      \"canonical\": \"training nodes\",\n      \"aliases\": [\"train nodes\"],\n      \"evidence\": \"Training nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 150, 150]\n    },\n    {\n      \"canonical\": \"testing nodes\",\n      \"aliases\": [\"test nodes\"],\n      \"evidence\": \"Testing nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [500, 100, 600, 150]\n    },\n    {\n      \"canonical\": \"generalization to new graphs\",\n      \"aliases\": [\"generalize to new graphs\"],\n      \"evidence\": \"generalize to new graphs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 200, 450, 250]\n    },\n    {\n      \"canonical\": \"separate parameters\",\n      \"aliases\": [\"node-specific parameters\"],\n      \"evidence\": \"We could learn a model with separate parameters associated with each node.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 650, 600, 700]\n    },\n    {\n      \"canonical\": \"same topology\",\n      \"aliases\": [\"identical graph structure\"],\n      \"evidence\": \"training would require many graphs with the same topology\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 750, 600, 800]\n    },\n    {\n      \"canonical\": \"relearn connections\",\n      \"aliases\": [\"relearn meaning of connections\"],\n      \"evidence\": \"the network must relearn the meaning of the connections in the graph at each position\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 700, 600, 750]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"GNN models\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 450, 600, 550]\n    },\n    {\n      \"canonical\": \"varying sizes\",\n      \"aliases\": [\"different graph sizes\"],\n      \"evidence\": \"generalize to new graphs with varying sizes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 500, 600, 550]\n    },\n    {\n      \"canonical\": \"brain graph\",\n      \"aliases\": [\"brain network\"],\n      \"evidence\": \"a new brain graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [800, 800, 950, 850]\n    },\n    {\n      \"canonical\": \"combine embeddings\",\n      \"aliases\": [\"integrate embeddings\"],\n      \"evidence\": \"combine/integrate embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 200, 850, 250]\n    },\n    {\n      \"canonical\": \"graph sequence\",\n      \"aliases\": [\"multiple graphs\"],\n      \"evidence\": \"(G_1, y_1) ... (G_n, y_n)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 100, 850, 400]\n    },\n    {\n      \"canonical\": \"learned model\",\n      \"aliases\": [\"trained model\"],\n      \"evidence\": \"test our learned model \\\\theta^*\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 900, 850, 950]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"G = (V, E, A, X)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 300, 300, 350],\n      \"label\": \"graph definition\"\n    },\n    {\n      \"latex\": \"G' = (V', E', A', X')\",\n      \"related_concepts\": [\"graph representation\", \"generalization to new graphs\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 300, 600, 350],\n      \"label\": \"new graph definition\"\n    },\n    {\n      \"latex\": \"H_K \\\\in \\\\mathbb{R}^{n \\\\times d_K}\",\n      \"related_concepts\": [\"node embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 700, 750, 750],\n      \"label\": \"embedding matrix\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{d_K \\\\times C}\",\n      \"related_concepts\": [\"matrix multiplication\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 700, 850, 750],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"output scores\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 700, 950, 750],\n      \"label\": \"output matrix\"\n    },\n    {\n      \"latex\": \"(G_1, y_1)\",\n      \"related_concepts\": [\"graph sequence\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 150, 800, 200],\n      \"label\": \"first graph-label pair\"\n    },\n    {\n      \"latex\": \"(G_n, y_n)\",\n      \"related_concepts\": [\"graph sequence\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 350, 800, 400],\n      \"label\": \"nth graph-label pair\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of training nodes (blue) and testing nodes (gray) in a graph, showing generalization to new nodes\",\n      \"related_concepts\": [\"training nodes\", \"testing nodes\", \"generalization to new graphs\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 100, 600, 300]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Sequence of graphs (G1 to Gn) with corresponding labels, illustrating multiple graph inputs\",\n      \"related_concepts\": [\"graph sequence\", \"combine embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [700, 50, 850, 450]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix multiplication diagram showing Kth embeddings multiplied by weight matrix to produce output scores\",\n      \"related_concepts\": [\"node embeddings\", \"matrix multiplication\", \"output scores\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 550, 950, 750]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Hand-drawn examples of small graphs with different topologies\",\n      \"related_concepts\": [\"same topology\", \"relearn connections\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 800, 600, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Brain graph illustration with colored nodes representing a new brain graph\",\n      \"related_concepts\": [\"brain graph\", \"learned model\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 850, 900, 950]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Hand-drawn diagram showing new graph with labeled nodes and connections\",\n      \"related_concepts\": [\"generalization to new graphs\", \"varying sizes\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [300, 550, 600, 700]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"test our learned model \\\\theta^*\",\n      \"reason\": \"Handwritten text near brain graph is partially obscured and stylized\",\n      \"bbox\": [700, 900, 850, 950]\n    },\n    {\n      \"transcription\": \"new graph\",\n      \"reason\": \"Handwritten label pointing to graph diagram, slightly unclear\",\n      \"bbox\": [300, 550, 400, 600]\n    },\n    {\n      \"transcription\": \"\\\\Omega_k\",\n      \"reason\": \"Handwritten symbol in graph diagram, possibly omega with subscript\",\n      \"bbox\": [450, 600, 500, 650]\n    },\n    {\n      \"transcription\": \"a J\",\n      \"reason\": \"Isolated handwritten characters near graph diagram, meaning unclear\",\n      \"bbox\": [550, 650, 600, 700]\n    },\n    {\n      \"transcription\": \"grapmantis\",\n      \"reason\": \"Handwritten word at bottom, possibly 'graph' + something, very unclear\",\n      \"bbox\": [10, 950, 150, 990]\n    },\n    {\n      \"transcription\": \"S lear s tests a p\",\n      \"reason\": \"Fragmented handwritten text at bottom right, incomplete and unclear\",\n      \"bbox\": [850, 950, 990, 990]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph embeddings",
+            "aliases": [
+              "graph representation"
+            ],
+            "evidence": "graph embeddings",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              20,
+              300,
+              40
+            ]
+          },
+          {
+            "canonical": "global pooling",
+            "aliases": [
+              "sum pooling"
+            ],
+            "evidence": "Global pooling over a (large) graph will lose information",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              250,
+              950,
+              290
+            ]
+          },
+          {
+            "canonical": "hierarchical pooling",
+            "aliases": [
+              "DiffPool"
+            ],
+            "evidence": "Hierarchical pooling (DiffPool 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              450,
+              750,
+              480
+            ]
+          },
+          {
+            "canonical": "graph differentiation",
+            "aliases": [
+              "graph structure differentiation"
+            ],
+            "evidence": "This allows for a better graph differentiation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              500,
+              850,
+              530
+            ]
+          },
+          {
+            "canonical": "node embedding integration",
+            "aliases": [
+              "embedding integration"
+            ],
+            "evidence": "final node embedding integration prior to the supervised learner mapping",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              850,
+              550,
+              900
+            ]
+          },
+          {
+            "canonical": "supervised learner mapping",
+            "aliases": [
+              "supervised learning"
+            ],
+            "evidence": "supervised learner mapping",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              900,
+              500,
+              920
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "run a GNN model to obtain embeddings of nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              800,
+              800,
+              820
+            ]
+          },
+          {
+            "canonical": "graph classification",
+            "aliases": [
+              "graph prediction"
+            ],
+            "evidence": "Graph classification",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              850,
+              650,
+              950,
+              670
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "h_K^G = Sum\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "graph embeddings",
+              "global pooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              20,
+              950,
+              80
+            ],
+            "label": "global sum pooling"
+          },
+          {
+            "latex": "G_1 = \\{-0.5, 1, -0.6, 0, 0.1\\}",
+            "related_concepts": [
+              "global pooling",
+              "graph differentiation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              350,
+              750,
+              370
+            ],
+            "label": "example graph 1"
+          },
+          {
+            "latex": "G_2 = \\{18, 0, -5, -13\\}",
+            "related_concepts": [
+              "global pooling",
+              "graph differentiation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              370,
+              750,
+              390
+            ],
+            "label": "example graph 2"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{d_K \\times C}",
+            "related_concepts": [
+              "graph embeddings",
+              "hierarchical pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              750,
+              200,
+              770
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "graph embeddings",
+              "hierarchical pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220,
+              750,
+              350,
+              770
+            ],
+            "label": "assignment matrix"
+          },
+          {
+            "latex": "Y \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "graph embeddings",
+              "hierarchical pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              370,
+              750,
+              500,
+              770
+            ],
+            "label": "output matrix"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of graph embeddings combination/integration process",
+            "related_concepts": [
+              "graph embeddings",
+              "global pooling"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              50,
+              350,
+              450
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix representation of embeddings and output scores",
+            "related_concepts": [
+              "graph embeddings",
+              "hierarchical pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              550,
+              500,
+              730
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Brain graph example with node embeddings",
+            "related_concepts": [
+              "graph embeddings",
+              "node embedding integration"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              800,
+              250,
+              950
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Hierarchical Graph Representation Learning with Differentiable Pooling (DiffPool) architecture",
+            "related_concepts": [
+              "hierarchical pooling",
+              "graph neural network",
+              "graph classification"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              600,
+              950,
+              850
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "enhance without normalization",
+            "reason": "Handwriting is somewhat unclear, particularly the word 'normalization'",
+            "bbox": [
+              650,
+              80,
+              850,
+              100
+            ]
+          },
+          {
+            "transcription": "embedding space dimension",
+            "reason": "Handwriting is slightly unclear, especially 'dimension'",
+            "bbox": [
+              750,
+              150,
+              900,
+              170
+            ]
+          },
+          {
+            "transcription": "prediction head",
+            "reason": "Handwriting is somewhat unclear, particularly 'head'",
+            "bbox": [
+              850,
+              700,
+              950,
+              720
+            ]
+          },
+          {
+            "transcription": "4 nodes in a cluster",
+            "reason": "Handwriting is somewhat unclear, particularly 'cluster'",
+            "bbox": [
+              650,
+              850,
+              750,
+              870
+            ]
+          },
+          {
+            "transcription": "med",
+            "reason": "Single word, unclear context",
+            "bbox": [
+              50,
+              950,
+              80,
+              970
+            ]
+          },
+          {
+            "transcription": "GT",
+            "reason": "Abbreviation, unclear meaning in this context",
+            "bbox": [
+              150,
+              950,
+              170,
+              970
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph embeddings\",\n      \"aliases\": [\"graph representation\"],\n      \"evidence\": \"graph embeddings\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 20, 300, 40]\n    },\n    {\n      \"canonical\": \"global pooling\",\n      \"aliases\": [\"sum pooling\"],\n      \"evidence\": \"Global pooling over a (large) graph will lose information\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 250, 950, 290]\n    },\n    {\n      \"canonical\": \"hierarchical pooling\",\n      \"aliases\": [\"DiffPool\"],\n      \"evidence\": \"Hierarchical pooling (DiffPool 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 450, 750, 480]\n    },\n    {\n      \"canonical\": \"graph differentiation\",\n      \"aliases\": [\"graph structure differentiation\"],\n      \"evidence\": \"This allows for a better graph differentiation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 500, 850, 530]\n    },\n    {\n      \"canonical\": \"node embedding integration\",\n      \"aliases\": [\"embedding integration\"],\n      \"evidence\": \"final node embedding integration prior to the supervised learner mapping\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 850, 550, 900]\n    },\n    {\n      \"canonical\": \"supervised learner mapping\",\n      \"aliases\": [\"supervised learning\"],\n      \"evidence\": \"supervised learner mapping\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 900, 500, 920]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"run a GNN model to obtain embeddings of nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 800, 800, 820]\n    },\n    {\n      \"canonical\": \"graph classification\",\n      \"aliases\": [\"graph prediction\"],\n      \"evidence\": \"Graph classification\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [850, 650, 950, 670]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"h_K^G = Sum\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"graph embeddings\", \"global pooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 20, 950, 80],\n      \"label\": \"global sum pooling\"\n    },\n    {\n      \"latex\": \"G_1 = \\\\{-0.5, 1, -0.6, 0, 0.1\\\\}\",\n      \"related_concepts\": [\"global pooling\", \"graph differentiation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 350, 750, 370],\n      \"label\": \"example graph 1\"\n    },\n    {\n      \"latex\": \"G_2 = \\\\{18, 0, -5, -13\\\\}\",\n      \"related_concepts\": [\"global pooling\", \"graph differentiation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 370, 750, 390],\n      \"label\": \"example graph 2\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{d_K \\\\times C}\",\n      \"related_concepts\": [\"graph embeddings\", \"hierarchical pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 750, 200, 770],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"graph embeddings\", \"hierarchical pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220, 750, 350, 770],\n      \"label\": \"assignment matrix\"\n    },\n    {\n      \"latex\": \"Y \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"graph embeddings\", \"hierarchical pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [370, 750, 500, 770],\n      \"label\": \"output matrix\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of graph embeddings combination/integration process\",\n      \"related_concepts\": [\"graph embeddings\", \"global pooling\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 50, 350, 450]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix representation of embeddings and output scores\",\n      \"related_concepts\": [\"graph embeddings\", \"hierarchical pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 550, 500, 730]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Brain graph example with node embeddings\",\n      \"related_concepts\": [\"graph embeddings\", \"node embedding integration\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 800, 250, 950]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Hierarchical Graph Representation Learning with Differentiable Pooling (DiffPool) architecture\",\n      \"related_concepts\": [\"hierarchical pooling\", \"graph neural network\", \"graph classification\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 600, 950, 850]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"enhance without normalization\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly the word 'normalization'\",\n      \"bbox\": [650, 80, 850, 100]\n    },\n    {\n      \"transcription\": \"embedding space dimension\",\n      \"reason\": \"Handwriting is slightly unclear, especially 'dimension'\",\n      \"bbox\": [750, 150, 900, 170]\n    },\n    {\n      \"transcription\": \"prediction head\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'head'\",\n      \"bbox\": [850, 700, 950, 720]\n    },\n    {\n      \"transcription\": \"4 nodes in a cluster\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'cluster'\",\n      \"bbox\": [650, 850, 750, 870]\n    },\n    {\n      \"transcription\": \"med\",\n      \"reason\": \"Single word, unclear context\",\n      \"bbox\": [50, 950, 80, 970]\n    },\n    {\n      \"transcription\": \"GT\",\n      \"reason\": \"Abbreviation, unclear meaning in this context\",\n      \"bbox\": [150, 950, 170, 970]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph-Level Prediction and Inductive Capability of GCNs",
+        "summary": "This lecture page explores the inductive capability of Graph Convolutional Networks (GCNs), focusing on their ability to generalize to new nodes and graphs of varying sizes. It details methods for graph-level prediction, specifically how to combine node embeddings into a single graph representation using global pooling techniques like mean, max, and sum. The content also introduces hierarchical pooling (DiffPool) as a method to better differentiate graph structures and discusses the importance of parameter sharing for efficient learning across different graph topologies.",
+        "key_topics": [
+          "inductive capability",
+          "graph-level prediction",
+          "global pooling",
+          "parameter sharing",
+          "hierarchical pooling"
+        ],
+        "concepts": [
+          {
+            "canonical": "inductive capability",
+            "aliases": [
+              "inductive learning",
+              "generalization to new nodes",
+              "generalization to new graphs"
+            ],
+            "evidence": "Inductive capability of GCNs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              55.0,
+              137.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "graph-level regression",
+            "aliases": [
+              "graph-level prediction",
+              "graph classification"
+            ],
+            "evidence": "extend the node-level regression to a graph-level regression",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              330.0,
+              495.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "global mean pooling",
+            "aliases": [
+              "mean pooling"
+            ],
+            "evidence": "Global mean pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              110.0,
+              835.0,
+              137.5
+            ]
+          },
+          {
+            "canonical": "global max pooling",
+            "aliases": [
+              "max pooling"
+            ],
+            "evidence": "Global max pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              220.0,
+              835.0,
+              247.5
+            ]
+          },
+          {
+            "canonical": "global sum pooling",
+            "aliases": [
+              "sum pooling"
+            ],
+            "evidence": "Global sum pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              330.0,
+              835.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "node representation",
+              "embeddings"
+            ],
+            "evidence": "How to combine the node embeddings across the entire graph?",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              55.0,
+              972.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "parameter sharing",
+            "aliases": [
+              "shared parameters"
+            ],
+            "evidence": "This power stems from the feature aggregation and parameter sharing at the node level.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              752.5,
+              330.0,
+              780.0
+            ]
+          },
+          {
+            "canonical": "graph representation",
+            "aliases": [
+              "graph structure",
+              "topology"
+            ],
+            "evidence": "G = (V, E, A, X)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              615.0,
+              165.0,
+              642.5
+            ]
+          },
+          {
+            "canonical": "hierarchical pooling",
+            "aliases": [
+              "diffpool"
+            ],
+            "evidence": "Hierarchical pooling (DiffPool 2018)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              697.5,
+              862.5,
+              714.0
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn",
+              "gcn"
+            ],
+            "evidence": "GNN models",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              697.5,
+              330.0,
+              752.5
+            ]
+          },
+          {
+            "canonical": "training nodes",
+            "aliases": [
+              "train nodes"
+            ],
+            "evidence": "Training nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              505.0,
+              82.5,
+              532.5
+            ]
+          },
+          {
+            "canonical": "testing nodes",
+            "aliases": [
+              "test nodes"
+            ],
+            "evidence": "Testing nodes",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              275.0,
+              505.0,
+              330.0,
+              532.5
+            ]
+          },
+          {
+            "canonical": "matrix multiplication",
+            "aliases": [
+              "linear transformation"
+            ],
+            "evidence": "H_K \\in \\mathbb{R}^{n \\times d_K} W \\in \\mathbb{R}^{d_K \\times C}",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              835.0,
+              522.5,
+              862.5
+            ]
+          },
+          {
+            "canonical": "output scores",
+            "aliases": [
+              "predictions"
+            ],
+            "evidence": "C output scores",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              780.0,
+              467.5,
+              807.5
+            ]
+          },
+          {
+            "canonical": "self-loop augmentation",
+            "aliases": [
+              "self-loop",
+              "identity addition"
+            ],
+            "evidence": "A_hat = A + I",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              247.5,
+              192.5,
+              302.5,
+              220.0
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "neighborhood aggregation",
+              "aggregation"
+            ],
+            "evidence": "agg[n, k] = sum h_k^(m)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              275.0,
+              247.5,
+              302.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\hat{A} = A + I",
+            "related_concepts": [
+              "self-loop augmentation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              247.5,
+              192.5,
+              302.5,
+              220.0
+            ],
+            "label": "Adjacency matrix with self-loops"
+          },
+          {
+            "latex": "h_k^{(n)} = a \\left[ \\beta_k \\cdot \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "node embedding",
+              "message passing"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              82.5,
+              302.5,
+              247.5,
+              357.5
+            ],
+            "label": "Node embedding update formula"
+          },
+          {
+            "latex": "\\text{agg}[n, k] = \\sum_{m \\in \\mathcal{N}[n]} h_k^{(m)}",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              275.0,
+              247.5,
+              302.5
+            ],
+            "label": "Aggregation function"
+          },
+          {
+            "latex": "h_K^G = \\text{Mean}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global mean pooling",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              137.5,
+              972.5,
+              192.5
+            ],
+            "label": "Global mean pooling formula"
+          },
+          {
+            "latex": "h_K^G = \\text{Max}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global max pooling",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              247.5,
+              972.5,
+              302.5
+            ],
+            "label": "Global max pooling formula"
+          },
+          {
+            "latex": "h_K^G = \\text{Sum}\\{h_K^{(i)} \\in \\mathbb{R}^{d_K}, \\forall i \\in V_G\\}",
+            "related_concepts": [
+              "global sum pooling",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              357.5,
+              972.5,
+              412.5
+            ],
+            "label": "Global sum pooling formula"
+          },
+          {
+            "latex": "G = (V, E, A, X)",
+            "related_concepts": [
+              "graph representation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              615.0,
+              165.0,
+              642.5
+            ],
+            "label": "graph definition"
+          },
+          {
+            "latex": "H_K \\in \\mathbb{R}^{n \\times d_K}",
+            "related_concepts": [
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              835.0,
+              412.5,
+              862.5
+            ],
+            "label": "embedding matrix"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{d_K \\times C}",
+            "related_concepts": [
+              "matrix multiplication"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              835.0,
+              467.5,
+              862.5
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "output scores"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              467.5,
+              835.0,
+              522.5,
+              862.5
+            ],
+            "label": "output matrix"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Diagram showing training nodes and a testing node with self-connection and neighborhood encoding",
+            "related_concepts": [
+              "inductive capability",
+              "self-loop augmentation",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              110.0,
+              220.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram illustrating the integration of node embeddings for graph-level regression",
+            "related_concepts": [
+              "graph-level regression"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              330.0,
+              110.0,
+              495.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing the process of node embedding update with self-encoding and neighborhood encoding",
+            "related_concepts": [
+              "node embedding",
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              55.0,
+              275.0,
+              275.0,
+              385.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Diagram showing the process of combining node embeddings to form a graph embedding using different pooling methods (mean, max, sum).",
+            "related_concepts": [
+              "global mean pooling",
+              "global max pooling",
+              "global sum pooling",
+              "node embedding"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              752.5,
+              110.0,
+              972.5,
+              467.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Example of multiresolution brain graphs with nodes and edges, illustrating the concept of graph-level prediction.",
+            "related_concepts": [
+              "graph-level regression"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450.0,
+              110.0,
+              670.0,
+              220.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of training nodes (blue) and testing nodes (gray) in a graph, showing generalization to new nodes",
+            "related_concepts": [
+              "training nodes",
+              "testing nodes",
+              "inductive capability"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              505.0,
+              330.0,
+              615.0
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Matrix multiplication diagram showing Kth embeddings multiplied by weight matrix to produce output scores",
+            "related_concepts": [
+              "node embedding",
+              "matrix multiplication",
+              "output scores"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              752.5,
+              522.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Hierarchical Graph Representation Learning with Differentiable Pooling (DiffPool) architecture",
+            "related_concepts": [
+              "hierarchical pooling",
+              "graph neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              780.0,
+              972.5,
+              917.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "d_k",
+            "reason": "The subscript 'k' is slightly unclear",
+            "bbox": [
+              220.0,
+              165.0,
+              231.0,
+              176.0
+            ]
+          },
+          {
+            "transcription": "h_k^{(test)}",
+            "reason": "The superscript '(test)' is somewhat ambiguous",
+            "bbox": [
+              247.5,
+              137.5,
+              275.0,
+              154.0
+            ]
+          },
+          {
+            "transcription": "Figg areaas.am nodes n us",
+            "reason": "Handwriting is unclear and difficult to interpret accurately.",
+            "bbox": [
+              505.0,
+              192.5,
+              560.0,
+              209.0
+            ]
+          },
+          {
+            "transcription": "d features infand features iFImitimesel",
+            "reason": "Handwriting is ambiguous and may contain errors or abbreviations.",
+            "bbox": [
+              615.0,
+              264.0,
+              697.5,
+              280.5
+            ]
+          },
+          {
+            "transcription": "uennancannaia enmities Ilia",
+            "reason": "Handwriting is highly unclear and does not form coherent words.",
+            "bbox": [
+              780.0,
+              429.0,
+              862.5,
+              445.5
+            ]
+          },
+          {
+            "transcription": "test our learned model \\theta^*",
+            "reason": "Handwritten text near brain graph is partially obscured and stylized",
+            "bbox": [
+              385.0,
+              945.0,
+              467.5,
+              972.5
+            ]
+          },
+          {
+            "transcription": "new graph",
+            "reason": "Handwritten label pointing to graph diagram, slightly unclear",
+            "bbox": [
+              165.0,
+              752.5,
+              220.0,
+              780.0
+            ]
+          },
+          {
+            "transcription": "\\Omega_k",
+            "reason": "Handwritten symbol in graph diagram, possibly omega with subscript",
+            "bbox": [
+              247.5,
+              780.0,
+              275.0,
+              807.5
+            ]
+          },
+          {
+            "transcription": "a J",
+            "reason": "Isolated handwritten characters near graph diagram, meaning unclear",
+            "bbox": [
+              302.5,
+              807.5,
+              330.0,
+              835.0
+            ]
+          },
+          {
+            "transcription": "grapmantis",
+            "reason": "Handwritten word at bottom, possibly 'graph' + something, very unclear",
+            "bbox": [
+              5.5,
+              972.5,
+              82.5,
+              994.5
+            ]
+          },
+          {
+            "transcription": "S lear s tests a p",
+            "reason": "Fragmented handwritten text at bottom right, incomplete and unclear",
+            "bbox": [
+              467.5,
+              972.5,
+              544.5,
+              994.5
+            ]
+          },
+          {
+            "transcription": "enhance without normalization",
+            "reason": "Handwriting is somewhat unclear, particularly the word 'normalization'",
+            "bbox": [
+              807.5,
+              494.0,
+              917.5,
+              505.0
+            ]
+          },
+          {
+            "transcription": "embedding space dimension",
+            "reason": "Handwriting is slightly unclear, especially 'dimension'",
+            "bbox": [
+              862.5,
+              532.5,
+              945.0,
+              543.5
+            ]
+          },
+          {
+            "transcription": "prediction head",
+            "reason": "Handwriting is somewhat unclear, particularly 'head'",
+            "bbox": [
+              917.5,
+              835.0,
+              972.5,
+              846.0
+            ]
+          },
+          {
+            "transcription": "4 nodes in a cluster",
+            "reason": "Handwriting is somewhat unclear, particularly 'cluster'",
+            "bbox": [
+              807.5,
+              917.5,
+              862.5,
+              928.5
+            ]
+          },
+          {
+            "transcription": "med",
+            "reason": "Single word, unclear context",
+            "bbox": [
+              477.5,
+              972.5,
+              494.0,
+              983.5
+            ]
+          },
+          {
+            "transcription": "GT",
+            "reason": "Abbreviation, unclear meaning in this context",
+            "bbox": [
+              532.5,
+              972.5,
+              543.5,
+              983.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph-Level Prediction and Inductive Capability of GCNs\",\n  \"summary\": \"This lecture page explores the inductive capability of Graph Convolutional Networks (GCNs), focusing on their ability to generalize to new nodes and graphs of varying sizes. It details methods for graph-level prediction, specifically how to combine node embeddings into a single graph representation using global pooling techniques like mean, max, and sum. The content also introduces hierarchical pooling (DiffPool) as a method to better differentiate graph structures and discusses the importance of parameter sharing for efficient learning across different graph topologies.\",\n  \"key_topics\": [\n    \"inductive capability\",\n    \"graph-level prediction\",\n    \"global pooling\",\n    \"parameter sharing\",\n    \"hierarchical pooling\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"inductive capability\",\n      \"aliases\": [\"inductive learning\", \"generalization to new nodes\", \"generalization to new graphs\"],\n      \"evidence\": \"Inductive capability of GCNs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 55.0, 137.5, 82.5]\n    },\n    {\n      \"canonical\": \"graph-level regression\",\n      \"aliases\": [\"graph-level prediction\", \"graph classification\"],\n      \"evidence\": \"extend the node-level regression to a graph-level regression\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 330.0, 495.0, 357.5]\n    },\n    {\n      \"canonical\": \"global mean pooling\",\n      \"aliases\": [\"mean pooling\"],\n      \"evidence\": \"Global mean pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 110.0, 835.0, 137.5]\n    },\n    {\n      \"canonical\": \"global max pooling\",\n      \"aliases\": [\"max pooling\"],\n      \"evidence\": \"Global max pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 220.0, 835.0, 247.5]\n    },\n    {\n      \"canonical\": \"global sum pooling\",\n      \"aliases\": [\"sum pooling\"],\n      \"evidence\": \"Global sum pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 330.0, 835.0, 357.5]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"node representation\", \"embeddings\"],\n      \"evidence\": \"How to combine the node embeddings across the entire graph?\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 55.0, 972.5, 82.5]\n    },\n    {\n      \"canonical\": \"parameter sharing\",\n      \"aliases\": [\"shared parameters\"],\n      \"evidence\": \"This power stems from the feature aggregation and parameter sharing at the node level.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 752.5, 330.0, 780.0]\n    },\n    {\n      \"canonical\": \"graph representation\",\n      \"aliases\": [\"graph structure\", \"topology\"],\n      \"evidence\": \"G = (V, E, A, X)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 615.0, 165.0, 642.5]\n    },\n    {\n      \"canonical\": \"hierarchical pooling\",\n      \"aliases\": [\"diffpool\"],\n      \"evidence\": \"Hierarchical pooling (DiffPool 2018)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 697.5, 862.5, 714.0]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\", \"gcn\"],\n      \"evidence\": \"GNN models\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 697.5, 330.0, 752.5]\n    },\n    {\n      \"canonical\": \"training nodes\",\n      \"aliases\": [\"train nodes\"],\n      \"evidence\": \"Training nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 505.0, 82.5, 532.5]\n    },\n    {\n      \"canonical\": \"testing nodes\",\n      \"aliases\": [\"test nodes\"],\n      \"evidence\": \"Testing nodes\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [275.0, 505.0, 330.0, 532.5]\n    },\n    {\n      \"canonical\": \"matrix multiplication\",\n      \"aliases\": [\"linear transformation\"],\n      \"evidence\": \"H_K \\\\in \\\\mathbb{R}^{n \\\\times d_K} W \\\\in \\\\mathbb{R}^{d_K \\\\times C}\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 835.0, 522.5, 862.5]\n    },\n    {\n      \"canonical\": \"output scores\",\n      \"aliases\": [\"predictions\"],\n      \"evidence\": \"C output scores\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 780.0, 467.5, 807.5]\n    },\n    {\n      \"canonical\": \"self-loop augmentation\",\n      \"aliases\": [\"self-loop\", \"identity addition\"],\n      \"evidence\": \"A_hat = A + I\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [247.5, 192.5, 302.5, 220.0]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"neighborhood aggregation\", \"aggregation\"],\n      \"evidence\": \"agg[n, k] = sum h_k^(m)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 275.0, 247.5, 302.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\hat{A} = A + I\",\n      \"related_concepts\": [\"self-loop augmentation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [247.5, 192.5, 302.5, 220.0],\n      \"label\": \"Adjacency matrix with self-loops\"\n    },\n    {\n      \"latex\": \"h_k^{(n)} = a \\\\left[ \\\\beta_k \\\\cdot \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"node embedding\", \"message passing\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [82.5, 302.5, 247.5, 357.5],\n      \"label\": \"Node embedding update formula\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n, k] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_k^{(m)}\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 275.0, 247.5, 302.5],\n      \"label\": \"Aggregation function\"\n    },\n    {\n      \"latex\": \"h_K^G = \\\\text{Mean}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global mean pooling\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 137.5, 972.5, 192.5],\n      \"label\": \"Global mean pooling formula\"\n    },\n    {\n      \"latex\": \"h_K^G = \\\\text{Max}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global max pooling\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 247.5, 972.5, 302.5],\n      \"label\": \"Global max pooling formula\"\n    },\n    {\n      \"latex\": \"h_K^G = \\\\text{Sum}\\\\{h_K^{(i)} \\\\in \\\\mathbb{R}^{d_K}, \\\\forall i \\\\in V_G\\\\}\",\n      \"related_concepts\": [\"global sum pooling\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 357.5, 972.5, 412.5],\n      \"label\": \"Global sum pooling formula\"\n    },\n    {\n      \"latex\": \"G = (V, E, A, X)\",\n      \"related_concepts\": [\"graph representation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 615.0, 165.0, 642.5],\n      \"label\": \"graph definition\"\n    },\n    {\n      \"latex\": \"H_K \\\\in \\\\mathbb{R}^{n \\\\times d_K}\",\n      \"related_concepts\": [\"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 835.0, 412.5, 862.5],\n      \"label\": \"embedding matrix\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{d_K \\\\times C}\",\n      \"related_concepts\": [\"matrix multiplication\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 835.0, 467.5, 862.5],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"output scores\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [467.5, 835.0, 522.5, 862.5],\n      \"label\": \"output matrix\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing training nodes and a testing node with self-connection and neighborhood encoding\",\n      \"related_concepts\": [\"inductive capability\", \"self-loop augmentation\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 110.0, 220.0, 220.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram illustrating the integration of node embeddings for graph-level regression\",\n      \"related_concepts\": [\"graph-level regression\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [330.0, 110.0, 495.0, 220.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing the process of node embedding update with self-encoding and neighborhood encoding\",\n      \"related_concepts\": [\"node embedding\", \"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [55.0, 275.0, 275.0, 385.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Diagram showing the process of combining node embeddings to form a graph embedding using different pooling methods (mean, max, sum).\",\n      \"related_concepts\": [\"global mean pooling\", \"global max pooling\", \"global sum pooling\", \"node embedding\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [752.5, 110.0, 972.5, 467.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Example of multiresolution brain graphs with nodes and edges, illustrating the concept of graph-level prediction.\",\n      \"related_concepts\": [\"graph-level regression\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [450.0, 110.0, 670.0, 220.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of training nodes (blue) and testing nodes (gray) in a graph, showing generalization to new nodes\",\n      \"related_concepts\": [\"training nodes\", \"testing nodes\", \"inductive capability\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 505.0, 330.0, 615.0]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Matrix multiplication diagram showing Kth embeddings multiplied by weight matrix to produce output scores\",\n      \"related_concepts\": [\"node embedding\", \"matrix multiplication\", \"output scores\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 752.5, 522.5, 862.5]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Hierarchical Graph Representation Learning with Differentiable Pooling (DiffPool) architecture\",\n      \"related_concepts\": [\"hierarchical pooling\", \"graph neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 780.0, 972.5, 917.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"d_k\",\n      \"reason\": \"The subscript 'k' is slightly unclear\",\n      \"bbox\": [220.0, 165.0, 231.0, 176.0]\n    },\n    {\n      \"transcription\": \"h_k^{(test)}\",\n      \"reason\": \"The superscript '(test)' is somewhat ambiguous\",\n      \"bbox\": [247.5, 137.5, 275.0, 154.0]\n    },\n    {\n      \"transcription\": \"Figg areaas.am nodes n us\",\n      \"reason\": \"Handwriting is unclear and difficult to interpret accurately.\",\n      \"bbox\": [505.0, 192.5, 560.0, 209.0]\n    },\n    {\n      \"transcription\": \"d features infand features iFImitimesel\",\n      \"reason\": \"Handwriting is ambiguous and may contain errors or abbreviations.\",\n      \"bbox\": [615.0, 264.0, 697.5, 280.5]\n    },\n    {\n      \"transcription\": \"uennancannaia enmities Ilia\",\n      \"reason\": \"Handwriting is highly unclear and does not form coherent words.\",\n      \"bbox\": [780.0, 429.0, 862.5, 445.5]\n    },\n    {\n      \"transcription\": \"test our learned model \\\\theta^*\",\n      \"reason\": \"Handwritten text near brain graph is partially obscured and stylized\",\n      \"bbox\": [385.0, 945.0, 467.5, 972.5]\n    },\n    {\n      \"transcription\": \"new graph\",\n      \"reason\": \"Handwritten label pointing to graph diagram, slightly unclear\",\n      \"bbox\": [165.0, 752.5, 220.0, 780.0]\n    },\n    {\n      \"transcription\": \"\\\\Omega_k\",\n      \"reason\": \"Handwritten symbol in graph diagram, possibly omega with subscript\",\n      \"bbox\": [247.5, 780.0, 275.0, 807.5]\n    },\n    {\n      \"transcription\": \"a J\",\n      \"reason\": \"Isolated handwritten characters near graph diagram, meaning unclear\",\n      \"bbox\": [302.5, 807.5, 330.0, 835.0]\n    },\n    {\n      \"transcription\": \"grapmantis\",\n      \"reason\": \"Handwritten word at bottom, possibly 'graph' + something, very unclear\",\n      \"bbox\": [5.5, 972.5, 82.5, 994.5]\n    },\n    {\n      \"transcription\": \"S lear s tests a p\",\n      \"reason\": \"Fragmented handwritten text at bottom right, incomplete and unclear\",\n      \"bbox\": [467.5, 972.5, 544.5, 994.5]\n    },\n    {\n      \"transcription\": \"enhance without normalization\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly the word 'normalization'\",\n      \"bbox\": [807.5, 494.0, 917.5, 505.0]\n    },\n    {\n      \"transcription\": \"embedding space dimension\",\n      \"reason\": \"Handwriting is slightly unclear, especially 'dimension'\",\n      \"bbox\": [862.5, 532.5, 945.0, 543.5]\n    },\n    {\n      \"transcription\": \"prediction head\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'head'\",\n      \"bbox\": [917.5, 835.0, 972.5, 846.0]\n    },\n    {\n      \"transcription\": \"4 nodes in a cluster\",\n      \"reason\": \"Handwriting is somewhat unclear, particularly 'cluster'\",\n      \"bbox\": [807.5, 917.5, 862.5, 928.5]\n    },\n    {\n      \"transcription\": \"med\",\n      \"reason\": \"Single word, unclear context\",\n      \"bbox\": [477.5, 972.5, 494.0, 983.5]\n    },\n    {\n      \"transcription\": \"GT\",\n      \"reason\": \"Abbreviation, unclear meaning in this context\",\n      \"bbox\": [532.5, 972.5, 543.5, 983.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "graph-level prediction head",
+      "into": "graph-level regression"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "inductive capability",
+      "into": "inductive capability"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "feature aggregation",
+      "into": "integration"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node embeddings",
+      "into": "node embedding"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "generalization to new graphs",
+      "into": "inductive capability"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "brain graph",
+      "into": "multiresolution brain graphs"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph embeddings",
+      "into": "graph representation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "global pooling",
+      "into": "global sum pooling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph neural network",
+      "into": "graph neural network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph classification",
+      "into": "graph-level regression"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph embedding",
+      "into": "graph representation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "topology",
+      "into": "graph representation"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: \\hat{A} = A + I",
+    "Dropped low-confidence formula: h_k^{(n)} = a \\left[ \\beta_k \\cdot \\Omega_k \\cdot h_k^{(n)} + \\Omega_k \\cdot \\te"
+  ]
+}

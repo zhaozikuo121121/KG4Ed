@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1b3687b23e64cfb038701cf29c62ba99121a9c00a20c93bc5888a5f2f09ee0d8",
+  "concept_id": 114,
+  "concept_name": "training samples",
+  "aliases": [
+    "training samples",
+    "data samples",
+    "training nodes",
+    "train nodes"
+  ],
+  "profile": "training samples: Training samples are examples used to train a model. The phrase 'training samples' is used in graph-based learning. The term 'training nodes' also appears in the contexts of GCN training and optimization and graph-level prediction.",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "training samples: In machine learning, training samples are the examples used to train a model. The phrase 'training samples' is used in graph-based learning. The term 'training nodes' also appears, for example in GCN training and optimization and graph-level prediction contexts.",
+    "claims": [
+      {
+        "claim": "In machine learning, training samples are the examples used to train a model.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "The phrase 'training samples' is used in graph-based learning.",
+        "evidence_ids": [
+          "DGL-E0124"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term 'training nodes' appears in GCN training and optimization and graph-level prediction contexts.",
+        "evidence_ids": [
+          "DGL-E0234",
+          "DGL-E0270"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "DGL-E0124 is a sentence fragment, so the exact intended meaning of 'training samples' in that context is not fully specified.",
+      "DGL-E0234 and DGL-E0270 only list the phrase 'Training nodes' without additional explanation."
+    ]
+  },
+  "review": {
+    "final_profile": "training samples: Training samples are examples used to train a model. The phrase 'training samples' is used in graph-based learning. The term 'training nodes' also appears in the contexts of GCN training and optimization and graph-level prediction.",
+    "sentence_reviews": [
+      {
+        "sentence": "Training samples are examples used to train a model.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition; no source-specific evidence is available."
+      },
+      {
+        "sentence": "The phrase 'training samples' is used in graph-based learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0124"
+        ],
+        "reason": "The evidence fragment appears in a graph-based learning context."
+      },
+      {
+        "sentence": "The term 'training nodes' also appears in the contexts of GCN training and optimization and graph-level prediction.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0234",
+          "DGL-E0270"
+        ],
+        "reason": "The phrase is present in contexts labeled GCN training/optimization and graph-level prediction."
+      }
+    ],
+    "warnings": [
+      "DGL-E0124 is an incomplete sentence, so the intended restriction on training samples is not fully specified.",
+      "DGL-E0234 and DGL-E0270 list 'Training nodes' without defining the term.",
+      "The definition in the first sentence is generic background and is not explicitly stated in the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"training samples: In machine learning, training samples are the examples used to train a model. The phrase 'training samples' is used in graph-based learning. The term 'training nodes' also appears, for example in GCN training and optimization and graph-level prediction contexts.\",\n  \"claims\": [\n    {\n      \"claim\": \"In machine learning, training samples are the examples used to train a model.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"The phrase 'training samples' is used in graph-based learning.\",\n      \"evidence_ids\": [\"DGL-E0124\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term 'training nodes' appears in GCN training and optimization and graph-level prediction contexts.\",\n      \"evidence_ids\": [\"DGL-E0234\", \"DGL-E0270\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"DGL-E0124 is a sentence fragment, so the exact intended meaning of 'training samples' in that context is not fully specified.\",\n    \"DGL-E0234 and DGL-E0270 only list the phrase 'Training nodes' without additional explanation.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"training samples: Training samples are examples used to train a model. The phrase 'training samples' is used in graph-based learning. The term 'training nodes' also appears in the contexts of GCN training and optimization and graph-level prediction.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Training samples are examples used to train a model.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition; no source-specific evidence is available.\"\n    },\n    {\n      \"sentence\": \"The phrase 'training samples' is used in graph-based learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0124\"],\n      \"reason\": \"The evidence fragment appears in a graph-based learning context.\"\n    },\n    {\n      \"sentence\": \"The term 'training nodes' also appears in the contexts of GCN training and optimization and graph-level prediction.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0234\", \"DGL-E0270\"],\n      \"reason\": \"The phrase is present in contexts labeled GCN training/optimization and graph-level prediction.\"\n    }\n  ],\n  \"warnings\": [\n    \"DGL-E0124 is an incomplete sentence, so the intended restriction on training samples is not fully specified.\",\n    \"DGL-E0234 and DGL-E0270 list 'Training nodes' without defining the term.\",\n    \"The definition in the first sentence is generic background and is not explicitly stated in the evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:38:52.678993+00:00"
+}

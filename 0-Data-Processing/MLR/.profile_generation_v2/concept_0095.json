@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1a9d97c401efb983c9b2de775dd8c9027de103e2cc73a7e2539e142bb596f737",
+  "concept_id": 95,
+  "concept_name": "quadratic cost function",
+  "aliases": [
+    "quadratic cost function",
+    "general quadratic"
+  ],
+  "profile": "quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w. It has a constant term, a linear term in w, and a quadratic term in w.",
+  "word_count": 42,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w. It contains a constant term, a linear term, and a quadratic term. This expression appears in the context of linear regression.",
+    "claims": [
+      {
+        "claim": "A quadratic cost function has the form g(w) = a + b^T w + w^T C w.",
+        "evidence_ids": [
+          "MLR-E0111"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This expression is a general quadratic in w.",
+        "evidence_ids": [
+          "MLR-E0111"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w. It has a constant term, a linear term in w, and a quadratic term in w.",
+    "sentence_reviews": [
+      {
+        "sentence": "quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0111"
+        ],
+        "reason": "The source gives g(w) = a + bTw + wTC w and calls it a general quadratic."
+      },
+      {
+        "sentence": "It has a constant term, a linear term in w, and a quadratic term in w.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0111"
+        ],
+        "reason": "The source expression visibly contains a constant a, linear b^T w, and quadratic w^T C w terms."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w. It contains a constant term, a linear term, and a quadratic term. This expression appears in the context of linear regression.\",\n  \"claims\": [\n    {\n      \"claim\": \"A quadratic cost function has the form g(w) = a + b^T w + w^T C w.\",\n      \"evidence_ids\": [\"MLR-E0111\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This expression is a general quadratic in w.\",\n      \"evidence_ids\": [\"MLR-E0111\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w. It has a constant term, a linear term in w, and a quadratic term in w.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"quadratic cost function: a cost function of the form g(w) = a + b^T w + w^T C w, which is a general quadratic in w.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0111\"],\n      \"reason\": \"The source gives g(w) = a + bTw + wTC w and calls it a general quadratic.\"\n    },\n    {\n      \"sentence\": \"It has a constant term, a linear term in w, and a quadratic term in w.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0111\"],\n      \"reason\": \"The source expression visibly contains a constant a, linear b^T w, and quadratic w^T C w terms.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:58:12.209059+00:00"
+}

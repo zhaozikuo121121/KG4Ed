@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "04f0925e694c18e908e461f2f0b2d75264652747454e337fce54dfbd525c13d2",
+  "concept_id": 134,
+  "concept_name": "node labels",
+  "aliases": [
+    "node labels",
+    "node labels and features"
+  ],
+  "profile": "node labels: Node labels and features are utilized for embedding.",
+  "word_count": 10,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node labels: Node labels and features are utilized for embedding.",
+    "claims": [
+      {
+        "claim": "Node labels and features are utilized for embedding.",
+        "evidence_ids": [
+          "DGL-E0185"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only a single usage statement; no formal definition is available."
+    ]
+  },
+  "review": {
+    "final_profile": "node labels: Node labels and features are utilized for embedding.",
+    "sentence_reviews": [
+      {
+        "sentence": "Node labels and features are utilized for embedding.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0185"
+        ],
+        "reason": "Directly paraphrases the metadata statement: 'We utilize node labels and features for embedding.'"
+      }
+    ],
+    "warnings": [
+      "Single usage statement; no formal definition or further context is available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node labels: Node labels and features are utilized for embedding.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node labels and features are utilized for embedding.\",\n      \"evidence_ids\": [\"DGL-E0185\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only a single usage statement; no formal definition is available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node labels: Node labels and features are utilized for embedding.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Node labels and features are utilized for embedding.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0185\"],\n      \"reason\": \"Directly paraphrases the metadata statement: 'We utilize node labels and features for embedding.'\"\n    }\n  ],\n  \"warnings\": [\n    \"Single usage statement; no formal definition or further context is available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:46:59.199056+00:00"
+}

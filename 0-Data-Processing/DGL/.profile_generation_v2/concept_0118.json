@@ -1,0 +1,80 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "974fe7bd3da5a19bc69457a30cac8d7ff6f787d731ea2e717cfe4a24e44f0432",
+  "concept_id": 118,
+  "concept_name": "edge-based features",
+  "aliases": [
+    "edge-based features",
+    "edge embeddings",
+    "edge features",
+    "edge data",
+    "e"
+  ],
+  "profile": "edge-based features: a numbered heading, '2. Edge-based features', within content titled 'Feature Embedding and Graph-Based Learning'. In graph learning, edge features typically represent attributes of links between nodes.",
+  "word_count": 28,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge-based features: a numbered section heading in a lecture page titled 'Feature Embedding and Graph-Based Learning'. The heading is listed as '2. Edge-based features'. In graph learning, edge features typically represent attributes of links between nodes.",
+    "claims": [
+      {
+        "claim": "The concept appears as a numbered section heading.",
+        "evidence_ids": [
+          "DGL-E0126"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The page title is 'Feature Embedding and Graph-Based Learning'.",
+        "evidence_ids": [
+          "DGL-E0126"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Edge features typically represent attributes of links between nodes.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Metadata only contains a heading; the characterization of edge features as link attributes is general background."
+    ]
+  },
+  "review": {
+    "final_profile": "edge-based features: a numbered heading, '2. Edge-based features', within content titled 'Feature Embedding and Graph-Based Learning'. In graph learning, edge features typically represent attributes of links between nodes.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge-based features: a numbered heading, '2. Edge-based features', within content titled 'Feature Embedding and Graph-Based Learning'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0126"
+        ],
+        "reason": "The metadata records the heading exactly and gives the associated title."
+      },
+      {
+        "sentence": "In graph learning, edge features typically represent attributes of links between nodes.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General background context not present in the evidence but consistent with the concept."
+      }
+    ],
+    "warnings": [
+      "The source evidence only captures the heading; no further details about edge-based features are grounded in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge-based features: a numbered section heading in a lecture page titled 'Feature Embedding and Graph-Based Learning'. The heading is listed as '2. Edge-based features'. In graph learning, edge features typically represent attributes of links between nodes.\",\n  \"claims\": [\n    {\n      \"claim\": \"The concept appears as a numbered section heading.\",\n      \"evidence_ids\": [\"DGL-E0126\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The page title is 'Feature Embedding and Graph-Based Learning'.\",\n      \"evidence_ids\": [\"DGL-E0126\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Edge features typically represent attributes of links between nodes.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata only contains a heading; the characterization of edge features as link attributes is general background.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge-based features: a numbered heading, '2. Edge-based features', within content titled 'Feature Embedding and Graph-Based Learning'. In graph learning, edge features typically represent attributes of links between nodes.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge-based features: a numbered heading, '2. Edge-based features', within content titled 'Feature Embedding and Graph-Based Learning'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0126\"],\n      \"reason\": \"The metadata records the heading exactly and gives the associated title.\"\n    },\n    {\n      \"sentence\": \"In graph learning, edge features typically represent attributes of links between nodes.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General background context not present in the evidence but consistent with the concept.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence only captures the heading; no further details about edge-based features are grounded in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:40:39.976966+00:00"
+}

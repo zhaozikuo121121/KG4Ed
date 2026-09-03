@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ae77e381e491ba58c3a76d1ec2bfeb949592933f61a4feca18baae730c300df7",
+  "concept_id": 18,
+  "concept_name": "heterogeneous graph",
+  "aliases": [
+    "heterogeneous graph"
+  ],
+  "profile": "heterogeneous graph: a graph represented as G = (V, E, R, T).",
+  "word_count": 11,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "heterogeneous graph: a graph represented as G = (V, E, R, T).",
+    "claims": [
+      {
+        "claim": "A heterogeneous graph is represented as G = (V, E, R, T).",
+        "evidence_ids": [
+          "DGL-E0031"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The meaning of each tuple element is not explicitly defined in the source."
+    ]
+  },
+  "review": {
+    "final_profile": "heterogeneous graph: a graph represented as G = (V, E, R, T).",
+    "sentence_reviews": [
+      {
+        "sentence": "heterogeneous graph: a graph represented as G = (V, E, R, T).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0031"
+        ],
+        "reason": "The source directly states 'A heterogeneous graph G = (V, E, R, T)', matching the representation."
+      }
+    ],
+    "warnings": [
+      "The meaning of each tuple element is not explicitly defined in the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"heterogeneous graph: a graph represented as G = (V, E, R, T).\",\n  \"claims\": [\n    {\n      \"claim\": \"A heterogeneous graph is represented as G = (V, E, R, T).\",\n      \"evidence_ids\": [\"DGL-E0031\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The meaning of each tuple element is not explicitly defined in the source.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"heterogeneous graph: a graph represented as G = (V, E, R, T).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"heterogeneous graph: a graph represented as G = (V, E, R, T).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0031\"],\n      \"reason\": \"The source directly states 'A heterogeneous graph G = (V, E, R, T)', matching the representation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The meaning of each tuple element is not explicitly defined in the source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:55:58.211033+00:00"
+}

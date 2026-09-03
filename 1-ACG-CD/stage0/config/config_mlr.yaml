@@ -1,0 +1,32 @@
+project_root: "${PROJECT_ROOT:-.}"
+dataset_name: "mlr"
+
+bert_model_name: "sentence-transformers/all-mpnet-base-v2"
+bert_max_length: 256
+bert_batch_size: 16
+seed: 42
+
+k: 10
+fallback_k: 15
+min_lcc_coverage: 0.90
+device: auto
+
+profile:
+  use_llm_profiles: false
+  batch_size: 20
+  min_words: 80
+  max_words: 120
+  max_snippets: 3
+  snippet_max_chars: 500
+  prompt_version: "profile_v3"
+
+llm:
+  provider: qwen
+  model: qwen3.8-max
+  api_key_env: DASHSCOPE_API_KEY
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  timeout_seconds: 120
+  batch_size: 20
+  max_retries: 3
+  retry_backoff_seconds: 2
+

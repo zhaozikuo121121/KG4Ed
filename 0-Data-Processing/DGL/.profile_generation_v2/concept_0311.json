@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "7964012536a5db93dc36a7e79edc8de58670014a7cfee011f37290fe96d0c701",
+  "concept_id": 311,
+  "concept_name": "predict and analyze patterns",
+  "aliases": [
+    "predict and analyze patterns",
+    "pattern prediction"
+  ],
+  "profile": "predict and analyze patterns: This task involves predicting and analyzing patterns on given graphs, for example predicting the label of a node or of a graph. It appears under the formalization of generative learning tasks. The task concerns graph-structured data and supports prediction at both the node level and the graph level.",
+  "word_count": 52,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "predict and analyze patterns: This task involves predicting and analyzing patterns on given graphs, such as predicting the label of a node or a graph. It is part of the formalization of generative learning tasks. The focus is on graph-structured data, with predictions possible at the node level and at the graph level.",
+    "claims": [
+      {
+        "claim": "This task involves predicting and analyzing patterns on given graphs, such as predicting the label of a node or a graph.",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is part of the formalization of generative learning tasks.",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The focus is on graph-structured data, with predictions possible at the node level and at the graph level.",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "predict and analyze patterns: This task involves predicting and analyzing patterns on given graphs, for example predicting the label of a node or of a graph. It appears under the formalization of generative learning tasks. The task concerns graph-structured data and supports prediction at both the node level and the graph level.",
+    "sentence_reviews": [
+      {
+        "sentence": "This task involves predicting and analyzing patterns on given graphs, for example predicting the label of a node or of a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "reason": "Directly restates the source evidence about predicting and analyzing patterns on given graphs with node/graph label examples."
+      },
+      {
+        "sentence": "It appears under the formalization of generative learning tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "reason": "The source page title identifies this as part of generative learning tasks formalization."
+      },
+      {
+        "sentence": "The task concerns graph-structured data and supports prediction at both the node level and the graph level.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0457"
+        ],
+        "reason": "The evidence mentions given graphs and examples of predicting a node label or a graph label, supporting node- and graph-level prediction."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"predict and analyze patterns: This task involves predicting and analyzing patterns on given graphs, such as predicting the label of a node or a graph. It is part of the formalization of generative learning tasks. The focus is on graph-structured data, with predictions possible at the node level and at the graph level.\",\n  \"claims\": [\n    {\n      \"claim\": \"This task involves predicting and analyzing patterns on given graphs, such as predicting the label of a node or a graph.\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is part of the formalization of generative learning tasks.\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The focus is on graph-structured data, with predictions possible at the node level and at the graph level.\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"predict and analyze patterns: This task involves predicting and analyzing patterns on given graphs, for example predicting the label of a node or of a graph. It appears under the formalization of generative learning tasks. The task concerns graph-structured data and supports prediction at both the node level and the graph level.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"This task involves predicting and analyzing patterns on given graphs, for example predicting the label of a node or of a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"reason\": \"Directly restates the source evidence about predicting and analyzing patterns on given graphs with node/graph label examples.\"\n    },\n    {\n      \"sentence\": \"It appears under the formalization of generative learning tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"reason\": \"The source page title identifies this as part of generative learning tasks formalization.\"\n    },\n    {\n      \"sentence\": \"The task concerns graph-structured data and supports prediction at both the node level and the graph level.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0457\"],\n      \"reason\": \"The evidence mentions given graphs and examples of predicting a node label or a graph label, supporting node- and graph-level prediction.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:51:25.280247+00:00"
+}

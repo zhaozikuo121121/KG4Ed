@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "516d9fb6a7e2986fff83ab15f71916ba7100d0d7b985c9e837bd132223db59c7",
+  "concept_id": 176,
+  "concept_name": "graph feature pooling method",
+  "aliases": [
+    "graph feature pooling method",
+    "feature pooling technique"
+  ],
+  "profile": "graph feature pooling method: This term corresponds to the graph pooling layer. The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph feature pooling method: This concept is associated with the graph pooling layer. The latter appears in the context of encoder-decoder GNNs and graph generation.",
+    "claims": [
+      {
+        "claim": "The graph feature pooling method is associated with the graph pooling layer.",
+        "evidence_ids": [
+          "DGL-E0592"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.",
+        "evidence_ids": [
+          "DGL-E0592"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only a single reference and does not define the method's functionality."
+    ]
+  },
+  "review": {
+    "final_profile": "graph feature pooling method: This term corresponds to the graph pooling layer. The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.",
+    "sentence_reviews": [
+      {
+        "sentence": "This term corresponds to the graph pooling layer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0592"
+        ],
+        "reason": "The source provides the phrase 'Graph Pooling Layer' for the concept."
+      },
+      {
+        "sentence": "The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0592"
+        ],
+        "reason": "The source page title is 'Encoder-Decoder GNNs and Graph Generation', placing the layer in that context."
+      }
+    ],
+    "warnings": [
+      "The source only names the graph pooling layer and does not define the functionality of a graph feature pooling method."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph feature pooling method: This concept is associated with the graph pooling layer. The latter appears in the context of encoder-decoder GNNs and graph generation.\",\n  \"claims\": [\n    {\n      \"claim\": \"The graph feature pooling method is associated with the graph pooling layer.\",\n      \"evidence_ids\": [\"DGL-E0592\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0592\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata provides only a single reference and does not define the method's functionality.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph feature pooling method: This term corresponds to the graph pooling layer. The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"This term corresponds to the graph pooling layer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0592\"],\n      \"reason\": \"The source provides the phrase 'Graph Pooling Layer' for the concept.\"\n    },\n    {\n      \"sentence\": \"The graph pooling layer appears in the context of encoder-decoder GNNs and graph generation.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0592\"],\n      \"reason\": \"The source page title is 'Encoder-Decoder GNNs and Graph Generation', placing the layer in that context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source only names the graph pooling layer and does not define the functionality of a graph feature pooling method.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:04:06.543061+00:00"
+}

@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9e8ad52a373778795bfbe7fe3e1c4cc8f76b52984a0136e11652a2ccf75ba9e2",
+  "concept_id": 20,
+  "concept_name": "weighted graph",
+  "aliases": [
+    "weighted graph",
+    "binary graph",
+    "unweighted graph",
+    "weighted",
+    "binary"
+  ],
+  "profile": "weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij. Graphs are categorized as weighted or binary.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij. Graphs are categorized as weighted or binary.",
+    "claims": [
+      {
+        "claim": "A weighted graph is a graph whose edges have associated real-valued weights w_ij.",
+        "evidence_ids": [
+          "DGL-E0005"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graphs are categorized as weighted or binary.",
+        "evidence_ids": [
+          "DGL-E0042"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The alias list includes 'binary graph' and 'unweighted graph', but the metadata does not define these terms or their relationship to weighted graphs.",
+      "No examples of weighted graphs are present in the supplied metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij. Graphs are categorized as weighted or binary.",
+    "sentence_reviews": [
+      {
+        "sentence": "weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0005"
+        ],
+        "reason": "The source defines edge weight w_ij ∈ R, supporting real-valued edge weights."
+      },
+      {
+        "sentence": "Graphs are categorized as weighted or binary.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0042"
+        ],
+        "reason": "The source explicitly distinguishes graphs as weighted or binary."
+      }
+    ],
+    "warnings": [
+      "The available source does not define 'binary graph' or 'unweighted graph', and no examples of weighted graphs are provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij. Graphs are categorized as weighted or binary.\",\n  \"claims\": [\n    {\n      \"claim\": \"A weighted graph is a graph whose edges have associated real-valued weights w_ij.\",\n      \"evidence_ids\": [\"DGL-E0005\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graphs are categorized as weighted or binary.\",\n      \"evidence_ids\": [\"DGL-E0042\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The alias list includes 'binary graph' and 'unweighted graph', but the metadata does not define these terms or their relationship to weighted graphs.\",\n    \"No examples of weighted graphs are present in the supplied metadata.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij. Graphs are categorized as weighted or binary.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"weighted graph: A weighted graph is a graph whose edges have associated real-valued weights w_ij.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0005\"],\n      \"reason\": \"The source defines edge weight w_ij ∈ R, supporting real-valued edge weights.\"\n    },\n    {\n      \"sentence\": \"Graphs are categorized as weighted or binary.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0042\"],\n      \"reason\": \"The source explicitly distinguishes graphs as weighted or binary.\"\n    }\n  ],\n  \"warnings\": [\n    \"The available source does not define 'binary graph' or 'unweighted graph', and no examples of weighted graphs are provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:56:32.313222+00:00"
+}

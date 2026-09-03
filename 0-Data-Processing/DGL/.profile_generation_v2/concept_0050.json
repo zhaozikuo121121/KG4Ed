@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4f704ba9dbd8b4a5b3ecfaab85c2be55383dec0414cc4bfa4c17e7e4dfab73f1",
+  "concept_id": 50,
+  "concept_name": "graph sparsity",
+  "aliases": [
+    "graph sparsity",
+    "sparsity"
+  ],
+  "profile": "graph sparsity: Graph sparsity is a graph property related to scale/size, referenced alongside density.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph sparsity: Graph sparsity is a property of graph scale/size, referenced alongside density.",
+    "claims": [
+      {
+        "claim": "Graph sparsity is a property of graph scale/size, referenced alongside density.",
+        "evidence_ids": [
+          "DGL-E0045"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph sparsity: Graph sparsity is a graph property related to scale/size, referenced alongside density.",
+    "sentence_reviews": [
+      {
+        "sentence": "Graph sparsity is a graph property related to scale/size, referenced alongside density.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0045"
+        ],
+        "reason": "The source lists scale/size with density and sparsity together, supporting this minimal characterization."
+      }
+    ],
+    "warnings": [
+      "Evidence is minimal; no additional details about sparsity are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph sparsity: Graph sparsity is a property of graph scale/size, referenced alongside density.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph sparsity is a property of graph scale/size, referenced alongside density.\",\n      \"evidence_ids\": [\"DGL-E0045\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph sparsity: Graph sparsity is a graph property related to scale/size, referenced alongside density.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Graph sparsity is a graph property related to scale/size, referenced alongside density.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0045\"],\n      \"reason\": \"The source lists scale/size with density and sparsity together, supporting this minimal characterization.\"\n    }\n  ],\n  \"warnings\": [\"Evidence is minimal; no additional details about sparsity are supported.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:05:30.531302+00:00"
+}

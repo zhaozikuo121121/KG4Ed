@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "cb36631c8c1763e29178268a680cac7836d9021727f8fd96acc3491d64d96c3f",
+  "concept_id": 326,
+  "concept_name": "identity vector initialization",
+  "aliases": [
+    "identity vector initialization",
+    "initialize using identity vector"
+  ],
+  "profile": "identity vector initialization: an initialization method that uses an identity vector of all ones, [1 1 ... 1].",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "identity vector initialization: initialization method that sets a vector to an identity vector composed of ones, [1 1 ... 1].",
+    "claims": [
+      {
+        "claim": "Identity vector initialization sets a vector to an identity vector of the form [1 1 ... 1].",
+        "evidence_ids": [
+          "DGL-E0467"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "identity vector initialization: an initialization method that uses an identity vector of all ones, [1 1 ... 1].",
+    "sentence_reviews": [
+      {
+        "sentence": "identity vector initialization: an initialization method that uses an identity vector of all ones, [1 1 ... 1].",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0467"
+        ],
+        "reason": "The source states 'Using an identity vector of [1 1 ... 1].'"
+      }
+    ],
+    "warnings": [
+      "No further detail about the method is provided in the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"identity vector initialization: initialization method that sets a vector to an identity vector composed of ones, [1 1 ... 1].\",\n  \"claims\": [\n    {\n      \"claim\": \"Identity vector initialization sets a vector to an identity vector of the form [1 1 ... 1].\",\n      \"evidence_ids\": [\"DGL-E0467\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"identity vector initialization: an initialization method that uses an identity vector of all ones, [1 1 ... 1].\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"identity vector initialization: an initialization method that uses an identity vector of all ones, [1 1 ... 1].\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0467\"],\n      \"reason\": \"The source states 'Using an identity vector of [1 1 ... 1].'\"\n    }\n  ],\n  \"warnings\": [\"No further detail about the method is provided in the source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:56:37.393718+00:00"
+}

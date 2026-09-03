@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "6cfb0ad5f5cf57b7dca2a92dc4376c1dfed92f732633f8c25c736f61ef9ade26",
+  "concept_id": 156,
+  "concept_name": "class imbalance",
+  "aliases": [
+    "class imbalance",
+    "imbalanced classes"
+  ],
+  "profile": "class imbalance: a situation in classification where classes are not equally represented. It can be dealt with by adjusting the weights of the cost function.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "class imbalance: a situation in classification where classes are not equally represented. It can be dealt with by adjusting the weights of the cost function.",
+    "claims": [
+      {
+        "claim": "Class imbalance is a situation in classification where classes are not equally represented.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "It can be dealt with by adjusting the weights of the cost function.",
+        "evidence_ids": [
+          "MLR-E0178"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "class imbalance: a situation in classification where classes are not equally represented. It can be dealt with by adjusting the weights of the cost function.",
+    "sentence_reviews": [
+      {
+        "sentence": "class imbalance: a situation in classification where classes are not equally represented.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition used to orient the reader; not directly stated in the source but does not conflict with it."
+      },
+      {
+        "sentence": "It can be dealt with by adjusting the weights of the cost function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0178"
+        ],
+        "reason": "The source mentions setting the weights of the cost function to deal with class imbalance."
+      }
+    ],
+    "warnings": [
+      "Only one source passage was available; the opening definition is general background without direct source support."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"class imbalance: a situation in classification where classes are not equally represented. It can be dealt with by adjusting the weights of the cost function.\",\n  \"claims\": [\n    {\n      \"claim\": \"Class imbalance is a situation in classification where classes are not equally represented.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"It can be dealt with by adjusting the weights of the cost function.\",\n      \"evidence_ids\": [\"MLR-E0178\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"class imbalance: a situation in classification where classes are not equally represented. It can be dealt with by adjusting the weights of the cost function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"class imbalance: a situation in classification where classes are not equally represented.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition used to orient the reader; not directly stated in the source but does not conflict with it.\"\n    },\n    {\n      \"sentence\": \"It can be dealt with by adjusting the weights of the cost function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0178\"],\n      \"reason\": \"The source mentions setting the weights of the cost function to deal with class imbalance.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one source passage was available; the opening definition is general background without direct source support.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:26:57.502764+00:00"
+}

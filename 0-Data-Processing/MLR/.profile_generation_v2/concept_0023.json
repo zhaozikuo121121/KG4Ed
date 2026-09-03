@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b6b624cd94a59075c1593fccfc102e07b1ddae4e47fc37edda58bf67af30db4e",
+  "concept_id": 23,
+  "concept_name": "global maximum",
+  "aliases": [
+    "global maximum",
+    "global maximizer"
+  ],
+  "profile": "global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w. This is the zero-order definition of a global maximum.",
+    "claims": [
+      {
+        "claim": "A global maximum is a point w⋆ such that g(w⋆) ≥ g(w) for all w.",
+        "evidence_ids": [
+          "MLR-E0024"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This is the zero-order definition of a global maximum.",
+        "evidence_ids": [
+          "MLR-E0024"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.",
+    "sentence_reviews": [
+      {
+        "sentence": "global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0024"
+        ],
+        "reason": "Directly restates the inequality defining a global maximum in the evidence."
+      },
+      {
+        "sentence": "This is the zero order definition of a global maximum.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0024"
+        ],
+        "reason": "Matches the evidence statement that this is the zero order definition."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w. This is the zero-order definition of a global maximum.\",\n  \"claims\": [\n    {\n      \"claim\": \"A global maximum is a point w⋆ such that g(w⋆) ≥ g(w) for all w.\",\n      \"evidence_ids\": [\"MLR-E0024\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This is the zero-order definition of a global maximum.\",\n      \"evidence_ids\": [\"MLR-E0024\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w. This is the zero order definition of a global maximum.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"global maximum: a point w⋆ such that g(w⋆) ≥ g(w) for all w.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0024\"],\n      \"reason\": \"Directly restates the inequality defining a global maximum in the evidence.\"\n    },\n    {\n      \"sentence\": \"This is the zero order definition of a global maximum.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0024\"],\n      \"reason\": \"Matches the evidence statement that this is the zero order definition.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:29:02.169314+00:00"
+}

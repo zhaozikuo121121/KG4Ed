@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "55c8ba688aa7e93ee48aaae017c90515c58ad35f33e5ee7f96aab665ffabac9e",
+  "concept_id": 385,
+  "concept_name": "mean absolute error",
+  "aliases": [
+    "mean absolute error",
+    "mae"
+  ],
+  "profile": "mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.",
+    "claims": [
+      {
+        "claim": "mean absolute error appears in the context of encoder-decoder GNNs and graph generation",
+        "evidence_ids": [
+          "DGL-E0556"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "mean absolute error is computed between At and At~",
+        "evidence_ids": [
+          "DGL-E0556"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The meaning of At and At~ is not specified in the provided context."
+    ]
+  },
+  "review": {
+    "final_profile": "mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.",
+    "sentence_reviews": [
+      {
+        "sentence": "mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0556"
+        ],
+        "reason": "The slide title and formula MAE(At, At~) support the contextual and computation statements."
+      }
+    ],
+    "warnings": [
+      "The meaning of At and At~ is not specified in the provided context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.\",\n  \"claims\": [\n    {\n      \"claim\": \"mean absolute error appears in the context of encoder-decoder GNNs and graph generation\",\n      \"evidence_ids\": [\"DGL-E0556\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"mean absolute error is computed between At and At~\",\n      \"evidence_ids\": [\"DGL-E0556\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The meaning of At and At~ is not specified in the provided context.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mean absolute error: appears in the context of encoder-decoder GNNs and graph generation, computed between At and At~.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0556\"],\n      \"reason\": \"The slide title and formula MAE(At, At~) support the contextual and computation statements.\"\n    }\n  ],\n  \"warnings\": [\"The meaning of At and At~ is not specified in the provided context.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:13:30.319072+00:00"
+}

@@ -1,0 +1,2592 @@
+{
+  "version": "1.0.0",
+  "chapter": 3,
+  "chapter_title": "First order optimization techniques",
+  "pdf_start": 65,
+  "pdf_end": 101,
+  "model": "qwen3.7-max-2026-05-20",
+  "completed_at": "2026-07-21T15:44:40+00:00",
+  "concepts": [
+    {
+      "canonical": "first order optimization methods",
+      "aliases": [
+        "first order optimization techniques",
+        "first order local optimization schemes"
+      ],
+      "evidence_page": 65,
+      "evidence": "These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today.",
+      "relevance": 0.95,
+      "anchor_page": 65
+    },
+    {
+      "canonical": "gradient descent",
+      "aliases": [],
+      "evidence_page": 65,
+      "evidence": "foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions",
+      "relevance": 0.95,
+      "anchor_page": 65
+    },
+    {
+      "canonical": "gradient",
+      "aliases": [
+        "first derivative"
+      ],
+      "evidence_page": 65,
+      "evidence": "fundamental optimization algorithms that leverage the first derivative or gradient of a function",
+      "relevance": 0.9,
+      "anchor_page": 65
+    },
+    {
+      "canonical": "descent direction",
+      "aliases": [],
+      "evidence_page": 65,
+      "evidence": "that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches",
+      "relevance": 0.75,
+      "anchor_page": 65
+    },
+    {
+      "canonical": "automatic differentiation",
+      "aliases": [
+        "autograd",
+        "gradient calculator",
+        "automatic differentiator"
+      ],
+      "evidence_page": 66,
+      "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations.",
+      "relevance": 0.85,
+      "anchor_page": 66
+    },
+    {
+      "canonical": "chain rule",
+      "aliases": [],
+      "evidence_page": 66,
+      "evidence": "In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)",
+      "relevance": 0.7,
+      "anchor_page": 66
+    },
+    {
+      "canonical": "numerical approximation",
+      "aliases": [],
+      "evidence_page": 66,
+      "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules",
+      "relevance": 0.65,
+      "anchor_page": 66
+    },
+    {
+      "canonical": "first order taylor series approximation",
+      "aliases": [
+        "tangent line",
+        "tangent hyperplane",
+        "first order taylor series",
+        "linear surrogate",
+        "first order taylor approximation",
+        "linear approximation surrogate",
+        "hyperplane",
+        "hyperplanes"
+      ],
+      "evidence_page": 67,
+      "evidence": "the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation",
+      "relevance": 0.85,
+      "anchor_page": 67
+    },
+    {
+      "canonical": "global minimum",
+      "aliases": [
+        "global minima",
+        "global minimizer"
+      ],
+      "evidence_page": 67,
+      "evidence": "With a simple convex quadratic this condition identifies the global minimum of the function",
+      "relevance": 0.8,
+      "anchor_page": 67
+    },
+    {
+      "canonical": "partial derivative",
+      "aliases": [
+        "partial derivatives"
+      ],
+      "evidence_page": 67,
+      "evidence": "any N dimensional point v where every partial derivative of g is zero",
+      "relevance": 0.7,
+      "anchor_page": 67
+    },
+    {
+      "canonical": "stationary points",
+      "aliases": [
+        "critical points"
+      ],
+      "evidence_page": 68,
+      "evidence": "Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.",
+      "relevance": 0.85,
+      "anchor_page": 68
+    },
+    {
+      "canonical": "first order system of equations",
+      "aliases": [
+        "first order system"
+      ],
+      "evidence_page": 68,
+      "evidence": "This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0",
+      "relevance": 0.8,
+      "anchor_page": 68
+    },
+    {
+      "canonical": "saddle points",
+      "aliases": [],
+      "evidence_page": 68,
+      "evidence": "The first order condition also equally characterizes maxima and saddle points of non-convex functions",
+      "relevance": 0.8,
+      "anchor_page": 68
+    },
+    {
+      "canonical": "closed form solution",
+      "aliases": [
+        "closed form"
+      ],
+      "evidence_page": 68,
+      "evidence": "to solve such equations algebraically for 'closed form' solutions one can write out on paper",
+      "relevance": 0.7,
+      "anchor_page": 68
+    },
+    {
+      "canonical": "local minimum",
+      "aliases": [
+        "local minima",
+        "local minimizer"
+      ],
+      "evidence_page": 69,
+      "evidence": "local minima or points that are the smallest with respect to their immediate neighbors",
+      "relevance": 0.8,
+      "anchor_page": 69
+    },
+    {
+      "canonical": "rayleigh quotient",
+      "aliases": [],
+      "evidence_page": 69,
+      "evidence": "By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient",
+      "relevance": 0.7,
+      "anchor_page": 69
+    },
+    {
+      "canonical": "convex quadratic function",
+      "aliases": [
+        "multi-input quadratic function",
+        "convex quadratic"
+      ],
+      "evidence_page": 71,
+      "evidence": "Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix",
+      "relevance": 0.8,
+      "anchor_page": 71
+    },
+    {
+      "canonical": "symmetric linear system",
+      "aliases": [],
+      "evidence_page": 71,
+      "evidence": "Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b",
+      "relevance": 0.75,
+      "anchor_page": 73
+    },
+    {
+      "canonical": "coordinate descent",
+      "aliases": [
+        "coordinate-wise approaches"
+      ],
+      "evidence_page": 72,
+      "evidence": "This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form",
+      "relevance": 0.9,
+      "anchor_page": 72
+    },
+    {
+      "canonical": "diminishing steplength rules",
+      "aliases": [
+        "diminishing step length",
+        "diminishing steplength",
+        "diminishing steplength schemes",
+        "decreasing step size"
+      ],
+      "evidence_page": 99,
+      "evidence": "Compare fixed and diminishing steplength values for a simple example",
+      "relevance": 0.75,
+      "anchor_page": 99
+    },
+    {
+      "canonical": "momentum accelerated gradient descent",
+      "aliases": [
+        "momentum gradient descent",
+        "gradient descent with momentum"
+      ],
+      "evidence_page": 100,
+      "evidence": "Code up the momentum accelerated gradient descent scheme described in Section A.2.2",
+      "relevance": 0.95,
+      "anchor_page": 100
+    },
+    {
+      "canonical": "normalized gradient descent",
+      "aliases": [
+        "fully normalized gradient descent",
+        "component-wise normalized gradient descent"
+      ],
+      "evidence_page": 100,
+      "evidence": "compare the standard and fully normalized gradient descent schemes in minimizing the function",
+      "relevance": 0.85,
+      "anchor_page": 100
+    },
+    {
+      "canonical": "lipschitz continuous gradient",
+      "aliases": [
+        "lipschitz gradient",
+        "gradient with lipschitz constant"
+      ],
+      "evidence_page": 101,
+      "evidence": "functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂",
+      "relevance": 0.95,
+      "anchor_page": 101
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "gradient",
+      "latex": "\\frac{d}{dw} g(w) = \\frac{d}{dw} \\sin(w^2) = 2w \\cos(w^2)",
+      "pdf_page": 66,
+      "equation_label": "",
+      "confidence": 0.9
+    },
+    {
+      "concept": "chain rule",
+      "latex": "\\frac{d}{dw} g(w) = \\frac{d}{dw} \\sin(w^2) = \\cos(w^2) \\cdot \\frac{d}{dw} w^2 = 2w \\cos(w^2)",
+      "pdf_page": 66,
+      "equation_label": "",
+      "confidence": 0.95
+    },
+    {
+      "concept": "global minimum",
+      "latex": "\\frac{d}{dw} g(v) = 0",
+      "pdf_page": 67,
+      "equation_label": "3.1",
+      "confidence": 0.95
+    },
+    {
+      "concept": "partial derivative",
+      "latex": "\\frac{\\partial}{\\partial w_1} g(v) = 0, \\quad \\frac{\\partial}{\\partial w_2} g(v) = 0, \\quad \\ldots, \\quad \\frac{\\partial}{\\partial w_N} g(v) = 0",
+      "pdf_page": 68,
+      "equation_label": "3.2",
+      "confidence": 0.95
+    },
+    {
+      "concept": "global minimum",
+      "latex": "\\nabla g(v) = 0_{N \\times 1}",
+      "pdf_page": 68,
+      "equation_label": "3.3",
+      "confidence": 0.95
+    },
+    {
+      "concept": "first order system of equations",
+      "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+      "pdf_page": 68,
+      "equation_label": "3.2",
+      "confidence": 0.95
+    },
+    {
+      "concept": "first order system of equations",
+      "latex": "\\nabla g(v) = 0_{N \\times 1}",
+      "pdf_page": 68,
+      "equation_label": "3.3",
+      "confidence": 0.95
+    },
+    {
+      "concept": "stationary points",
+      "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+      "pdf_page": 68,
+      "equation_label": "3.2",
+      "confidence": 0.85
+    },
+    {
+      "concept": "stationary points",
+      "latex": "\\nabla g(v) = 0_{N \\times 1}",
+      "pdf_page": 68,
+      "equation_label": "3.3",
+      "confidence": 0.85
+    },
+    {
+      "concept": "saddle points",
+      "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+      "pdf_page": 68,
+      "equation_label": "3.2",
+      "confidence": 0.8
+    },
+    {
+      "concept": "saddle points",
+      "latex": "\\nabla g(v) = 0_{N \\times 1}",
+      "pdf_page": 68,
+      "equation_label": "3.3",
+      "confidence": 0.8
+    },
+    {
+      "concept": "convex quadratic function",
+      "latex": "g(w) = a + b^T w + w^T C w",
+      "pdf_page": 71,
+      "equation_label": "3.10",
+      "confidence": 0.95
+    },
+    {
+      "concept": "convex quadratic function",
+      "latex": "\\nabla g(w) = 2Cw + b",
+      "pdf_page": 71,
+      "equation_label": "3.11",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate descent",
+      "latex": "\\frac{\\partial}{\\partial w_1} g(w^0) = 0",
+      "pdf_page": 72,
+      "equation_label": "3.13",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate descent",
+      "latex": "\\frac{\\partial}{\\partial w_n} g(w^{n-1}) = 0",
+      "pdf_page": 72,
+      "equation_label": "3.14",
+      "confidence": 0.95
+    },
+    {
+      "concept": "coordinate descent",
+      "latex": "\\frac{\\partial}{\\partial w_n} g(w^{(k-1)N+n}) = 0",
+      "pdf_page": 72,
+      "equation_label": "3.15",
+      "confidence": 0.95
+    },
+    {
+      "concept": "symmetric linear system",
+      "latex": "Cw = -\\frac{1}{2}b",
+      "pdf_page": 73,
+      "equation_label": "3.18",
+      "confidence": 0.95
+    },
+    {
+      "concept": "lipschitz continuous gradient",
+      "latex": "\\|\\nabla g(x) - \\nabla g(y)\\|_2 \\leq L \\|x - y\\|_2",
+      "pdf_page": 101,
+      "equation_label": "3.46",
+      "confidence": 0.95
+    }
+  ],
+  "figures": [
+    {
+      "concept": "global minimum",
+      "pdf_page": 67,
+      "figure_label": "Figure 3.1",
+      "caption": "The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "first order taylor series approximation",
+      "pdf_page": 67,
+      "figure_label": "Figure 3.1",
+      "caption": "The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "stationary points",
+      "pdf_page": 69,
+      "figure_label": "Figure 3.2",
+      "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "saddle points",
+      "pdf_page": 69,
+      "figure_label": "Figure 3.2",
+      "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "local minimum",
+      "pdf_page": 69,
+      "figure_label": "Figure 3.2",
+      "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "coordinate descent",
+      "pdf_page": 73,
+      "figure_label": "Figure 3.4",
+      "caption": "Figure associated with Example 3.5",
+      "confidence": 0.9
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "first order optimization methods",
+            "aliases": [
+              "first order optimization techniques",
+              "first order local optimization schemes"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order optimality condition",
+            "aliases": [
+              "first order condition",
+              "first order condition for optimality"
+            ],
+            "evidence_page": 67,
+            "anchor_page": 67,
+            "evidence": "This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short).",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "taylor series approximation",
+              "first order Taylor series"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 67,
+            "evidence": "the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "gradient calculator"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "chain rule",
+            "aliases": [],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "stationary points",
+            "aliases": [
+              "critical points"
+            ],
+            "evidence_page": 68,
+            "anchor_page": 68,
+            "evidence": "Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "saddle points",
+            "aliases": [
+              "saddle point"
+            ],
+            "evidence_page": 68,
+            "anchor_page": 68,
+            "evidence": "The first order condition also equally characterizes maxima and saddle points of non-convex functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "local minima",
+            "aliases": [
+              "local minimum"
+            ],
+            "evidence_page": 69,
+            "anchor_page": 69,
+            "evidence": "local minima or points that are the smallest with respect to their immediate neighbors",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "global minima",
+            "aliases": [
+              "global minimum"
+            ],
+            "evidence_page": 67,
+            "anchor_page": 67,
+            "evidence": "With a simple convex quadratic this condition identifies the global minimum of the function",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate-wise approaches"
+            ],
+            "evidence_page": 72,
+            "anchor_page": 72,
+            "evidence": "This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "convex quadratic function",
+            "aliases": [
+              "multi-input quadratic function",
+              "convex quadratic"
+            ],
+            "evidence_page": 71,
+            "anchor_page": 71,
+            "evidence": "Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "rayleigh quotient",
+            "aliases": [],
+            "evidence_page": 69,
+            "anchor_page": 69,
+            "evidence": "By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "symmetric linear system",
+            "aliases": [
+              "symmetric linear systems"
+            ],
+            "evidence_page": 71,
+            "anchor_page": 73,
+            "evidence": "Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "gradient",
+            "aliases": [
+              "gradients",
+              "first derivative"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "fundamental optimization algorithms that leverage the first derivative or gradient of a function",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "descent directions",
+            "aliases": [
+              "descent direction"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "closed form solution",
+            "aliases": [
+              "closed form"
+            ],
+            "evidence_page": 68,
+            "anchor_page": 68,
+            "evidence": "to solve such equations algebraically for 'closed form' solutions one can write out on paper",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "hyperplane",
+            "aliases": [
+              "hyperplanes",
+              "tangent hyperplane"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 67,
+            "evidence": "fundamental concepts related to hyperplanes, and in particular the first order Taylor series approximation",
+            "relevance": 0.65
+          },
+          {
+            "canonical": "partial derivative",
+            "aliases": [
+              "partial derivatives"
+            ],
+            "evidence_page": 67,
+            "anchor_page": 67,
+            "evidence": "any N dimensional point v where every partial derivative of g is zero",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "numerical approximation",
+            "aliases": [
+              "numerical approximations"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"first order optimization methods\",\n      \"aliases\": [\"first order optimization techniques\", \"first order local optimization schemes\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order optimality condition\",\n      \"aliases\": [\"first order condition\", \"first order condition for optimality\"],\n      \"evidence_page\": 67,\n      \"anchor_page\": 67,\n      \"evidence\": \"This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short).\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"taylor series approximation\", \"first order Taylor series\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 67,\n      \"evidence\": \"the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autograd\", \"gradient calculator\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"chain rule\",\n      \"aliases\": [],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"stationary points\",\n      \"aliases\": [\"critical points\"],\n      \"evidence_page\": 68,\n      \"anchor_page\": 68,\n      \"evidence\": \"Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"saddle points\",\n      \"aliases\": [\"saddle point\"],\n      \"evidence_page\": 68,\n      \"anchor_page\": 68,\n      \"evidence\": \"The first order condition also equally characterizes maxima and saddle points of non-convex functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"local minima\",\n      \"aliases\": [\"local minimum\"],\n      \"evidence_page\": 69,\n      \"anchor_page\": 69,\n      \"evidence\": \"local minima or points that are the smallest with respect to their immediate neighbors\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"global minima\",\n      \"aliases\": [\"global minimum\"],\n      \"evidence_page\": 67,\n      \"anchor_page\": 67,\n      \"evidence\": \"With a simple convex quadratic this condition identifies the global minimum of the function\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\"coordinate-wise approaches\"],\n      \"evidence_page\": 72,\n      \"anchor_page\": 72,\n      \"evidence\": \"This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"convex quadratic function\",\n      \"aliases\": [\"multi-input quadratic function\", \"convex quadratic\"],\n      \"evidence_page\": 71,\n      \"anchor_page\": 71,\n      \"evidence\": \"Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"rayleigh quotient\",\n      \"aliases\": [],\n      \"evidence_page\": 69,\n      \"anchor_page\": 69,\n      \"evidence\": \"By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"symmetric linear system\",\n      \"aliases\": [\"symmetric linear systems\"],\n      \"evidence_page\": 71,\n      \"anchor_page\": 73,\n      \"evidence\": \"Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"gradient\",\n      \"aliases\": [\"gradients\", \"first derivative\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"fundamental optimization algorithms that leverage the first derivative or gradient of a function\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"descent directions\",\n      \"aliases\": [\"descent direction\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"closed form solution\",\n      \"aliases\": [\"closed form\"],\n      \"evidence_page\": 68,\n      \"anchor_page\": 68,\n      \"evidence\": \"to solve such equations algebraically for 'closed form' solutions one can write out on paper\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"hyperplane\",\n      \"aliases\": [\"hyperplanes\", \"tangent hyperplane\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 67,\n      \"evidence\": \"fundamental concepts related to hyperplanes, and in particular the first order Taylor series approximation\",\n      \"relevance\": 0.65\n    },\n    {\n      \"canonical\": \"partial derivative\",\n      \"aliases\": [\"partial derivatives\"],\n      \"evidence_page\": 67,\n      \"anchor_page\": 67,\n      \"evidence\": \"any N dimensional point v where every partial derivative of g is zero\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"numerical approximation\",\n      \"aliases\": [\"numerical approximations\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate descent algorithm"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "We then apply coordinate descent to minimize the convex quadratic",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order optimality condition",
+            "aliases": [
+              "first order optimality"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "3.3 The first order optimality condition",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "symmetric linear systems",
+            "aliases": [
+              "symmetric linear system"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "the first order system of a convex quadratic function is symmetric linear and takes the form Cw = −1/2 b",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "positive semi-definite matrix",
+            "aliases": [
+              "positive semi-definite"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "where the matrix C is positive semi-definite",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "direction of steepest ascent",
+            "aliases": [
+              "steepest ascent direction",
+              "steepest ascent"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "the slope of a line is often referred to as the direction of steepest ascent",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "direction of steepest descent",
+            "aliases": [
+              "steepest descent direction",
+              "steepest descent"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "the negative slope −b provides the direction of steepest descent of the line",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "hyperplane",
+            "aliases": [
+              "hyperplanes"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "it is a line in w1 stretched along the w2 input dimension - forming a hyperplane",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "gradient",
+            "aliases": [
+              "the gradient"
+            ],
+            "evidence_page": 71,
+            "anchor_page": 71,
+            "evidence": "N partial derivatives, one in each input direction, stacked into a vector called the gradient",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "first order Taylor series",
+              "tangent hyperplane",
+              "tangent line"
+            ],
+            "evidence_page": 70,
+            "anchor_page": 70,
+            "evidence": "The derivative of a single-input function g(w) defines a tangent line at each point in its input domain - this is called its first order Taylor series approximation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent algorithm"
+            ],
+            "evidence_page": 73,
+            "anchor_page": 73,
+            "evidence": "The rather simple update step in Equation (3.31) is indeed an extremely popular local optimization method called the gradient descent algorithm",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "steplength parameter",
+              "step size",
+              "learning rate"
+            ],
+            "evidence_page": 74,
+            "anchor_page": 74,
+            "evidence": "using a fixed steplength of α = 0.05 for both runs",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization method"
+            ],
+            "evidence_page": 73,
+            "anchor_page": 73,
+            "evidence": "the efficacy of a local optimization method, that is one consisting of steps of the general form",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "convex quadratic function",
+            "aliases": [
+              "convex quadratic"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "We then apply coordinate descent to minimize the convex quadratic",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "non-convex function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 74,
+            "anchor_page": 74,
+            "evidence": "To find the global minimum of a general non-convex function using gradient descent",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "partial derivatives",
+            "aliases": [
+              "partial derivative"
+            ],
+            "evidence_page": 71,
+            "anchor_page": 71,
+            "evidence": "With an N dimensional input function g(w) instead of one derivative we have N partial derivatives",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "automatic differentiator",
+            "aliases": [
+              "automatic differentiation"
+            ],
+            "evidence_page": 74,
+            "anchor_page": 74,
+            "evidence": "gradients are easy to compute (particularly when employing an automatic differentiator)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "contour plot",
+            "aliases": [
+              "contours"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "along with a contour plot of the function",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "global minimizer",
+            "aliases": [
+              "global minimum"
+            ],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "to find the global minimizer, which again lies at the origin",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "local minimizer",
+            "aliases": [
+              "local minimum"
+            ],
+            "evidence_page": 74,
+            "anchor_page": 74,
+            "evidence": "depending on where we initialize we may end up near a local or global minimizer of the function",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\"coordinate descent algorithm\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"We then apply coordinate descent to minimize the convex quadratic\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order optimality condition\",\n      \"aliases\": [\"first order optimality\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"3.3 The first order optimality condition\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"symmetric linear systems\",\n      \"aliases\": [\"symmetric linear system\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"the first order system of a convex quadratic function is symmetric linear and takes the form Cw = −1/2 b\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"positive semi-definite matrix\",\n      \"aliases\": [\"positive semi-definite\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"where the matrix C is positive semi-definite\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"direction of steepest ascent\",\n      \"aliases\": [\"steepest ascent direction\", \"steepest ascent\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"the slope of a line is often referred to as the direction of steepest ascent\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"direction of steepest descent\",\n      \"aliases\": [\"steepest descent direction\", \"steepest descent\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"the negative slope −b provides the direction of steepest descent of the line\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"hyperplane\",\n      \"aliases\": [\"hyperplanes\"],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"it is a line in w1 stretched along the w2 input dimension - forming a hyperplane\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"gradient\",\n      \"aliases\": [\"the gradient\"],\n      \"evidence_page\": 71,\n      \"anchor_page\": 71,\n      \"evidence\": \"N partial derivatives, one in each input direction, stacked into a vector called the gradient\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"first order Taylor series\", \"tangent hyperplane\", \"tangent line\"],\n      \"evidence_page\": 70,\n      \"anchor_page\": 70,\n      \"evidence\": \"The derivative of a single-input function g(w) defines a tangent line at each point in its input domain - this is called its first order Taylor series approximation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient descent algorithm\"],\n      \"evidence_page\": 73,\n      \"anchor_page\": 73,\n      \"evidence\": \"The rather simple update step in Equation (3.31) is indeed an extremely popular local optimization method called the gradient descent algorithm\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"steplength parameter\", \"step size\", \"learning rate\"],\n      \"evidence_page\": 74,\n      \"anchor_page\": 74,\n      \"evidence\": \"using a fixed steplength of α = 0.05 for both runs\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local optimization method\"],\n      \"evidence_page\": 73,\n      \"anchor_page\": 73,\n      \"evidence\": \"the efficacy of a local optimization method, that is one consisting of steps of the general form\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"convex quadratic function\",\n      \"aliases\": [\"convex quadratic\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"We then apply coordinate descent to minimize the convex quadratic\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"non-convex function\",\n      \"aliases\": [\"non-convex\"],\n      \"evidence_page\": 74,\n      \"anchor_page\": 74,\n      \"evidence\": \"To find the global minimum of a general non-convex function using gradient descent\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"partial derivatives\",\n      \"aliases\": [\"partial derivative\"],\n      \"evidence_page\": 71,\n      \"anchor_page\": 71,\n      \"evidence\": \"With an N dimensional input function g(w) instead of one derivative we have N partial derivatives\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"automatic differentiator\",\n      \"aliases\": [\"automatic differentiation\"],\n      \"evidence_page\": 74,\n      \"anchor_page\": 74,\n      \"evidence\": \"gradients are easy to compute (particularly when employing an automatic differentiator)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"contour plot\",\n      \"aliases\": [\"contours\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"along with a contour plot of the function\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"global minimizer\",\n      \"aliases\": [\"global minimum\"],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"to find the global minimizer, which again lies at the origin\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"local minimizer\",\n      \"aliases\": [\"local minimum\"],\n      \"evidence_page\": 74,\n      \"anchor_page\": 74,\n      \"evidence\": \"depending on where we initialize we may end up near a local or global minimizer of the function\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent algorithm"
+            ],
+            "evidence_page": 75,
+            "anchor_page": 75,
+            "evidence": "In this Example we run gradient descent on the convex multi-input quadratic function",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "learning rate parameter",
+              "steplength parameter"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "one needs to carefully choose the steplength or learning rate parameter α with gradient descent",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "fixed steplength",
+            "aliases": [
+              "fixed learning rate",
+              "fixed steplength scheme"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "using a fixed α value for each step of a gradient descent run, which for simplicity's sake commonly takes the form of 10−γ where γ is an integer",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "diminishing steplength",
+            "aliases": [
+              "diminishing learning rate",
+              "diminishing steplength rule"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "using a diminishing steplength like α = 1/k is used at the kth step of a run",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [
+              "negative gradient direction"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "At each step of gradient descent we always have a descent direction - this is defined explicitly by the negative gradient itself",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "cost function history"
+            ],
+            "evidence_page": 78,
+            "anchor_page": 78,
+            "evidence": "we use the cost function history plot (first described in Section 2.5.2) to tune our steplength parameter α, as well as debug implementations of the algorithm",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "convergence criteria",
+            "aliases": [
+              "stopping criteria",
+              "halting condition",
+              "convergence criterion"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "Other formal convergence criterion include: halting when steps no longer make sufficient progress (e.g., when 1/N ||w^k − w^{k−1}||_2 is small)",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "stationary point",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "the algorithm will halt near stationary points of a function, typically minima or saddle points",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "saddle point",
+            "aliases": [
+              "saddle points"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "the algorithm will halt near stationary points of a function, typically minima or saddle points",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "maximum iterations",
+            "aliases": [
+              "maximum iteration count",
+              "max iterations",
+              "fixed number of maximum iterations"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "a practical way to halt gradient descent - as well as any other local optimization scheme - is to simply run the algorithm for a fixed number of maximum iterations",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "automatic differentiator"
+            ],
+            "evidence_page": 81,
+            "anchor_page": 81,
+            "evidence": "employs by default the open source Python Automatic Differentiation library autograd",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "random initialization",
+            "aliases": [
+              "random point initialization"
+            ],
+            "evidence_page": 81,
+            "anchor_page": 81,
+            "evidence": "a general random initialization - the kind that is often used - can be written as shown below. Here numpy function random.randn produces samples from a standard normal distribution",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "gradient magnitude",
+            "aliases": [
+              "magnitude of the negative gradient"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "zig-zagging",
+            "aliases": [
+              "oscillation of gradient direction",
+              "zig-zag"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "The direction of the negative gradient can rapidly oscillate or zig-zag during a run of gradient descent, often producing zig-zagging steps that take considerable time to reach a near minimum point",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "vanishing gradient",
+            "aliases": [
+              "vanishing gradient magnitude"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "contour",
+            "aliases": [
+              "contours",
+              "contour plot"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "A fundamental property of the (negative) gradient direction is that it always points perpendicular to the contours of a function",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "gradient perpendicular to contour",
+            "aliases": [
+              "gradient perpendicular to contours"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "the gradient descent direction is always perpendicular to the contour it lies on - in particular being perpendicular to the tangent line at each point on the contour",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minima"
+            ],
+            "evidence_page": 78,
+            "anchor_page": 78,
+            "evidence": "You can see a local minimum around the point (1.5, 1.5) and a global minimum near (-0.5, -0.5)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minima"
+            ],
+            "evidence_page": 77,
+            "anchor_page": 77,
+            "evidence": "Notice that this function has a single global minimum at w = 0",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "weight history",
+            "aliases": [
+              "weight update history"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "the outputs including a history of weight updates and corresponding cost function value history",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient descent algorithm\"],\n      \"evidence_page\": 75,\n      \"anchor_page\": 75,\n      \"evidence\": \"In this Example we run gradient descent on the convex multi-input quadratic function\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"learning rate\", \"learning rate parameter\", \"steplength parameter\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"one needs to carefully choose the steplength or learning rate parameter α with gradient descent\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"fixed steplength\",\n      \"aliases\": [\"fixed learning rate\", \"fixed steplength scheme\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"using a fixed α value for each step of a gradient descent run, which for simplicity's sake commonly takes the form of 10−γ where γ is an integer\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"diminishing steplength\",\n      \"aliases\": [\"diminishing learning rate\", \"diminishing steplength rule\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"using a diminishing steplength like α = 1/k is used at the kth step of a run\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [\"negative gradient direction\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"At each step of gradient descent we always have a descent direction - this is defined explicitly by the negative gradient itself\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"cost function history\"],\n      \"evidence_page\": 78,\n      \"anchor_page\": 78,\n      \"evidence\": \"we use the cost function history plot (first described in Section 2.5.2) to tune our steplength parameter α, as well as debug implementations of the algorithm\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"convergence criteria\",\n      \"aliases\": [\"stopping criteria\", \"halting condition\", \"convergence criterion\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"Other formal convergence criterion include: halting when steps no longer make sufficient progress (e.g., when 1/N ||w^k − w^{k−1}||_2 is small)\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"stationary point\",\n      \"aliases\": [\"stationary points\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"the algorithm will halt near stationary points of a function, typically minima or saddle points\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"saddle point\",\n      \"aliases\": [\"saddle points\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"the algorithm will halt near stationary points of a function, typically minima or saddle points\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"maximum iterations\",\n      \"aliases\": [\"maximum iteration count\", \"max iterations\", \"fixed number of maximum iterations\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"a practical way to halt gradient descent - as well as any other local optimization scheme - is to simply run the algorithm for a fixed number of maximum iterations\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\"autograd\", \"automatic differentiator\"],\n      \"evidence_page\": 81,\n      \"anchor_page\": 81,\n      \"evidence\": \"employs by default the open source Python Automatic Differentiation library autograd\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"random initialization\",\n      \"aliases\": [\"random point initialization\"],\n      \"evidence_page\": 81,\n      \"anchor_page\": 81,\n      \"evidence\": \"a general random initialization - the kind that is often used - can be written as shown below. Here numpy function random.randn produces samples from a standard normal distribution\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"gradient magnitude\",\n      \"aliases\": [\"magnitude of the negative gradient\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"zig-zagging\",\n      \"aliases\": [\"oscillation of gradient direction\", \"zig-zag\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"The direction of the negative gradient can rapidly oscillate or zig-zag during a run of gradient descent, often producing zig-zagging steps that take considerable time to reach a near minimum point\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"vanishing gradient\",\n      \"aliases\": [\"vanishing gradient magnitude\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"contour\",\n      \"aliases\": [\"contours\", \"contour plot\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"A fundamental property of the (negative) gradient direction is that it always points perpendicular to the contours of a function\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"gradient perpendicular to contour\",\n      \"aliases\": [\"gradient perpendicular to contours\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"the gradient descent direction is always perpendicular to the contour it lies on - in particular being perpendicular to the tangent line at each point on the contour\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\"local minima\"],\n      \"evidence_page\": 78,\n      \"anchor_page\": 78,\n      \"evidence\": \"You can see a local minimum around the point (1.5, 1.5) and a global minimum near (-0.5, -0.5)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\"global minima\"],\n      \"evidence_page\": 77,\n      \"anchor_page\": 77,\n      \"evidence\": \"Notice that this function has a single global minimum at w = 0\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"weight history\",\n      \"aliases\": [\"weight update history\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"the outputs including a history of weight updates and corresponding cost function value history\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent algorithm"
+            ],
+            "evidence_page": 89,
+            "anchor_page": 89,
+            "evidence": "The gradient descent algorithm is widely used in machine learning, as the descent direction provided by the negative gradient is almost always readily available for use",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "negative gradient direction",
+            "aliases": [
+              "descent direction",
+              "negative gradient"
+            ],
+            "evidence_page": 83,
+            "anchor_page": 83,
+            "evidence": "the negative gradient direction defined at three random points... the descent direction defined by the gradient at each point is drawn as an arrow",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "first order condition for optimality",
+            "aliases": [
+              "first order condition"
+            ],
+            "evidence_page": 86,
+            "anchor_page": 86,
+            "evidence": "As we know from the first order condition for optimality discussed in Section 3.3, the (negative) gradient vanishes at stationary points.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "stationary points",
+            "aliases": [
+              "stationary point"
+            ],
+            "evidence_page": 86,
+            "anchor_page": 86,
+            "evidence": "if w is a minimum, maximum, or saddle point then we know that ∇g (w) = 0",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "saddle point",
+            "aliases": [
+              "saddle points"
+            ],
+            "evidence_page": 87,
+            "anchor_page": 87,
+            "evidence": "gradient descent starts off making significant progress but slows down significantly near minima and saddle points",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step length",
+              "steplength parameter"
+            ],
+            "evidence_page": 85,
+            "anchor_page": 85,
+            "evidence": "steplength / learning rate value α = 10−1",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "zig-zagging behavior",
+            "aliases": [
+              "zig-zagging",
+              "zig-zag"
+            ],
+            "evidence_page": 84,
+            "anchor_page": 84,
+            "evidence": "the negative gradient direction oscillate rapidly or zig-zag during a run of gradient descent. This in turn can cause zig-zagging behavior in the gradient descent steps themselves and too much zig-zagging slows minimization progress.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "slow-crawling behavior",
+            "aliases": [
+              "slow crawling",
+              "vanishing gradient"
+            ],
+            "evidence_page": 86,
+            "anchor_page": 86,
+            "evidence": "gradient descent steps make little progress towards minimization when near a stationary point... a behavior we refer to as 'slow crawling'",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "vanishing gradient magnitude",
+            "aliases": [
+              "vanishing magnitude",
+              "gradient vanishes"
+            ],
+            "evidence_page": 86,
+            "anchor_page": 86,
+            "evidence": "the magnitude of the gradient vanishes at stationary points, that is ∥∇g (w) ∥2 = 0",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "first order optimization methods",
+            "aliases": [
+              "first order methods",
+              "first order local methods"
+            ],
+            "evidence_page": 89,
+            "anchor_page": 89,
+            "evidence": "local optimization schemes that leverage a function's first derivative(s) to produce effective descent directions - otherwise known as first order methods",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "contour plot",
+            "aliases": [
+              "contour",
+              "contours"
+            ],
+            "evidence_page": 83,
+            "anchor_page": 83,
+            "evidence": "the gradient descent direction is always perpendicular to the contour it lies on",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "gradient ascent",
+            "aliases": [
+              "ascent direction"
+            ],
+            "evidence_page": 84,
+            "anchor_page": 84,
+            "evidence": "the gradient ascent directions will simply point in the opposite direction as the descent directions shown here",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [],
+            "evidence_page": 90,
+            "anchor_page": 90,
+            "evidence": "Code up the coordinate descent method for the particular case of a quadratic function",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "tangent hyperplane",
+              "linear surrogate",
+              "first order Taylor Series"
+            ],
+            "evidence_page": 89,
+            "anchor_page": 89,
+            "evidence": "the tangent hyperplane association with the first order Taylor Series approximation",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convex"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "g is convex with a single global minimum at w = 0N×1",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "non-convex function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 87,
+            "anchor_page": 87,
+            "evidence": "lead gradient descent to completely halt near saddle points of non-convex functions",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minima"
+            ],
+            "evidence_page": 85,
+            "anchor_page": 85,
+            "evidence": "All three quadratics... have the same global minimum at the origin",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "cost function history"
+            ],
+            "evidence_page": 90,
+            "anchor_page": 90,
+            "evidence": "Plot the resulting cost function history plot of each run in a single figure to compare their performance",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "diminishing steplength",
+            "aliases": [
+              "diminishing step length"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Compare fixed and diminishing steplength values for a simple example",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "quadratic function",
+            "aliases": [
+              "quadratic"
+            ],
+            "evidence_page": 85,
+            "anchor_page": 85,
+            "evidence": "three N = 2 dimensional quadratic functions that take the general form we have seen previously g(w) = a + bTw + wTCw",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "rayleigh quotient",
+            "aliases": [
+              "Raleigh Quotient"
+            ],
+            "evidence_page": 90,
+            "anchor_page": 90,
+            "evidence": "The Raleigh Quotient of an N × N matrix C is defined as the normalized quadratic function g(w) = wTCw / wTw",
+            "relevance": 0.5
+          },
+          {
+            "canonical": "normalized gradient descent",
+            "aliases": [],
+            "evidence_page": 87,
+            "anchor_page": 87,
+            "evidence": "a popular solution to this slow crawling behavior - called normalized gradient descent",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "momentum accelerated gradient descent",
+            "aliases": [
+              "momentum"
+            ],
+            "evidence_page": 85,
+            "anchor_page": 85,
+            "evidence": "a popular solution to this zig-zagging behavior - called momentum accelerated gradient descent",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "gradient descent step length",
+            "aliases": [],
+            "evidence_page": 87,
+            "anchor_page": 87,
+            "evidence": "the length of a general gradient descent step is equal to the value of the steplength parameter α times the magnitude of the descent direction",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization scheme",
+              "local optimization framework"
+            ],
+            "evidence_page": 89,
+            "anchor_page": 89,
+            "evidence": "when employed in a local optimization framework - naturally lead to the construction of a popular local scheme known as gradient descent",
+            "relevance": 0.75
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient descent algorithm\"],\n      \"evidence_page\": 89,\n      \"anchor_page\": 89,\n      \"evidence\": \"The gradient descent algorithm is widely used in machine learning, as the descent direction provided by the negative gradient is almost always readily available for use\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"negative gradient direction\",\n      \"aliases\": [\"descent direction\", \"negative gradient\"],\n      \"evidence_page\": 83,\n      \"anchor_page\": 83,\n      \"evidence\": \"the negative gradient direction defined at three random points... the descent direction defined by the gradient at each point is drawn as an arrow\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"first order condition for optimality\",\n      \"aliases\": [\"first order condition\"],\n      \"evidence_page\": 86,\n      \"anchor_page\": 86,\n      \"evidence\": \"As we know from the first order condition for optimality discussed in Section 3.3, the (negative) gradient vanishes at stationary points.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"stationary points\",\n      \"aliases\": [\"stationary point\"],\n      \"evidence_page\": 86,\n      \"anchor_page\": 86,\n      \"evidence\": \"if w is a minimum, maximum, or saddle point then we know that ∇g (w) = 0\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"saddle point\",\n      \"aliases\": [\"saddle points\"],\n      \"evidence_page\": 87,\n      \"anchor_page\": 87,\n      \"evidence\": \"gradient descent starts off making significant progress but slows down significantly near minima and saddle points\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"learning rate\", \"step length\", \"steplength parameter\"],\n      \"evidence_page\": 85,\n      \"anchor_page\": 85,\n      \"evidence\": \"steplength / learning rate value α = 10−1\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"zig-zagging behavior\",\n      \"aliases\": [\"zig-zagging\", \"zig-zag\"],\n      \"evidence_page\": 84,\n      \"anchor_page\": 84,\n      \"evidence\": \"the negative gradient direction oscillate rapidly or zig-zag during a run of gradient descent. This in turn can cause zig-zagging behavior in the gradient descent steps themselves and too much zig-zagging slows minimization progress.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"slow-crawling behavior\",\n      \"aliases\": [\"slow crawling\", \"vanishing gradient\"],\n      \"evidence_page\": 86,\n      \"anchor_page\": 86,\n      \"evidence\": \"gradient descent steps make little progress towards minimization when near a stationary point... a behavior we refer to as 'slow crawling'\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"vanishing gradient magnitude\",\n      \"aliases\": [\"vanishing magnitude\", \"gradient vanishes\"],\n      \"evidence_page\": 86,\n      \"anchor_page\": 86,\n      \"evidence\": \"the magnitude of the gradient vanishes at stationary points, that is ∥∇g (w) ∥2 = 0\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"first order optimization methods\",\n      \"aliases\": [\"first order methods\", \"first order local methods\"],\n      \"evidence_page\": 89,\n      \"anchor_page\": 89,\n      \"evidence\": \"local optimization schemes that leverage a function's first derivative(s) to produce effective descent directions - otherwise known as first order methods\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"contour plot\",\n      \"aliases\": [\"contour\", \"contours\"],\n      \"evidence_page\": 83,\n      \"anchor_page\": 83,\n      \"evidence\": \"the gradient descent direction is always perpendicular to the contour it lies on\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"gradient ascent\",\n      \"aliases\": [\"ascent direction\"],\n      \"evidence_page\": 84,\n      \"anchor_page\": 84,\n      \"evidence\": \"the gradient ascent directions will simply point in the opposite direction as the descent directions shown here\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [],\n      \"evidence_page\": 90,\n      \"anchor_page\": 90,\n      \"evidence\": \"Code up the coordinate descent method for the particular case of a quadratic function\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"tangent hyperplane\", \"linear surrogate\", \"first order Taylor Series\"],\n      \"evidence_page\": 89,\n      \"anchor_page\": 89,\n      \"evidence\": \"the tangent hyperplane association with the first order Taylor Series approximation\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\"convex\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"g is convex with a single global minimum at w = 0N×1\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"non-convex function\",\n      \"aliases\": [\"non-convex\"],\n      \"evidence_page\": 87,\n      \"anchor_page\": 87,\n      \"evidence\": \"lead gradient descent to completely halt near saddle points of non-convex functions\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\"global minima\"],\n      \"evidence_page\": 85,\n      \"anchor_page\": 85,\n      \"evidence\": \"All three quadratics... have the same global minimum at the origin\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"cost function history\"],\n      \"evidence_page\": 90,\n      \"anchor_page\": 90,\n      \"evidence\": \"Plot the resulting cost function history plot of each run in a single figure to compare their performance\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"diminishing steplength\",\n      \"aliases\": [\"diminishing step length\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Compare fixed and diminishing steplength values for a simple example\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"quadratic function\",\n      \"aliases\": [\"quadratic\"],\n      \"evidence_page\": 85,\n      \"anchor_page\": 85,\n      \"evidence\": \"three N = 2 dimensional quadratic functions that take the general form we have seen previously g(w) = a + bTw + wTCw\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"rayleigh quotient\",\n      \"aliases\": [\"Raleigh Quotient\"],\n      \"evidence_page\": 90,\n      \"anchor_page\": 90,\n      \"evidence\": \"The Raleigh Quotient of an N × N matrix C is defined as the normalized quadratic function g(w) = wTCw / wTw\",\n      \"relevance\": 0.5\n    },\n    {\n      \"canonical\": \"normalized gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 87,\n      \"anchor_page\": 87,\n      \"evidence\": \"a popular solution to this slow crawling behavior - called normalized gradient descent\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"momentum accelerated gradient descent\",\n      \"aliases\": [\"momentum\"],\n      \"evidence_page\": 85,\n      \"anchor_page\": 85,\n      \"evidence\": \"a popular solution to this zig-zagging behavior - called momentum accelerated gradient descent\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"gradient descent step length\",\n      \"aliases\": [],\n      \"evidence_page\": 87,\n      \"anchor_page\": 87,\n      \"evidence\": \"the length of a general gradient descent step is equal to the value of the steplength parameter α times the magnitude of the descent direction\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\"local optimization scheme\", \"local optimization framework\"],\n      \"evidence_page\": 89,\n      \"anchor_page\": 89,\n      \"evidence\": \"when employed in a local optimization framework - naturally lead to the construction of a popular local scheme known as gradient descent\",\n      \"relevance\": 0.75\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent scheme"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Code up gradient descent with a maximum iteration stopping criterion of 100 iterations",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "fixed step length",
+            "aliases": [
+              "fixed steplength"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Tune fixed step length for gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "diminishing steplength",
+            "aliases": [
+              "diminishing step length"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Compare fixed and diminishing steplength values for a simple example",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "linear surrogate"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "the (k −1)st firstorderTaylorseriesapproximation h (w) = g(wk−1) +∇g(wk−1)T (w −wk−1)",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "cost function history"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Produce a cost function history plot to compare the three runs and see which performs best.",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "momentum accelerated gradient descent",
+            "aliases": [
+              "momentum accelerated gradient descent scheme"
+            ],
+            "evidence_page": 92,
+            "anchor_page": 92,
+            "evidence": "Code up the momentum accelerated gradient descent scheme described in Section A.2.2",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "normalized gradient descent",
+            "aliases": [
+              "fully normalized gradient descent"
+            ],
+            "evidence_page": 92,
+            "anchor_page": 92,
+            "evidence": "compare the standard and fully normalized gradient descent schemes in minimizing the function",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "component-wise normalized gradient descent",
+            "aliases": [
+              "component-wise normalized gradient descent scheme"
+            ],
+            "evidence_page": 93,
+            "anchor_page": 93,
+            "evidence": "Code up the full and component-wise normalized gradient descent schemes",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "lipschitz continuous gradient",
+            "aliases": [
+              "lipschitz gradient",
+              "functions with Lipschitz gradient"
+            ],
+            "evidence_page": 93,
+            "anchor_page": 93,
+            "evidence": "An alternative to defining the Lipschitz constant by Equation (A.50) for functions g with Lipschitz continuous gradient",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "lipschitz constant",
+            "aliases": [
+              "Lipschitz constant"
+            ],
+            "evidence_page": 93,
+            "anchor_page": 93,
+            "evidence": "What is the corresponding Lipschitz constant of this composition?",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "automatic differentiator",
+            "aliases": [
+              "automatic differentiation"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "You can use the closed form derivative shown there or us an automatic diﬀerentiator.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convex"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "g is convex with a single global minimum at w = 0N×1",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "single global minimum"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "g is convex with a single global minimum at w = 0N×1",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "maximum iteration stopping criterion",
+            "aliases": [
+              "stopping criterion"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "Code up gradient descent with a maximum iteration stopping criterion of 100 iterations",
+            "relevance": 0.75
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\"gradient descent scheme\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Code up gradient descent with a maximum iteration stopping criterion of 100 iterations\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"fixed step length\",\n      \"aliases\": [\"fixed steplength\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Tune fixed step length for gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"diminishing steplength\",\n      \"aliases\": [\"diminishing step length\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Compare fixed and diminishing steplength values for a simple example\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"linear surrogate\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"the (k −1)st firstorderTaylorseriesapproximation h (w) = g(wk−1) +∇g(wk−1)T (w −wk−1)\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"cost function history\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Produce a cost function history plot to compare the three runs and see which performs best.\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"momentum accelerated gradient descent\",\n      \"aliases\": [\"momentum accelerated gradient descent scheme\"],\n      \"evidence_page\": 92,\n      \"anchor_page\": 92,\n      \"evidence\": \"Code up the momentum accelerated gradient descent scheme described in Section A.2.2\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"normalized gradient descent\",\n      \"aliases\": [\"fully normalized gradient descent\"],\n      \"evidence_page\": 92,\n      \"anchor_page\": 92,\n      \"evidence\": \"compare the standard and fully normalized gradient descent schemes in minimizing the function\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"component-wise normalized gradient descent\",\n      \"aliases\": [\"component-wise normalized gradient descent scheme\"],\n      \"evidence_page\": 93,\n      \"anchor_page\": 93,\n      \"evidence\": \"Code up the full and component-wise normalized gradient descent schemes\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"lipschitz continuous gradient\",\n      \"aliases\": [\"lipschitz gradient\", \"functions with Lipschitz gradient\"],\n      \"evidence_page\": 93,\n      \"anchor_page\": 93,\n      \"evidence\": \"An alternative to defining the Lipschitz constant by Equation (A.50) for functions g with Lipschitz continuous gradient\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"lipschitz constant\",\n      \"aliases\": [\"Lipschitz constant\"],\n      \"evidence_page\": 93,\n      \"anchor_page\": 93,\n      \"evidence\": \"What is the corresponding Lipschitz constant of this composition?\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"automatic differentiator\",\n      \"aliases\": [\"automatic differentiation\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"You can use the closed form derivative shown there or us an automatic diﬀerentiator.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\"convex\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"g is convex with a single global minimum at w = 0N×1\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\"single global minimum\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"g is convex with a single global minimum at w = 0N×1\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"maximum iteration stopping criterion\",\n      \"aliases\": [\"stopping criterion\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"Code up gradient descent with a maximum iteration stopping criterion of 100 iterations\",\n      \"relevance\": 0.75\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "first order optimization methods",
+            "aliases": [
+              "first order optimization techniques",
+              "first order local optimization schemes"
+            ],
+            "evidence_page": 65,
+            "evidence": "These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today.",
+            "relevance": 0.95,
+            "anchor_page": 65
+          },
+          {
+            "canonical": "gradient",
+            "aliases": [
+              "first derivative"
+            ],
+            "evidence_page": 65,
+            "evidence": "fundamental optimization algorithms that leverage the first derivative or gradient of a function",
+            "relevance": 0.9,
+            "anchor_page": 65
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "taylor series approximation",
+              "first order taylor series"
+            ],
+            "evidence_page": 65,
+            "evidence": "the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation",
+            "relevance": 0.8,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "descent direction",
+            "aliases": [
+              "descent directions"
+            ],
+            "evidence_page": 65,
+            "evidence": "that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches",
+            "relevance": 0.75,
+            "anchor_page": 65
+          },
+          {
+            "canonical": "hyperplane",
+            "aliases": [
+              "hyperplanes",
+              "tangent hyperplane"
+            ],
+            "evidence_page": 65,
+            "evidence": "fundamental concepts related to hyperplanes, and in particular the first order Taylor series approximation",
+            "relevance": 0.65,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "automatic differentiation",
+            "aliases": [
+              "autograd",
+              "gradient calculator",
+              "automatic differentiator"
+            ],
+            "evidence_page": 66,
+            "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations.",
+            "relevance": 0.85,
+            "anchor_page": 66
+          },
+          {
+            "canonical": "chain rule",
+            "aliases": [],
+            "evidence_page": 66,
+            "evidence": "In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)",
+            "relevance": 0.7,
+            "anchor_page": 66
+          },
+          {
+            "canonical": "numerical approximation",
+            "aliases": [],
+            "evidence_page": 66,
+            "evidence": "Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules",
+            "relevance": 0.65,
+            "anchor_page": 66
+          },
+          {
+            "canonical": "first order optimality condition",
+            "aliases": [
+              "first order condition",
+              "first order condition for optimality"
+            ],
+            "evidence_page": 67,
+            "evidence": "This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short).",
+            "relevance": 0.95,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "global minimum",
+            "aliases": [
+              "global minima",
+              "global minimizer"
+            ],
+            "evidence_page": 67,
+            "evidence": "With a simple convex quadratic this condition identifies the global minimum of the function",
+            "relevance": 0.8,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "partial derivative",
+            "aliases": [
+              "partial derivatives"
+            ],
+            "evidence_page": 67,
+            "evidence": "any N dimensional point v where every partial derivative of g is zero",
+            "relevance": 0.7,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "stationary points",
+            "aliases": [
+              "critical points"
+            ],
+            "evidence_page": 68,
+            "evidence": "Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.",
+            "relevance": 0.85,
+            "anchor_page": 68
+          },
+          {
+            "canonical": "saddle points",
+            "aliases": [],
+            "evidence_page": 68,
+            "evidence": "The first order condition also equally characterizes maxima and saddle points of non-convex functions",
+            "relevance": 0.8,
+            "anchor_page": 68
+          },
+          {
+            "canonical": "closed form solution",
+            "aliases": [
+              "closed form"
+            ],
+            "evidence_page": 68,
+            "evidence": "to solve such equations algebraically for 'closed form' solutions one can write out on paper",
+            "relevance": 0.7,
+            "anchor_page": 68
+          },
+          {
+            "canonical": "local minimum",
+            "aliases": [
+              "local minima",
+              "local minimizer"
+            ],
+            "evidence_page": 69,
+            "evidence": "local minima or points that are the smallest with respect to their immediate neighbors",
+            "relevance": 0.8,
+            "anchor_page": 69
+          },
+          {
+            "canonical": "rayleigh quotient",
+            "aliases": [],
+            "evidence_page": 69,
+            "evidence": "By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient",
+            "relevance": 0.7,
+            "anchor_page": 69
+          },
+          {
+            "canonical": "convex quadratic function",
+            "aliases": [
+              "multi-input quadratic function",
+              "convex quadratic"
+            ],
+            "evidence_page": 71,
+            "evidence": "Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix",
+            "relevance": 0.8,
+            "anchor_page": 71
+          },
+          {
+            "canonical": "symmetric linear system",
+            "aliases": [],
+            "evidence_page": 71,
+            "evidence": "Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b",
+            "relevance": 0.75,
+            "anchor_page": 73
+          },
+          {
+            "canonical": "coordinate descent",
+            "aliases": [
+              "coordinate-wise approaches"
+            ],
+            "evidence_page": 72,
+            "evidence": "This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form",
+            "relevance": 0.9,
+            "anchor_page": 72
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [
+              "gradient descent algorithm"
+            ],
+            "evidence_page": 73,
+            "evidence": "The rather simple update step in Equation (3.31) is indeed an extremely popular local optimization method called the gradient descent algorithm",
+            "relevance": 1.0,
+            "anchor_page": 73
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization method",
+              "local algorithm"
+            ],
+            "evidence_page": 73,
+            "evidence": "the efficacy of a local optimization method, that is one consisting of steps of the general form",
+            "relevance": 0.75,
+            "anchor_page": 73
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "steplength parameter",
+              "step size",
+              "learning rate",
+              "step length"
+            ],
+            "evidence_page": 74,
+            "evidence": "using a fixed steplength of α = 0.05 for both runs",
+            "relevance": 0.8,
+            "anchor_page": 74
+          },
+          {
+            "canonical": "non-convex function",
+            "aliases": [
+              "non-convex"
+            ],
+            "evidence_page": 74,
+            "evidence": "To find the global minimum of a general non-convex function using gradient descent",
+            "relevance": 0.7,
+            "anchor_page": 74
+          },
+          {
+            "canonical": "convex function",
+            "aliases": [
+              "convex"
+            ],
+            "evidence_page": 91,
+            "evidence": "g is convex with a single global minimum at w = 0N×1",
+            "relevance": 0.7,
+            "anchor_page": 91
+          },
+          {
+            "canonical": "diminishing steplength rules",
+            "aliases": [
+              "diminishing step length",
+              "diminishing steplength",
+              "diminishing steplength schemes"
+            ],
+            "evidence_page": 91,
+            "evidence": "Compare fixed and diminishing steplength values for a simple example",
+            "relevance": 0.7,
+            "anchor_page": 91
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"first order optimization methods\",\n      \"aliases\": [\n        \"first order optimization techniques\",\n        \"first order local optimization schemes\"\n      ],\n      \"evidence_page\": 65,\n      \"evidence\": \"These techniques, collectively called first order optimization methods, are some of the most popular local optimization algorithms used to tackle machine learning problems today.\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 65\n    },\n    {\n      \"canonical\": \"gradient\",\n      \"aliases\": [\n        \"first derivative\"\n      ],\n      \"evidence_page\": 65,\n      \"evidence\": \"fundamental optimization algorithms that leverage the first derivative or gradient of a function\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 65\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\n        \"taylor series approximation\",\n        \"first order taylor series\"\n      ],\n      \"evidence_page\": 65,\n      \"evidence\": \"the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"descent direction\",\n      \"aliases\": [\n        \"descent directions\"\n      ],\n      \"evidence_page\": 65,\n      \"evidence\": \"that naturally determine high quality descent directions at a cost that is very often cheaper than even the coordinate-wise approaches\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 65\n    },\n    {\n      \"canonical\": \"hyperplane\",\n      \"aliases\": [\n        \"hyperplanes\",\n        \"tangent hyperplane\"\n      ],\n      \"evidence_page\": 65,\n      \"evidence\": \"fundamental concepts related to hyperplanes, and in particular the first order Taylor series approximation\",\n      \"relevance\": 0.65,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"automatic differentiation\",\n      \"aliases\": [\n        \"autograd\",\n        \"gradient calculator\",\n        \"automatic differentiator\"\n      ],\n      \"evidence_page\": 66,\n      \"evidence\": \"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules for elementary functions and operations.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 66\n    },\n    {\n      \"canonical\": \"chain rule\",\n      \"aliases\": [],\n      \"evidence_page\": 66,\n      \"evidence\": \"In this particular case you can use the chain rule to write d/dw g(w) as d/dw g(w) = d/dw w^2 cos(w^2) = 2w cos(w^2)\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 66\n    },\n    {\n      \"canonical\": \"numerical approximation\",\n      \"aliases\": [],\n      \"evidence_page\": 66,\n      \"evidence\": \"Gradient calculators come in several varieties, from those that provide numerical approximations to those that literally automate the simple derivative rules\",\n      \"relevance\": 0.65,\n      \"anchor_page\": 66\n    },\n    {\n      \"canonical\": \"first order optimality condition\",\n      \"aliases\": [\n        \"first order condition\",\n        \"first order condition for optimality\"\n      ],\n      \"evidence_page\": 67,\n      \"evidence\": \"This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short).\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"global minimum\",\n      \"aliases\": [\n        \"global minima\",\n        \"global minimizer\"\n      ],\n      \"evidence_page\": 67,\n      \"evidence\": \"With a simple convex quadratic this condition identifies the global minimum of the function\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"partial derivative\",\n      \"aliases\": [\n        \"partial derivatives\"\n      ],\n      \"evidence_page\": 67,\n      \"evidence\": \"any N dimensional point v where every partial derivative of g is zero\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"stationary points\",\n      \"aliases\": [\n        \"critical points\"\n      ],\n      \"evidence_page\": 68,\n      \"evidence\": \"Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 68\n    },\n    {\n      \"canonical\": \"saddle points\",\n      \"aliases\": [],\n      \"evidence_page\": 68,\n      \"evidence\": \"The first order condition also equally characterizes maxima and saddle points of non-convex functions\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 68\n    },\n    {\n      \"canonical\": \"closed form solution\",\n      \"aliases\": [\n        \"closed form\"\n      ],\n      \"evidence_page\": 68,\n      \"evidence\": \"to solve such equations algebraically for 'closed form' solutions one can write out on paper\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 68\n    },\n    {\n      \"canonical\": \"local minimum\",\n      \"aliases\": [\n        \"local minima\",\n        \"local minimizer\"\n      ],\n      \"evidence_page\": 69,\n      \"evidence\": \"local minima or points that are the smallest with respect to their immediate neighbors\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 69\n    },\n    {\n      \"canonical\": \"rayleigh quotient\",\n      \"aliases\": [],\n      \"evidence_page\": 69,\n      \"evidence\": \"By far the most important of these is the multi-input quadratic function and the highly related Rayleigh quotient\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 69\n    },\n    {\n      \"canonical\": \"convex quadratic function\",\n      \"aliases\": [\n        \"multi-input quadratic function\",\n        \"convex quadratic\"\n      ],\n      \"evidence_page\": 71,\n      \"evidence\": \"Take the general multi-input quadratic function g(w) = a + b^T w + w^T C w where C is an N x N symmetric matrix\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 71\n    },\n    {\n      \"canonical\": \"symmetric linear system\",\n      \"aliases\": [],\n      \"evidence_page\": 71,\n      \"evidence\": \"Setting this equal to zero gives a symmetric linear system of equations of the form Cw = -1/2 b\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 73\n    },\n    {\n      \"canonical\": \"coordinate descent\",\n      \"aliases\": [\n        \"coordinate-wise approaches\"\n      ],\n      \"evidence_page\": 72,\n      \"evidence\": \"This idea, which is a form of coordinate descent, is especially effective when each of these equations can be solved for in closed form\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 72\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [\n        \"gradient descent algorithm\"\n      ],\n      \"evidence_page\": 73,\n      \"evidence\": \"The rather simple update step in Equation (3.31) is indeed an extremely popular local optimization method called the gradient descent algorithm\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 73\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\n        \"local optimization method\",\n        \"local algorithm\"\n      ],\n      \"evidence_page\": 73,\n      \"evidence\": \"the efficacy of a local optimization method, that is one consisting of steps of the general form\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 73\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\n        \"steplength parameter\",\n        \"step size\",\n        \"learning rate\",\n        \"step length\"\n      ],\n      \"evidence_page\": 74,\n      \"evidence\": \"using a fixed steplength of α = 0.05 for both runs\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 74\n    },\n    {\n      \"canonical\": \"non-convex function\",\n      \"aliases\": [\n        \"non-convex\"\n      ],\n      \"evidence_page\": 74,\n      \"evidence\": \"To find the global minimum of a general non-convex function using gradient descent\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 74\n    },\n    {\n      \"canonical\": \"convex function\",\n      \"aliases\": [\n        \"convex\"\n      ],\n      \"evidence_page\": 91,\n      \"evidence\": \"g is convex with a single global minimum at w = 0N×1\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 91\n    },\n    {\n      \"canonical\": \"diminishing steplength rules\",\n      \"aliases\": [\n        \"diminishing step length\",\n        \"diminishing steplength\",\n        \"diminishing steplength schemes\"\n      ],\n      \"evidence_page\": 91,\n      \"evidence\": \"Compare fixed and diminishing steplength values for a simple example\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 91\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "first order optimality condition",
+            "aliases": [
+              "first order condition",
+              "first order condition for optimality"
+            ],
+            "evidence_page": 67,
+            "anchor_page": 67,
+            "evidence": "This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short)",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "tangent line",
+              "tangent hyperplane",
+              "first order taylor series"
+            ],
+            "evidence_page": 67,
+            "anchor_page": 67,
+            "evidence": "the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "first order system of equations",
+            "aliases": [
+              "first order system"
+            ],
+            "evidence_page": 68,
+            "anchor_page": 68,
+            "evidence": "This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "critical points",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 68,
+            "anchor_page": 68,
+            "evidence": "Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 65,
+            "anchor_page": 65,
+            "evidence": "foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions",
+            "relevance": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"first order optimality condition\",\n      \"aliases\": [\"first order condition\", \"first order condition for optimality\"],\n      \"evidence_page\": 67,\n      \"anchor_page\": 67,\n      \"evidence\": \"This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short)\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"tangent line\", \"tangent hyperplane\", \"first order taylor series\"],\n      \"evidence_page\": 67,\n      \"anchor_page\": 67,\n      \"evidence\": \"the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"first order system of equations\",\n      \"aliases\": [\"first order system\"],\n      \"evidence_page\": 68,\n      \"anchor_page\": 68,\n      \"evidence\": \"This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"critical points\",\n      \"aliases\": [\"stationary points\"],\n      \"evidence_page\": 68,\n      \"anchor_page\": 68,\n      \"evidence\": \"Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 65,\n      \"anchor_page\": 65,\n      \"evidence\": \"foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions\",\n      \"relevance\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "direction of steepest ascent",
+            "aliases": [
+              "steepest ascent direction",
+              "ascent direction"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "Viewed as a direction the slope of a line is often referred to as the direction of steepest ascent - since it tells us the direction we must travel on the line to increase its value the fastest.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "direction of steepest descent",
+            "aliases": [
+              "steepest descent direction",
+              "descent direction"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "By the same logic the negative slope −b provides the direction of steepest descent of the line, that is the direction in which it is decreasing.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "first order Taylor series approximation",
+            "aliases": [
+              "first order Taylor series",
+              "tangent line approximation",
+              "tangent hyperplane"
+            ],
+            "evidence_page": 70,
+            "anchor_page": 70,
+            "evidence": "The derivative of a single-input function g(w) defines a tangent line at each point in its input domain - this is called its first order Taylor series approximation.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "step size",
+              "learning rate",
+              "alpha"
+            ],
+            "evidence_page": 73,
+            "anchor_page": 73,
+            "evidence": "we can think about drawing the first order Taylor series approximation to the function, and taking the descent direction of this tangent hyperplane (i.e., the negative gradient of the function at this point) as our descent direction for the algorithm.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "local optimization method",
+            "aliases": [
+              "local optimization algorithm"
+            ],
+            "evidence_page": 73,
+            "anchor_page": 73,
+            "evidence": "We could very naturally wonder about the efficacy of a local optimization method, that is one consisting of steps of the general form w k = w k−1 + αd k",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "positive semi-definite matrix",
+            "aliases": [
+              "positive semi-definite"
+            ],
+            "evidence_page": 66,
+            "anchor_page": 66,
+            "evidence": "we can think of coordinate descent in a broader context as a method for solving more general symmetric linear systems of equations (i.e., where the matrix C is positive semi-definite)",
+            "relevance": 0.75
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"direction of steepest ascent\",\n      \"aliases\": [\n        \"steepest ascent direction\",\n        \"ascent direction\"\n      ],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"Viewed as a direction the slope of a line is often referred to as the direction of steepest ascent - since it tells us the direction we must travel on the line to increase its value the fastest.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"direction of steepest descent\",\n      \"aliases\": [\n        \"steepest descent direction\",\n        \"descent direction\"\n      ],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"By the same logic the negative slope −b provides the direction of steepest descent of the line, that is the direction in which it is decreasing.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"first order Taylor series approximation\",\n      \"aliases\": [\n        \"first order Taylor series\",\n        \"tangent line approximation\",\n        \"tangent hyperplane\"\n      ],\n      \"evidence_page\": 70,\n      \"anchor_page\": 70,\n      \"evidence\": \"The derivative of a single-input function g(w) defines a tangent line at each point in its input domain - this is called its first order Taylor series approximation.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\n        \"step size\",\n        \"learning rate\",\n        \"alpha\"\n      ],\n      \"evidence_page\": 73,\n      \"anchor_page\": 73,\n      \"evidence\": \"we can think about drawing the first order Taylor series approximation to the function, and taking the descent direction of this tangent hyperplane (i.e., the negative gradient of the function at this point) as our descent direction for the algorithm.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"local optimization method\",\n      \"aliases\": [\n        \"local optimization algorithm\"\n      ],\n      \"evidence_page\": 73,\n      \"anchor_page\": 73,\n      \"evidence\": \"We could very naturally wonder about the efficacy of a local optimization method, that is one consisting of steps of the general form w k = w k−1 + αd k\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"positive semi-definite matrix\",\n      \"aliases\": [\n        \"positive semi-definite\"\n      ],\n      \"evidence_page\": 66,\n      \"anchor_page\": 66,\n      \"evidence\": \"we can think of coordinate descent in a broader context as a method for solving more general symmetric linear systems of equations (i.e., where the matrix C is positive semi-definite)\",\n      \"relevance\": 0.75\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "learning rate",
+              "step size"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "one needs to carefully choose the steplength or learning rate parameter α with gradient descent",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "diminishing steplength",
+            "aliases": [
+              "diminishing learning rate",
+              "decaying step size"
+            ],
+            "evidence_page": 76,
+            "anchor_page": 76,
+            "evidence": "using a diminishing steplength like α = 1/k is used at the kth step of a run",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "cost function history plot",
+            "aliases": [
+              "loss curve",
+              "training loss plot"
+            ],
+            "evidence_page": 78,
+            "anchor_page": 78,
+            "evidence": "we use the cost function history plot (first described in Section 2.5.2) to tune our steplength parameter α, as well as debug implementations of the algorithm",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "convergence criteria",
+            "aliases": [
+              "stopping criteria",
+              "halting condition"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "Other formal convergence criterion include: halting when steps no longer make sufficient progress... or when corresponding evaluations no longer differ substantially",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "maximum iterations",
+            "aliases": [
+              "max iterations",
+              "iteration limit"
+            ],
+            "evidence_page": 80,
+            "anchor_page": 80,
+            "evidence": "a practical way to halt gradient descent... is to simply run the algorithm for a fixed number of maximum iterations",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "random initialization",
+            "aliases": [
+              "weight initialization",
+              "random weight initialization"
+            ],
+            "evidence_page": 81,
+            "anchor_page": 81,
+            "evidence": "a general random initialization - the kind that is often used... numpy function random.randn produces samples from a standard normal distribution",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "zig-zagging",
+            "aliases": [
+              "oscillating gradient direction"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "The direction of the negative gradient can rapidly oscillate or zig-zag during a run of gradient descent, often producing zig-zagging steps that take considerable time to reach a near minimum point",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "vanishing gradient",
+            "aliases": [
+              "gradient magnitude vanishing"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "contour perpendicularity",
+            "aliases": [
+              "gradient perpendicular to contour"
+            ],
+            "evidence_page": 82,
+            "anchor_page": 82,
+            "evidence": "A fundamental property of the (negative) gradient direction is that it always points perpendicular to the contours of a function",
+            "relevance": 0.65
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\"learning rate\", \"step size\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"one needs to carefully choose the steplength or learning rate parameter α with gradient descent\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"diminishing steplength\",\n      \"aliases\": [\"diminishing learning rate\", \"decaying step size\"],\n      \"evidence_page\": 76,\n      \"anchor_page\": 76,\n      \"evidence\": \"using a diminishing steplength like α = 1/k is used at the kth step of a run\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"cost function history plot\",\n      \"aliases\": [\"loss curve\", \"training loss plot\"],\n      \"evidence_page\": 78,\n      \"anchor_page\": 78,\n      \"evidence\": \"we use the cost function history plot (first described in Section 2.5.2) to tune our steplength parameter α, as well as debug implementations of the algorithm\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"convergence criteria\",\n      \"aliases\": [\"stopping criteria\", \"halting condition\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"Other formal convergence criterion include: halting when steps no longer make sufficient progress... or when corresponding evaluations no longer differ substantially\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"maximum iterations\",\n      \"aliases\": [\"max iterations\", \"iteration limit\"],\n      \"evidence_page\": 80,\n      \"anchor_page\": 80,\n      \"evidence\": \"a practical way to halt gradient descent... is to simply run the algorithm for a fixed number of maximum iterations\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"random initialization\",\n      \"aliases\": [\"weight initialization\", \"random weight initialization\"],\n      \"evidence_page\": 81,\n      \"anchor_page\": 81,\n      \"evidence\": \"a general random initialization - the kind that is often used... numpy function random.randn produces samples from a standard normal distribution\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"zig-zagging\",\n      \"aliases\": [\"oscillating gradient direction\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"The direction of the negative gradient can rapidly oscillate or zig-zag during a run of gradient descent, often producing zig-zagging steps that take considerable time to reach a near minimum point\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"vanishing gradient\",\n      \"aliases\": [\"gradient magnitude vanishing\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"The magnitude of the negative gradient can vanish rapidly near stationary points, leading gradient descent to slowly crawl near minima and saddle points\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"contour perpendicularity\",\n      \"aliases\": [\"gradient perpendicular to contour\"],\n      \"evidence_page\": 82,\n      \"anchor_page\": 82,\n      \"evidence\": \"A fundamental property of the (negative) gradient direction is that it always points perpendicular to the contours of a function\",\n      \"relevance\": 0.65\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "momentum accelerated gradient descent",
+            "aliases": [
+              "momentum",
+              "gradient descent with momentum"
+            ],
+            "evidence_page": 85,
+            "anchor_page": 85,
+            "evidence": "we describe a popular solution to this zig-zagging behavior - called momentum accelerated gradient descent",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "normalized gradient descent",
+            "aliases": [
+              "normalized gradient"
+            ],
+            "evidence_page": 87,
+            "anchor_page": 87,
+            "evidence": "we describe a popular solution to this slow crawling behavior - called normalized gradient descent",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "first order condition for optimality",
+            "aliases": [
+              "first order optimality condition"
+            ],
+            "evidence_page": 86,
+            "anchor_page": 86,
+            "evidence": "As we know from the first order condition for optimality discussed in Section 3.3, the (negative) gradient vanishes at stationary points.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "tangent hyperplane",
+            "aliases": [
+              "tangent plane approximation"
+            ],
+            "evidence_page": 89,
+            "anchor_page": 89,
+            "evidence": "those provided by the tangent hyperplane association with the first order Taylor Series approximation in Section 3.5",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "linear surrogate",
+            "aliases": [
+              "linear approximation surrogate"
+            ],
+            "evidence_page": 91,
+            "anchor_page": 91,
+            "evidence": "the corresponding length traveled along the linear surrogate",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"momentum accelerated gradient descent\",\n      \"aliases\": [\"momentum\", \"gradient descent with momentum\"],\n      \"evidence_page\": 85,\n      \"anchor_page\": 85,\n      \"evidence\": \"we describe a popular solution to this zig-zagging behavior - called momentum accelerated gradient descent\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"normalized gradient descent\",\n      \"aliases\": [\"normalized gradient\"],\n      \"evidence_page\": 87,\n      \"anchor_page\": 87,\n      \"evidence\": \"we describe a popular solution to this slow crawling behavior - called normalized gradient descent\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"first order condition for optimality\",\n      \"aliases\": [\"first order optimality condition\"],\n      \"evidence_page\": 86,\n      \"anchor_page\": 86,\n      \"evidence\": \"As we know from the first order condition for optimality discussed in Section 3.3, the (negative) gradient vanishes at stationary points.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"tangent hyperplane\",\n      \"aliases\": [\"tangent plane approximation\"],\n      \"evidence_page\": 89,\n      \"anchor_page\": 89,\n      \"evidence\": \"those provided by the tangent hyperplane association with the first order Taylor Series approximation in Section 3.5\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"linear surrogate\",\n      \"aliases\": [\"linear approximation surrogate\"],\n      \"evidence_page\": 91,\n      \"anchor_page\": 91,\n      \"evidence\": \"the corresponding length traveled along the linear surrogate\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill",
+      "round": 1,
+      "chunk": 5,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "momentum accelerated gradient descent",
+            "aliases": [
+              "momentum gradient descent",
+              "gradient descent with momentum"
+            ],
+            "evidence_page": 100,
+            "anchor_page": 100,
+            "evidence": "Code up the momentum accelerated gradient descent scheme described in Section A.2.2",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "normalized gradient descent",
+            "aliases": [
+              "fully normalized gradient descent",
+              "component-wise normalized gradient descent"
+            ],
+            "evidence_page": 100,
+            "anchor_page": 100,
+            "evidence": "compare the standard and fully normalized gradient descent schemes in minimizing the function",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "lipschitz continuous gradient",
+            "aliases": [
+              "lipschitz gradient",
+              "gradient with lipschitz constant"
+            ],
+            "evidence_page": 101,
+            "anchor_page": 101,
+            "evidence": "functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "linear surrogate",
+              "first order taylor approximation"
+            ],
+            "evidence_page": 99,
+            "anchor_page": 99,
+            "evidence": "the (k−1)st firstorderTaylorseriesapproximation h(w) = g(wk−1) + ∇g(wk−1)ᵀ(w − wk−1)",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "diminishing steplength",
+            "aliases": [
+              "diminishing step length",
+              "decreasing step size"
+            ],
+            "evidence_page": 99,
+            "anchor_page": 99,
+            "evidence": "Compare fixed and diminishing steplength values for a simple example",
+            "relevance": 0.75
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"momentum accelerated gradient descent\",\n      \"aliases\": [\"momentum gradient descent\", \"gradient descent with momentum\"],\n      \"evidence_page\": 100,\n      \"anchor_page\": 100,\n      \"evidence\": \"Code up the momentum accelerated gradient descent scheme described in Section A.2.2\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"normalized gradient descent\",\n      \"aliases\": [\"fully normalized gradient descent\", \"component-wise normalized gradient descent\"],\n      \"evidence_page\": 100,\n      \"anchor_page\": 100,\n      \"evidence\": \"compare the standard and fully normalized gradient descent schemes in minimizing the function\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"lipschitz continuous gradient\",\n      \"aliases\": [\"lipschitz gradient\", \"gradient with lipschitz constant\"],\n      \"evidence_page\": 101,\n      \"anchor_page\": 101,\n      \"evidence\": \"functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\"linear surrogate\", \"first order taylor approximation\"],\n      \"evidence_page\": 99,\n      \"anchor_page\": 99,\n      \"evidence\": \"the (k−1)st firstorderTaylorseriesapproximation h(w) = g(wk−1) + ∇g(wk−1)ᵀ(w − wk−1)\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"diminishing steplength\",\n      \"aliases\": [\"diminishing step length\", \"decreasing step size\"],\n      \"evidence_page\": 99,\n      \"anchor_page\": 99,\n      \"evidence\": \"Compare fixed and diminishing steplength values for a simple example\",\n      \"relevance\": 0.75\n    }\n  ]\n}"
+    },
+    {
+      "stage": "refill_consolidation",
+      "round": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "gradient descent",
+            "aliases": [],
+            "evidence_page": 65,
+            "evidence": "foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions",
+            "relevance": 0.95,
+            "anchor_page": 65
+          },
+          {
+            "canonical": "first order optimality condition",
+            "aliases": [
+              "first order condition",
+              "first order condition for optimality"
+            ],
+            "evidence_page": 67,
+            "evidence": "This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short)",
+            "relevance": 0.95,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "first order taylor series approximation",
+            "aliases": [
+              "tangent line",
+              "tangent hyperplane",
+              "first order taylor series",
+              "linear surrogate",
+              "first order taylor approximation",
+              "linear approximation surrogate"
+            ],
+            "evidence_page": 67,
+            "evidence": "the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation",
+            "relevance": 0.85,
+            "anchor_page": 67
+          },
+          {
+            "canonical": "first order system of equations",
+            "aliases": [
+              "first order system"
+            ],
+            "evidence_page": 68,
+            "evidence": "This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0",
+            "relevance": 0.8,
+            "anchor_page": 68
+          },
+          {
+            "canonical": "critical points",
+            "aliases": [
+              "stationary points"
+            ],
+            "evidence_page": 68,
+            "evidence": "Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.",
+            "relevance": 0.75,
+            "anchor_page": 68
+          },
+          {
+            "canonical": "steplength",
+            "aliases": [
+              "step size",
+              "learning rate",
+              "alpha",
+              "step length"
+            ],
+            "evidence_page": 73,
+            "evidence": "we can think about drawing the first order Taylor series approximation to the function, and taking the descent direction of this tangent hyperplane (i.e., the negative gradient of the function at this point) as our descent direction for the algorithm.",
+            "relevance": 0.85,
+            "anchor_page": 73
+          },
+          {
+            "canonical": "local optimization",
+            "aliases": [
+              "local optimization method",
+              "local optimization algorithm",
+              "local algorithm"
+            ],
+            "evidence_page": 73,
+            "evidence": "We could very naturally wonder about the efficacy of a local optimization method, that is one consisting of steps of the general form w k = w k−1 + αd k",
+            "relevance": 0.8,
+            "anchor_page": 73
+          },
+          {
+            "canonical": "diminishing steplength rules",
+            "aliases": [
+              "diminishing step length",
+              "diminishing steplength",
+              "diminishing steplength schemes",
+              "decreasing step size"
+            ],
+            "evidence_page": 99,
+            "evidence": "Compare fixed and diminishing steplength values for a simple example",
+            "relevance": 0.75,
+            "anchor_page": 99
+          },
+          {
+            "canonical": "momentum accelerated gradient descent",
+            "aliases": [
+              "momentum gradient descent",
+              "gradient descent with momentum"
+            ],
+            "evidence_page": 100,
+            "evidence": "Code up the momentum accelerated gradient descent scheme described in Section A.2.2",
+            "relevance": 0.95,
+            "anchor_page": 100
+          },
+          {
+            "canonical": "normalized gradient descent",
+            "aliases": [
+              "fully normalized gradient descent",
+              "component-wise normalized gradient descent"
+            ],
+            "evidence_page": 100,
+            "evidence": "compare the standard and fully normalized gradient descent schemes in minimizing the function",
+            "relevance": 0.85,
+            "anchor_page": 100
+          },
+          {
+            "canonical": "lipschitz continuous gradient",
+            "aliases": [
+              "lipschitz gradient",
+              "gradient with lipschitz constant"
+            ],
+            "evidence_page": 101,
+            "evidence": "functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂",
+            "relevance": 0.95,
+            "anchor_page": 101
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"gradient descent\",\n      \"aliases\": [],\n      \"evidence_page\": 65,\n      \"evidence\": \"foremost among them the extremely popular gradient descent algorithm, that naturally determine high quality descent directions\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 65\n    },\n    {\n      \"canonical\": \"first order optimality condition\",\n      \"aliases\": [\n        \"first order condition\",\n        \"first order condition for optimality\"\n      ],\n      \"evidence_page\": 67,\n      \"evidence\": \"This very useful characterization of minimum points is referred to as the first order optimality condition (or the first order condition for short)\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"first order taylor series approximation\",\n      \"aliases\": [\n        \"tangent line\",\n        \"tangent hyperplane\",\n        \"first order taylor series\",\n        \"linear surrogate\",\n        \"first order taylor approximation\",\n        \"linear approximation surrogate\"\n      ],\n      \"evidence_page\": 67,\n      \"evidence\": \"the line/hyperplane tangent to the function at its minimum point, also known as its first order Taylor series approximation\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 67\n    },\n    {\n      \"canonical\": \"first order system of equations\",\n      \"aliases\": [\n        \"first order system\"\n      ],\n      \"evidence_page\": 68,\n      \"evidence\": \"This system of N equations is naturally referred to as the first order system of equations. We can also write the first order system more compactly using gradient notation as ∇g(v) = 0\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 68\n    },\n    {\n      \"canonical\": \"critical points\",\n      \"aliases\": [\n        \"stationary points\"\n      ],\n      \"evidence_page\": 68,\n      \"evidence\": \"Collectively minima, maxima, and saddle points are often referred to as stationary or critical points of a function.\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 68\n    },\n    {\n      \"canonical\": \"steplength\",\n      \"aliases\": [\n        \"step size\",\n        \"learning rate\",\n        \"alpha\",\n        \"step length\"\n      ],\n      \"evidence_page\": 73,\n      \"evidence\": \"we can think about drawing the first order Taylor series approximation to the function, and taking the descent direction of this tangent hyperplane (i.e., the negative gradient of the function at this point) as our descent direction for the algorithm.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 73\n    },\n    {\n      \"canonical\": \"local optimization\",\n      \"aliases\": [\n        \"local optimization method\",\n        \"local optimization algorithm\",\n        \"local algorithm\"\n      ],\n      \"evidence_page\": 73,\n      \"evidence\": \"We could very naturally wonder about the efficacy of a local optimization method, that is one consisting of steps of the general form w k = w k−1 + αd k\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 73\n    },\n    {\n      \"canonical\": \"diminishing steplength rules\",\n      \"aliases\": [\n        \"diminishing step length\",\n        \"diminishing steplength\",\n        \"diminishing steplength schemes\",\n        \"decreasing step size\"\n      ],\n      \"evidence_page\": 99,\n      \"evidence\": \"Compare fixed and diminishing steplength values for a simple example\",\n      \"relevance\": 0.75,\n      \"anchor_page\": 99\n    },\n    {\n      \"canonical\": \"momentum accelerated gradient descent\",\n      \"aliases\": [\n        \"momentum gradient descent\",\n        \"gradient descent with momentum\"\n      ],\n      \"evidence_page\": 100,\n      \"evidence\": \"Code up the momentum accelerated gradient descent scheme described in Section A.2.2\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 100\n    },\n    {\n      \"canonical\": \"normalized gradient descent\",\n      \"aliases\": [\n        \"fully normalized gradient descent\",\n        \"component-wise normalized gradient descent\"\n      ],\n      \"evidence_page\": 100,\n      \"evidence\": \"compare the standard and fully normalized gradient descent schemes in minimizing the function\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 100\n    },\n    {\n      \"canonical\": \"lipschitz continuous gradient\",\n      \"aliases\": [\n        \"lipschitz gradient\",\n        \"gradient with lipschitz constant\"\n      ],\n      \"evidence_page\": 101,\n      \"evidence\": \"functions g with Lipschitz continuous gradient is given by ‖∇g(x) − ∇g(y)‖₂ ≤ L‖x − y‖₂\",\n      \"relevance\": 0.95,\n      \"anchor_page\": 101\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 65,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "gradient",
+            "latex": "\\frac{d}{dw} g(w) = \\frac{d}{dw} \\sin(w^2) = 2w \\cos(w^2)",
+            "pdf_page": 66,
+            "equation_label": "",
+            "confidence": 0.9
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"gradient\",\n      \"latex\": \"\\\\frac{d}{dw} g(w) = \\\\frac{d}{dw} \\\\sin(w^2) = 2w \\\\cos(w^2)\",\n      \"pdf_page\": 66,\n      \"equation_label\": \"\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 66,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "chain rule",
+            "latex": "\\frac{d}{dw} g(w) = \\frac{d}{dw} \\sin(w^2) = \\cos(w^2) \\cdot \\frac{d}{dw} w^2 = 2w \\cos(w^2)",
+            "pdf_page": 66,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"chain rule\",\n      \"latex\": \"\\\\frac{d}{dw} g(w) = \\\\frac{d}{dw} \\\\sin(w^2) = \\\\cos(w^2) \\\\cdot \\\\frac{d}{dw} w^2 = 2w \\\\cos(w^2)\",\n      \"pdf_page\": 66,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 67,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "first order taylor series approximation",
+            "latex": "\\frac{d}{dw} g(w) = \\frac{d}{dw} \\sin(w^2) = 2w \\cos(w^2)",
+            "pdf_page": 66,
+            "equation_label": "",
+            "confidence": 0.7
+          },
+          {
+            "concept": "global minimum",
+            "latex": "\\frac{d}{dw} g(v) = 0",
+            "pdf_page": 67,
+            "equation_label": "3.1",
+            "confidence": 0.95
+          },
+          {
+            "concept": "partial derivative",
+            "latex": "\\frac{\\partial}{\\partial w_1} g(v) = 0, \\quad \\frac{\\partial}{\\partial w_2} g(v) = 0, \\quad \\ldots, \\quad \\frac{\\partial}{\\partial w_N} g(v) = 0",
+            "pdf_page": 68,
+            "equation_label": "3.2",
+            "confidence": 0.95
+          },
+          {
+            "concept": "global minimum",
+            "latex": "\\nabla g(v) = 0_{N \\times 1}",
+            "pdf_page": 68,
+            "equation_label": "3.3",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "global minimum",
+            "pdf_page": 67,
+            "figure_label": "Figure 3.1",
+            "caption": "The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "first order taylor series approximation",
+            "pdf_page": 67,
+            "figure_label": "Figure 3.1",
+            "caption": "The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"first order taylor series approximation\",\n      \"latex\": \"\\\\frac{d}{dw} g(w) = \\\\frac{d}{dw} \\\\sin(w^2) = 2w \\\\cos(w^2)\",\n      \"pdf_page\": 66,\n      \"equation_label\": \"\",\n      \"confidence\": 0.7\n    },\n    {\n      \"concept\": \"global minimum\",\n      \"latex\": \"\\\\frac{d}{dw} g(v) = 0\",\n      \"pdf_page\": 67,\n      \"equation_label\": \"3.1\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"partial derivative\",\n      \"latex\": \"\\\\frac{\\\\partial}{\\\\partial w_1} g(v) = 0, \\\\quad \\\\frac{\\\\partial}{\\\\partial w_2} g(v) = 0, \\\\quad \\\\ldots, \\\\quad \\\\frac{\\\\partial}{\\\\partial w_N} g(v) = 0\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.2\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"global minimum\",\n      \"latex\": \"\\\\nabla g(v) = 0_{N \\\\times 1}\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.3\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"global minimum\",\n      \"pdf_page\": 67,\n      \"figure_label\": \"Figure 3.1\",\n      \"caption\": \"The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"first order taylor series approximation\",\n      \"pdf_page\": 67,\n      \"figure_label\": \"Figure 3.1\",\n      \"caption\": \"The first order optimality condition characterizes points where the derivative or gradient of a function equals zero, or likewise where the line or hyperplane tangent to a function has 'zero slope' (or is completely horizontal and parallel to the input space). With a simple convex quadratic this condition identifies the global minimum of the function - illustrated here with a single-input (left panel) and multi-input (right panel) quadratic function.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 68,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "first order system of equations",
+            "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+            "pdf_page": 68,
+            "equation_label": "3.2",
+            "confidence": 0.95
+          },
+          {
+            "concept": "first order system of equations",
+            "latex": "\\nabla g(v) = 0_{N \\times 1}",
+            "pdf_page": 68,
+            "equation_label": "3.3",
+            "confidence": 0.95
+          },
+          {
+            "concept": "stationary points",
+            "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+            "pdf_page": 68,
+            "equation_label": "3.2",
+            "confidence": 0.85
+          },
+          {
+            "concept": "stationary points",
+            "latex": "\\nabla g(v) = 0_{N \\times 1}",
+            "pdf_page": 68,
+            "equation_label": "3.3",
+            "confidence": 0.85
+          },
+          {
+            "concept": "saddle points",
+            "latex": "\\frac{\\partial g(v)}{\\partial w_1} = 0, \\quad \\frac{\\partial g(v)}{\\partial w_2} = 0, \\quad \\ldots, \\quad \\frac{\\partial g(v)}{\\partial w_N} = 0",
+            "pdf_page": 68,
+            "equation_label": "3.2",
+            "confidence": 0.8
+          },
+          {
+            "concept": "saddle points",
+            "latex": "\\nabla g(v) = 0_{N \\times 1}",
+            "pdf_page": 68,
+            "equation_label": "3.3",
+            "confidence": 0.8
+          },
+          {
+            "concept": "closed form solution",
+            "latex": "\\nabla g(v) = 0_{N \\times 1}",
+            "pdf_page": 68,
+            "equation_label": "3.3",
+            "confidence": 0.75
+          }
+        ],
+        "figures": [
+          {
+            "concept": "stationary points",
+            "pdf_page": 69,
+            "figure_label": "Figure 3.2",
+            "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "saddle points",
+            "pdf_page": 69,
+            "figure_label": "Figure 3.2",
+            "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"first order system of equations\",\n      \"latex\": \"\\\\frac{\\\\partial g(v)}{\\\\partial w_1} = 0, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_2} = 0, \\\\quad \\\\ldots, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_N} = 0\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.2\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"first order system of equations\",\n      \"latex\": \"\\\\nabla g(v) = 0_{N \\\\times 1}\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.3\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"stationary points\",\n      \"latex\": \"\\\\frac{\\\\partial g(v)}{\\\\partial w_1} = 0, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_2} = 0, \\\\quad \\\\ldots, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_N} = 0\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.2\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"stationary points\",\n      \"latex\": \"\\\\nabla g(v) = 0_{N \\\\times 1}\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.3\",\n      \"confidence\": 0.85\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"latex\": \"\\\\frac{\\\\partial g(v)}{\\\\partial w_1} = 0, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_2} = 0, \\\\quad \\\\ldots, \\\\quad \\\\frac{\\\\partial g(v)}{\\\\partial w_N} = 0\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.2\",\n      \"confidence\": 0.8\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"latex\": \"\\\\nabla g(v) = 0_{N \\\\times 1}\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.3\",\n      \"confidence\": 0.8\n    },\n    {\n      \"concept\": \"closed form solution\",\n      \"latex\": \"\\\\nabla g(v) = 0_{N \\\\times 1}\",\n      \"pdf_page\": 68,\n      \"equation_label\": \"3.3\",\n      \"confidence\": 0.75\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"stationary points\",\n      \"pdf_page\": 69,\n      \"figure_label\": \"Figure 3.2\",\n      \"caption\": \"Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"saddle points\",\n      \"pdf_page\": 69,\n      \"figure_label\": \"Figure 3.2\",\n      \"caption\": \"Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 69,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "local minimum",
+            "pdf_page": 69,
+            "figure_label": "Figure 3.2",
+            "caption": "Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"local minimum\",\n      \"pdf_page\": 69,\n      \"figure_label\": \"Figure 3.2\",\n      \"caption\": \"Figure 3.2 Figure for Example 3.1. From left to right the functions g(w) = sin(2w), w3, and sin (3w) + 0.3w2 are shown along with their derivatives in the bottom row. See text for further details.\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 71,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "convex quadratic function",
+            "latex": "g(w) = a + b^T w + w^T C w",
+            "pdf_page": 71,
+            "equation_label": "3.10",
+            "confidence": 0.95
+          },
+          {
+            "concept": "convex quadratic function",
+            "latex": "\\nabla g(w) = 2Cw + b",
+            "pdf_page": 71,
+            "equation_label": "3.11",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"convex quadratic function\",\n      \"latex\": \"g(w) = a + b^T w + w^T C w\",\n      \"pdf_page\": 71,\n      \"equation_label\": \"3.10\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"convex quadratic function\",\n      \"latex\": \"\\\\nabla g(w) = 2Cw + b\",\n      \"pdf_page\": 71,\n      \"equation_label\": \"3.11\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 72,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "coordinate descent",
+            "latex": "\\frac{\\partial}{\\partial w_1} g(w^0) = 0",
+            "pdf_page": 72,
+            "equation_label": "3.13",
+            "confidence": 0.95
+          },
+          {
+            "concept": "coordinate descent",
+            "latex": "\\frac{\\partial}{\\partial w_n} g(w^{n-1}) = 0",
+            "pdf_page": 72,
+            "equation_label": "3.14",
+            "confidence": 0.95
+          },
+          {
+            "concept": "coordinate descent",
+            "latex": "\\frac{\\partial}{\\partial w_n} g(w^{(k-1)N+n}) = 0",
+            "pdf_page": 72,
+            "equation_label": "3.15",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "coordinate descent",
+            "pdf_page": 73,
+            "figure_label": "Figure 3.4",
+            "caption": "Figure associated with Example 3.5",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"coordinate descent\",\n      \"latex\": \"\\\\frac{\\\\partial}{\\\\partial w_1} g(w^0) = 0\",\n      \"pdf_page\": 72,\n      \"equation_label\": \"3.13\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"coordinate descent\",\n      \"latex\": \"\\\\frac{\\\\partial}{\\\\partial w_n} g(w^{n-1}) = 0\",\n      \"pdf_page\": 72,\n      \"equation_label\": \"3.14\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"coordinate descent\",\n      \"latex\": \"\\\\frac{\\\\partial}{\\\\partial w_n} g(w^{(k-1)N+n}) = 0\",\n      \"pdf_page\": 72,\n      \"equation_label\": \"3.15\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"coordinate descent\",\n      \"pdf_page\": 73,\n      \"figure_label\": \"Figure 3.4\",\n      \"caption\": \"Figure associated with Example 3.5\",\n      \"confidence\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 73,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "symmetric linear system",
+            "latex": "Cw = -\\frac{1}{2}b",
+            "pdf_page": 73,
+            "equation_label": "3.18",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"symmetric linear system\",\n      \"latex\": \"Cw = -\\\\frac{1}{2}b\",\n      \"pdf_page\": 73,\n      \"equation_label\": \"3.18\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 99,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 100,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "momentum accelerated gradient descent",
+            "pdf_page": 100,
+            "figure_label": "Figure A.3",
+            "caption": "Not present on page; referenced in Exercise 3.11 as contour plots used to draw conclusions about momentum accelerated gradient descent.",
+            "confidence": 0.3
+          },
+          {
+            "concept": "normalized gradient descent",
+            "pdf_page": 100,
+            "figure_label": "Figure (unlabeled)",
+            "caption": "The result of the normalized scheme is shown in the Figure.",
+            "confidence": 0.5
+          },
+          {
+            "concept": "normalized gradient descent",
+            "pdf_page": 101,
+            "figure_label": "Figure A.6",
+            "caption": "Not present on page; referenced in Exercise 3.13 as plots used to draw conclusions about full and component-wise normalized gradient descent schemes.",
+            "confidence": 0.3
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"momentum accelerated gradient descent\",\n      \"pdf_page\": 100,\n      \"figure_label\": \"Figure A.3\",\n      \"caption\": \"Not present on page; referenced in Exercise 3.11 as contour plots used to draw conclusions about momentum accelerated gradient descent.\",\n      \"confidence\": 0.3\n    },\n    {\n      \"concept\": \"normalized gradient descent\",\n      \"pdf_page\": 100,\n      \"figure_label\": \"Figure (unlabeled)\",\n      \"caption\": \"The result of the normalized scheme is shown in the Figure.\",\n      \"confidence\": 0.5\n    },\n    {\n      \"concept\": \"normalized gradient descent\",\n      \"pdf_page\": 101,\n      \"figure_label\": \"Figure A.6\",\n      \"caption\": \"Not present on page; referenced in Exercise 3.13 as plots used to draw conclusions about full and component-wise normalized gradient descent schemes.\",\n      \"confidence\": 0.3\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 101,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "lipschitz continuous gradient",
+            "latex": "\\|\\nabla g(x) - \\nabla g(y)\\|_2 \\leq L \\|x - y\\|_2",
+            "pdf_page": 101,
+            "equation_label": "3.46",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"lipschitz continuous gradient\",\n      \"latex\": \"\\\\|\\\\nabla g(x) - \\\\nabla g(y)\\\\|_2 \\\\leq L \\\\|x - y\\\\|_2\",\n      \"pdf_page\": 101,\n      \"equation_label\": \"3.46\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "gradient descent",
+      "into": "gradient descent"
+    },
+    {
+      "action": "local_merge",
+      "from": "automatic differentiator",
+      "into": "automatic differentiation"
+    },
+    {
+      "action": "local_merge",
+      "from": "local minimizer",
+      "into": "local minima"
+    },
+    {
+      "action": "local_merge",
+      "from": "first order taylor series approximation",
+      "into": "first order taylor series approximation"
+    },
+    {
+      "action": "local_merge",
+      "from": "linear surrogate",
+      "into": "first order taylor series approximation"
+    },
+    {
+      "action": "local_merge",
+      "from": "critical points",
+      "into": "stationary points"
+    },
+    {
+      "action": "local_merge",
+      "from": "hyperplane",
+      "into": "first order taylor series approximation"
+    }
+  ],
+  "warnings": [
+    "Rejected 8 concepts whose quoted evidence was not found on the claimed page.",
+    "Refill round 1 rejected 3 concepts whose evidence was not found.",
+    "Vision input was rejected by the configured model; asset analysis continued in text-only mode."
+  ]
+}

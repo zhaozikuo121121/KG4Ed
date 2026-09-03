@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e6d33b1cf64e7762f1761469c6ff05a314388161b3872cf594ca4f2e011a7081",
+  "concept_id": 35,
+  "concept_name": "proper subgraph",
+  "aliases": [
+    "proper subgraph"
+  ],
+  "profile": "proper subgraph: A proper subgraph is any subgraph other than the whole graph. All other subgraphs are proper subgraphs.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "proper subgraph: A subgraph that is not the whole graph, omitting at least one vertex or edge. In graph theory, all subgraphs except the original graph are proper subgraphs.",
+    "claims": [
+      {
+        "claim": "A proper subgraph is a subgraph that is not the whole graph, omitting at least one vertex or edge.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In graph theory, all subgraphs except the original graph are proper subgraphs.",
+        "evidence_ids": [
+          "DGL-E0025"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not explicitly define proper subgraph beyond the statement that all other subgraphs are proper; the definition is inferred from standard graph theory."
+    ]
+  },
+  "review": {
+    "final_profile": "proper subgraph: A proper subgraph is any subgraph other than the whole graph. All other subgraphs are proper subgraphs.",
+    "sentence_reviews": [
+      {
+        "sentence": "A proper subgraph is any subgraph other than the whole graph.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0025"
+        ],
+        "reason": "Restates the implication of the source statement that all other subgraphs are proper subgraphs; no additional concepts are introduced."
+      },
+      {
+        "sentence": "All other subgraphs are proper subgraphs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0025"
+        ],
+        "reason": "Directly supported by the handwritten evidence."
+      }
+    ],
+    "warnings": [
+      "Metadata is minimal: no explicit definition or examples are provided, so the profile is limited to the relationship expressed in the handwritten note."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"proper subgraph: A subgraph that is not the whole graph, omitting at least one vertex or edge. In graph theory, all subgraphs except the original graph are proper subgraphs.\",\n  \"claims\": [\n    {\n      \"claim\": \"A proper subgraph is a subgraph that is not the whole graph, omitting at least one vertex or edge.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In graph theory, all subgraphs except the original graph are proper subgraphs.\",\n      \"evidence_ids\": [\"DGL-E0025\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not explicitly define proper subgraph beyond the statement that all other subgraphs are proper; the definition is inferred from standard graph theory.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"proper subgraph: A proper subgraph is any subgraph other than the whole graph. All other subgraphs are proper subgraphs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A proper subgraph is any subgraph other than the whole graph.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0025\"],\n      \"reason\": \"Restates the implication of the source statement that all other subgraphs are proper subgraphs; no additional concepts are introduced.\"\n    },\n    {\n      \"sentence\": \"All other subgraphs are proper subgraphs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0025\"],\n      \"reason\": \"Directly supported by the handwritten evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"Metadata is minimal: no explicit definition or examples are provided, so the profile is limited to the relationship expressed in the handwritten note.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:01:17.479117+00:00"
+}

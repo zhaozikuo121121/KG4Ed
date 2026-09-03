@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "5dad8ac55c1ff6cf03373c097fb3b9113466fb7b72651005280f760ab3c43bd9",
+  "concept_id": 39,
+  "concept_name": "symmetric matrix",
+  "aliases": [
+    "symmetric matrix",
+    "symmetric"
+  ],
+  "profile": "symmetric matrix: a matrix category distinguished from an asymmetric matrix.",
+  "word_count": 10,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "symmetric matrix: a matrix category distinguished from an asymmetric matrix.",
+    "claims": [
+      {
+        "claim": "Symmetric matrix is a matrix category distinguished from an asymmetric matrix.",
+        "evidence_ids": [
+          "DGL-E0041"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata provides only the phrase 'symmetric vs asymmetric matrix'; no further definition or properties are available."
+    ]
+  },
+  "review": {
+    "final_profile": "symmetric matrix: a matrix category distinguished from an asymmetric matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "symmetric matrix: a matrix category distinguished from an asymmetric matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0041"
+        ],
+        "reason": "The source phrase 'symmetric vs asymmetric matrix' supports describing symmetric matrix as a matrix category contrasted with asymmetric matrix."
+      }
+    ],
+    "warnings": [
+      "No further definition, properties, or examples of symmetric matrices are provided in the source evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"symmetric matrix: a matrix category distinguished from an asymmetric matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"Symmetric matrix is a matrix category distinguished from an asymmetric matrix.\",\n      \"evidence_ids\": [\"DGL-E0041\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata provides only the phrase 'symmetric vs asymmetric matrix'; no further definition or properties are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"symmetric matrix: a matrix category distinguished from an asymmetric matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"symmetric matrix: a matrix category distinguished from an asymmetric matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0041\"],\n      \"reason\": \"The source phrase 'symmetric vs asymmetric matrix' supports describing symmetric matrix as a matrix category contrasted with asymmetric matrix.\"\n    }\n  ],\n  \"warnings\": [\n    \"No further definition, properties, or examples of symmetric matrices are provided in the source evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:02:02.168050+00:00"
+}

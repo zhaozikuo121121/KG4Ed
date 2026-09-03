@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4b059479d75d382bf7cd1c30532a71799e846ef0263fa4e778f45854c0afcb29",
+  "concept_id": 119,
+  "concept_name": "feature extraction",
+  "aliases": [
+    "feature extraction"
+  ],
+  "profile": "feature extraction: Feature extraction is the process of deriving features from data for use in learning models. In graph-based learning, feature extraction is performed on a source represented as A.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "feature extraction: The process of deriving relevant features from input data for use in learning models. In the context of graph-based learning, it involves extracting features from a data source represented as A, as noted in course material.",
+    "claims": [
+      {
+        "claim": "Feature extraction is the process of deriving features from input data for use in learning models.",
+        "evidence_ids": [
+          "DGL-E0129"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In graph-based learning, feature extraction involves extracting features from a data source represented as A.",
+        "evidence_ids": [
+          "DGL-E0129"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single sparse annotation supports this profile; no additional properties or examples are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "feature extraction: Feature extraction is the process of deriving features from data for use in learning models. In graph-based learning, feature extraction is performed on a source represented as A.",
+    "sentence_reviews": [
+      {
+        "sentence": "Feature extraction is the process of deriving features from data for use in learning models.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional context; no source-specific detail beyond the concept name."
+      },
+      {
+        "sentence": "In graph-based learning, feature extraction is performed on a source represented as A.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0129"
+        ],
+        "reason": "The evidence phrase 'feature extraction from A' appears in a graph-based learning context."
+      }
+    ],
+    "warnings": [
+      "Only one sparse annotation supports this profile; the exact role of A and the broader feature extraction process are not specified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"feature extraction: The process of deriving relevant features from input data for use in learning models. In the context of graph-based learning, it involves extracting features from a data source represented as A, as noted in course material.\",\n  \"claims\": [\n    {\n      \"claim\": \"Feature extraction is the process of deriving features from input data for use in learning models.\",\n      \"evidence_ids\": [\"DGL-E0129\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In graph-based learning, feature extraction involves extracting features from a data source represented as A.\",\n      \"evidence_ids\": [\"DGL-E0129\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only a single sparse annotation supports this profile; no additional properties or examples are provided.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature extraction: Feature extraction is the process of deriving features from data for use in learning models. In graph-based learning, feature extraction is performed on a source represented as A.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Feature extraction is the process of deriving features from data for use in learning models.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional context; no source-specific detail beyond the concept name.\"\n    },\n    {\n      \"sentence\": \"In graph-based learning, feature extraction is performed on a source represented as A.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0129\"],\n      \"reason\": \"The evidence phrase 'feature extraction from A' appears in a graph-based learning context.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one sparse annotation supports this profile; the exact role of A and the broader feature extraction process are not specified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:41:07.932165+00:00"
+}

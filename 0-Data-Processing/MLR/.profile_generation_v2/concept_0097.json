@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1fca112c36f9acfec7e37ddcd41b187fcb6293be7e3b62971e495ebf00d2d25f",
+  "concept_id": 97,
+  "concept_name": "outer product",
+  "aliases": [
+    "outer product",
+    "outer product matrix"
+  ],
+  "profile": "outer product: an operation that forms a matrix. In linear regression, the matrix C is constructed from a sum of outer product matrices.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "outer product: an operation that forms a matrix; in linear regression, the matrix C is constructed from a sum of outer product matrices.",
+    "claims": [
+      {
+        "claim": "An outer product is an operation that forms a matrix.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "In linear regression, a matrix C is constructed from a sum of outer product matrices.",
+        "evidence_ids": [
+          "MLR-E0113"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single source passage addresses outer product; properties beyond the cited construction are not covered."
+    ]
+  },
+  "review": {
+    "final_profile": "outer product: an operation that forms a matrix. In linear regression, the matrix C is constructed from a sum of outer product matrices.",
+    "sentence_reviews": [
+      {
+        "sentence": "outer product: an operation that forms a matrix.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General definitional background with no unsupported specifics."
+      },
+      {
+        "sentence": "In linear regression, the matrix C is constructed from a sum of outer product matrices.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0113"
+        ],
+        "reason": "Directly supported by the cited source passage."
+      }
+    ],
+    "warnings": [
+      "Only a single source passage addresses outer product; properties beyond the cited construction are not covered."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"outer product: an operation that forms a matrix; in linear regression, the matrix C is constructed from a sum of outer product matrices.\",\n  \"claims\": [\n    {\n      \"claim\": \"An outer product is an operation that forms a matrix.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"In linear regression, a matrix C is constructed from a sum of outer product matrices.\",\n      \"evidence_ids\": [\"MLR-E0113\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only a single source passage addresses outer product; properties beyond the cited construction are not covered.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"outer product: an operation that forms a matrix. In linear regression, the matrix C is constructed from a sum of outer product matrices.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"outer product: an operation that forms a matrix.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General definitional background with no unsupported specifics.\"\n    },\n    {\n      \"sentence\": \"In linear regression, the matrix C is constructed from a sum of outer product matrices.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0113\"],\n      \"reason\": \"Directly supported by the cited source passage.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single source passage addresses outer product; properties beyond the cited construction are not covered.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:59:33.681011+00:00"
+}

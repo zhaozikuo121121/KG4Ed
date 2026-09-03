@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "50615508b2ef05122b73cca719814dc07876d5bcbea5987d313f32be2b819f40",
+  "concept_id": 231,
+  "concept_name": "kernel matrix",
+  "aliases": [
+    "kernel matrix",
+    "kernel",
+    "h matrix"
+  ],
+  "profile": "kernel matrix: A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.",
+  "word_count": 21,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "kernel matrix: A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.",
+    "claims": [
+      {
+        "claim": "A kernel matrix is a symmetric P × P matrix H = FTF.",
+        "evidence_ids": [
+          "MLR-E0290"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is referred to simply as a kernel for short.",
+        "evidence_ids": [
+          "MLR-E0290"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "kernel matrix: A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.",
+    "sentence_reviews": [
+      {
+        "sentence": "A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0290"
+        ],
+        "reason": "The source defines the symmetric P × P matrix H = FTF as a kernel matrix or just a kernel for short."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"kernel matrix: A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.\",\n  \"claims\": [\n    {\n      \"claim\": \"A kernel matrix is a symmetric P × P matrix H = FTF.\",\n      \"evidence_ids\": [\"MLR-E0290\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is referred to simply as a kernel for short.\",\n      \"evidence_ids\": [\"MLR-E0290\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"kernel matrix: A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A kernel matrix is a symmetric P × P matrix H = FTF, referred to simply as a kernel for short.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0290\"],\n      \"reason\": \"The source defines the symmetric P × P matrix H = FTF as a kernel matrix or just a kernel for short.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:53:09.563375+00:00"
+}

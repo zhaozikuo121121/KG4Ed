@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "6c40b24b72dc83bcca0e249d47d40cf8c9c2cf17f0a139a5c7725bd688363624",
+  "concept_id": 244,
+  "concept_name": "activation function",
+  "aliases": [
+    "activation function",
+    "nonlinear activation function"
+  ],
+  "profile": "activation function: a nonlinear function applied to a linear combination of inputs. It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "activation function: a nonlinear function applied to a linear combination of inputs. It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid, which introduces nonlinearity.",
+    "claims": [
+      {
+        "claim": "The activation function is a nonlinear function applied to a linear combination of inputs.",
+        "evidence_ids": [
+          "MLR-E0306"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is typically an elementary mathematical function, such as tanh, ReLU, or logistic sigmoid.",
+        "evidence_ids": [
+          "MLR-E0306"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "activation function: a nonlinear function applied to a linear combination of inputs. It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid.",
+    "sentence_reviews": [
+      {
+        "sentence": "activation function: a nonlinear function applied to a linear combination of inputs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0306"
+        ],
+        "reason": "Matches the evidence describing a linear combination of input passed through a nonlinear activation function."
+      },
+      {
+        "sentence": "It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0306"
+        ],
+        "reason": "The evidence states that the activation function is typically an elementary mathematical function and gives these examples."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"activation function: a nonlinear function applied to a linear combination of inputs. It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid, which introduces nonlinearity.\",\n  \"claims\": [\n    {\n      \"claim\": \"The activation function is a nonlinear function applied to a linear combination of inputs.\",\n      \"evidence_ids\": [\"MLR-E0306\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is typically an elementary mathematical function, such as tanh, ReLU, or logistic sigmoid.\",\n      \"evidence_ids\": [\"MLR-E0306\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"activation function: a nonlinear function applied to a linear combination of inputs. It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"activation function: a nonlinear function applied to a linear combination of inputs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0306\"],\n      \"reason\": \"Matches the evidence describing a linear combination of input passed through a nonlinear activation function.\"\n    },\n    {\n      \"sentence\": \"It is typically an elementary mathematical function such as tanh, ReLU, or logistic sigmoid.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0306\"],\n      \"reason\": \"The evidence states that the activation function is typically an elementary mathematical function and gives these examples.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:58:21.216636+00:00"
+}

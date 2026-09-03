@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "0f9628704f7f1ad0ab13e2bd390b38b94e84eaf75ce1137637aa9745c48746a3",
+  "concept_id": 105,
+  "concept_name": "nonlinear transformation",
+  "aliases": [
+    "nonlinear transformation",
+    "activation",
+    "non-linear transformation",
+    "activation function",
+    "nonlinear function"
+  ],
+  "profile": "nonlinear transformation: the phrase 'first nonlinear transformation' appears in materials on deep learning preliminaries and on feature embedding and graph-based learning. The available notes use the term without an explicit definition, so its mathematical meaning is not elaborated in this context.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "nonlinear transformation: a term used in deep learning, appearing as the first nonlinear transformation in lecture notes. It is found in material titled 'Deep Learning Preliminaries: Regression, Networks, and Representation Learning' and in notes on 'Feature Embedding and Graph-Based Learning'.",
+    "claims": [
+      {
+        "claim": "nonlinear transformation is a term used in deep learning.",
+        "evidence_ids": [
+          "DGL-E0112"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It appears as the first nonlinear transformation in the lecture notes.",
+        "evidence_ids": [
+          "DGL-E0112",
+          "DGL-E0119"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is found in material titled 'Deep Learning Preliminaries: Regression, Networks, and Representation Learning'.",
+        "evidence_ids": [
+          "DGL-E0112"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is found in notes on 'Feature Embedding and Graph-Based Learning'.",
+        "evidence_ids": [
+          "DGL-E0119"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata contains only the phrase 'first nonlinear transformation' with no explicit definition or explanation; the profile is limited to contextual occurrence and does not define the mathematical meaning."
+    ]
+  },
+  "review": {
+    "final_profile": "nonlinear transformation: the phrase 'first nonlinear transformation' appears in materials on deep learning preliminaries and on feature embedding and graph-based learning. The available notes use the term without an explicit definition, so its mathematical meaning is not elaborated in this context.",
+    "sentence_reviews": [
+      {
+        "sentence": "nonlinear transformation: the phrase 'first nonlinear transformation' appears in materials on deep learning preliminaries and on feature embedding and graph-based learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0112",
+          "DGL-E0119"
+        ],
+        "reason": "Both evidence items contain the phrase 'first nonlinear transformation'; the page titles provide the two topical contexts."
+      },
+      {
+        "sentence": "The available notes use the term without an explicit definition, so its mathematical meaning is not elaborated in this context.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0112",
+          "DGL-E0119"
+        ],
+        "reason": "The source evidence contains only the phrase and no definition or mathematical explanation."
+      }
+    ],
+    "warnings": [
+      "The source evidence contains only the phrase 'first nonlinear transformation' and no formal definition; the profile is intentionally minimal and does not add mathematical interpretation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"nonlinear transformation: a term used in deep learning, appearing as the first nonlinear transformation in lecture notes. It is found in material titled 'Deep Learning Preliminaries: Regression, Networks, and Representation Learning' and in notes on 'Feature Embedding and Graph-Based Learning'.\",\n  \"claims\": [\n    {\n      \"claim\": \"nonlinear transformation is a term used in deep learning.\",\n      \"evidence_ids\": [\"DGL-E0112\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It appears as the first nonlinear transformation in the lecture notes.\",\n      \"evidence_ids\": [\"DGL-E0112\", \"DGL-E0119\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is found in material titled 'Deep Learning Preliminaries: Regression, Networks, and Representation Learning'.\",\n      \"evidence_ids\": [\"DGL-E0112\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is found in notes on 'Feature Embedding and Graph-Based Learning'.\",\n      \"evidence_ids\": [\"DGL-E0119\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata contains only the phrase 'first nonlinear transformation' with no explicit definition or explanation; the profile is limited to contextual occurrence and does not define the mathematical meaning.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"nonlinear transformation: the phrase 'first nonlinear transformation' appears in materials on deep learning preliminaries and on feature embedding and graph-based learning. The available notes use the term without an explicit definition, so its mathematical meaning is not elaborated in this context.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"nonlinear transformation: the phrase 'first nonlinear transformation' appears in materials on deep learning preliminaries and on feature embedding and graph-based learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0112\", \"DGL-E0119\"],\n      \"reason\": \"Both evidence items contain the phrase 'first nonlinear transformation'; the page titles provide the two topical contexts.\"\n    },\n    {\n      \"sentence\": \"The available notes use the term without an explicit definition, so its mathematical meaning is not elaborated in this context.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0112\", \"DGL-E0119\"],\n      \"reason\": \"The source evidence contains only the phrase and no definition or mathematical explanation.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source evidence contains only the phrase 'first nonlinear transformation' and no formal definition; the profile is intentionally minimal and does not add mathematical interpretation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:34:00.645638+00:00"
+}

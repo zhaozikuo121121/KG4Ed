@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8f022eec3f80b7c3151a3e1f0a54d8403465387371f0bc4bcc9b373eb0e796fe",
+  "concept_id": 117,
+  "concept_name": "shared mapping",
+  "aliases": [
+    "shared mapping",
+    "weight vector w"
+  ],
+  "profile": "shared mapping: In this context, a shared mapping is a single weight vector w applied consistently across all training samples. It denotes one common weight vector used for every sample. The concept appears in feature embedding and graph-based learning.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "shared mapping: In this context, a shared mapping is a single weight vector w that is applied consistently across all training samples. It denotes a common transformation used for every sample in the dataset, rather than sample-specific mappings. This concept appears within feature embedding and graph-based learning, where a uniform weight vector helps ensure comparable treatment of samples.",
+    "claims": [
+      {
+        "claim": "A shared mapping is a single weight vector w applied consistently across all training samples.",
+        "evidence_ids": [
+          "DGL-E0123"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept appears within feature embedding and graph-based learning.",
+        "evidence_ids": [
+          "DGL-E0123"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one evidence snippet was available; no additional properties, examples, or comparisons are asserted."
+    ]
+  },
+  "review": {
+    "final_profile": "shared mapping: In this context, a shared mapping is a single weight vector w applied consistently across all training samples. It denotes one common weight vector used for every sample. The concept appears in feature embedding and graph-based learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "In this context, a shared mapping is a single weight vector w applied consistently across all training samples.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0123"
+        ],
+        "reason": "Matches the evidence that the shared mapping w is used across all training samples."
+      },
+      {
+        "sentence": "It denotes one common weight vector used for every sample.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0123"
+        ],
+        "reason": "The shared nature of the mapping and its use across all training samples supports a common weight vector."
+      },
+      {
+        "sentence": "The concept appears in feature embedding and graph-based learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0123"
+        ],
+        "reason": "The source context places the concept within feature embedding and graph-based learning."
+      }
+    ],
+    "warnings": [
+      "Only one evidence snippet was available; no additional properties, examples, or comparisons are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"shared mapping: In this context, a shared mapping is a single weight vector w that is applied consistently across all training samples. It denotes a common transformation used for every sample in the dataset, rather than sample-specific mappings. This concept appears within feature embedding and graph-based learning, where a uniform weight vector helps ensure comparable treatment of samples.\",\n  \"claims\": [\n    {\n      \"claim\": \"A shared mapping is a single weight vector w applied consistently across all training samples.\",\n      \"evidence_ids\": [\"DGL-E0123\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept appears within feature embedding and graph-based learning.\",\n      \"evidence_ids\": [\"DGL-E0123\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence snippet was available; no additional properties, examples, or comparisons are asserted.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"shared mapping: In this context, a shared mapping is a single weight vector w applied consistently across all training samples. It denotes one common weight vector used for every sample. The concept appears in feature embedding and graph-based learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In this context, a shared mapping is a single weight vector w applied consistently across all training samples.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0123\"],\n      \"reason\": \"Matches the evidence that the shared mapping w is used across all training samples.\"\n    },\n    {\n      \"sentence\": \"It denotes one common weight vector used for every sample.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0123\"],\n      \"reason\": \"The shared nature of the mapping and its use across all training samples supports a common weight vector.\"\n    },\n    {\n      \"sentence\": \"The concept appears in feature embedding and graph-based learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0123\"],\n      \"reason\": \"The source context places the concept within feature embedding and graph-based learning.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one evidence snippet was available; no additional properties, examples, or comparisons are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:40:06.137700+00:00"
+}

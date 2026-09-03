@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4a0ca4dd3c2bc48553ffd19d2da378c7379535db217f65c7e6bf603dd31a810f",
+  "concept_id": 24,
+  "concept_name": "local minimum",
+  "aliases": [
+    "local minimum",
+    "local minimizer",
+    "local minima",
+    "local or global minimum"
+  ],
+  "profile": "local minimum: A point w⋆ is a local minimum if g(w⋆) ≤ g(w) for all w near w⋆. It is the smallest point with respect to its immediate neighbors. A point is a local or global minimum if ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.",
+  "word_count": 53,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "local minimum: A point w⋆ where g(w⋆) ≤ g(w) for all w near w⋆. It is the smallest among its immediate neighbors. A local or global minimum arises when the second derivative ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.",
+    "claims": [
+      {
+        "claim": "A local minimum at w⋆ satisfies g(w⋆) ≤ g(w) for all w near w⋆.",
+        "evidence_ids": [
+          "MLR-E0025"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A local minimum is the smallest point with respect to its immediate neighbors.",
+        "evidence_ids": [
+          "MLR-E0057"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A point is a local or global minimum if ∂2/∂w2 g(v) > 0, which occurs at convex portions of a function.",
+        "evidence_ids": [
+          "MLR-E0074"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "local minimum: A point w⋆ is a local minimum if g(w⋆) ≤ g(w) for all w near w⋆. It is the smallest point with respect to its immediate neighbors. A point is a local or global minimum if ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.",
+    "sentence_reviews": [
+      {
+        "sentence": "local minimum: A point w⋆ is a local minimum if g(w⋆) ≤ g(w) for all w near w⋆.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0025"
+        ],
+        "reason": "Matches the source definition of a local minimum at w⋆."
+      },
+      {
+        "sentence": "It is the smallest point with respect to its immediate neighbors.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0057"
+        ],
+        "reason": "Matches the source description of local minima as smallest relative to immediate neighbors."
+      },
+      {
+        "sentence": "A point is a local or global minimum if ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0074"
+        ],
+        "reason": "Preserves the source's connection between a positive second derivative, convex portions, and local or global minima."
+      }
+    ],
+    "warnings": [
+      "The positive second-derivative criterion is stated by the source as given; it may not be a complete mathematical characterization on its own."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"local minimum: A point w⋆ where g(w⋆) ≤ g(w) for all w near w⋆. It is the smallest among its immediate neighbors. A local or global minimum arises when the second derivative ∂²/∂w² g(v) > 0, since this occurs at convex portions of a function.\",\n  \"claims\": [\n    {\n      \"claim\": \"A local minimum at w⋆ satisfies g(w⋆) ≤ g(w) for all w near w⋆.\",\n      \"evidence_ids\": [\"MLR-E0025\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A local minimum is the smallest point with respect to its immediate neighbors.\",\n      \"evidence_ids\": [\"MLR-E0057\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A point is a local or global minimum if ∂²/∂w² g(v) > 0, which occurs at convex portions of a function.\",\n      \"evidence_ids\": [\"MLR-E0074\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"local minimum: A point w⋆ is a local minimum if g(w⋆) ≤ g(w) for all w near w⋆. It is the smallest point with respect to its immediate neighbors. A point is a local or global minimum if ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"local minimum: A point w⋆ is a local minimum if g(w⋆) ≤ g(w) for all w near w⋆.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0025\"\n      ],\n      \"reason\": \"Matches the source definition of a local minimum at w⋆.\"\n    },\n    {\n      \"sentence\": \"It is the smallest point with respect to its immediate neighbors.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0057\"\n      ],\n      \"reason\": \"Matches the source description of local minima as smallest relative to immediate neighbors.\"\n    },\n    {\n      \"sentence\": \"A point is a local or global minimum if ∂2/∂w2 g(v) > 0, since this occurs at convex portions of a function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0074\"\n      ],\n      \"reason\": \"Preserves the source's connection between a positive second derivative, convex portions, and local or global minima.\"\n    }\n  ],\n  \"warnings\": [\n    \"The positive second-derivative criterion is stated by the source as given; it may not be a complete mathematical characterization on its own.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:29:50.020849+00:00"
+}

@@ -1,0 +1,76 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "3c20cc723172693ea01e5343a51bc28b445f243b9ea4cdc609423f0a4580cb54",
+  "concept_id": 259,
+  "concept_name": "batch normalization",
+  "aliases": [
+    "batch normalization",
+    "batch norm",
+    "batch-normalized network",
+    "batch-normalized architecture"
+  ],
+  "profile": "batch normalization: A step grafted onto a hidden layer of a neural network. It keeps the distribution of that unit normalized whenever network parameters change during optimization.",
+  "word_count": 27,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "batch normalization: A step grafted onto a hidden layer of a neural network. It keeps the distribution of that unit normalized whenever network parameters change during optimization.",
+    "claims": [
+      {
+        "claim": "Batch normalization is a step grafted onto a hidden layer of a neural network.",
+        "evidence_ids": [
+          "MLR-E0323"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It keeps the distribution of that unit normalized whenever network parameters change during optimization.",
+        "evidence_ids": [
+          "MLR-E0323"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only the aspect of a grafted normalization step is described; no other properties or benefits are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "batch normalization: A step grafted onto a hidden layer of a neural network. It keeps the distribution of that unit normalized whenever network parameters change during optimization.",
+    "sentence_reviews": [
+      {
+        "sentence": "batch normalization: A step grafted onto a hidden layer of a neural network.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0323"
+        ],
+        "reason": "The source describes grafting this normalization step onto the second hidden layer of a network; referring to a hidden layer preserves the supported meaning."
+      },
+      {
+        "sentence": "It keeps the distribution of that unit normalized whenever network parameters change during optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0323"
+        ],
+        "reason": "The source states the step keeps the unit's distribution normalized when parameters change, such as during local optimizer steps."
+      }
+    ],
+    "warnings": [
+      "Description is limited to the single source excerpt; no other properties, benefits, or mechanisms of batch normalization are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"batch normalization: A step grafted onto a hidden layer of a neural network. It keeps the distribution of that unit normalized whenever network parameters change during optimization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Batch normalization is a step grafted onto a hidden layer of a neural network.\",\n      \"evidence_ids\": [\"MLR-E0323\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It keeps the distribution of that unit normalized whenever network parameters change during optimization.\",\n      \"evidence_ids\": [\"MLR-E0323\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the aspect of a grafted normalization step is described; no other properties or benefits are provided.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"batch normalization: A step grafted onto a hidden layer of a neural network. It keeps the distribution of that unit normalized whenever network parameters change during optimization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"batch normalization: A step grafted onto a hidden layer of a neural network.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0323\"],\n      \"reason\": \"The source describes grafting this normalization step onto the second hidden layer of a network; referring to a hidden layer preserves the supported meaning.\"\n    },\n    {\n      \"sentence\": \"It keeps the distribution of that unit normalized whenever network parameters change during optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0323\"],\n      \"reason\": \"The source states the step keeps the unit's distribution normalized when parameters change, such as during local optimizer steps.\"\n    }\n  ],\n  \"warnings\": [\n    \"Description is limited to the single source excerpt; no other properties, benefits, or mechanisms of batch normalization are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:03:58.277734+00:00"
+}

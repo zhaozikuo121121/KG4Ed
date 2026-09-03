@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "6403be1bd0de360ba326a92d7b39c46c7fa892af064f5894bb65dbbece518ce1",
+  "concept_id": 219,
+  "concept_name": "graph-level regression",
+  "aliases": [
+    "graph-level regression",
+    "graph-level prediction",
+    "graph classification"
+  ],
+  "profile": "graph-level regression: extending node-level regression to the graph level.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph-level regression: extending node-level regression to the graph level, making predictions for an entire graph rather than for each node.",
+    "claims": [
+      {
+        "claim": "graph-level regression extends node-level regression to the graph level",
+        "evidence_ids": [
+          "DGL-E0268"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph-level regression: extending node-level regression to the graph level.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph-level regression: extending node-level regression to the graph level.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0268"
+        ],
+        "reason": "The profile directly restates the source phrase 'extend the node-level regression to a graph-level regression'."
+      }
+    ],
+    "warnings": [
+      "The draft's additional clause about making predictions for an entire graph rather than each node is an inference not directly stated in the evidence and was removed."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph-level regression: extending node-level regression to the graph level, making predictions for an entire graph rather than for each node.\",\n  \"claims\": [\n    {\n      \"claim\": \"graph-level regression extends node-level regression to the graph level\",\n      \"evidence_ids\": [\"DGL-E0268\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph-level regression: extending node-level regression to the graph level.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph-level regression: extending node-level regression to the graph level.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0268\"],\n      \"reason\": \"The profile directly restates the source phrase 'extend the node-level regression to a graph-level regression'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's additional clause about making predictions for an entire graph rather than each node is an inference not directly stated in the evidence and was removed.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:18:13.010527+00:00"
+}

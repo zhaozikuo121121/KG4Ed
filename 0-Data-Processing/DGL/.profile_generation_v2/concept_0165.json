@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "421e4627e67dc2542eee671d8239b1554ff546cd9db8458522a323c532753026",
+  "concept_id": 165,
+  "concept_name": "binary classification task",
+  "aliases": [
+    "binary classification task",
+    "binary problem"
+  ],
+  "profile": "binary classification task: a supervised learning task with two possible class labels. Binary cross-entropy (CE) can be used for classification.",
+  "word_count": 20,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "binary classification task: a supervised learning task with two possible class labels. It is trained using binary cross-entropy loss for classification.",
+    "claims": [
+      {
+        "claim": "It is trained using binary cross-entropy loss for classification.",
+        "evidence_ids": [
+          "DGL-E0590"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It has two possible class labels.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "binary classification task: a supervised learning task with two possible class labels. Binary cross-entropy (CE) can be used for classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "binary classification task: a supervised learning task with two possible class labels.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition of binary classification; not explicitly stated in the source."
+      },
+      {
+        "sentence": "Binary cross-entropy (CE) can be used for classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0590"
+        ],
+        "reason": "The source states to 'use binary or multiclass cross-entropy (CE) for classification'."
+      }
+    ],
+    "warnings": [
+      "Source mentions binary CE as an option alongside multiclass CE; wording reflects this by saying 'can be used'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"binary classification task: a supervised learning task with two possible class labels. It is trained using binary cross-entropy loss for classification.\",\n  \"claims\": [\n    {\n      \"claim\": \"It is trained using binary cross-entropy loss for classification.\",\n      \"evidence_ids\": [\"DGL-E0590\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It has two possible class labels.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"binary classification task: a supervised learning task with two possible class labels. Binary cross-entropy (CE) can be used for classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"binary classification task: a supervised learning task with two possible class labels.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition of binary classification; not explicitly stated in the source.\"\n    },\n    {\n      \"sentence\": \"Binary cross-entropy (CE) can be used for classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0590\"],\n      \"reason\": \"The source states to 'use binary or multiclass cross-entropy (CE) for classification'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source mentions binary CE as an option alongside multiclass CE; wording reflects this by saying 'can be used'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:58:31.851845+00:00"
+}

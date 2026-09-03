@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9a3c4ad841e05a065a2b415c3b5341ef490520b862d14bf3dee1fa6613ce8186",
+  "concept_id": 233,
+  "concept_name": "softmax normalization",
+  "aliases": [
+    "softmax normalization",
+    "softmax operation"
+  ],
+  "profile": "softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.",
+    "claims": [
+      {
+        "claim": "Softmax normalization normalizes attention weights to be positive and sum to one.",
+        "evidence_ids": [
+          "DGL-E0304"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The normalized attention weights contribute to each output embedding.",
+        "evidence_ids": [
+          "DGL-E0304"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.",
+    "sentence_reviews": [
+      {
+        "sentence": "softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0304"
+        ],
+        "reason": "The source states that attention weights contributing to each output embedding are normalized to be positive and sum to one using the softmax operation."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.\",\n  \"claims\": [\n    {\n      \"claim\": \"Softmax normalization normalizes attention weights to be positive and sum to one.\",\n      \"evidence_ids\": [\"DGL-E0304\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The normalized attention weights contribute to each output embedding.\",\n      \"evidence_ids\": [\"DGL-E0304\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"softmax normalization: a method that normalizes attention weights so they are positive and sum to one; the resulting weights contribute to each output embedding.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0304\"],\n      \"reason\": \"The source states that attention weights contributing to each output embedding are normalized to be positive and sum to one using the softmax operation.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:22:53.062187+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "b6f25456f005d27fe26c0be4cacd56d49a456d03b92ba54d5dbbe495c1f7c9bc",
+  "concept_id": 29,
+  "concept_name": "uniform sampling",
+  "aliases": [
+    "uniform sampling",
+    "even sampling"
+  ],
+  "profile": "uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid. This means the guesses are evenly spaced, and the sampling is uniform across the grid.",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid. This means the guesses are evenly spaced, and the sampling is uniform across the grid.",
+    "claims": [
+      {
+        "claim": "Uniform sampling is a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid.",
+        "evidence_ids": [
+          "MLR-E0030"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The guesses are evenly spaced, and the sampling is uniform across the grid.",
+        "evidence_ids": [
+          "MLR-E0030"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid. This means the guesses are evenly spaced, and the sampling is uniform across the grid.",
+    "sentence_reviews": [
+      {
+        "sentence": "uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0030"
+        ],
+        "reason": "Directly reflects the source statement about sampling uniformly over an evenly spaced grid."
+      },
+      {
+        "sentence": "This means the guesses are evenly spaced, and the sampling is uniform across the grid.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0030"
+        ],
+        "reason": "Restates the source's description of uniform sampling without adding unsupported claims."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid. This means the guesses are evenly spaced, and the sampling is uniform across the grid.\",\n  \"claims\": [\n    {\n      \"claim\": \"Uniform sampling is a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid.\",\n      \"evidence_ids\": [\"MLR-E0030\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The guesses are evenly spaced, and the sampling is uniform across the grid.\",\n      \"evidence_ids\": [\"MLR-E0030\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid. This means the guesses are evenly spaced, and the sampling is uniform across the grid.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"uniform sampling: a technique for sampling (guessing) candidate points uniformly over an evenly spaced grid.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0030\"],\n      \"reason\": \"Directly reflects the source statement about sampling uniformly over an evenly spaced grid.\"\n    },\n    {\n      \"sentence\": \"This means the guesses are evenly spaced, and the sampling is uniform across the grid.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0030\"],\n      \"reason\": \"Restates the source's description of uniform sampling without adding unsupported claims.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:31:06.249449+00:00"
+}

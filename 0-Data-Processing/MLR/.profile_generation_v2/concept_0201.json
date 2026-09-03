@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "098f72fe2f7de9723afa304321f2e2cc7003f8a1126517122bc26d8b72189c5d",
+  "concept_id": 201,
+  "concept_name": "encoder-decoder composition",
+  "aliases": [
+    "encoder-decoder composition",
+    "autoencoder composition"
+  ],
+  "profile": "encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).",
+    "claims": [
+      {
+        "claim": "An encoder-decoder composition is a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).",
+        "evidence_ids": [
+          "MLR-E0249"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).",
+    "sentence_reviews": [
+      {
+        "sentence": "encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0249"
+        ],
+        "reason": "The equation in the evidence directly shows the nested encoder-decoder form model(x, Θ) = fd(fe(x)), and the description matches that composition."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).\",\n  \"claims\": [\n    {\n      \"claim\": \"An encoder-decoder composition is a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).\",\n      \"evidence_ids\": [\"MLR-E0249\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"encoder-decoder composition: a model that applies an encoder function fe followed by a decoder function fd, expressed as model(x, Θ) = fd(fe(x)).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0249\"\n      ],\n      \"reason\": \"The equation in the evidence directly shows the nested encoder-decoder form model(x, Θ) = fd(fe(x)), and the description matches that composition.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:42:21.942899+00:00"
+}

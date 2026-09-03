@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "75eae0bf6c79e77defb2c6c8cb26afff630d1e95b15e023a690e0e63dd09e34f",
+  "concept_id": 127,
+  "concept_name": "one-hot encoded labels",
+  "aliases": [
+    "one-hot encoded labels",
+    "one-hot encoding",
+    "one-hot encoded categorical labels",
+    "one-hot encoded vectors"
+  ],
+  "profile": "one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors. It is also a method of encoding categorical features, sometimes referred to as one-hot encoding.",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors. It is also a method for encoding categorical features, sometimes referred to as one-hot encoding.",
+    "claims": [
+      {
+        "claim": "One-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors.",
+        "evidence_ids": [
+          "MLR-E0143"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "One-hot encoding is a method for encoding categorical features, sometimes referred to as one-hot encoding.",
+        "evidence_ids": [
+          "MLR-E0218"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors. It is also a method of encoding categorical features, sometimes referred to as one-hot encoding.",
+    "sentence_reviews": [
+      {
+        "sentence": "one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0143"
+        ],
+        "reason": "The source states that original numerical label values yp in {0,1} are transformed with one-hot encoded vectors."
+      },
+      {
+        "sentence": "It is also a method of encoding categorical features, sometimes referred to as one-hot encoding.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0218"
+        ],
+        "reason": "The source describes this method of encoding categorical features as sometimes referred to as one-hot encoding."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors. It is also a method for encoding categorical features, sometimes referred to as one-hot encoding.\",\n  \"claims\": [\n    {\n      \"claim\": \"One-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors.\",\n      \"evidence_ids\": [\"MLR-E0143\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"One-hot encoding is a method for encoding categorical features, sometimes referred to as one-hot encoding.\",\n      \"evidence_ids\": [\"MLR-E0218\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors. It is also a method of encoding categorical features, sometimes referred to as one-hot encoding.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"one-hot encoded labels: one-hot encoding transforms original numerical label values, such as binary labels (yp in {0,1}), into one-hot encoded vectors.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0143\"],\n      \"reason\": \"The source states that original numerical label values yp in {0,1} are transformed with one-hot encoded vectors.\"\n    },\n    {\n      \"sentence\": \"It is also a method of encoding categorical features, sometimes referred to as one-hot encoding.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0218\"],\n      \"reason\": \"The source describes this method of encoding categorical features as sometimes referred to as one-hot encoding.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:16:10.243053+00:00"
+}

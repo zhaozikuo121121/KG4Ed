@@ -1,0 +1,91 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ccdaea58858e1bbfad394b4997ec79270dd632256db96e92da760da008f09088",
+  "concept_id": 213,
+  "concept_name": "testing node",
+  "aliases": [
+    "testing node",
+    "unseen node",
+    "test nodes",
+    "testing nodes"
+  ],
+  "profile": "testing node: a node designated for testing in a GCN training and optimization pipeline. It is associated with testing on unseen data. The term also appears in the context of graph-level prediction and inductive capability of GCNs.",
+  "word_count": 37,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "testing node: a node used for testing in a GCN training and optimization pipeline. The testing node is associated with testing on unseen data. This concept also appears in the context of graph-level prediction and inductive capability of GCNs.",
+    "claims": [
+      {
+        "claim": "The testing node is used in a GCN training and optimization pipeline.",
+        "evidence_ids": [
+          "DGL-E0258"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The testing node is associated with testing on unseen data.",
+        "evidence_ids": [
+          "DGL-E0258"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The testing node concept appears in the context of graph-level prediction and inductive capability of GCNs.",
+        "evidence_ids": [
+          "DGL-E0271"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Evidence consists of printed labels only; no formal definition or mechanism is provided."
+    ]
+  },
+  "review": {
+    "final_profile": "testing node: a node designated for testing in a GCN training and optimization pipeline. It is associated with testing on unseen data. The term also appears in the context of graph-level prediction and inductive capability of GCNs.",
+    "sentence_reviews": [
+      {
+        "sentence": "testing node: a node designated for testing in a GCN training and optimization pipeline.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0258"
+        ],
+        "reason": "The label 'Testing node' appears in a diagram whose title is 'GCN Training and Optimization Pipeline'."
+      },
+      {
+        "sentence": "It is associated with testing on unseen data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0258"
+        ],
+        "reason": "The same diagram includes the phrase 'Test on unseen'."
+      },
+      {
+        "sentence": "The term also appears in the context of graph-level prediction and inductive capability of GCNs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0271"
+        ],
+        "reason": "'Testing nodes' appears on the slide titled 'Graph-Level Prediction and Inductive Capability of GCNs'."
+      }
+    ],
+    "warnings": [
+      "Evidence consists of printed labels only; no formal definition or mechanism is provided."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"testing node: a node used for testing in a GCN training and optimization pipeline. The testing node is associated with testing on unseen data. This concept also appears in the context of graph-level prediction and inductive capability of GCNs.\",\n  \"claims\": [\n    {\n      \"claim\": \"The testing node is used in a GCN training and optimization pipeline.\",\n      \"evidence_ids\": [\"DGL-E0258\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The testing node is associated with testing on unseen data.\",\n      \"evidence_ids\": [\"DGL-E0258\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The testing node concept appears in the context of graph-level prediction and inductive capability of GCNs.\",\n      \"evidence_ids\": [\"DGL-E0271\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence consists of printed labels only; no formal definition or mechanism is provided.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"testing node: a node designated for testing in a GCN training and optimization pipeline. It is associated with testing on unseen data. The term also appears in the context of graph-level prediction and inductive capability of GCNs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"testing node: a node designated for testing in a GCN training and optimization pipeline.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0258\"],\n      \"reason\": \"The label 'Testing node' appears in a diagram whose title is 'GCN Training and Optimization Pipeline'.\"\n    },\n    {\n      \"sentence\": \"It is associated with testing on unseen data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0258\"],\n      \"reason\": \"The same diagram includes the phrase 'Test on unseen'.\"\n    },\n    {\n      \"sentence\": \"The term also appears in the context of graph-level prediction and inductive capability of GCNs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0271\"],\n      \"reason\": \"'Testing nodes' appears on the slide titled 'Graph-Level Prediction and Inductive Capability of GCNs'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence consists of printed labels only; no formal definition or mechanism is provided.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:16:13.840322+00:00"
+}

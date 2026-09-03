@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "61e0a9e65b1981e9d944d096c1104f55e850d6d30ebac00fc6530ac5e1e90939",
+  "concept_id": 83,
+  "concept_name": "feature representation",
+  "aliases": [
+    "feature representation",
+    "classic feature representation"
+  ],
+  "profile": "feature representation: Classic feature representation methods are presented in a deep learning preliminaries context. The context also covers regression, networks, and representation learning.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "feature representation: Classic feature representation methods are methods for representing features. The concept is introduced in a lecture on deep learning preliminaries, which addresses regression, networks, and representation learning.",
+    "claims": [
+      {
+        "claim": "Classic feature representation methods are methods for representing features.",
+        "evidence_ids": [
+          "DGL-E0086"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The concept is introduced in a lecture on deep learning preliminaries, which addresses regression, networks, and representation learning.",
+        "evidence_ids": [
+          "DGL-E0086"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "feature representation: Classic feature representation methods are presented in a deep learning preliminaries context. The context also covers regression, networks, and representation learning.",
+    "sentence_reviews": [
+      {
+        "sentence": "Classic feature representation methods are presented in a deep learning preliminaries context.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0086"
+        ],
+        "reason": "The source contains the heading 'CLASSIC FEATURE REPRESENTATION METHODS' within material titled 'Deep Learning Preliminaries'."
+      },
+      {
+        "sentence": "The context also covers regression, networks, and representation learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0086"
+        ],
+        "reason": "The source page title includes 'Regression, Networks, and Representation Learning'."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a heading, so no definition or explanatory content for feature representation is asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"feature representation: Classic feature representation methods are methods for representing features. The concept is introduced in a lecture on deep learning preliminaries, which addresses regression, networks, and representation learning.\",\n  \"claims\": [\n    {\n      \"claim\": \"Classic feature representation methods are methods for representing features.\",\n      \"evidence_ids\": [\"DGL-E0086\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The concept is introduced in a lecture on deep learning preliminaries, which addresses regression, networks, and representation learning.\",\n      \"evidence_ids\": [\"DGL-E0086\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"feature representation: Classic feature representation methods are presented in a deep learning preliminaries context. The context also covers regression, networks, and representation learning.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Classic feature representation methods are presented in a deep learning preliminaries context.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0086\"],\n      \"reason\": \"The source contains the heading 'CLASSIC FEATURE REPRESENTATION METHODS' within material titled 'Deep Learning Preliminaries'.\"\n    },\n    {\n      \"sentence\": \"The context also covers regression, networks, and representation learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0086\"],\n      \"reason\": \"The source page title includes 'Regression, Networks, and Representation Learning'.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to a heading, so no definition or explanatory content for feature representation is asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:20:25.556126+00:00"
+}

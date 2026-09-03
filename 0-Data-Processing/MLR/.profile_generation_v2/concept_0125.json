@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "f25903c8e75c1273f44551fcb63fdff154d0e6fd16938f1347916725904b418d",
+  "concept_id": 125,
+  "concept_name": "log-loss svm",
+  "aliases": [
+    "log-loss svm"
+  ],
+  "profile": "log-loss svm: A term sometimes used for the soft-margin SVM cost function.",
+  "word_count": 12,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "log-loss svm: A soft-margin SVM cost function that is also referred to as the log-loss SVM.",
+    "claims": [
+      {
+        "claim": "The term 'log-loss SVM' is sometimes used to refer to the soft-margin SVM cost function.",
+        "evidence_ids": [
+          "MLR-E0141"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "log-loss svm: A term sometimes used for the soft-margin SVM cost function.",
+    "sentence_reviews": [
+      {
+        "sentence": "log-loss svm: A term sometimes used for the soft-margin SVM cost function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0141"
+        ],
+        "reason": "The source states that the soft-margin SVM cost is at times referred to as the log-loss SVM."
+      }
+    ],
+    "warnings": [
+      "No additional details about the cost function are supported by the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"log-loss svm: A soft-margin SVM cost function that is also referred to as the log-loss SVM.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term 'log-loss SVM' is sometimes used to refer to the soft-margin SVM cost function.\",\n      \"evidence_ids\": [\"MLR-E0141\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"log-loss svm: A term sometimes used for the soft-margin SVM cost function.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"log-loss svm: A term sometimes used for the soft-margin SVM cost function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0141\"],\n      \"reason\": \"The source states that the soft-margin SVM cost is at times referred to as the log-loss SVM.\"\n    }\n  ],\n  \"warnings\": [\n    \"No additional details about the cost function are supported by the source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:15:15.950290+00:00"
+}

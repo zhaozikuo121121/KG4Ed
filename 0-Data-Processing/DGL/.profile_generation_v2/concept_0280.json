@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "769c8c1ce92b76553e2a4bc605bfdac2cadd5b7e2cfb47544fb4dba08398ecf0",
+  "concept_id": 280,
+  "concept_name": "node ordering",
+  "aliases": [
+    "node ordering",
+    "node permutation"
+  ],
+  "profile": "node ordering: Node ordering refers to how a graph's nodes are arranged. Different node orderings of the same graph can be denoted by i and j. The notion appears in the context of permutation invariance and equivariance in graph neural networks.",
+  "word_count": 41,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node ordering: Node ordering refers to the way a graph's nodes are arranged in a sequence. Different node orderings of the same graph correspond to distinct permutations of its nodes. This notion appears in the context of permutation invariance and equivariance in graph neural networks.",
+    "claims": [
+      {
+        "claim": "Node ordering refers to the way a graph's nodes are arranged in a sequence.",
+        "evidence_ids": [
+          "DGL-E0418"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Different node orderings of the same graph correspond to distinct permutations of its nodes.",
+        "evidence_ids": [
+          "DGL-E0418"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The notion appears in the context of permutation invariance and equivariance in graph neural networks.",
+        "evidence_ids": [
+          "DGL-E0418"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node ordering: Node ordering refers to how a graph's nodes are arranged. Different node orderings of the same graph can be denoted by i and j. The notion appears in the context of permutation invariance and equivariance in graph neural networks.",
+    "sentence_reviews": [
+      {
+        "sentence": "Node ordering refers to how a graph's nodes are arranged.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The source uses 'node orderings' but does not explicitly define it; this is a minimal background clarification."
+      },
+      {
+        "sentence": "Different node orderings of the same graph can be denoted by i and j.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0418"
+        ],
+        "reason": "Directly reflects the evidence: 'Let i and j denote different node orderings of the same graph'."
+      },
+      {
+        "sentence": "The notion appears in the context of permutation invariance and equivariance in graph neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0418"
+        ],
+        "reason": "Matches the page title context of the evidence."
+      }
+    ],
+    "warnings": [
+      "The source does not explicitly define 'node ordering' or state that orderings are permutations; the first sentence is a minimal background inference."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node ordering: Node ordering refers to the way a graph's nodes are arranged in a sequence. Different node orderings of the same graph correspond to distinct permutations of its nodes. This notion appears in the context of permutation invariance and equivariance in graph neural networks.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node ordering refers to the way a graph's nodes are arranged in a sequence.\",\n      \"evidence_ids\": [\"DGL-E0418\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Different node orderings of the same graph correspond to distinct permutations of its nodes.\",\n      \"evidence_ids\": [\"DGL-E0418\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The notion appears in the context of permutation invariance and equivariance in graph neural networks.\",\n      \"evidence_ids\": [\"DGL-E0418\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node ordering: Node ordering refers to how a graph's nodes are arranged. Different node orderings of the same graph can be denoted by i and j. The notion appears in the context of permutation invariance and equivariance in graph neural networks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Node ordering refers to how a graph's nodes are arranged.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The source uses 'node orderings' but does not explicitly define it; this is a minimal background clarification.\"\n    },\n    {\n      \"sentence\": \"Different node orderings of the same graph can be denoted by i and j.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0418\"],\n      \"reason\": \"Directly reflects the evidence: 'Let i and j denote different node orderings of the same graph'.\"\n    },\n    {\n      \"sentence\": \"The notion appears in the context of permutation invariance and equivariance in graph neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0418\"],\n      \"reason\": \"Matches the page title context of the evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not explicitly define 'node ordering' or state that orderings are permutations; the first sentence is a minimal background inference.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:41:42.563599+00:00"
+}

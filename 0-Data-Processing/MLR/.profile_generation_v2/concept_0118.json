@@ -1,0 +1,96 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5c81c655cd97dc643fe9cedde97a142e01309663ca7046e3a1b42f5832b21e55",
+  "concept_id": 118,
+  "concept_name": "margin-perceptron cost",
+  "aliases": [
+    "margin-perceptron cost",
+    "margin perceptron cost function"
+  ],
+  "profile": "margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x̌_p^T w). It sums over training examples p the amount by which the margin y_p x̌_p^T w falls below 1; the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.",
+  "word_count": 64,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x~_p^T w). It sums over training examples p the amount by which the margin y_p x~_p^T w falls below 1; the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.",
+    "claims": [
+      {
+        "claim": "margin-perceptron cost is a cost function for linear two-class classification",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is written g(w) = Σ max(0, 1 − y_p x~_p^T w)",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It sums over training examples p the amount by which the margin y_p x~_p^T w falls below 1",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No further definition beyond the provided formula is available."
+    ]
+  },
+  "review": {
+    "final_profile": "margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x̌_p^T w). It sums over training examples p the amount by which the margin y_p x̌_p^T w falls below 1; the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.",
+    "sentence_reviews": [
+      {
+        "sentence": "margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x̌_p^T w).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "reason": "The formula is given directly in the source and the context is linear two-class classification."
+      },
+      {
+        "sentence": "It sums over training examples p the amount by which the margin y_p x̌_p^T w falls below 1;",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "reason": "This restates the sum of max(0, 1 − margin) over examples."
+      },
+      {
+        "sentence": "the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0134"
+        ],
+        "reason": "This directly follows from the max(0, 1 − margin) expression."
+      }
+    ],
+    "warnings": [
+      "Only the formula is provided in the source; no further definition or naming rationale is available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x~_p^T w). It sums over training examples p the amount by which the margin y_p x~_p^T w falls below 1; the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.\",\n  \"claims\": [\n    {\n      \"claim\": \"margin-perceptron cost is a cost function for linear two-class classification\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is written g(w) = Σ max(0, 1 − y_p x~_p^T w)\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It sums over training examples p the amount by which the margin y_p x~_p^T w falls below 1\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No further definition beyond the provided formula is available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x̌_p^T w). It sums over training examples p the amount by which the margin y_p x̌_p^T w falls below 1; the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"margin-perceptron cost: a cost function for linear two-class classification, written g(w) = Σ max(0, 1 − y_p x̌_p^T w).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"reason\": \"The formula is given directly in the source and the context is linear two-class classification.\"\n    },\n    {\n      \"sentence\": \"It sums over training examples p the amount by which the margin y_p x̌_p^T w falls below 1;\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"reason\": \"This restates the sum of max(0, 1 − margin) over examples.\"\n    },\n    {\n      \"sentence\": \"the max(0, ·) term contributes zero when the margin is at least 1 and becomes positive when the margin is below 1.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0134\"],\n      \"reason\": \"This directly follows from the max(0, 1 − margin) expression.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the formula is provided in the source; no further definition or naming rationale is available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:12:09.444056+00:00"
+}

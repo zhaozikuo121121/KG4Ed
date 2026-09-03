@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "16c965288b9a347cedb44a1893c49cffb8ed98abd53f712c5fbf102f1b3e7682",
+  "concept_id": 35,
+  "concept_name": "diminishing steplength rules",
+  "aliases": [
+    "diminishing steplength rules",
+    "diminishing step length",
+    "diminishing steplength",
+    "diminishing steplength schemes",
+    "decreasing step size"
+  ],
+  "profile": "diminishing steplength rules: An alternative to fixed steplength rules, diminishing steplength rules shrink the steplength size at each step of local optimization. They are commonly used in local optimization. A simple example can compare fixed and diminishing steplength values.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "diminishing steplength rules: An alternative to fixed steplength rules, they shrink the steplength size at each step of local optimization. They are commonly used in local optimization, and a simple example can compare fixed and diminishing steplength values.",
+    "claims": [
+      {
+        "claim": "Diminishing steplength rules are an alternative to fixed steplength rules.",
+        "evidence_ids": [
+          "MLR-E0036"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "They shrink the steplength size at each step of local optimization.",
+        "evidence_ids": [
+          "MLR-E0036"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "They are commonly used in local optimization.",
+        "evidence_ids": [
+          "MLR-E0036"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A simple example can compare fixed and diminishing steplength values.",
+        "evidence_ids": [
+          "MLR-E0062"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "diminishing steplength rules: An alternative to fixed steplength rules, diminishing steplength rules shrink the steplength size at each step of local optimization. They are commonly used in local optimization. A simple example can compare fixed and diminishing steplength values.",
+    "sentence_reviews": [
+      {
+        "sentence": "An alternative to fixed steplength rules, diminishing steplength rules shrink the steplength size at each step of local optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0036"
+        ],
+        "reason": "The source defines diminishing steplength rules as a commonly used alternative to fixed steplength rules that shrink the steplength size at each step."
+      },
+      {
+        "sentence": "They are commonly used in local optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0036"
+        ],
+        "reason": "The source describes them as commonly used and places them in the context of local optimization."
+      },
+      {
+        "sentence": "A simple example can compare fixed and diminishing steplength values.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0062"
+        ],
+        "reason": "The source states to compare fixed and diminishing steplength values for a simple example."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"diminishing steplength rules: An alternative to fixed steplength rules, they shrink the steplength size at each step of local optimization. They are commonly used in local optimization, and a simple example can compare fixed and diminishing steplength values.\",\n  \"claims\": [\n    {\n      \"claim\": \"Diminishing steplength rules are an alternative to fixed steplength rules.\",\n      \"evidence_ids\": [\"MLR-E0036\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"They shrink the steplength size at each step of local optimization.\",\n      \"evidence_ids\": [\"MLR-E0036\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"They are commonly used in local optimization.\",\n      \"evidence_ids\": [\"MLR-E0036\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A simple example can compare fixed and diminishing steplength values.\",\n      \"evidence_ids\": [\"MLR-E0062\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"diminishing steplength rules: An alternative to fixed steplength rules, diminishing steplength rules shrink the steplength size at each step of local optimization. They are commonly used in local optimization. A simple example can compare fixed and diminishing steplength values.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"An alternative to fixed steplength rules, diminishing steplength rules shrink the steplength size at each step of local optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0036\"],\n      \"reason\": \"The source defines diminishing steplength rules as a commonly used alternative to fixed steplength rules that shrink the steplength size at each step.\"\n    },\n    {\n      \"sentence\": \"They are commonly used in local optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0036\"],\n      \"reason\": \"The source describes them as commonly used and places them in the context of local optimization.\"\n    },\n    {\n      \"sentence\": \"A simple example can compare fixed and diminishing steplength values.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0062\"],\n      \"reason\": \"The source states to compare fixed and diminishing steplength values for a simple example.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:33:37.346304+00:00"
+}

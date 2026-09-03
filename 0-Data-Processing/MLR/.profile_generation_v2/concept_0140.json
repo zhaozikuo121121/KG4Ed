@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "e5feacfdd9c1eb174775a1291705a2ffd57228ba8779c3024196e3d6e6faa835",
+  "concept_id": 140,
+  "concept_name": "point-wise weights",
+  "aliases": [
+    "point-wise weights",
+    "fixed point-wise weights"
+  ],
+  "profile": "point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights. These weights are constant coefficients, each associated with a feature, and they remain unchanged across data points.",
+    "claims": [
+      {
+        "claim": "In linear two-class classification, the values β1 to βP are fixed point-wise weights.",
+        "evidence_ids": [
+          "MLR-E0156"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not describe how point-wise weights are computed or applied beyond their fixed nature."
+    ]
+  },
+  "review": {
+    "final_profile": "point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights.",
+    "sentence_reviews": [
+      {
+        "sentence": "point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0156"
+        ],
+        "reason": "Directly reflects the excerpt, including the linear two-class classification context and the fixed values β1 through βP."
+      }
+    ],
+    "warnings": [
+      "The draft's additional assertions about constant coefficients, feature association, and behavior across data points are not supported by the excerpt and were removed."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights. These weights are constant coefficients, each associated with a feature, and they remain unchanged across data points.\",\n  \"claims\": [\n    {\n      \"claim\": \"In linear two-class classification, the values β1 to βP are fixed point-wise weights.\",\n      \"evidence_ids\": [\"MLR-E0156\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not describe how point-wise weights are computed or applied beyond their fixed nature.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"point-wise weights: In linear two-class classification, the values β1, β2, ..., βP are fixed point-wise weights.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0156\"\n      ],\n      \"reason\": \"Directly reflects the excerpt, including the linear two-class classification context and the fixed values β1 through βP.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's additional assertions about constant coefficients, feature association, and behavior across data points are not supported by the excerpt and were removed.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:20:33.790518+00:00"
+}

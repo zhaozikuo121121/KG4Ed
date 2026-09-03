@@ -1,0 +1,3344 @@
+{
+  "version": "1.0.0",
+  "lecture": 2,
+  "pdf_file": "DGL_Lecture_2_Annotated.pdf",
+  "pdf_page": 1,
+  "page_title": "Deep Learning Preliminaries: Regression, Networks, and Representation Learning",
+  "summary": "This lecture page reviews supervised regression models, contrasting single and multi-output linear approaches with their corresponding neural network architectures. It introduces the transition from hand-crafted features to learnable representations via matrix factorization techniques like PCA and K-Means. Finally, it outlines the structure of deep nonlinear networks, emphasizing composition, activation functions, and backpropagation.",
+  "key_topics": [
+    "supervised regression",
+    "neural network architecture",
+    "matrix factorization",
+    "representation learning",
+    "deep learning"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T09:39:20+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "supervised regression",
+      "aliases": [
+        "linear regression"
+      ],
+      "evidence": "Reminder: Supervised regression (linear)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        16.5,
+        846.0,
+        38.5
+      ]
+    },
+    {
+      "canonical": "single regression model",
+      "aliases": [
+        "single-output regression"
+      ],
+      "evidence": "Single regression model",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        49.5,
+        725.0,
+        66.0
+      ]
+    },
+    {
+      "canonical": "multi-regression models",
+      "aliases": [
+        "multi-output regression"
+      ],
+      "evidence": "Multi-regression models",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        49.5,
+        917.5,
+        66.0
+      ]
+    },
+    {
+      "canonical": "l2 loss",
+      "aliases": [
+        "squared error loss"
+      ],
+      "evidence": "L2 loss",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        736.0,
+        82.5,
+        769.0,
+        93.5
+      ]
+    },
+    {
+      "canonical": "deep learning",
+      "aliases": [
+        "dl"
+      ],
+      "evidence": "DL",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        231.0,
+        121.0,
+        319.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "bias",
+      "aliases": [
+        "intercept"
+      ],
+      "evidence": "bias",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        681.0,
+        121.0,
+        697.5,
+        132.0
+      ]
+    },
+    {
+      "canonical": "feature representation",
+      "aliases": [
+        "classic feature representation"
+      ],
+      "evidence": "CLASSIC FEATURE REPRESENTATION METHODS",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        203.5,
+        176.0,
+        374.0,
+        220.0
+      ]
+    },
+    {
+      "canonical": "machine learning",
+      "aliases": [
+        "ml"
+      ],
+      "evidence": "ML",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        66.0,
+        286.0,
+        99.0,
+        308.0
+      ]
+    },
+    {
+      "canonical": "hand-crafted features",
+      "aliases": [
+        "handcrafted features"
+      ],
+      "evidence": "HAND-CRAFTED FEATURES",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        176.0,
+        286.0,
+        286.0,
+        319.0
+      ]
+    },
+    {
+      "canonical": "feature selection",
+      "aliases": [],
+      "evidence": "FEATURE SELECTION",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        341.0,
+        286.0,
+        451.0,
+        319.0
+      ]
+    },
+    {
+      "canonical": "single layer linear network",
+      "aliases": [
+        "linear network"
+      ],
+      "evidence": "A single layer linear network with a single output",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        286.0,
+        752.5,
+        297.0
+      ]
+    },
+    {
+      "canonical": "classification",
+      "aliases": [
+        "classify"
+      ],
+      "evidence": "Classify",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        319.0,
+        330.0,
+        357.5,
+        341.0
+      ]
+    },
+    {
+      "canonical": "regression",
+      "aliases": [
+        "regress"
+      ],
+      "evidence": "Regress",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        429.0,
+        330.0,
+        467.5,
+        341.0
+      ]
+    },
+    {
+      "canonical": "spanning set",
+      "aliases": [],
+      "evidence": "SPANNING SET",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        165.0,
+        385.0,
+        275.0,
+        407.0
+      ]
+    },
+    {
+      "canonical": "weights",
+      "aliases": [
+        "parameters"
+      ],
+      "evidence": "weights",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        642.5,
+        396.0,
+        670.0,
+        407.0
+      ]
+    },
+    {
+      "canonical": "encode-decode function",
+      "aliases": [
+        "encoder-decoder"
+      ],
+      "evidence": "ENCODE-DECODE FUNCTION",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        165.0,
+        407.0,
+        275.0,
+        440.0
+      ]
+    },
+    {
+      "canonical": "nonlinear network",
+      "aliases": [
+        "nonlinear model",
+        "multi-layer perceptron"
+      ],
+      "evidence": "A single layer nonlinear network with a multiple outputs",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        604.0,
+        451.0,
+        780.0,
+        462.0
+      ]
+    },
+    {
+      "canonical": "network mapping function",
+      "aliases": [
+        "forward pass"
+      ],
+      "evidence": "Let us write down the network mapping function",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        807.5,
+        451.0,
+        972.5,
+        462.0
+      ]
+    },
+    {
+      "canonical": "fixed prior",
+      "aliases": [],
+      "evidence": "FIXED/PRIOR",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        137.5,
+        484.0,
+        220.0,
+        506.0
+      ]
+    },
+    {
+      "canonical": "representation learning",
+      "aliases": [
+        "feature transformation",
+        "embedding"
+      ],
+      "evidence": "AIM: Transform complex features into a space where linear models can work well in the final representation space.",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        5.5,
+        532.5,
+        99.0,
+        697.5
+      ]
+    },
+    {
+      "canonical": "optimal subspace",
+      "aliases": [
+        "learnable representation"
+      ],
+      "evidence": "LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        532.5,
+        467.5,
+        587.5
+      ]
+    },
+    {
+      "canonical": "dimensionality reduction",
+      "aliases": [
+        "lower-dimensional spanning space"
+      ],
+      "evidence": "Imperfect K < d lower-dimensional spanning space",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        137.5,
+        587.5,
+        192.5,
+        642.5
+      ]
+    },
+    {
+      "canonical": "matrix factorization",
+      "aliases": [
+        "cw ≈ x"
+      ],
+      "evidence": "MATRIX FACTORIZATION: CW ≈ X; we factor the matrix X into a product of two matrices C x W.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        587.5,
+        467.5,
+        642.5
+      ]
+    },
+    {
+      "canonical": "activation function",
+      "aliases": [
+        "nonlinear function"
+      ],
+      "evidence": "activation function a",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        670.0,
+        642.5,
+        725.0,
+        659.0
+      ]
+    },
+    {
+      "canonical": "latent representation",
+      "aliases": [
+        "embedding space"
+      ],
+      "evidence": "latent representations / features",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        725.0,
+        642.5,
+        780.0,
+        659.0
+      ]
+    },
+    {
+      "canonical": "principal component analysis",
+      "aliases": [
+        "pca",
+        "linear autoencoder"
+      ],
+      "evidence": "PCA: Linear autoencoder. Find an orthonormal spanning basis minimizing the data variance.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        648.0,
+        341.0,
+        736.0
+      ]
+    },
+    {
+      "canonical": "k-means clustering",
+      "aliases": [
+        "grouping"
+      ],
+      "evidence": "K-MEANS: Group similar samples into clusters.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        346.5,
+        648.0,
+        423.5,
+        736.0
+      ]
+    },
+    {
+      "canonical": "matrix completion",
+      "aliases": [
+        "imputation"
+      ],
+      "evidence": "MATRIX COMPLETION: Complete missing values in the data matrix.",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        429.0,
+        648.0,
+        506.0,
+        736.0
+      ]
+    },
+    {
+      "canonical": "deep non-negative matrix factorization",
+      "aliases": [
+        "deep nmf"
+      ],
+      "evidence": "A Deep Non-Negative Matrix Factorization Neural Network... Theorem 1 A standard deep N.N. defined above can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        747.0,
+        506.0,
+        791.0
+      ]
+    },
+    {
+      "canonical": "hidden layer",
+      "aliases": [
+        "hidden unit"
+      ],
+      "evidence": "hidden layer 1",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        697.5,
+        807.5,
+        752.5,
+        824.0
+      ]
+    },
+    {
+      "canonical": "backpropagation",
+      "aliases": [
+        "gradient descent",
+        "optimization"
+      ],
+      "evidence": "COMPOSITION & BACKPROPAGATION",
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        862.5,
+        302.5,
+        890.0
+      ]
+    },
+    {
+      "canonical": "linear aggregation",
+      "aliases": [
+        "sum",
+        "aggregation"
+      ],
+      "evidence": "linear aggregation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        642.5,
+        917.5,
+        697.5,
+        934.0
+      ]
+    },
+    {
+      "canonical": "nonlinear transformation",
+      "aliases": [
+        "activation"
+      ],
+      "evidence": "first nonlinear transformation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        752.5,
+        945.0,
+        807.5,
+        961.5
+      ]
+    },
+    {
+      "canonical": "composed feature transformation",
+      "aliases": [
+        "final transformation"
+      ],
+      "evidence": "final composed feature transformation",
+      "source_type": "handwritten",
+      "confidence": 0.9,
+      "bbox": [
+        697.5,
+        972.5,
+        807.5,
+        989.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+      "related_concepts": [
+        "single regression model",
+        "l2 loss"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        604.0,
+        82.5,
+        736.0,
+        110.0
+      ],
+      "label": "loss function"
+    },
+    {
+      "latex": "l(W) = ||\\tilde{X}W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (\\tilde{X}w_c - y_c)^2",
+      "related_concepts": [
+        "multi-regression models",
+        "l2 loss"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        82.5,
+        945.0,
+        110.0
+      ],
+      "label": "loss function"
+    },
+    {
+      "latex": "w \\in \\mathbb{R}^{d+1}",
+      "related_concepts": [
+        "weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        703.0,
+        209.0,
+        752.5,
+        220.0
+      ],
+      "label": "weight vector"
+    },
+    {
+      "latex": "W \\in \\mathbb{R}^{(d+1) \\times C}",
+      "related_concepts": [
+        "weights",
+        "multi-regression models"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        209.0,
+        862.5,
+        220.0
+      ],
+      "label": "weight matrix"
+    },
+    {
+      "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+      "related_concepts": [
+        "multi-regression models"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        868.0,
+        209.0,
+        945.0,
+        220.0
+      ],
+      "label": "predicted output matrix"
+    },
+    {
+      "latex": "Y \\in \\mathbb{R}^{n \\times C}",
+      "related_concepts": [
+        "multi-regression models"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        950.5,
+        209.0,
+        1000.0,
+        220.0
+      ],
+      "label": "ground truth matrix"
+    },
+    {
+      "latex": "\\hat{y}_i = \\tilde{x}_i^T w",
+      "related_concepts": [
+        "single layer linear network"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        714.0,
+        341.0,
+        769.0,
+        352.0
+      ],
+      "label": "output prediction"
+    },
+    {
+      "latex": "CW \\approx X",
+      "related_concepts": [
+        "matrix factorization"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        264.0,
+        604.0,
+        319.0,
+        620.5
+      ],
+      "label": "Matrix Factorization Objective"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Flowchart showing ML pipeline from hand-crafted features to feature selection, feature transformation, and then branching into classification and regression tasks, with further breakdown into fixed/prior and learnable methods.",
+      "related_concepts": [
+        "feature representation",
+        "hand-crafted features",
+        "feature selection",
+        "representation learning",
+        "classification",
+        "regression",
+        "fixed prior",
+        "optimal subspace"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        55.0,
+        275.0,
+        522.5,
+        550.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Scatter plot illustrating classification in a new space with decision boundary.",
+      "related_concepts": [
+        "classification",
+        "representation learning"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        319.0,
+        352.0,
+        385.0,
+        451.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Scatter plot illustrating regression in a new space with fitted line.",
+      "related_concepts": [
+        "regression",
+        "representation learning"
+      ],
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        429.0,
+        352.0,
+        495.0,
+        451.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication diagram for single regression model showing feature matrix, weight vector, and output vector",
+      "related_concepts": [
+        "single regression model",
+        "weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        604.0,
+        121.0,
+        752.5,
+        209.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Matrix multiplication diagram for multi-regression models showing feature matrix, weight matrix, and output matrix",
+      "related_concepts": [
+        "multi-regression models",
+        "weights"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        121.0,
+        972.5,
+        209.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Neural network diagram for single layer linear network with single output showing input features, weights, summation, and output",
+      "related_concepts": [
+        "single layer linear network",
+        "weights",
+        "linear aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        604.0,
+        308.0,
+        752.5,
+        407.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Neural network diagram for single layer linear network with multiple outputs showing input features, weights, summation, and multiple outputs",
+      "related_concepts": [
+        "single layer linear network",
+        "weights",
+        "linear aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        780.0,
+        308.0,
+        917.5,
+        407.0
+      ]
+    },
+    {
+      "kind": "plot",
+      "description": "Scatter plot showing regression lines for multiple outputs with different weights",
+      "related_concepts": [
+        "multi-regression models"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        923.0,
+        308.0,
+        1000.0,
+        407.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Neural network diagram for single layer nonlinear network with multiple outputs showing input features, weights, activation functions, and multiple outputs",
+      "related_concepts": [
+        "nonlinear network",
+        "weights",
+        "activation function"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        604.0,
+        473.0,
+        780.0,
+        550.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Three circular diagrams illustrating PCA (linear autoencoder with data points and basis vectors), K-Means (grouping data points into clusters), and Matrix Completion (filling missing values in a matrix).",
+      "related_concepts": [
+        "principal component analysis",
+        "k-means clustering",
+        "matrix completion"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        258.5,
+        642.5,
+        511.5,
+        741.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Neural network architecture diagram showing input layer X_i, hidden layers A^l, and output S, alongside matrix representations X_i, A, and S with dimensions N and k.",
+      "related_concepts": [
+        "deep non-negative matrix factorization",
+        "nonlinear network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        796.5,
+        467.5,
+        862.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Scatter plot showing data points in a 2D space with basis vectors e1 and e2, illustrating the concept of linear autoencoder in PCA.",
+      "related_concepts": [
+        "principal component analysis"
+      ],
+      "source_type": "handwritten",
+      "confidence": 1.0,
+      "bbox": [
+        269.5,
+        703.0,
+        335.5,
+        736.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Diagram of a multi-layer neural network with input features, hidden layers, and output units.",
+      "related_concepts": [
+        "nonlinear network",
+        "hidden layer",
+        "activation function"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        477.5,
+        835.0,
+        670.0
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Detailed view of a deep neural network architecture showing multiple hidden layers and output units.",
+      "related_concepts": [
+        "nonlinear network",
+        "hidden layer",
+        "activation function"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        615.0,
+        697.5,
+        835.0,
+        862.5
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "amnesia.tn",
+      "reason": "Unclear handwriting, possibly a website or note reference",
+      "bbox": [
+        604.0,
+        176.0,
+        642.5,
+        187.0
+      ]
+    },
+    {
+      "transcription": "iiiunisoni",
+      "reason": "Unclear handwriting, possibly a note or annotation",
+      "bbox": [
+        780.0,
+        275.0,
+        824.0,
+        286.0
+      ]
+    },
+    {
+      "transcription": "multipleiiioutputs",
+      "reason": "Unclear handwriting, possibly a typo or annotation",
+      "bbox": [
+        780.0,
+        264.0,
+        862.5,
+        275.0
+      ]
+    },
+    {
+      "transcription": "a",
+      "reason": "Single letter, unclear context",
+      "bbox": [
+        736.0,
+        462.0,
+        747.0,
+        473.0
+      ]
+    },
+    {
+      "transcription": "Jamaicans soggy",
+      "reason": "Handwriting is unclear and contextually ambiguous.",
+      "bbox": [
+        697.5,
+        505.0,
+        752.5,
+        521.5
+      ]
+    },
+    {
+      "transcription": "wet WEwin we i ai",
+      "reason": "Handwriting is unclear and contextually ambiguous.",
+      "bbox": [
+        697.5,
+        560.0,
+        752.5,
+        576.5
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "feature representation",
+            "aliases": [
+              "feature representation methods",
+              "classic feature representation"
+            ],
+            "evidence": "CLASSIC FEATURE REPRESENTATION METHODS",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              370,
+              320,
+              680,
+              400
+            ]
+          },
+          {
+            "canonical": "hand-crafted features",
+            "aliases": [
+              "handcrafted features"
+            ],
+            "evidence": "HAND-CRAFTED FEATURES",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              320,
+              520,
+              520,
+              580
+            ]
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [],
+            "evidence": "FEATURE SELECTION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              620,
+              520,
+              820,
+              580
+            ]
+          },
+          {
+            "canonical": "feature transformation",
+            "aliases": [
+              "feature representation"
+            ],
+            "evidence": "FEATURE TRANSFORMATION / REPRESENTATION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              280,
+              620,
+              580,
+              680
+            ]
+          },
+          {
+            "canonical": "spanning set",
+            "aliases": [],
+            "evidence": "SPANNING SET",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              700,
+              500,
+              740
+            ]
+          },
+          {
+            "canonical": "encode-decode function",
+            "aliases": [
+              "encoder-decoder"
+            ],
+            "evidence": "ENCODE-DECODE FUNCTION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              740,
+              500,
+              800
+            ]
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classify"
+            ],
+            "evidence": "Classify",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              600,
+              650,
+              620
+            ]
+          },
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regress"
+            ],
+            "evidence": "Regress",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              780,
+              600,
+              850,
+              620
+            ]
+          },
+          {
+            "canonical": "fixed prior",
+            "aliases": [
+              "fixed/prior"
+            ],
+            "evidence": "FIXED/PRIOR",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              250,
+              880,
+              400,
+              920
+            ]
+          },
+          {
+            "canonical": "learnable representation",
+            "aliases": [
+              "learnable"
+            ],
+            "evidence": "LEARNABLE",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              880,
+              720,
+              920
+            ]
+          },
+          {
+            "canonical": "optimal subspace",
+            "aliases": [],
+            "evidence": "OPTIMAL SUBSPACE FOR THE DATA",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              720,
+              860,
+              950,
+              940
+            ]
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [],
+            "evidence": "MATRIX FACTORIZATION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              550,
+              960,
+              850,
+              1000
+            ]
+          },
+          {
+            "canonical": "machine learning",
+            "aliases": [
+              "ML"
+            ],
+            "evidence": "ML",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              120,
+              520,
+              180,
+              560
+            ]
+          },
+          {
+            "canonical": "deep learning",
+            "aliases": [
+              "DL"
+            ],
+            "evidence": "DL",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              420,
+              220,
+              580,
+              300
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing ML pipeline from hand-crafted features to feature selection, feature transformation, and then branching into classification and regression tasks, with further breakdown into fixed/prior and learnable methods.",
+            "related_concepts": [
+              "feature representation",
+              "hand-crafted features",
+              "feature selection",
+              "feature transformation",
+              "classification",
+              "regression",
+              "fixed prior",
+              "learnable representation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              100,
+              500,
+              950,
+              1000
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot illustrating classification in a new space with decision boundary.",
+            "related_concepts": [
+              "classification",
+              "feature transformation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              580,
+              640,
+              700,
+              820
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot illustrating regression in a new space with fitted line.",
+            "related_concepts": [
+              "regression",
+              "feature transformation"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              780,
+              640,
+              900,
+              820
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"feature representation\",\n      \"aliases\": [\"feature representation methods\", \"classic feature representation\"],\n      \"evidence\": \"CLASSIC FEATURE REPRESENTATION METHODS\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [370, 320, 680, 400]\n    },\n    {\n      \"canonical\": \"hand-crafted features\",\n      \"aliases\": [\"handcrafted features\"],\n      \"evidence\": \"HAND-CRAFTED FEATURES\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [320, 520, 520, 580]\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [],\n      \"evidence\": \"FEATURE SELECTION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [620, 520, 820, 580]\n    },\n    {\n      \"canonical\": \"feature transformation\",\n      \"aliases\": [\"feature representation\"],\n      \"evidence\": \"FEATURE TRANSFORMATION / REPRESENTATION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [280, 620, 580, 680]\n    },\n    {\n      \"canonical\": \"spanning set\",\n      \"aliases\": [],\n      \"evidence\": \"SPANNING SET\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 700, 500, 740]\n    },\n    {\n      \"canonical\": \"encode-decode function\",\n      \"aliases\": [\"encoder-decoder\"],\n      \"evidence\": \"ENCODE-DECODE FUNCTION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 740, 500, 800]\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"classify\"],\n      \"evidence\": \"Classify\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 600, 650, 620]\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\"regress\"],\n      \"evidence\": \"Regress\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [780, 600, 850, 620]\n    },\n    {\n      \"canonical\": \"fixed prior\",\n      \"aliases\": [\"fixed/prior\"],\n      \"evidence\": \"FIXED/PRIOR\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [250, 880, 400, 920]\n    },\n    {\n      \"canonical\": \"learnable representation\",\n      \"aliases\": [\"learnable\"],\n      \"evidence\": \"LEARNABLE\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 880, 720, 920]\n    },\n    {\n      \"canonical\": \"optimal subspace\",\n      \"aliases\": [],\n      \"evidence\": \"OPTIMAL SUBSPACE FOR THE DATA\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [720, 860, 950, 940]\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [],\n      \"evidence\": \"MATRIX FACTORIZATION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [550, 960, 850, 1000]\n    },\n    {\n      \"canonical\": \"machine learning\",\n      \"aliases\": [\"ML\"],\n      \"evidence\": \"ML\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [120, 520, 180, 560]\n    },\n    {\n      \"canonical\": \"deep learning\",\n      \"aliases\": [\"DL\"],\n      \"evidence\": \"DL\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [420, 220, 580, 300]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing ML pipeline from hand-crafted features to feature selection, feature transformation, and then branching into classification and regression tasks, with further breakdown into fixed/prior and learnable methods.\",\n      \"related_concepts\": [\"feature representation\", \"hand-crafted features\", \"feature selection\", \"feature transformation\", \"classification\", \"regression\", \"fixed prior\", \"learnable representation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [100, 500, 950, 1000]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot illustrating classification in a new space with decision boundary.\",\n      \"related_concepts\": [\"classification\", \"feature transformation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [580, 640, 700, 820]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot illustrating regression in a new space with fitted line.\",\n      \"related_concepts\": [\"regression\", \"feature transformation\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [780, 640, 900, 820]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "supervised regression",
+            "aliases": [
+              "linear regression",
+              "supervised learning"
+            ],
+            "evidence": "Reminder: Supervised regression (linear)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              30,
+              720,
+              70
+            ]
+          },
+          {
+            "canonical": "single regression model",
+            "aliases": [
+              "single-output regression"
+            ],
+            "evidence": "Single regression model",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              90,
+              500,
+              120
+            ]
+          },
+          {
+            "canonical": "multi-regression models",
+            "aliases": [
+              "multi-output regression"
+            ],
+            "evidence": "Multi-regression models",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              90,
+              850,
+              120
+            ]
+          },
+          {
+            "canonical": "l2 loss",
+            "aliases": [
+              "squared error loss"
+            ],
+            "evidence": "L2 loss",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              520,
+              150,
+              580,
+              170
+            ]
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "intercept"
+            ],
+            "evidence": "bias",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              420,
+              220,
+              450,
+              240
+            ]
+          },
+          {
+            "canonical": "single layer linear network",
+            "aliases": [
+              "linear network"
+            ],
+            "evidence": "A single layer linear network with a single output",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              520,
+              550,
+              540
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "sum"
+            ],
+            "evidence": "aggregation",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              420,
+              680,
+              480,
+              700
+            ]
+          },
+          {
+            "canonical": "weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "weights",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              720,
+              400,
+              740
+            ]
+          },
+          {
+            "canonical": "nonlinear network",
+            "aliases": [
+              "nonlinear model"
+            ],
+            "evidence": "A single layer nonlinear network with a multiple outputs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              280,
+              820,
+              600,
+              840
+            ]
+          },
+          {
+            "canonical": "network mapping function",
+            "aliases": [
+              "forward pass"
+            ],
+            "evidence": "Let us write down the network mapping function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              820,
+              950,
+              840
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "single regression model",
+              "l2 loss"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              280,
+              150,
+              520,
+              200
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "l(W) = ||\\tilde{X}W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (\\tilde{X}w_c - y_c)^2",
+            "related_concepts": [
+              "multi-regression models",
+              "l2 loss"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              150,
+              900,
+              200
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+            "related_concepts": [
+              "features",
+              "samples"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              280,
+              380,
+              450,
+              400
+            ],
+            "label": "feature matrix"
+          },
+          {
+            "latex": "w \\in \\mathbb{R}^{d+1}",
+            "related_concepts": [
+              "weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              460,
+              380,
+              550,
+              400
+            ],
+            "label": "weight vector"
+          },
+          {
+            "latex": "\\hat{y} \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              560,
+              380,
+              650,
+              400
+            ],
+            "label": "predicted output"
+          },
+          {
+            "latex": "y \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              660,
+              380,
+              750,
+              400
+            ],
+            "label": "ground truth"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{(d+1) \\times C}",
+            "related_concepts": [
+              "weights",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              380,
+              750,
+              400
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "output scores",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              760,
+              380,
+              900,
+              400
+            ],
+            "label": "predicted output matrix"
+          },
+          {
+            "latex": "Y \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "output scores",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              910,
+              380,
+              1000,
+              400
+            ],
+            "label": "ground truth matrix"
+          },
+          {
+            "latex": "\\hat{y}_i = \\tilde{x}_i^T w",
+            "related_concepts": [
+              "single layer linear network",
+              "output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              480,
+              620,
+              580,
+              640
+            ],
+            "label": "output prediction"
+          },
+          {
+            "latex": "y = W_2^T a(W_1^T \\tilde{x})",
+            "related_concepts": [
+              "nonlinear network",
+              "network mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              650,
+              900,
+              950,
+              950
+            ],
+            "label": "network output"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram for single regression model showing feature matrix, weight vector, and output vector",
+            "related_concepts": [
+              "single regression model",
+              "features",
+              "weights",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              280,
+              220,
+              550,
+              380
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram for multi-regression models showing feature matrix, weight matrix, and output matrix",
+            "related_concepts": [
+              "multi-regression models",
+              "features",
+              "weights",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              220,
+              950,
+              380
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer linear network with single output showing input features, weights, summation, and output",
+            "related_concepts": [
+              "single layer linear network",
+              "weights",
+              "aggregation",
+              "output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              280,
+              560,
+              550,
+              740
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer linear network with multiple outputs showing input features, weights, summation, and multiple outputs",
+            "related_concepts": [
+              "single layer linear network",
+              "weights",
+              "aggregation",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              560,
+              850,
+              740
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot showing regression lines for multiple outputs with different weights",
+            "related_concepts": [
+              "multi-regression models",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              860,
+              560,
+              1000,
+              740
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer nonlinear network with multiple outputs showing input features, weights, activation functions, and multiple outputs",
+            "related_concepts": [
+              "nonlinear network",
+              "weights",
+              "activation function",
+              "output scores"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              280,
+              860,
+              600,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "amnesia.tn",
+            "reason": "Unclear handwriting, possibly a website or note reference",
+            "bbox": [
+              280,
+              320,
+              350,
+              340
+            ]
+          },
+          {
+            "transcription": "iiiunisoni",
+            "reason": "Unclear handwriting, possibly a note or annotation",
+            "bbox": [
+              600,
+              500,
+              680,
+              520
+            ]
+          },
+          {
+            "transcription": "multipleiiioutputs",
+            "reason": "Unclear handwriting, possibly a typo or annotation",
+            "bbox": [
+              600,
+              480,
+              750,
+              500
+            ]
+          },
+          {
+            "transcription": "a",
+            "reason": "Single letter, unclear context",
+            "bbox": [
+              520,
+              840,
+              540,
+              860
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"supervised regression\",\n      \"aliases\": [\"linear regression\", \"supervised learning\"],\n      \"evidence\": \"Reminder: Supervised regression (linear)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 30, 720, 70]\n    },\n    {\n      \"canonical\": \"single regression model\",\n      \"aliases\": [\"single-output regression\"],\n      \"evidence\": \"Single regression model\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 90, 500, 120]\n    },\n    {\n      \"canonical\": \"multi-regression models\",\n      \"aliases\": [\"multi-output regression\"],\n      \"evidence\": \"Multi-regression models\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 90, 850, 120]\n    },\n    {\n      \"canonical\": \"l2 loss\",\n      \"aliases\": [\"squared error loss\"],\n      \"evidence\": \"L2 loss\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [520, 150, 580, 170]\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"intercept\"],\n      \"evidence\": \"bias\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [420, 220, 450, 240]\n    },\n    {\n      \"canonical\": \"single layer linear network\",\n      \"aliases\": [\"linear network\"],\n      \"evidence\": \"A single layer linear network with a single output\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 520, 550, 540]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"sum\"],\n      \"evidence\": \"aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [420, 680, 480, 700]\n    },\n    {\n      \"canonical\": \"weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"weights\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 720, 400, 740]\n    },\n    {\n      \"canonical\": \"nonlinear network\",\n      \"aliases\": [\"nonlinear model\"],\n      \"evidence\": \"A single layer nonlinear network with a multiple outputs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [280, 820, 600, 840]\n    },\n    {\n      \"canonical\": \"network mapping function\",\n      \"aliases\": [\"forward pass\"],\n      \"evidence\": \"Let us write down the network mapping function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 820, 950, 840]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} (\\\\tilde{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"single regression model\", \"l2 loss\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [280, 150, 520, 200],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"l(W) = ||\\\\tilde{X}W - Y||_2^2 = \\\\frac{1}{C} \\\\sum_{c=1}^{C} (\\\\tilde{X}w_c - y_c)^2\",\n      \"related_concepts\": [\"multi-regression models\", \"l2 loss\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 150, 900, 200],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X} \\\\in \\\\mathbb{R}^{n \\\\times (d+1)}\",\n      \"related_concepts\": [\"features\", \"samples\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [280, 380, 450, 400],\n      \"label\": \"feature matrix\"\n    },\n    {\n      \"latex\": \"w \\\\in \\\\mathbb{R}^{d+1}\",\n      \"related_concepts\": [\"weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [460, 380, 550, 400],\n      \"label\": \"weight vector\"\n    },\n    {\n      \"latex\": \"\\\\hat{y} \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [560, 380, 650, 400],\n      \"label\": \"predicted output\"\n    },\n    {\n      \"latex\": \"y \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [660, 380, 750, 400],\n      \"label\": \"ground truth\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{(d+1) \\\\times C}\",\n      \"related_concepts\": [\"weights\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 380, 750, 400],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"output scores\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [760, 380, 900, 400],\n      \"label\": \"predicted output matrix\"\n    },\n    {\n      \"latex\": \"Y \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"output scores\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [910, 380, 1000, 400],\n      \"label\": \"ground truth matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{y}_i = \\\\tilde{x}_i^T w\",\n      \"related_concepts\": [\"single layer linear network\", \"output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [480, 620, 580, 640],\n      \"label\": \"output prediction\"\n    },\n    {\n      \"latex\": \"y = W_2^T a(W_1^T \\\\tilde{x})\",\n      \"related_concepts\": [\"nonlinear network\", \"network mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [650, 900, 950, 950],\n      \"label\": \"network output\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram for single regression model showing feature matrix, weight vector, and output vector\",\n      \"related_concepts\": [\"single regression model\", \"features\", \"weights\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [280, 220, 550, 380]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram for multi-regression models showing feature matrix, weight matrix, and output matrix\",\n      \"related_concepts\": [\"multi-regression models\", \"features\", \"weights\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 220, 950, 380]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer linear network with single output showing input features, weights, summation, and output\",\n      \"related_concepts\": [\"single layer linear network\", \"weights\", \"aggregation\", \"output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [280, 560, 550, 740]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer linear network with multiple outputs showing input features, weights, summation, and multiple outputs\",\n      \"related_concepts\": [\"single layer linear network\", \"weights\", \"aggregation\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 560, 850, 740]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot showing regression lines for multiple outputs with different weights\",\n      \"related_concepts\": [\"multi-regression models\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [860, 560, 1000, 740]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer nonlinear network with multiple outputs showing input features, weights, activation functions, and multiple outputs\",\n      \"related_concepts\": [\"nonlinear network\", \"weights\", \"activation function\", \"output scores\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [280, 860, 600, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"amnesia.tn\",\n      \"reason\": \"Unclear handwriting, possibly a website or note reference\",\n      \"bbox\": [280, 320, 350, 340]\n    },\n    {\n      \"transcription\": \"iiiunisoni\",\n      \"reason\": \"Unclear handwriting, possibly a note or annotation\",\n      \"bbox\": [600, 500, 680, 520]\n    },\n    {\n      \"transcription\": \"multipleiiioutputs\",\n      \"reason\": \"Unclear handwriting, possibly a typo or annotation\",\n      \"bbox\": [600, 480, 750, 500]\n    },\n    {\n      \"transcription\": \"a\",\n      \"reason\": \"Single letter, unclear context\",\n      \"bbox\": [520, 840, 540, 860]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "representation learning",
+            "aliases": [
+              "feature transformation",
+              "embedding"
+            ],
+            "evidence": "AIM: Transform complex features into a space where linear models can work well in the final representation space.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              150,
+              180,
+              450
+            ]
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [
+              "CW ≈ X"
+            ],
+            "evidence": "MATRIX FACTORIZATION: CW ≈ X; we factor the matrix X into a product of two matrices C x W.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              250,
+              850,
+              350
+            ]
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "PCA",
+              "linear autoencoder"
+            ],
+            "evidence": "PCA: Linear autoencoder. Find an orthonormal spanning basis minimizing the data variance.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              360,
+              620,
+              520
+            ]
+          },
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "grouping"
+            ],
+            "evidence": "K-MEANS: Group similar samples into clusters.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              630,
+              360,
+              770,
+              520
+            ]
+          },
+          {
+            "canonical": "matrix completion",
+            "aliases": [
+              "imputation"
+            ],
+            "evidence": "MATRIX COMPLETION: Complete missing values in the data matrix.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              780,
+              360,
+              920,
+              520
+            ]
+          },
+          {
+            "canonical": "deep non-negative matrix factorization",
+            "aliases": [
+              "Deep NMF",
+              "multi-layered deep nonnegative matrix factorization"
+            ],
+            "evidence": "A Deep Non-Negative Matrix Factorization Neural Network... Theorem 1 A standard deep N.N. defined above can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              540,
+              920,
+              620
+            ]
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "gradient descent",
+              "optimization"
+            ],
+            "evidence": "COMPOSITION & BACKPROPAGATION",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              750,
+              550,
+              800
+            ]
+          },
+          {
+            "canonical": "dimensionality reduction",
+            "aliases": [
+              "lower-dimensional spanning space"
+            ],
+            "evidence": "Imperfect K < d lower-dimensional spanning space",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              250,
+              250,
+              350,
+              350
+            ]
+          },
+          {
+            "canonical": "optimal subspace",
+            "aliases": [
+              "learnable representation"
+            ],
+            "evidence": "LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              150,
+              850,
+              250
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "CW \\approx X",
+            "related_concepts": [
+              "matrix factorization"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              480,
+              280,
+              580,
+              310
+            ],
+            "label": "Matrix Factorization Objective"
+          },
+          {
+            "latex": "L(C) = \\frac{1}{n} \\sum_{i=1}^{n} || Cx_i - x_i ||_2^2",
+            "related_concepts": [
+              "principal component analysis"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              490,
+              420,
+              610,
+              450
+            ],
+            "label": "PCA Loss Function"
+          },
+          {
+            "latex": "L(C, W) = \\frac{1}{n} || CW - X ||_F^2",
+            "related_concepts": [
+              "matrix factorization",
+              "k-means clustering"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              640,
+              420,
+              760,
+              450
+            ],
+            "label": "K-Means / MF Loss Function"
+          },
+          {
+            "latex": "L(W, C) = \\frac{1}{n} || CW - X ||_F^2",
+            "related_concepts": [
+              "matrix completion"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              790,
+              420,
+              910,
+              450
+            ],
+            "label": "Matrix Completion Loss Function"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Three circular diagrams illustrating PCA (linear autoencoder with data points and basis vectors), K-Means (grouping data points into clusters), and Matrix Completion (filling missing values in a matrix).",
+            "related_concepts": [
+              "principal component analysis",
+              "k-means clustering",
+              "matrix completion"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              470,
+              350,
+              930,
+              530
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Neural network architecture diagram showing input layer X_i, hidden layers A^l, and output S, alongside matrix representations X_i, A, and S with dimensions N and k.",
+            "related_concepts": [
+              "deep non-negative matrix factorization",
+              "neural network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              630,
+              850,
+              750
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Scatter plot showing data points in a 2D space with basis vectors e1 and e2, illustrating the concept of linear autoencoder in PCA.",
+            "related_concepts": [
+              "principal component analysis"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              490,
+              460,
+              610,
+              520
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"representation learning\",\n      \"aliases\": [\"feature transformation\", \"embedding\"],\n      \"evidence\": \"AIM: Transform complex features into a space where linear models can work well in the final representation space.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 150, 180, 450]\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [\"CW ≈ X\"],\n      \"evidence\": \"MATRIX FACTORIZATION: CW ≈ X; we factor the matrix X into a product of two matrices C x W.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 250, 850, 350]\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"PCA\", \"linear autoencoder\"],\n      \"evidence\": \"PCA: Linear autoencoder. Find an orthonormal spanning basis minimizing the data variance.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 360, 620, 520]\n    },\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"grouping\"],\n      \"evidence\": \"K-MEANS: Group similar samples into clusters.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [630, 360, 770, 520]\n    },\n    {\n      \"canonical\": \"matrix completion\",\n      \"aliases\": [\"imputation\"],\n      \"evidence\": \"MATRIX COMPLETION: Complete missing values in the data matrix.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780, 360, 920, 520]\n    },\n    {\n      \"canonical\": \"deep non-negative matrix factorization\",\n      \"aliases\": [\"Deep NMF\", \"multi-layered deep nonnegative matrix factorization\"],\n      \"evidence\": \"A Deep Non-Negative Matrix Factorization Neural Network... Theorem 1 A standard deep N.N. defined above can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 540, 920, 620]\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"gradient descent\", \"optimization\"],\n      \"evidence\": \"COMPOSITION & BACKPROPAGATION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 750, 550, 800]\n    },\n    {\n      \"canonical\": \"dimensionality reduction\",\n      \"aliases\": [\"lower-dimensional spanning space\"],\n      \"evidence\": \"Imperfect K < d lower-dimensional spanning space\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [250, 250, 350, 350]\n    },\n    {\n      \"canonical\": \"optimal subspace\",\n      \"aliases\": [\"learnable representation\"],\n      \"evidence\": \"LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 150, 850, 250]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"CW \\\\approx X\",\n      \"related_concepts\": [\"matrix factorization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [480, 280, 580, 310],\n      \"label\": \"Matrix Factorization Objective\"\n    },\n    {\n      \"latex\": \"L(C) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} || Cx_i - x_i ||_2^2\",\n      \"related_concepts\": [\"principal component analysis\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [490, 420, 610, 450],\n      \"label\": \"PCA Loss Function\"\n    },\n    {\n      \"latex\": \"L(C, W) = \\\\frac{1}{n} || CW - X ||_F^2\",\n      \"related_concepts\": [\"matrix factorization\", \"k-means clustering\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [640, 420, 760, 450],\n      \"label\": \"K-Means / MF Loss Function\"\n    },\n    {\n      \"latex\": \"L(W, C) = \\\\frac{1}{n} || CW - X ||_F^2\",\n      \"related_concepts\": [\"matrix completion\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [790, 420, 910, 450],\n      \"label\": \"Matrix Completion Loss Function\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Three circular diagrams illustrating PCA (linear autoencoder with data points and basis vectors), K-Means (grouping data points into clusters), and Matrix Completion (filling missing values in a matrix).\",\n      \"related_concepts\": [\"principal component analysis\", \"k-means clustering\", \"matrix completion\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [470, 350, 930, 530]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Neural network architecture diagram showing input layer X_i, hidden layers A^l, and output S, alongside matrix representations X_i, A, and S with dimensions N and k.\",\n      \"related_concepts\": [\"deep non-negative matrix factorization\", \"neural network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 630, 850, 750]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Scatter plot showing data points in a 2D space with basis vectors e1 and e2, illustrating the concept of linear autoencoder in PCA.\",\n      \"related_concepts\": [\"principal component analysis\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [490, 460, 610, 520]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "multi-layer perceptron",
+            "aliases": [
+              "deep network",
+              "nonlinear network"
+            ],
+            "evidence": "A multi-layer (deep) nonlinear network with a multiple outputs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              450,
+              650,
+              480
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "hidden unit"
+            ],
+            "evidence": "hidden layer 1",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              650,
+              550,
+              680
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "nonlinear function"
+            ],
+            "evidence": "activation function a",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              400,
+              350,
+              500,
+              380
+            ]
+          },
+          {
+            "canonical": "latent representation",
+            "aliases": [
+              "embedding space"
+            ],
+            "evidence": "latent representations / features",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              500,
+              350,
+              600,
+              380
+            ]
+          },
+          {
+            "canonical": "feature transformation",
+            "aliases": [
+              "data transformation"
+            ],
+            "evidence": "feature / data transformation in layer L",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              750,
+              550,
+              780
+            ]
+          },
+          {
+            "canonical": "linear aggregation",
+            "aliases": [
+              "sum"
+            ],
+            "evidence": "linear aggregation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              850,
+              450,
+              880
+            ]
+          },
+          {
+            "canonical": "nonlinear transformation",
+            "aliases": [
+              "activation"
+            ],
+            "evidence": "first nonlinear transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              900,
+              650,
+              930
+            ]
+          },
+          {
+            "canonical": "composed feature transformation",
+            "aliases": [
+              "final transformation"
+            ],
+            "evidence": "final composed feature transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              450,
+              950,
+              650,
+              980
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "y = W_2^T a(W_1^T \\tilde{x})",
+            "related_concepts": [
+              "multi-layer perceptron",
+              "activation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              150,
+              850,
+              250
+            ],
+            "label": "output equation"
+          },
+          {
+            "latex": "W_{L+1}^T \\hat{a}(W_L^T \\hat{a}(W_{L-1}^T \\hat{a}(\\cdots \\hat{a}(W_1^T \\tilde{x}))))",
+            "related_concepts": [
+              "multi-layer perceptron",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              350,
+              800,
+              750,
+              900
+            ],
+            "label": "deep network output"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Diagram of a multi-layer neural network with input features, hidden layers, and output units.",
+            "related_concepts": [
+              "multi-layer perceptron",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              50,
+              700,
+              400
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Detailed view of a deep neural network architecture showing multiple hidden layers and output units.",
+            "related_concepts": [
+              "multi-layer perceptron",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              300,
+              450,
+              700,
+              750
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Jamaicans soggy",
+            "reason": "Handwriting is unclear and contextually ambiguous.",
+            "bbox": [
+              450,
+              100,
+              550,
+              130
+            ]
+          },
+          {
+            "transcription": "wet WEwin we i ai",
+            "reason": "Handwriting is unclear and contextually ambiguous.",
+            "bbox": [
+              450,
+              200,
+              550,
+              230
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"multi-layer perceptron\",\n      \"aliases\": [\"deep network\", \"nonlinear network\"],\n      \"evidence\": \"A multi-layer (deep) nonlinear network with a multiple outputs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 450, 650, 480]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\"hidden unit\"],\n      \"evidence\": \"hidden layer 1\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 650, 550, 680]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"nonlinear function\"],\n      \"evidence\": \"activation function a\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [400, 350, 500, 380]\n    },\n    {\n      \"canonical\": \"latent representation\",\n      \"aliases\": [\"embedding space\"],\n      \"evidence\": \"latent representations / features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [500, 350, 600, 380]\n    },\n    {\n      \"canonical\": \"feature transformation\",\n      \"aliases\": [\"data transformation\"],\n      \"evidence\": \"feature / data transformation in layer L\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 750, 550, 780]\n    },\n    {\n      \"canonical\": \"linear aggregation\",\n      \"aliases\": [\"sum\"],\n      \"evidence\": \"linear aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 850, 450, 880]\n    },\n    {\n      \"canonical\": \"nonlinear transformation\",\n      \"aliases\": [\"activation\"],\n      \"evidence\": \"first nonlinear transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 900, 650, 930]\n    },\n    {\n      \"canonical\": \"composed feature transformation\",\n      \"aliases\": [\"final transformation\"],\n      \"evidence\": \"final composed feature transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [450, 950, 650, 980]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"y = W_2^T a(W_1^T \\\\tilde{x})\",\n      \"related_concepts\": [\"multi-layer perceptron\", \"activation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 150, 850, 250],\n      \"label\": \"output equation\"\n    },\n    {\n      \"latex\": \"W_{L+1}^T \\\\hat{a}(W_L^T \\\\hat{a}(W_{L-1}^T \\\\hat{a}(\\\\cdots \\\\hat{a}(W_1^T \\\\tilde{x}))))\",\n      \"related_concepts\": [\"multi-layer perceptron\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [350, 800, 750, 900],\n      \"label\": \"deep network output\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram of a multi-layer neural network with input features, hidden layers, and output units.\",\n      \"related_concepts\": [\"multi-layer perceptron\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 50, 700, 400]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Detailed view of a deep neural network architecture showing multiple hidden layers and output units.\",\n      \"related_concepts\": [\"multi-layer perceptron\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [300, 450, 700, 750]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Jamaicans soggy\",\n      \"reason\": \"Handwriting is unclear and contextually ambiguous.\",\n      \"bbox\": [450, 100, 550, 130]\n    },\n    {\n      \"transcription\": \"wet WEwin we i ai\",\n      \"reason\": \"Handwriting is unclear and contextually ambiguous.\",\n      \"bbox\": [450, 200, 550, 230]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Deep Learning Preliminaries: Regression, Networks, and Representation Learning",
+        "summary": "This lecture page reviews supervised regression models, contrasting single and multi-output linear approaches with their corresponding neural network architectures. It introduces the transition from hand-crafted features to learnable representations via matrix factorization techniques like PCA and K-Means. Finally, it outlines the structure of deep nonlinear networks, emphasizing composition, activation functions, and backpropagation.",
+        "key_topics": [
+          "supervised regression",
+          "neural network architecture",
+          "matrix factorization",
+          "representation learning",
+          "deep learning"
+        ],
+        "concepts": [
+          {
+            "canonical": "supervised regression",
+            "aliases": [
+              "linear regression"
+            ],
+            "evidence": "Reminder: Supervised regression (linear)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              16.5,
+              846.0,
+              38.5
+            ]
+          },
+          {
+            "canonical": "single regression model",
+            "aliases": [
+              "single-output regression"
+            ],
+            "evidence": "Single regression model",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              49.5,
+              725.0,
+              66.0
+            ]
+          },
+          {
+            "canonical": "multi-regression models",
+            "aliases": [
+              "multi-output regression"
+            ],
+            "evidence": "Multi-regression models",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              49.5,
+              917.5,
+              66.0
+            ]
+          },
+          {
+            "canonical": "single layer linear network",
+            "aliases": [
+              "linear network"
+            ],
+            "evidence": "A single layer linear network with a single output",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              286.0,
+              752.5,
+              297.0
+            ]
+          },
+          {
+            "canonical": "nonlinear network",
+            "aliases": [
+              "nonlinear model",
+              "multi-layer perceptron"
+            ],
+            "evidence": "A single layer nonlinear network with a multiple outputs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              604.0,
+              451.0,
+              780.0,
+              462.0
+            ]
+          },
+          {
+            "canonical": "network mapping function",
+            "aliases": [
+              "forward pass"
+            ],
+            "evidence": "Let us write down the network mapping function",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              807.5,
+              451.0,
+              972.5,
+              462.0
+            ]
+          },
+          {
+            "canonical": "representation learning",
+            "aliases": [
+              "feature transformation",
+              "embedding"
+            ],
+            "evidence": "AIM: Transform complex features into a space where linear models can work well in the final representation space.",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              5.5,
+              532.5,
+              99.0,
+              697.5
+            ]
+          },
+          {
+            "canonical": "matrix factorization",
+            "aliases": [
+              "cw ≈ x"
+            ],
+            "evidence": "MATRIX FACTORIZATION: CW ≈ X; we factor the matrix X into a product of two matrices C x W.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              587.5,
+              467.5,
+              642.5
+            ]
+          },
+          {
+            "canonical": "principal component analysis",
+            "aliases": [
+              "pca",
+              "linear autoencoder"
+            ],
+            "evidence": "PCA: Linear autoencoder. Find an orthonormal spanning basis minimizing the data variance.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              648.0,
+              341.0,
+              736.0
+            ]
+          },
+          {
+            "canonical": "k-means clustering",
+            "aliases": [
+              "grouping"
+            ],
+            "evidence": "K-MEANS: Group similar samples into clusters.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              346.5,
+              648.0,
+              423.5,
+              736.0
+            ]
+          },
+          {
+            "canonical": "matrix completion",
+            "aliases": [
+              "imputation"
+            ],
+            "evidence": "MATRIX COMPLETION: Complete missing values in the data matrix.",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              429.0,
+              648.0,
+              506.0,
+              736.0
+            ]
+          },
+          {
+            "canonical": "deep non-negative matrix factorization",
+            "aliases": [
+              "deep nmf"
+            ],
+            "evidence": "A Deep Non-Negative Matrix Factorization Neural Network... Theorem 1 A standard deep N.N. defined above can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              747.0,
+              506.0,
+              791.0
+            ]
+          },
+          {
+            "canonical": "backpropagation",
+            "aliases": [
+              "gradient descent",
+              "optimization"
+            ],
+            "evidence": "COMPOSITION & BACKPROPAGATION",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              862.5,
+              302.5,
+              890.0
+            ]
+          },
+          {
+            "canonical": "dimensionality reduction",
+            "aliases": [
+              "lower-dimensional spanning space"
+            ],
+            "evidence": "Imperfect K < d lower-dimensional spanning space",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              137.5,
+              587.5,
+              192.5,
+              642.5
+            ]
+          },
+          {
+            "canonical": "optimal subspace",
+            "aliases": [
+              "learnable representation"
+            ],
+            "evidence": "LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)",
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              532.5,
+              467.5,
+              587.5
+            ]
+          },
+          {
+            "canonical": "hidden layer",
+            "aliases": [
+              "hidden unit"
+            ],
+            "evidence": "hidden layer 1",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              697.5,
+              807.5,
+              752.5,
+              824.0
+            ]
+          },
+          {
+            "canonical": "feature representation",
+            "aliases": [
+              "classic feature representation"
+            ],
+            "evidence": "CLASSIC FEATURE REPRESENTATION METHODS",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              203.5,
+              176.0,
+              374.0,
+              220.0
+            ]
+          },
+          {
+            "canonical": "hand-crafted features",
+            "aliases": [
+              "handcrafted features"
+            ],
+            "evidence": "HAND-CRAFTED FEATURES",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              176.0,
+              286.0,
+              286.0,
+              319.0
+            ]
+          },
+          {
+            "canonical": "feature selection",
+            "aliases": [],
+            "evidence": "FEATURE SELECTION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              341.0,
+              286.0,
+              451.0,
+              319.0
+            ]
+          },
+          {
+            "canonical": "spanning set",
+            "aliases": [],
+            "evidence": "SPANNING SET",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              165.0,
+              385.0,
+              275.0,
+              407.0
+            ]
+          },
+          {
+            "canonical": "encode-decode function",
+            "aliases": [
+              "encoder-decoder"
+            ],
+            "evidence": "ENCODE-DECODE FUNCTION",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              165.0,
+              407.0,
+              275.0,
+              440.0
+            ]
+          },
+          {
+            "canonical": "classification",
+            "aliases": [
+              "classify"
+            ],
+            "evidence": "Classify",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              319.0,
+              330.0,
+              357.5,
+              341.0
+            ]
+          },
+          {
+            "canonical": "regression",
+            "aliases": [
+              "regress"
+            ],
+            "evidence": "Regress",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              429.0,
+              330.0,
+              467.5,
+              341.0
+            ]
+          },
+          {
+            "canonical": "fixed prior",
+            "aliases": [],
+            "evidence": "FIXED/PRIOR",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              137.5,
+              484.0,
+              220.0,
+              506.0
+            ]
+          },
+          {
+            "canonical": "machine learning",
+            "aliases": [
+              "ml"
+            ],
+            "evidence": "ML",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              66.0,
+              286.0,
+              99.0,
+              308.0
+            ]
+          },
+          {
+            "canonical": "deep learning",
+            "aliases": [
+              "dl"
+            ],
+            "evidence": "DL",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              231.0,
+              121.0,
+              319.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "l2 loss",
+            "aliases": [
+              "squared error loss"
+            ],
+            "evidence": "L2 loss",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              736.0,
+              82.5,
+              769.0,
+              93.5
+            ]
+          },
+          {
+            "canonical": "bias",
+            "aliases": [
+              "intercept"
+            ],
+            "evidence": "bias",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              681.0,
+              121.0,
+              697.5,
+              132.0
+            ]
+          },
+          {
+            "canonical": "weights",
+            "aliases": [
+              "parameters"
+            ],
+            "evidence": "weights",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              396.0,
+              670.0,
+              407.0
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "nonlinear function"
+            ],
+            "evidence": "activation function a",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              670.0,
+              642.5,
+              725.0,
+              659.0
+            ]
+          },
+          {
+            "canonical": "latent representation",
+            "aliases": [
+              "embedding space"
+            ],
+            "evidence": "latent representations / features",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              725.0,
+              642.5,
+              780.0,
+              659.0
+            ]
+          },
+          {
+            "canonical": "linear aggregation",
+            "aliases": [
+              "sum",
+              "aggregation"
+            ],
+            "evidence": "linear aggregation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              917.5,
+              697.5,
+              934.0
+            ]
+          },
+          {
+            "canonical": "nonlinear transformation",
+            "aliases": [
+              "activation"
+            ],
+            "evidence": "first nonlinear transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              752.5,
+              945.0,
+              807.5,
+              961.5
+            ]
+          },
+          {
+            "canonical": "composed feature transformation",
+            "aliases": [
+              "final transformation"
+            ],
+            "evidence": "final composed feature transformation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              697.5,
+              972.5,
+              807.5,
+              989.0
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "l(w) = \\frac{1}{n} \\sum_{i=1}^{n} (\\tilde{x}_i^T w - y_i)^2",
+            "related_concepts": [
+              "single regression model",
+              "l2 loss"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              604.0,
+              82.5,
+              736.0,
+              110.0
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "l(W) = ||\\tilde{X}W - Y||_2^2 = \\frac{1}{C} \\sum_{c=1}^{C} (\\tilde{X}w_c - y_c)^2",
+            "related_concepts": [
+              "multi-regression models",
+              "l2 loss"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              82.5,
+              945.0,
+              110.0
+            ],
+            "label": "loss function"
+          },
+          {
+            "latex": "\\tilde{X} \\in \\mathbb{R}^{n \\times (d+1)}",
+            "related_concepts": [
+              "feature matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              604.0,
+              209.0,
+              697.5,
+              220.0
+            ],
+            "label": "feature matrix"
+          },
+          {
+            "latex": "w \\in \\mathbb{R}^{d+1}",
+            "related_concepts": [
+              "weights"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              703.0,
+              209.0,
+              752.5,
+              220.0
+            ],
+            "label": "weight vector"
+          },
+          {
+            "latex": "\\hat{y} \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              758.0,
+              209.0,
+              807.5,
+              220.0
+            ],
+            "label": "predicted output"
+          },
+          {
+            "latex": "y \\in \\mathbb{R}^n",
+            "related_concepts": [
+              "ground truth"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              813.0,
+              209.0,
+              862.5,
+              220.0
+            ],
+            "label": "ground truth"
+          },
+          {
+            "latex": "W \\in \\mathbb{R}^{(d+1) \\times C}",
+            "related_concepts": [
+              "weights",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              209.0,
+              862.5,
+              220.0
+            ],
+            "label": "weight matrix"
+          },
+          {
+            "latex": "\\hat{Y} \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "predicted output",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              868.0,
+              209.0,
+              945.0,
+              220.0
+            ],
+            "label": "predicted output matrix"
+          },
+          {
+            "latex": "Y \\in \\mathbb{R}^{n \\times C}",
+            "related_concepts": [
+              "ground truth",
+              "multi-regression models"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              950.5,
+              209.0,
+              1000.0,
+              220.0
+            ],
+            "label": "ground truth matrix"
+          },
+          {
+            "latex": "\\hat{y}_i = \\tilde{x}_i^T w",
+            "related_concepts": [
+              "single layer linear network",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              714.0,
+              341.0,
+              769.0,
+              352.0
+            ],
+            "label": "output prediction"
+          },
+          {
+            "latex": "y = W_2^T a(W_1^T \\tilde{x})",
+            "related_concepts": [
+              "nonlinear network",
+              "network mapping function"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.8,
+            "bbox": [
+              807.5,
+              495.0,
+              972.5,
+              522.5
+            ],
+            "label": "network output"
+          },
+          {
+            "latex": "CW \\approx X",
+            "related_concepts": [
+              "matrix factorization"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              264.0,
+              604.0,
+              319.0,
+              620.5
+            ],
+            "label": "Matrix Factorization Objective"
+          },
+          {
+            "latex": "L(C) = \\frac{1}{n} \\sum_{i=1}^{n} || Cx_i - x_i ||_2^2",
+            "related_concepts": [
+              "principal component analysis"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              269.5,
+              681.0,
+              335.5,
+              697.5
+            ],
+            "label": "PCA Loss Function"
+          },
+          {
+            "latex": "L(C, W) = \\frac{1}{n} || CW - X ||_F^2",
+            "related_concepts": [
+              "matrix factorization",
+              "k-means clustering"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              352.0,
+              681.0,
+              418.0,
+              697.5
+            ],
+            "label": "K-Means / MF Loss Function"
+          },
+          {
+            "latex": "L(W, C) = \\frac{1}{n} || CW - X ||_F^2",
+            "related_concepts": [
+              "matrix completion"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              434.5,
+              681.0,
+              500.5,
+              697.5
+            ],
+            "label": "Matrix Completion Loss Function"
+          },
+          {
+            "latex": "y = W_2^T a(W_1^T \\tilde{x})",
+            "related_concepts": [
+              "nonlinear network",
+              "activation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              807.5,
+              532.5,
+              917.5,
+              587.5
+            ],
+            "label": "output equation"
+          },
+          {
+            "latex": "W_{L+1}^T \\hat{a}(W_L^T \\hat{a}(W_{L-1}^T \\hat{a}(\\cdots \\hat{a}(W_1^T \\tilde{x}))))",
+            "related_concepts": [
+              "nonlinear network",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              642.5,
+              890.0,
+              862.5,
+              945.0
+            ],
+            "label": "deep network output"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Flowchart showing ML pipeline from hand-crafted features to feature selection, feature transformation, and then branching into classification and regression tasks, with further breakdown into fixed/prior and learnable methods.",
+            "related_concepts": [
+              "feature representation",
+              "hand-crafted features",
+              "feature selection",
+              "representation learning",
+              "classification",
+              "regression",
+              "fixed prior",
+              "optimal subspace"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              55.0,
+              275.0,
+              522.5,
+              550.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot illustrating classification in a new space with decision boundary.",
+            "related_concepts": [
+              "classification",
+              "representation learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              319.0,
+              352.0,
+              385.0,
+              451.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot illustrating regression in a new space with fitted line.",
+            "related_concepts": [
+              "regression",
+              "representation learning"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              429.0,
+              352.0,
+              495.0,
+              451.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram for single regression model showing feature matrix, weight vector, and output vector",
+            "related_concepts": [
+              "single regression model",
+              "feature matrix",
+              "weights",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              604.0,
+              121.0,
+              752.5,
+              209.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix multiplication diagram for multi-regression models showing feature matrix, weight matrix, and output matrix",
+            "related_concepts": [
+              "multi-regression models",
+              "feature matrix",
+              "weights",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              121.0,
+              972.5,
+              209.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer linear network with single output showing input features, weights, summation, and output",
+            "related_concepts": [
+              "single layer linear network",
+              "weights",
+              "linear aggregation",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              604.0,
+              308.0,
+              752.5,
+              407.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer linear network with multiple outputs showing input features, weights, summation, and multiple outputs",
+            "related_concepts": [
+              "single layer linear network",
+              "weights",
+              "linear aggregation",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              780.0,
+              308.0,
+              917.5,
+              407.0
+            ]
+          },
+          {
+            "kind": "plot",
+            "description": "Scatter plot showing regression lines for multiple outputs with different weights",
+            "related_concepts": [
+              "multi-regression models",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              923.0,
+              308.0,
+              1000.0,
+              407.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Neural network diagram for single layer nonlinear network with multiple outputs showing input features, weights, activation functions, and multiple outputs",
+            "related_concepts": [
+              "nonlinear network",
+              "weights",
+              "activation function",
+              "predicted output"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              604.0,
+              473.0,
+              780.0,
+              550.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Three circular diagrams illustrating PCA (linear autoencoder with data points and basis vectors), K-Means (grouping data points into clusters), and Matrix Completion (filling missing values in a matrix).",
+            "related_concepts": [
+              "principal component analysis",
+              "k-means clustering",
+              "matrix completion"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              258.5,
+              642.5,
+              511.5,
+              741.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Neural network architecture diagram showing input layer X_i, hidden layers A^l, and output S, alongside matrix representations X_i, A, and S with dimensions N and k.",
+            "related_concepts": [
+              "deep non-negative matrix factorization",
+              "nonlinear network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              796.5,
+              467.5,
+              862.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Scatter plot showing data points in a 2D space with basis vectors e1 and e2, illustrating the concept of linear autoencoder in PCA.",
+            "related_concepts": [
+              "principal component analysis"
+            ],
+            "source_type": "handwritten",
+            "confidence": 1.0,
+            "bbox": [
+              269.5,
+              703.0,
+              335.5,
+              736.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Diagram of a multi-layer neural network with input features, hidden layers, and output units.",
+            "related_concepts": [
+              "nonlinear network",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              477.5,
+              835.0,
+              670.0
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Detailed view of a deep neural network architecture showing multiple hidden layers and output units.",
+            "related_concepts": [
+              "nonlinear network",
+              "hidden layer",
+              "activation function"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              615.0,
+              697.5,
+              835.0,
+              862.5
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "amnesia.tn",
+            "reason": "Unclear handwriting, possibly a website or note reference",
+            "bbox": [
+              604.0,
+              176.0,
+              642.5,
+              187.0
+            ]
+          },
+          {
+            "transcription": "iiiunisoni",
+            "reason": "Unclear handwriting, possibly a note or annotation",
+            "bbox": [
+              780.0,
+              275.0,
+              824.0,
+              286.0
+            ]
+          },
+          {
+            "transcription": "multipleiiioutputs",
+            "reason": "Unclear handwriting, possibly a typo or annotation",
+            "bbox": [
+              780.0,
+              264.0,
+              862.5,
+              275.0
+            ]
+          },
+          {
+            "transcription": "a",
+            "reason": "Single letter, unclear context",
+            "bbox": [
+              736.0,
+              462.0,
+              747.0,
+              473.0
+            ]
+          },
+          {
+            "transcription": "Jamaicans soggy",
+            "reason": "Handwriting is unclear and contextually ambiguous.",
+            "bbox": [
+              697.5,
+              505.0,
+              752.5,
+              521.5
+            ]
+          },
+          {
+            "transcription": "wet WEwin we i ai",
+            "reason": "Handwriting is unclear and contextually ambiguous.",
+            "bbox": [
+              697.5,
+              560.0,
+              752.5,
+              576.5
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Deep Learning Preliminaries: Regression, Networks, and Representation Learning\",\n  \"summary\": \"This lecture page reviews supervised regression models, contrasting single and multi-output linear approaches with their corresponding neural network architectures. It introduces the transition from hand-crafted features to learnable representations via matrix factorization techniques like PCA and K-Means. Finally, it outlines the structure of deep nonlinear networks, emphasizing composition, activation functions, and backpropagation.\",\n  \"key_topics\": [\n    \"supervised regression\",\n    \"neural network architecture\",\n    \"matrix factorization\",\n    \"representation learning\",\n    \"deep learning\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"supervised regression\",\n      \"aliases\": [\"linear regression\"],\n      \"evidence\": \"Reminder: Supervised regression (linear)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [604.0, 16.5, 846.0, 38.5]\n    },\n    {\n      \"canonical\": \"single regression model\",\n      \"aliases\": [\"single-output regression\"],\n      \"evidence\": \"Single regression model\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [604.0, 49.5, 725.0, 66.0]\n    },\n    {\n      \"canonical\": \"multi-regression models\",\n      \"aliases\": [\"multi-output regression\"],\n      \"evidence\": \"Multi-regression models\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 49.5, 917.5, 66.0]\n    },\n    {\n      \"canonical\": \"single layer linear network\",\n      \"aliases\": [\"linear network\"],\n      \"evidence\": \"A single layer linear network with a single output\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [604.0, 286.0, 752.5, 297.0]\n    },\n    {\n      \"canonical\": \"nonlinear network\",\n      \"aliases\": [\"nonlinear model\", \"multi-layer perceptron\"],\n      \"evidence\": \"A single layer nonlinear network with a multiple outputs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [604.0, 451.0, 780.0, 462.0]\n    },\n    {\n      \"canonical\": \"network mapping function\",\n      \"aliases\": [\"forward pass\"],\n      \"evidence\": \"Let us write down the network mapping function\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [807.5, 451.0, 972.5, 462.0]\n    },\n    {\n      \"canonical\": \"representation learning\",\n      \"aliases\": [\"feature transformation\", \"embedding\"],\n      \"evidence\": \"AIM: Transform complex features into a space where linear models can work well in the final representation space.\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [5.5, 532.5, 99.0, 697.5]\n    },\n    {\n      \"canonical\": \"matrix factorization\",\n      \"aliases\": [\"cw ≈ x\"],\n      \"evidence\": \"MATRIX FACTORIZATION: CW ≈ X; we factor the matrix X into a product of two matrices C x W.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [264.0, 587.5, 467.5, 642.5]\n    },\n    {\n      \"canonical\": \"principal component analysis\",\n      \"aliases\": [\"pca\", \"linear autoencoder\"],\n      \"evidence\": \"PCA: Linear autoencoder. Find an orthonormal spanning basis minimizing the data variance.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [264.0, 648.0, 341.0, 736.0]\n    },\n    {\n      \"canonical\": \"k-means clustering\",\n      \"aliases\": [\"grouping\"],\n      \"evidence\": \"K-MEANS: Group similar samples into clusters.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [346.5, 648.0, 423.5, 736.0]\n    },\n    {\n      \"canonical\": \"matrix completion\",\n      \"aliases\": [\"imputation\"],\n      \"evidence\": \"MATRIX COMPLETION: Complete missing values in the data matrix.\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [429.0, 648.0, 506.0, 736.0]\n    },\n    {\n      \"canonical\": \"deep non-negative matrix factorization\",\n      \"aliases\": [\"deep nmf\"],\n      \"evidence\": \"A Deep Non-Negative Matrix Factorization Neural Network... Theorem 1 A standard deep N.N. defined above can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 747.0, 506.0, 791.0]\n    },\n    {\n      \"canonical\": \"backpropagation\",\n      \"aliases\": [\"gradient descent\", \"optimization\"],\n      \"evidence\": \"COMPOSITION & BACKPROPAGATION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 862.5, 302.5, 890.0]\n    },\n    {\n      \"canonical\": \"dimensionality reduction\",\n      \"aliases\": [\"lower-dimensional spanning space\"],\n      \"evidence\": \"Imperfect K < d lower-dimensional spanning space\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [137.5, 587.5, 192.5, 642.5]\n    },\n    {\n      \"canonical\": \"optimal subspace\",\n      \"aliases\": [\"learnable representation\"],\n      \"evidence\": \"LEARNABLE (OPTIMAL SUBSPACE FOR THE DATA)\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 532.5, 467.5, 587.5]\n    },\n    {\n      \"canonical\": \"hidden layer\",\n      \"aliases\": [\"hidden unit\"],\n      \"evidence\": \"hidden layer 1\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [697.5, 807.5, 752.5, 824.0]\n    },\n    {\n      \"canonical\": \"feature representation\",\n      \"aliases\": [\"classic feature representation\"],\n      \"evidence\": \"CLASSIC FEATURE REPRESENTATION METHODS\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [203.5, 176.0, 374.0, 220.0]\n    },\n    {\n      \"canonical\": \"hand-crafted features\",\n      \"aliases\": [\"handcrafted features\"],\n      \"evidence\": \"HAND-CRAFTED FEATURES\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [176.0, 286.0, 286.0, 319.0]\n    },\n    {\n      \"canonical\": \"feature selection\",\n      \"aliases\": [],\n      \"evidence\": \"FEATURE SELECTION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [341.0, 286.0, 451.0, 319.0]\n    },\n    {\n      \"canonical\": \"spanning set\",\n      \"aliases\": [],\n      \"evidence\": \"SPANNING SET\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [165.0, 385.0, 275.0, 407.0]\n    },\n    {\n      \"canonical\": \"encode-decode function\",\n      \"aliases\": [\"encoder-decoder\"],\n      \"evidence\": \"ENCODE-DECODE FUNCTION\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [165.0, 407.0, 275.0, 440.0]\n    },\n    {\n      \"canonical\": \"classification\",\n      \"aliases\": [\"classify\"],\n      \"evidence\": \"Classify\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [319.0, 330.0, 357.5, 341.0]\n    },\n    {\n      \"canonical\": \"regression\",\n      \"aliases\": [\"regress\"],\n      \"evidence\": \"Regress\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [429.0, 330.0, 467.5, 341.0]\n    },\n    {\n      \"canonical\": \"fixed prior\",\n      \"aliases\": [],\n      \"evidence\": \"FIXED/PRIOR\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [137.5, 484.0, 220.0, 506.0]\n    },\n    {\n      \"canonical\": \"machine learning\",\n      \"aliases\": [\"ml\"],\n      \"evidence\": \"ML\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [66.0, 286.0, 99.0, 308.0]\n    },\n    {\n      \"canonical\": \"deep learning\",\n      \"aliases\": [\"dl\"],\n      \"evidence\": \"DL\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [231.0, 121.0, 319.0, 165.0]\n    },\n    {\n      \"canonical\": \"l2 loss\",\n      \"aliases\": [\"squared error loss\"],\n      \"evidence\": \"L2 loss\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [736.0, 82.5, 769.0, 93.5]\n    },\n    {\n      \"canonical\": \"bias\",\n      \"aliases\": [\"intercept\"],\n      \"evidence\": \"bias\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [681.0, 121.0, 697.5, 132.0]\n    },\n    {\n      \"canonical\": \"weights\",\n      \"aliases\": [\"parameters\"],\n      \"evidence\": \"weights\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 396.0, 670.0, 407.0]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"nonlinear function\"],\n      \"evidence\": \"activation function a\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [670.0, 642.5, 725.0, 659.0]\n    },\n    {\n      \"canonical\": \"latent representation\",\n      \"aliases\": [\"embedding space\"],\n      \"evidence\": \"latent representations / features\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [725.0, 642.5, 780.0, 659.0]\n    },\n    {\n      \"canonical\": \"linear aggregation\",\n      \"aliases\": [\"sum\", \"aggregation\"],\n      \"evidence\": \"linear aggregation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 917.5, 697.5, 934.0]\n    },\n    {\n      \"canonical\": \"nonlinear transformation\",\n      \"aliases\": [\"activation\"],\n      \"evidence\": \"first nonlinear transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [752.5, 945.0, 807.5, 961.5]\n    },\n    {\n      \"canonical\": \"composed feature transformation\",\n      \"aliases\": [\"final transformation\"],\n      \"evidence\": \"final composed feature transformation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [697.5, 972.5, 807.5, 989.0]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"l(w) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} (\\\\tilde{x}_i^T w - y_i)^2\",\n      \"related_concepts\": [\"single regression model\", \"l2 loss\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [604.0, 82.5, 736.0, 110.0],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"l(W) = ||\\\\tilde{X}W - Y||_2^2 = \\\\frac{1}{C} \\\\sum_{c=1}^{C} (\\\\tilde{X}w_c - y_c)^2\",\n      \"related_concepts\": [\"multi-regression models\", \"l2 loss\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 82.5, 945.0, 110.0],\n      \"label\": \"loss function\"\n    },\n    {\n      \"latex\": \"\\\\tilde{X} \\\\in \\\\mathbb{R}^{n \\\\times (d+1)}\",\n      \"related_concepts\": [\"feature matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [604.0, 209.0, 697.5, 220.0],\n      \"label\": \"feature matrix\"\n    },\n    {\n      \"latex\": \"w \\\\in \\\\mathbb{R}^{d+1}\",\n      \"related_concepts\": [\"weights\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [703.0, 209.0, 752.5, 220.0],\n      \"label\": \"weight vector\"\n    },\n    {\n      \"latex\": \"\\\\hat{y} \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [758.0, 209.0, 807.5, 220.0],\n      \"label\": \"predicted output\"\n    },\n    {\n      \"latex\": \"y \\\\in \\\\mathbb{R}^n\",\n      \"related_concepts\": [\"ground truth\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [813.0, 209.0, 862.5, 220.0],\n      \"label\": \"ground truth\"\n    },\n    {\n      \"latex\": \"W \\\\in \\\\mathbb{R}^{(d+1) \\\\times C}\",\n      \"related_concepts\": [\"weights\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 209.0, 862.5, 220.0],\n      \"label\": \"weight matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{Y} \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"predicted output\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [868.0, 209.0, 945.0, 220.0],\n      \"label\": \"predicted output matrix\"\n    },\n    {\n      \"latex\": \"Y \\\\in \\\\mathbb{R}^{n \\\\times C}\",\n      \"related_concepts\": [\"ground truth\", \"multi-regression models\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [950.5, 209.0, 1000.0, 220.0],\n      \"label\": \"ground truth matrix\"\n    },\n    {\n      \"latex\": \"\\\\hat{y}_i = \\\\tilde{x}_i^T w\",\n      \"related_concepts\": [\"single layer linear network\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [714.0, 341.0, 769.0, 352.0],\n      \"label\": \"output prediction\"\n    },\n    {\n      \"latex\": \"y = W_2^T a(W_1^T \\\\tilde{x})\",\n      \"related_concepts\": [\"nonlinear network\", \"network mapping function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.8,\n      \"bbox\": [807.5, 495.0, 972.5, 522.5],\n      \"label\": \"network output\"\n    },\n    {\n      \"latex\": \"CW \\\\approx X\",\n      \"related_concepts\": [\"matrix factorization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [264.0, 604.0, 319.0, 620.5],\n      \"label\": \"Matrix Factorization Objective\"\n    },\n    {\n      \"latex\": \"L(C) = \\\\frac{1}{n} \\\\sum_{i=1}^{n} || Cx_i - x_i ||_2^2\",\n      \"related_concepts\": [\"principal component analysis\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [269.5, 681.0, 335.5, 697.5],\n      \"label\": \"PCA Loss Function\"\n    },\n    {\n      \"latex\": \"L(C, W) = \\\\frac{1}{n} || CW - X ||_F^2\",\n      \"related_concepts\": [\"matrix factorization\", \"k-means clustering\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [352.0, 681.0, 418.0, 697.5],\n      \"label\": \"K-Means / MF Loss Function\"\n    },\n    {\n      \"latex\": \"L(W, C) = \\\\frac{1}{n} || CW - X ||_F^2\",\n      \"related_concepts\": [\"matrix completion\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [434.5, 681.0, 500.5, 697.5],\n      \"label\": \"Matrix Completion Loss Function\"\n    },\n    {\n      \"latex\": \"y = W_2^T a(W_1^T \\\\tilde{x})\",\n      \"related_concepts\": [\"nonlinear network\", \"activation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [807.5, 532.5, 917.5, 587.5],\n      \"label\": \"output equation\"\n    },\n    {\n      \"latex\": \"W_{L+1}^T \\\\hat{a}(W_L^T \\\\hat{a}(W_{L-1}^T \\\\hat{a}(\\\\cdots \\\\hat{a}(W_1^T \\\\tilde{x}))))\",\n      \"related_concepts\": [\"nonlinear network\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [642.5, 890.0, 862.5, 945.0],\n      \"label\": \"deep network output\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Flowchart showing ML pipeline from hand-crafted features to feature selection, feature transformation, and then branching into classification and regression tasks, with further breakdown into fixed/prior and learnable methods.\",\n      \"related_concepts\": [\"feature representation\", \"hand-crafted features\", \"feature selection\", \"representation learning\", \"classification\", \"regression\", \"fixed prior\", \"optimal subspace\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [55.0, 275.0, 522.5, 550.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot illustrating classification in a new space with decision boundary.\",\n      \"related_concepts\": [\"classification\", \"representation learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [319.0, 352.0, 385.0, 451.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot illustrating regression in a new space with fitted line.\",\n      \"related_concepts\": [\"regression\", \"representation learning\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [429.0, 352.0, 495.0, 451.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram for single regression model showing feature matrix, weight vector, and output vector\",\n      \"related_concepts\": [\"single regression model\", \"feature matrix\", \"weights\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [604.0, 121.0, 752.5, 209.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix multiplication diagram for multi-regression models showing feature matrix, weight matrix, and output matrix\",\n      \"related_concepts\": [\"multi-regression models\", \"feature matrix\", \"weights\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 121.0, 972.5, 209.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer linear network with single output showing input features, weights, summation, and output\",\n      \"related_concepts\": [\"single layer linear network\", \"weights\", \"linear aggregation\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [604.0, 308.0, 752.5, 407.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer linear network with multiple outputs showing input features, weights, summation, and multiple outputs\",\n      \"related_concepts\": [\"single layer linear network\", \"weights\", \"linear aggregation\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [780.0, 308.0, 917.5, 407.0]\n    },\n    {\n      \"kind\": \"plot\",\n      \"description\": \"Scatter plot showing regression lines for multiple outputs with different weights\",\n      \"related_concepts\": [\"multi-regression models\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [923.0, 308.0, 1000.0, 407.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Neural network diagram for single layer nonlinear network with multiple outputs showing input features, weights, activation functions, and multiple outputs\",\n      \"related_concepts\": [\"nonlinear network\", \"weights\", \"activation function\", \"predicted output\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [604.0, 473.0, 780.0, 550.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Three circular diagrams illustrating PCA (linear autoencoder with data points and basis vectors), K-Means (grouping data points into clusters), and Matrix Completion (filling missing values in a matrix).\",\n      \"related_concepts\": [\"principal component analysis\", \"k-means clustering\", \"matrix completion\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [258.5, 642.5, 511.5, 741.5]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Neural network architecture diagram showing input layer X_i, hidden layers A^l, and output S, alongside matrix representations X_i, A, and S with dimensions N and k.\",\n      \"related_concepts\": [\"deep non-negative matrix factorization\", \"nonlinear network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 796.5, 467.5, 862.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Scatter plot showing data points in a 2D space with basis vectors e1 and e2, illustrating the concept of linear autoencoder in PCA.\",\n      \"related_concepts\": [\"principal component analysis\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 1.0,\n      \"bbox\": [269.5, 703.0, 335.5, 736.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Diagram of a multi-layer neural network with input features, hidden layers, and output units.\",\n      \"related_concepts\": [\"nonlinear network\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [615.0, 477.5, 835.0, 670.0]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Detailed view of a deep neural network architecture showing multiple hidden layers and output units.\",\n      \"related_concepts\": [\"nonlinear network\", \"hidden layer\", \"activation function\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [615.0, 697.5, 835.0, 862.5]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"amnesia.tn\",\n      \"reason\": \"Unclear handwriting, possibly a website or note reference\",\n      \"bbox\": [604.0, 176.0, 642.5, 187.0]\n    },\n    {\n      \"transcription\": \"iiiunisoni\",\n      \"reason\": \"Unclear handwriting, possibly a note or annotation\",\n      \"bbox\": [780.0, 275.0, 824.0, 286.0]\n    },\n    {\n      \"transcription\": \"multipleiiioutputs\",\n      \"reason\": \"Unclear handwriting, possibly a typo or annotation\",\n      \"bbox\": [780.0, 264.0, 862.5, 275.0]\n    },\n    {\n      \"transcription\": \"a\",\n      \"reason\": \"Single letter, unclear context\",\n      \"bbox\": [736.0, 462.0, 747.0, 473.0]\n    },\n    {\n      \"transcription\": \"Jamaicans soggy\",\n      \"reason\": \"Handwriting is unclear and contextually ambiguous.\",\n      \"bbox\": [697.5, 505.0, 752.5, 521.5]\n    },\n    {\n      \"transcription\": \"wet WEwin we i ai\",\n      \"reason\": \"Handwriting is unclear and contextually ambiguous.\",\n      \"bbox\": [697.5, 560.0, 752.5, 576.5]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "multi-layer perceptron",
+      "into": "nonlinear network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "feature transformation",
+      "into": "representation learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "learnable representation",
+      "into": "optimal subspace"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "optimal subspace",
+      "into": "optimal subspace"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "matrix factorization",
+      "into": "matrix factorization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "feature transformation",
+      "into": "representation learning"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "aggregation",
+      "into": "linear aggregation"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence formula: y = W_2^T a(W_1^T \\tilde{x})",
+    "Dropped low-confidence formula: L(C) = \\frac{1}{n} \\sum_{i=1}^{n} || Cx_i - x_i ||_2^2",
+    "Dropped low-confidence formula: L(C, W) = \\frac{1}{n} || CW - X ||_F^2",
+    "Dropped low-confidence formula: L(W, C) = \\frac{1}{n} || CW - X ||_F^2",
+    "Dropped low-confidence formula: y = W_2^T a(W_1^T \\tilde{x})",
+    "Dropped low-confidence formula: W_{L+1}^T \\hat{a}(W_L^T \\hat{a}(W_{L-1}^T \\hat{a}(\\cdots \\hat{a}(W_1^T \\tilde{x}"
+  ]
+}

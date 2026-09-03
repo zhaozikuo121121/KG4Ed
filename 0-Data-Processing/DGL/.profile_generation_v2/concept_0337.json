@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8c5cb90279639ec1f2e5853e8af5bf67256851b0b4135f210aebc08d3be3e030",
+  "concept_id": 337,
+  "concept_name": "molecular graph generation",
+  "aliases": [
+    "molecular graph generation",
+    "chemical graph generation"
+  ],
+  "profile": "molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.",
+    "claims": [
+      {
+        "claim": "Molecular graph generation can generate a new kind of molecule, such as one that cures a disease.",
+        "evidence_ids": [
+          "DGL-E0500"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.",
+    "sentence_reviews": [
+      {
+        "sentence": "molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0500"
+        ],
+        "reason": "The source gives this exact example for generating a new kind of molecule, which supports the illustrative definition without overgeneralizing."
+      }
+    ],
+    "warnings": [
+      "The source provides only a single illustrative example; broader claims about molecular graph generation are not supported by this evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.\",\n  \"claims\": [\n    {\n      \"claim\": \"Molecular graph generation can generate a new kind of molecule, such as one that cures a disease.\",\n      \"evidence_ids\": [\"DGL-E0500\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"molecular graph generation: the process of generating new molecular structures, as illustrated by the example of creating a new molecule that cures a certain disease.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0500\"],\n      \"reason\": \"The source gives this exact example for generating a new kind of molecule, which supports the illustrative definition without overgeneralizing.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only a single illustrative example; broader claims about molecular graph generation are not supported by this evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:00:01.384947+00:00"
+}

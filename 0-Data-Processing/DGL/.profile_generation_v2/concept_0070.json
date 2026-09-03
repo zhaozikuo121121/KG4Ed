@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a5c16f8ee3c16a3847fc73bddf1aae819e1e44c3fffcf0946b025f0d8378c90d",
+  "concept_id": 70,
+  "concept_name": "average pooling",
+  "aliases": [
+    "average pooling",
+    "mean pooling"
+  ],
+  "profile": "average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating computation of an average over N values.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating the computation of an average over N values.",
+    "claims": [
+      {
+        "claim": "Average pooling, also called mean pooling, is an operation in graph neural network prediction tasks that involves a vector of ones and a scalar N.",
+        "evidence_ids": [
+          "DGL-E0075"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The supporting evidence is a handwritten note with confidence 0.9; interpretation may be uncertain."
+    ]
+  },
+  "review": {
+    "final_profile": "average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating computation of an average over N values.",
+    "sentence_reviews": [
+      {
+        "sentence": "average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating computation of an average over N values.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0075"
+        ],
+        "reason": "Page title establishes graph neural network prediction tasks; handwritten note mentions average/mean pooling and the 1 vector and scalar N. The final clause is a reasonable inference from the term 'average' and scalar N."
+      }
+    ],
+    "warnings": [
+      "The supporting evidence is a handwritten note with confidence 0.9; interpretation of the scalar N as a count of values is inferred."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating the computation of an average over N values.\",\n  \"claims\": [\n    {\n      \"claim\": \"Average pooling, also called mean pooling, is an operation in graph neural network prediction tasks that involves a vector of ones and a scalar N.\",\n      \"evidence_ids\": [\"DGL-E0075\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The supporting evidence is a handwritten note with confidence 0.9; interpretation may be uncertain.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating computation of an average over N values.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"average pooling: In graph neural network prediction tasks, average pooling (also mean pooling) is an operation involving a vector of ones and a scalar N, indicating computation of an average over N values.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0075\"],\n      \"reason\": \"Page title establishes graph neural network prediction tasks; handwritten note mentions average/mean pooling and the 1 vector and scalar N. The final clause is a reasonable inference from the term 'average' and scalar N.\"\n    }\n  ],\n  \"warnings\": [\n    \"The supporting evidence is a handwritten note with confidence 0.9; interpretation of the scalar N as a count of values is inferred.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:15:12.459364+00:00"
+}

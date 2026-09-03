@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ce9100e7a6bc4a4189ca0a7cf1d3bee34f6049d1c22c4da7a54a6bd0c98a2bba",
+  "concept_id": 125,
+  "concept_name": "graph link prediction",
+  "aliases": [
+    "graph link prediction",
+    "graph link forecasting"
+  ],
+  "profile": "graph link prediction: The similarity between two nodes u and v is approximated by the dot product of their embedding vectors, z_u^T z_v.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph link prediction: In graph learning, the link prediction score between nodes u and v is commonly computed as the dot product of their learned embedding vectors, z_u^T z_v, which approximates their similarity.",
+    "claims": [
+      {
+        "claim": "The similarity between nodes u and v in graph link prediction is approximated by the dot product of their embeddings, z_u^T z_v.",
+        "evidence_ids": [
+          "DGL-E0152"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph link prediction: The similarity between two nodes u and v is approximated by the dot product of their embedding vectors, z_u^T z_v.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph link prediction: The similarity between two nodes u and v is approximated by the dot product of their embedding vectors, z_u^T z_v.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0152"
+        ],
+        "reason": "The evidence directly states similarity(u,v) ≈ z_u^T z_v, matching the sentence."
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten formula supports the profile; no additional context about how the embeddings are learned or how link prediction is evaluated is available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph link prediction: In graph learning, the link prediction score between nodes u and v is commonly computed as the dot product of their learned embedding vectors, z_u^T z_v, which approximates their similarity.\",\n  \"claims\": [\n    {\n      \"claim\": \"The similarity between nodes u and v in graph link prediction is approximated by the dot product of their embeddings, z_u^T z_v.\",\n      \"evidence_ids\": [\"DGL-E0152\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph link prediction: The similarity between two nodes u and v is approximated by the dot product of their embedding vectors, z_u^T z_v.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph link prediction: The similarity between two nodes u and v is approximated by the dot product of their embedding vectors, z_u^T z_v.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0152\"],\n      \"reason\": \"The evidence directly states similarity(u,v) ≈ z_u^T z_v, matching the sentence.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single handwritten formula supports the profile; no additional context about how the embeddings are learned or how link prediction is evaluated is available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:42:55.040304+00:00"
+}

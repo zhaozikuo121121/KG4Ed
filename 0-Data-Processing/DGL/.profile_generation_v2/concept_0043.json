@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a604c7e9eb6460ef43c283d10f0257b62a59e1299f30ab80d61762ef3112527b",
+  "concept_id": 43,
+  "concept_name": "microscale topology",
+  "aliases": [
+    "microscale topology",
+    "micro scale topology"
+  ],
+  "profile": "microscale topology: a phrase appearing in a source on graph properties and matrix representations. The source records the term but provides no definition, explanation, or elaboration.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "microscale topology: a term that appears in introductory lecture materials on graph properties and matrix representations. The source records this phrase but provides no definition, explanation, or elaboration.",
+    "claims": [
+      {
+        "claim": "The phrase 'microscale topology' appears in lecture materials on graph properties and matrix representations.",
+        "evidence_ids": [
+          "DGL-E0060"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only the term is present; no definition or properties are available."
+    ]
+  },
+  "review": {
+    "final_profile": "microscale topology: a phrase appearing in a source on graph properties and matrix representations. The source records the term but provides no definition, explanation, or elaboration.",
+    "sentence_reviews": [
+      {
+        "sentence": "microscale topology: a phrase appearing in a source on graph properties and matrix representations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0060"
+        ],
+        "reason": "The evidence contains the phrase and the page title mentions graph properties and matrix representations."
+      },
+      {
+        "sentence": "The source records the term but provides no definition, explanation, or elaboration.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0060"
+        ],
+        "reason": "The evidence is only the phrase itself, with no accompanying definition or explanation."
+      }
+    ],
+    "warnings": [
+      "Only the term is present; no definition or properties are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"microscale topology: a term that appears in introductory lecture materials on graph properties and matrix representations. The source records this phrase but provides no definition, explanation, or elaboration.\",\n  \"claims\": [\n    {\n      \"claim\": \"The phrase 'microscale topology' appears in lecture materials on graph properties and matrix representations.\",\n      \"evidence_ids\": [\"DGL-E0060\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the term is present; no definition or properties are available.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"microscale topology: a phrase appearing in a source on graph properties and matrix representations. The source records the term but provides no definition, explanation, or elaboration.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"microscale topology: a phrase appearing in a source on graph properties and matrix representations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0060\"],\n      \"reason\": \"The evidence contains the phrase and the page title mentions graph properties and matrix representations.\"\n    },\n    {\n      \"sentence\": \"The source records the term but provides no definition, explanation, or elaboration.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0060\"],\n      \"reason\": \"The evidence is only the phrase itself, with no accompanying definition or explanation.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the term is present; no definition or properties are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:03:11.921898+00:00"
+}

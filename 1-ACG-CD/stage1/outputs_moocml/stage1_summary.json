@@ -1,0 +1,92 @@
+{
+  "stage": "stage1",
+  "config": {
+    "project_root": "G:\\ACG-CD",
+    "dataset_name": "moocml",
+    "train_ratio": 0.6,
+    "val_ratio_to_train": 0.1,
+    "seed": 42,
+    "reverse_negative_count": 0,
+    "hard_negative_count": 0,
+    "label_file_negative_ratio_to_train": 1.5,
+    "label_file_negative_count": null,
+    "config_path": "G:\\ACG-CD\\stage1\\config.yaml",
+    "stage1_dir": "G:\\ACG-CD\\stage1",
+    "data_dir": "G:\\ACG-CD\\data\\MOOCML",
+    "label_file": "MOOCML_prerequisites.csv",
+    "stage0_outputs_dir": "G:\\ACG-CD\\stage0\\outputs_moocml",
+    "stage1_outputs_dir": "G:\\ACG-CD\\stage1\\outputs_moocml",
+    "output_dir": "G:\\ACG-CD\\stage1\\outputs_moocml"
+  },
+  "concept_count": 244,
+  "label_stats": {
+    "label_file_rows": 6712,
+    "label_1": 1735,
+    "label_0": 4977,
+    "ignored_file_negative_rows": 4977,
+    "invalid_rows": 0,
+    "self_loop_rows": 0,
+    "duplicate_rows": 0,
+    "unique_directed_positive_edges": 1735
+  },
+  "split_counts": {
+    "positive_edges_all": 1735,
+    "train_pos": 1041,
+    "val_pos": 104,
+    "test_pos": 590,
+    "train_neg_reverse": 0,
+    "train_neg_hard": 0,
+    "train_neg_file_random": 1562,
+    "val_neg": 104,
+    "test_neg": 590,
+    "train_labels_initial": 2603,
+    "val_labels": 208,
+    "test_labels": 1180,
+    "heldout_pairs": 1388
+  },
+  "label_file_random_negative_stats": {
+    "label_file_negative_rows": 4977,
+    "invalid_label_file_negative_rows": 0,
+    "self_loop_label_file_negative_rows": 0,
+    "duplicate_label_file_negative_rows": 0,
+    "unique_label_file_negative_edges": 4977,
+    "enabled": true,
+    "requested": 1562,
+    "available_after_exclusion": 4977,
+    "sampled": 1562
+  },
+  "schema": [
+    "source_id",
+    "target_id",
+    "source_index",
+    "target_index",
+    "source",
+    "target",
+    "label",
+    "split",
+    "negative_type",
+    "similarity"
+  ],
+  "leakage_guard": "Stage2 must exclude heldout_pairs.csv from supervised training and pseudo-label generation candidates.",
+  "notes": [
+    "Sampled negative rows in MOOCML_prerequisites.csv are added as label_file_random training negatives; remaining file negatives stay unused.",
+    "source_id/source_index and target_id/target_index are both Stage0 concept_id values for direct indexing into Stage0 numpy arrays."
+  ],
+  "outputs": {
+    "positive_edges_all.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\positive_edges_all.csv",
+    "train_pos.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\train_pos.csv",
+    "val_pos.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\val_pos.csv",
+    "test_pos.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\test_pos.csv",
+    "train_neg_reverse.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\train_neg_reverse.csv",
+    "train_neg_hard.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\train_neg_hard.csv",
+    "train_neg_file_random.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\train_neg_file_random.csv",
+    "val_neg.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\val_neg.csv",
+    "test_neg.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\test_neg.csv",
+    "train_labels_initial.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\train_labels_initial.csv",
+    "val_labels.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\val_labels.csv",
+    "test_labels.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\test_labels.csv",
+    "heldout_pairs.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\heldout_pairs.csv",
+    "pseudo_pos_empty.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\pseudo_pos_empty.csv",
+    "pseudo_neg_empty.csv": "G:\\ACG-CD\\stage1\\outputs_moocml\\pseudo_neg_empty.csv"
+  }
+}

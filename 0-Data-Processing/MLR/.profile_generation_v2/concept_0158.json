@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d71d2046e9578e31a0110cc55e9f33bc71234e69e2ee1ac790bcbb1a03ee4f74",
+  "concept_id": 158,
+  "concept_name": "hessian of softmax cost",
+  "aliases": [
+    "hessian of softmax cost",
+    "softmax hessian",
+    "hessian matrix"
+  ],
+  "profile": "hessian of softmax cost: The Hessian of the multi-class Softmax cost function can be computed block-wise. This Hessian is a matrix of second-order partial derivatives. In the setting of linear multi-class classification, the second derivatives are organized in blocks when computing the Hessian.",
+  "word_count": 43,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "hessian of softmax cost: The Hessian of the multi-class Softmax cost function is a matrix of second-order partial derivatives. In linear multi-class classification, this Hessian can be computed block-wise. The block-wise computation organizes the second derivatives into blocks, which follows directly from the structure of the softmax cost function.",
+    "claims": [
+      {
+        "claim": "The Hessian of the multi-class Softmax cost function can be computed block-wise.",
+        "evidence_ids": [
+          "MLR-E0180"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The Hessian is a matrix of second-order partial derivatives.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "hessian of softmax cost: The Hessian of the multi-class Softmax cost function can be computed block-wise. This Hessian is a matrix of second-order partial derivatives. In the setting of linear multi-class classification, the second derivatives are organized in blocks when computing the Hessian.",
+    "sentence_reviews": [
+      {
+        "sentence": "The Hessian of the multi-class Softmax cost function can be computed block-wise.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0180"
+        ],
+        "reason": "Directly matches the source evidence."
+      },
+      {
+        "sentence": "This Hessian is a matrix of second-order partial derivatives.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Standard definitional background that helps connect the source-supported claim."
+      },
+      {
+        "sentence": "In the setting of linear multi-class classification, the second derivatives are organized in blocks when computing the Hessian.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0180"
+        ],
+        "reason": "The source context is linear multi-class classification and 'computed block-wise' is restated as organized in blocks."
+      }
+    ],
+    "warnings": [
+      "The source supports only block-wise computability; no details are provided about the exact block structure or derivation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"hessian of softmax cost: The Hessian of the multi-class Softmax cost function is a matrix of second-order partial derivatives. In linear multi-class classification, this Hessian can be computed block-wise. The block-wise computation organizes the second derivatives into blocks, which follows directly from the structure of the softmax cost function.\",\n  \"claims\": [\n    {\n      \"claim\": \"The Hessian of the multi-class Softmax cost function can be computed block-wise.\",\n      \"evidence_ids\": [\"MLR-E0180\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The Hessian is a matrix of second-order partial derivatives.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"hessian of softmax cost: The Hessian of the multi-class Softmax cost function can be computed block-wise. This Hessian is a matrix of second-order partial derivatives. In the setting of linear multi-class classification, the second derivatives are organized in blocks when computing the Hessian.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The Hessian of the multi-class Softmax cost function can be computed block-wise.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0180\"],\n      \"reason\": \"Directly matches the source evidence.\"\n    },\n    {\n      \"sentence\": \"This Hessian is a matrix of second-order partial derivatives.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Standard definitional background that helps connect the source-supported claim.\"\n    },\n    {\n      \"sentence\": \"In the setting of linear multi-class classification, the second derivatives are organized in blocks when computing the Hessian.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0180\"],\n      \"reason\": \"The source context is linear multi-class classification and 'computed block-wise' is restated as organized in blocks.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source supports only block-wise computability; no details are provided about the exact block structure or derivation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:27:37.427097+00:00"
+}

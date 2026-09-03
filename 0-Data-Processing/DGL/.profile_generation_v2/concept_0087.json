@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2b354d22c17271f945bbaaa97a5472ce19807742104cb9f0b73fe49f91e976e0",
+  "concept_id": 87,
+  "concept_name": "deep non-negative matrix factorization",
+  "aliases": [
+    "deep non-negative matrix factorization",
+    "deep nmf"
+  ],
+  "profile": "deep non-negative matrix factorization: a multi-layered deep nonnegative matrix factorization optimization, framed as a neural network. A standard deep neural network can be written as a Deep NMF optimization.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "deep non-negative matrix factorization: a multi-layered deep non-negative matrix factorization optimization, framed as a neural network. A standard deep neural network can be represented as a Deep NMF optimization, which links representation learning to matrix factorization.",
+    "claims": [
+      {
+        "claim": "Deep non-negative matrix factorization is a multi-layered deep non-negative matrix factorization optimization framed as a neural network.",
+        "evidence_ids": [
+          "DGL-E0108"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A standard deep neural network can be represented as a Deep NMF optimization.",
+        "evidence_ids": [
+          "DGL-E0108"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No further details about the factorization constraints or algorithm are present in the metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "deep non-negative matrix factorization: a multi-layered deep nonnegative matrix factorization optimization, framed as a neural network. A standard deep neural network can be written as a Deep NMF optimization.",
+    "sentence_reviews": [
+      {
+        "sentence": "deep non-negative matrix factorization: a multi-layered deep nonnegative matrix factorization optimization, framed as a neural network.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0108"
+        ],
+        "reason": "The source names a Deep Non-Negative Matrix Factorization Neural Network and describes a multi-layered deep NMF optimization."
+      },
+      {
+        "sentence": "A standard deep neural network can be written as a Deep NMF optimization.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0108"
+        ],
+        "reason": "The source theorem states that a standard deep neural network can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization."
+      }
+    ],
+    "warnings": [
+      "No further details about factorization constraints, training, or algorithmic properties are present in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"deep non-negative matrix factorization: a multi-layered deep non-negative matrix factorization optimization, framed as a neural network. A standard deep neural network can be represented as a Deep NMF optimization, which links representation learning to matrix factorization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Deep non-negative matrix factorization is a multi-layered deep non-negative matrix factorization optimization framed as a neural network.\",\n      \"evidence_ids\": [\"DGL-E0108\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A standard deep neural network can be represented as a Deep NMF optimization.\",\n      \"evidence_ids\": [\"DGL-E0108\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No further details about the factorization constraints or algorithm are present in the metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"deep non-negative matrix factorization: a multi-layered deep nonnegative matrix factorization optimization, framed as a neural network. A standard deep neural network can be written as a Deep NMF optimization.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"deep non-negative matrix factorization: a multi-layered deep nonnegative matrix factorization optimization, framed as a neural network.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0108\"],\n      \"reason\": \"The source names a Deep Non-Negative Matrix Factorization Neural Network and describes a multi-layered deep NMF optimization.\"\n    },\n    {\n      \"sentence\": \"A standard deep neural network can be written as a Deep NMF optimization.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0108\"],\n      \"reason\": \"The source theorem states that a standard deep neural network can be written as a multi-layered deep nonnegative matrix factorization (Deep NMF) optimization.\"\n    }\n  ],\n  \"warnings\": [\n    \"No further details about factorization constraints, training, or algorithmic properties are present in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:21:35.188925+00:00"
+}

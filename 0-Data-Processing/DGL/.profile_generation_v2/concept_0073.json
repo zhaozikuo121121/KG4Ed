@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a8569f180441dc1504aa5735177964f628e573a7b3f887603888b27a74df5800",
+  "concept_id": 73,
+  "concept_name": "dot product",
+  "aliases": [
+    "dot product",
+    "inner product"
+  ],
+  "profile": "dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results. In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings. This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results. In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings. This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.",
+    "claims": [
+      {
+        "claim": "The dot product operation can be written as h^(m)T h^(n).",
+        "evidence_ids": [
+          "DGL-E0076",
+          "DGL-E0260"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It represents the dot product between two node embeddings.",
+        "evidence_ids": [
+          "DGL-E0076"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used as a similarity measure between embeddings.",
+        "evidence_ids": [
+          "DGL-E0260"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used for edge prediction.",
+        "evidence_ids": [
+          "DGL-E0076"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The handwritten formula evidence (DGL-E0260) has a confidence of 0.950."
+    ]
+  },
+  "review": {
+    "final_profile": "dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results. In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings. This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "General definition of dot product; not explicitly stated in the source evidence but provides necessary context."
+      },
+      {
+        "sentence": "In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0076",
+          "DGL-E0260"
+        ],
+        "reason": "Printed and handwritten source formulas show the transpose-and-multiply form between node embeddings."
+      },
+      {
+        "sentence": "This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0076",
+          "DGL-E0260"
+        ],
+        "reason": "One source describes the formula as representing similarity; another places it in edge prediction."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results. In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings. This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.\",\n  \"claims\": [\n    {\n      \"claim\": \"The dot product operation can be written as h^(m)T h^(n).\",\n      \"evidence_ids\": [\"DGL-E0076\", \"DGL-E0260\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It represents the dot product between two node embeddings.\",\n      \"evidence_ids\": [\"DGL-E0076\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used as a similarity measure between embeddings.\",\n      \"evidence_ids\": [\"DGL-E0260\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used for edge prediction.\",\n      \"evidence_ids\": [\"DGL-E0076\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The handwritten formula evidence (DGL-E0260) has a confidence of 0.950.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results. In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings. This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"dot product: A mathematical operation between two vectors that multiplies corresponding components and sums the results.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"General definition of dot product; not explicitly stated in the source evidence but provides necessary context.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks, it is written as h^(m)T h^(n), representing the dot product between two node embeddings.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0076\", \"DGL-E0260\"],\n      \"reason\": \"Printed and handwritten source formulas show the transpose-and-multiply form between node embeddings.\"\n    },\n    {\n      \"sentence\": \"This value is used as a similarity measure between the embeddings, for example in edge prediction tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0076\", \"DGL-E0260\"],\n      \"reason\": \"One source describes the formula as representing similarity; another places it in edge prediction.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:16:37.103604+00:00"
+}

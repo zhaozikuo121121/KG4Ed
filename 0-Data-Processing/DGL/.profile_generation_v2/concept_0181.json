@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "42f9778b5118a20a1abba2519c92c155f43cf700c9b6176d34ccdbddb0a80c68",
+  "concept_id": 181,
+  "concept_name": "gradient explosion",
+  "aliases": [
+    "gradient explosion",
+    "vanishing gradient"
+  ],
+  "profile": "gradient explosion: A phenomenon, mentioned alongside vanishing gradient, that can be suppressed.",
+  "word_count": 12,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "gradient explosion: A phenomenon that can be suppressed during neural network training, often mentioned together with vanishing gradient.",
+    "claims": [
+      {
+        "claim": "Gradient explosion is a phenomenon that can be suppressed.",
+        "evidence_ids": [
+          "DGL-E0180"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Gradient explosion is often mentioned together with vanishing gradient.",
+        "evidence_ids": [
+          "DGL-E0180"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "gradient explosion: A phenomenon, mentioned alongside vanishing gradient, that can be suppressed.",
+    "sentence_reviews": [
+      {
+        "sentence": "gradient explosion: A phenomenon, mentioned alongside vanishing gradient, that can be suppressed.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0180"
+        ],
+        "reason": "The source phrase 'suppress the gradient explosion or vanishing phenomena' directly supports describing it as a phenomenon that can be suppressed and as being mentioned with vanishing gradient."
+      }
+    ],
+    "warnings": [
+      "No further definition or training context is provided by the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"gradient explosion: A phenomenon that can be suppressed during neural network training, often mentioned together with vanishing gradient.\",\n  \"claims\": [\n    {\n      \"claim\": \"Gradient explosion is a phenomenon that can be suppressed.\",\n      \"evidence_ids\": [\"DGL-E0180\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Gradient explosion is often mentioned together with vanishing gradient.\",\n      \"evidence_ids\": [\"DGL-E0180\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"gradient explosion: A phenomenon, mentioned alongside vanishing gradient, that can be suppressed.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"gradient explosion: A phenomenon, mentioned alongside vanishing gradient, that can be suppressed.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0180\"],\n      \"reason\": \"The source phrase 'suppress the gradient explosion or vanishing phenomena' directly supports describing it as a phenomenon that can be suppressed and as being mentioned with vanishing gradient.\"\n    }\n  ],\n  \"warnings\": [\n    \"No further definition or training context is provided by the source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:06:02.177638+00:00"
+}

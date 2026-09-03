@@ -1,0 +1,105 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "a2782a0c6c3ff59b3e6d8e5038fa26eb304e77091df6448d390f469cd086cbab",
+  "concept_id": 71,
+  "concept_name": "node classification",
+  "aliases": [
+    "node classification",
+    "classify node",
+    "node-level prediction",
+    "node prediction",
+    "node classification task"
+  ],
+  "profile": "node classification: a graph prediction task in which nodes are classified; in graph neural networks, a node is classified from its node embedding. It appears as a graph learning task, including in a GCN training and optimization pipeline and in discussions of inductive vs. transductive learning. It is listed with edge prediction for permutation-invariant/equivariant graph models and cited as an example task for graph isomorphism network expressiveness.",
+  "word_count": 68,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "node classification: a graph prediction task where each node is assigned a class label. In graph neural networks, it is performed by classifying a node from its node embedding. It is a common task in graph learning and appears across GCN training pipelines and in discussions of inductive vs transductive learning. The task is used alongside edge prediction and is mentioned as an example of tasks for permutation-invariant/equivariant models and GIN expressiveness.",
+    "claims": [
+      {
+        "claim": "Node classification is a graph prediction task where each node is assigned a class label.",
+        "evidence_ids": [
+          "DGL-E0069",
+          "DGL-E0200",
+          "DGL-E0395"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In graph neural networks, it is performed by classifying a node from its node embedding.",
+        "evidence_ids": [
+          "DGL-E0069"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is a common task in graph learning and appears across GCN training pipelines and in discussions of inductive vs transductive learning.",
+        "evidence_ids": [
+          "DGL-E0200",
+          "DGL-E0253",
+          "DGL-E0395"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The task is used alongside edge prediction and is mentioned as an example of tasks for permutation-invariant/equivariant models and GIN expressiveness.",
+        "evidence_ids": [
+          "DGL-E0413",
+          "DGL-E0452"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "node classification: a graph prediction task in which nodes are classified; in graph neural networks, a node is classified from its node embedding. It appears as a graph learning task, including in a GCN training and optimization pipeline and in discussions of inductive vs. transductive learning. It is listed with edge prediction for permutation-invariant/equivariant graph models and cited as an example task for graph isomorphism network expressiveness.",
+    "sentence_reviews": [
+      {
+        "sentence": "node classification: a graph prediction task in which nodes are classified; in graph neural networks, a node is classified from its node embedding.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0069"
+        ],
+        "reason": "Page title 'Graph Neural Network Prediction Tasks' and handwritten note 'Classify node from node embedding' support graph prediction task and embedding-based classification."
+      },
+      {
+        "sentence": "It appears as a graph learning task, including in a GCN training and optimization pipeline and in discussions of inductive vs. transductive learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0200",
+          "DGL-E0253",
+          "DGL-E0395"
+        ],
+        "reason": "Node classification appears in graph learning trends/tasks, in a GCN training/optimization page, and in an inductive vs. transductive learning page."
+      },
+      {
+        "sentence": "It is listed with edge prediction for permutation-invariant/equivariant graph models and cited as an example task for graph isomorphism network expressiveness.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0413",
+          "DGL-E0452"
+        ],
+        "reason": "DGL-E0413 pairs node classification with edge prediction under permutation invariance/equivariance; DGL-E0452 cites node classification as an example in the GIN expressiveness context."
+      }
+    ],
+    "warnings": [
+      "The node-embedding detail relies on a handwritten annotation, while printed evidence only lists node classification as a task."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"node classification: a graph prediction task where each node is assigned a class label. In graph neural networks, it is performed by classifying a node from its node embedding. It is a common task in graph learning and appears across GCN training pipelines and in discussions of inductive vs transductive learning. The task is used alongside edge prediction and is mentioned as an example of tasks for permutation-invariant/equivariant models and GIN expressiveness.\",\n  \"claims\": [\n    {\n      \"claim\": \"Node classification is a graph prediction task where each node is assigned a class label.\",\n      \"evidence_ids\": [\"DGL-E0069\", \"DGL-E0200\", \"DGL-E0395\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In graph neural networks, it is performed by classifying a node from its node embedding.\",\n      \"evidence_ids\": [\"DGL-E0069\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is a common task in graph learning and appears across GCN training pipelines and in discussions of inductive vs transductive learning.\",\n      \"evidence_ids\": [\"DGL-E0200\", \"DGL-E0253\", \"DGL-E0395\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The task is used alongside edge prediction and is mentioned as an example of tasks for permutation-invariant/equivariant models and GIN expressiveness.\",\n      \"evidence_ids\": [\"DGL-E0413\", \"DGL-E0452\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"node classification: a graph prediction task in which nodes are classified; in graph neural networks, a node is classified from its node embedding. It appears as a graph learning task, including in a GCN training and optimization pipeline and in discussions of inductive vs. transductive learning. It is listed with edge prediction for permutation-invariant/equivariant graph models and cited as an example task for graph isomorphism network expressiveness.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"node classification: a graph prediction task in which nodes are classified; in graph neural networks, a node is classified from its node embedding.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0069\"],\n      \"reason\": \"Page title 'Graph Neural Network Prediction Tasks' and handwritten note 'Classify node from node embedding' support graph prediction task and embedding-based classification.\"\n    },\n    {\n      \"sentence\": \"It appears as a graph learning task, including in a GCN training and optimization pipeline and in discussions of inductive vs. transductive learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0200\", \"DGL-E0253\", \"DGL-E0395\"],\n      \"reason\": \"Node classification appears in graph learning trends/tasks, in a GCN training/optimization page, and in an inductive vs. transductive learning page.\"\n    },\n    {\n      \"sentence\": \"It is listed with edge prediction for permutation-invariant/equivariant graph models and cited as an example task for graph isomorphism network expressiveness.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0413\", \"DGL-E0452\"],\n      \"reason\": \"DGL-E0413 pairs node classification with edge prediction under permutation invariance/equivariance; DGL-E0452 cites node classification as an example in the GIN expressiveness context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The node-embedding detail relies on a handwritten annotation, while printed evidence only lists node classification as a task.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:15:57.362137+00:00"
+}

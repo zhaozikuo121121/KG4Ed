@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8fa3d5c3c38e1a4d3356842493d8db955de2c4f9f762667e7dec335487448879",
+  "concept_id": 357,
+  "concept_name": "graphvae",
+  "aliases": [
+    "graphvae",
+    "variational graph autoencoder"
+  ],
+  "profile": "graphvae: GraphVAE is a method introduced by Simonovsky et al. (2018). It is presented in the context of generative graph neural networks and graph pooling.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graphvae: GraphVAE is a method introduced by Simonovsky et al. (2018). It appears in the context of generative graph neural networks and graph pooling.",
+    "claims": [
+      {
+        "claim": "GraphVAE is a method introduced by Simonovsky et al. (2018).",
+        "evidence_ids": [
+          "DGL-E0511"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "GraphVAE appears in the context of generative graph neural networks and graph pooling.",
+        "evidence_ids": [
+          "DGL-E0511"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graphvae: GraphVAE is a method introduced by Simonovsky et al. (2018). It is presented in the context of generative graph neural networks and graph pooling.",
+    "sentence_reviews": [
+      {
+        "sentence": "GraphVAE is a method introduced by Simonovsky et al. (2018).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0511"
+        ],
+        "reason": "The metadata directly cites GraphVAE (Simonovsky et al., 2018)."
+      },
+      {
+        "sentence": "It is presented in the context of generative graph neural networks and graph pooling.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0511"
+        ],
+        "reason": "The source page title places GraphVAE under 'Generative Graph Neural Networks and Graph Pooling'."
+      }
+    ],
+    "warnings": [
+      "No further details about the method are available from the cited evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graphvae: GraphVAE is a method introduced by Simonovsky et al. (2018). It appears in the context of generative graph neural networks and graph pooling.\",\n  \"claims\": [\n    {\n      \"claim\": \"GraphVAE is a method introduced by Simonovsky et al. (2018).\",\n      \"evidence_ids\": [\"DGL-E0511\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"GraphVAE appears in the context of generative graph neural networks and graph pooling.\",\n      \"evidence_ids\": [\"DGL-E0511\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graphvae: GraphVAE is a method introduced by Simonovsky et al. (2018). It is presented in the context of generative graph neural networks and graph pooling.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"GraphVAE is a method introduced by Simonovsky et al. (2018).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0511\"],\n      \"reason\": \"The metadata directly cites GraphVAE (Simonovsky et al., 2018).\"\n    },\n    {\n      \"sentence\": \"It is presented in the context of generative graph neural networks and graph pooling.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0511\"],\n      \"reason\": \"The source page title places GraphVAE under 'Generative Graph Neural Networks and Graph Pooling'.\"\n    }\n  ],\n  \"warnings\": [\"No further details about the method are available from the cited evidence.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:05:21.488592+00:00"
+}

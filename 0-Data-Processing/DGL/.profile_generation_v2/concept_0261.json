@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "359ab47149950c08a918a23a46dfb0070ec3fe0e1834713a395bcd307ff05be5",
+  "concept_id": 261,
+  "concept_name": "ladies",
+  "aliases": [
+    "ladies",
+    "layer-dependent importance sampling"
+  ],
+  "profile": "ladies: LADIES, also known as layer-dependent importance sampling, is an importance sampling technique attributed to Zou et al. (2019).",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "ladies: LADIES (also known as layer-dependent importance sampling) is an importance sampling technique introduced by Zou et al. (2019).",
+    "claims": [
+      {
+        "claim": "LADIES is also known as layer-dependent importance sampling.",
+        "evidence_ids": [
+          "DGL-E0361"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "LADIES is an importance sampling technique.",
+        "evidence_ids": [
+          "DGL-E0361"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "LADIES was introduced by Zou et al. (2019).",
+        "evidence_ids": [
+          "DGL-E0361"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "ladies: LADIES, also known as layer-dependent importance sampling, is an importance sampling technique attributed to Zou et al. (2019).",
+    "sentence_reviews": [
+      {
+        "sentence": "ladies: LADIES, also known as layer-dependent importance sampling, is an importance sampling technique attributed to Zou et al. (2019).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0361"
+        ],
+        "reason": "The evidence defines LADIES as layer-dependent importance sampling and lists the citation Zou et al. (2019). The wording avoids unsupported claims about how it was introduced."
+      }
+    ],
+    "warnings": [
+      "Only minimal definition-level information is present in the source; no methodological details are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"ladies: LADIES (also known as layer-dependent importance sampling) is an importance sampling technique introduced by Zou et al. (2019).\",\n  \"claims\": [\n    {\n      \"claim\": \"LADIES is also known as layer-dependent importance sampling.\",\n      \"evidence_ids\": [\"DGL-E0361\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"LADIES is an importance sampling technique.\",\n      \"evidence_ids\": [\"DGL-E0361\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"LADIES was introduced by Zou et al. (2019).\",\n      \"evidence_ids\": [\"DGL-E0361\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"ladies: LADIES, also known as layer-dependent importance sampling, is an importance sampling technique attributed to Zou et al. (2019).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"ladies: LADIES, also known as layer-dependent importance sampling, is an importance sampling technique attributed to Zou et al. (2019).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0361\"],\n      \"reason\": \"The evidence defines LADIES as layer-dependent importance sampling and lists the citation Zou et al. (2019). The wording avoids unsupported claims about how it was introduced.\"\n    }\n  ],\n  \"warnings\": [\"Only minimal definition-level information is present in the source; no methodological details are available.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:33:23.674046+00:00"
+}

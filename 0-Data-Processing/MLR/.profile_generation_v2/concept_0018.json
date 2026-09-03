@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c20cce2dd98cbb20c07a0f539ae70310f6187e50b49cda4fda9850d49874258a",
+  "concept_id": 18,
+  "concept_name": "model parameters",
+  "aliases": [
+    "model parameters",
+    "parameters",
+    "slope and vertical intercept",
+    "internal parameters"
+  ],
+  "profile": "model parameters: a specific set of values that serve as input to a procedure returning a score indicating how well a learning task would be accomplished. They can be internal parameters of a function, for example w(1)_0 and w(1)_1, and may be set randomly.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "model parameters: a specific set of values that serve as input to a procedure returning a score that indicates how well a learning task would be accomplished. They can be the internal parameters of a function, such as w(1)_0 and w(1)_1, and these internal parameters may be set randomly.",
+    "claims": [
+      {
+        "claim": "A specific set of model parameters serves as input to a procedure that returns a score indicating how well a learning task would be accomplished.",
+        "evidence_ids": [
+          "MLR-E0019"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Model parameters can be internal parameters of a function, for example w(1)_0 and w(1)_1.",
+        "evidence_ids": [
+          "MLR-E0309"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Internal parameters may be set randomly.",
+        "evidence_ids": [
+          "MLR-E0309"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "model parameters: a specific set of values that serve as input to a procedure returning a score indicating how well a learning task would be accomplished. They can be internal parameters of a function, for example w(1)_0 and w(1)_1, and may be set randomly.",
+    "sentence_reviews": [
+      {
+        "sentence": "model parameters: a specific set of values that serve as input to a procedure returning a score indicating how well a learning task would be accomplished.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0019"
+        ],
+        "reason": "The source describes model parameters being taken in by a procedure that returns a score for a learning task."
+      },
+      {
+        "sentence": "They can be internal parameters of a function, for example w(1)_0 and w(1)_1, and may be set randomly.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0309"
+        ],
+        "reason": "The source identifies w(1)_0 and w(1)_1 as internal parameters of the function and notes they were set randomly."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"model parameters: a specific set of values that serve as input to a procedure returning a score that indicates how well a learning task would be accomplished. They can be the internal parameters of a function, such as w(1)_0 and w(1)_1, and these internal parameters may be set randomly.\",\n  \"claims\": [\n    {\n      \"claim\": \"A specific set of model parameters serves as input to a procedure that returns a score indicating how well a learning task would be accomplished.\",\n      \"evidence_ids\": [\"MLR-E0019\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Model parameters can be internal parameters of a function, for example w(1)_0 and w(1)_1.\",\n      \"evidence_ids\": [\"MLR-E0309\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Internal parameters may be set randomly.\",\n      \"evidence_ids\": [\"MLR-E0309\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"model parameters: a specific set of values that serve as input to a procedure returning a score indicating how well a learning task would be accomplished. They can be internal parameters of a function, for example w(1)_0 and w(1)_1, and may be set randomly.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"model parameters: a specific set of values that serve as input to a procedure returning a score indicating how well a learning task would be accomplished.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0019\"],\n      \"reason\": \"The source describes model parameters being taken in by a procedure that returns a score for a learning task.\"\n    },\n    {\n      \"sentence\": \"They can be internal parameters of a function, for example w(1)_0 and w(1)_1, and may be set randomly.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0309\"],\n      \"reason\": \"The source identifies w(1)_0 and w(1)_1 as internal parameters of the function and notes they were set randomly.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:27:11.932917+00:00"
+}

@@ -1,0 +1,1755 @@
+{
+  "version": "1.0.0",
+  "chapter": 14,
+  "chapter_title": "Tree-based learners",
+  "pdf_start": 483,
+  "pdf_end": 510,
+  "model": "deepseek-v4-pro",
+  "completed_at": "2026-07-21T23:54:50+00:00",
+  "concepts": [
+    {
+      "canonical": "split point",
+      "aliases": [
+        "split"
+      ],
+      "evidence_page": 483,
+      "evidence": "a split point parameter s defining the boundary between the two levels",
+      "relevance": 1.0,
+      "anchor_page": 483
+    },
+    {
+      "canonical": "stump",
+      "aliases": [
+        "tree stump",
+        "decision stump"
+      ],
+      "evidence_page": 483,
+      "evidence": "The most basic tree-based universal approximator, the stump, is a simple step function of the form",
+      "relevance": 1.0,
+      "anchor_page": 483
+    },
+    {
+      "canonical": "bagging",
+      "aliases": [
+        "bagged ensembles",
+        "bootstrap aggregating"
+      ],
+      "evidence_page": 483,
+      "evidence": "explain their particular usage with boosting-based cross-validation and bagged ensembles",
+      "relevance": 0.9,
+      "anchor_page": 483
+    },
+    {
+      "canonical": "leaf parameters",
+      "aliases": [
+        "leaf values",
+        "step levels"
+      ],
+      "evidence_page": 483,
+      "evidence": "two step levels or leaf parameters denoted by v1 and v2",
+      "relevance": 0.9,
+      "anchor_page": 483
+    },
+    {
+      "canonical": "growing of a tree",
+      "aliases": [
+        "tree growing",
+        "growing regression trees"
+      ],
+      "evidence_page": 485,
+      "evidence": "This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.",
+      "relevance": 0.9,
+      "anchor_page": 485
+    },
+    {
+      "canonical": "local function approximator",
+      "aliases": [],
+      "evidence_page": 485,
+      "evidence": "This is why tree-based universal approximators are sometimes called local function approximators.",
+      "relevance": 0.8,
+      "anchor_page": 485
+    },
+    {
+      "canonical": "regression tree",
+      "aliases": [
+        "regression trees"
+      ],
+      "evidence_page": 486,
+      "evidence": "the use of general tree-based universal approximators for the problem of regression, often called regression trees.",
+      "relevance": 1.0,
+      "anchor_page": 486
+    },
+    {
+      "canonical": "addition of trees",
+      "aliases": [],
+      "evidence_page": 486,
+      "evidence": "Deeper, more flexible trees can also be constructed via addition of shallower trees.",
+      "relevance": 0.8,
+      "anchor_page": 486
+    },
+    {
+      "canonical": "staircase-like cost",
+      "aliases": [
+        "staircase cost function"
+      ],
+      "evidence_page": 486,
+      "evidence": "create highly non-convex, staircase-like functions",
+      "relevance": 0.8,
+      "anchor_page": 486
+    },
+    {
+      "canonical": "human interpretability",
+      "aliases": [
+        "interpretability of trees"
+      ],
+      "evidence_page": 486,
+      "evidence": "shallow tree-based units ... are often easy to interpret by humans",
+      "relevance": 0.7,
+      "anchor_page": 486
+    },
+    {
+      "canonical": "mid-point split point",
+      "aliases": [],
+      "evidence_page": 487,
+      "evidence": "we need only test one split point per flat region, e.g., the mid-point, as shown in this panel.",
+      "relevance": 0.9,
+      "anchor_page": 487
+    },
+    {
+      "canonical": "candidate split points",
+      "aliases": [],
+      "evidence_page": 490,
+      "evidence": "we create a set of candidate split point values by recording every mid-point between our input data",
+      "relevance": 0.9,
+      "anchor_page": 490
+    },
+    {
+      "canonical": "optimal leaf values",
+      "aliases": [],
+      "evidence_page": 490,
+      "evidence": "optimal leaf values v⋆_L and v⋆_R equal to the mean of the output",
+      "relevance": 0.9,
+      "anchor_page": 490
+    },
+    {
+      "canonical": "leaf-value optimization",
+      "aliases": [],
+      "evidence_page": 500,
+      "evidence": "optimize the leaf values of fsm (x) using an appropriate cost function",
+      "relevance": 0.8,
+      "anchor_page": 500
+    },
+    {
+      "canonical": "tree-based learner",
+      "aliases": [
+        "tree-based unit",
+        "tree-based model"
+      ],
+      "evidence_page": 500,
+      "evidence": "In the case of tree-based learners we can dispense with the bias and weights",
+      "relevance": 0.8,
+      "anchor_page": 500
+    },
+    {
+      "canonical": "residual fitting",
+      "aliases": [
+        "residual learning"
+      ],
+      "evidence_page": 501,
+      "evidence": "interpreted as successive rounds of fitting to the residual",
+      "relevance": 0.8,
+      "anchor_page": 501
+    },
+    {
+      "canonical": "feature subsampling",
+      "aliases": [
+        "feature sampling"
+      ],
+      "evidence_page": 503,
+      "evidence": "only a random subset of feature dimensions are sampled for viable split points",
+      "relevance": 0.8,
+      "anchor_page": 503
+    },
+    {
+      "canonical": "recursively defined trees",
+      "aliases": [
+        "recursive tree",
+        "recursive tree construction",
+        "recursive partitioning"
+      ],
+      "evidence_page": 503,
+      "evidence": "recursively defined regression and classification trees",
+      "relevance": 0.8,
+      "anchor_page": 503
+    },
+    {
+      "canonical": "computational trade-off",
+      "aliases": [],
+      "evidence_page": 503,
+      "evidence": "the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones",
+      "relevance": 0.7,
+      "anchor_page": 503
+    },
+    {
+      "canonical": "mode",
+      "aliases": [
+        "majority voting"
+      ],
+      "evidence_page": 503,
+      "evidence": "taking the mode of the five classification trees",
+      "relevance": 0.7,
+      "anchor_page": 503
+    },
+    {
+      "canonical": "pruning",
+      "aliases": [
+        "tree pruning"
+      ],
+      "evidence_page": 507,
+      "evidence": "pruning-based regularization",
+      "relevance": 0.9,
+      "anchor_page": 507
+    },
+    {
+      "canonical": "gradient boosting",
+      "aliases": [
+        "gradient boosted trees"
+      ],
+      "evidence_page": 508,
+      "evidence": "Gradient boosting - the specific application of boosting based cross-validation ... to tree-based learners",
+      "relevance": 1.0,
+      "anchor_page": 508
+    },
+    {
+      "canonical": "random forests",
+      "aliases": [],
+      "evidence_page": 508,
+      "evidence": "Random Forests - the specialized application of bagging ... to tree-based learners",
+      "relevance": 1.0,
+      "anchor_page": 508
+    },
+    {
+      "canonical": "classification trees",
+      "aliases": [
+        "classification tree"
+      ],
+      "evidence_page": 508,
+      "evidence": "Recursively-defined regression and classification trees were then gently motivated",
+      "relevance": 0.9,
+      "anchor_page": 508
+    }
+  ],
+  "formulas": [
+    {
+      "concept": "stump",
+      "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+      "pdf_page": 483,
+      "equation_label": "14.1",
+      "confidence": 1.0
+    },
+    {
+      "concept": "split point",
+      "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+      "pdf_page": 483,
+      "equation_label": "14.1",
+      "confidence": 1.0
+    },
+    {
+      "concept": "leaf parameters",
+      "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+      "pdf_page": 483,
+      "equation_label": "14.1",
+      "confidence": 1.0
+    },
+    {
+      "concept": "optimal leaf values",
+      "latex": "v_{\\star L} = \\frac{1}{|\\Omega_L|} \\sum_{p \\in \\Omega_L} y_p \\qquad v_{\\star R} = \\frac{1}{|\\Omega_R|} \\sum_{p \\in \\Omega_R} y_p",
+      "pdf_page": 490,
+      "equation_label": "(14.6)",
+      "confidence": 1.0
+    },
+    {
+      "concept": "leaf-value optimization",
+      "latex": "\\frac{1}{|\\Omega_L|} \\sum_{p \\in \\Omega_L} \\left( \\text{model}_{m-1}\\left(x_p, \\Theta_{m-1}\\right) + v_L - y_p \\right)^2 \\\\\n\\frac{1}{|\\Omega_R|} \\sum_{p \\in \\Omega_R} \\left( \\text{model}_{m-1}\\left(x_p, \\Theta_{m-1}\\right) + v_R - y_p \\right)^2",
+      "pdf_page": 500,
+      "equation_label": "(14.12)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "tree-based learner",
+      "latex": "\\text{model}_{m-1}\\left(\\mathbf{x}, \\Theta_{m-1}\\right) = f_{s_1^\\star}(\\mathbf{x}) + f_{s_2^\\star}(\\mathbf{x}) + \\cdots + f_{s_{m-1}^\\star}(\\mathbf{x})",
+      "pdf_page": 499,
+      "equation_label": "(14.10)",
+      "confidence": 0.95
+    },
+    {
+      "concept": "residual fitting",
+      "latex": "\\frac{1}{|\\Omega_L|}\\sum_{p\\in\\Omega_L} \\left(v_L - r_p\\right)^2",
+      "pdf_page": 501,
+      "equation_label": "",
+      "confidence": 0.95
+    }
+  ],
+  "figures": [
+    {
+      "concept": "stump",
+      "pdf_page": 484,
+      "figure_label": "Figure 14.1",
+      "caption": "Figure 14.1 (top left panel) A simple stump, defined in Equation (14.1). (top right panel) A graphical illustration of a stump function as a binary tree. (bottom left panel) A depth two tree formed by recursing on each leaf of the stump, replacing it with a new stump. (bottom right panel) A graphical illustration of the depth two tree.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "growing of a tree",
+      "pdf_page": 485,
+      "figure_label": "Figure 14.2",
+      "caption": "Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given diﬀerent settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "regression tree",
+      "pdf_page": 487,
+      "figure_label": "Figure 14.4",
+      "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "addition of trees",
+      "pdf_page": 486,
+      "figure_label": "Figure 14.3",
+      "caption": "Figure 14.3 (left panel) Three stumps, each depicted in a distinct color. (right panel) A depth two tree (in black) created by adding together the three stumps shown in the left panel.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "staircase-like cost",
+      "pdf_page": 487,
+      "figure_label": "Figure 14.4",
+      "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "human interpretability",
+      "pdf_page": 485,
+      "figure_label": "Figure 14.2",
+      "caption": "Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given different settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "mid-point split point",
+      "pdf_page": 487,
+      "figure_label": "Figure 14.4",
+      "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "candidate split points",
+      "pdf_page": 491,
+      "figure_label": "Figure 14.6",
+      "caption": "Figure associated with Example 14.1. See text for details.",
+      "confidence": 1.0
+    },
+    {
+      "concept": "residual fitting",
+      "pdf_page": 501,
+      "figure_label": "Figure 14.13",
+      "caption": "Figure 14.13 Figure associated with Example 14.5. See text for details.",
+      "confidence": 0.95
+    },
+    {
+      "concept": "mode",
+      "pdf_page": 504,
+      "figure_label": "Figure 14.15",
+      "caption": "Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.",
+      "confidence": 0.9
+    },
+    {
+      "concept": "recursively defined trees",
+      "pdf_page": 504,
+      "figure_label": "Figure 14.15",
+      "caption": "Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.",
+      "confidence": 0.8
+    },
+    {
+      "concept": "pruning",
+      "pdf_page": 507,
+      "figure_label": "Figure 14.18",
+      "caption": "Figure 14.18 Pruning illustrated. (top panels) A fully-grown tree of depth two with four leaves. (bottom) A pruned version of the original tree wherein the leaves v2,1 and v2,2 are pruned and replaced by a single leaf.",
+      "confidence": 0.95
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "concepts",
+      "chunk": 1,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "stump",
+            "aliases": [
+              "tree stump",
+              "step function"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "The most basic tree-based universal approximator, the stump, is a simple step function of the form",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "split point",
+            "aliases": [],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "a split point parameter s defining the boundary between the two levels",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "leaf parameters",
+            "aliases": [
+              "leaf values",
+              "step levels"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "two step levels or leaf parameters denoted by v1 and v2",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "binary tree structure",
+            "aliases": [],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "the stump can be thought of as a binary tree structure of depth one",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "tree depth",
+            "aliases": [
+              "depth of a tree"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "binary tree structure of depth one",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "growing of a tree",
+            "aliases": [
+              "tree growing"
+            ],
+            "evidence_page": 485,
+            "anchor_page": 485,
+            "evidence": "This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "local function approximator",
+            "aliases": [],
+            "evidence_page": 485,
+            "anchor_page": 485,
+            "evidence": "This is why tree-based universal approximators are sometimes called local function approximators.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "addition of trees",
+            "aliases": [],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "Deeper, more flexible trees can also be constructed via addition of shallower trees.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "human interpretability",
+            "aliases": [
+              "interpretability of trees"
+            ],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "shallow tree-based units ... are often easy to interpret by humans",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "regression tree",
+            "aliases": [],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "the use of general tree-based universal approximators for the problem of regression, often called regression trees.",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [],
+            "evidence_page": 487,
+            "anchor_page": 487,
+            "evidence": "the Least Squares cost",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "staircase-like cost",
+            "aliases": [
+              "staircase cost function"
+            ],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "create highly non-convex, staircase-like functions",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "mid-point split point",
+            "aliases": [],
+            "evidence_page": 487,
+            "anchor_page": 487,
+            "evidence": "we need only test one split point per flat region, e.g., the mid-point, as shown in this panel.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "optimal leaf values",
+            "aliases": [],
+            "evidence_page": 490,
+            "anchor_page": 490,
+            "evidence": "optimal leaf values v⋆_L and v⋆_R equal to the mean of the output",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "candidate split points",
+            "aliases": [],
+            "evidence_page": 490,
+            "anchor_page": 490,
+            "evidence": "we create a set of candidate split point values by recording every mid-point between our input data",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "growing regression trees",
+            "aliases": [],
+            "evidence_page": 491,
+            "anchor_page": 491,
+            "evidence": "To fit a depth two tree to a regression dataset we first fit a stump ... and then recurse on the same idea on each of the stump’s leaves.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [
+              "gradient boosting"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "they are referred to as gradient boosting and random forests in the jargon of machine learning",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bagging",
+            "aliases": [
+              "bagged ensembles"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "explain their particular usage with boosting-based cross-validation and bagged ensembles",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "random forests",
+            "aliases": [],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "they are referred to as gradient boosting and random forests in the jargon of machine learning",
+            "relevance": 0.9
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"stump\",\n      \"aliases\": [\"tree stump\", \"step function\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"The most basic tree-based universal approximator, the stump, is a simple step function of the form\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"split point\",\n      \"aliases\": [],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"a split point parameter s defining the boundary between the two levels\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"leaf parameters\",\n      \"aliases\": [\"leaf values\", \"step levels\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"two step levels or leaf parameters denoted by v1 and v2\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"binary tree structure\",\n      \"aliases\": [],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"the stump can be thought of as a binary tree structure of depth one\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"tree depth\",\n      \"aliases\": [\"depth of a tree\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"binary tree structure of depth one\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"growing of a tree\",\n      \"aliases\": [\"tree growing\"],\n      \"evidence_page\": 485,\n      \"anchor_page\": 485,\n      \"evidence\": \"This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"local function approximator\",\n      \"aliases\": [],\n      \"evidence_page\": 485,\n      \"anchor_page\": 485,\n      \"evidence\": \"This is why tree-based universal approximators are sometimes called local function approximators.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"addition of trees\",\n      \"aliases\": [],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"Deeper, more flexible trees can also be constructed via addition of shallower trees.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"human interpretability\",\n      \"aliases\": [\"interpretability of trees\"],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"shallow tree-based units ... are often easy to interpret by humans\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"regression tree\",\n      \"aliases\": [],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"the use of general tree-based universal approximators for the problem of regression, often called regression trees.\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [],\n      \"evidence_page\": 487,\n      \"anchor_page\": 487,\n      \"evidence\": \"the Least Squares cost\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"staircase-like cost\",\n      \"aliases\": [\"staircase cost function\"],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"create highly non-convex, staircase-like functions\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"mid-point split point\",\n      \"aliases\": [],\n      \"evidence_page\": 487,\n      \"anchor_page\": 487,\n      \"evidence\": \"we need only test one split point per flat region, e.g., the mid-point, as shown in this panel.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"optimal leaf values\",\n      \"aliases\": [],\n      \"evidence_page\": 490,\n      \"anchor_page\": 490,\n      \"evidence\": \"optimal leaf values v⋆_L and v⋆_R equal to the mean of the output\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"candidate split points\",\n      \"aliases\": [],\n      \"evidence_page\": 490,\n      \"anchor_page\": 490,\n      \"evidence\": \"we create a set of candidate split point values by recording every mid-point between our input data\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"growing regression trees\",\n      \"aliases\": [],\n      \"evidence_page\": 491,\n      \"anchor_page\": 491,\n      \"evidence\": \"To fit a depth two tree to a regression dataset we first fit a stump ... and then recurse on the same idea on each of the stump’s leaves.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [\"gradient boosting\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"they are referred to as gradient boosting and random forests in the jargon of machine learning\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bagging\",\n      \"aliases\": [\"bagged ensembles\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"explain their particular usage with boosting-based cross-validation and bagged ensembles\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"random forests\",\n      \"aliases\": [],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"they are referred to as gradient boosting and random forests in the jargon of machine learning\",\n      \"relevance\": 0.9\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 2,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "regression tree",
+            "aliases": [
+              "regression trees"
+            ],
+            "evidence_page": 484,
+            "anchor_page": 484,
+            "evidence": "a regression tree (with scalar input) of depth D may not end up with precisely 2D leaves.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "classification tree",
+            "aliases": [
+              "classification trees"
+            ],
+            "evidence_page": 484,
+            "anchor_page": 484,
+            "evidence": "In this Section we discuss the application of tree-based universal approximators to the problem of classification, often referred to as classification trees.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "maximum depth",
+            "aliases": [
+              "max depth"
+            ],
+            "evidence_page": 484,
+            "anchor_page": 484,
+            "evidence": "we refer to the trees as having a maximum depth, i.e., the largest depth that a branch of the tree can possibly grow to.",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "stump",
+            "aliases": [
+              "decision stump",
+              "tree stump"
+            ],
+            "evidence_page": 483,
+            "anchor_page": 483,
+            "evidence": "To fit a depth two tree to a regression dataset we first fit a stump",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "split point candidates",
+            "aliases": [
+              "midpoint splits"
+            ],
+            "evidence_page": 485,
+            "anchor_page": 485,
+            "evidence": "we must test out an array of split point candidates to determine which works best. Once again, for the same practical purposes we saw with regression, we can simply test the mid-points between each consecutive pair of input values",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "mean leaf output",
+            "aliases": [
+              "leaf mean",
+              "mean leaf value"
+            ],
+            "evidence_page": 485,
+            "anchor_page": 485,
+            "evidence": "the leaf values for a single stump-based model can be intuitively set to the mean output of those points belonging to each leaf of the stump",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "majority vote",
+            "aliases": [
+              "mode"
+            ],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "lean towards using the mode (i.e., the most popular output label), also called the majority vote.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "balanced majority vote",
+            "aliases": [
+              "balanced mode"
+            ],
+            "evidence_page": 487,
+            "anchor_page": 487,
+            "evidence": "To compensate for class imbalances like the one shown here we can, in complete analogy to the concept of weighting cost functions to better handle class imbalance (see Section 6.8.1), choose leaf values based on the balanced mode or balanced majority vote.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "single newton step",
+            "aliases": [
+              "Newton update"
+            ],
+            "evidence_page": 486,
+            "anchor_page": 486,
+            "evidence": "often these sorts of costs are approximately minimized by applying just a single step of Newton's method",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "purity metric",
+            "aliases": [
+              "purity measure"
+            ],
+            "evidence_page": 489,
+            "anchor_page": 489,
+            "evidence": "in the context of classification trees quality metrics are often referred to as purity metrics, since they measure how pure each leaf of the stump is in terms of class representation.",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "balanced accuracy",
+            "aliases": [],
+            "evidence_page": 489,
+            "anchor_page": 489,
+            "evidence": "with the balanced accuracy discussed in Section 6.8.4 being the safest choice given the class imbalance we might encounter in practice",
+            "relevance": 0.75
+          },
+          {
+            "canonical": "halting condition",
+            "aliases": [
+              "stopping criterion"
+            ],
+            "evidence_page": 489,
+            "anchor_page": 489,
+            "evidence": "With classification one natural halting condition is when a leaf is completely pure, that is, it contains only members of a single class.",
+            "relevance": 0.85
+          },
+          {
+            "canonical": "gradient boosting",
+            "aliases": [
+              "gradient boosted trees"
+            ],
+            "evidence_page": 490,
+            "anchor_page": 490,
+            "evidence": "trees are indeed the most popular universal approximator used when applying boosting-based cross-validation, with this pairing very often referred to as gradient boosting.",
+            "relevance": 0.95
+          },
+          {
+            "canonical": "shallow trees",
+            "aliases": [
+              "shallow tree units"
+            ],
+            "evidence_page": 491,
+            "anchor_page": 491,
+            "evidence": "In the context of tree-based units this leads to the use of shallow trees, with stumps and trees of depth two being especially popular.",
+            "relevance": 0.85
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"regression tree\",\n      \"aliases\": [\"regression trees\"],\n      \"evidence_page\": 484,\n      \"anchor_page\": 484,\n      \"evidence\": \"a regression tree (with scalar input) of depth D may not end up with precisely 2D leaves.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"classification tree\",\n      \"aliases\": [\"classification trees\"],\n      \"evidence_page\": 484,\n      \"anchor_page\": 484,\n      \"evidence\": \"In this Section we discuss the application of tree-based universal approximators to the problem of classification, often referred to as classification trees.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"maximum depth\",\n      \"aliases\": [\"max depth\"],\n      \"evidence_page\": 484,\n      \"anchor_page\": 484,\n      \"evidence\": \"we refer to the trees as having a maximum depth, i.e., the largest depth that a branch of the tree can possibly grow to.\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"stump\",\n      \"aliases\": [\"decision stump\", \"tree stump\"],\n      \"evidence_page\": 483,\n      \"anchor_page\": 483,\n      \"evidence\": \"To fit a depth two tree to a regression dataset we first fit a stump\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"split point candidates\",\n      \"aliases\": [\"midpoint splits\"],\n      \"evidence_page\": 485,\n      \"anchor_page\": 485,\n      \"evidence\": \"we must test out an array of split point candidates to determine which works best. Once again, for the same practical purposes we saw with regression, we can simply test the mid-points between each consecutive pair of input values\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"mean leaf output\",\n      \"aliases\": [\"leaf mean\", \"mean leaf value\"],\n      \"evidence_page\": 485,\n      \"anchor_page\": 485,\n      \"evidence\": \"the leaf values for a single stump-based model can be intuitively set to the mean output of those points belonging to each leaf of the stump\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"majority vote\",\n      \"aliases\": [\"mode\"],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"lean towards using the mode (i.e., the most popular output label), also called the majority vote.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"balanced majority vote\",\n      \"aliases\": [\"balanced mode\"],\n      \"evidence_page\": 487,\n      \"anchor_page\": 487,\n      \"evidence\": \"To compensate for class imbalances like the one shown here we can, in complete analogy to the concept of weighting cost functions to better handle class imbalance (see Section 6.8.1), choose leaf values based on the balanced mode or balanced majority vote.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"single newton step\",\n      \"aliases\": [\"Newton update\"],\n      \"evidence_page\": 486,\n      \"anchor_page\": 486,\n      \"evidence\": \"often these sorts of costs are approximately minimized by applying just a single step of Newton's method\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"purity metric\",\n      \"aliases\": [\"purity measure\"],\n      \"evidence_page\": 489,\n      \"anchor_page\": 489,\n      \"evidence\": \"in the context of classification trees quality metrics are often referred to as purity metrics, since they measure how pure each leaf of the stump is in terms of class representation.\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"balanced accuracy\",\n      \"aliases\": [],\n      \"evidence_page\": 489,\n      \"anchor_page\": 489,\n      \"evidence\": \"with the balanced accuracy discussed in Section 6.8.4 being the safest choice given the class imbalance we might encounter in practice\",\n      \"relevance\": 0.75\n    },\n    {\n      \"canonical\": \"halting condition\",\n      \"aliases\": [\"stopping criterion\"],\n      \"evidence_page\": 489,\n      \"anchor_page\": 489,\n      \"evidence\": \"With classification one natural halting condition is when a leaf is completely pure, that is, it contains only members of a single class.\",\n      \"relevance\": 0.85\n    },\n    {\n      \"canonical\": \"gradient boosting\",\n      \"aliases\": [\"gradient boosted trees\"],\n      \"evidence_page\": 490,\n      \"anchor_page\": 490,\n      \"evidence\": \"trees are indeed the most popular universal approximator used when applying boosting-based cross-validation, with this pairing very often referred to as gradient boosting.\",\n      \"relevance\": 0.95\n    },\n    {\n      \"canonical\": \"shallow trees\",\n      \"aliases\": [\"shallow tree units\"],\n      \"evidence_page\": 491,\n      \"anchor_page\": 491,\n      \"evidence\": \"In the context of tree-based units this leads to the use of shallow trees, with stumps and trees of depth two being especially popular.\",\n      \"relevance\": 0.85\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 3,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "gradient boosting",
+            "aliases": [
+              "boosting"
+            ],
+            "evidence_page": 499,
+            "anchor_page": 499,
+            "evidence": "we can now expound on important details related to gradient boosting",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "shallow trees",
+            "aliases": [
+              "low capacity trees"
+            ],
+            "evidence_page": 499,
+            "anchor_page": 499,
+            "evidence": "this leads to the use of shallow trees",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "stump",
+            "aliases": [
+              "decision stump"
+            ],
+            "evidence_page": 499,
+            "anchor_page": 499,
+            "evidence": "stumps and trees of depth two being especially popular",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "tree-based learner",
+            "aliases": [
+              "tree-based unit",
+              "tree-based model"
+            ],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "In the case of tree-based learners we can dispense with the bias and weights",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "leaf-value optimization",
+            "aliases": [],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "optimize the leaf values of fsm (x) using an appropriate cost function",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "least squares cost",
+            "aliases": [
+              "least squares",
+              "mean squared error"
+            ],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "Least Squares cost for determining vL",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "softmax cost",
+            "aliases": [
+              "softmax",
+              "cross-entropy loss"
+            ],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "Softmax cost for determining vL",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "newton's method",
+            "aliases": [
+              "Newton's method"
+            ],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "taking a single step of Newton’s method",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "split point",
+            "aliases": [
+              "split"
+            ],
+            "evidence_page": 500,
+            "anchor_page": 500,
+            "evidence": "various trees with diﬀering split-points",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "residual fitting",
+            "aliases": [
+              "residual learning"
+            ],
+            "evidence_page": 501,
+            "anchor_page": 501,
+            "evidence": "interpreted as successive rounds of fitting to the residual",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "bagging",
+            "aliases": [
+              "bootstrap aggregating"
+            ],
+            "evidence_page": 502,
+            "anchor_page": 502,
+            "evidence": "bagging (as detailed in Section 11.9) involves combining multiple cross-validated models",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [
+              "cross-validation"
+            ],
+            "evidence_page": 502,
+            "anchor_page": 502,
+            "evidence": "cross-validate to determine an ideal number of rounds",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [
+              "overfitting"
+            ],
+            "evidence_page": 502,
+            "anchor_page": 502,
+            "evidence": "each tree can certainly overfit",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "ensemble",
+            "aliases": [
+              "ensemble"
+            ],
+            "evidence_page": 502,
+            "anchor_page": 502,
+            "evidence": "a bagged ensemble of them",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "random forest",
+            "aliases": [
+              "random forest"
+            ],
+            "evidence_page": 503,
+            "anchor_page": 503,
+            "evidence": "Such an ensemble of recursively defined trees if often called a random forest",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "feature subsampling",
+            "aliases": [
+              "feature sampling"
+            ],
+            "evidence_page": 503,
+            "anchor_page": 503,
+            "evidence": "only a random subset of feature dimensions are sampled for viable split points",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "computational trade-off",
+            "aliases": [],
+            "evidence_page": 503,
+            "anchor_page": 503,
+            "evidence": "the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "recursively defined trees",
+            "aliases": [
+              "recursive tree"
+            ],
+            "evidence_page": 503,
+            "anchor_page": 503,
+            "evidence": "recursively defined regression and classification trees",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "mode",
+            "aliases": [
+              "majority voting"
+            ],
+            "evidence_page": 503,
+            "anchor_page": 503,
+            "evidence": "taking the mode of the five classification trees",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [
+              "early stopping"
+            ],
+            "evidence_page": 505,
+            "anchor_page": 505,
+            "evidence": "early stopping tree growth",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "validation error",
+            "aliases": [
+              "validation error"
+            ],
+            "evidence_page": 505,
+            "anchor_page": 505,
+            "evidence": "measuring validation error at each depth of the tree",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "maximum depth",
+            "aliases": [
+              "tree depth"
+            ],
+            "evidence_page": 505,
+            "anchor_page": 505,
+            "evidence": "proper maximum depth of a tree",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "model capacity",
+            "aliases": [
+              "capacity"
+            ],
+            "evidence_page": 505,
+            "anchor_page": 505,
+            "evidence": "the capacity of a tree grows exponentially",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "halting criteria",
+            "aliases": [
+              "stopping criteria"
+            ],
+            "evidence_page": 505,
+            "anchor_page": 505,
+            "evidence": "practical considerations are often used to halt the leaf splitting",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "underfitting",
+            "aliases": [
+              "underfitting"
+            ],
+            "evidence_page": 506,
+            "anchor_page": 506,
+            "evidence": "resulting in an underfitting, depth one representation",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "pruning",
+            "aliases": [
+              "tree pruning"
+            ],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "pruning-based regularization",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularization"
+            ],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "a tree-specific form of regularization",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "universal approximator",
+            "aliases": [
+              "universal approximator"
+            ],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "tree-based universal approximators",
+            "relevance": 0.7
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"gradient boosting\",\n      \"aliases\": [\"boosting\"],\n      \"evidence_page\": 499,\n      \"anchor_page\": 499,\n      \"evidence\": \"we can now expound on important details related to gradient boosting\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"shallow trees\",\n      \"aliases\": [\"low capacity trees\"],\n      \"evidence_page\": 499,\n      \"anchor_page\": 499,\n      \"evidence\": \"this leads to the use of shallow trees\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"stump\",\n      \"aliases\": [\"decision stump\"],\n      \"evidence_page\": 499,\n      \"anchor_page\": 499,\n      \"evidence\": \"stumps and trees of depth two being especially popular\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"tree-based learner\",\n      \"aliases\": [\"tree-based unit\", \"tree-based model\"],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"In the case of tree-based learners we can dispense with the bias and weights\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"leaf-value optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"optimize the leaf values of fsm (x) using an appropriate cost function\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"least squares cost\",\n      \"aliases\": [\"least squares\", \"mean squared error\"],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"Least Squares cost for determining vL\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"softmax cost\",\n      \"aliases\": [\"softmax\", \"cross-entropy loss\"],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"Softmax cost for determining vL\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"newton's method\",\n      \"aliases\": [\"Newton's method\"],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"taking a single step of Newton’s method\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"split point\",\n      \"aliases\": [\"split\"],\n      \"evidence_page\": 500,\n      \"anchor_page\": 500,\n      \"evidence\": \"various trees with diﬀering split-points\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"residual fitting\",\n      \"aliases\": [\"residual learning\"],\n      \"evidence_page\": 501,\n      \"anchor_page\": 501,\n      \"evidence\": \"interpreted as successive rounds of fitting to the residual\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"bagging\",\n      \"aliases\": [\"bootstrap aggregating\"],\n      \"evidence_page\": 502,\n      \"anchor_page\": 502,\n      \"evidence\": \"bagging (as detailed in Section 11.9) involves combining multiple cross-validated models\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [\"cross-validation\"],\n      \"evidence_page\": 502,\n      \"anchor_page\": 502,\n      \"evidence\": \"cross-validate to determine an ideal number of rounds\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [\"overfitting\"],\n      \"evidence_page\": 502,\n      \"anchor_page\": 502,\n      \"evidence\": \"each tree can certainly overfit\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"ensemble\",\n      \"aliases\": [\"ensemble\"],\n      \"evidence_page\": 502,\n      \"anchor_page\": 502,\n      \"evidence\": \"a bagged ensemble of them\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"random forest\",\n      \"aliases\": [\"random forest\"],\n      \"evidence_page\": 503,\n      \"anchor_page\": 503,\n      \"evidence\": \"Such an ensemble of recursively defined trees if often called a random forest\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"feature subsampling\",\n      \"aliases\": [\"feature sampling\"],\n      \"evidence_page\": 503,\n      \"anchor_page\": 503,\n      \"evidence\": \"only a random subset of feature dimensions are sampled for viable split points\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"computational trade-off\",\n      \"aliases\": [],\n      \"evidence_page\": 503,\n      \"anchor_page\": 503,\n      \"evidence\": \"the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"recursively defined trees\",\n      \"aliases\": [\"recursive tree\"],\n      \"evidence_page\": 503,\n      \"anchor_page\": 503,\n      \"evidence\": \"recursively defined regression and classification trees\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"mode\",\n      \"aliases\": [\"majority voting\"],\n      \"evidence_page\": 503,\n      \"anchor_page\": 503,\n      \"evidence\": \"taking the mode of the five classification trees\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [\"early stopping\"],\n      \"evidence_page\": 505,\n      \"anchor_page\": 505,\n      \"evidence\": \"early stopping tree growth\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"validation error\",\n      \"aliases\": [\"validation error\"],\n      \"evidence_page\": 505,\n      \"anchor_page\": 505,\n      \"evidence\": \"measuring validation error at each depth of the tree\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"maximum depth\",\n      \"aliases\": [\"tree depth\"],\n      \"evidence_page\": 505,\n      \"anchor_page\": 505,\n      \"evidence\": \"proper maximum depth of a tree\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"model capacity\",\n      \"aliases\": [\"capacity\"],\n      \"evidence_page\": 505,\n      \"anchor_page\": 505,\n      \"evidence\": \"the capacity of a tree grows exponentially\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"halting criteria\",\n      \"aliases\": [\"stopping criteria\"],\n      \"evidence_page\": 505,\n      \"anchor_page\": 505,\n      \"evidence\": \"practical considerations are often used to halt the leaf splitting\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"underfitting\",\n      \"aliases\": [\"underfitting\"],\n      \"evidence_page\": 506,\n      \"anchor_page\": 506,\n      \"evidence\": \"resulting in an underfitting, depth one representation\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"pruning\",\n      \"aliases\": [\"tree pruning\"],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"pruning-based regularization\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularization\"],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"a tree-specific form of regularization\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"universal approximator\",\n      \"aliases\": [\"universal approximator\"],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"tree-based universal approximators\",\n      \"relevance\": 0.7\n    }\n  ]\n}"
+    },
+    {
+      "stage": "concepts",
+      "chunk": 4,
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "pruning",
+            "aliases": [
+              "tree pruning"
+            ],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "Pruning is a tree-specific form of regularization based cross-validation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "early stopping",
+            "aliases": [],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "early stopping is often more computationally efficient than pruning",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "stumps",
+            "aliases": [
+              "decision stump"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "We began in Section 14.2 in providing a more formal description of stumps",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "recursive tree construction",
+            "aliases": [
+              "recursively-defined trees",
+              "recursive partitioning"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "Recursively-defined regression and classification trees were then gently motivated",
+            "relevance": 0.8
+          },
+          {
+            "canonical": "regression trees",
+            "aliases": [
+              "regression tree"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "Recursively-defined regression and classification trees were then gently motivated",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "classification trees",
+            "aliases": [
+              "classification tree"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "Recursively-defined regression and classification trees were then gently motivated",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "gradient boosting",
+            "aliases": [
+              "gradient boosted trees"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "Gradient boosting - the specific application of boosting based cross-validation ... to tree-based learners",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "random forests",
+            "aliases": [
+              "random forest"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "Random Forests - the specialized application of bagging ... to tree-based learners",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "boosting",
+            "aliases": [],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "boosting based cross-validation",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "bagging",
+            "aliases": [
+              "bootstrap aggregating"
+            ],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "the specialized application of bagging",
+            "relevance": 0.9
+          },
+          {
+            "canonical": "cross-validation",
+            "aliases": [],
+            "evidence_page": 508,
+            "anchor_page": 508,
+            "evidence": "the use of cross-validation with recursively-defined tree based learners",
+            "relevance": 1.0
+          },
+          {
+            "canonical": "naive cross-validation",
+            "aliases": [
+              "naive CV"
+            ],
+            "evidence_page": 510,
+            "anchor_page": 510,
+            "evidence": "14.10 Naive cross-validation",
+            "relevance": 0.7
+          },
+          {
+            "canonical": "limited extrapolation",
+            "aliases": [
+              "tree extrapolation limitation"
+            ],
+            "evidence_page": 510,
+            "anchor_page": 510,
+            "evidence": "tree-based learners, by nature, fail to work effectively outside their training range",
+            "relevance": 0.6
+          },
+          {
+            "canonical": "universal approximator",
+            "aliases": [
+              "tree-based universal approximator"
+            ],
+            "evidence_page": 507,
+            "anchor_page": 507,
+            "evidence": "tree-based universal approximators",
+            "relevance": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"pruning\",\n      \"aliases\": [\"tree pruning\"],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"Pruning is a tree-specific form of regularization based cross-validation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"early stopping\",\n      \"aliases\": [],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"early stopping is often more computationally efficient than pruning\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"stumps\",\n      \"aliases\": [\"decision stump\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"We began in Section 14.2 in providing a more formal description of stumps\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"recursive tree construction\",\n      \"aliases\": [\"recursively-defined trees\", \"recursive partitioning\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"Recursively-defined regression and classification trees were then gently motivated\",\n      \"relevance\": 0.8\n    },\n    {\n      \"canonical\": \"regression trees\",\n      \"aliases\": [\"regression tree\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"Recursively-defined regression and classification trees were then gently motivated\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"classification trees\",\n      \"aliases\": [\"classification tree\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"Recursively-defined regression and classification trees were then gently motivated\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"gradient boosting\",\n      \"aliases\": [\"gradient boosted trees\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"Gradient boosting - the specific application of boosting based cross-validation ... to tree-based learners\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"random forests\",\n      \"aliases\": [\"random forest\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"Random Forests - the specialized application of bagging ... to tree-based learners\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"boosting\",\n      \"aliases\": [],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"boosting based cross-validation\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"bagging\",\n      \"aliases\": [\"bootstrap aggregating\"],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"the specialized application of bagging\",\n      \"relevance\": 0.9\n    },\n    {\n      \"canonical\": \"cross-validation\",\n      \"aliases\": [],\n      \"evidence_page\": 508,\n      \"anchor_page\": 508,\n      \"evidence\": \"the use of cross-validation with recursively-defined tree based learners\",\n      \"relevance\": 1.0\n    },\n    {\n      \"canonical\": \"naive cross-validation\",\n      \"aliases\": [\"naive CV\"],\n      \"evidence_page\": 510,\n      \"anchor_page\": 510,\n      \"evidence\": \"14.10 Naive cross-validation\",\n      \"relevance\": 0.7\n    },\n    {\n      \"canonical\": \"limited extrapolation\",\n      \"aliases\": [\"tree extrapolation limitation\"],\n      \"evidence_page\": 510,\n      \"anchor_page\": 510,\n      \"evidence\": \"tree-based learners, by nature, fail to work effectively outside their training range\",\n      \"relevance\": 0.6\n    },\n    {\n      \"canonical\": \"universal approximator\",\n      \"aliases\": [\"tree-based universal approximator\"],\n      \"evidence_page\": 507,\n      \"anchor_page\": 507,\n      \"evidence\": \"tree-based universal approximators\",\n      \"relevance\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "consolidation",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "split point",
+            "aliases": [
+              "split"
+            ],
+            "evidence_page": 483,
+            "evidence": "a split point parameter s defining the boundary between the two levels",
+            "relevance": 1.0,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "stump",
+            "aliases": [
+              "tree stump",
+              "decision stump"
+            ],
+            "evidence_page": 483,
+            "evidence": "The most basic tree-based universal approximator, the stump, is a simple step function of the form",
+            "relevance": 1.0,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "bagging",
+            "aliases": [
+              "bagged ensembles",
+              "bootstrap aggregating"
+            ],
+            "evidence_page": 483,
+            "evidence": "explain their particular usage with boosting-based cross-validation and bagged ensembles",
+            "relevance": 0.9,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "binary tree structure",
+            "aliases": [],
+            "evidence_page": 483,
+            "evidence": "the stump can be thought of as a binary tree structure of depth one",
+            "relevance": 0.9,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "leaf parameters",
+            "aliases": [
+              "leaf values",
+              "step levels"
+            ],
+            "evidence_page": 483,
+            "evidence": "two step levels or leaf parameters denoted by v1 and v2",
+            "relevance": 0.9,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "tree depth",
+            "aliases": [
+              "depth of a tree",
+              "maximum depth"
+            ],
+            "evidence_page": 483,
+            "evidence": "binary tree structure of depth one",
+            "relevance": 0.9,
+            "anchor_page": 483
+          },
+          {
+            "canonical": "growing of a tree",
+            "aliases": [
+              "tree growing",
+              "growing regression trees"
+            ],
+            "evidence_page": 485,
+            "evidence": "This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.",
+            "relevance": 0.9,
+            "anchor_page": 485
+          },
+          {
+            "canonical": "local function approximator",
+            "aliases": [],
+            "evidence_page": 485,
+            "evidence": "This is why tree-based universal approximators are sometimes called local function approximators.",
+            "relevance": 0.8,
+            "anchor_page": 485
+          },
+          {
+            "canonical": "regression tree",
+            "aliases": [
+              "regression trees"
+            ],
+            "evidence_page": 486,
+            "evidence": "the use of general tree-based universal approximators for the problem of regression, often called regression trees.",
+            "relevance": 1.0,
+            "anchor_page": 486
+          },
+          {
+            "canonical": "addition of trees",
+            "aliases": [],
+            "evidence_page": 486,
+            "evidence": "Deeper, more flexible trees can also be constructed via addition of shallower trees.",
+            "relevance": 0.8,
+            "anchor_page": 486
+          },
+          {
+            "canonical": "staircase-like cost",
+            "aliases": [
+              "staircase cost function"
+            ],
+            "evidence_page": 486,
+            "evidence": "create highly non-convex, staircase-like functions",
+            "relevance": 0.8,
+            "anchor_page": 486
+          },
+          {
+            "canonical": "human interpretability",
+            "aliases": [
+              "interpretability of trees"
+            ],
+            "evidence_page": 486,
+            "evidence": "shallow tree-based units ... are often easy to interpret by humans",
+            "relevance": 0.7,
+            "anchor_page": 486
+          },
+          {
+            "canonical": "mid-point split point",
+            "aliases": [],
+            "evidence_page": 487,
+            "evidence": "we need only test one split point per flat region, e.g., the mid-point, as shown in this panel.",
+            "relevance": 0.9,
+            "anchor_page": 487
+          },
+          {
+            "canonical": "candidate split points",
+            "aliases": [],
+            "evidence_page": 490,
+            "evidence": "we create a set of candidate split point values by recording every mid-point between our input data",
+            "relevance": 0.9,
+            "anchor_page": 490
+          },
+          {
+            "canonical": "optimal leaf values",
+            "aliases": [],
+            "evidence_page": 490,
+            "evidence": "optimal leaf values v⋆_L and v⋆_R equal to the mean of the output",
+            "relevance": 0.9,
+            "anchor_page": 490
+          },
+          {
+            "canonical": "shallow trees",
+            "aliases": [
+              "shallow tree units",
+              "low capacity trees"
+            ],
+            "evidence_page": 491,
+            "evidence": "In the context of tree-based units this leads to the use of shallow trees, with stumps and trees of depth two being especially popular.",
+            "relevance": 0.85,
+            "anchor_page": 491
+          },
+          {
+            "canonical": "leaf-value optimization",
+            "aliases": [],
+            "evidence_page": 500,
+            "evidence": "optimize the leaf values of fsm (x) using an appropriate cost function",
+            "relevance": 0.8,
+            "anchor_page": 500
+          },
+          {
+            "canonical": "tree-based learner",
+            "aliases": [
+              "tree-based unit",
+              "tree-based model"
+            ],
+            "evidence_page": 500,
+            "evidence": "In the case of tree-based learners we can dispense with the bias and weights",
+            "relevance": 0.8,
+            "anchor_page": 500
+          },
+          {
+            "canonical": "residual fitting",
+            "aliases": [
+              "residual learning"
+            ],
+            "evidence_page": 501,
+            "evidence": "interpreted as successive rounds of fitting to the residual",
+            "relevance": 0.8,
+            "anchor_page": 501
+          },
+          {
+            "canonical": "feature subsampling",
+            "aliases": [
+              "feature sampling"
+            ],
+            "evidence_page": 503,
+            "evidence": "only a random subset of feature dimensions are sampled for viable split points",
+            "relevance": 0.8,
+            "anchor_page": 503
+          },
+          {
+            "canonical": "recursively defined trees",
+            "aliases": [
+              "recursive tree",
+              "recursive tree construction",
+              "recursive partitioning"
+            ],
+            "evidence_page": 503,
+            "evidence": "recursively defined regression and classification trees",
+            "relevance": 0.8,
+            "anchor_page": 503
+          },
+          {
+            "canonical": "computational trade-off",
+            "aliases": [],
+            "evidence_page": 503,
+            "evidence": "the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones",
+            "relevance": 0.7,
+            "anchor_page": 503
+          },
+          {
+            "canonical": "mode",
+            "aliases": [
+              "majority voting"
+            ],
+            "evidence_page": 503,
+            "evidence": "taking the mode of the five classification trees",
+            "relevance": 0.7,
+            "anchor_page": 503
+          },
+          {
+            "canonical": "halting criteria",
+            "aliases": [
+              "stopping criteria"
+            ],
+            "evidence_page": 505,
+            "evidence": "practical considerations are often used to halt the leaf splitting",
+            "relevance": 0.8,
+            "anchor_page": 505
+          },
+          {
+            "canonical": "pruning",
+            "aliases": [
+              "tree pruning"
+            ],
+            "evidence_page": 507,
+            "evidence": "pruning-based regularization",
+            "relevance": 0.9,
+            "anchor_page": 507
+          },
+          {
+            "canonical": "gradient boosting",
+            "aliases": [
+              "gradient boosted trees"
+            ],
+            "evidence_page": 508,
+            "evidence": "Gradient boosting - the specific application of boosting based cross-validation ... to tree-based learners",
+            "relevance": 1.0,
+            "anchor_page": 508
+          },
+          {
+            "canonical": "random forests",
+            "aliases": [],
+            "evidence_page": 508,
+            "evidence": "Random Forests - the specialized application of bagging ... to tree-based learners",
+            "relevance": 1.0,
+            "anchor_page": 508
+          },
+          {
+            "canonical": "classification trees",
+            "aliases": [
+              "classification tree"
+            ],
+            "evidence_page": 508,
+            "evidence": "Recursively-defined regression and classification trees were then gently motivated",
+            "relevance": 0.9,
+            "anchor_page": 508
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"split point\",\n      \"aliases\": [\"split\"],\n      \"evidence_page\": 483,\n      \"evidence\": \"a split point parameter s defining the boundary between the two levels\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"stump\",\n      \"aliases\": [\"tree stump\", \"decision stump\"],\n      \"evidence_page\": 483,\n      \"evidence\": \"The most basic tree-based universal approximator, the stump, is a simple step function of the form\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"bagging\",\n      \"aliases\": [\"bagged ensembles\", \"bootstrap aggregating\"],\n      \"evidence_page\": 483,\n      \"evidence\": \"explain their particular usage with boosting-based cross-validation and bagged ensembles\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"binary tree structure\",\n      \"aliases\": [],\n      \"evidence_page\": 483,\n      \"evidence\": \"the stump can be thought of as a binary tree structure of depth one\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"leaf parameters\",\n      \"aliases\": [\"leaf values\", \"step levels\"],\n      \"evidence_page\": 483,\n      \"evidence\": \"two step levels or leaf parameters denoted by v1 and v2\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"tree depth\",\n      \"aliases\": [\"depth of a tree\", \"maximum depth\"],\n      \"evidence_page\": 483,\n      \"evidence\": \"binary tree structure of depth one\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 483\n    },\n    {\n      \"canonical\": \"growing of a tree\",\n      \"aliases\": [\"tree growing\", \"growing regression trees\"],\n      \"evidence_page\": 485,\n      \"evidence\": \"This recursive procedure is often referred to as the growing of a tree in the jargon of machine learning.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 485\n    },\n    {\n      \"canonical\": \"local function approximator\",\n      \"aliases\": [],\n      \"evidence_page\": 485,\n      \"evidence\": \"This is why tree-based universal approximators are sometimes called local function approximators.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 485\n    },\n    {\n      \"canonical\": \"regression tree\",\n      \"aliases\": [\"regression trees\"],\n      \"evidence_page\": 486,\n      \"evidence\": \"the use of general tree-based universal approximators for the problem of regression, often called regression trees.\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 486\n    },\n    {\n      \"canonical\": \"addition of trees\",\n      \"aliases\": [],\n      \"evidence_page\": 486,\n      \"evidence\": \"Deeper, more flexible trees can also be constructed via addition of shallower trees.\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 486\n    },\n    {\n      \"canonical\": \"staircase-like cost\",\n      \"aliases\": [\"staircase cost function\"],\n      \"evidence_page\": 486,\n      \"evidence\": \"create highly non-convex, staircase-like functions\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 486\n    },\n    {\n      \"canonical\": \"human interpretability\",\n      \"aliases\": [\"interpretability of trees\"],\n      \"evidence_page\": 486,\n      \"evidence\": \"shallow tree-based units ... are often easy to interpret by humans\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 486\n    },\n    {\n      \"canonical\": \"mid-point split point\",\n      \"aliases\": [],\n      \"evidence_page\": 487,\n      \"evidence\": \"we need only test one split point per flat region, e.g., the mid-point, as shown in this panel.\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 487\n    },\n    {\n      \"canonical\": \"candidate split points\",\n      \"aliases\": [],\n      \"evidence_page\": 490,\n      \"evidence\": \"we create a set of candidate split point values by recording every mid-point between our input data\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 490\n    },\n    {\n      \"canonical\": \"optimal leaf values\",\n      \"aliases\": [],\n      \"evidence_page\": 490,\n      \"evidence\": \"optimal leaf values v⋆_L and v⋆_R equal to the mean of the output\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 490\n    },\n    {\n      \"canonical\": \"shallow trees\",\n      \"aliases\": [\"shallow tree units\", \"low capacity trees\"],\n      \"evidence_page\": 491,\n      \"evidence\": \"In the context of tree-based units this leads to the use of shallow trees, with stumps and trees of depth two being especially popular.\",\n      \"relevance\": 0.85,\n      \"anchor_page\": 491\n    },\n    {\n      \"canonical\": \"leaf-value optimization\",\n      \"aliases\": [],\n      \"evidence_page\": 500,\n      \"evidence\": \"optimize the leaf values of fsm (x) using an appropriate cost function\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 500\n    },\n    {\n      \"canonical\": \"tree-based learner\",\n      \"aliases\": [\"tree-based unit\", \"tree-based model\"],\n      \"evidence_page\": 500,\n      \"evidence\": \"In the case of tree-based learners we can dispense with the bias and weights\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 500\n    },\n    {\n      \"canonical\": \"residual fitting\",\n      \"aliases\": [\"residual learning\"],\n      \"evidence_page\": 501,\n      \"evidence\": \"interpreted as successive rounds of fitting to the residual\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 501\n    },\n    {\n      \"canonical\": \"feature subsampling\",\n      \"aliases\": [\"feature sampling\"],\n      \"evidence_page\": 503,\n      \"evidence\": \"only a random subset of feature dimensions are sampled for viable split points\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 503\n    },\n    {\n      \"canonical\": \"recursively defined trees\",\n      \"aliases\": [\"recursive tree\", \"recursive tree construction\", \"recursive partitioning\"],\n      \"evidence_page\": 503,\n      \"evidence\": \"recursively defined regression and classification trees\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 503\n    },\n    {\n      \"canonical\": \"computational trade-off\",\n      \"aliases\": [],\n      \"evidence_page\": 503,\n      \"evidence\": \"the computational trade-off, that is, training a large number of fully grown trees compared with a smaller number of cross-validated ones\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 503\n    },\n    {\n      \"canonical\": \"mode\",\n      \"aliases\": [\"majority voting\"],\n      \"evidence_page\": 503,\n      \"evidence\": \"taking the mode of the five classification trees\",\n      \"relevance\": 0.7,\n      \"anchor_page\": 503\n    },\n    {\n      \"canonical\": \"halting criteria\",\n      \"aliases\": [\"stopping criteria\"],\n      \"evidence_page\": 505,\n      \"evidence\": \"practical considerations are often used to halt the leaf splitting\",\n      \"relevance\": 0.8,\n      \"anchor_page\": 505\n    },\n    {\n      \"canonical\": \"pruning\",\n      \"aliases\": [\"tree pruning\"],\n      \"evidence_page\": 507,\n      \"evidence\": \"pruning-based regularization\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 507\n    },\n    {\n      \"canonical\": \"gradient boosting\",\n      \"aliases\": [\"gradient boosted trees\"],\n      \"evidence_page\": 508,\n      \"evidence\": \"Gradient boosting - the specific application of boosting based cross-validation ... to tree-based learners\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 508\n    },\n    {\n      \"canonical\": \"random forests\",\n      \"aliases\": [],\n      \"evidence_page\": 508,\n      \"evidence\": \"Random Forests - the specialized application of bagging ... to tree-based learners\",\n      \"relevance\": 1.0,\n      \"anchor_page\": 508\n    },\n    {\n      \"canonical\": \"classification trees\",\n      \"aliases\": [\"classification tree\"],\n      \"evidence_page\": 508,\n      \"evidence\": \"Recursively-defined regression and classification trees were then gently motivated\",\n      \"relevance\": 0.9,\n      \"anchor_page\": 508\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 483,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "stump",
+            "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+            "pdf_page": 483,
+            "equation_label": "14.1",
+            "confidence": 1.0
+          },
+          {
+            "concept": "split point",
+            "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+            "pdf_page": 483,
+            "equation_label": "14.1",
+            "confidence": 1.0
+          },
+          {
+            "concept": "leaf parameters",
+            "latex": "f(x) = \\begin{cases} v_1 & x < s \\\\ v_2 & x > s \\end{cases}",
+            "pdf_page": 483,
+            "equation_label": "14.1",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "stump",
+            "pdf_page": 484,
+            "figure_label": "Figure 14.1",
+            "caption": "Figure 14.1 (top left panel) A simple stump, defined in Equation (14.1). (top right panel) A graphical illustration of a stump function as a binary tree. (bottom left panel) A depth two tree formed by recursing on each leaf of the stump, replacing it with a new stump. (bottom right panel) A graphical illustration of the depth two tree.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"stump\",\n      \"latex\": \"f(x) = \\\\begin{cases} v_1 & x < s \\\\\\\\ v_2 & x > s \\\\end{cases}\",\n      \"pdf_page\": 483,\n      \"equation_label\": \"14.1\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"split point\",\n      \"latex\": \"f(x) = \\\\begin{cases} v_1 & x < s \\\\\\\\ v_2 & x > s \\\\end{cases}\",\n      \"pdf_page\": 483,\n      \"equation_label\": \"14.1\",\n      \"confidence\": 1.0\n    },\n    {\n      \"concept\": \"leaf parameters\",\n      \"latex\": \"f(x) = \\\\begin{cases} v_1 & x < s \\\\\\\\ v_2 & x > s \\\\end{cases}\",\n      \"pdf_page\": 483,\n      \"equation_label\": \"14.1\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"stump\",\n      \"pdf_page\": 484,\n      \"figure_label\": \"Figure 14.1\",\n      \"caption\": \"Figure 14.1 (top left panel) A simple stump, defined in Equation (14.1). (top right panel) A graphical illustration of a stump function as a binary tree. (bottom left panel) A depth two tree formed by recursing on each leaf of the stump, replacing it with a new stump. (bottom right panel) A graphical illustration of the depth two tree.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 485,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "growing of a tree",
+            "pdf_page": 485,
+            "figure_label": "Figure 14.2",
+            "caption": "Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given diﬀerent settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"growing of a tree\",\n      \"pdf_page\": 485,\n      \"figure_label\": \"Figure 14.2\",\n      \"caption\": \"Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given diﬀerent settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 486,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "regression tree",
+            "pdf_page": 487,
+            "figure_label": "Figure 14.4",
+            "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "addition of trees",
+            "pdf_page": 486,
+            "figure_label": "Figure 14.3",
+            "caption": "Figure 14.3 (left panel) Three stumps, each depicted in a distinct color. (right panel) A depth two tree (in black) created by adding together the three stumps shown in the left panel.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "staircase-like cost",
+            "pdf_page": 487,
+            "figure_label": "Figure 14.4",
+            "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+            "confidence": 0.95
+          },
+          {
+            "concept": "human interpretability",
+            "pdf_page": 485,
+            "figure_label": "Figure 14.2",
+            "caption": "Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given different settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"regression tree\",\n      \"pdf_page\": 487,\n      \"figure_label\": \"Figure 14.4\",\n      \"caption\": \"Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"addition of trees\",\n      \"pdf_page\": 486,\n      \"figure_label\": \"Figure 14.3\",\n      \"caption\": \"Figure 14.3 (left panel) Three stumps, each depicted in a distinct color. (right panel) A depth two tree (in black) created by adding together the three stumps shown in the left panel.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"staircase-like cost\",\n      \"pdf_page\": 487,\n      \"figure_label\": \"Figure 14.4\",\n      \"caption\": \"Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"human interpretability\",\n      \"pdf_page\": 485,\n      \"figure_label\": \"Figure 14.2\",\n      \"caption\": \"Figure 14.2 Four instances of (top row) a depth D = 2 tree unit and (bottom row) a depth D = 10 tree unit, where in each instance all the parameters (split points and leaf values) are set at random. The latter has higher capacity and is thus capable of generating a wider swath of shapes given different settings of its parameters. Note here that the leaves are connected by vertical lines in order to give each tree instance a continuous appearance, which is done for visualization purposes only.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 487,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "mid-point split point",
+            "pdf_page": 487,
+            "figure_label": "Figure 14.4",
+            "caption": "Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"mid-point split point\",\n      \"pdf_page\": 487,\n      \"figure_label\": \"Figure 14.4\",\n      \"caption\": \"Figure 14.4 (top left panel) A prototypical nonlinear regression dataset. (top right panel) Three stumps with fixed leaf values (whose split point can vary). (middle panel) Each stump instance is slid horizontally across the input of the data by varying its split point value, creating three corresponding staircase-like Least Squares costs. (bottom panel) Each cost in the middle panel is constant in-between consecutive inputs, implying that we need only test one split point per flat region, e.g., the mid-point, as shown in this panel. See text for further details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 490,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "optimal leaf values",
+            "latex": "v_{\\star L} = \\frac{1}{|\\Omega_L|} \\sum_{p \\in \\Omega_L} y_p \\qquad v_{\\star R} = \\frac{1}{|\\Omega_R|} \\sum_{p \\in \\Omega_R} y_p",
+            "pdf_page": 490,
+            "equation_label": "(14.6)",
+            "confidence": 1.0
+          }
+        ],
+        "figures": [
+          {
+            "concept": "candidate split points",
+            "pdf_page": 491,
+            "figure_label": "Figure 14.6",
+            "caption": "Figure associated with Example 14.1. See text for details.",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"optimal leaf values\",\n      \"latex\": \"v_{\\\\star L} = \\\\frac{1}{|\\\\Omega_L|} \\\\sum_{p \\\\in \\\\Omega_L} y_p \\\\qquad v_{\\\\star R} = \\\\frac{1}{|\\\\Omega_R|} \\\\sum_{p \\\\in \\\\Omega_R} y_p\",\n      \"pdf_page\": 490,\n      \"equation_label\": \"(14.6)\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"candidate split points\",\n      \"pdf_page\": 491,\n      \"figure_label\": \"Figure 14.6\",\n      \"caption\": \"Figure associated with Example 14.1. See text for details.\",\n      \"confidence\": 1.0\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 500,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "leaf-value optimization",
+            "latex": "\\frac{1}{|\\Omega_L|} \\sum_{p \\in \\Omega_L} \\left( \\text{model}_{m-1}\\left(x_p, \\Theta_{m-1}\\right) + v_L - y_p \\right)^2 \\\\\n\\frac{1}{|\\Omega_R|} \\sum_{p \\in \\Omega_R} \\left( \\text{model}_{m-1}\\left(x_p, \\Theta_{m-1}\\right) + v_R - y_p \\right)^2",
+            "pdf_page": 500,
+            "equation_label": "(14.12)",
+            "confidence": 0.95
+          },
+          {
+            "concept": "tree-based learner",
+            "latex": "\\text{model}_{m-1}\\left(\\mathbf{x}, \\Theta_{m-1}\\right) = f_{s_1^\\star}(\\mathbf{x}) + f_{s_2^\\star}(\\mathbf{x}) + \\cdots + f_{s_{m-1}^\\star}(\\mathbf{x})",
+            "pdf_page": 499,
+            "equation_label": "(14.10)",
+            "confidence": 0.95
+          }
+        ],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"leaf-value optimization\",\n      \"latex\": \"\\\\frac{1}{|\\\\Omega_L|} \\\\sum_{p \\\\in \\\\Omega_L} \\\\left( \\\\text{model}_{m-1}\\\\left(x_p, \\\\Theta_{m-1}\\\\right) + v_L - y_p \\\\right)^2 \\\\\\\\\\n\\\\frac{1}{|\\\\Omega_R|} \\\\sum_{p \\\\in \\\\Omega_R} \\\\left( \\\\text{model}_{m-1}\\\\left(x_p, \\\\Theta_{m-1}\\\\right) + v_R - y_p \\\\right)^2\",\n      \"pdf_page\": 500,\n      \"equation_label\": \"(14.12)\",\n      \"confidence\": 0.95\n    },\n    {\n      \"concept\": \"tree-based learner\",\n      \"latex\": \"\\\\text{model}_{m-1}\\\\left(\\\\mathbf{x}, \\\\Theta_{m-1}\\\\right) = f_{s_1^\\\\star}(\\\\mathbf{x}) + f_{s_2^\\\\star}(\\\\mathbf{x}) + \\\\cdots + f_{s_{m-1}^\\\\star}(\\\\mathbf{x})\",\n      \"pdf_page\": 499,\n      \"equation_label\": \"(14.10)\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": []\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 501,
+      "parsed": {
+        "formulas": [
+          {
+            "concept": "residual fitting",
+            "latex": "\\frac{1}{|\\Omega_L|}\\sum_{p\\in\\Omega_L} \\left(v_L - r_p\\right)^2",
+            "pdf_page": 501,
+            "equation_label": "",
+            "confidence": 0.95
+          }
+        ],
+        "figures": [
+          {
+            "concept": "residual fitting",
+            "pdf_page": 501,
+            "figure_label": "Figure 14.13",
+            "caption": "Figure 14.13 Figure associated with Example 14.5. See text for details.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [\n    {\n      \"concept\": \"residual fitting\",\n      \"latex\": \"\\\\frac{1}{|\\\\Omega_L|}\\\\sum_{p\\\\in\\\\Omega_L} \\\\left(v_L - r_p\\\\right)^2\",\n      \"pdf_page\": 501,\n      \"equation_label\": \"\",\n      \"confidence\": 0.95\n    }\n  ],\n  \"figures\": [\n    {\n      \"concept\": \"residual fitting\",\n      \"pdf_page\": 501,\n      \"figure_label\": \"Figure 14.13\",\n      \"caption\": \"Figure 14.13 Figure associated with Example 14.5. See text for details.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 503,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "mode",
+            "pdf_page": 504,
+            "figure_label": "Figure 14.15",
+            "caption": "Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.",
+            "confidence": 0.9
+          },
+          {
+            "concept": "recursively defined trees",
+            "pdf_page": 504,
+            "figure_label": "Figure 14.15",
+            "caption": "Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.",
+            "confidence": 0.8
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"mode\",\n      \"pdf_page\": 504,\n      \"figure_label\": \"Figure 14.15\",\n      \"caption\": \"Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"concept\": \"recursively defined trees\",\n      \"pdf_page\": 504,\n      \"figure_label\": \"Figure 14.15\",\n      \"caption\": \"Figure 14.15 Figure associated with Example 14.7. (left panels) The decision boundaries given by five fully grown classification trees, each grown on a different subset of the original data. Each tends to overfit the data, but their bagged ensemble (shown in the right panel) compensates for this, and does not overfit. See text for further detail.\",\n      \"confidence\": 0.8\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 507,
+      "parsed": {
+        "formulas": [],
+        "figures": [
+          {
+            "concept": "pruning",
+            "pdf_page": 507,
+            "figure_label": "Figure 14.18",
+            "caption": "Figure 14.18 Pruning illustrated. (top panels) A fully-grown tree of depth two with four leaves. (bottom) A pruned version of the original tree wherein the leaves v2,1 and v2,2 are pruned and replaced by a single leaf.",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": [\n    {\n      \"concept\": \"pruning\",\n      \"pdf_page\": 507,\n      \"figure_label\": \"Figure 14.18\",\n      \"caption\": \"Figure 14.18 Pruning illustrated. (top panels) A fully-grown tree of depth two with four leaves. (bottom) A pruned version of the original tree wherein the leaves v2,1 and v2,2 are pruned and replaced by a single leaf.\",\n      \"confidence\": 0.95\n    }\n  ]\n}"
+    },
+    {
+      "stage": "assets",
+      "anchor_page": 508,
+      "parsed": {
+        "formulas": [],
+        "figures": []
+      },
+      "raw": "{\n  \"formulas\": [],\n  \"figures\": []\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "local_merge",
+      "from": "boosting",
+      "into": "gradient boosting"
+    },
+    {
+      "action": "local_merge",
+      "from": "random forests",
+      "into": "random forests"
+    },
+    {
+      "action": "local_merge",
+      "from": "gradient boosting",
+      "into": "gradient boosting"
+    },
+    {
+      "action": "local_merge",
+      "from": "bagging",
+      "into": "bagging"
+    },
+    {
+      "action": "local_merge",
+      "from": "cross-validation",
+      "into": "cross-validation"
+    },
+    {
+      "action": "local_merge",
+      "from": "random forest",
+      "into": "random forests"
+    },
+    {
+      "action": "local_merge",
+      "from": "pruning",
+      "into": "pruning"
+    },
+    {
+      "action": "local_merge",
+      "from": "bagging",
+      "into": "bagging"
+    },
+    {
+      "action": "local_merge",
+      "from": "boosting",
+      "into": "gradient boosting"
+    },
+    {
+      "action": "local_merge",
+      "from": "regression trees",
+      "into": "regression tree"
+    },
+    {
+      "action": "local_merge",
+      "from": "shallow trees",
+      "into": "shallow trees"
+    },
+    {
+      "action": "local_merge",
+      "from": "stump",
+      "into": "stump"
+    },
+    {
+      "action": "local_merge",
+      "from": "least squares cost",
+      "into": "least squares cost"
+    },
+    {
+      "action": "local_merge",
+      "from": "maximum depth",
+      "into": "tree depth"
+    },
+    {
+      "action": "local_merge",
+      "from": "early stopping",
+      "into": "early stopping"
+    },
+    {
+      "action": "local_merge",
+      "from": "recursive tree construction",
+      "into": "recursively defined trees"
+    },
+    {
+      "action": "local_merge",
+      "from": "split point",
+      "into": "split point"
+    },
+    {
+      "action": "local_merge",
+      "from": "universal approximator",
+      "into": "universal approximator"
+    },
+    {
+      "action": "local_merge",
+      "from": "stumps",
+      "into": "stump"
+    }
+  ],
+  "warnings": [
+    "Rejected 4 concepts whose quoted evidence was not found on the claimed page."
+  ]
+}

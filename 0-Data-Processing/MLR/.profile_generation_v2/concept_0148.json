@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "bdedf33d0d623d615840747e4c0fb5deb7af56734cc09f4338e88f3eebf207bd",
+  "concept_id": 148,
+  "concept_name": "fusion rule",
+  "aliases": [
+    "fusion rule",
+    "fusion rule for multi-class classification",
+    "argmax decision rule",
+    "classification fusion rule"
+  ],
+  "profile": "fusion rule: In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary. In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fusion rule: In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary. In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.",
+    "claims": [
+      {
+        "claim": "In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary.",
+        "evidence_ids": [
+          "MLR-E0167"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.",
+        "evidence_ids": [
+          "MLR-E0241"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "fusion rule: In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary. In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.",
+    "sentence_reviews": [
+      {
+        "sentence": "In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0167"
+        ],
+        "reason": "Directly reflects the source description of the fusion rule as combining C two-class classifiers using signed distance to a decision boundary."
+      },
+      {
+        "sentence": "In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0241"
+        ],
+        "reason": "Matches the source statement that the parameters of W are tuned to satisfy the fusion rule."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fusion rule: In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary. In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.\",\n  \"claims\": [\n    {\n      \"claim\": \"In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary.\",\n      \"evidence_ids\": [\"MLR-E0167\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.\",\n      \"evidence_ids\": [\"MLR-E0241\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fusion rule: In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary. In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In multi-class classification, the fusion rule is a decision rule that fuses C two-class classifiers together to determine the label assigned to a point, based on signed distance to decision boundary.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0167\"],\n      \"reason\": \"Directly reflects the source description of the fusion rule as combining C two-class classifiers using signed distance to a decision boundary.\"\n    },\n    {\n      \"sentence\": \"In nonlinear feature engineering, one aims to tune the parameters of W to satisfy the fusion rule.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0241\"],\n      \"reason\": \"Matches the source statement that the parameters of W are tuned to satisfy the fusion rule.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:23:45.138754+00:00"
+}

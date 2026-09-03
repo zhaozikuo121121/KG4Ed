@@ -1,0 +1,141 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "60ec2e1003ce3abfd07d24614134ccb559ec0a1bb4608da3d275787155678b87",
+  "concept_id": 0,
+  "concept_name": "adjacency matrix",
+  "aliases": [
+    "adjacency matrix",
+    "graph coded into matrices",
+    "matrix a",
+    "a",
+    "graph adjacency matrix",
+    "graph matrix a",
+    "a matrix",
+    "graph structure",
+    "graph topology",
+    "structural patterns",
+    "adjacency",
+    "a_tilde"
+  ],
+  "profile": "adjacency matrix: A graph can be coded as a matrix. The adjacency matrix, denoted A, is an N x N matrix that encodes the graph's topology, showing which nodes are adjacent. Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph topology. Variants such as A_tilde are used. The adjacency matrix is used in graph neural networks and adjacency-matrix-based generative graph neural networks.",
+  "word_count": 69,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "adjacency matrix: A graph can be coded as a matrix. The adjacency matrix, typically denoted A, is an N x N square matrix that encodes the graph's topology, showing which nodes are adjacent. Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph structure. Variants such as A_tilde are used. The adjacency matrix is used as a basis in graph neural networks and generative graph models, with computations based on this matrix.",
+    "claims": [
+      {
+        "claim": "A graph can be coded as a matrix.",
+        "evidence_ids": [
+          "DGL-E0001"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The adjacency matrix is typically denoted A and is N x N.",
+        "evidence_ids": [
+          "DGL-E0051",
+          "DGL-E0193",
+          "DGL-E0131"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The adjacency matrix encodes the graph's topology.",
+        "evidence_ids": [
+          "DGL-E0308"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Different node orderings produce different adjacency matrices while preserving the underlying graph topology.",
+        "evidence_ids": [
+          "DGL-E0408",
+          "DGL-E0422"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Variants such as A_tilde are used.",
+        "evidence_ids": [
+          "DGL-E0478"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The adjacency matrix is used as a basis in graph neural networks and generative graph models.",
+        "evidence_ids": [
+          "DGL-E0308",
+          "DGL-E0516"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "adjacency matrix: A graph can be coded as a matrix. The adjacency matrix, denoted A, is an N x N matrix that encodes the graph's topology, showing which nodes are adjacent. Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph topology. Variants such as A_tilde are used. The adjacency matrix is used in graph neural networks and adjacency-matrix-based generative graph neural networks.",
+    "sentence_reviews": [
+      {
+        "sentence": "A graph can be coded as a matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0001"
+        ],
+        "reason": "The source states 'Graphs coded into matrices'."
+      },
+      {
+        "sentence": "The adjacency matrix, denoted A, is an N x N matrix that encodes the graph's topology, showing which nodes are adjacent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0051",
+          "DGL-E0131",
+          "DGL-E0193",
+          "DGL-E0308"
+        ],
+        "reason": "A and N x N appear in the sources; E0308 links the adjacency matrix to graph topology. 'Showing which nodes are adjacent' is the standard meaning of adjacency matrix."
+      },
+      {
+        "sentence": "Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph topology.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0408",
+          "DGL-E0422"
+        ],
+        "reason": "E0408 shows adjacency matrices for different node orderings; E0422 states that the graph topology remains unchanged."
+      },
+      {
+        "sentence": "Variants such as A_tilde are used.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0478"
+        ],
+        "reason": "The source lists A, A', and A_tilde together."
+      },
+      {
+        "sentence": "The adjacency matrix is used in graph neural networks and adjacency-matrix-based generative graph neural networks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0308",
+          "DGL-E0516"
+        ],
+        "reason": "E0308 grounds graph neural network computations in the adjacency matrix/graph topology; E0516 refers to adjacency-matrix-based generative graph neural networks."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"adjacency matrix: A graph can be coded as a matrix. The adjacency matrix, typically denoted A, is an N x N square matrix that encodes the graph's topology, showing which nodes are adjacent. Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph structure. Variants such as A_tilde are used. The adjacency matrix is used as a basis in graph neural networks and generative graph models, with computations based on this matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"A graph can be coded as a matrix.\",\n      \"evidence_ids\": [\"DGL-E0001\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The adjacency matrix is typically denoted A and is N x N.\",\n      \"evidence_ids\": [\"DGL-E0051\", \"DGL-E0193\", \"DGL-E0131\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The adjacency matrix encodes the graph's topology.\",\n      \"evidence_ids\": [\"DGL-E0308\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Different node orderings produce different adjacency matrices while preserving the underlying graph topology.\",\n      \"evidence_ids\": [\"DGL-E0408\", \"DGL-E0422\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Variants such as A_tilde are used.\",\n      \"evidence_ids\": [\"DGL-E0478\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The adjacency matrix is used as a basis in graph neural networks and generative graph models.\",\n      \"evidence_ids\": [\"DGL-E0308\", \"DGL-E0516\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"adjacency matrix: A graph can be coded as a matrix. The adjacency matrix, denoted A, is an N x N matrix that encodes the graph's topology, showing which nodes are adjacent. Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph topology. Variants such as A_tilde are used. The adjacency matrix is used in graph neural networks and adjacency-matrix-based generative graph neural networks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A graph can be coded as a matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0001\"],\n      \"reason\": \"The source states 'Graphs coded into matrices'.\"\n    },\n    {\n      \"sentence\": \"The adjacency matrix, denoted A, is an N x N matrix that encodes the graph's topology, showing which nodes are adjacent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0051\", \"DGL-E0131\", \"DGL-E0193\", \"DGL-E0308\"],\n      \"reason\": \"A and N x N appear in the sources; E0308 links the adjacency matrix to graph topology. 'Showing which nodes are adjacent' is the standard meaning of adjacency matrix.\"\n    },\n    {\n      \"sentence\": \"Different orderings of nodes produce different matrices (Ai and A'i) while preserving the underlying graph topology.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0408\", \"DGL-E0422\"],\n      \"reason\": \"E0408 shows adjacency matrices for different node orderings; E0422 states that the graph topology remains unchanged.\"\n    },\n    {\n      \"sentence\": \"Variants such as A_tilde are used.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0478\"],\n      \"reason\": \"The source lists A, A', and A_tilde together.\"\n    },\n    {\n      \"sentence\": \"The adjacency matrix is used in graph neural networks and adjacency-matrix-based generative graph neural networks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0308\", \"DGL-E0516\"],\n      \"reason\": \"E0308 grounds graph neural network computations in the adjacency matrix/graph topology; E0516 refers to adjacency-matrix-based generative graph neural networks.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:49:39.816345+00:00"
+}

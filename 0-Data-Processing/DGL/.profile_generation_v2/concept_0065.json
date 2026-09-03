@@ -1,0 +1,122 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "79a33153003b7a87b63c5a61daca8be46c11fd3e108cc9f8c44669e503309400",
+  "concept_id": 65,
+  "concept_name": "logistic activation",
+  "aliases": [
+    "logistic activation",
+    "sigmoid",
+    "sigmoid function",
+    "sig"
+  ],
+  "profile": "logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks. It is abbreviated as sig in formulas; for example, y = sig[βK + ωK(HK1/N)]. In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function. The notation sig also appears at the start of a formula line in material on inductive/transductive learning and graph classification.",
+  "word_count": 76,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks. It is abbreviated as sig in formulas, for example y = sig[βK + ωK(HK1/N)]. In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function. The notation sig also appears at the beginning of formula lines in inductive/transductive learning and graph classification contexts.",
+    "claims": [
+      {
+        "claim": "Logistic activation is also known as the sigmoid function.",
+        "evidence_ids": [
+          "DGL-E0074"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is an activation function used in graph neural network prediction tasks.",
+        "evidence_ids": [
+          "DGL-E0074"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is abbreviated as sig in formulas.",
+        "evidence_ids": [
+          "DGL-E0074",
+          "DGL-E0394"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It appears in the formula y = sig[βK + ωK(HK1/N)].",
+        "evidence_ids": [
+          "DGL-E0198"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function.",
+        "evidence_ids": [
+          "DGL-E0242"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The notation sig appears at the beginning of formula lines in inductive/transductive learning and graph classification contexts.",
+        "evidence_ids": [
+          "DGL-E0394"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not provide the full mathematical expression or output range of the logistic activation."
+    ]
+  },
+  "review": {
+    "final_profile": "logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks. It is abbreviated as sig in formulas; for example, y = sig[βK + ωK(HK1/N)]. In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function. The notation sig also appears at the start of a formula line in material on inductive/transductive learning and graph classification.",
+    "sentence_reviews": [
+      {
+        "sentence": "logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0074"
+        ],
+        "reason": "The source pairs 'Logistic activation (sigmoid)' with a sig formula in a prediction-task context."
+      },
+      {
+        "sentence": "It is abbreviated as sig in formulas; for example, y = sig[βK + ωK(HK1/N)].",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0074",
+          "DGL-E0198"
+        ],
+        "reason": "The shorthand sig appears in the handwritten formula and in the GCN layer formula."
+      },
+      {
+        "sentence": "In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0242"
+        ],
+        "reason": "The source states that the output is passed through a sigmoid or softmax function."
+      },
+      {
+        "sentence": "The notation sig also appears at the start of a formula line in material on inductive/transductive learning and graph classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0394"
+        ],
+        "reason": "The source records the printed text 'sig' at the beginning of a formula line in that topic context."
+      }
+    ],
+    "warnings": [
+      "The metadata does not provide the full mathematical expression or output range of the logistic activation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks. It is abbreviated as sig in formulas, for example y = sig[βK + ωK(HK1/N)]. In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function. The notation sig also appears at the beginning of formula lines in inductive/transductive learning and graph classification contexts.\",\n  \"claims\": [\n    {\n      \"claim\": \"Logistic activation is also known as the sigmoid function.\",\n      \"evidence_ids\": [\"DGL-E0074\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is an activation function used in graph neural network prediction tasks.\",\n      \"evidence_ids\": [\"DGL-E0074\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is abbreviated as sig in formulas.\",\n      \"evidence_ids\": [\"DGL-E0074\", \"DGL-E0394\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It appears in the formula y = sig[βK + ωK(HK1/N)].\",\n      \"evidence_ids\": [\"DGL-E0198\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function.\",\n      \"evidence_ids\": [\"DGL-E0242\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The notation sig appears at the beginning of formula lines in inductive/transductive learning and graph classification contexts.\",\n      \"evidence_ids\": [\"DGL-E0394\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not provide the full mathematical expression or output range of the logistic activation.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks. It is abbreviated as sig in formulas; for example, y = sig[βK + ωK(HK1/N)]. In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function. The notation sig also appears at the start of a formula line in material on inductive/transductive learning and graph classification.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"logistic activation: logistic activation, also known as the sigmoid function, is an activation function used in graph neural network prediction tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0074\"],\n      \"reason\": \"The source pairs 'Logistic activation (sigmoid)' with a sig formula in a prediction-task context.\"\n    },\n    {\n      \"sentence\": \"It is abbreviated as sig in formulas; for example, y = sig[βK + ωK(HK1/N)].\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0074\", \"DGL-E0198\"],\n      \"reason\": \"The shorthand sig appears in the handwritten formula and in the GCN layer formula.\"\n    },\n    {\n      \"sentence\": \"In a graph convolutional network training and optimization pipeline, the output is passed through a sigmoid or softmax function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0242\"],\n      \"reason\": \"The source states that the output is passed through a sigmoid or softmax function.\"\n    },\n    {\n      \"sentence\": \"The notation sig also appears at the start of a formula line in material on inductive/transductive learning and graph classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0394\"],\n      \"reason\": \"The source records the printed text 'sig' at the beginning of a formula line in that topic context.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not provide the full mathematical expression or output range of the logistic activation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:11:03.252808+00:00"
+}

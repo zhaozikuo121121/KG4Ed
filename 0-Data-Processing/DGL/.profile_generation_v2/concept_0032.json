@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "9dfd6f0fdc99340522e665b0d9df3e810340c11f08fd644a49a6e9c06dc32787",
+  "concept_id": 32,
+  "concept_name": "adjacency",
+  "aliases": [
+    "adjacency",
+    "adjacent"
+  ],
+  "profile": "adjacency: In graph representations, adjacency indicates that every two nodes are directly connected; all node pairs in the context are adjacent. The term is used when describing graph types and how nodes are linked.",
+  "word_count": 34,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "adjacency: A graph-theoretic relation indicating that two nodes are directly connected. The source states that every two nodes are adjacent, meaning all node pairs in the context share this direct relationship. The term appears in the context of graph types and representations.",
+    "claims": [
+      {
+        "claim": "Adjacency is a graph-theoretic relation between two nodes.",
+        "evidence_ids": [
+          "DGL-E0012"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The source states that every two nodes are adjacent, meaning all node pairs are adjacent.",
+        "evidence_ids": [
+          "DGL-E0012"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Metadata is limited to a single evidence item; the evidence is handwritten and may be informal."
+    ]
+  },
+  "review": {
+    "final_profile": "adjacency: In graph representations, adjacency indicates that every two nodes are directly connected; all node pairs in the context are adjacent. The term is used when describing graph types and how nodes are linked.",
+    "sentence_reviews": [
+      {
+        "sentence": "In graph representations, adjacency indicates that every two nodes are directly connected; all node pairs in the context are adjacent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0012"
+        ],
+        "reason": "The evidence states 'every two nodes are adjacent,' supporting the idea that all node pairs in the described context are adjacent and directly connected."
+      },
+      {
+        "sentence": "The term is used when describing graph types and how nodes are linked.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0012"
+        ],
+        "reason": "The evidence appears on a page titled 'Graph Types and Representations,' tying adjacency to graph type description and node linkage."
+      }
+    ],
+    "warnings": [
+      "Evidence is limited to a single handwritten source; the phrase 'every two nodes' may refer to a specific graph example rather than a general definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"adjacency: A graph-theoretic relation indicating that two nodes are directly connected. The source states that every two nodes are adjacent, meaning all node pairs in the context share this direct relationship. The term appears in the context of graph types and representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"Adjacency is a graph-theoretic relation between two nodes.\",\n      \"evidence_ids\": [\"DGL-E0012\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The source states that every two nodes are adjacent, meaning all node pairs are adjacent.\",\n      \"evidence_ids\": [\"DGL-E0012\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Metadata is limited to a single evidence item; the evidence is handwritten and may be informal.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"adjacency: In graph representations, adjacency indicates that every two nodes are directly connected; all node pairs in the context are adjacent. The term is used when describing graph types and how nodes are linked.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In graph representations, adjacency indicates that every two nodes are directly connected; all node pairs in the context are adjacent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0012\"],\n      \"reason\": \"The evidence states 'every two nodes are adjacent,' supporting the idea that all node pairs in the described context are adjacent and directly connected.\"\n    },\n    {\n      \"sentence\": \"The term is used when describing graph types and how nodes are linked.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0012\"],\n      \"reason\": \"The evidence appears on a page titled 'Graph Types and Representations,' tying adjacency to graph type description and node linkage.\"\n    }\n  ],\n  \"warnings\": [\n    \"Evidence is limited to a single handwritten source; the phrase 'every two nodes' may refer to a specific graph example rather than a general definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:00:10.389737+00:00"
+}

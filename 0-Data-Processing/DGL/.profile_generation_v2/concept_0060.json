@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "8a9a0361ff20068cbef97a45942813bf0eb388b5cf63470e210a4b84bc5fa396",
+  "concept_id": 60,
+  "concept_name": "graph walks",
+  "aliases": [
+    "graph walks",
+    "walks",
+    "walks of length k"
+  ],
+  "profile": "graph walks: Walks are presented as a graph property, as shown by their inclusion in a list of graph properties. They are associated with powers of matrices under the heading 'Walks (powers of matrices)'. The total number of walks of length (k+1) from node i to node j is a defined quantity.",
+  "word_count": 53,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph walks: Walks are a graph property, and their counts between nodes are relevant to graph analysis. The total number of walks of length (k+1) from node i to a node j is a defined quantity. Walks are linked to powers of matrices, as expressed by 'Walks (powers of matrices)'. This appears alongside graph properties and matrix representations.",
+    "claims": [
+      {
+        "claim": "Walks are a graph property.",
+        "evidence_ids": [
+          "DGL-E0058"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The total number of walks of length (k+1) from node i to a node j is a defined quantity.",
+        "evidence_ids": [
+          "DGL-E0166"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Walks are linked to powers of matrices.",
+        "evidence_ids": [
+          "DGL-E0058"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph walks: Walks are presented as a graph property, as shown by their inclusion in a list of graph properties. They are associated with powers of matrices under the heading 'Walks (powers of matrices)'. The total number of walks of length (k+1) from node i to node j is a defined quantity.",
+    "sentence_reviews": [
+      {
+        "sentence": "Walks are presented as a graph property, as shown by their inclusion in a list of graph properties.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0058"
+        ],
+        "reason": "The evidence places 'Walks (powers of matrices)' under the heading 'Graph Properties and Matrix Representations'."
+      },
+      {
+        "sentence": "They are associated with powers of matrices under the heading 'Walks (powers of matrices)'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0058"
+        ],
+        "reason": "The evidence directly labels walks as 'Walks (powers of matrices)'."
+      },
+      {
+        "sentence": "The total number of walks of length (k+1) from node i to node j is a defined quantity.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0166"
+        ],
+        "reason": "The evidence states this exact quantity as 'total number of walks of length (k+1) from node i to a node j'."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph walks: Walks are a graph property, and their counts between nodes are relevant to graph analysis. The total number of walks of length (k+1) from node i to a node j is a defined quantity. Walks are linked to powers of matrices, as expressed by 'Walks (powers of matrices)'. This appears alongside graph properties and matrix representations.\",\n  \"claims\": [\n    {\n      \"claim\": \"Walks are a graph property.\",\n      \"evidence_ids\": [\"DGL-E0058\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The total number of walks of length (k+1) from node i to a node j is a defined quantity.\",\n      \"evidence_ids\": [\"DGL-E0166\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Walks are linked to powers of matrices.\",\n      \"evidence_ids\": [\"DGL-E0058\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph walks: Walks are presented as a graph property, as shown by their inclusion in a list of graph properties. They are associated with powers of matrices under the heading 'Walks (powers of matrices)'. The total number of walks of length (k+1) from node i to node j is a defined quantity.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Walks are presented as a graph property, as shown by their inclusion in a list of graph properties.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0058\"],\n      \"reason\": \"The evidence places 'Walks (powers of matrices)' under the heading 'Graph Properties and Matrix Representations'.\"\n    },\n    {\n      \"sentence\": \"They are associated with powers of matrices under the heading 'Walks (powers of matrices)'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0058\"],\n      \"reason\": \"The evidence directly labels walks as 'Walks (powers of matrices)'.\"\n    },\n    {\n      \"sentence\": \"The total number of walks of length (k+1) from node i to node j is a defined quantity.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0166\"],\n      \"reason\": \"The evidence states this exact quantity as 'total number of walks of length (k+1) from node i to a node j'.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:08:27.954785+00:00"
+}

@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "23254436bb9e15be2332d89a9ee0cf319725bb734adf3893a5202cf85a76ba52",
+  "concept_id": 233,
+  "concept_name": "kernelized least squares",
+  "aliases": [
+    "kernelized least squares",
+    "kernelized regression",
+    "kernelized l2 regularized least squares"
+  ],
+  "profile": "kernelized least squares: the function g(b, z) = Σ_p (b + h_p^T z - y_p)^2.",
+  "word_count": 17,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "kernelized least squares: an objective function given by g(b, z) = Σ(b + h_p^T z - y_p)^2.",
+    "claims": [
+      {
+        "claim": "The objective function is g(b, z) = Σ(b + h_p^T z - y_p)^2.",
+        "evidence_ids": [
+          "MLR-E0292"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only one formula was available; no additional definition or properties are provided."
+    ]
+  },
+  "review": {
+    "final_profile": "kernelized least squares: the function g(b, z) = Σ_p (b + h_p^T z - y_p)^2.",
+    "sentence_reviews": [
+      {
+        "sentence": "kernelized least squares: the function g(b, z) = Σ_p (b + h_p^T z - y_p)^2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0292"
+        ],
+        "reason": "The formula matches the supplied evidence exactly, with only a minor notation clarification for the index p."
+      }
+    ],
+    "warnings": [
+      "Only the formula is supported; no additional definition or properties are provided in the metadata."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"kernelized least squares: an objective function given by g(b, z) = Σ(b + h_p^T z - y_p)^2.\",\n  \"claims\": [\n    {\n      \"claim\": \"The objective function is g(b, z) = Σ(b + h_p^T z - y_p)^2.\",\n      \"evidence_ids\": [\"MLR-E0292\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only one formula was available; no additional definition or properties are provided.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"kernelized least squares: the function g(b, z) = Σ_p (b + h_p^T z - y_p)^2.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"kernelized least squares: the function g(b, z) = Σ_p (b + h_p^T z - y_p)^2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0292\"],\n      \"reason\": \"The formula matches the supplied evidence exactly, with only a minor notation clarification for the index p.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the formula is supported; no additional definition or properties are provided in the metadata.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:53:56.563679+00:00"
+}

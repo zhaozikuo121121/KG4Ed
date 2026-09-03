@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "22c13164242b6371f7392500b1f0342179ce91859ec2112b1e7ea612fdaa3751",
+  "concept_id": 318,
+  "concept_name": "target domain",
+  "aliases": [
+    "target domain"
+  ],
+  "profile": "target domain: The phrase 'target domain' appears as a handwritten term in the material; no definition or additional detail is provided.",
+  "word_count": 21,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "target domain: The phrase 'target domain' appears in the available material as a handwritten term, with a confidence score of 0.900.",
+    "claims": [
+      {
+        "claim": "The phrase 'target domain' appears in the available material as a handwritten term.",
+        "evidence_ids": [
+          "DGL-E0482"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term has a confidence of 0.900.",
+        "evidence_ids": [
+          "DGL-E0482"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only the term itself and no definition, role, mechanism, properties, or examples."
+    ]
+  },
+  "review": {
+    "final_profile": "target domain: The phrase 'target domain' appears as a handwritten term in the material; no definition or additional detail is provided.",
+    "sentence_reviews": [
+      {
+        "sentence": "target domain: The phrase 'target domain' appears as a handwritten term in the material; no definition or additional detail is provided.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0482"
+        ],
+        "reason": "The metadata records the term 'target domain' as handwritten evidence and provides no further semantic content."
+      }
+    ],
+    "warnings": [
+      "No definition, role, mechanism, properties, or examples are available for 'target domain'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"target domain: The phrase 'target domain' appears in the available material as a handwritten term, with a confidence score of 0.900.\",\n  \"claims\": [\n    {\n      \"claim\": \"The phrase 'target domain' appears in the available material as a handwritten term.\",\n      \"evidence_ids\": [\"DGL-E0482\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term has a confidence of 0.900.\",\n      \"evidence_ids\": [\"DGL-E0482\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only the term itself and no definition, role, mechanism, properties, or examples.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"target domain: The phrase 'target domain' appears as a handwritten term in the material; no definition or additional detail is provided.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"target domain: The phrase 'target domain' appears as a handwritten term in the material; no definition or additional detail is provided.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"DGL-E0482\"\n      ],\n      \"reason\": \"The metadata records the term 'target domain' as handwritten evidence and provides no further semantic content.\"\n    }\n  ],\n  \"warnings\": [\n    \"No definition, role, mechanism, properties, or examples are available for 'target domain'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:54:25.074174+00:00"
+}

@@ -1,0 +1,99 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "844f8f3f8f42ea94d41381c72e0b6e6a8333c7c1e070b99290e76ad648ad29d0",
+  "concept_id": 114,
+  "concept_name": "l2 regularizer",
+  "aliases": [
+    "l2 regularizer",
+    "weight magnitude regularizer",
+    "squared l2 norm regularizer"
+  ],
+  "profile": "l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer. It can be added to a cost function. In kernel methods, when the sum is kernelized, the kernelized form is the sum of the kernelized cost and regularizer.",
+  "word_count": 39,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer. It can be added to any cost function. When the cost function is kernelized, the resulting kernelized form of the sum is the sum of the kernelized cost regularizer.",
+    "claims": [
+      {
+        "claim": "The l2 regularizer is the term ∥ω∥2^2.",
+        "evidence_ids": [
+          "MLR-E0130"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is referred to as a regularizer.",
+        "evidence_ids": [
+          "MLR-E0130"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It can be added to any cost function.",
+        "evidence_ids": [
+          "MLR-E0300"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "When the cost function is kernelized, the resulting kernelized form of the sum is the sum of the kernelized cost regularizer.",
+        "evidence_ids": [
+          "MLR-E0300"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source phrase 'in the middle column' was omitted; the universal 'any cost function' may be context-dependent.",
+      "The phrase 'kernelized cost regularizer' is taken verbatim from the source and may represent a typo for 'kernelized cost and regularizer'."
+    ]
+  },
+  "review": {
+    "final_profile": "l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer. It can be added to a cost function. In kernel methods, when the sum is kernelized, the kernelized form is the sum of the kernelized cost and regularizer.",
+    "sentence_reviews": [
+      {
+        "sentence": "l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0130"
+        ],
+        "reason": "Source explicitly identifies ∥ω∥2^2 as a regularizer."
+      },
+      {
+        "sentence": "It can be added to a cost function.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0300"
+        ],
+        "reason": "Source says the l2 regularizer can be added to any cost function in the relevant context; 'a cost function' avoids overgeneralizing the context-specific 'any'."
+      },
+      {
+        "sentence": "In kernel methods, when the sum is kernelized, the kernelized form is the sum of the kernelized cost and regularizer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0300"
+        ],
+        "reason": "Paraphrase of the source's kernelization statement, clarifying an apparent missing 'and' in 'kernelized cost regularizer'."
+      }
+    ],
+    "warnings": [
+      "The source's phrase 'in the middle column' was omitted; 'any cost function' may be context-dependent rather than universal.",
+      "The source phrase 'kernelized cost regularizer' is ambiguous and was interpreted as 'kernelized cost and regularizer'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer. It can be added to any cost function. When the cost function is kernelized, the resulting kernelized form of the sum is the sum of the kernelized cost regularizer.\",\n  \"claims\": [\n    {\n      \"claim\": \"The l2 regularizer is the term ∥ω∥2^2.\",\n      \"evidence_ids\": [\"MLR-E0130\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is referred to as a regularizer.\",\n      \"evidence_ids\": [\"MLR-E0130\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It can be added to any cost function.\",\n      \"evidence_ids\": [\"MLR-E0300\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"When the cost function is kernelized, the resulting kernelized form of the sum is the sum of the kernelized cost regularizer.\",\n      \"evidence_ids\": [\"MLR-E0300\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The source phrase 'in the middle column' was omitted; the universal 'any cost function' may be context-dependent.\",\n    \"The phrase 'kernelized cost regularizer' is taken verbatim from the source and may represent a typo for 'kernelized cost and regularizer'.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer. It can be added to a cost function. In kernel methods, when the sum is kernelized, the kernelized form is the sum of the kernelized cost and regularizer.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"l2 regularizer: the term ∥ω∥2^2, referred to as a regularizer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0130\"],\n      \"reason\": \"Source explicitly identifies ∥ω∥2^2 as a regularizer.\"\n    },\n    {\n      \"sentence\": \"It can be added to a cost function.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0300\"],\n      \"reason\": \"Source says the l2 regularizer can be added to any cost function in the relevant context; 'a cost function' avoids overgeneralizing the context-specific 'any'.\"\n    },\n    {\n      \"sentence\": \"In kernel methods, when the sum is kernelized, the kernelized form is the sum of the kernelized cost and regularizer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0300\"],\n      \"reason\": \"Paraphrase of the source's kernelization statement, clarifying an apparent missing 'and' in 'kernelized cost regularizer'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source's phrase 'in the middle column' was omitted; 'any cost function' may be context-dependent rather than universal.\",\n    \"The source phrase 'kernelized cost regularizer' is ambiguous and was interpreted as 'kernelized cost and regularizer'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:10:37.114681+00:00"
+}

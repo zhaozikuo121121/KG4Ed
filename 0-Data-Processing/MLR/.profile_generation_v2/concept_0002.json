@@ -1,0 +1,110 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "1191810138b46ed3e318352d41b50e49bc5ceca7da2d19d613d6bfd48d9c9285",
+  "concept_id": 2,
+  "concept_name": "training set",
+  "aliases": [
+    "training set",
+    "training data",
+    "training set of data",
+    "batch of examples"
+  ],
+  "profile": "training set: A training set, also called training data, is a batch of examples used to train a computer or model. It is also typically referred to as a training set of data. It is the remaining portion of data used to train models. For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.",
+  "word_count": 66,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "training set: A training set—also called training data, training set of data, or batch of examples—is a batch of examples used to train a computer or model. It is the remaining portion of data used to train models, and may include examples such as recognizing differences between types of animals.",
+    "claims": [
+      {
+        "claim": "A training set is a batch of examples used to train a computer or model.",
+        "evidence_ids": [
+          "MLR-E0003",
+          "MLR-E0267"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A training set is also called training data, training set of data, or batch of examples.",
+        "evidence_ids": [
+          "MLR-E0003",
+          "MLR-E0267"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The training set is the remaining portion of data used to train models.",
+        "evidence_ids": [
+          "MLR-E0267"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The training set may include examples such as recognizing differences between types of animals.",
+        "evidence_ids": [
+          "MLR-E0003"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "training set: A training set, also called training data, is a batch of examples used to train a computer or model. It is also typically referred to as a training set of data. It is the remaining portion of data used to train models. For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.",
+    "sentence_reviews": [
+      {
+        "sentence": "training set: A training set, also called training data, is a batch of examples used to train a computer or model.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0003",
+          "MLR-E0267"
+        ],
+        "reason": "MLR-E0003 describes a batch of examples used to train a computer; MLR-E0267 refers to the training portion as training data/training set."
+      },
+      {
+        "sentence": "It is also typically referred to as a training set of data.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0003"
+        ],
+        "reason": "MLR-E0003 says such a batch is typically referred to as a training set of data."
+      },
+      {
+        "sentence": "It is the remaining portion of data used to train models.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0267"
+        ],
+        "reason": "MLR-E0267 states the remaining portion used to train models is the training data/training set."
+      },
+      {
+        "sentence": "For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0003"
+        ],
+        "reason": "MLR-E0003 gives animal recognition as an example of training via a batch of examples."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"training set: A training set—also called training data, training set of data, or batch of examples—is a batch of examples used to train a computer or model. It is the remaining portion of data used to train models, and may include examples such as recognizing differences between types of animals.\",\n  \"claims\": [\n    {\n      \"claim\": \"A training set is a batch of examples used to train a computer or model.\",\n      \"evidence_ids\": [\"MLR-E0003\", \"MLR-E0267\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A training set is also called training data, training set of data, or batch of examples.\",\n      \"evidence_ids\": [\"MLR-E0003\", \"MLR-E0267\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The training set is the remaining portion of data used to train models.\",\n      \"evidence_ids\": [\"MLR-E0267\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The training set may include examples such as recognizing differences between types of animals.\",\n      \"evidence_ids\": [\"MLR-E0003\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"training set: A training set, also called training data, is a batch of examples used to train a computer or model. It is also typically referred to as a training set of data. It is the remaining portion of data used to train models. For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A training set, also called training data, is a batch of examples used to train a computer or model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0003\", \"MLR-E0267\"],\n      \"reason\": \"MLR-E0003 describes a batch of examples used to train a computer; MLR-E0267 refers to the training portion as training data/training set.\"\n    },\n    {\n      \"sentence\": \"It is also typically referred to as a training set of data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0003\"],\n      \"reason\": \"MLR-E0003 says such a batch is typically referred to as a training set of data.\"\n    },\n    {\n      \"sentence\": \"It is the remaining portion of data used to train models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0267\"],\n      \"reason\": \"MLR-E0267 states the remaining portion used to train models is the training data/training set.\"\n    },\n    {\n      \"sentence\": \"For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0003\"],\n      \"reason\": \"MLR-E0003 gives animal recognition as an example of training via a batch of examples.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"training set: A training set, also called training data, is a batch of examples used to train a computer or model. It is also typically referred to as a training set of data. It is the remaining portion of data used to train models. For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"training set: A training set, also called training data, is a batch of examples used to train a computer or model.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0003\",\n        \"MLR-E0267\"\n      ],\n      \"reason\": \"MLR-E0003 describes a batch of examples used to train a computer; MLR-E0267 refers to the training portion as training data/training set.\"\n    },\n    {\n      \"sentence\": \"It is also typically referred to as a training set of data.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0003\"\n      ],\n      \"reason\": \"MLR-E0003 says such a batch is typically referred to as a training set of data.\"\n    },\n    {\n      \"sentence\": \"It is the remaining portion of data used to train models.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0267\"\n      ],\n      \"reason\": \"MLR-E0267 states the remaining portion used to train models is the training data/training set.\"\n    },\n    {\n      \"sentence\": \"For example, a computer must be trained to recognize the difference between two types of animals by learning from such a batch.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\n        \"MLR-E0003\"\n      ],\n      \"reason\": \"MLR-E0003 gives animal recognition as an example of training via a batch of examples.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T20:53:21.334060+00:00"
+}

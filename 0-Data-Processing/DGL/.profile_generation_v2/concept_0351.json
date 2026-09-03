@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "35ec8d4f2eb982c7f8ae54fa296cf0f91ef686f9958d46983b7046fad52d08a1",
+  "concept_id": 351,
+  "concept_name": "edge connection",
+  "aliases": [
+    "edge connection"
+  ],
+  "profile": "edge connection: a graph operation that connects existing nodes to form an edge.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge connection: a graph operation that connects existing nodes to form an edge.",
+    "claims": [
+      {
+        "claim": "Edge connection connects existing nodes to form an edge.",
+        "evidence_ids": [
+          "DGL-E0507"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten annotation supports this characterization; no further details are available."
+    ]
+  },
+  "review": {
+    "final_profile": "edge connection: a graph operation that connects existing nodes to form an edge.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge connection: a graph operation that connects existing nodes to form an edge.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0507"
+        ],
+        "reason": "The handwritten annotation 'connect existing nodes' directly supports connecting existing nodes to form an edge, though the 'graph operation' framing is a minimal contextual inference from the graph learning context."
+      }
+    ],
+    "warnings": [
+      "Only a single handwritten annotation supports this characterization; no further details are available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge connection: a graph operation that connects existing nodes to form an edge.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge connection connects existing nodes to form an edge.\",\n      \"evidence_ids\": [\"DGL-E0507\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Only a single handwritten annotation supports this characterization; no further details are available.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge connection: a graph operation that connects existing nodes to form an edge.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge connection: a graph operation that connects existing nodes to form an edge.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0507\"],\n      \"reason\": \"The handwritten annotation 'connect existing nodes' directly supports connecting existing nodes to form an edge, though the 'graph operation' framing is a minimal contextual inference from the graph learning context.\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single handwritten annotation supports this characterization; no further details are available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:03:31.417528+00:00"
+}

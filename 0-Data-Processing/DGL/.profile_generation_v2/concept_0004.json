@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "ed2aab20585ea20875c0ba932959c82be201a4c2acc7c711df7872755c5acade",
+  "concept_id": 4,
+  "concept_name": "citation network",
+  "aliases": [
+    "citation network",
+    "scientific literature graph"
+  ],
+  "profile": "citation network: a graph representation of scientific literature. In this graph, nodes are papers and edges are citations.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "citation network: a graph representation of scientific literature. In this graph, nodes are papers and edges are citations.",
+    "claims": [
+      {
+        "claim": "A citation network is a graph representation of scientific literature.",
+        "evidence_ids": [
+          "DGL-E0014"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a citation network, nodes are papers.",
+        "evidence_ids": [
+          "DGL-E0014"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a citation network, edges are citations.",
+        "evidence_ids": [
+          "DGL-E0014"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "citation network: a graph representation of scientific literature. In this graph, nodes are papers and edges are citations.",
+    "sentence_reviews": [
+      {
+        "sentence": "citation network: a graph representation of scientific literature.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0014"
+        ],
+        "reason": "The source states that scientific literature can be viewed as a graph."
+      },
+      {
+        "sentence": "In this graph, nodes are papers and edges are citations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0014"
+        ],
+        "reason": "The source explicitly identifies nodes as papers and edges as citations."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"citation network: a graph representation of scientific literature. In this graph, nodes are papers and edges are citations.\",\n  \"claims\": [\n    {\n      \"claim\": \"A citation network is a graph representation of scientific literature.\",\n      \"evidence_ids\": [\"DGL-E0014\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a citation network, nodes are papers.\",\n      \"evidence_ids\": [\"DGL-E0014\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a citation network, edges are citations.\",\n      \"evidence_ids\": [\"DGL-E0014\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"citation network: a graph representation of scientific literature. In this graph, nodes are papers and edges are citations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"citation network: a graph representation of scientific literature.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0014\"],\n      \"reason\": \"The source states that scientific literature can be viewed as a graph.\"\n    },\n    {\n      \"sentence\": \"In this graph, nodes are papers and edges are citations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0014\"],\n      \"reason\": \"The source explicitly identifies nodes as papers and edges as citations.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:51:29.191540+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ab54f9558ceb782cf39d3fb5fe64f6719a36e7de7fe11deacb951ec80d1f0264",
+  "concept_id": 284,
+  "concept_name": "classification trees",
+  "aliases": [
+    "classification trees",
+    "classification tree"
+  ],
+  "profile": "classification trees: recursively defined models for classification. Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "classification trees: recursively defined models for classification; in practice, unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.",
+    "claims": [
+      {
+        "claim": "Classification trees are recursively defined models for classification.",
+        "evidence_ids": [
+          "MLR-E0348"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.",
+        "evidence_ids": [
+          "MLR-E0370"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "classification trees: recursively defined models for classification. Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.",
+    "sentence_reviews": [
+      {
+        "sentence": "classification trees: recursively defined models for classification.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0348"
+        ],
+        "reason": "The source describes classification trees as recursively defined and motivates them in a tree-based learner context."
+      },
+      {
+        "sentence": "Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0370"
+        ],
+        "reason": "This closely follows the source statement about rarely using a single recursively defined classification tree and preferring a bagged ensemble."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"classification trees: recursively defined models for classification; in practice, unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.\",\n  \"claims\": [\n    {\n      \"claim\": \"Classification trees are recursively defined models for classification.\",\n      \"evidence_ids\": [\"MLR-E0348\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.\",\n      \"evidence_ids\": [\"MLR-E0370\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"classification trees: recursively defined models for classification. Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"classification trees: recursively defined models for classification.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0348\"],\n      \"reason\": \"The source describes classification trees as recursively defined and motivates them in a tree-based learner context.\"\n    },\n    {\n      \"sentence\": \"Unless human interpretability of the final model is of primary concern, one virtually never uses a single classification tree, but a bagged ensemble of them.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0370\"],\n      \"reason\": \"This closely follows the source statement about rarely using a single recursively defined classification tree and preferring a bagged ensemble.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:13:09.803548+00:00"
+}

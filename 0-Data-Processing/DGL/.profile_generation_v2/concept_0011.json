@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "59c94d714ee485d31873213b279976a59b3b22f2144a034c93d0d0267efe19fb",
+  "concept_id": 11,
+  "concept_name": "edge embedding",
+  "aliases": [
+    "edge embedding",
+    "edge data"
+  ],
+  "profile": "edge embedding: a vector representation associated with an edge in a graph; in the illustrated graph representation, each edge has an embedding of length four.",
+  "word_count": 25,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge embedding: a vector representation associated with an edge in a graph.",
+    "claims": [
+      {
+        "claim": "Edge embedding is a vector representation associated with an edge.",
+        "evidence_ids": [
+          "DGL-E0037"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Each edge has an embedding of length four.",
+        "evidence_ids": [
+          "DGL-E0037"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata only provides a single example; no further properties or applications are specified."
+    ]
+  },
+  "review": {
+    "final_profile": "edge embedding: a vector representation associated with an edge in a graph; in the illustrated graph representation, each edge has an embedding of length four.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge embedding: a vector representation associated with an edge in a graph; in the illustrated graph representation, each edge has an embedding of length four.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0037"
+        ],
+        "reason": "The source states that each edge has an associated embedding of length four, supporting the profile statement."
+      }
+    ],
+    "warnings": [
+      "No additional properties, training details, or applications are provided in the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge embedding: a vector representation associated with an edge in a graph. In the supplied context, each edge has an associated embedding of length four, depicted as blue vectors.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge embedding is a vector representation associated with an edge.\",\n      \"evidence_ids\": [\"DGL-E0037\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In the supplied context, each edge has an embedding of length four.\",\n      \"evidence_ids\": [\"DGL-E0037\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The metadata only provides a single example; no further properties or applications are specified.\"]\n}"
+    },
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge embedding: a vector representation associated with an edge in a graph.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge embedding is a vector representation associated with an edge.\",\n      \"evidence_ids\": [\n        \"DGL-E0037\"\n      ],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Each edge has an embedding of length four.\",\n      \"evidence_ids\": [\n        \"DGL-E0037\"\n      ],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata only provides a single example; no further properties or applications are specified.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge embedding: a vector representation associated with an edge in a graph; in the illustrated graph representation, each edge has an embedding of length four.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge embedding: a vector representation associated with an edge in a graph; in the illustrated graph representation, each edge has an embedding of length four.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0037\"],\n      \"reason\": \"The source states that each edge has an associated embedding of length four, supporting the profile statement.\"\n    }\n  ],\n  \"warnings\": [\"No additional properties, training details, or applications are provided in the source.\"]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:54:09.880473+00:00"
+}

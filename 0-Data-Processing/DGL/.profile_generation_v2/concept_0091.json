@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "aaf0dd875f32b0574fdc9ce5c7d30506ef9e04526d56c430a110377b16ecd12f",
+  "concept_id": 91,
+  "concept_name": "regression",
+  "aliases": [
+    "regression",
+    "regress",
+    "regression task",
+    "regression problem"
+  ],
+  "profile": "regression: Regression is shown connected to 'SL' by 'SL -> regression'. It is grouped with classification in 'classification/regression'. The word 'Regress' also appears.",
+  "word_count": 23,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "regression: A supervised learning task, as indicated by the notation 'SL -> regression'. It is often grouped with classification, as in the expression 'classification/regression'. The term 'regress' also appears as an alternative form.",
+    "claims": [
+      {
+        "claim": "Regression is a supervised learning task.",
+        "evidence_ids": [
+          "DGL-E0183"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Regression is often grouped with classification.",
+        "evidence_ids": [
+          "DGL-E0231"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term 'regress' appears as an alternative form of regression.",
+        "evidence_ids": [
+          "DGL-E0092"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "regression: Regression is shown connected to 'SL' by 'SL -> regression'. It is grouped with classification in 'classification/regression'. The word 'Regress' also appears.",
+    "sentence_reviews": [
+      {
+        "sentence": "Regression is shown connected to 'SL' by 'SL -> regression'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0183"
+        ],
+        "reason": "The handwritten source notation 'SL -> regression' directly shows this connection."
+      },
+      {
+        "sentence": "It is grouped with classification in 'classification/regression'.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0231"
+        ],
+        "reason": "The source contains the printed expression 'classification/regression'."
+      },
+      {
+        "sentence": "The word 'Regress' also appears.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0092"
+        ],
+        "reason": "The handwritten source contains the word 'Regress'."
+      }
+    ],
+    "warnings": [
+      "The notation 'SL' is not expanded in the evidence, so the final profile does not interpret it as 'supervised learning'."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"regression: A supervised learning task, as indicated by the notation 'SL -> regression'. It is often grouped with classification, as in the expression 'classification/regression'. The term 'regress' also appears as an alternative form.\",\n  \"claims\": [\n    {\n      \"claim\": \"Regression is a supervised learning task.\",\n      \"evidence_ids\": [\"DGL-E0183\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Regression is often grouped with classification.\",\n      \"evidence_ids\": [\"DGL-E0231\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term 'regress' appears as an alternative form of regression.\",\n      \"evidence_ids\": [\"DGL-E0092\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"regression: Regression is shown connected to 'SL' by 'SL -> regression'. It is grouped with classification in 'classification/regression'. The word 'Regress' also appears.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Regression is shown connected to 'SL' by 'SL -> regression'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0183\"],\n      \"reason\": \"The handwritten source notation 'SL -> regression' directly shows this connection.\"\n    },\n    {\n      \"sentence\": \"It is grouped with classification in 'classification/regression'.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0231\"],\n      \"reason\": \"The source contains the printed expression 'classification/regression'.\"\n    },\n    {\n      \"sentence\": \"The word 'Regress' also appears.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0092\"],\n      \"reason\": \"The handwritten source contains the word 'Regress'.\"\n    }\n  ],\n  \"warnings\": [\n    \"The notation 'SL' is not expanded in the evidence, so the final profile does not interpret it as 'supervised learning'.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:24:36.547362+00:00"
+}

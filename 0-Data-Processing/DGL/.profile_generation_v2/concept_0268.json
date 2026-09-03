@@ -1,0 +1,66 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "eeca67a74e548eae621360cfc954669d5eda24877c55a1c9c5bf16b6d71a5057",
+  "concept_id": 268,
+  "concept_name": "standard deviation",
+  "aliases": [
+    "standard deviation",
+    "variance"
+  ],
+  "profile": "standard deviation: A value denoted s_h is computed.",
+  "word_count": 9,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "standard deviation: A value denoted s_h, computed during GNN training. The computation takes place in the context of sampling strategies and batch normalization.",
+    "claims": [
+      {
+        "claim": "Standard deviation is a value denoted s_h and is computed.",
+        "evidence_ids": [
+          "DGL-E0352"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The computation takes place in the context of GNN training with sampling strategies and batch normalization.",
+        "evidence_ids": [
+          "DGL-E0352"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The source does not define the term or explain its role beyond being computed."
+    ]
+  },
+  "review": {
+    "final_profile": "standard deviation: A value denoted s_h is computed.",
+    "sentence_reviews": [
+      {
+        "sentence": "standard deviation: A value denoted s_h is computed.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0352"
+        ],
+        "reason": "The source states that standard deviation s_h is computed."
+      }
+    ],
+    "warnings": [
+      "The source does not define standard deviation or explain its role beyond being computed."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"standard deviation: A value denoted s_h, computed during GNN training. The computation takes place in the context of sampling strategies and batch normalization.\",\n  \"claims\": [\n    {\n      \"claim\": \"Standard deviation is a value denoted s_h and is computed.\",\n      \"evidence_ids\": [\"DGL-E0352\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The computation takes place in the context of GNN training with sampling strategies and batch normalization.\",\n      \"evidence_ids\": [\"DGL-E0352\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not define the term or explain its role beyond being computed.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"standard deviation: A value denoted s_h is computed.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"standard deviation: A value denoted s_h is computed.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0352\"],\n      \"reason\": \"The source states that standard deviation s_h is computed.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not define standard deviation or explain its role beyond being computed.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:35:41.469343+00:00"
+}

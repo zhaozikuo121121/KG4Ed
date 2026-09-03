@@ -1,0 +1,71 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "eafb071546f2ca86252a15f06a48815b66014a4136646bcada221a5d4405ba14",
+  "concept_id": 78,
+  "concept_name": "bfgs method",
+  "aliases": [
+    "bfgs method",
+    "broyden-fletcher-goldfarb-shanno method",
+    "broyden fletcher goldfarb shanno"
+  ],
+  "profile": "bfgs method: The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is an optimization technique. It is abbreviated as BFGS.",
+  "word_count": 18,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "bfgs method: The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is a numerical optimization algorithm, also known as BFGS.",
+    "claims": [
+      {
+        "claim": "The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is also known as BFGS.",
+        "evidence_ids": [
+          "MLR-E0090"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is a numerical optimization algorithm.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": [
+      "Only the method name and abbreviation are explicitly supported by the metadata; no further details are available."
+    ]
+  },
+  "review": {
+    "final_profile": "bfgs method: The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is an optimization technique. It is abbreviated as BFGS.",
+    "sentence_reviews": [
+      {
+        "sentence": "The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is an optimization technique.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "The category is a generic descriptor inferred from the supplied context; the quoted evidence only names the method and its abbreviation."
+      },
+      {
+        "sentence": "It is abbreviated as BFGS.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0090"
+        ],
+        "reason": "The supplied evidence writes the full name and adds the BFGS abbreviation in parentheses."
+      }
+    ],
+    "warnings": [
+      "The supplied evidence only gives the full name and BFGS abbreviation; 'optimization technique' is a generic descriptor from the context, and no other properties are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"bfgs method: The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is a numerical optimization algorithm, also known as BFGS.\",\n  \"claims\": [\n    {\n      \"claim\": \"The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is also known as BFGS.\",\n      \"evidence_ids\": [\"MLR-E0090\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is a numerical optimization algorithm.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": [\n    \"Only the method name and abbreviation are explicitly supported by the metadata; no further details are available.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"bfgs method: The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is an optimization technique. It is abbreviated as BFGS.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"The Broyden–Fletcher–Goldfarb–Shanno (BFGS) method is an optimization technique.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"The category is a generic descriptor inferred from the supplied context; the quoted evidence only names the method and its abbreviation.\"\n    },\n    {\n      \"sentence\": \"It is abbreviated as BFGS.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0090\"],\n      \"reason\": \"The supplied evidence writes the full name and adds the BFGS abbreviation in parentheses.\"\n    }\n  ],\n  \"warnings\": [\n    \"The supplied evidence only gives the full name and BFGS abbreviation; 'optimization technique' is a generic descriptor from the context, and no other properties are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:51:02.475273+00:00"
+}

@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "5830b9e31c3bc71aa29c5f729b1cb03637919dbf19c0d080835f6310b6bd29ee",
+  "concept_id": 205,
+  "concept_name": "active learning",
+  "aliases": [
+    "active learning"
+  ],
+  "profile": "active learning: a term mentioned in the context of graph learning research trends and tasks.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "active learning: a term associated with graph learning research trends and tasks.",
+    "claims": [
+      {
+        "claim": "The term is associated with graph learning research trends and tasks.",
+        "evidence_ids": [
+          "DGL-E0228"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "No definition or further context provided in source."
+    ]
+  },
+  "review": {
+    "final_profile": "active learning: a term mentioned in the context of graph learning research trends and tasks.",
+    "sentence_reviews": [
+      {
+        "sentence": "active learning: a term mentioned in the context of graph learning research trends and tasks.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0228"
+        ],
+        "reason": "The source evidence contains the term, and the page title places it within graph learning research trends and tasks; no definition or further context is provided."
+      }
+    ],
+    "warnings": [
+      "Source provides only the term and page context; no definition or further explanation is available."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"active learning: a term associated with graph learning research trends and tasks.\",\n  \"claims\": [\n    {\n      \"claim\": \"The term is associated with graph learning research trends and tasks.\",\n      \"evidence_ids\": [\"DGL-E0228\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"No definition or further context provided in source.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"active learning: a term mentioned in the context of graph learning research trends and tasks.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"active learning: a term mentioned in the context of graph learning research trends and tasks.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0228\"],\n      \"reason\": \"The source evidence contains the term, and the page title places it within graph learning research trends and tasks; no definition or further context is provided.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source provides only the term and page context; no definition or further explanation is available.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:13:34.707876+00:00"
+}

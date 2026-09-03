@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "638f47308fe3277d7a4b0197f789b5f4263723a7bab9c07eb1d93a393c4f71fb",
+  "concept_id": 331,
+  "concept_name": "graph super-resolution",
+  "aliases": [
+    "graph super-resolution",
+    "super-resolved graph",
+    "graph sr",
+    "super-resolving graphs"
+  ],
+  "profile": "graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph. In the context of encoder-decoder GNNs and graph generation, the use of Graph UNet for super-resolving graphs is raised.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph. The use of Graph UNet for super-resolving graphs is raised in the context of encoder-decoder GNNs and graph generation.",
+    "claims": [
+      {
+        "claim": "Graph super-resolution is a task that transforms a low-resolution graph into a super-resolved graph.",
+        "evidence_ids": [
+          "DGL-E0484"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The use of Graph UNet for super-resolving graphs is raised in the context of encoder-decoder GNNs and graph generation.",
+        "evidence_ids": [
+          "DGL-E0550"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph. In the context of encoder-decoder GNNs and graph generation, the use of Graph UNet for super-resolving graphs is raised.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0484"
+        ],
+        "reason": "Directly restates the source definition: low-resolution graph to super-resolved graph."
+      },
+      {
+        "sentence": "In the context of encoder-decoder GNNs and graph generation, the use of Graph UNet for super-resolving graphs is raised.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0550"
+        ],
+        "reason": "Mentions Graph UNet for super-resolving graphs and matches the page context of encoder-decoder GNNs and graph generation."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph. The use of Graph UNet for super-resolving graphs is raised in the context of encoder-decoder GNNs and graph generation.\",\n  \"claims\": [\n    {\n      \"claim\": \"Graph super-resolution is a task that transforms a low-resolution graph into a super-resolved graph.\",\n      \"evidence_ids\": [\"DGL-E0484\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The use of Graph UNet for super-resolving graphs is raised in the context of encoder-decoder GNNs and graph generation.\",\n      \"evidence_ids\": [\"DGL-E0550\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph. In the context of encoder-decoder GNNs and graph generation, the use of Graph UNet for super-resolving graphs is raised.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph super-resolution: a task that transforms a low-resolution graph into a super-resolved graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0484\"],\n      \"reason\": \"Directly restates the source definition: low-resolution graph to super-resolved graph.\"\n    },\n    {\n      \"sentence\": \"In the context of encoder-decoder GNNs and graph generation, the use of Graph UNet for super-resolving graphs is raised.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0550\"],\n      \"reason\": \"Mentions Graph UNet for super-resolving graphs and matches the page context of encoder-decoder GNNs and graph generation.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:58:15.751635+00:00"
+}

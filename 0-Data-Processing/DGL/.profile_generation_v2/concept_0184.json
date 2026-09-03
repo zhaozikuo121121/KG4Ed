@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "71f54285699e94b8a2157db8e8d2c9cc1bf1e7ae4a2195018685b8ef36718f79",
+  "concept_id": 184,
+  "concept_name": "receptive field",
+  "aliases": [
+    "receptive field",
+    "k-hop neighborhood",
+    "k-hop"
+  ],
+  "profile": "receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation labels the matrix entry for node connectivity as the receptive field. After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation marks the matrix entry for node connectivity as the receptive field. After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.",
+    "claims": [
+      {
+        "claim": "In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity.",
+        "evidence_ids": [
+          "DGL-E0313",
+          "DGL-E0163"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A handwritten annotation marks the matrix entry for node connectivity as the receptive field.",
+        "evidence_ids": [
+          "DGL-E0163"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.",
+        "evidence_ids": [
+          "DGL-E0436"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata does not explicitly state that the receptive field is identical to the k-hop neighborhood, though the alias is listed in the input context."
+    ]
+  },
+  "review": {
+    "final_profile": "receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation labels the matrix entry for node connectivity as the receptive field. After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.",
+    "sentence_reviews": [
+      {
+        "sentence": "receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation labels the matrix entry for node connectivity as the receptive field.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0313",
+          "DGL-E0163"
+        ],
+        "reason": "The printed evidence mentions the receptive field of a node in a given layer, and the handwritten annotation links the term to the node-connectivity matrix entry."
+      },
+      {
+        "sentence": "After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0436"
+        ],
+        "reason": "This is a direct restatement of the printed evidence about color refinement and K-hop neighborhoods."
+      }
+    ],
+    "warnings": [
+      "The metadata does not explicitly equate the receptive field with the k-hop neighborhood; the equivalence is only implied by the alias in the input context."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation marks the matrix entry for node connectivity as the receptive field. After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.\",\n  \"claims\": [\n    {\n      \"claim\": \"In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity.\",\n      \"evidence_ids\": [\"DGL-E0313\", \"DGL-E0163\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A handwritten annotation marks the matrix entry for node connectivity as the receptive field.\",\n      \"evidence_ids\": [\"DGL-E0163\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.\",\n      \"evidence_ids\": [\"DGL-E0436\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not explicitly state that the receptive field is identical to the k-hop neighborhood, though the alias is listed in the input context.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation labels the matrix entry for node connectivity as the receptive field. After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"receptive field: In graph neural networks, the receptive field of a node in a given layer is tied to its connectivity; a handwritten annotation labels the matrix entry for node connectivity as the receptive field.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0313\", \"DGL-E0163\"],\n      \"reason\": \"The printed evidence mentions the receptive field of a node in a given layer, and the handwritten annotation links the term to the node-connectivity matrix entry.\"\n    },\n    {\n      \"sentence\": \"After K steps of color refinement, c^K(v) summarizes the structure of the K-hop neighborhood.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0436\"],\n      \"reason\": \"This is a direct restatement of the printed evidence about color refinement and K-hop neighborhoods.\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata does not explicitly equate the receptive field with the k-hop neighborhood; the equivalence is only implied by the alias in the input context.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:07:25.479356+00:00"
+}

@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "793ca50d903d4f2cd6048c06de3e9572c03d9f00817fb096d26338a9d9f1da79",
+  "concept_id": 338,
+  "concept_name": "density estimation",
+  "aliases": [
+    "density estimation",
+    "learn the distribution"
+  ],
+  "profile": "density estimation: Density estimation means learning a good model that represents a graph. The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).",
+  "word_count": 30,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "density estimation: Density estimation means learning a good model that represents a graph. The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).",
+    "claims": [
+      {
+        "claim": "Density estimation means learning a good model that represents a graph.",
+        "evidence_ids": [
+          "DGL-E0501"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).",
+        "evidence_ids": [
+          "DGL-E0501"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Only a single evidence excerpt was available; no examples or additional properties are stated."
+    ]
+  },
+  "review": {
+    "final_profile": "density estimation: Density estimation means learning a good model that represents a graph. The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).",
+    "sentence_reviews": [
+      {
+        "sentence": "Density estimation means learning a good model that represents a graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0501"
+        ],
+        "reason": "The source states density estimation as learning a good model that represents a graph."
+      },
+      {
+        "sentence": "The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0501"
+        ],
+        "reason": "The source expresses this as learning p_model(g; theta) ~ p_data(g)."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"density estimation: Density estimation means learning a good model that represents a graph. The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).\",\n  \"claims\": [\n    {\n      \"claim\": \"Density estimation means learning a good model that represents a graph.\",\n      \"evidence_ids\": [\"DGL-E0501\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).\",\n      \"evidence_ids\": [\"DGL-E0501\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Only a single evidence excerpt was available; no examples or additional properties are stated.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"density estimation: Density estimation means learning a good model that represents a graph. The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Density estimation means learning a good model that represents a graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0501\"],\n      \"reason\": \"The source states density estimation as learning a good model that represents a graph.\"\n    },\n    {\n      \"sentence\": \"The model distribution p_model(g; theta) is learned to approximate the data distribution p_data(g).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0501\"],\n      \"reason\": \"The source expresses this as learning p_model(g; theta) ~ p_data(g).\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T12:00:22.301766+00:00"
+}

@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "4226a6d15bc65fa89548608466eff0b7280da0782b6c41c2bd46d0f2229c9631",
+  "concept_id": 306,
+  "concept_name": "aggregation function",
+  "aliases": [
+    "aggregation function",
+    "agg"
+  ],
+  "profile": "aggregation function: An aggregation function combines multiple values into a single value. In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.",
+  "word_count": 33,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "aggregation function: A function that combines multiple values into one, with common forms including MAX and MEAN. In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.",
+    "claims": [
+      {
+        "claim": "The terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating aggregation functions used in pooling.",
+        "evidence_ids": [
+          "DGL-E0447"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Limited metadata; no additional properties or examples are supported."
+    ]
+  },
+  "review": {
+    "final_profile": "aggregation function: An aggregation function combines multiple values into a single value. In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.",
+    "sentence_reviews": [
+      {
+        "sentence": "An aggregation function combines multiple values into a single value.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definition used only to connect the source-supported annotation to the concept."
+      },
+      {
+        "sentence": "In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0447"
+        ],
+        "reason": "The handwritten annotations 'MAX' and 'MEAN' are directly observed beside a pooling diagram."
+      }
+    ],
+    "warnings": [
+      "Limited metadata; no additional properties, definitions, or applications of aggregation functions are supported."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"aggregation function: A function that combines multiple values into one, with common forms including MAX and MEAN. In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.\",\n  \"claims\": [\n    {\n      \"claim\": \"The terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating aggregation functions used in pooling.\",\n      \"evidence_ids\": [\"DGL-E0447\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"Limited metadata; no additional properties or examples are supported.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"aggregation function: An aggregation function combines multiple values into a single value. In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"An aggregation function combines multiple values into a single value.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definition used only to connect the source-supported annotation to the concept.\"\n    },\n    {\n      \"sentence\": \"In the supplied material, the terms 'MAX' and 'MEAN' appear next to a pooling diagram, indicating their role in pooling operations.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0447\"],\n      \"reason\": \"The handwritten annotations 'MAX' and 'MEAN' are directly observed beside a pooling diagram.\"\n    }\n  ],\n  \"warnings\": [\n    \"Limited metadata; no additional properties, definitions, or applications of aggregation functions are supported.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:49:17.952596+00:00"
+}

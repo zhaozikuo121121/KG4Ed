@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "5a734cd77e7db61ec8afdac8d7c162c52140fdc0dfb547374eb8e7ae1efa3a72",
+  "concept_id": 170,
+  "concept_name": "least squares cost for incomplete data",
+  "aliases": [
+    "least squares cost for incomplete data",
+    "incomplete data least squares"
+  ],
+  "profile": "least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2. It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries. The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.",
+  "word_count": 67,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2. It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries. The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.",
+    "claims": [
+      {
+        "claim": "The cost is defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2.",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The minimization is done only over the entries indexed by Ω_p.",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The evidence uses Ω_p without defining it explicitly; the profile treats it as the subset of entries used in the cost."
+    ]
+  },
+  "review": {
+    "final_profile": "least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2. It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries. The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.",
+    "sentence_reviews": [
+      {
+        "sentence": "least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "reason": "The definition matches the formula given in the evidence."
+      },
+      {
+        "sentence": "It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "reason": "The evidence states that the cost is minimized only over those entries, i.e., the entries indexed by Ω_p."
+      },
+      {
+        "sentence": "The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0194"
+        ],
+        "reason": "This is a direct explanation of the notation in the evidence, indicating component-wise restriction to Ω_p."
+      }
+    ],
+    "warnings": [
+      "The source does not explicitly define Ω_p; it is treated as the set of entries over which the incomplete-data cost is evaluated."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2. It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries. The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.\",\n  \"claims\": [\n    {\n      \"claim\": \"The cost is defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2.\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The minimization is done only over the entries indexed by Ω_p.\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence uses Ω_p without defining it explicitly; the profile treats it as the subset of entries used in the cost.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2. It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries. The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"least squares cost for incomplete data: a cost function for incomplete data, defined as g(w1,...,wP, C) = 1/P ∑_p ||{C w_p - x_p}|_{Ω_p}||^2.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"reason\": \"The definition matches the formula given in the evidence.\"\n    },\n    {\n      \"sentence\": \"It minimizes the least squares cost only over the entries indexed by Ω_p, rather than over all entries.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"reason\": \"The evidence states that the cost is minimized only over those entries, i.e., the entries indexed by Ω_p.\"\n    },\n    {\n      \"sentence\": \"The expression {C w_p - x_p}|_{Ω_p} restricts the residual to the components in Ω_p for each data point p.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0194\"],\n      \"reason\": \"This is a direct explanation of the notation in the evidence, indicating component-wise restriction to Ω_p.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not explicitly define Ω_p; it is treated as the set of entries over which the incomplete-data cost is evaluated.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:32:21.385277+00:00"
+}

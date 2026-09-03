@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c69054a56eb92128ee152bd3d78c2861a75c2380b916e4090f6cd42941207477",
+  "concept_id": 183,
+  "concept_name": "self-loop augmentation",
+  "aliases": [
+    "self-loop augmentation",
+    "a hat",
+    "identity addition",
+    "self-loop",
+    "diagonal enhancement"
+  ],
+  "profile": "self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I. This operation adds the identity matrix to the original adjacency matrix.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I. This operation adds the identity matrix to the original adjacency matrix.",
+    "claims": [
+      {
+        "claim": "self-loop augmentation adds a diagonal enhancement to the adjacency matrix.",
+        "evidence_ids": [
+          "DGL-E0192"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "self-loop augmentation is expressed as Â = A + I.",
+        "evidence_ids": [
+          "DGL-E0150",
+          "DGL-E0265"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This operation adds the identity matrix to the original adjacency matrix.",
+        "evidence_ids": [
+          "DGL-E0150",
+          "DGL-E0265"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I. This operation adds the identity matrix to the original adjacency matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0192",
+          "DGL-E0150",
+          "DGL-E0265"
+        ],
+        "reason": "\"Add a diagonal enhancement\" is directly evidenced, and the Â = A + I formula appears in multiple evidence entries."
+      },
+      {
+        "sentence": "This operation adds the identity matrix to the original adjacency matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0150",
+          "DGL-E0265"
+        ],
+        "reason": "The formula Â = A + I is a direct statement of adding the identity matrix I to A."
+      }
+    ],
+    "warnings": [
+      "The exact label 'self-loop augmentation' is not verbatim in the evidence, but the diagonal-enhancement description and formula support the concept."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I. This operation adds the identity matrix to the original adjacency matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"self-loop augmentation adds a diagonal enhancement to the adjacency matrix.\",\n      \"evidence_ids\": [\"DGL-E0192\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"self-loop augmentation is expressed as Â = A + I.\",\n      \"evidence_ids\": [\"DGL-E0150\", \"DGL-E0265\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This operation adds the identity matrix to the original adjacency matrix.\",\n      \"evidence_ids\": [\"DGL-E0150\", \"DGL-E0265\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I. This operation adds the identity matrix to the original adjacency matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"self-loop augmentation: a graph transformation that adds a diagonal enhancement to the adjacency matrix, expressed as Â = A + I.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0192\", \"DGL-E0150\", \"DGL-E0265\"],\n      \"reason\": \"\\\"Add a diagonal enhancement\\\" is directly evidenced, and the Â = A + I formula appears in multiple evidence entries.\"\n    },\n    {\n      \"sentence\": \"This operation adds the identity matrix to the original adjacency matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0150\", \"DGL-E0265\"],\n      \"reason\": \"The formula Â = A + I is a direct statement of adding the identity matrix I to A.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact label 'self-loop augmentation' is not verbatim in the evidence, but the diagonal-enhancement description and formula support the concept.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:06:57.191111+00:00"
+}

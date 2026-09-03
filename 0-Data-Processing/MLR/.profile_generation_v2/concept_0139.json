@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ca13c9d43abeab8badbddc1aae74519e1c8442d3002dc32ba11cfc567cd9001e",
+  "concept_id": 139,
+  "concept_name": "weighted softmax cost",
+  "aliases": [
+    "weighted softmax cost",
+    "weighted multi-class softmax",
+    "weighted softmax"
+  ],
+  "profile": "weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost. A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost. A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.",
+    "claims": [
+      {
+        "claim": "The weighted softmax cost arises from weighting two-class cost functions, specifically the Softmax cost.",
+        "evidence_ids": [
+          "MLR-E0155"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A general weighted version of the two-class Softmax cost exists.",
+        "evidence_ids": [
+          "MLR-E0177"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The analogous weighted multi-class Softmax cost is considered.",
+        "evidence_ids": [
+          "MLR-E0177"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost. A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.",
+    "sentence_reviews": [
+      {
+        "sentence": "weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0155"
+        ],
+        "reason": "The source introduces the weighted Softmax cost in the context of weighting two-class cost functions."
+      },
+      {
+        "sentence": "A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0177"
+        ],
+        "reason": "The source cites a general weighted two-class Softmax cost and asks what the analogous weighted multi-class version would look like."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost. A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.\",\n  \"claims\": [\n    {\n      \"claim\": \"The weighted softmax cost arises from weighting two-class cost functions, specifically the Softmax cost.\",\n      \"evidence_ids\": [\"MLR-E0155\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A general weighted version of the two-class Softmax cost exists.\",\n      \"evidence_ids\": [\"MLR-E0177\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The analogous weighted multi-class Softmax cost is considered.\",\n      \"evidence_ids\": [\"MLR-E0177\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost. A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"weighted softmax cost: a cost function that arises from weighting two-class cost functions, specifically the Softmax cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0155\"],\n      \"reason\": \"The source introduces the weighted Softmax cost in the context of weighting two-class cost functions.\"\n    },\n    {\n      \"sentence\": \"A general weighted version of the two-class Softmax cost exists, and the analogous weighted multi-class Softmax cost is considered.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0177\"],\n      \"reason\": \"The source cites a general weighted two-class Softmax cost and asks what the analogous weighted multi-class version would look like.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:20:13.783100+00:00"
+}

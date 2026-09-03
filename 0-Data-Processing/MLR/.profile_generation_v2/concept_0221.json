@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "afa9a8d345296b69de119ad02512b8b8af3f556a4dad9f7a52142af791ff5721",
+  "concept_id": 221,
+  "concept_name": "k-folds cross-validation",
+  "aliases": [
+    "k-folds cross-validation",
+    "leave-one-out cross-validation",
+    "loocv"
+  ],
+  "profile": "k-folds cross-validation: A cross-validation method that selects a single model with minimum average validation error over all splits together.",
+  "word_count": 19,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "k-folds cross-validation: A cross-validation method that evaluates models across multiple data splits. The selected model is the single model with the minimum average validation error over all splits together.",
+    "claims": [
+      {
+        "claim": "k-folds cross-validation selects a single model with minimum average validation error over all splits together.",
+        "evidence_ids": [
+          "MLR-E0278"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "k-folds cross-validation: A cross-validation method that selects a single model with minimum average validation error over all splits together.",
+    "sentence_reviews": [
+      {
+        "sentence": "k-folds cross-validation: A cross-validation method that selects a single model with minimum average validation error over all splits together.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0278"
+        ],
+        "reason": "Directly paraphrases the source statement that k-folds cross-validation chooses a single model with minimum average validation error over all splits together."
+      }
+    ],
+    "warnings": [
+      "Source evidence does not cover the listed aliases (leave-one-out cross-validation, LOOCV)."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"k-folds cross-validation: A cross-validation method that evaluates models across multiple data splits. The selected model is the single model with the minimum average validation error over all splits together.\",\n  \"claims\": [\n    {\n      \"claim\": \"k-folds cross-validation selects a single model with minimum average validation error over all splits together.\",\n      \"evidence_ids\": [\"MLR-E0278\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"k-folds cross-validation: A cross-validation method that selects a single model with minimum average validation error over all splits together.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"k-folds cross-validation: A cross-validation method that selects a single model with minimum average validation error over all splits together.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0278\"],\n      \"reason\": \"Directly paraphrases the source statement that k-folds cross-validation chooses a single model with minimum average validation error over all splits together.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source evidence does not cover the listed aliases (leave-one-out cross-validation, LOOCV).\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:49:51.257580+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "773209762c0214292121be7a37cc63a3bd26224318e80dd06e2216fca53ecf07",
+  "concept_id": 177,
+  "concept_name": "sparse coding",
+  "aliases": [
+    "sparse coding",
+    "sparse dictionary learning"
+  ],
+  "profile": "sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P.",
+  "word_count": 26,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P, where wp are columns of W.",
+    "claims": [
+      {
+        "claim": "Sparse coding is a constrained matrix factorization problem.",
+        "evidence_ids": [
+          "MLR-E0202"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P, where wp are columns of W.",
+        "evidence_ids": [
+          "MLR-E0202"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P.",
+    "sentence_reviews": [
+      {
+        "sentence": "sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0202"
+        ],
+        "reason": "The sentence directly reflects the source definition and formulation without adding unsupported details."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P, where wp are columns of W.\",\n  \"claims\": [\n    {\n      \"claim\": \"Sparse coding is a constrained matrix factorization problem.\",\n      \"evidence_ids\": [\"MLR-E0202\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P, where wp are columns of W.\",\n      \"evidence_ids\": [\"MLR-E0202\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"sparse coding: Sparse coding is a constrained matrix factorization problem, often written as minimize ∥CW − X∥_F^2 subject to ∥wp∥_0 ≤ S, p = 1, . . . , P.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0202\"],\n      \"reason\": \"The sentence directly reflects the source definition and formulation without adding unsupported details.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:35:00.307477+00:00"
+}

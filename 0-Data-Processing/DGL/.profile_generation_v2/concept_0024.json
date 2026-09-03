@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "2cca706f3f9f27cdbfa1e3eee6b0ed42d238a5f7f4b98be25505d1a2baddd0e4",
+  "concept_id": 24,
+  "concept_name": "edge type",
+  "aliases": [
+    "edge type"
+  ],
+  "profile": "edge type: an edge type is the relation type r assigned to an edge in a graph, represented as a triple (v_i, r, v_j) belonging to the edge set E.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge type: an edge type is the relation type r assigned to an edge in a graph, formally represented as a triple (v_i, r, v_j) belonging to the edge set E. It distinguishes different kinds of relationships between the same pair of nodes, enabling graph representations with typed or multi-relational edges.",
+    "claims": [
+      {
+        "claim": "An edge type is the relation type r assigned to an edge, represented as (v_i, r, v_j) in the edge set E.",
+        "evidence_ids": [
+          "DGL-E0034"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "edge type: an edge type is the relation type r assigned to an edge in a graph, represented as a triple (v_i, r, v_j) belonging to the edge set E.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge type: an edge type is the relation type r assigned to an edge in a graph, represented as a triple (v_i, r, v_j) belonging to the edge set E.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0034"
+        ],
+        "reason": "Directly restates the source notation for edges with relation types."
+      }
+    ],
+    "warnings": [
+      "The source does not explicitly describe how edge types are used beyond the notation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge type: an edge type is the relation type r assigned to an edge in a graph, formally represented as a triple (v_i, r, v_j) belonging to the edge set E. It distinguishes different kinds of relationships between the same pair of nodes, enabling graph representations with typed or multi-relational edges.\",\n  \"claims\": [\n    {\n      \"claim\": \"An edge type is the relation type r assigned to an edge, represented as (v_i, r, v_j) in the edge set E.\",\n      \"evidence_ids\": [\"DGL-E0034\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge type: an edge type is the relation type r assigned to an edge in a graph, represented as a triple (v_i, r, v_j) belonging to the edge set E.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge type: an edge type is the relation type r assigned to an edge in a graph, represented as a triple (v_i, r, v_j) belonging to the edge set E.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0034\"],\n      \"reason\": \"Directly restates the source notation for edges with relation types.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not explicitly describe how edge types are used beyond the notation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T09:57:21.600774+00:00"
+}

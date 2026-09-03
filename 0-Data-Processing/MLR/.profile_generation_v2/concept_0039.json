@@ -1,0 +1,78 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "c17b37fbd51252990a245deed80b17b4f6c6de1eea1e78899c8846afb848ac63",
+  "concept_id": 39,
+  "concept_name": "coordinate search",
+  "aliases": [
+    "coordinate search"
+  ],
+  "profile": "coordinate search: a zero-order local optimization method. Along with descent algorithms, it addresses the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.",
+  "word_count": 36,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "coordinate search: a zero-order local optimization method. Along with descent algorithms, it addresses scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space. This directional restriction forms the core mechanism of the technique.",
+    "claims": [
+      {
+        "claim": "Coordinate search is a zero-order local optimization method.",
+        "evidence_ids": [
+          "MLR-E0040"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Along with descent algorithms, coordinate search addresses scaling issues of random local search.",
+        "evidence_ids": [
+          "MLR-E0040"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It does so by restricting the set of search directions to the coordinate axes of the input space.",
+        "evidence_ids": [
+          "MLR-E0040"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "coordinate search: a zero-order local optimization method. Along with descent algorithms, it addresses the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.",
+    "sentence_reviews": [
+      {
+        "sentence": "coordinate search: a zero-order local optimization method.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0040"
+        ],
+        "reason": "The evidence identifies coordinate search as a zero order local method."
+      },
+      {
+        "sentence": "Along with descent algorithms, it addresses the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0040"
+        ],
+        "reason": "The evidence states that coordinate search and descent algorithms get around scaling issues of random local search by restricting directions to coordinate axes."
+      }
+    ],
+    "warnings": [
+      "The draft's final sentence about directional restriction forming the core mechanism was removed because it goes beyond the source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"coordinate search: a zero-order local optimization method. Along with descent algorithms, it addresses scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space. This directional restriction forms the core mechanism of the technique.\",\n  \"claims\": [\n    {\n      \"claim\": \"Coordinate search is a zero-order local optimization method.\",\n      \"evidence_ids\": [\"MLR-E0040\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Along with descent algorithms, coordinate search addresses scaling issues of random local search.\",\n      \"evidence_ids\": [\"MLR-E0040\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It does so by restricting the set of search directions to the coordinate axes of the input space.\",\n      \"evidence_ids\": [\"MLR-E0040\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"coordinate search: a zero-order local optimization method. Along with descent algorithms, it addresses the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"coordinate search: a zero-order local optimization method.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0040\"],\n      \"reason\": \"The evidence identifies coordinate search as a zero order local method.\"\n    },\n    {\n      \"sentence\": \"Along with descent algorithms, it addresses the inherent scaling issues of random local search by restricting the set of search directions to the coordinate axes of the input space.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0040\"],\n      \"reason\": \"The evidence states that coordinate search and descent algorithms get around scaling issues of random local search by restricting directions to coordinate axes.\"\n    }\n  ],\n  \"warnings\": [\n    \"The draft's final sentence about directional restriction forming the core mechanism was removed because it goes beyond the source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:35:11.660539+00:00"
+}

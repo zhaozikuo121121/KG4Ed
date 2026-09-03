@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "4cc027b026f5fd7a5ee3b8e9bec79965239b3d26f4ac95a86a8d5ed5f2489e49",
+  "concept_id": 279,
+  "concept_name": "computational trade-off",
+  "aliases": [
+    "computational trade-off"
+  ],
+  "profile": "computational trade-off: in tree-based learning, the contrast between training a large number of fully grown trees and training a smaller number of cross-validated trees.",
+  "word_count": 24,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "computational trade-off: a concept in tree-based learning that contrasts training a large number of fully grown trees with training a smaller number of cross-validated trees. The trade-off involves selecting one of these approaches, balancing the computational burden of many trees against the additional cost of cross-validation. This choice represents a computational trade-off in model training.",
+    "claims": [
+      {
+        "claim": "Computational trade-off contrasts training a large number of fully grown trees with training a smaller number of cross-validated trees.",
+        "evidence_ids": [
+          "MLR-E0343"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "computational trade-off: in tree-based learning, the contrast between training a large number of fully grown trees and training a smaller number of cross-validated trees.",
+    "sentence_reviews": [
+      {
+        "sentence": "computational trade-off: in tree-based learning, the contrast between training a large number of fully grown trees and training a smaller number of cross-validated trees.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0343"
+        ],
+        "reason": "The definition directly restates the source phrase, which contrasts fully grown trees with cross-validated trees; the tree-based learning context comes from the chapter title."
+      }
+    ],
+    "warnings": [
+      "The source does not mention computational burden or cross-validation cost; these details were removed from the draft."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"computational trade-off: a concept in tree-based learning that contrasts training a large number of fully grown trees with training a smaller number of cross-validated trees. The trade-off involves selecting one of these approaches, balancing the computational burden of many trees against the additional cost of cross-validation. This choice represents a computational trade-off in model training.\",\n  \"claims\": [\n    {\n      \"claim\": \"Computational trade-off contrasts training a large number of fully grown trees with training a smaller number of cross-validated trees.\",\n      \"evidence_ids\": [\"MLR-E0343\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"computational trade-off: in tree-based learning, the contrast between training a large number of fully grown trees and training a smaller number of cross-validated trees.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"computational trade-off: in tree-based learning, the contrast between training a large number of fully grown trees and training a smaller number of cross-validated trees.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0343\"],\n      \"reason\": \"The definition directly restates the source phrase, which contrasts fully grown trees with cross-validated trees; the tree-based learning context comes from the chapter title.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source does not mention computational burden or cross-validation cost; these details were removed from the draft.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:11:28.579785+00:00"
+}

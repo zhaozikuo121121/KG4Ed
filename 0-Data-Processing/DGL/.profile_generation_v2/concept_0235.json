@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "e0e40c070cd2def3cc675abf393db767e55601a364f76ff68f938929649eb346",
+  "concept_id": 235,
+  "concept_name": "graph attention network",
+  "aliases": [
+    "graph attention network",
+    "gat"
+  ],
+  "profile": "graph attention network: a graph neural network that combines aggregation and attention mechanisms.",
+  "word_count": 13,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "graph attention network: a graph neural network architecture that combines aggregation and attention mechanisms.",
+    "claims": [
+      {
+        "claim": "The graph attention network combines aggregation and attention mechanisms.",
+        "evidence_ids": [
+          "DGL-E0307"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Graph attention networks are a graph neural network architecture.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "graph attention network: a graph neural network that combines aggregation and attention mechanisms.",
+    "sentence_reviews": [
+      {
+        "sentence": "graph attention network: a graph neural network that combines aggregation and attention mechanisms.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0307"
+        ],
+        "reason": "The source directly states that the graph attention network combines aggregation and attention mechanisms, and the page title places it in the context of graph neural networks."
+      }
+    ],
+    "warnings": [
+      "The evidence is a single sentence; no additional architectural details such as attention coefficients or multi-head attention are grounded."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"graph attention network: a graph neural network architecture that combines aggregation and attention mechanisms.\",\n  \"claims\": [\n    {\n      \"claim\": \"The graph attention network combines aggregation and attention mechanisms.\",\n      \"evidence_ids\": [\"DGL-E0307\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Graph attention networks are a graph neural network architecture.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"graph attention network: a graph neural network that combines aggregation and attention mechanisms.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"graph attention network: a graph neural network that combines aggregation and attention mechanisms.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0307\"],\n      \"reason\": \"The source directly states that the graph attention network combines aggregation and attention mechanisms, and the page title places it in the context of graph neural networks.\"\n    }\n  ],\n  \"warnings\": [\n    \"The evidence is a single sentence; no additional architectural details such as attention coefficients or multi-head attention are grounded.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:23:48.809324+00:00"
+}

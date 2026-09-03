@@ -1,0 +1,103 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "239de39ab1a93e2300b6040b64c1904b6d990011a17a7c1fc7e6910f6807de63",
+  "concept_id": 40,
+  "concept_name": "steplength",
+  "aliases": [
+    "steplength",
+    "learning rate",
+    "step length",
+    "step size"
+  ],
+  "profile": "steplength: Steplength, also called learning rate, is the size of the step used in local optimization and is associated with descent directions. A common alternative to fixed steplength rules is a diminishing steplength rule, which shrinks the size at each step. The same steplength may be used for multiple runs.",
+  "word_count": 50,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "steplength: Steplength, also called learning rate, is the size of the step used in local optimization, and it is associated with descent directions. A fixed steplength keeps the same value throughout optimization; a diminishing steplength rule shrinks the size at each step. The same steplength may be used for multiple runs. Steplength appears with descent directions, diminishing steplength schemes, convergence, and cost function history plots.",
+    "claims": [
+      {
+        "claim": "Steplength is also called learning rate.",
+        "evidence_ids": [
+          "MLR-E0041"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Steplength is the size of the step used in local optimization and is associated with descent directions.",
+        "evidence_ids": [
+          "MLR-E0041",
+          "MLR-E0354"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A fixed steplength keeps the same value throughout optimization, whereas a diminishing steplength rule shrinks the size at each step.",
+        "evidence_ids": [
+          "MLR-E0354"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The same steplength may be used for multiple runs.",
+        "evidence_ids": [
+          "MLR-E0175"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Steplength appears with descent directions, diminishing steplength schemes, convergence, and cost function history plots.",
+        "evidence_ids": [
+          "MLR-E0041"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "steplength: Steplength, also called learning rate, is the size of the step used in local optimization and is associated with descent directions. A common alternative to fixed steplength rules is a diminishing steplength rule, which shrinks the size at each step. The same steplength may be used for multiple runs.",
+    "sentence_reviews": [
+      {
+        "sentence": "Steplength, also called learning rate, is the size of the step used in local optimization and is associated with descent directions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0041",
+          "MLR-E0354"
+        ],
+        "reason": "E0041 gives the learning-rate synonym and lists descent directions with steplength; E0354 defines size of steplength in local optimization."
+      },
+      {
+        "sentence": "A common alternative to fixed steplength rules is a diminishing steplength rule, which shrinks the size at each step.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0354"
+        ],
+        "reason": "E0354 explicitly calls diminishing steplength rules a common alternative to fixed steplength rules and says they shrink the size at each step."
+      },
+      {
+        "sentence": "The same steplength may be used for multiple runs.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0175"
+        ],
+        "reason": "E0175 refers to 'the same steplength for both runs,' supporting use across multiple runs."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"steplength: Steplength, also called learning rate, is the size of the step used in local optimization, and it is associated with descent directions. A fixed steplength keeps the same value throughout optimization; a diminishing steplength rule shrinks the size at each step. The same steplength may be used for multiple runs. Steplength appears with descent directions, diminishing steplength schemes, convergence, and cost function history plots.\",\n  \"claims\": [\n    {\n      \"claim\": \"Steplength is also called learning rate.\",\n      \"evidence_ids\": [\"MLR-E0041\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Steplength is the size of the step used in local optimization and is associated with descent directions.\",\n      \"evidence_ids\": [\"MLR-E0041\", \"MLR-E0354\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A fixed steplength keeps the same value throughout optimization, whereas a diminishing steplength rule shrinks the size at each step.\",\n      \"evidence_ids\": [\"MLR-E0354\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The same steplength may be used for multiple runs.\",\n      \"evidence_ids\": [\"MLR-E0175\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Steplength appears with descent directions, diminishing steplength schemes, convergence, and cost function history plots.\",\n      \"evidence_ids\": [\"MLR-E0041\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"steplength: Steplength, also called learning rate, is the size of the step used in local optimization and is associated with descent directions. A common alternative to fixed steplength rules is a diminishing steplength rule, which shrinks the size at each step. The same steplength may be used for multiple runs.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Steplength, also called learning rate, is the size of the step used in local optimization and is associated with descent directions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0041\", \"MLR-E0354\"],\n      \"reason\": \"E0041 gives the learning-rate synonym and lists descent directions with steplength; E0354 defines size of steplength in local optimization.\"\n    },\n    {\n      \"sentence\": \"A common alternative to fixed steplength rules is a diminishing steplength rule, which shrinks the size at each step.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0354\"],\n      \"reason\": \"E0354 explicitly calls diminishing steplength rules a common alternative to fixed steplength rules and says they shrink the size at each step.\"\n    },\n    {\n      \"sentence\": \"The same steplength may be used for multiple runs.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0175\"],\n      \"reason\": \"E0175 refers to 'the same steplength for both runs,' supporting use across multiple runs.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:36:04.973831+00:00"
+}

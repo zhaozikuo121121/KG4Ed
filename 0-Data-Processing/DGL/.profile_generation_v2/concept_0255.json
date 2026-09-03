@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "04963ed401a4ae090468cf77733030cb360a251d9501edcaa7b5da65504a6f67",
+  "concept_id": 255,
+  "concept_name": "exponential time complexity",
+  "aliases": [
+    "exponential time complexity"
+  ],
+  "profile": "exponential time complexity: a computational cost that grows exponentially with the depth of a GCN.",
+  "word_count": 15,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "exponential time complexity: a computational cost that grows exponentially with the depth of a GCN. This means the required computation increases rapidly as the number of layers increases.",
+    "claims": [
+      {
+        "claim": "The computational cost of a GCN grows exponentially with its depth.",
+        "evidence_ids": [
+          "DGL-E0317"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The exact base of the exponential growth is not specified in the available metadata."
+    ]
+  },
+  "review": {
+    "final_profile": "exponential time complexity: a computational cost that grows exponentially with the depth of a GCN.",
+    "sentence_reviews": [
+      {
+        "sentence": "exponential time complexity: a computational cost that grows exponentially with the depth of a GCN.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0317"
+        ],
+        "reason": "The source phrase directly describes exponential time complexity relative to GCN depth."
+      }
+    ],
+    "warnings": [
+      "The exact base or rate of exponential growth is not specified in the available source."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"exponential time complexity: a computational cost that grows exponentially with the depth of a GCN. This means the required computation increases rapidly as the number of layers increases.\",\n  \"claims\": [\n    {\n      \"claim\": \"The computational cost of a GCN grows exponentially with its depth.\",\n      \"evidence_ids\": [\"DGL-E0317\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The exact base of the exponential growth is not specified in the available metadata.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"exponential time complexity: a computational cost that grows exponentially with the depth of a GCN.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"exponential time complexity: a computational cost that grows exponentially with the depth of a GCN.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0317\"],\n      \"reason\": \"The source phrase directly describes exponential time complexity relative to GCN depth.\"\n    }\n  ],\n  \"warnings\": [\n    \"The exact base or rate of exponential growth is not specified in the available source.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:31:26.413784+00:00"
+}

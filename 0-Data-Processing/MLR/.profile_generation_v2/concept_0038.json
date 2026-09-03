@@ -1,0 +1,105 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "d4f66b87647b0368275c02fd5408d03e813d9436ccc3dbf72dea349049ce2b80",
+  "concept_id": 38,
+  "concept_name": "coordinate descent",
+  "aliases": [
+    "coordinate descent",
+    "coordinate-wise approaches",
+    "coordinate descent method"
+  ],
+  "profile": "coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent. Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions. This variant of coordinate search is much more effective at precisely the same computational cost. A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.",
+  "word_count": 83,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent. Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions. This variant of coordinate search achieves the same computational cost while often being much more effective. A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.",
+    "claims": [
+      {
+        "claim": "coordinate descent is an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent.",
+        "evidence_ids": [
+          "MLR-E0353",
+          "MLR-E0039"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions.",
+        "evidence_ids": [
+          "MLR-E0353",
+          "MLR-E0039"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "This variant of coordinate search achieves the same computational cost while often being much more effective.",
+        "evidence_ids": [
+          "MLR-E0353"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.",
+        "evidence_ids": [
+          "MLR-E0061"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent. Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions. This variant of coordinate search is much more effective at precisely the same computational cost. A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.",
+    "sentence_reviews": [
+      {
+        "sentence": "coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0353",
+          "MLR-E0039"
+        ],
+        "reason": "E0353 directly describes examining one coordinate direction and its negative and stepping if descent; E0039 also notes taking a step after examining both directions."
+      },
+      {
+        "sentence": "Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0353",
+          "MLR-E0039"
+        ],
+        "reason": "E0353 contrasts this with collecting all coordinate directions and choosing a single best; E0039 supports stepping immediately after examining both directions."
+      },
+      {
+        "sentence": "This variant of coordinate search is much more effective at precisely the same computational cost.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0353"
+        ],
+        "reason": "E0353 states a slight twist on coordinate search produces a much more effective algorithm at precisely the same computational cost."
+      },
+      {
+        "sentence": "A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0061"
+        ],
+        "reason": "E0061 describes a form of coordinate descent as especially effective when each of these equations can be solved in closed form."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent. Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions. This variant of coordinate search achieves the same computational cost while often being much more effective. A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.\",\n  \"claims\": [\n    {\n      \"claim\": \"coordinate descent is an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent.\",\n      \"evidence_ids\": [\"MLR-E0353\", \"MLR-E0039\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions.\",\n      \"evidence_ids\": [\"MLR-E0353\", \"MLR-E0039\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"This variant of coordinate search achieves the same computational cost while often being much more effective.\",\n      \"evidence_ids\": [\"MLR-E0353\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.\",\n      \"evidence_ids\": [\"MLR-E0061\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent. Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions. This variant of coordinate search is much more effective at precisely the same computational cost. A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"coordinate descent: an optimization algorithm that examines one coordinate direction (and its negative) at a time, taking a step in that direction if it produces descent.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0353\", \"MLR-E0039\"],\n      \"reason\": \"E0353 directly describes examining one coordinate direction and its negative and stepping if descent; E0039 also notes taking a step after examining both directions.\"\n    },\n    {\n      \"sentence\": \"Rather than collecting all coordinate directions and choosing a single best one, it steps immediately after examining each coordinate's positive and negative directions.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0353\", \"MLR-E0039\"],\n      \"reason\": \"E0353 contrasts this with collecting all coordinate directions and choosing a single best; E0039 supports stepping immediately after examining both directions.\"\n    },\n    {\n      \"sentence\": \"This variant of coordinate search is much more effective at precisely the same computational cost.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0353\"],\n      \"reason\": \"E0353 states a slight twist on coordinate search produces a much more effective algorithm at precisely the same computational cost.\"\n    },\n    {\n      \"sentence\": \"A related form of coordinate descent is especially effective when each per-coordinate equation can be solved in closed form.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0061\"],\n      \"reason\": \"E0061 describes a form of coordinate descent as especially effective when each of these equations can be solved in closed form.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T21:34:54.415816+00:00"
+}

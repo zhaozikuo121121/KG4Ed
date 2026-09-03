@@ -1,0 +1,145 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "354e021330942cd5e45b15ec9c0bd74edf2e19849f6503d7ee0a42a1881426b2",
+  "concept_id": 99,
+  "concept_name": "activation function",
+  "aliases": [
+    "activation function",
+    "nonlinear function",
+    "nonlinearity",
+    "relu",
+    "activation",
+    "non-linearity"
+  ],
+  "profile": "activation function: A function, also called a nonlinearity (non-linearity), used in graph neural network layers. It captures nonlinearity. An activation function can be ReLU, defined as max(0,x). In GCN layer mechanics, a nonlinear activation function such as ReLU is applied. The GNN layer architecture includes an Activation/Non-linearity block.",
+  "word_count": 51,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "activation function: A function, also called a nonlinearity or non-linearity, used in graph neural network layers. It captures nonlinearity. A common activation is ReLU, defined as max(0,x). In GCN layer mechanics, a nonlinear activation function such as ReLU is applied. The GNN layer architecture includes an Activation/Non-linearity block. By introducing nonlinearity, the activation function helps capture complexity and identify important patterns.",
+    "claims": [
+      {
+        "claim": "An activation function is also called a nonlinearity or non-linearity.",
+        "evidence_ids": [
+          "DGL-E0148",
+          "DGL-E0299"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Activation functions are used in graph neural network layers.",
+        "evidence_ids": [
+          "DGL-E0236",
+          "DGL-E0375"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "An activation function captures nonlinearity.",
+        "evidence_ids": [
+          "DGL-E0148"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A common activation is ReLU, defined as max(0,x).",
+        "evidence_ids": [
+          "DGL-E0148"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In GCN layer mechanics, a nonlinear activation function such as ReLU is applied.",
+        "evidence_ids": [
+          "DGL-E0191"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The GNN layer architecture includes an Activation/Non-linearity block.",
+        "evidence_ids": [
+          "DGL-E0287",
+          "DGL-E0375"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "By introducing nonlinearity, the activation function helps capture complexity and identify important patterns.",
+        "evidence_ids": [
+          "DGL-E0148",
+          "DGL-E0380"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "DGL-E0380 appears in the same slide as an 'Activation' label but does not explicitly mention activation in its text; support for the final claim is inferred from the slide context."
+    ]
+  },
+  "review": {
+    "final_profile": "activation function: A function, also called a nonlinearity (non-linearity), used in graph neural network layers. It captures nonlinearity. An activation function can be ReLU, defined as max(0,x). In GCN layer mechanics, a nonlinear activation function such as ReLU is applied. The GNN layer architecture includes an Activation/Non-linearity block.",
+    "sentence_reviews": [
+      {
+        "sentence": "activation function: A function, also called a nonlinearity (non-linearity), used in graph neural network layers.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0148",
+          "DGL-E0299",
+          "DGL-E0375",
+          "DGL-E0191"
+        ],
+        "reason": "The alias nonlinearity/non-linearity is supported by DGL-E0148 and DGL-E0299; use within GNN/GCN layers is supported by DGL-E0375 and DGL-E0191."
+      },
+      {
+        "sentence": "It captures nonlinearity.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0148"
+        ],
+        "reason": "DGL-E0148 explicitly states that the activation captures nonlinearity."
+      },
+      {
+        "sentence": "An activation function can be ReLU, defined as max(0,x).",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0148"
+        ],
+        "reason": "DGL-E0148 provides ReLU and its definition max(0,x)."
+      },
+      {
+        "sentence": "In GCN layer mechanics, a nonlinear activation function such as ReLU is applied.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0191"
+        ],
+        "reason": "DGL-E0191 mentions applying a nonlinear activation function such as ReLU in GCN layer mechanics."
+      },
+      {
+        "sentence": "The GNN layer architecture includes an Activation/Non-linearity block.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0287",
+          "DGL-E0375"
+        ],
+        "reason": "DGL-E0287 labels Non-linearity and DGL-E0375 labels Activation within the GNN layer architecture."
+      }
+    ],
+    "warnings": [
+      "DGL-E0380 says 'Capture complexity & identify important patterns' but does not explicitly link that to activation; the final profile avoids combining it with activation."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"activation function: A function, also called a nonlinearity or non-linearity, used in graph neural network layers. It captures nonlinearity. A common activation is ReLU, defined as max(0,x). In GCN layer mechanics, a nonlinear activation function such as ReLU is applied. The GNN layer architecture includes an Activation/Non-linearity block. By introducing nonlinearity, the activation function helps capture complexity and identify important patterns.\",\n  \"claims\": [\n    {\n      \"claim\": \"An activation function is also called a nonlinearity or non-linearity.\",\n      \"evidence_ids\": [\"DGL-E0148\", \"DGL-E0299\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Activation functions are used in graph neural network layers.\",\n      \"evidence_ids\": [\"DGL-E0236\", \"DGL-E0375\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"An activation function captures nonlinearity.\",\n      \"evidence_ids\": [\"DGL-E0148\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A common activation is ReLU, defined as max(0,x).\",\n      \"evidence_ids\": [\"DGL-E0148\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In GCN layer mechanics, a nonlinear activation function such as ReLU is applied.\",\n      \"evidence_ids\": [\"DGL-E0191\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The GNN layer architecture includes an Activation/Non-linearity block.\",\n      \"evidence_ids\": [\"DGL-E0287\", \"DGL-E0375\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"By introducing nonlinearity, the activation function helps capture complexity and identify important patterns.\",\n      \"evidence_ids\": [\"DGL-E0148\", \"DGL-E0380\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"DGL-E0380 appears in the same slide as an 'Activation' label but does not explicitly mention activation in its text; support for the final claim is inferred from the slide context.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"activation function: A function, also called a nonlinearity (non-linearity), used in graph neural network layers. It captures nonlinearity. An activation function can be ReLU, defined as max(0,x). In GCN layer mechanics, a nonlinear activation function such as ReLU is applied. The GNN layer architecture includes an Activation/Non-linearity block.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"activation function: A function, also called a nonlinearity (non-linearity), used in graph neural network layers.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0148\", \"DGL-E0299\", \"DGL-E0375\", \"DGL-E0191\"],\n      \"reason\": \"The alias nonlinearity/non-linearity is supported by DGL-E0148 and DGL-E0299; use within GNN/GCN layers is supported by DGL-E0375 and DGL-E0191.\"\n    },\n    {\n      \"sentence\": \"It captures nonlinearity.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0148\"],\n      \"reason\": \"DGL-E0148 explicitly states that the activation captures nonlinearity.\"\n    },\n    {\n      \"sentence\": \"An activation function can be ReLU, defined as max(0,x).\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0148\"],\n      \"reason\": \"DGL-E0148 provides ReLU and its definition max(0,x).\"\n    },\n    {\n      \"sentence\": \"In GCN layer mechanics, a nonlinear activation function such as ReLU is applied.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0191\"],\n      \"reason\": \"DGL-E0191 mentions applying a nonlinear activation function such as ReLU in GCN layer mechanics.\"\n    },\n    {\n      \"sentence\": \"The GNN layer architecture includes an Activation/Non-linearity block.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0287\", \"DGL-E0375\"],\n      \"reason\": \"DGL-E0287 labels Non-linearity and DGL-E0375 labels Activation within the GNN layer architecture.\"\n    }\n  ],\n  \"warnings\": [\n    \"DGL-E0380 says 'Capture complexity & identify important patterns' but does not explicitly link that to activation; the final profile avoids combining it with activation.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:29:27.987383+00:00"
+}

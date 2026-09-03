@@ -1,0 +1,2072 @@
+{
+  "version": "1.0.0",
+  "lecture": 4,
+  "pdf_file": "DGL_Lecture_4_Annotated.pdf",
+  "pdf_page": 3,
+  "page_title": "GNN Layer Architecture and Dropout Regularization",
+  "summary": "This page details the components of a single Graph Neural Network (GNN) layer, including transformation, aggregation, and normalization steps. It focuses on the application of dropout as a regularization technique to prevent overfitting and increase expressiveness, distinguishing it from sampling methods. The concept of GNN expressive power is introduced, highlighting the ability to distinguish between different graph structures.",
+  "key_topics": [
+    "gnn layer components",
+    "dropout regularization",
+    "gnn expressiveness",
+    "message passing"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T14:07:36+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "gnn expressiveness",
+      "aliases": [
+        "expressive power"
+      ],
+      "evidence": "GNN expressive power or expressiveness",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "canonical": "graph structure",
+      "aliases": [
+        "structural patterns"
+      ],
+      "evidence": "distinguish between different graph structures",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "canonical": "graph neural network layer",
+      "aliases": [
+        "gnn layer"
+      ],
+      "evidence": "A single GNN layer can take the following form:",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        55.0,
+        522.5,
+        82.5
+      ]
+    },
+    {
+      "canonical": "graph-based aggregation",
+      "aliases": [
+        "agg"
+      ],
+      "evidence": "Graph-based aggregation (the GNN hallmark)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        110.0,
+        110.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "msg passing"
+      ],
+      "evidence": "MSG passing",
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        110.0,
+        330.0,
+        165.0
+      ]
+    },
+    {
+      "canonical": "activation function",
+      "aliases": [
+        "activation"
+      ],
+      "evidence": "Activation",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        220.0,
+        412.5,
+        247.5
+      ]
+    },
+    {
+      "canonical": "attention mechanism",
+      "aliases": [
+        "attention"
+      ],
+      "evidence": "Attention",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        247.5,
+        412.5,
+        275.0
+      ]
+    },
+    {
+      "canonical": "prediction head",
+      "aliases": [
+        "prediction"
+      ],
+      "evidence": "Define the target learning task & its params",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        275.0,
+        110.0,
+        330.0
+      ]
+    },
+    {
+      "canonical": "batch normalization",
+      "aliases": [
+        "bn"
+      ],
+      "evidence": "Stabilize the optimization & control embedding variance between layers",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        302.5,
+        275.0,
+        385.0,
+        330.0
+      ]
+    },
+    {
+      "canonical": "multilayer perceptron",
+      "aliases": [
+        "mlp"
+      ],
+      "evidence": "Example: add MLP layers before and/or after a GNN layer.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        330.0,
+        522.5,
+        357.5
+      ]
+    },
+    {
+      "canonical": "non-linearity",
+      "aliases": [
+        "nonlinear function"
+      ],
+      "evidence": "Capture complexity & identify important patterns",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        110.0,
+        385.0,
+        192.5,
+        440.0
+      ]
+    },
+    {
+      "canonical": "dropout",
+      "aliases": [
+        "drop out"
+      ],
+      "evidence": "Drop nodes to regularize & increase expressiveness",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        385.0,
+        330.0,
+        440.0
+      ]
+    },
+    {
+      "canonical": "regularization",
+      "aliases": [
+        "regularize"
+      ],
+      "evidence": "Aim: regularize a neural network to avoid overfitting.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        440.0,
+        522.5,
+        467.5
+      ]
+    },
+    {
+      "canonical": "overfitting",
+      "aliases": [
+        "risk of overfitting"
+      ],
+      "evidence": "a neural network to avoid overfitting",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        450.0,
+        550.0,
+        477.5
+      ]
+    },
+    {
+      "canonical": "node embedding computation graph",
+      "aliases": [
+        "computation graph"
+      ],
+      "evidence": "Node embedding computation graph",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        450.0,
+        450.0,
+        1000.0,
+        1000.0
+      ]
+    },
+    {
+      "canonical": "linear layer",
+      "aliases": [
+        "linear transformation"
+      ],
+      "evidence": "In the absence of a BN layer, Dropout is applied to the linear layer directly",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        725.0,
+        550.0,
+        752.5
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = f(H_k, A)",
+      "related_concepts": [
+        "message passing",
+        "graph neural network layer"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        220.0,
+        165.0,
+        302.5,
+        192.5
+      ],
+      "label": "generalized propagation rule"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head with connecting arrows and descriptions.",
+      "related_concepts": [
+        "graph neural network layer",
+        "message passing",
+        "graph-based aggregation",
+        "batch normalization",
+        "dropout",
+        "activation function",
+        "attention mechanism",
+        "prediction head",
+        "non-linearity"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        385.0,
+        467.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Vertical flowchart showing components of a GNN layer: Linear, BN, Dropout, Activation, Attention, Aggregation with transformation and aggregation phases labeled.",
+      "related_concepts": [
+        "graph neural network layer",
+        "batch normalization",
+        "dropout",
+        "activation function",
+        "attention mechanism",
+        "graph-based aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        82.5,
+        440.0,
+        330.0
+      ]
+    },
+    {
+      "kind": "table",
+      "description": "Text box explaining Conventional Dropout with aim, training behavior, and testing behavior.",
+      "related_concepts": [
+        "dropout",
+        "regularization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        412.5,
+        522.5,
+        495.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "A small diagram showing two different graph structures being mapped to different outputs (0.5 and 0.2) to illustrate GNN expressiveness.",
+      "related_concepts": [
+        "gnn expressiveness",
+        "graph structure"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Illustration of 4 possible dropout configurations around a node u, showing different dropout scenarios.",
+      "related_concepts": [
+        "dropout",
+        "node embedding computation graph"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        330.0,
+        780.0,
+        550.0,
+        890.0
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "MLP -",
+      "reason": "Handwritten text above the architecture diagram is partially unclear",
+      "bbox": [
+        357.5,
+        82.5,
+        412.5,
+        99.0
+      ]
+    },
+    {
+      "transcription": "1) Transf",
+      "reason": "Handwritten label next to transformation phase is cut off",
+      "bbox": [
+        440.0,
+        220.0,
+        495.0,
+        247.5
+      ]
+    },
+    {
+      "transcription": "2) Aggreg",
+      "reason": "Handwritten label next to aggregation phase is cut off",
+      "bbox": [
+        440.0,
+        275.0,
+        495.0,
+        302.5
+      ]
+    },
+    {
+      "transcription": "Dropout != Sampling Selection",
+      "reason": "Handwritten text is slightly messy, 'Selection' is somewhat unclear.",
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "Reduce the size of the neural net + regularizes the loss",
+      "reason": "Handwritten note at the bottom is small and cursive, making some words difficult to read with certainty.",
+      "bbox": [
+        450.0,
+        0.0,
+        1000.0,
+        550.0
+      ]
+    },
+    {
+      "transcription": "drop != Sampling",
+      "reason": "Handwriting is somewhat unclear, especially the word 'Sampling'.",
+      "bbox": [
+        0.0,
+        560.0,
+        275.0,
+        725.0
+      ]
+    },
+    {
+      "transcription": "differently",
+      "reason": "Handwriting is somewhat unclear.",
+      "bbox": [
+        165.0,
+        560.0,
+        275.0,
+        615.0
+      ]
+    },
+    {
+      "transcription": "layer",
+      "reason": "Handwritten label pointing to a part of the neural network diagram.",
+      "bbox": [
+        385.0,
+        532.5,
+        440.0,
+        560.0
+      ]
+    },
+    {
+      "transcription": "0_dropout",
+      "reason": "Handwritten label near a dropout configuration diagram.",
+      "bbox": [
+        330.0,
+        807.5,
+        385.0,
+        835.0
+      ]
+    },
+    {
+      "transcription": "1_dropout",
+      "reason": "Handwritten label near a dropout configuration diagram.",
+      "bbox": [
+        330.0,
+        862.5,
+        385.0,
+        890.0
+      ]
+    },
+    {
+      "transcription": "Reduce the size of the neural net or regularizes the loss",
+      "reason": "Handwriting is somewhat unclear, especially the word 'regularizes'.",
+      "bbox": [
+        450.0,
+        450.0,
+        1000.0,
+        1000.0
+      ]
+    },
+    {
+      "transcription": "perturbation",
+      "reason": "Handwriting is slightly unclear, but context suggests 'perturbation'.",
+      "bbox": [
+        450.0,
+        450.0,
+        1000.0,
+        1000.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph neural network layer",
+            "aliases": [
+              "gnn layer"
+            ],
+            "evidence": "A single GNN layer can take the following form:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              950,
+              150
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              200,
+              600,
+              300
+            ]
+          },
+          {
+            "canonical": "graph-based aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "Graph-based aggregation (the GNN hallmark)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              200,
+              200,
+              300
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "Stabilize the optimization & control embedding variance between layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              500,
+              700,
+              600
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Drop nodes to regularize & increase expressiveness",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              700,
+              600,
+              800
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "activation"
+            ],
+            "evidence": "Activation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              400,
+              750,
+              450
+            ]
+          },
+          {
+            "canonical": "attention mechanism",
+            "aliases": [
+              "attention"
+            ],
+            "evidence": "Attention",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              450,
+              750,
+              500
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "prediction"
+            ],
+            "evidence": "Define the target learning task & its params",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              500,
+              200,
+              600
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [],
+            "evidence": "Capture complexity & identify important patterns",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              200,
+              700,
+              350,
+              800
+            ]
+          },
+          {
+            "canonical": "multilayer perceptron",
+            "aliases": [
+              "mlp"
+            ],
+            "evidence": "Example: add MLP layers before and/or after a GNN layer.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              950,
+              650
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence": "Aim: regularize a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              800,
+              950,
+              850
+            ]
+          },
+          {
+            "canonical": "generalized propagation rule",
+            "aliases": [],
+            "evidence": "generalized propagation rule",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              300,
+              600,
+              350
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing",
+              "generalized propagation rule"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              400,
+              300,
+              550,
+              350
+            ],
+            "label": "generalized propagation rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head with connecting arrows and descriptions.",
+            "related_concepts": [
+              "graph neural network layer",
+              "message passing",
+              "graph-based aggregation",
+              "batch normalization",
+              "dropout",
+              "activation function",
+              "attention mechanism",
+              "prediction head",
+              "non-linearity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              700,
+              850
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Vertical flowchart showing components of a GNN layer: Linear, BN, Dropout, Activation, Attention, Aggregation with transformation and aggregation phases labeled.",
+            "related_concepts": [
+              "graph neural network layer",
+              "batch normalization",
+              "dropout",
+              "activation function",
+              "attention mechanism",
+              "graph-based aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              150,
+              800,
+              600
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Text box explaining Conventional Dropout with aim, training behavior, and testing behavior.",
+            "related_concepts": [
+              "dropout",
+              "regularization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              750,
+              950,
+              900
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "MLP -",
+            "reason": "Handwritten text above the architecture diagram is partially unclear",
+            "bbox": [
+              650,
+              150,
+              750,
+              180
+            ]
+          },
+          {
+            "transcription": "1) Transf",
+            "reason": "Handwritten label next to transformation phase is cut off",
+            "bbox": [
+              800,
+              400,
+              900,
+              450
+            ]
+          },
+          {
+            "transcription": "2) Aggreg",
+            "reason": "Handwritten label next to aggregation phase is cut off",
+            "bbox": [
+              800,
+              500,
+              900,
+              550
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network layer\",\n      \"aliases\": [\"gnn layer\"],\n      \"evidence\": \"A single GNN layer can take the following form:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 950, 150]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 200, 600, 300]\n    },\n    {\n      \"canonical\": \"graph-based aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"Graph-based aggregation (the GNN hallmark)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 200, 200, 300]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"Stabilize the optimization & control embedding variance between layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 500, 700, 600]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Drop nodes to regularize & increase expressiveness\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 700, 600, 800]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"activation\"],\n      \"evidence\": \"Activation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 400, 750, 450]\n    },\n    {\n      \"canonical\": \"attention mechanism\",\n      \"aliases\": [\"attention\"],\n      \"evidence\": \"Attention\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 450, 750, 500]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"prediction\"],\n      \"evidence\": \"Define the target learning task & its params\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 500, 200, 600]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [],\n      \"evidence\": \"Capture complexity & identify important patterns\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [200, 700, 350, 800]\n    },\n    {\n      \"canonical\": \"multilayer perceptron\",\n      \"aliases\": [\"mlp\"],\n      \"evidence\": \"Example: add MLP layers before and/or after a GNN layer.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 950, 650]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 800, 950, 850]\n    },\n    {\n      \"canonical\": \"generalized propagation rule\",\n      \"aliases\": [],\n      \"evidence\": \"generalized propagation rule\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 300, 600, 350]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\", \"generalized propagation rule\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [400, 300, 550, 350],\n      \"label\": \"generalized propagation rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head with connecting arrows and descriptions.\",\n      \"related_concepts\": [\"graph neural network layer\", \"message passing\", \"graph-based aggregation\", \"batch normalization\", \"dropout\", \"activation function\", \"attention mechanism\", \"prediction head\", \"non-linearity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 700, 850]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Vertical flowchart showing components of a GNN layer: Linear, BN, Dropout, Activation, Attention, Aggregation with transformation and aggregation phases labeled.\",\n      \"related_concepts\": [\"graph neural network layer\", \"batch normalization\", \"dropout\", \"activation function\", \"attention mechanism\", \"graph-based aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 150, 800, 600]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Text box explaining Conventional Dropout with aim, training behavior, and testing behavior.\",\n      \"related_concepts\": [\"dropout\", \"regularization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 750, 950, 900]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"MLP -\",\n      \"reason\": \"Handwritten text above the architecture diagram is partially unclear\",\n      \"bbox\": [650, 150, 750, 180]\n    },\n    {\n      \"transcription\": \"1) Transf\",\n      \"reason\": \"Handwritten label next to transformation phase is cut off\",\n      \"bbox\": [800, 400, 900, 450]\n    },\n    {\n      \"transcription\": \"2) Aggreg\",\n      \"reason\": \"Handwritten label next to aggregation phase is cut off\",\n      \"bbox\": [800, 500, 900, 550]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "dropout",
+            "aliases": [
+              "drop out",
+              "random dropout"
+            ],
+            "evidence": "Dropout layer (following BN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN"
+            ],
+            "evidence": "Dropout layer (following BN)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "GNN"
+            ],
+            "evidence": "DropGNN: Random Dropouts Increase the Expressiveness of Graph Neural Networks",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "gnn expressiveness",
+            "aliases": [
+              "expressive power"
+            ],
+            "evidence": "GNN expressive power or expressiveness",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "transformation",
+              "aggregation"
+            ],
+            "evidence": "1) Transform, 2) Aggregate",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [],
+            "evidence": "a neural network to avoid overfitting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence": "dropout regularization method",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [
+              "node sampling"
+            ],
+            "evidence": "Dropout != Sampling Selection",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "d-hop neighborhood",
+            "aliases": [
+              "neighborhood"
+            ],
+            "evidence": "observe various slightly perturbed versions of this d-hop neighborhood",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph structure",
+            "aliases": [
+              "structural patterns"
+            ],
+            "evidence": "distinguish between different graph structures",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "O(\\gamma)",
+            "related_concepts": [
+              "gnn expressiveness",
+              "dropout"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ],
+            "label": "complexity"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "A flowchart illustrating a GNN layer pipeline with components like Linear, BN, Dropout, Activation, Attention, and Aggregation, annotated with handwritten steps '1) Transform' and '2) Aggregate'.",
+            "related_concepts": [
+              "message passing",
+              "graph neural network",
+              "dropout",
+              "batch normalization"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small diagram showing two different graph structures being mapped to different outputs (0.5 and 0.2) to illustrate GNN expressiveness.",
+            "related_concepts": [
+              "gnn expressiveness",
+              "graph structure"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Dropout != Sampling Selection",
+            "reason": "Handwritten text is slightly messy, 'Selection' is somewhat unclear.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "transcription": "Reduce the size of the neural net + regularizes the loss",
+            "reason": "Handwritten note at the bottom is small and cursive, making some words difficult to read with certainty.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [\"drop out\", \"random dropout\"],\n      \"evidence\": \"Dropout layer (following BN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN\"],\n      \"evidence\": \"Dropout layer (following BN)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"GNN\"],\n      \"evidence\": \"DropGNN: Random Dropouts Increase the Expressiveness of Graph Neural Networks\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"gnn expressiveness\",\n      \"aliases\": [\"expressive power\"],\n      \"evidence\": \"GNN expressive power or expressiveness\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"transformation\", \"aggregation\"],\n      \"evidence\": \"1) Transform, 2) Aggregate\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [],\n      \"evidence\": \"a neural network to avoid overfitting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence\": \"dropout regularization method\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [\"node sampling\"],\n      \"evidence\": \"Dropout != Sampling Selection\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"d-hop neighborhood\",\n      \"aliases\": [\"neighborhood\"],\n      \"evidence\": \"observe various slightly perturbed versions of this d-hop neighborhood\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph structure\",\n      \"aliases\": [\"structural patterns\"],\n      \"evidence\": \"distinguish between different graph structures\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"O(\\\\gamma)\",\n      \"related_concepts\": [\"gnn expressiveness\", \"dropout\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000],\n      \"label\": \"complexity\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"A flowchart illustrating a GNN layer pipeline with components like Linear, BN, Dropout, Activation, Attention, and Aggregation, annotated with handwritten steps '1) Transform' and '2) Aggregate'.\",\n      \"related_concepts\": [\"message passing\", \"graph neural network\", \"dropout\", \"batch normalization\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small diagram showing two different graph structures being mapped to different outputs (0.5 and 0.2) to illustrate GNN expressiveness.\",\n      \"related_concepts\": [\"gnn expressiveness\", \"graph structure\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Dropout != Sampling Selection\",\n      \"reason\": \"Handwritten text is slightly messy, 'Selection' is somewhat unclear.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"transcription\": \"Reduce the size of the neural net + regularizes the loss\",\n      \"reason\": \"Handwritten note at the bottom is small and cursive, making some words difficult to read with certainty.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "dropout",
+            "aliases": [
+              "drop out"
+            ],
+            "evidence": "Aim: regularize a neural network to avoid overfitting. Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              0,
+              1000,
+              100
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularize"
+            ],
+            "evidence": "Aim: regularize a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              0,
+              1000,
+              50
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [],
+            "evidence": "Aim: regularize a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              0,
+              1000,
+              50
+            ]
+          },
+          {
+            "canonical": "training",
+            "aliases": [
+              "During training"
+            ],
+            "evidence": "During training: randomly set neurons to zero (drop out)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              50,
+              1000,
+              100
+            ]
+          },
+          {
+            "canonical": "testing",
+            "aliases": [
+              "During testing"
+            ],
+            "evidence": "During testing: use all neurons for computation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              1000,
+              150
+            ]
+          },
+          {
+            "canonical": "dropout for gnns",
+            "aliases": [
+              "Dropout for GNNs"
+            ],
+            "evidence": "Dropout for GNNs",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              400,
+              1000,
+              450
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN layer"
+            ],
+            "evidence": "In GNN, Dropout follows up the BN layer.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              450,
+              1000,
+              500
+            ]
+          },
+          {
+            "canonical": "sampling",
+            "aliases": [],
+            "evidence": "drop != Sampling",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              200,
+              500,
+              500
+            ]
+          },
+          {
+            "canonical": "neural network",
+            "aliases": [],
+            "evidence": "Aim: regularize a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              0,
+              1000,
+              50
+            ]
+          },
+          {
+            "canonical": "neurons",
+            "aliases": [],
+            "evidence": "During training: randomly set neurons to zero (drop out)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              50,
+              1000,
+              100
+            ]
+          },
+          {
+            "canonical": "linear layer",
+            "aliases": [
+              "linear la"
+            ],
+            "evidence": "In the absence of a BN layer, Dropout is applied to the linear la",
+            "source_type": "printed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              500,
+              1000,
+              550
+            ]
+          },
+          {
+            "canonical": "randomly drops training nodes",
+            "aliases": [],
+            "evidence": "Randomly drops training nodes.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              550,
+              1000,
+              600
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of a neural network layer with dropout applied, showing nodes and connections.",
+            "related_concepts": [
+              "dropout",
+              "neural network",
+              "neurons"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              150,
+              1000,
+              350
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of 4 possible dropout configurations around a node u, showing different dropout scenarios.",
+            "related_concepts": [
+              "dropout for gnns",
+              "sampling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              600,
+              1000,
+              800
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "drop != Sampling",
+            "reason": "Handwriting is somewhat unclear, especially the word 'Sampling'.",
+            "bbox": [
+              0,
+              200,
+              500,
+              500
+            ]
+          },
+          {
+            "transcription": "differently",
+            "reason": "Handwriting is somewhat unclear.",
+            "bbox": [
+              300,
+              200,
+              500,
+              300
+            ]
+          },
+          {
+            "transcription": "layer",
+            "reason": "Handwritten label pointing to a part of the neural network diagram.",
+            "bbox": [
+              700,
+              150,
+              800,
+              200
+            ]
+          },
+          {
+            "transcription": "0_dropout",
+            "reason": "Handwritten label near a dropout configuration diagram.",
+            "bbox": [
+              600,
+              650,
+              700,
+              700
+            ]
+          },
+          {
+            "transcription": "1_dropout",
+            "reason": "Handwritten label near a dropout configuration diagram.",
+            "bbox": [
+              600,
+              750,
+              700,
+              800
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [\"drop out\"],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting. Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 0, 1000, 100]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularize\"],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 0, 1000, 50]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 0, 1000, 50]\n    },\n    {\n      \"canonical\": \"training\",\n      \"aliases\": [\"During training\"],\n      \"evidence\": \"During training: randomly set neurons to zero (drop out)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 50, 1000, 100]\n    },\n    {\n      \"canonical\": \"testing\",\n      \"aliases\": [\"During testing\"],\n      \"evidence\": \"During testing: use all neurons for computation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 1000, 150]\n    },\n    {\n      \"canonical\": \"dropout for gnns\",\n      \"aliases\": [\"Dropout for GNNs\"],\n      \"evidence\": \"Dropout for GNNs\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 400, 1000, 450]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN layer\"],\n      \"evidence\": \"In GNN, Dropout follows up the BN layer.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 450, 1000, 500]\n    },\n    {\n      \"canonical\": \"sampling\",\n      \"aliases\": [],\n      \"evidence\": \"drop != Sampling\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 200, 500, 500]\n    },\n    {\n      \"canonical\": \"neural network\",\n      \"aliases\": [],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 0, 1000, 50]\n    },\n    {\n      \"canonical\": \"neurons\",\n      \"aliases\": [],\n      \"evidence\": \"During training: randomly set neurons to zero (drop out)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 50, 1000, 100]\n    },\n    {\n      \"canonical\": \"linear layer\",\n      \"aliases\": [\"linear la\"],\n      \"evidence\": \"In the absence of a BN layer, Dropout is applied to the linear la\",\n      \"source_type\": \"printed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 500, 1000, 550]\n    },\n    {\n      \"canonical\": \"randomly drops training nodes\",\n      \"aliases\": [],\n      \"evidence\": \"Randomly drops training nodes.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 550, 1000, 600]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of a neural network layer with dropout applied, showing nodes and connections.\",\n      \"related_concepts\": [\"dropout\", \"neural network\", \"neurons\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 150, 1000, 350]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of 4 possible dropout configurations around a node u, showing different dropout scenarios.\",\n      \"related_concepts\": [\"dropout for gnns\", \"sampling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 600, 1000, 800]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"drop != Sampling\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'Sampling'.\",\n      \"bbox\": [0, 200, 500, 500]\n    },\n    {\n      \"transcription\": \"differently\",\n      \"reason\": \"Handwriting is somewhat unclear.\",\n      \"bbox\": [300, 200, 500, 300]\n    },\n    {\n      \"transcription\": \"layer\",\n      \"reason\": \"Handwritten label pointing to a part of the neural network diagram.\",\n      \"bbox\": [700, 150, 800, 200]\n    },\n    {\n      \"transcription\": \"0_dropout\",\n      \"reason\": \"Handwritten label near a dropout configuration diagram.\",\n      \"bbox\": [600, 650, 700, 700]\n    },\n    {\n      \"transcription\": \"1_dropout\",\n      \"reason\": \"Handwritten label near a dropout configuration diagram.\",\n      \"bbox\": [600, 750, 700, 800]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "dropout",
+            "aliases": [
+              "drop out",
+              "randomly set neurons to zero"
+            ],
+            "evidence": "Dropout is applied right after a BN layer. randomly set neurons to zero (drop out) with a probability p in a particular layer.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "BN layer"
+            ],
+            "evidence": "Dropout is applied right after a BN layer.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "gnn expressive power",
+            "aliases": [
+              "expressiveness"
+            ],
+            "evidence": "GNN expressive power or expressiveness use all neurons for computation. The ability to model and capture the diverse structural patterns and features in a graph.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "node embedding computation graph",
+            "aliases": [
+              "embedding computation graph"
+            ],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "message function",
+            "aliases": [],
+            "evidence": "Dropout is applied to the linear layer directly in the message function.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "dropgnn",
+            "aliases": [
+              "DropGNN"
+            ],
+            "evidence": "DropGNN (Papp et Dal., 2021).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [],
+            "evidence": "a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "graph structure",
+            "aliases": [
+              "different graph structures"
+            ],
+            "evidence": "It is also the ability to distinguish between different graph structures and accurately map graph inputs to outputs.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "perturbation",
+            "aliases": [],
+            "evidence": "perturbation",
+            "source_type": "handwritten",
+            "confidence": 0.9,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularizes the loss"
+            ],
+            "evidence": "Reduce the size of the neural net or regularizes the loss",
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "formulas": [],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Illustration of dropout applied to a neural network layer, showing neurons being randomly set to zero.",
+            "related_concepts": [
+              "dropout",
+              "neural network"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Example of two graphs not separable by 1-dropouts, showing node embedding computation graphs.",
+            "related_concepts": [
+              "node embedding computation graph",
+              "dropout",
+              "graph structure"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of 4 possible dropout combinations from an example 2-hop neighborhood.",
+            "related_concepts": [
+              "dropout",
+              "perturbation",
+              "node embedding computation graph"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "Reduce the size of the neural net or regularizes the loss",
+            "reason": "Handwriting is somewhat unclear, especially the word 'regularizes'.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          },
+          {
+            "transcription": "perturbation",
+            "reason": "Handwriting is slightly unclear, but context suggests 'perturbation'.",
+            "bbox": [
+              0,
+              0,
+              1000,
+              1000
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [\"drop out\", \"randomly set neurons to zero\"],\n      \"evidence\": \"Dropout is applied right after a BN layer. randomly set neurons to zero (drop out) with a probability p in a particular layer.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"BN layer\"],\n      \"evidence\": \"Dropout is applied right after a BN layer.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"gnn expressive power\",\n      \"aliases\": [\"expressiveness\"],\n      \"evidence\": \"GNN expressive power or expressiveness use all neurons for computation. The ability to model and capture the diverse structural patterns and features in a graph.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"node embedding computation graph\",\n      \"aliases\": [\"embedding computation graph\"],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"message function\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout is applied to the linear layer directly in the message function.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"dropgnn\",\n      \"aliases\": [\"DropGNN\"],\n      \"evidence\": \"DropGNN (Papp et Dal., 2021).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [],\n      \"evidence\": \"a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"graph structure\",\n      \"aliases\": [\"different graph structures\"],\n      \"evidence\": \"It is also the ability to distinguish between different graph structures and accurately map graph inputs to outputs.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"perturbation\",\n      \"aliases\": [],\n      \"evidence\": \"perturbation\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.9,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularizes the loss\"],\n      \"evidence\": \"Reduce the size of the neural net or regularizes the loss\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"formulas\": [],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of dropout applied to a neural network layer, showing neurons being randomly set to zero.\",\n      \"related_concepts\": [\"dropout\", \"neural network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Example of two graphs not separable by 1-dropouts, showing node embedding computation graphs.\",\n      \"related_concepts\": [\"node embedding computation graph\", \"dropout\", \"graph structure\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of 4 possible dropout combinations from an example 2-hop neighborhood.\",\n      \"related_concepts\": [\"dropout\", \"perturbation\", \"node embedding computation graph\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"Reduce the size of the neural net or regularizes the loss\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'regularizes'.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    },\n    {\n      \"transcription\": \"perturbation\",\n      \"reason\": \"Handwriting is slightly unclear, but context suggests 'perturbation'.\",\n      \"bbox\": [0, 0, 1000, 1000]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "GNN Layer Architecture and Dropout Regularization",
+        "summary": "This page details the components of a single Graph Neural Network (GNN) layer, including transformation, aggregation, and normalization steps. It focuses on the application of dropout as a regularization technique to prevent overfitting and increase expressiveness, distinguishing it from sampling methods. The concept of GNN expressive power is introduced, highlighting the ability to distinguish between different graph structures.",
+        "key_topics": [
+          "gnn layer components",
+          "dropout regularization",
+          "gnn expressiveness",
+          "message passing"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph neural network layer",
+            "aliases": [
+              "gnn layer"
+            ],
+            "evidence": "A single GNN layer can take the following form:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              55.0,
+              522.5,
+              82.5
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              110.0,
+              330.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "graph-based aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "Graph-based aggregation (the GNN hallmark)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              110.0,
+              110.0,
+              165.0
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "Stabilize the optimization & control embedding variance between layers",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              302.5,
+              275.0,
+              385.0,
+              330.0
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [
+              "drop out"
+            ],
+            "evidence": "Drop nodes to regularize & increase expressiveness",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              385.0,
+              330.0,
+              440.0
+            ]
+          },
+          {
+            "canonical": "activation function",
+            "aliases": [
+              "activation"
+            ],
+            "evidence": "Activation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              220.0,
+              412.5,
+              247.5
+            ]
+          },
+          {
+            "canonical": "attention mechanism",
+            "aliases": [
+              "attention"
+            ],
+            "evidence": "Attention",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              247.5,
+              412.5,
+              275.0
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [
+              "prediction"
+            ],
+            "evidence": "Define the target learning task & its params",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              275.0,
+              110.0,
+              330.0
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [
+              "nonlinear function"
+            ],
+            "evidence": "Capture complexity & identify important patterns",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              110.0,
+              385.0,
+              192.5,
+              440.0
+            ]
+          },
+          {
+            "canonical": "multilayer perceptron",
+            "aliases": [
+              "mlp"
+            ],
+            "evidence": "Example: add MLP layers before and/or after a GNN layer.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              330.0,
+              522.5,
+              357.5
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [
+              "regularize"
+            ],
+            "evidence": "Aim: regularize a neural network to avoid overfitting.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              440.0,
+              522.5,
+              467.5
+            ]
+          },
+          {
+            "canonical": "overfitting",
+            "aliases": [
+              "risk of overfitting"
+            ],
+            "evidence": "a neural network to avoid overfitting",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              450.0,
+              550.0,
+              477.5
+            ]
+          },
+          {
+            "canonical": "gnn expressiveness",
+            "aliases": [
+              "expressive power"
+            ],
+            "evidence": "GNN expressive power or expressiveness",
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "canonical": "graph structure",
+            "aliases": [
+              "structural patterns"
+            ],
+            "evidence": "distinguish between different graph structures",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "canonical": "node embedding computation graph",
+            "aliases": [
+              "computation graph"
+            ],
+            "evidence": "Node embedding computation graph",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450.0,
+              450.0,
+              1000.0,
+              1000.0
+            ]
+          },
+          {
+            "canonical": "linear layer",
+            "aliases": [
+              "linear transformation"
+            ],
+            "evidence": "In the absence of a BN layer, Dropout is applied to the linear layer directly",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              725.0,
+              550.0,
+              752.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing",
+              "graph neural network layer"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              220.0,
+              165.0,
+              302.5,
+              192.5
+            ],
+            "label": "generalized propagation rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head with connecting arrows and descriptions.",
+            "related_concepts": [
+              "graph neural network layer",
+              "message passing",
+              "graph-based aggregation",
+              "batch normalization",
+              "dropout",
+              "activation function",
+              "attention mechanism",
+              "prediction head",
+              "non-linearity"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              385.0,
+              467.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Vertical flowchart showing components of a GNN layer: Linear, BN, Dropout, Activation, Attention, Aggregation with transformation and aggregation phases labeled.",
+            "related_concepts": [
+              "graph neural network layer",
+              "batch normalization",
+              "dropout",
+              "activation function",
+              "attention mechanism",
+              "graph-based aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              82.5,
+              440.0,
+              330.0
+            ]
+          },
+          {
+            "kind": "table",
+            "description": "Text box explaining Conventional Dropout with aim, training behavior, and testing behavior.",
+            "related_concepts": [
+              "dropout",
+              "regularization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              412.5,
+              522.5,
+              495.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "A small diagram showing two different graph structures being mapped to different outputs (0.5 and 0.2) to illustrate GNN expressiveness.",
+            "related_concepts": [
+              "gnn expressiveness",
+              "graph structure"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Illustration of 4 possible dropout configurations around a node u, showing different dropout scenarios.",
+            "related_concepts": [
+              "dropout",
+              "node embedding computation graph"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              330.0,
+              780.0,
+              550.0,
+              890.0
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "MLP -",
+            "reason": "Handwritten text above the architecture diagram is partially unclear",
+            "bbox": [
+              357.5,
+              82.5,
+              412.5,
+              99.0
+            ]
+          },
+          {
+            "transcription": "1) Transf",
+            "reason": "Handwritten label next to transformation phase is cut off",
+            "bbox": [
+              440.0,
+              220.0,
+              495.0,
+              247.5
+            ]
+          },
+          {
+            "transcription": "2) Aggreg",
+            "reason": "Handwritten label next to aggregation phase is cut off",
+            "bbox": [
+              440.0,
+              275.0,
+              495.0,
+              302.5
+            ]
+          },
+          {
+            "transcription": "Dropout != Sampling Selection",
+            "reason": "Handwritten text is slightly messy, 'Selection' is somewhat unclear.",
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "transcription": "Reduce the size of the neural net + regularizes the loss",
+            "reason": "Handwritten note at the bottom is small and cursive, making some words difficult to read with certainty.",
+            "bbox": [
+              450.0,
+              0.0,
+              1000.0,
+              550.0
+            ]
+          },
+          {
+            "transcription": "drop != Sampling",
+            "reason": "Handwriting is somewhat unclear, especially the word 'Sampling'.",
+            "bbox": [
+              0.0,
+              560.0,
+              275.0,
+              725.0
+            ]
+          },
+          {
+            "transcription": "differently",
+            "reason": "Handwriting is somewhat unclear.",
+            "bbox": [
+              165.0,
+              560.0,
+              275.0,
+              615.0
+            ]
+          },
+          {
+            "transcription": "layer",
+            "reason": "Handwritten label pointing to a part of the neural network diagram.",
+            "bbox": [
+              385.0,
+              532.5,
+              440.0,
+              560.0
+            ]
+          },
+          {
+            "transcription": "0_dropout",
+            "reason": "Handwritten label near a dropout configuration diagram.",
+            "bbox": [
+              330.0,
+              807.5,
+              385.0,
+              835.0
+            ]
+          },
+          {
+            "transcription": "1_dropout",
+            "reason": "Handwritten label near a dropout configuration diagram.",
+            "bbox": [
+              330.0,
+              862.5,
+              385.0,
+              890.0
+            ]
+          },
+          {
+            "transcription": "perturbation",
+            "reason": "Handwriting is slightly unclear, but context suggests 'perturbation'.",
+            "bbox": [
+              450.0,
+              450.0,
+              1000.0,
+              1000.0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"GNN Layer Architecture and Dropout Regularization\",\n  \"summary\": \"This page details the components of a single Graph Neural Network (GNN) layer, including transformation, aggregation, and normalization steps. It focuses on the application of dropout as a regularization technique to prevent overfitting and increase expressiveness, distinguishing it from sampling methods. The concept of GNN expressive power is introduced, highlighting the ability to distinguish between different graph structures.\",\n  \"key_topics\": [\n    \"gnn layer components\",\n    \"dropout regularization\",\n    \"gnn expressiveness\",\n    \"message passing\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network layer\",\n      \"aliases\": [\"gnn layer\"],\n      \"evidence\": \"A single GNN layer can take the following form:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 55.0, 522.5, 82.5]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 110.0, 330.0, 165.0]\n    },\n    {\n      \"canonical\": \"graph-based aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"Graph-based aggregation (the GNN hallmark)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 110.0, 110.0, 165.0]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"Stabilize the optimization & control embedding variance between layers\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [302.5, 275.0, 385.0, 330.0]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [\"drop out\"],\n      \"evidence\": \"Drop nodes to regularize & increase expressiveness\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 385.0, 330.0, 440.0]\n    },\n    {\n      \"canonical\": \"activation function\",\n      \"aliases\": [\"activation\"],\n      \"evidence\": \"Activation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 220.0, 412.5, 247.5]\n    },\n    {\n      \"canonical\": \"attention mechanism\",\n      \"aliases\": [\"attention\"],\n      \"evidence\": \"Attention\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 247.5, 412.5, 275.0]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [\"prediction\"],\n      \"evidence\": \"Define the target learning task & its params\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 275.0, 110.0, 330.0]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [\"nonlinear function\"],\n      \"evidence\": \"Capture complexity & identify important patterns\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [110.0, 385.0, 192.5, 440.0]\n    },\n    {\n      \"canonical\": \"multilayer perceptron\",\n      \"aliases\": [\"mlp\"],\n      \"evidence\": \"Example: add MLP layers before and/or after a GNN layer.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 330.0, 522.5, 357.5]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [\"regularize\"],\n      \"evidence\": \"Aim: regularize a neural network to avoid overfitting.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 440.0, 522.5, 467.5]\n    },\n    {\n      \"canonical\": \"overfitting\",\n      \"aliases\": [\"risk of overfitting\"],\n      \"evidence\": \"a neural network to avoid overfitting\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 450.0, 550.0, 477.5]\n    },\n    {\n      \"canonical\": \"gnn expressiveness\",\n      \"aliases\": [\"expressive power\"],\n      \"evidence\": \"GNN expressive power or expressiveness\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450.0, 0.0, 1000.0, 550.0]\n    },\n    {\n      \"canonical\": \"graph structure\",\n      \"aliases\": [\"structural patterns\"],\n      \"evidence\": \"distinguish between different graph structures\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450.0, 0.0, 1000.0, 550.0]\n    },\n    {\n      \"canonical\": \"node embedding computation graph\",\n      \"aliases\": [\"computation graph\"],\n      \"evidence\": \"Node embedding computation graph\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450.0, 450.0, 1000.0, 1000.0]\n    },\n    {\n      \"canonical\": \"linear layer\",\n      \"aliases\": [\"linear transformation\"],\n      \"evidence\": \"In the absence of a BN layer, Dropout is applied to the linear layer directly\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 725.0, 550.0, 752.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\", \"graph neural network layer\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [220.0, 165.0, 302.5, 192.5],\n      \"label\": \"generalized propagation rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, Transform, MSG passing, BN, Dropout, Non-linearity, and Prediction head with connecting arrows and descriptions.\",\n      \"related_concepts\": [\"graph neural network layer\", \"message passing\", \"graph-based aggregation\", \"batch normalization\", \"dropout\", \"activation function\", \"attention mechanism\", \"prediction head\", \"non-linearity\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 55.0, 385.0, 467.5]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Vertical flowchart showing components of a GNN layer: Linear, BN, Dropout, Activation, Attention, Aggregation with transformation and aggregation phases labeled.\",\n      \"related_concepts\": [\"graph neural network layer\", \"batch normalization\", \"dropout\", \"activation function\", \"attention mechanism\", \"graph-based aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 82.5, 440.0, 330.0]\n    },\n    {\n      \"kind\": \"table\",\n      \"description\": \"Text box explaining Conventional Dropout with aim, training behavior, and testing behavior.\",\n      \"related_concepts\": [\"dropout\", \"regularization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 412.5, 522.5, 495.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small diagram showing two different graph structures being mapped to different outputs (0.5 and 0.2) to illustrate GNN expressiveness.\",\n      \"related_concepts\": [\"gnn expressiveness\", \"graph structure\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [450.0, 0.0, 1000.0, 550.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Illustration of 4 possible dropout configurations around a node u, showing different dropout scenarios.\",\n      \"related_concepts\": [\"dropout\", \"node embedding computation graph\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [330.0, 780.0, 550.0, 890.0]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"MLP -\",\n      \"reason\": \"Handwritten text above the architecture diagram is partially unclear\",\n      \"bbox\": [357.5, 82.5, 412.5, 99.0]\n    },\n    {\n      \"transcription\": \"1) Transf\",\n      \"reason\": \"Handwritten label next to transformation phase is cut off\",\n      \"bbox\": [440.0, 220.0, 495.0, 247.5]\n    },\n    {\n      \"transcription\": \"2) Aggreg\",\n      \"reason\": \"Handwritten label next to aggregation phase is cut off\",\n      \"bbox\": [440.0, 275.0, 495.0, 302.5]\n    },\n    {\n      \"transcription\": \"Dropout != Sampling Selection\",\n      \"reason\": \"Handwritten text is slightly messy, 'Selection' is somewhat unclear.\",\n      \"bbox\": [450.0, 0.0, 1000.0, 550.0]\n    },\n    {\n      \"transcription\": \"Reduce the size of the neural net + regularizes the loss\",\n      \"reason\": \"Handwritten note at the bottom is small and cursive, making some words difficult to read with certainty.\",\n      \"bbox\": [450.0, 0.0, 1000.0, 550.0]\n    },\n    {\n      \"transcription\": \"drop != Sampling\",\n      \"reason\": \"Handwriting is somewhat unclear, especially the word 'Sampling'.\",\n      \"bbox\": [0.0, 560.0, 275.0, 725.0]\n    },\n    {\n      \"transcription\": \"differently\",\n      \"reason\": \"Handwriting is somewhat unclear.\",\n      \"bbox\": [165.0, 560.0, 275.0, 615.0]\n    },\n    {\n      \"transcription\": \"layer\",\n      \"reason\": \"Handwritten label pointing to a part of the neural network diagram.\",\n      \"bbox\": [385.0, 532.5, 440.0, 560.0]\n    },\n    {\n      \"transcription\": \"0_dropout\",\n      \"reason\": \"Handwritten label near a dropout configuration diagram.\",\n      \"bbox\": [330.0, 807.5, 385.0, 835.0]\n    },\n    {\n      \"transcription\": \"1_dropout\",\n      \"reason\": \"Handwritten label near a dropout configuration diagram.\",\n      \"bbox\": [330.0, 862.5, 385.0, 890.0]\n    },\n    {\n      \"transcription\": \"perturbation\",\n      \"reason\": \"Handwriting is slightly unclear, but context suggests 'perturbation'.\",\n      \"bbox\": [450.0, 450.0, 1000.0, 1000.0]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "dropout",
+      "into": "dropout"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "regularization",
+      "into": "regularization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "dropout",
+      "into": "dropout"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "regularization",
+      "into": "regularization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "overfitting",
+      "into": "overfitting"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "dropout",
+      "into": "dropout"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "batch normalization",
+      "into": "batch normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "overfitting",
+      "into": "overfitting"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph structure",
+      "into": "graph structure"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "sampling",
+      "into": "sampling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "regularization",
+      "into": "regularization"
+    }
+  ],
+  "warnings": []
+}

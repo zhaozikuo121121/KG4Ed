@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "3066ff137bf0620812249aa6e983e7a45dc6e630698c84f092fd6ce4791d2de5",
+  "concept_id": 243,
+  "concept_name": "overfitting",
+  "aliases": [
+    "overfitting",
+    "risk of overfitting"
+  ],
+  "profile": "overfitting: Overfitting occurs when a model learns training data too closely and fails to generalize. There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order. To avoid such overfitting, dropout regularization can be applied to a neural network.",
+  "word_count": 48,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "overfitting: Overfitting occurs when a model learns training data too closely and fails to generalize. There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order, as the model may memorize patterns instead of learning broadly. To avoid such overfitting, dropout regularization can be applied to a neural network.",
+    "claims": [
+      {
+        "claim": "Overfitting occurs when a model learns training data too closely and fails to generalize.",
+        "evidence_ids": [],
+        "classification": "background_context"
+      },
+      {
+        "claim": "There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order.",
+        "evidence_ids": [
+          "DGL-E0339"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Dropout regularization can be applied to a neural network to avoid overfitting.",
+        "evidence_ids": [
+          "DGL-E0383"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "overfitting: Overfitting occurs when a model learns training data too closely and fails to generalize. There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order. To avoid such overfitting, dropout regularization can be applied to a neural network.",
+    "sentence_reviews": [
+      {
+        "sentence": "Overfitting occurs when a model learns training data too closely and fails to generalize.",
+        "verdict": "allowed_background",
+        "evidence_ids": [],
+        "reason": "Generic definitional context; no explicit evidence in the provided metadata."
+      },
+      {
+        "sentence": "There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0339"
+        ],
+        "reason": "Directly supported by the source text about risk of overfitting from repeated exposure in the same order."
+      },
+      {
+        "sentence": "To avoid such overfitting, dropout regularization can be applied to a neural network.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0383"
+        ],
+        "reason": "Source mentions applying a neural network technique to avoid overfitting in the context of dropout regularization."
+      }
+    ],
+    "warnings": [
+      "The definitional first sentence is general background; the metadata does not explicitly define overfitting."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"overfitting: Overfitting occurs when a model learns training data too closely and fails to generalize. There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order, as the model may memorize patterns instead of learning broadly. To avoid such overfitting, dropout regularization can be applied to a neural network.\",\n  \"claims\": [\n    {\n      \"claim\": \"Overfitting occurs when a model learns training data too closely and fails to generalize.\",\n      \"evidence_ids\": [],\n      \"classification\": \"background_context\"\n    },\n    {\n      \"claim\": \"There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order.\",\n      \"evidence_ids\": [\"DGL-E0339\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Dropout regularization can be applied to a neural network to avoid overfitting.\",\n      \"evidence_ids\": [\"DGL-E0383\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"overfitting: Overfitting occurs when a model learns training data too closely and fails to generalize. There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order. To avoid such overfitting, dropout regularization can be applied to a neural network.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Overfitting occurs when a model learns training data too closely and fails to generalize.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [],\n      \"reason\": \"Generic definitional context; no explicit evidence in the provided metadata.\"\n    },\n    {\n      \"sentence\": \"There is a risk of overfitting when the model is repeatedly exposed to the entire dataset in the same order.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0339\"],\n      \"reason\": \"Directly supported by the source text about risk of overfitting from repeated exposure in the same order.\"\n    },\n    {\n      \"sentence\": \"To avoid such overfitting, dropout regularization can be applied to a neural network.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0383\"],\n      \"reason\": \"Source mentions applying a neural network technique to avoid overfitting in the context of dropout regularization.\"\n    }\n  ],\n  \"warnings\": [\n    \"The definitional first sentence is general background; the metadata does not explicitly define overfitting.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:25:44.249575+00:00"
+}

@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "3946fc716670a1769ef97a05eba05f9537f6b4796f3e8f30a9e4e02cb42656bf",
+  "concept_id": 271,
+  "concept_name": "mid-point split point",
+  "aliases": [
+    "mid-point split point"
+  ],
+  "profile": "mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region. Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.",
+  "word_count": 38,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region. Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.",
+    "claims": [
+      {
+        "claim": "In tree-based learners, only one split point per flat region needs to be tested.",
+        "evidence_ids": [
+          "MLR-E0335"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The mid-point is used as that single split point to test.",
+        "evidence_ids": [
+          "MLR-E0335"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region. Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.",
+    "sentence_reviews": [
+      {
+        "sentence": "mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0335"
+        ],
+        "reason": "The source identifies the mid-point as the split point for a flat region in tree-based learners."
+      },
+      {
+        "sentence": "Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0335"
+        ],
+        "reason": "The source says only one split point per flat region needs to be tested, e.g., the mid-point."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region. Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.\",\n  \"claims\": [\n    {\n      \"claim\": \"In tree-based learners, only one split point per flat region needs to be tested.\",\n      \"evidence_ids\": [\"MLR-E0335\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The mid-point is used as that single split point to test.\",\n      \"evidence_ids\": [\"MLR-E0335\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region. Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"mid-point split point: In tree-based learners, a split point chosen as the mid-point of a flat region.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0335\"],\n      \"reason\": \"The source identifies the mid-point as the split point for a flat region in tree-based learners.\"\n    },\n    {\n      \"sentence\": \"Only one split point per flat region needs to be tested, and the mid-point is used as that single test point.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0335\"],\n      \"reason\": \"The source says only one split point per flat region needs to be tested, e.g., the mid-point.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:09:25.590513+00:00"
+}

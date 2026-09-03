@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "ebdb8408db18aee40db3dd86c7d7d3965103ab6c551033053256bf88e7216bb2",
+  "concept_id": 252,
+  "concept_name": "vector activation",
+  "aliases": [
+    "vector activation",
+    "element-wise activation"
+  ],
+  "profile": "vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries. Thus the operation is element-wise and the output has the same size as the input.",
+  "word_count": 44,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries. This element-wise application of an activation function produces an output vector with identical dimensionality to the input. It is a component in fully-connected neural networks.",
+    "claims": [
+      {
+        "claim": "Vector activation is a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each entry.",
+        "evidence_ids": [
+          "MLR-E0316"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The activation is applied element-wise, so the output vector has the same size as the input.",
+        "evidence_ids": [
+          "MLR-E0316"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Vector activation is used in fully-connected neural networks.",
+        "evidence_ids": [
+          "MLR-E0316"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The metadata provides only the definition and context; no further properties or examples are given."
+    ]
+  },
+  "review": {
+    "final_profile": "vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries. Thus the operation is element-wise and the output has the same size as the input.",
+    "sentence_reviews": [
+      {
+        "sentence": "vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0316"
+        ],
+        "reason": "Directly restates the definition from the source."
+      },
+      {
+        "sentence": "Thus the operation is element-wise and the output has the same size as the input.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0316"
+        ],
+        "reason": "The source says it activates each entry and returns a vector of the same size, which implies element-wise operation and preserved dimensionality."
+      }
+    ],
+    "warnings": [
+      "The source provides only this definition; no further properties or applications are asserted."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries. This element-wise application of an activation function produces an output vector with identical dimensionality to the input. It is a component in fully-connected neural networks.\",\n  \"claims\": [\n    {\n      \"claim\": \"Vector activation is a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each entry.\",\n      \"evidence_ids\": [\"MLR-E0316\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The activation is applied element-wise, so the output vector has the same size as the input.\",\n      \"evidence_ids\": [\"MLR-E0316\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Vector activation is used in fully-connected neural networks.\",\n      \"evidence_ids\": [\"MLR-E0316\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"The metadata provides only the definition and context; no further properties or examples are given.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries. Thus the operation is element-wise and the output has the same size as the input.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"vector activation: a vector function that takes a d × 1 vector v and returns a vector of the same size containing the activation of each of its input's entries.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0316\"],\n      \"reason\": \"Directly restates the definition from the source.\"\n    },\n    {\n      \"sentence\": \"Thus the operation is element-wise and the output has the same size as the input.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0316\"],\n      \"reason\": \"The source says it activates each entry and returns a vector of the same size, which implies element-wise operation and preserved dimensionality.\"\n    }\n  ],\n  \"warnings\": [\n    \"The source provides only this definition; no further properties or applications are asserted.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T23:01:39.911523+00:00"
+}

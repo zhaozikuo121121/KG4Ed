@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "abb94198722615b998480f1ec647ec8393ce89ba593dd0a4563535785c21a2ad",
+  "concept_id": 110,
+  "concept_name": "normal vector to hyperplane",
+  "aliases": [
+    "normal vector to hyperplane",
+    "hyperplane normal vector"
+  ],
+  "profile": "normal vector to hyperplane: In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to the hyperplane.",
+  "word_count": 32,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "normal vector to hyperplane: In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to the hyperplane.",
+    "claims": [
+      {
+        "claim": "In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary.",
+        "evidence_ids": [
+          "MLR-E0126"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The normal vector to a hyperplane is always perpendicular to the hyperplane.",
+        "evidence_ids": [
+          "MLR-E0126"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "normal vector to hyperplane: In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to the hyperplane.",
+    "sentence_reviews": [
+      {
+        "sentence": "In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0126"
+        ],
+        "reason": "The evidence directly states this relationship."
+      },
+      {
+        "sentence": "The normal vector to a hyperplane is always perpendicular to the hyperplane.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0126"
+        ],
+        "reason": "The evidence explicitly asserts this property."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"normal vector to hyperplane: In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to the hyperplane.\",\n  \"claims\": [\n    {\n      \"claim\": \"In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary.\",\n      \"evidence_ids\": [\"MLR-E0126\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The normal vector to a hyperplane is always perpendicular to the hyperplane.\",\n      \"evidence_ids\": [\"MLR-E0126\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"normal vector to hyperplane: In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary. The normal vector to a hyperplane is always perpendicular to the hyperplane.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"In linear two-class classification, the feature-touching weights ω define the normal vector of the linear decision boundary.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0126\"],\n      \"reason\": \"The evidence directly states this relationship.\"\n    },\n    {\n      \"sentence\": \"The normal vector to a hyperplane is always perpendicular to the hyperplane.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0126\"],\n      \"reason\": \"The evidence explicitly asserts this property.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:07:26.382996+00:00"
+}

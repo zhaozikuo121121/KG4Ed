@@ -1,0 +1,97 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "1193c5d170aa4cf9f1b8698d8ca5147ac710f26877d03af55a435e47fc2ea725",
+  "concept_id": 186,
+  "concept_name": "multilayer perceptron",
+  "aliases": [
+    "multilayer perceptron",
+    "mlp",
+    "classifier"
+  ],
+  "profile": "multilayer perceptron: A multilayer perceptron (MLP) is used as a classifier in graph classification contexts. In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters. In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer. Thus, MLP can serve as a classifier and be combined with GNN layers.",
+  "word_count": 64,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "multilayer perceptron: A multilayer perceptron (MLP) is used as a classifier in graph classification contexts. In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters. In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer. Thus, MLP can serve as a classifier and be combined with GNN layers.",
+    "claims": [
+      {
+        "claim": "A multilayer perceptron (MLP) is used as a classifier in graph classification contexts.",
+        "evidence_ids": [
+          "DGL-E0196"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "A handwritten note '(MLP)' points to the learned parameters section in GCN training.",
+        "evidence_ids": [
+          "DGL-E0255"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "MLP layers can be added before and/or after a GNN layer.",
+        "evidence_ids": [
+          "DGL-E0379"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "multilayer perceptron: A multilayer perceptron (MLP) is used as a classifier in graph classification contexts. In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters. In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer. Thus, MLP can serve as a classifier and be combined with GNN layers.",
+    "sentence_reviews": [
+      {
+        "sentence": "A multilayer perceptron (MLP) is used as a classifier in graph classification contexts.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0196"
+        ],
+        "reason": "E0196 annotates 'classifier MLP' in a graph classification context."
+      },
+      {
+        "sentence": "In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0255"
+        ],
+        "reason": "E0255 is a handwritten '(MLP)' note pointing to the learned parameters section."
+      },
+      {
+        "sentence": "In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0379"
+        ],
+        "reason": "E0379 states an example: add MLP layers before and/or after a GNN layer."
+      },
+      {
+        "sentence": "Thus, MLP can serve as a classifier and be combined with GNN layers.",
+        "verdict": "allowed_background",
+        "evidence_ids": [
+          "DGL-E0196",
+          "DGL-E0379"
+        ],
+        "reason": "Connects the supported classifier and GNN-layer placement statements without adding new information."
+      }
+    ],
+    "warnings": [
+      "Source evidence is sparse and fragmentary; the '(MLP)' note is a pointer rather than a full definition."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"multilayer perceptron: A multilayer perceptron (MLP) is used as a classifier in graph classification contexts. In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters. In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer. Thus, MLP can serve as a classifier and be combined with GNN layers.\",\n  \"claims\": [\n    {\n      \"claim\": \"A multilayer perceptron (MLP) is used as a classifier in graph classification contexts.\",\n      \"evidence_ids\": [\"DGL-E0196\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"A handwritten note '(MLP)' points to the learned parameters section in GCN training.\",\n      \"evidence_ids\": [\"DGL-E0255\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"MLP layers can be added before and/or after a GNN layer.\",\n      \"evidence_ids\": [\"DGL-E0379\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"multilayer perceptron: A multilayer perceptron (MLP) is used as a classifier in graph classification contexts. In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters. In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer. Thus, MLP can serve as a classifier and be combined with GNN layers.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"A multilayer perceptron (MLP) is used as a classifier in graph classification contexts.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0196\"],\n      \"reason\": \"E0196 annotates 'classifier MLP' in a graph classification context.\"\n    },\n    {\n      \"sentence\": \"In GCN training, a handwritten note '(MLP)' points to the learned parameters section, associating MLP with parameters.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0255\"],\n      \"reason\": \"E0255 is a handwritten '(MLP)' note pointing to the learned parameters section.\"\n    },\n    {\n      \"sentence\": \"In GNN layer architecture, an example shows MLP layers can be added before and/or after a GNN layer.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0379\"],\n      \"reason\": \"E0379 states an example: add MLP layers before and/or after a GNN layer.\"\n    },\n    {\n      \"sentence\": \"Thus, MLP can serve as a classifier and be combined with GNN layers.\",\n      \"verdict\": \"allowed_background\",\n      \"evidence_ids\": [\"DGL-E0196\", \"DGL-E0379\"],\n      \"reason\": \"Connects the supported classifier and GNN-layer placement statements without adding new information.\"\n    }\n  ],\n  \"warnings\": [\n    \"Source evidence is sparse and fragmentary; the '(MLP)' note is a pointer rather than a full definition.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T11:08:18.182372+00:00"
+}

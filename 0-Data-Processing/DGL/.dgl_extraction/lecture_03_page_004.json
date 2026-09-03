@@ -1,0 +1,2305 @@
+{
+  "version": "1.0.0",
+  "lecture": 3,
+  "pdf_file": "DGL_Lecture_3_Annotated.pdf",
+  "pdf_page": 4,
+  "page_title": "Graph Neural Network Aggregation and Attention Mechanisms",
+  "summary": "This page details the core operations of Graph Neural Networks (GNNs), focusing on local and global aggregation strategies. It contrasts standard Graph Convolutional Networks (GCNs) using Kipf normalization with Graph Attention Networks (GATs) that utilize learnable attention weights. The content covers specific mathematical formulations for message passing, including mean aggregation, max pooling, and the integration of softmax-normalized attention masks.",
+  "key_topics": [
+    "graph neural network",
+    "message passing",
+    "graph attention network",
+    "graph convolutional network",
+    "aggregation",
+    "kipf normalization",
+    "attention masking"
+  ],
+  "model": "qwen3.5-plus-2026-04-20",
+  "completed_at": "2026-07-22T11:24:21+00:00",
+  "body_bbox": [
+    38.0,
+    55.04,
+    774.0,
+    580.44
+  ],
+  "concepts": [
+    {
+      "canonical": "representation learning",
+      "aliases": [
+        "transform"
+      ],
+      "evidence": "Transform",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        176.0,
+        66.0,
+        231.0,
+        121.0
+      ]
+    },
+    {
+      "canonical": "local embedding aggregation",
+      "aliases": [
+        "node level aggregation"
+      ],
+      "evidence": "Local embedding aggregation at the node level",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        615.0,
+        110.0,
+        697.5,
+        192.5
+      ]
+    },
+    {
+      "canonical": "node embedding",
+      "aliases": [
+        "embeddings"
+      ],
+      "evidence": "Linearly transform the embeddings of a current node",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        110.0,
+        890.0,
+        137.5
+      ]
+    },
+    {
+      "canonical": "aggregation",
+      "aliases": [
+        "agg"
+      ],
+      "evidence": "AGG",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        44.0,
+        121.0,
+        99.0,
+        176.0
+      ]
+    },
+    {
+      "canonical": "message passing",
+      "aliases": [
+        "msg passing"
+      ],
+      "evidence": "MSG passing",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        291.5,
+        121.0,
+        341.0,
+        143.0
+      ]
+    },
+    {
+      "canonical": "graph convolutional network",
+      "aliases": [
+        "gcn"
+      ],
+      "evidence": "Graph convolutional network",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        220.0,
+        890.0,
+        247.5
+      ]
+    },
+    {
+      "canonical": "graph neural network",
+      "aliases": [
+        "gnn"
+      ],
+      "evidence": "GNN layer operations",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        176.0,
+        247.5,
+        231.0,
+        302.5
+      ]
+    },
+    {
+      "canonical": "global embedding aggregation",
+      "aliases": [
+        "graph level aggregation"
+      ],
+      "evidence": "Global embedding aggregation at the graph level",
+      "source_type": "handwritten",
+      "confidence": 0.95,
+      "bbox": [
+        477.5,
+        275.0,
+        560.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "batch normalization",
+      "aliases": [
+        "bn"
+      ],
+      "evidence": "BN",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        341.0,
+        302.5,
+        396.0,
+        357.5
+      ]
+    },
+    {
+      "canonical": "prediction head",
+      "aliases": [],
+      "evidence": "Prediction head",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        44.0,
+        357.5,
+        99.0,
+        412.5
+      ]
+    },
+    {
+      "canonical": "non-linearity",
+      "aliases": [
+        "activation function"
+      ],
+      "evidence": "Non-linearity",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        176.0,
+        412.5,
+        231.0,
+        467.5
+      ]
+    },
+    {
+      "canonical": "dropout",
+      "aliases": [],
+      "evidence": "Dropout",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        291.5,
+        412.5,
+        341.0,
+        434.5
+      ]
+    },
+    {
+      "canonical": "regularization",
+      "aliases": [],
+      "evidence": "Drop nodes to regularize",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        192.5,
+        450.0,
+        302.5,
+        477.5
+      ]
+    },
+    {
+      "canonical": "degree matrix",
+      "aliases": [
+        "d"
+      ],
+      "evidence": "The new GCN layer can be written using the degree matrix as:",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        560.0,
+        670.0,
+        576.5
+      ]
+    },
+    {
+      "canonical": "kipf normalization",
+      "aliases": [
+        "symmetric normalization"
+      ],
+      "evidence": "Kipf normalization",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        626.0,
+        467.5,
+        648.0
+      ]
+    },
+    {
+      "canonical": "softmax normalization",
+      "aliases": [
+        "softmax operation"
+      ],
+      "evidence": "attention weights that contribute to each output embedding are normalized to be positive and sum to one using the softmax operation.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        752.5,
+        989.0,
+        780.0
+      ]
+    },
+    {
+      "canonical": "attention masking",
+      "aliases": [
+        "masked attention"
+      ],
+      "evidence": "The attentions are masked so that each node only attends to itself and its neighbors.",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        862.5,
+        989.0,
+        879.0
+      ]
+    },
+    {
+      "canonical": "max pooling",
+      "aliases": [
+        "element-wise maximum"
+      ],
+      "evidence": "Max pooling",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        357.5,
+        879.0,
+        467.5,
+        901.0
+      ]
+    },
+    {
+      "canonical": "graph attention network",
+      "aliases": [
+        "gat"
+      ],
+      "evidence": "The graph attention network combines both of these mechanisms",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        934.0,
+        989.0,
+        978.0
+      ]
+    },
+    {
+      "canonical": "adjacency matrix",
+      "aliases": [
+        "graph topology"
+      ],
+      "evidence": "based on the adjacency matrix (graph topology)",
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        961.5,
+        989.0,
+        978.0
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "latex": "H_{k+1} = f(H_k, A)",
+      "related_concepts": [
+        "message passing"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        247.5,
+        176.0,
+        357.5,
+        198.0
+      ],
+      "label": "generalized propagation rule"
+    },
+    {
+      "latex": "h_{k+1}^{(n)} = a \\left[ \\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\sum_{m \\in \\mathcal{N}(n)} h_k^{(m)} \\right]",
+      "related_concepts": [
+        "aggregation",
+        "node embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        412.5,
+        522.5,
+        434.5
+      ],
+      "label": "Local aggregation formula"
+    },
+    {
+      "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} h_m",
+      "related_concepts": [
+        "aggregation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        467.5,
+        522.5,
+        489.5
+      ],
+      "label": "Sum aggregation"
+    },
+    {
+      "latex": "\\text{agg}[n] = \\frac{1}{|\\text{ne}[n]|} \\sum_{m \\in \\text{ne}[n]} h_m",
+      "related_concepts": [
+        "aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        560.0,
+        412.5,
+        670.0,
+        440.0
+      ],
+      "label": "Mean aggregation formula"
+    },
+    {
+      "latex": "H'_k = \\beta_k 1^T + \\Omega_k H",
+      "related_concepts": [
+        "representation learning",
+        "node embedding"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        780.0,
+        165.0,
+        890.0,
+        192.5
+      ],
+      "label": "Transformed embeddings"
+    },
+    {
+      "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (AD^{-1} + I) \\right]",
+      "related_concepts": [
+        "graph convolutional network",
+        "degree matrix"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        587.5,
+        670.0,
+        615.0
+      ],
+      "label": "GCN with degree matrix"
+    },
+    {
+      "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (D^{-1/2}AD^{-1/2} + I) \\right]",
+      "related_concepts": [
+        "graph convolutional network",
+        "kipf normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        455.5,
+        752.5,
+        670.0,
+        780.0
+      ],
+      "label": "GCN with Kipf normalization"
+    },
+    {
+      "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} \\frac{h_m}{\\sqrt{|\\text{ne}[n]| |\\text{ne}[m]|}}",
+      "related_concepts": [
+        "aggregation",
+        "kipf normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        697.5,
+        670.0,
+        736.0
+      ],
+      "label": "normalized aggregation"
+    },
+    {
+      "latex": "s_{mn} = \\left[ \\phi_k^T \\begin{bmatrix} h'_m \\\\ h'_n \\end{bmatrix} \\right]",
+      "related_concepts": [
+        "graph attention network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        560.0,
+        862.5,
+        604.0
+      ],
+      "label": "similarity computation"
+    },
+    {
+      "latex": "H_{k+1} = a \\left[ H'_k \\cdot \\text{Softmask}(S, A + I) \\right]",
+      "related_concepts": [
+        "graph attention network",
+        "attention masking"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        807.5,
+        945.0,
+        835.0
+      ],
+      "label": "GAT layer"
+    },
+    {
+      "latex": "\\text{agg}[n] = \\max_{m \\in \\text{ne}[n]} [h_m]",
+      "related_concepts": [
+        "max pooling"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        505.0,
+        917.5,
+        642.5,
+        945.0
+      ],
+      "label": "max pooling aggregation"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "diagram",
+      "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, Prediction head, and Transform.",
+      "related_concepts": [
+        "graph neural network",
+        "message passing",
+        "aggregation",
+        "batch normalization",
+        "dropout",
+        "non-linearity",
+        "prediction head",
+        "representation learning"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        27.5,
+        55.0,
+        412.5,
+        495.0
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph with nodes labeled 1 to 6, illustrating local aggregation at the node level.",
+      "related_concepts": [
+        "aggregation",
+        "local embedding aggregation"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        412.5,
+        110.0,
+        522.5,
+        275.0
+      ]
+    },
+    {
+      "kind": "diagram",
+      "description": "Comparison of graph convolutional network, dot product attention, and graph attention network",
+      "related_concepts": [
+        "graph convolutional network",
+        "graph attention network"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        247.5,
+        945.0,
+        357.5
+      ]
+    },
+    {
+      "kind": "graph example",
+      "description": "Graph showing local and global embedding aggregation",
+      "related_concepts": [
+        "local embedding aggregation",
+        "global embedding aggregation"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.95,
+      "bbox": [
+        477.5,
+        110.0,
+        697.5,
+        247.5
+      ]
+    },
+    {
+      "kind": "matrix",
+      "description": "Node-to-node similarity matrix S",
+      "related_concepts": [
+        "graph attention network"
+      ],
+      "source_type": "mixed",
+      "confidence": 0.9,
+      "bbox": [
+        835.0,
+        467.5,
+        917.5,
+        522.5
+      ]
+    },
+    {
+      "kind": "architecture",
+      "description": "Graph attention network architecture showing input X, pre-attention computation, attention masking with Softmask, and output computation",
+      "related_concepts": [
+        "graph attention network",
+        "attention masking",
+        "softmax normalization"
+      ],
+      "source_type": "printed",
+      "confidence": 1.0,
+      "bbox": [
+        752.5,
+        879.0,
+        989.0,
+        934.0
+      ]
+    }
+  ],
+  "uncertain_handwriting": [
+    {
+      "transcription": "pre-attention matrix",
+      "reason": "Handwriting is partially obscured and difficult to read clearly",
+      "bbox": [
+        917.5,
+        440.0,
+        972.5,
+        467.5
+      ]
+    },
+    {
+      "transcription": "The new G",
+      "reason": "Partially cut off and unclear if it refers to 'GCN' or another term.",
+      "bbox": [
+        374.0,
+        587.5,
+        412.5,
+        604.0
+      ]
+    },
+    {
+      "transcription": "pre-computation matrix",
+      "reason": "Handwritten annotation near similarity matrix computation is partially obscured and stylized",
+      "bbox": [
+        917.5,
+        516.0,
+        989.0,
+        532.5
+      ]
+    },
+    {
+      "transcription": "nonlinearity softmax",
+      "reason": "Handwritten annotation near softmax operation is stylized and partially unclear",
+      "bbox": [
+        862.5,
+        835.0,
+        917.5,
+        851.5
+      ]
+    },
+    {
+      "transcription": "sparse",
+      "reason": "Handwritten annotation near graph structure is small and stylized",
+      "bbox": [
+        807.5,
+        846.0,
+        835.0,
+        857.0
+      ]
+    }
+  ],
+  "raw_responses": [
+    {
+      "stage": "tile",
+      "tile": "top-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              220,
+              620,
+              260
+            ]
+          },
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "GNN layer operations",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              320,
+              450,
+              420,
+              550
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "AGG",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              80,
+              220,
+              180,
+              320
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              620,
+              550,
+              720,
+              650
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              530,
+              750,
+              620,
+              790
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              320,
+              750,
+              420,
+              850
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              80,
+              650,
+              180,
+              750
+            ]
+          },
+          {
+            "canonical": "transform",
+            "aliases": [],
+            "evidence": "Transform",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              320,
+              120,
+              420,
+              220
+            ]
+          },
+          {
+            "canonical": "global embedding",
+            "aliases": [],
+            "evidence": "Global embedding",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              550,
+              850,
+              590
+            ]
+          },
+          {
+            "canonical": "mean aggregation",
+            "aliases": [],
+            "evidence": "Mean aggregation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              650,
+              850,
+              690
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              450,
+              320,
+              650,
+              360
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a \\left[ \\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\sum_{m \\in \\mathcal{N}(n)} h_k^{(m)} \\right]",
+            "related_concepts": [
+              "aggregation",
+              "mean aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              750,
+              950,
+              790
+            ],
+            "label": ""
+          },
+          {
+            "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} h_m",
+            "related_concepts": [
+              "aggregation",
+              "mean aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              850,
+              950,
+              890
+            ],
+            "label": ""
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, Prediction head, and Transform.",
+            "related_concepts": [
+              "graph neural network",
+              "message passing",
+              "aggregation",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head",
+              "transform"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              100,
+              750,
+              900
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph with nodes labeled 1 to 6, illustrating local aggregation at the node level.",
+            "related_concepts": [
+              "aggregation",
+              "mean aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              200,
+              950,
+              500
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Small graph example illustrating the concept of summing the embeddings of neighbors.",
+            "related_concepts": [
+              "aggregation",
+              "mean aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              750,
+              900,
+              850,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": []
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 220, 620, 260]\n    },\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"GNN layer operations\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [320, 450, 420, 550]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"AGG\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [80, 220, 180, 320]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [620, 550, 720, 650]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [530, 750, 620, 790]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [320, 750, 420, 850]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [80, 650, 180, 750]\n    },\n    {\n      \"canonical\": \"transform\",\n      \"aliases\": [],\n      \"evidence\": \"Transform\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [320, 120, 420, 220]\n    },\n    {\n      \"canonical\": \"global embedding\",\n      \"aliases\": [],\n      \"evidence\": \"Global embedding\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 550, 850, 590]\n    },\n    {\n      \"canonical\": \"mean aggregation\",\n      \"aliases\": [],\n      \"evidence\": \"Mean aggregation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 650, 850, 690]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [450, 320, 650, 360],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\sum_{m \\\\in \\\\mathcal{N}(n)} h_k^{(m)} \\\\right]\",\n      \"related_concepts\": [\"aggregation\", \"mean aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 750, 950, 790],\n      \"label\": \"\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\sum_{m \\\\in \\\\text{ne}[n]} h_m\",\n      \"related_concepts\": [\"aggregation\", \"mean aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 850, 950, 890],\n      \"label\": \"\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, Prediction head, and Transform.\",\n      \"related_concepts\": [\"graph neural network\", \"message passing\", \"aggregation\", \"batch normalization\", \"dropout\", \"non-linearity\", \"prediction head\", \"transform\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 100, 750, 900]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph with nodes labeled 1 to 6, illustrating local aggregation at the node level.\",\n      \"related_concepts\": [\"aggregation\", \"mean aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 200, 950, 500]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Small graph example illustrating the concept of summing the embeddings of neighbors.\",\n      \"related_concepts\": [\"aggregation\", \"mean aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [750, 900, 850, 950]\n    }\n  ],\n  \"uncertain_handwriting\": []\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "top-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "local embedding aggregation",
+            "aliases": [
+              "node level aggregation"
+            ],
+            "evidence": "Local embedding aggregation at the node level",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              300,
+              200,
+              450,
+              350
+            ]
+          },
+          {
+            "canonical": "global embedding aggregation",
+            "aliases": [
+              "graph level aggregation"
+            ],
+            "evidence": "Global embedding aggregation at the graph level",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              500,
+              200,
+              650
+            ]
+          },
+          {
+            "canonical": "mean aggregation",
+            "aliases": [
+              "averaging embeddings"
+            ],
+            "evidence": "Mean aggregation",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              50,
+              650,
+              200,
+              700
+            ]
+          },
+          {
+            "canonical": "attention aggregation",
+            "aliases": [
+              "aggregation by attention"
+            ],
+            "evidence": "Aggregation by attention",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              100,
+              800,
+              150
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "Graph convolutional network",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              400,
+              800,
+              450
+            ]
+          },
+          {
+            "canonical": "node-to-node similarity matrix",
+            "aliases": [
+              "attention matrix"
+            ],
+            "evidence": "Define a node-to-node similarity matrix that will act as an attention matrix",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              700,
+              900,
+              750
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H'_k = \\beta_k 1^T + \\Omega_k H",
+            "related_concepts": [
+              "linear transformation",
+              "transformed embeddings"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              600,
+              300,
+              800,
+              350
+            ],
+            "label": "Transformed embeddings"
+          },
+          {
+            "latex": "h^{(n)}_{k+1} = a \\left[ \\beta_k + \\Omega_k \\cdot h^{(n)}_k + \\Omega_k \\cdot \\text{agg}[n, k] \\right]",
+            "related_concepts": [
+              "local embedding aggregation",
+              "mean aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              50,
+              700,
+              400,
+              750
+            ],
+            "label": "Local aggregation formula"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\frac{1}{|\\text{ne}[n]|} \\sum_{m \\in \\text{ne}[n]} h_m",
+            "related_concepts": [
+              "mean aggregation",
+              "averaging embeddings"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              200,
+              750,
+              400,
+              800
+            ],
+            "label": "Mean aggregation formula"
+          },
+          {
+            "latex": "s_{mn} = \\left[ \\phi_k^T \\begin{bmatrix} h'_m \\\\ h'_n \\end{bmatrix} \\right]",
+            "related_concepts": [
+              "node-to-node similarity matrix",
+              "attention matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              600,
+              800,
+              800,
+              850
+            ],
+            "label": "Similarity matrix formula"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Comparison of graph convolutional network, dot product attention, and graph attention network",
+            "related_concepts": [
+              "graph convolutional network",
+              "attention aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              450,
+              900,
+              650
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph showing local and global embedding aggregation",
+            "related_concepts": [
+              "local embedding aggregation",
+              "global embedding aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              50,
+              200,
+              450,
+              450
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Node-to-node similarity matrix S",
+            "related_concepts": [
+              "node-to-node similarity matrix",
+              "attention matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              700,
+              850,
+              850,
+              950
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "pre-attention matrix",
+            "reason": "Handwriting is partially obscured and difficult to read clearly",
+            "bbox": [
+              850,
+              800,
+              950,
+              850
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"local embedding aggregation\",\n      \"aliases\": [\"node level aggregation\"],\n      \"evidence\": \"Local embedding aggregation at the node level\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [300, 200, 450, 350]\n    },\n    {\n      \"canonical\": \"global embedding aggregation\",\n      \"aliases\": [\"graph level aggregation\"],\n      \"evidence\": \"Global embedding aggregation at the graph level\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 500, 200, 650]\n    },\n    {\n      \"canonical\": \"mean aggregation\",\n      \"aliases\": [\"averaging embeddings\"],\n      \"evidence\": \"Mean aggregation\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [50, 650, 200, 700]\n    },\n    {\n      \"canonical\": \"attention aggregation\",\n      \"aliases\": [\"aggregation by attention\"],\n      \"evidence\": \"Aggregation by attention\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 100, 800, 150]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"Graph convolutional network\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 400, 800, 450]\n    },\n    {\n      \"canonical\": \"node-to-node similarity matrix\",\n      \"aliases\": [\"attention matrix\"],\n      \"evidence\": \"Define a node-to-node similarity matrix that will act as an attention matrix\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 700, 900, 750]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H'_k = \\\\beta_k 1^T + \\\\Omega_k H\",\n      \"related_concepts\": [\"linear transformation\", \"transformed embeddings\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [600, 300, 800, 350],\n      \"label\": \"Transformed embeddings\"\n    },\n    {\n      \"latex\": \"h^{(n)}_{k+1} = a \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot h^{(n)}_k + \\\\Omega_k \\\\cdot \\\\text{agg}[n, k] \\\\right]\",\n      \"related_concepts\": [\"local embedding aggregation\", \"mean aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [50, 700, 400, 750],\n      \"label\": \"Local aggregation formula\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\frac{1}{|\\\\text{ne}[n]|} \\\\sum_{m \\\\in \\\\text{ne}[n]} h_m\",\n      \"related_concepts\": [\"mean aggregation\", \"averaging embeddings\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [200, 750, 400, 800],\n      \"label\": \"Mean aggregation formula\"\n    },\n    {\n      \"latex\": \"s_{mn} = \\\\left[ \\\\phi_k^T \\\\begin{bmatrix} h'_m \\\\\\\\ h'_n \\\\end{bmatrix} \\\\right]\",\n      \"related_concepts\": [\"node-to-node similarity matrix\", \"attention matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [600, 800, 800, 850],\n      \"label\": \"Similarity matrix formula\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of graph convolutional network, dot product attention, and graph attention network\",\n      \"related_concepts\": [\"graph convolutional network\", \"attention aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 450, 900, 650]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph showing local and global embedding aggregation\",\n      \"related_concepts\": [\"local embedding aggregation\", \"global embedding aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [50, 200, 450, 450]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Node-to-node similarity matrix S\",\n      \"related_concepts\": [\"node-to-node similarity matrix\", \"attention matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [700, 850, 850, 950]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"pre-attention matrix\",\n      \"reason\": \"Handwriting is partially obscured and difficult to read clearly\",\n      \"bbox\": [850, 800, 950, 850]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-left",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "GCN"
+            ],
+            "evidence": "The new GCN",
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              680,
+              620,
+              800,
+              650
+            ]
+          },
+          {
+            "canonical": "kipf normalization",
+            "aliases": [],
+            "evidence": "Kipf normalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              320,
+              850,
+              360
+            ]
+          },
+          {
+            "canonical": "max pooling",
+            "aliases": [],
+            "evidence": "Max pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              650,
+              780,
+              850,
+              820
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "aggregation"
+            ],
+            "evidence": "agg[n] = \\sum_{m \\in \\mathcal{N}[n]} h_m",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              680,
+              0,
+              900,
+              100
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence": "Drop nodes to regularize",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              350,
+              0,
+              550,
+              50
+            ]
+          },
+          {
+            "canonical": "downweighting",
+            "aliases": [],
+            "evidence": "information coming from nodes be downweighted since there are many connections",
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              650,
+              380,
+              950,
+              450
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "\\text{agg}[n] = \\sum_{m \\in \\mathcal{N}[n]} h_m",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              680,
+              0,
+              900,
+              100
+            ],
+            "label": "Aggregation Formula"
+          },
+          {
+            "latex": "\\mathbf{H}_{k+1} = \\mathbf{a} \\left[ \\beta_k \\mathbf{1}^T + \\Omega \\right]",
+            "related_concepts": [
+              "graph convolutional network"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.85,
+            "bbox": [
+              680,
+              650,
+              950,
+              700
+            ],
+            "label": "GCN Update Rule"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "graph example",
+            "description": "A small graph with nodes and edges, illustrating the concept of node aggregation.",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              680,
+              450,
+              800,
+              600
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "The new G",
+            "reason": "Partially cut off and unclear if it refers to 'GCN' or another term.",
+            "bbox": [
+              680,
+              250,
+              750,
+              280
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"GCN\"],\n      \"evidence\": \"The new GCN\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [680, 620, 800, 650]\n    },\n    {\n      \"canonical\": \"kipf normalization\",\n      \"aliases\": [],\n      \"evidence\": \"Kipf normalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 320, 850, 360]\n    },\n    {\n      \"canonical\": \"max pooling\",\n      \"aliases\": [],\n      \"evidence\": \"Max pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [650, 780, 850, 820]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"aggregation\"],\n      \"evidence\": \"agg[n] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_m\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [680, 0, 900, 100]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence\": \"Drop nodes to regularize\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [350, 0, 550, 50]\n    },\n    {\n      \"canonical\": \"downweighting\",\n      \"aliases\": [],\n      \"evidence\": \"information coming from nodes be downweighted since there are many connections\",\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [650, 380, 950, 450]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\sum_{m \\\\in \\\\mathcal{N}[n]} h_m\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [680, 0, 900, 100],\n      \"label\": \"Aggregation Formula\"\n    },\n    {\n      \"latex\": \"\\\\mathbf{H}_{k+1} = \\\\mathbf{a} \\\\left[ \\\\beta_k \\\\mathbf{1}^T + \\\\Omega \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.85,\n      \"bbox\": [680, 650, 950, 700],\n      \"label\": \"GCN Update Rule\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"A small graph with nodes and edges, illustrating the concept of node aggregation.\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [680, 450, 800, 600]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"The new G\",\n      \"reason\": \"Partially cut off and unclear if it refers to 'GCN' or another term.\",\n      \"bbox\": [680, 250, 750, 280]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "tile",
+      "tile": "bottom-right",
+      "parsed": {
+        "concepts": [
+          {
+            "canonical": "graph attention network",
+            "aliases": [
+              "GAT"
+            ],
+            "evidence": "The graph attention network combines both of these mechanisms; the weights are both computed from the data (i.e., embeddings) and based on the adjacency matrix (graph topology).",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              880,
+              980,
+              960
+            ]
+          },
+          {
+            "canonical": "softmax normalization",
+            "aliases": [
+              "softmax operation"
+            ],
+            "evidence": "attention weights that contribute to each output embedding are normalized to be positive and sum to one using the softmax operation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              550,
+              980,
+              600
+            ]
+          },
+          {
+            "canonical": "attention masking",
+            "aliases": [
+              "masked attention"
+            ],
+            "evidence": "The attentions are masked so that each node only attends to itself and its neighbors.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              750,
+              980,
+              780
+            ]
+          },
+          {
+            "canonical": "Kipf normalization",
+            "aliases": [
+              "symmetric normalization"
+            ],
+            "evidence": "Kipf normalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              420,
+              150,
+              450
+            ]
+          },
+          {
+            "canonical": "max pooling",
+            "aliases": [
+              "element-wise maximum"
+            ],
+            "evidence": "Max pooling can also be applied at the node level to update the node embedding.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              750,
+              150,
+              780
+            ]
+          },
+          {
+            "canonical": "node-to-node similarity matrix",
+            "aliases": [
+              "attention matrix"
+            ],
+            "evidence": "Define a node-to-node similarity matrix that will act as an attention matrix in the embedding aggregation step",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              100,
+              980,
+              150
+            ]
+          },
+          {
+            "canonical": "degree matrix",
+            "aliases": [
+              "D"
+            ],
+            "evidence": "The new GCN layer can be written using the degree matrix as:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              200,
+              400,
+              230
+            ]
+          },
+          {
+            "canonical": "embedding aggregation",
+            "aliases": [
+              "message passing"
+            ],
+            "evidence": "embedding aggregation step",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              130,
+              750,
+              150
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (AD^{-1} + I) \\right]",
+            "related_concepts": [
+              "GCN layer",
+              "degree matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              250,
+              400,
+              300
+            ],
+            "label": "GCN with degree matrix"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (D^{-1/2}AD^{-1/2} + I) \\right]",
+            "related_concepts": [
+              "GCN layer",
+              "Kipf normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              10,
+              550,
+              400,
+              600
+            ],
+            "label": "GCN with Kipf normalization"
+          },
+          {
+            "latex": "s_{mn} = \\left[ \\phi_k^T \\begin{bmatrix} h'_m \\\\ h'_n \\end{bmatrix} \\right]",
+            "related_concepts": [
+              "node-to-node similarity matrix",
+              "attention matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              200,
+              750,
+              280
+            ],
+            "label": "similarity computation"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ H'_k \\cdot \\text{Softmask}(S, A + I) \\right]",
+            "related_concepts": [
+              "graph attention network",
+              "attention masking"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              650,
+              900,
+              700
+            ],
+            "label": "GAT layer"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} \\frac{h_m}{\\sqrt{|\\text{ne}[n]| |\\text{ne}[m]|}}",
+            "related_concepts": [
+              "embedding aggregation",
+              "Kipf normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              450,
+              400,
+              520
+            ],
+            "label": "normalized aggregation"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\max_{m \\in \\text{ne}[n]} [h_m]",
+            "related_concepts": [
+              "max pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              100,
+              850,
+              350,
+              900
+            ],
+            "label": "max pooling aggregation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "architecture",
+            "description": "Graph attention network architecture showing input X, pre-attention computation, attention masking with Softmask, and output computation",
+            "related_concepts": [
+              "graph attention network",
+              "attention masking",
+              "softmax normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              550,
+              780,
+              980,
+              880
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Matrix computation diagram showing similarity matrix S computation from node embeddings with learnable parameters",
+            "related_concepts": [
+              "node-to-node similarity matrix",
+              "attention matrix"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              550,
+              150,
+              980,
+              350
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Small graph example with nodes and edges illustrating neighborhood relationships for aggregation",
+            "related_concepts": [
+              "embedding aggregation",
+              "neighborhood"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              10,
+              100,
+              100,
+              200
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual representation of max pooling operation on node embeddings with element-wise maximum selection",
+            "related_concepts": [
+              "max pooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              350,
+              850,
+              500,
+              920
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "pre-computation matrix",
+            "reason": "Handwritten annotation near similarity matrix computation is partially obscured and stylized",
+            "bbox": [
+              850,
+              120,
+              980,
+              150
+            ]
+          },
+          {
+            "transcription": "nonlinearity softmax",
+            "reason": "Handwritten annotation near softmax operation is stylized and partially unclear",
+            "bbox": [
+              750,
+              700,
+              850,
+              730
+            ]
+          },
+          {
+            "transcription": "sparse",
+            "reason": "Handwritten annotation near graph structure is small and stylized",
+            "bbox": [
+              650,
+              720,
+              700,
+              740
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"concepts\": [\n    {\n      \"canonical\": \"graph attention network\",\n      \"aliases\": [\"GAT\"],\n      \"evidence\": \"The graph attention network combines both of these mechanisms; the weights are both computed from the data (i.e., embeddings) and based on the adjacency matrix (graph topology).\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 880, 980, 960]\n    },\n    {\n      \"canonical\": \"softmax normalization\",\n      \"aliases\": [\"softmax operation\"],\n      \"evidence\": \"attention weights that contribute to each output embedding are normalized to be positive and sum to one using the softmax operation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 550, 980, 600]\n    },\n    {\n      \"canonical\": \"attention masking\",\n      \"aliases\": [\"masked attention\"],\n      \"evidence\": \"The attentions are masked so that each node only attends to itself and its neighbors.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 750, 980, 780]\n    },\n    {\n      \"canonical\": \"Kipf normalization\",\n      \"aliases\": [\"symmetric normalization\"],\n      \"evidence\": \"Kipf normalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 420, 150, 450]\n    },\n    {\n      \"canonical\": \"max pooling\",\n      \"aliases\": [\"element-wise maximum\"],\n      \"evidence\": \"Max pooling can also be applied at the node level to update the node embedding.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 750, 150, 780]\n    },\n    {\n      \"canonical\": \"node-to-node similarity matrix\",\n      \"aliases\": [\"attention matrix\"],\n      \"evidence\": \"Define a node-to-node similarity matrix that will act as an attention matrix in the embedding aggregation step\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 100, 980, 150]\n    },\n    {\n      \"canonical\": \"degree matrix\",\n      \"aliases\": [\"D\"],\n      \"evidence\": \"The new GCN layer can be written using the degree matrix as:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 200, 400, 230]\n    },\n    {\n      \"canonical\": \"embedding aggregation\",\n      \"aliases\": [\"message passing\"],\n      \"evidence\": \"embedding aggregation step\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 130, 750, 150]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (AD^{-1} + I) \\\\right]\",\n      \"related_concepts\": [\"GCN layer\", \"degree matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 250, 400, 300],\n      \"label\": \"GCN with degree matrix\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (D^{-1/2}AD^{-1/2} + I) \\\\right]\",\n      \"related_concepts\": [\"GCN layer\", \"Kipf normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [10, 550, 400, 600],\n      \"label\": \"GCN with Kipf normalization\"\n    },\n    {\n      \"latex\": \"s_{mn} = \\\\left[ \\\\phi_k^T \\\\begin{bmatrix} h'_m \\\\\\\\ h'_n \\\\end{bmatrix} \\\\right]\",\n      \"related_concepts\": [\"node-to-node similarity matrix\", \"attention matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 200, 750, 280],\n      \"label\": \"similarity computation\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ H'_k \\\\cdot \\\\text{Softmask}(S, A + I) \\\\right]\",\n      \"related_concepts\": [\"graph attention network\", \"attention masking\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 650, 900, 700],\n      \"label\": \"GAT layer\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\sum_{m \\\\in \\\\text{ne}[n]} \\\\frac{h_m}{\\\\sqrt{|\\\\text{ne}[n]| |\\\\text{ne}[m]|}}\",\n      \"related_concepts\": [\"embedding aggregation\", \"Kipf normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 450, 400, 520],\n      \"label\": \"normalized aggregation\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\max_{m \\\\in \\\\text{ne}[n]} [h_m]\",\n      \"related_concepts\": [\"max pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [100, 850, 350, 900],\n      \"label\": \"max pooling aggregation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph attention network architecture showing input X, pre-attention computation, attention masking with Softmask, and output computation\",\n      \"related_concepts\": [\"graph attention network\", \"attention masking\", \"softmax normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [550, 780, 980, 880]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Matrix computation diagram showing similarity matrix S computation from node embeddings with learnable parameters\",\n      \"related_concepts\": [\"node-to-node similarity matrix\", \"attention matrix\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [550, 150, 980, 350]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Small graph example with nodes and edges illustrating neighborhood relationships for aggregation\",\n      \"related_concepts\": [\"embedding aggregation\", \"neighborhood\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [10, 100, 100, 200]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual representation of max pooling operation on node embeddings with element-wise maximum selection\",\n      \"related_concepts\": [\"max pooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [350, 850, 500, 920]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"pre-computation matrix\",\n      \"reason\": \"Handwritten annotation near similarity matrix computation is partially obscured and stylized\",\n      \"bbox\": [850, 120, 980, 150]\n    },\n    {\n      \"transcription\": \"nonlinearity softmax\",\n      \"reason\": \"Handwritten annotation near softmax operation is stylized and partially unclear\",\n      \"bbox\": [750, 700, 850, 730]\n    },\n    {\n      \"transcription\": \"sparse\",\n      \"reason\": \"Handwritten annotation near graph structure is small and stylized\",\n      \"bbox\": [650, 720, 700, 740]\n    }\n  ]\n}"
+    },
+    {
+      "stage": "page_consolidation",
+      "parsed": {
+        "page_title": "Graph Neural Network Aggregation and Attention Mechanisms",
+        "summary": "This page details the core operations of Graph Neural Networks (GNNs), focusing on local and global aggregation strategies. It contrasts standard Graph Convolutional Networks (GCNs) using Kipf normalization with Graph Attention Networks (GATs) that utilize learnable attention weights. The content covers specific mathematical formulations for message passing, including mean aggregation, max pooling, and the integration of softmax-normalized attention masks.",
+        "key_topics": [
+          "graph neural network",
+          "message passing",
+          "graph attention network",
+          "graph convolutional network",
+          "aggregation",
+          "kipf normalization",
+          "attention masking"
+        ],
+        "concepts": [
+          {
+            "canonical": "graph neural network",
+            "aliases": [
+              "gnn"
+            ],
+            "evidence": "GNN layer operations",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              176.0,
+              247.5,
+              231.0,
+              302.5
+            ]
+          },
+          {
+            "canonical": "message passing",
+            "aliases": [
+              "msg passing"
+            ],
+            "evidence": "MSG passing",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              291.5,
+              121.0,
+              341.0,
+              143.0
+            ]
+          },
+          {
+            "canonical": "aggregation",
+            "aliases": [
+              "agg"
+            ],
+            "evidence": "AGG",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              44.0,
+              121.0,
+              99.0,
+              176.0
+            ]
+          },
+          {
+            "canonical": "batch normalization",
+            "aliases": [
+              "bn"
+            ],
+            "evidence": "BN",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              341.0,
+              302.5,
+              396.0,
+              357.5
+            ]
+          },
+          {
+            "canonical": "dropout",
+            "aliases": [],
+            "evidence": "Dropout",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              291.5,
+              412.5,
+              341.0,
+              434.5
+            ]
+          },
+          {
+            "canonical": "non-linearity",
+            "aliases": [
+              "activation function"
+            ],
+            "evidence": "Non-linearity",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              176.0,
+              412.5,
+              231.0,
+              467.5
+            ]
+          },
+          {
+            "canonical": "prediction head",
+            "aliases": [],
+            "evidence": "Prediction head",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              44.0,
+              357.5,
+              99.0,
+              412.5
+            ]
+          },
+          {
+            "canonical": "representation learning",
+            "aliases": [
+              "transform"
+            ],
+            "evidence": "Transform",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              176.0,
+              66.0,
+              231.0,
+              121.0
+            ]
+          },
+          {
+            "canonical": "graph convolutional network",
+            "aliases": [
+              "gcn"
+            ],
+            "evidence": "Graph convolutional network",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              220.0,
+              890.0,
+              247.5
+            ]
+          },
+          {
+            "canonical": "graph attention network",
+            "aliases": [
+              "gat"
+            ],
+            "evidence": "The graph attention network combines both of these mechanisms",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              934.0,
+              989.0,
+              978.0
+            ]
+          },
+          {
+            "canonical": "attention masking",
+            "aliases": [
+              "masked attention"
+            ],
+            "evidence": "The attentions are masked so that each node only attends to itself and its neighbors.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              862.5,
+              989.0,
+              879.0
+            ]
+          },
+          {
+            "canonical": "softmax normalization",
+            "aliases": [
+              "softmax operation"
+            ],
+            "evidence": "attention weights that contribute to each output embedding are normalized to be positive and sum to one using the softmax operation.",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              752.5,
+              989.0,
+              780.0
+            ]
+          },
+          {
+            "canonical": "degree matrix",
+            "aliases": [
+              "d"
+            ],
+            "evidence": "The new GCN layer can be written using the degree matrix as:",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              560.0,
+              670.0,
+              576.5
+            ]
+          },
+          {
+            "canonical": "kipf normalization",
+            "aliases": [
+              "symmetric normalization"
+            ],
+            "evidence": "Kipf normalization",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              626.0,
+              467.5,
+              648.0
+            ]
+          },
+          {
+            "canonical": "max pooling",
+            "aliases": [
+              "element-wise maximum"
+            ],
+            "evidence": "Max pooling",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              357.5,
+              879.0,
+              467.5,
+              901.0
+            ]
+          },
+          {
+            "canonical": "regularization",
+            "aliases": [],
+            "evidence": "Drop nodes to regularize",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              192.5,
+              450.0,
+              302.5,
+              477.5
+            ]
+          },
+          {
+            "canonical": "node embedding",
+            "aliases": [
+              "embeddings"
+            ],
+            "evidence": "Linearly transform the embeddings of a current node",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              110.0,
+              890.0,
+              137.5
+            ]
+          },
+          {
+            "canonical": "adjacency matrix",
+            "aliases": [
+              "graph topology"
+            ],
+            "evidence": "based on the adjacency matrix (graph topology)",
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              961.5,
+              989.0,
+              978.0
+            ]
+          },
+          {
+            "canonical": "local embedding aggregation",
+            "aliases": [
+              "node level aggregation"
+            ],
+            "evidence": "Local embedding aggregation at the node level",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              615.0,
+              110.0,
+              697.5,
+              192.5
+            ]
+          },
+          {
+            "canonical": "global embedding aggregation",
+            "aliases": [
+              "graph level aggregation"
+            ],
+            "evidence": "Global embedding aggregation at the graph level",
+            "source_type": "handwritten",
+            "confidence": 0.95,
+            "bbox": [
+              477.5,
+              275.0,
+              560.0,
+              357.5
+            ]
+          }
+        ],
+        "formulas": [
+          {
+            "latex": "H_{k+1} = f(H_k, A)",
+            "related_concepts": [
+              "message passing"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              247.5,
+              176.0,
+              357.5,
+              198.0
+            ],
+            "label": "generalized propagation rule"
+          },
+          {
+            "latex": "h_{k+1}^{(n)} = a \\left[ \\beta_k + \\Omega_k \\cdot h_k^{(n)} + \\sum_{m \\in \\mathcal{N}(n)} h_k^{(m)} \\right]",
+            "related_concepts": [
+              "aggregation",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              412.5,
+              522.5,
+              434.5
+            ],
+            "label": "Local aggregation formula"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} h_m",
+            "related_concepts": [
+              "aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              467.5,
+              522.5,
+              489.5
+            ],
+            "label": "Sum aggregation"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\frac{1}{|\\text{ne}[n]|} \\sum_{m \\in \\text{ne}[n]} h_m",
+            "related_concepts": [
+              "aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              560.0,
+              412.5,
+              670.0,
+              440.0
+            ],
+            "label": "Mean aggregation formula"
+          },
+          {
+            "latex": "H'_k = \\beta_k 1^T + \\Omega_k H",
+            "related_concepts": [
+              "representation learning",
+              "node embedding"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              780.0,
+              165.0,
+              890.0,
+              192.5
+            ],
+            "label": "Transformed embeddings"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (AD^{-1} + I) \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "degree matrix"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              587.5,
+              670.0,
+              615.0
+            ],
+            "label": "GCN with degree matrix"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ \\beta_k 1^T + \\Omega_k H_k (D^{-1/2}AD^{-1/2} + I) \\right]",
+            "related_concepts": [
+              "graph convolutional network",
+              "kipf normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              455.5,
+              752.5,
+              670.0,
+              780.0
+            ],
+            "label": "GCN with Kipf normalization"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\sum_{m \\in \\text{ne}[n]} \\frac{h_m}{\\sqrt{|\\text{ne}[n]| |\\text{ne}[m]|}}",
+            "related_concepts": [
+              "aggregation",
+              "kipf normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              697.5,
+              670.0,
+              736.0
+            ],
+            "label": "normalized aggregation"
+          },
+          {
+            "latex": "s_{mn} = \\left[ \\phi_k^T \\begin{bmatrix} h'_m \\\\ h'_n \\end{bmatrix} \\right]",
+            "related_concepts": [
+              "graph attention network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              560.0,
+              862.5,
+              604.0
+            ],
+            "label": "similarity computation"
+          },
+          {
+            "latex": "H_{k+1} = a \\left[ H'_k \\cdot \\text{Softmask}(S, A + I) \\right]",
+            "related_concepts": [
+              "graph attention network",
+              "attention masking"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              807.5,
+              945.0,
+              835.0
+            ],
+            "label": "GAT layer"
+          },
+          {
+            "latex": "\\text{agg}[n] = \\max_{m \\in \\text{ne}[n]} [h_m]",
+            "related_concepts": [
+              "max pooling"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              505.0,
+              917.5,
+              642.5,
+              945.0
+            ],
+            "label": "max pooling aggregation"
+          }
+        ],
+        "visuals": [
+          {
+            "kind": "diagram",
+            "description": "Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, Prediction head, and Transform.",
+            "related_concepts": [
+              "graph neural network",
+              "message passing",
+              "aggregation",
+              "batch normalization",
+              "dropout",
+              "non-linearity",
+              "prediction head",
+              "representation learning"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              27.5,
+              55.0,
+              412.5,
+              495.0
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph with nodes labeled 1 to 6, illustrating local aggregation at the node level.",
+            "related_concepts": [
+              "aggregation",
+              "local embedding aggregation"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              412.5,
+              110.0,
+              522.5,
+              275.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Comparison of graph convolutional network, dot product attention, and graph attention network",
+            "related_concepts": [
+              "graph convolutional network",
+              "graph attention network"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              247.5,
+              945.0,
+              357.5
+            ]
+          },
+          {
+            "kind": "graph example",
+            "description": "Graph showing local and global embedding aggregation",
+            "related_concepts": [
+              "local embedding aggregation",
+              "global embedding aggregation"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.95,
+            "bbox": [
+              477.5,
+              110.0,
+              697.5,
+              247.5
+            ]
+          },
+          {
+            "kind": "matrix",
+            "description": "Node-to-node similarity matrix S",
+            "related_concepts": [
+              "graph attention network"
+            ],
+            "source_type": "mixed",
+            "confidence": 0.9,
+            "bbox": [
+              835.0,
+              467.5,
+              917.5,
+              522.5
+            ]
+          },
+          {
+            "kind": "architecture",
+            "description": "Graph attention network architecture showing input X, pre-attention computation, attention masking with Softmask, and output computation",
+            "related_concepts": [
+              "graph attention network",
+              "attention masking",
+              "softmax normalization"
+            ],
+            "source_type": "printed",
+            "confidence": 1.0,
+            "bbox": [
+              752.5,
+              879.0,
+              989.0,
+              934.0
+            ]
+          },
+          {
+            "kind": "diagram",
+            "description": "Visual representation of max pooling operation on node embeddings with element-wise maximum selection",
+            "related_concepts": [
+              "max pooling"
+            ],
+            "source_type": "handwritten",
+            "confidence": 0.8,
+            "bbox": [
+              642.5,
+              917.5,
+              725.0,
+              956.0
+            ]
+          }
+        ],
+        "uncertain_handwriting": [
+          {
+            "transcription": "pre-attention matrix",
+            "reason": "Handwriting is partially obscured and difficult to read clearly",
+            "bbox": [
+              917.5,
+              440.0,
+              972.5,
+              467.5
+            ]
+          },
+          {
+            "transcription": "The new G",
+            "reason": "Partially cut off and unclear if it refers to 'GCN' or another term.",
+            "bbox": [
+              374.0,
+              587.5,
+              412.5,
+              604.0
+            ]
+          },
+          {
+            "transcription": "pre-computation matrix",
+            "reason": "Handwritten annotation near similarity matrix computation is partially obscured and stylized",
+            "bbox": [
+              917.5,
+              516.0,
+              989.0,
+              532.5
+            ]
+          },
+          {
+            "transcription": "nonlinearity softmax",
+            "reason": "Handwritten annotation near softmax operation is stylized and partially unclear",
+            "bbox": [
+              862.5,
+              835.0,
+              917.5,
+              851.5
+            ]
+          },
+          {
+            "transcription": "sparse",
+            "reason": "Handwritten annotation near graph structure is small and stylized",
+            "bbox": [
+              807.5,
+              846.0,
+              835.0,
+              857.0
+            ]
+          }
+        ]
+      },
+      "raw": "{\n  \"page_title\": \"Graph Neural Network Aggregation and Attention Mechanisms\",\n  \"summary\": \"This page details the core operations of Graph Neural Networks (GNNs), focusing on local and global aggregation strategies. It contrasts standard Graph Convolutional Networks (GCNs) using Kipf normalization with Graph Attention Networks (GATs) that utilize learnable attention weights. The content covers specific mathematical formulations for message passing, including mean aggregation, max pooling, and the integration of softmax-normalized attention masks.\",\n  \"key_topics\": [\n    \"graph neural network\",\n    \"message passing\",\n    \"graph attention network\",\n    \"graph convolutional network\",\n    \"aggregation\",\n    \"kipf normalization\",\n    \"attention masking\"\n  ],\n  \"concepts\": [\n    {\n      \"canonical\": \"graph neural network\",\n      \"aliases\": [\"gnn\"],\n      \"evidence\": \"GNN layer operations\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [176.0, 247.5, 231.0, 302.5]\n    },\n    {\n      \"canonical\": \"message passing\",\n      \"aliases\": [\"msg passing\"],\n      \"evidence\": \"MSG passing\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [291.5, 121.0, 341.0, 143.0]\n    },\n    {\n      \"canonical\": \"aggregation\",\n      \"aliases\": [\"agg\"],\n      \"evidence\": \"AGG\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [44.0, 121.0, 99.0, 176.0]\n    },\n    {\n      \"canonical\": \"batch normalization\",\n      \"aliases\": [\"bn\"],\n      \"evidence\": \"BN\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [341.0, 302.5, 396.0, 357.5]\n    },\n    {\n      \"canonical\": \"dropout\",\n      \"aliases\": [],\n      \"evidence\": \"Dropout\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [291.5, 412.5, 341.0, 434.5]\n    },\n    {\n      \"canonical\": \"non-linearity\",\n      \"aliases\": [\"activation function\"],\n      \"evidence\": \"Non-linearity\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [176.0, 412.5, 231.0, 467.5]\n    },\n    {\n      \"canonical\": \"prediction head\",\n      \"aliases\": [],\n      \"evidence\": \"Prediction head\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [44.0, 357.5, 99.0, 412.5]\n    },\n    {\n      \"canonical\": \"representation learning\",\n      \"aliases\": [\"transform\"],\n      \"evidence\": \"Transform\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [176.0, 66.0, 231.0, 121.0]\n    },\n    {\n      \"canonical\": \"graph convolutional network\",\n      \"aliases\": [\"gcn\"],\n      \"evidence\": \"Graph convolutional network\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 220.0, 890.0, 247.5]\n    },\n    {\n      \"canonical\": \"graph attention network\",\n      \"aliases\": [\"gat\"],\n      \"evidence\": \"The graph attention network combines both of these mechanisms\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 934.0, 989.0, 978.0]\n    },\n    {\n      \"canonical\": \"attention masking\",\n      \"aliases\": [\"masked attention\"],\n      \"evidence\": \"The attentions are masked so that each node only attends to itself and its neighbors.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 862.5, 989.0, 879.0]\n    },\n    {\n      \"canonical\": \"softmax normalization\",\n      \"aliases\": [\"softmax operation\"],\n      \"evidence\": \"attention weights that contribute to each output embedding are normalized to be positive and sum to one using the softmax operation.\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 752.5, 989.0, 780.0]\n    },\n    {\n      \"canonical\": \"degree matrix\",\n      \"aliases\": [\"d\"],\n      \"evidence\": \"The new GCN layer can be written using the degree matrix as:\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 560.0, 670.0, 576.5]\n    },\n    {\n      \"canonical\": \"kipf normalization\",\n      \"aliases\": [\"symmetric normalization\"],\n      \"evidence\": \"Kipf normalization\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 626.0, 467.5, 648.0]\n    },\n    {\n      \"canonical\": \"max pooling\",\n      \"aliases\": [\"element-wise maximum\"],\n      \"evidence\": \"Max pooling\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [357.5, 879.0, 467.5, 901.0]\n    },\n    {\n      \"canonical\": \"regularization\",\n      \"aliases\": [],\n      \"evidence\": \"Drop nodes to regularize\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [192.5, 450.0, 302.5, 477.5]\n    },\n    {\n      \"canonical\": \"node embedding\",\n      \"aliases\": [\"embeddings\"],\n      \"evidence\": \"Linearly transform the embeddings of a current node\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 110.0, 890.0, 137.5]\n    },\n    {\n      \"canonical\": \"adjacency matrix\",\n      \"aliases\": [\"graph topology\"],\n      \"evidence\": \"based on the adjacency matrix (graph topology)\",\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 961.5, 989.0, 978.0]\n    },\n    {\n      \"canonical\": \"local embedding aggregation\",\n      \"aliases\": [\"node level aggregation\"],\n      \"evidence\": \"Local embedding aggregation at the node level\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [615.0, 110.0, 697.5, 192.5]\n    },\n    {\n      \"canonical\": \"global embedding aggregation\",\n      \"aliases\": [\"graph level aggregation\"],\n      \"evidence\": \"Global embedding aggregation at the graph level\",\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.95,\n      \"bbox\": [477.5, 275.0, 560.0, 357.5]\n    }\n  ],\n  \"formulas\": [\n    {\n      \"latex\": \"H_{k+1} = f(H_k, A)\",\n      \"related_concepts\": [\"message passing\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [247.5, 176.0, 357.5, 198.0],\n      \"label\": \"generalized propagation rule\"\n    },\n    {\n      \"latex\": \"h_{k+1}^{(n)} = a \\\\left[ \\\\beta_k + \\\\Omega_k \\\\cdot h_k^{(n)} + \\\\sum_{m \\\\in \\\\mathcal{N}(n)} h_k^{(m)} \\\\right]\",\n      \"related_concepts\": [\"aggregation\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 412.5, 522.5, 434.5],\n      \"label\": \"Local aggregation formula\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\sum_{m \\\\in \\\\text{ne}[n]} h_m\",\n      \"related_concepts\": [\"aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 467.5, 522.5, 489.5],\n      \"label\": \"Sum aggregation\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\frac{1}{|\\\\text{ne}[n]|} \\\\sum_{m \\\\in \\\\text{ne}[n]} h_m\",\n      \"related_concepts\": [\"aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [560.0, 412.5, 670.0, 440.0],\n      \"label\": \"Mean aggregation formula\"\n    },\n    {\n      \"latex\": \"H'_k = \\\\beta_k 1^T + \\\\Omega_k H\",\n      \"related_concepts\": [\"representation learning\", \"node embedding\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [780.0, 165.0, 890.0, 192.5],\n      \"label\": \"Transformed embeddings\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (AD^{-1} + I) \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"degree matrix\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 587.5, 670.0, 615.0],\n      \"label\": \"GCN with degree matrix\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ \\\\beta_k 1^T + \\\\Omega_k H_k (D^{-1/2}AD^{-1/2} + I) \\\\right]\",\n      \"related_concepts\": [\"graph convolutional network\", \"kipf normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [455.5, 752.5, 670.0, 780.0],\n      \"label\": \"GCN with Kipf normalization\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\sum_{m \\\\in \\\\text{ne}[n]} \\\\frac{h_m}{\\\\sqrt{|\\\\text{ne}[n]| |\\\\text{ne}[m]|}}\",\n      \"related_concepts\": [\"aggregation\", \"kipf normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 697.5, 670.0, 736.0],\n      \"label\": \"normalized aggregation\"\n    },\n    {\n      \"latex\": \"s_{mn} = \\\\left[ \\\\phi_k^T \\\\begin{bmatrix} h'_m \\\\\\\\ h'_n \\\\end{bmatrix} \\\\right]\",\n      \"related_concepts\": [\"graph attention network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 560.0, 862.5, 604.0],\n      \"label\": \"similarity computation\"\n    },\n    {\n      \"latex\": \"H_{k+1} = a \\\\left[ H'_k \\\\cdot \\\\text{Softmask}(S, A + I) \\\\right]\",\n      \"related_concepts\": [\"graph attention network\", \"attention masking\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 807.5, 945.0, 835.0],\n      \"label\": \"GAT layer\"\n    },\n    {\n      \"latex\": \"\\\\text{agg}[n] = \\\\max_{m \\\\in \\\\text{ne}[n]} [h_m]\",\n      \"related_concepts\": [\"max pooling\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [505.0, 917.5, 642.5, 945.0],\n      \"label\": \"max pooling aggregation\"\n    }\n  ],\n  \"visuals\": [\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Circular diagram showing GNN layer operations including AGG, MSG passing, BN, Dropout, Non-linearity, Prediction head, and Transform.\",\n      \"related_concepts\": [\"graph neural network\", \"message passing\", \"aggregation\", \"batch normalization\", \"dropout\", \"non-linearity\", \"prediction head\", \"representation learning\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [27.5, 55.0, 412.5, 495.0]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph with nodes labeled 1 to 6, illustrating local aggregation at the node level.\",\n      \"related_concepts\": [\"aggregation\", \"local embedding aggregation\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [412.5, 110.0, 522.5, 275.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Comparison of graph convolutional network, dot product attention, and graph attention network\",\n      \"related_concepts\": [\"graph convolutional network\", \"graph attention network\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 247.5, 945.0, 357.5]\n    },\n    {\n      \"kind\": \"graph example\",\n      \"description\": \"Graph showing local and global embedding aggregation\",\n      \"related_concepts\": [\"local embedding aggregation\", \"global embedding aggregation\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.95,\n      \"bbox\": [477.5, 110.0, 697.5, 247.5]\n    },\n    {\n      \"kind\": \"matrix\",\n      \"description\": \"Node-to-node similarity matrix S\",\n      \"related_concepts\": [\"graph attention network\"],\n      \"source_type\": \"mixed\",\n      \"confidence\": 0.9,\n      \"bbox\": [835.0, 467.5, 917.5, 522.5]\n    },\n    {\n      \"kind\": \"architecture\",\n      \"description\": \"Graph attention network architecture showing input X, pre-attention computation, attention masking with Softmask, and output computation\",\n      \"related_concepts\": [\"graph attention network\", \"attention masking\", \"softmax normalization\"],\n      \"source_type\": \"printed\",\n      \"confidence\": 1.0,\n      \"bbox\": [752.5, 879.0, 989.0, 934.0]\n    },\n    {\n      \"kind\": \"diagram\",\n      \"description\": \"Visual representation of max pooling operation on node embeddings with element-wise maximum selection\",\n      \"related_concepts\": [\"max pooling\"],\n      \"source_type\": \"handwritten\",\n      \"confidence\": 0.8,\n      \"bbox\": [642.5, 917.5, 725.0, 956.0]\n    }\n  ],\n  \"uncertain_handwriting\": [\n    {\n      \"transcription\": \"pre-attention matrix\",\n      \"reason\": \"Handwriting is partially obscured and difficult to read clearly\",\n      \"bbox\": [917.5, 440.0, 972.5, 467.5]\n    },\n    {\n      \"transcription\": \"The new G\",\n      \"reason\": \"Partially cut off and unclear if it refers to 'GCN' or another term.\",\n      \"bbox\": [374.0, 587.5, 412.5, 604.0]\n    },\n    {\n      \"transcription\": \"pre-computation matrix\",\n      \"reason\": \"Handwritten annotation near similarity matrix computation is partially obscured and stylized\",\n      \"bbox\": [917.5, 516.0, 989.0, 532.5]\n    },\n    {\n      \"transcription\": \"nonlinearity softmax\",\n      \"reason\": \"Handwritten annotation near softmax operation is stylized and partially unclear\",\n      \"bbox\": [862.5, 835.0, 917.5, 851.5]\n    },\n    {\n      \"transcription\": \"sparse\",\n      \"reason\": \"Handwritten annotation near graph structure is small and stylized\",\n      \"bbox\": [807.5, 846.0, 835.0, 857.0]\n    }\n  ]\n}"
+    }
+  ],
+  "dedupe_decisions": [
+    {
+      "action": "tile_concept_merge",
+      "from": "mean aggregation",
+      "into": "mean aggregation"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "kipf normalization",
+      "into": "kipf normalization"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "max pooling",
+      "into": "max pooling"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "node-to-node similarity matrix",
+      "into": "node-to-node similarity matrix"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "embedding aggregation",
+      "into": "message passing"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "graph convolutional network",
+      "into": "graph convolutional network"
+    },
+    {
+      "action": "tile_concept_merge",
+      "from": "message passing",
+      "into": "message passing"
+    }
+  ],
+  "warnings": [
+    "Dropped low-confidence visual: Visual representation of max pooling operation on node embeddings with element-w"
+  ]
+}

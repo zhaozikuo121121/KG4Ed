@@ -1,0 +1,77 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "c3c48e2e06a3ea7cad18900af47765ce9baf12dc296a022a94becb5519e932e7",
+  "concept_id": 37,
+  "concept_name": "induced subgraph",
+  "aliases": [
+    "induced subgraph"
+  ],
+  "profile": "induced subgraph: For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S. Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G. Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.",
+  "word_count": 61,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "induced subgraph: For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S. Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G. Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.",
+    "claims": [
+      {
+        "claim": "For a non-empty set S of nodes of G, the induced subgraph G[S] has vertex set S.",
+        "evidence_ids": [
+          "DGL-E0030"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G.",
+        "evidence_ids": [
+          "DGL-E0030"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "induced subgraph: For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S. Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G. Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.",
+    "sentence_reviews": [
+      {
+        "sentence": "For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0030"
+        ],
+        "reason": "Directly stated in the source."
+      },
+      {
+        "sentence": "Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0030"
+        ],
+        "reason": "Directly stated in the source."
+      },
+      {
+        "sentence": "Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0030"
+        ],
+        "reason": "Logical consequence of the adjacency condition in the source."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"induced subgraph: For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S. Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G. Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.\",\n  \"claims\": [\n    {\n      \"claim\": \"For a non-empty set S of nodes of G, the induced subgraph G[S] has vertex set S.\",\n      \"evidence_ids\": [\"DGL-E0030\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G.\",\n      \"evidence_ids\": [\"DGL-E0030\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"induced subgraph: For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S. Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G. Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"For a non-empty set S of nodes of a graph G, the induced subgraph G[S] has vertex set S.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0030\"],\n      \"reason\": \"Directly stated in the source.\"\n    },\n    {\n      \"sentence\": \"Two vertices u and v are adjacent in G[S] if and only if they are adjacent in G.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0030\"],\n      \"reason\": \"Directly stated in the source.\"\n    },\n    {\n      \"sentence\": \"Therefore, the induced subgraph retains exactly the edges of G with both endpoints in S, and includes no other edges.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0030\"],\n      \"reason\": \"Logical consequence of the adjacency condition in the source.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:01:38.779912+00:00"
+}

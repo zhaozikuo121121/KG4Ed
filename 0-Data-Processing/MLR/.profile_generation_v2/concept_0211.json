@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "45a711188182ef3da1943ee4fd814faa7e56686b44bde3e3efeb9ca362324f8d",
+  "concept_id": 211,
+  "concept_name": "overfitting",
+  "aliases": [
+    "overfitting",
+    "overfit",
+    "overfitting behavior"
+  ],
+  "profile": "overfitting: Overfitting begins when a highly complex model fits the given data extremely well, at the cost of not representing the underlying phenomenon well. This language is used because such models prioritize fitting the data over capturing the underlying relationship. The term thus indicates a trade-off between matching observed data and representing the real-world phenomenon.",
+  "word_count": 55,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "overfitting: Overfitting begins when a model is highly complex and fits the given data extremely well, at the cost of not representing the underlying phenomenon well. This language describes overfitting behavior, where such models prioritize data fit over the true underlying relationship. The term indicates a trade-off between matching the observed data and capturing the real-world phenomenon.",
+    "claims": [
+      {
+        "claim": "Overfitting begins when a model is highly complex and fits the given data extremely well, at the cost of not representing the underlying phenomenon well.",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The language of overfitting describes behavior where such models prioritize data fit over the true underlying relationship.",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term indicates a trade-off between matching the observed data and capturing the real-world phenomenon.",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "overfitting: Overfitting begins when a highly complex model fits the given data extremely well, at the cost of not representing the underlying phenomenon well. This language is used because such models prioritize fitting the data over capturing the underlying relationship. The term thus indicates a trade-off between matching observed data and representing the real-world phenomenon.",
+    "sentence_reviews": [
+      {
+        "sentence": "Overfitting begins when a highly complex model fits the given data extremely well, at the cost of not representing the underlying phenomenon well.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "reason": "Directly paraphrases the evidence that overfitting begins with highly complex models fitting data extremely well at the cost of not representing the underlying phenomenon."
+      },
+      {
+        "sentence": "This language is used because such models prioritize fitting the data over capturing the underlying relationship.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "reason": "The evidence states the complexity fits data extremely well but at the cost of not representing the underlying phenomenon, supporting the prioritization framing."
+      },
+      {
+        "sentence": "The term thus indicates a trade-off between matching observed data and representing the real-world phenomenon.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0262"
+        ],
+        "reason": "The 'cost' phrase in the evidence supports describing a trade-off between matching data and representing the real-world phenomenon."
+      }
+    ],
+    "warnings": []
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"overfitting: Overfitting begins when a model is highly complex and fits the given data extremely well, at the cost of not representing the underlying phenomenon well. This language describes overfitting behavior, where such models prioritize data fit over the true underlying relationship. The term indicates a trade-off between matching the observed data and capturing the real-world phenomenon.\",\n  \"claims\": [\n    {\n      \"claim\": \"Overfitting begins when a model is highly complex and fits the given data extremely well, at the cost of not representing the underlying phenomenon well.\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The language of overfitting describes behavior where such models prioritize data fit over the true underlying relationship.\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term indicates a trade-off between matching the observed data and capturing the real-world phenomenon.\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"overfitting: Overfitting begins when a highly complex model fits the given data extremely well, at the cost of not representing the underlying phenomenon well. This language is used because such models prioritize fitting the data over capturing the underlying relationship. The term thus indicates a trade-off between matching observed data and representing the real-world phenomenon.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"Overfitting begins when a highly complex model fits the given data extremely well, at the cost of not representing the underlying phenomenon well.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"reason\": \"Directly paraphrases the evidence that overfitting begins with highly complex models fitting data extremely well at the cost of not representing the underlying phenomenon.\"\n    },\n    {\n      \"sentence\": \"This language is used because such models prioritize fitting the data over capturing the underlying relationship.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"reason\": \"The evidence states the complexity fits data extremely well but at the cost of not representing the underlying phenomenon, supporting the prioritization framing.\"\n    },\n    {\n      \"sentence\": \"The term thus indicates a trade-off between matching observed data and representing the real-world phenomenon.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0262\"],\n      \"reason\": \"The 'cost' phrase in the evidence supports describing a trade-off between matching data and representing the real-world phenomenon.\"\n    }\n  ],\n  \"warnings\": []\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:46:05.720360+00:00"
+}

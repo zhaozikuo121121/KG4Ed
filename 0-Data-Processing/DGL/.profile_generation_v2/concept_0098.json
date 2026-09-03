@@ -1,0 +1,122 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "DGL",
+  "input_hash": "27877c181cd5cb9a7391778348a77d33b4c82776627da00930bf6d317868e58c",
+  "concept_id": 98,
+  "concept_name": "linear aggregation",
+  "aliases": [
+    "linear aggregation",
+    "sum",
+    "aggregation",
+    "linear combination",
+    "agg",
+    "aggregate"
+  ],
+  "profile": "linear aggregation: a graph neural network operation denoted by AGG and shown as an aggregation step in GNN diagrams. The phrase appears in handwritten annotations, while diagrams use the label AGG. It is associated with feature embedding and graph-based learning. In graph neural networks, the final layer aggregates information from across the graph.",
+  "word_count": 53,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "linear aggregation: a graph neural network operation denoted by AGG. It is shown as an aggregation step in visual diagrams and relates to feature embedding and graph-based learning. In a GNN, the final layer aggregates information from across the graph. The term appears as 'linear aggregation' in handwritten occurrences and as an AGG label in diagrams.",
+    "claims": [
+      {
+        "claim": "linear aggregation is a graph neural network operation denoted by AGG.",
+        "evidence_ids": [
+          "DGL-E0282",
+          "DGL-E0292",
+          "DGL-E0344"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is shown as an aggregation step in visual diagrams and relates to feature embedding and graph-based learning.",
+        "evidence_ids": [
+          "DGL-E0282",
+          "DGL-E0118"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "In a GNN, the final layer aggregates information from across the graph.",
+        "evidence_ids": [
+          "DGL-E0416"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "The term appears as 'linear aggregation' in handwritten occurrences and as an AGG label in diagrams.",
+        "evidence_ids": [
+          "DGL-E0111",
+          "DGL-E0118",
+          "DGL-E0282",
+          "DGL-E0292",
+          "DGL-E0344"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "Handwritten occurrences have lower confidence (0.900); exact surrounding context was not available."
+    ]
+  },
+  "review": {
+    "final_profile": "linear aggregation: a graph neural network operation denoted by AGG and shown as an aggregation step in GNN diagrams. The phrase appears in handwritten annotations, while diagrams use the label AGG. It is associated with feature embedding and graph-based learning. In graph neural networks, the final layer aggregates information from across the graph.",
+    "sentence_reviews": [
+      {
+        "sentence": "linear aggregation: a graph neural network operation denoted by AGG and shown as an aggregation step in GNN diagrams.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0282",
+          "DGL-E0292",
+          "DGL-E0344"
+        ],
+        "reason": "AGG appears as a label in GNN-related diagrams and layer-operation materials."
+      },
+      {
+        "sentence": "The phrase appears in handwritten annotations, while diagrams use the label AGG.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0111",
+          "DGL-E0118",
+          "DGL-E0282",
+          "DGL-E0292",
+          "DGL-E0344"
+        ],
+        "reason": "Handwritten occurrences of 'linear aggregation' are present, and AGG appears as a diagram label."
+      },
+      {
+        "sentence": "It is associated with feature embedding and graph-based learning.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0118"
+        ],
+        "reason": "The handwritten occurrence appears in the context of feature embedding and graph-based learning."
+      },
+      {
+        "sentence": "In graph neural networks, the final layer aggregates information from across the graph.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "DGL-E0416"
+        ],
+        "reason": "This is directly stated in the evidence."
+      }
+    ],
+    "warnings": [
+      "Handwritten occurrences of the exact phrase have confidence 0.900, and their surrounding context was not captured.",
+      "No formal definition or formula for linear aggregation is present in the evidence."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"linear aggregation: a graph neural network operation denoted by AGG. It is shown as an aggregation step in visual diagrams and relates to feature embedding and graph-based learning. In a GNN, the final layer aggregates information from across the graph. The term appears as 'linear aggregation' in handwritten occurrences and as an AGG label in diagrams.\",\n  \"claims\": [\n    {\n      \"claim\": \"linear aggregation is a graph neural network operation denoted by AGG.\",\n      \"evidence_ids\": [\"DGL-E0282\", \"DGL-E0292\", \"DGL-E0344\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is shown as an aggregation step in visual diagrams and relates to feature embedding and graph-based learning.\",\n      \"evidence_ids\": [\"DGL-E0282\", \"DGL-E0118\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"In a GNN, the final layer aggregates information from across the graph.\",\n      \"evidence_ids\": [\"DGL-E0416\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"The term appears as 'linear aggregation' in handwritten occurrences and as an AGG label in diagrams.\",\n      \"evidence_ids\": [\"DGL-E0111\", \"DGL-E0118\", \"DGL-E0282\", \"DGL-E0292\", \"DGL-E0344\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\n    \"Handwritten occurrences have lower confidence (0.900); exact surrounding context was not available.\"\n  ]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"linear aggregation: a graph neural network operation denoted by AGG and shown as an aggregation step in GNN diagrams. The phrase appears in handwritten annotations, while diagrams use the label AGG. It is associated with feature embedding and graph-based learning. In graph neural networks, the final layer aggregates information from across the graph.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"linear aggregation: a graph neural network operation denoted by AGG and shown as an aggregation step in GNN diagrams.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0282\", \"DGL-E0292\", \"DGL-E0344\"],\n      \"reason\": \"AGG appears as a label in GNN-related diagrams and layer-operation materials.\"\n    },\n    {\n      \"sentence\": \"The phrase appears in handwritten annotations, while diagrams use the label AGG.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0111\", \"DGL-E0118\", \"DGL-E0282\", \"DGL-E0292\", \"DGL-E0344\"],\n      \"reason\": \"Handwritten occurrences of 'linear aggregation' are present, and AGG appears as a diagram label.\"\n    },\n    {\n      \"sentence\": \"It is associated with feature embedding and graph-based learning.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0118\"],\n      \"reason\": \"The handwritten occurrence appears in the context of feature embedding and graph-based learning.\"\n    },\n    {\n      \"sentence\": \"In graph neural networks, the final layer aggregates information from across the graph.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"DGL-E0416\"],\n      \"reason\": \"This is directly stated in the evidence.\"\n    }\n  ],\n  \"warnings\": [\n    \"Handwritten occurrences of the exact phrase have confidence 0.900, and their surrounding context was not captured.\",\n    \"No formal definition or formula for linear aggregation is present in the evidence.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-11T10:28:16.507174+00:00"
+}

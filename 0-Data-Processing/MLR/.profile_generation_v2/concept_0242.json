@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "9931b7142f04ad4eb061aeb05177eeb198682995737a6223e08224ccbf56c802",
+  "concept_id": 242,
+  "concept_name": "fourier kernel",
+  "aliases": [
+    "fourier kernel",
+    "fourier kernel for vector-valued input"
+  ],
+  "profile": "fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods. It is used to calculate the corresponding i,jth entry of the kernel matrix.",
+  "word_count": 29,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods. It is used to calculate the corresponding i,jth entry of the kernel matrix.",
+    "claims": [
+      {
+        "claim": "The Fourier kernel for vector-valued input appears in the context of kernel methods.",
+        "evidence_ids": [
+          "MLR-E0304"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "It is used to calculate the corresponding i,jth entry of the kernel matrix.",
+        "evidence_ids": [
+          "MLR-E0304"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": [
+      "The available evidence is a fragment and does not provide the kernel's exact formulation or further properties."
+    ]
+  },
+  "review": {
+    "final_profile": "fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods. It is used to calculate the corresponding i,jth entry of the kernel matrix.",
+    "sentence_reviews": [
+      {
+        "sentence": "fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0304"
+        ],
+        "reason": "The evidence is from the kernel methods chapter and specifically mentions the Fourier kernel for vector-valued input."
+      },
+      {
+        "sentence": "It is used to calculate the corresponding i,jth entry of the kernel matrix.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0304"
+        ],
+        "reason": "The evidence explicitly asks to calculate the corresponding i,jth entry of the kernel matrix."
+      }
+    ],
+    "warnings": [
+      "Available evidence is a fragment; the exact formulation of the Fourier kernel and additional properties are not specified."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods. It is used to calculate the corresponding i,jth entry of the kernel matrix.\",\n  \"claims\": [\n    {\n      \"claim\": \"The Fourier kernel for vector-valued input appears in the context of kernel methods.\",\n      \"evidence_ids\": [\"MLR-E0304\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"It is used to calculate the corresponding i,jth entry of the kernel matrix.\",\n      \"evidence_ids\": [\"MLR-E0304\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": [\"The available evidence is a fragment and does not provide the kernel's exact formulation or further properties.\"]\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods. It is used to calculate the corresponding i,jth entry of the kernel matrix.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"fourier kernel: The Fourier kernel for vector-valued input appears in the context of kernel methods.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0304\"],\n      \"reason\": \"The evidence is from the kernel methods chapter and specifically mentions the Fourier kernel for vector-valued input.\"\n    },\n    {\n      \"sentence\": \"It is used to calculate the corresponding i,jth entry of the kernel matrix.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0304\"],\n      \"reason\": \"The evidence explicitly asks to calculate the corresponding i,jth entry of the kernel matrix.\"\n    }\n  ],\n  \"warnings\": [\n    \"Available evidence is a fragment; the exact formulation of the Fourier kernel and additional properties are not specified.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:57:52.571556+00:00"
+}

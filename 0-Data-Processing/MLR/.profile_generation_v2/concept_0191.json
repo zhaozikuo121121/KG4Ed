@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "prompt_version": "concept_profile_metadata_v2",
+  "dataset": "MLR",
+  "input_hash": "e4c97b704378b9232536dcf43b96b73a0e724446b6e8ca3b58765e710d21eb1b",
+  "concept_id": 191,
+  "concept_name": "edge histogram features",
+  "aliases": [
+    "edge histogram features",
+    "edge histogram",
+    "edge-based histogram features",
+    "histogram of oriented gradients"
+  ],
+  "profile": "edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content. For each image, a histogram is constructed from its edge information and then normalized. The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.",
+  "word_count": 54,
+  "model": "deepseek-v4-flash",
+  "draft": {
+    "profile": "edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content. For each image, a histogram is constructed from its edge information and then normalized. The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.",
+    "claims": [
+      {
+        "claim": "Edge histogram features summarize an image's edge content by creating a normalized histogram of that content.",
+        "evidence_ids": [
+          "MLR-E0226"
+        ],
+        "classification": "source_supported"
+      },
+      {
+        "claim": "Generalizations of the simple edge histogram concept are widely used as feature transformations for visual object recognition.",
+        "evidence_ids": [
+          "MLR-E0364"
+        ],
+        "classification": "source_supported"
+      }
+    ],
+    "warnings": []
+  },
+  "review": {
+    "final_profile": "edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content. For each image, a histogram is constructed from its edge information and then normalized. The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.",
+    "sentence_reviews": [
+      {
+        "sentence": "edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0226"
+        ],
+        "reason": "The source describes making a normalized histogram of each image's edge content."
+      },
+      {
+        "sentence": "For each image, a histogram is constructed from its edge information and then normalized.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0226"
+        ],
+        "reason": "The source directly supports per-image edge-content histograms being normalized."
+      },
+      {
+        "sentence": "The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.",
+        "verdict": "source_supported",
+        "evidence_ids": [
+          "MLR-E0364"
+        ],
+        "reason": "The source states generalizations of the simple edge histogram concept are widely used as feature transformations for visual object recognition."
+      }
+    ],
+    "warnings": [
+      "The alias 'histogram of oriented gradients' is not supported by the supplied evidence and was not used in the profile."
+    ]
+  },
+  "raw_responses": [
+    {
+      "stage": "generation",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"profile\": \"edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content. For each image, a histogram is constructed from its edge information and then normalized. The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.\",\n  \"claims\": [\n    {\n      \"claim\": \"Edge histogram features summarize an image's edge content by creating a normalized histogram of that content.\",\n      \"evidence_ids\": [\"MLR-E0226\"],\n      \"classification\": \"source_supported\"\n    },\n    {\n      \"claim\": \"Generalizations of the simple edge histogram concept are widely used as feature transformations for visual object recognition.\",\n      \"evidence_ids\": [\"MLR-E0364\"],\n      \"classification\": \"source_supported\"\n    }\n  ],\n  \"warnings\": []\n}"
+    },
+    {
+      "stage": "review",
+      "model": "deepseek-v4-flash",
+      "raw": "{\n  \"final_profile\": \"edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content. For each image, a histogram is constructed from its edge information and then normalized. The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.\",\n  \"sentence_reviews\": [\n    {\n      \"sentence\": \"edge histogram features: a method for summarizing an image's edge content by creating a normalized histogram of that content.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0226\"],\n      \"reason\": \"The source describes making a normalized histogram of each image's edge content.\"\n    },\n    {\n      \"sentence\": \"For each image, a histogram is constructed from its edge information and then normalized.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0226\"],\n      \"reason\": \"The source directly supports per-image edge-content histograms being normalized.\"\n    },\n    {\n      \"sentence\": \"The simple edge histogram concept can be generalized, and such generalizations are widely used as feature transformations for visual object recognition.\",\n      \"verdict\": \"source_supported\",\n      \"evidence_ids\": [\"MLR-E0364\"],\n      \"reason\": \"The source states generalizations of the simple edge histogram concept are widely used as feature transformations for visual object recognition.\"\n    }\n  ],\n  \"warnings\": [\n    \"The alias 'histogram of oriented gradients' is not supported by the supplied evidence and was not used in the profile.\"\n  ]\n}"
+    }
+  ],
+  "created_at": "2026-08-10T22:39:14.884483+00:00"
+}
